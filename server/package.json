@@ -1,0 +1,30 @@
+{
+  "name": "subset_trello_backend",
+  "version": "1.0.0",
+  "description": "Server to save and retrieve TODO lists",
+  "main": "index.js",
+  "scripts": {
+    "start": "node-env-run --exec nodemon | pino-colada",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mohiit1502",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "@babel/env",
+      "@babel/react"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "dotenv": "^8.2.0",
+    "formidable": "^1.2.1",
+    "mongoose": "^5.7.8",
+    "multer": "^1.4.2",
+    "pino-colada": "^1.4.5",
+    "node-env-run": "^3.0.2",
+    "nodemon": "^1.19.4"
+  }
+}

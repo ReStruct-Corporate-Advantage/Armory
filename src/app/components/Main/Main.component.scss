@@ -1,0 +1,19 @@
+.c-Main {
+    height: 100%;
+    font-size: 0.8rem;
+    &.container {
+        max-width: unset;
+        color: #eee;
+        .c-Main__list-row {
+            height: 100%;
+            .c-Main__list-col {
+                &:first-child {
+                    padding-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}

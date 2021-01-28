@@ -1,0 +1,84 @@
+{
+    "todos": {
+        "lists": {
+            "pending": {
+                "displayName": "Pending",
+                "id": "list_pending",
+                "cards": [
+                    {
+                        "title": "TODO 4",
+                        "description": "Description 4",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 7",
+                        "description": "Description 7",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 8",
+                        "description": "Description 8",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 10",
+                        "description": "Description 10",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 11",
+                        "description": "Description 11",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 13",
+                        "description": "Description 13",
+                        "activity": []
+                    }
+                ]
+            },
+            "inprogress": {
+                "displayName": "In Progress",
+                "id": "list_inprogress",
+                "cards": [
+                    {
+                        "title": "TODO 1",
+                        "description": "Description 1",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 2",
+                        "description": "Description 2",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 3",
+                        "description": "Description 3",
+                        "activity": []
+                    }
+                ]
+            },
+            "completed": {
+                "displayName": "Completed",
+                "id": "list_completed",
+                "cards": [
+                    {
+                        "title": "TODO 6",
+                        "description": "Description 1",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 9",
+                        "description": "Description 2",
+                        "activity": []
+                    },
+                    {
+                        "title": "TODO 5",
+                        "description": "Description 3",
+                        "activity": []
+                    }
+                ]
+            }
+        }
+    }
+}

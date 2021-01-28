@@ -1,0 +1,22 @@
+.c-Home {
+    height: 100%;
+    .c-Home__content.container {
+        max-width: unset;
+        margin-bottom: 4rem;
+        height: 100%;
+
+        .c-Home__content-row {
+            height: 100%;
+
+            .c-Home__main-container {
+                height: 100%;
+                padding: 1rem;
+            }
+            .c-Home__aside-container {
+                height: 100%;
+                background: #eee;
+            }
+        }
+    }
+
+}
