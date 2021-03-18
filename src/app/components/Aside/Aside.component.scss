@@ -1,3 +1,69 @@
+@import "./../../styles/variables";
+
 .c-Aside {
-  
+    max-width: $default-aside-width;
+    background: $primary-base-color-translucent;
+    backdrop-filter: $default-blur;
+    height: 100%;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    flex-grow: 0;
+    width: 0;
+    
+    .c-Widgets {
+        overflow: scroll;
+    }
+    
+    &.expanded {
+        width: $default-aside-width;
+        flex-grow: 1;
+    }
+
+    .handle {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        border: solid $primary-base-color;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 6px;
+
+        &.left {
+            left: 100%;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+
+            &.expanded {
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                margin-left: -1.2rem;
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+            }
+        }
+
+        &.right {
+            left: 0;
+            margin-left: -1.2rem;
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+
+            &.expanded {
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                margin-left: unset;
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+            }
+        }
+
+        &:hover {
+            border-width: 0 5px 5px 0;
+        }
+    }
+
+    .c-Widget:not(:last-child) {
+        margin-bottom: 1rem;
+    }
 }

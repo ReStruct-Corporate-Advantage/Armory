@@ -1,5 +1,5 @@
 {
-  "name": "subset_trello_backend",
+  "name": "armory_backend",
   "version": "1.0.0",
   "description": "Server to save and retrieve TODO lists",
   "main": "index.js",

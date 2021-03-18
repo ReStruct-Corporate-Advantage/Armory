@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {createPropsSelector} from 'reselect-immutable-helpers';
-import {CssBaseline} from '@material-ui/core';
-import {DndProvider} from 'react-dnd'
-import Backend from 'react-dnd-html5-backend'
-import {isMobile} from './selectors';
-import {dispatchDeviceType} from './actions';
-import {Header, Main, Aside} from './../../components';
+import React, {useEffect} from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {createPropsSelector} from "reselect-immutable-helpers";
+import {CssBaseline} from "@material-ui/core";
+import {DndProvider} from "react-dnd"
+import Backend from "react-dnd-html5-backend"
+import {isMobile} from "./selectors";
+import {dispatchDeviceType} from "./actions";
+import {Header, Main, Aside} from "./../../components";
 
 const Home = props => {
   const {dispatchDeviceType} = props
   useEffect(() => {
     dispatchDeviceType({isMobile: isMobile()})
-    document.body.classList.add('body-board-view')
+    document.body.classList.add("body-board-view")
   }, [dispatchDeviceType])
 
   /* eslint no-useless-escape: 0 */
@@ -26,14 +26,10 @@ const Home = props => {
   return <DndProvider backend={Backend}>
       <div className="c-Home">
         <CssBaseline />
-        <Header />
         <div className="c-Home__content container">
           <div className="row c-Home__content-row">
             <div className="col-10 c-Home__main-container body-board-view">
               <Main />
-            </div>
-            <div className="col-2 c-Home__aside-container">
-              <Aside />
             </div>
           </div>
         </div>

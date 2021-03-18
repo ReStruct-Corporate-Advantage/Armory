@@ -1,8 +1,8 @@
-import React from 'react';
-import Main from './Main';
+import React from "react";
+import Main from "./Main";
 
-describe('Main', () => {
-   it('renders without error', () => {
+describe("Main", () => {
+   it("renders without error", () => {
 
    });
 });

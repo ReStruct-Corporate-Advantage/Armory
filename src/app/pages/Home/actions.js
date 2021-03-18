@@ -1,7 +1,9 @@
-export const UPDATE_FORM_VALUES = 'UPDATE_SECTION_DISPLAY_FORM_VALUES'
-export const UPDATE_FORM_ERRORS = 'UPDATE_SECTION_DISPLAY_FORM_ERRORS'
-export const IS_MOBILE = 'IS_MOBILE';
-export const DISPATCH_CARD_POSITION = 'DISPATCH_CARD_POSITION';
+export const UPDATE_FORM_VALUES = "UPDATE_SECTION_DISPLAY_FORM_VALUES"
+export const UPDATE_FORM_ERRORS = "UPDATE_SECTION_DISPLAY_FORM_ERRORS"
+export const IS_MOBILE = "IS_MOBILE";
+export const DISPATCH_CARD_POSITION = "DISPATCH_CARD_POSITION";
+export const DISPATCH_LAYOUT = "DISPATCH_LAYOUT";
+export const DISPATCH_PREVIOUS_LAYOUT = "DISPATCH_PREVIOUS_LAYOUT";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
@@ -28,5 +30,19 @@ export const dispatchCardPosition = (formErrors) => {
     return {
         type: DISPATCH_CARD_POSITION,
         payload: formErrors
+    }
+}
+
+export const dispatchLayout = (layout) => {
+    return {
+        type: DISPATCH_LAYOUT,
+        payload: {layout}
+    }
+}
+
+export const dispatchPreviousLayout = (previousLayout) => {
+    return {
+        type: DISPATCH_PREVIOUS_LAYOUT,
+        payload: {previousLayout}
     }
 }

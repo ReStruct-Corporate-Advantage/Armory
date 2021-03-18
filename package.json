@@ -1,8 +1,8 @@
 {
-  "name": "subset_trello",
+  "name": "armory",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mohiit1502.github.io/subset_trello",
+  "homepage": "http://mohiit1502.github.io/armory",
   "dependencies": {
     "@material-ui/core": "4.9.9",
     "@material-ui/icons": "4.9.1",
@@ -37,9 +37,9 @@
   },
   "scripts": {
     "install": "cd server && npm install",
-    "clientstart": "react-scripts start",
+    "clientstart": "PORT=7992 react-scripts start",
     "serverstart": "cd server && npm start",
-    "start": "npm run clientstart",
+    "start": "run-p clientstart serverstart",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

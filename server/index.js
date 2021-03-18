@@ -1,14 +1,14 @@
-const fs = require('fs');
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors')
+const fs = require("fs");
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors")
 
-var corsOptions = {origin: '*', optionsSuccessStatus: 200,}
+var corsOptions = {origin: "*", optionsSuccessStatus: 200,}
 const app = express();
 app.use(cors(corsOptions))
 app.use(bodyParser.json());
 
-app.get('/todos', (req, res) => {
+app.get("/todos", (req, res) => {
     fs.readFile("data/todos.json", "utf8", function(err, data) {
         if (err) {
             // console.log(err)
@@ -19,7 +19,18 @@ app.get('/todos', (req, res) => {
     });
 })
 
-app.post('/todos', (req, res) => {
+app.get("/armory", (req, res) => {
+    fs.readFile("data/armory.json", "utf8", function(err, data) {
+        if (err) {
+            // console.log(err)
+            return res.json(err);
+        }
+        // console.log(data)
+        return res.json(data)
+    });
+})
+
+app.post("/todos", (req, res) => {
     fs.readFile("data/todos.json", "utf8", function(err, data) {
         if (err) {
             return res.json(err);

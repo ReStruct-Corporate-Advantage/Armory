@@ -1,16 +1,30 @@
-import React from 'react';
-import './Aside.component.scss';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import * as $ from "jquery";
+// import PositionAware from "./../../HOC/PositionAware";
+import * as components from "./../";
+import "./Aside.component.scss";
 
 const Aside = props => {
+  const [expanded, setExpanded] = useState(true);
+  const asideComponents = props.childItems && props.childItems.map(child => {
+    const Component = components[child];
+    return <Component />
+  }).filter(child => child);
+  
   return (
-    <div className='c-Aside'>
-      In Component Aside
-    </div>
+    <aside className={`c-Aside p-2 h-100${expanded ? " expanded" : ""}`}>
+      <span className={`handle ${props.position}${expanded ? " expanded" : ""}`} onClick={() => setExpanded(!expanded)} />
+      <div className="c-Widgets h-100">
+        {asideComponents}
+      </div>
+    </aside>
   );
 };
 
 Aside.propTypes = {
-
+  childItems: PropTypes.object,
+  position: PropTypes.string
 };
 
 export default Aside;

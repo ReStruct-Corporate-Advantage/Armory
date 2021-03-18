@@ -1,16 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import thunk from 'redux-thunk'
-import Immutable from 'immutable'
-import {createStore, applyMiddleware, compose} from 'redux'
-import reducer from './reducer';
+import React from "react";
+import ReactDOM from "react-dom";
+import thunk from "redux-thunk"
+import Immutable from "immutable"
+import {createStore, applyMiddleware, compose} from "redux"
+import reducer from "./reducer";
 import Router from "./router";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './main.scss'
-import * as serviceWorker from './serviceWorker';
+import "bootstrap/dist/css/bootstrap.min.css"
+import "./main.scss"
+import * as serviceWorker from "./serviceWorker";
 
 const composeEnhancers =
-typeof window === 'object' &&
+typeof window === "object" &&
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
   serialize: { // prettier-ignore
