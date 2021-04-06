@@ -13,3 +13,6 @@ export const getComponentCreator = createSelector(
 export const isMobile = createGetSelector(getComponentCreator, "isMobile")
 export const getFormErrors = createGetSelector(getComponentCreator, "formErrors")
 export const getFormValues = createGetSelector(getComponentCreator, "formValues")
+export const getLayout = createGetSelector(getComponentCreator, "layout")
+export const getPreviousLayout = createGetSelector(getComponentCreator, "previousLayout")
+export const getComponentsConfig = createGetSelector(getComponentCreator, "componentConfig")

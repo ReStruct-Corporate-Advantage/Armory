@@ -2,7 +2,7 @@
 
 .c-ComponentCreator {
     .c-ComponentCreator__content {
-        top: $header-height;
+        top: 4rem;
         height: calc(100% - #{$header-height});
         width: 100%;
         // aside {flex-grow: 1;}

@@ -22,9 +22,18 @@ const ComponentCreator = props => {
       <div className="c-ComponentCreator h-100">
         <Header />
         <div className="c-ComponentCreator__content d-flex position-fixed">
-          <Aside childItems={["ArmoryLib"]} position="left" />
+          <Aside childItems={
+            [
+              {name: "ArmoryLib"}
+            ]
+          } position="left" />
           <Main />
-          <Aside childItems={["PropertiesWidget", "CodeViewerWidget"]} position="right" />
+          <Aside childItems={
+            [
+              {name: "PropertiesWidget", props: {title: "Component Details"}},
+              {name: "CodeViewerWidget", props: {title: "Generated Code"}}
+            ]
+          } position="right" styles={{fontSize: "0.8rem"}}/>
         </div>
       </div>
     </DndProvider>;

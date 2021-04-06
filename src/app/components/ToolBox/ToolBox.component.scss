@@ -1,3 +1,23 @@
+@import "./../../styles/variables";
+
 .c-ToolBox {
   margin-left: auto;
+
+  &.c-SectionHeader__controlPanel {
+    padding: $small-font-padding;
+    text-align: right;
+
+    .btn {
+        border: 1px solid $primary-font-color;
+        border-radius: 3px;
+        background: $secondary-font-color;
+        color: $primary-font-color-dark;
+        font-size: $default-small-font;
+        padding: 0 0.4rem;
+
+        &:not(:first-child) {
+            margin-left: 0.3rem;
+        }
+    }
+  }
 }

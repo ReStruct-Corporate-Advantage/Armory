@@ -3,6 +3,7 @@
 .c-Header {
   top: 0;
   height: $header-height;
+  max-height: 4rem;
   left: 0;
   width: 100%;
   background: $primary-base-color-translucent;

@@ -3,29 +3,39 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { useDrop } from "react-dnd";
-import { dispatchPreviousLayout } from "../../pages/Home/actions";
-import { getLayout, getPreviousLayout } from "../../pages/Home/selectors";
-import {LayoutSelector} from "../";
-import {ArmamentWrapper} from "./../";
-import "./ComponentContainer.component.scss";
+import { dispatchComponentsConfig, dispatchPreviousLayout } from "../../pages/ComponentCreator/actions";
+import { getComponentsConfig, getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
+import {ArmamentWrapper, LayoutSelector} from "../";
+import DNDUtil from "../../utils/dndUtil";
 import ITEM_TYPES from "../../constants/types";
+import "./ComponentContainer.component.scss";
 
 const ComponentContainer = props => {
-
+  const {componentsConfig, dispatchComponentsConfig} = props;
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
-  const [componentsConfig, updateComponentsConfig] = useState({
-    boardId: 1,
-    count: 0,
-    components: []
-  });
+  const elem = comContainerRef.current;
+  const [dimensions, setDimensions] = useState({ 
+    height: elem ? elem.offsetHeight : 0,
+    width: elem ? elem.offsetWidth : 0
+  })
 
   useEffect(() => {
     const layout = props.layout || 30;
-    const {width, height, left, top} = comContainerRef.current.getBoundingClientRect();
+    const elemInner = comContainerRef.current;
+    const {width, height, left, top} = elemInner.getBoundingClientRect();
     let horizontalCellCount = Math.floor(width / layout);
     let verticalCellCount = Math.floor(height / layout);
     const cellsRenew = []
+    if (elemInner && elemInner.getAttribute('listener') !== 'true') {
+      elemInner.addEventListener('resize', () => {
+        console.log(dimensions);
+        setDimensions({
+          height: elemInner.offsetHeight,
+          width: elemInner.offsetWidth
+        })
+      })
+    }
     for (var i = 0; i < verticalCellCount; i++) {
       for (var j = 0; j <= horizontalCellCount; j++) {
         cellsRenew.push(
@@ -43,40 +53,19 @@ const ComponentContainer = props => {
     }
     setCells(cellsRenew);
     // updateLayout
-  }, [props.layout]);
+  }, [props.layout, dimensions.height, dimensions.width]);
 
   const [{isOver}, drop] = useDrop({
     accept: [ITEM_TYPES.ARMAMENT, ITEM_TYPES.ARMAMENT_WRAPPER],
-    drop: (item, monitor) => {
-      let componentsConfigClone;
-      const {left, top} = comContainerRef.current.getBoundingClientRect();
-      const dropCoords = monitor.getClientOffset();
-      componentsConfigClone = {...componentsConfig};
-      const componentsClone = [...componentsConfigClone.components];
-      componentsConfigClone.components = componentsClone;
-      if (item.type === ITEM_TYPES.ARMAMENT) {
-        componentsConfigClone.count = componentsConfigClone.count + 1;
-        componentsClone.push({name: item.category.componentName, index: componentsConfigClone.count, top: dropCoords.y - top, left: dropCoords.x - left})
-      } else {
-        componentsClone.splice(componentsClone.indexOf(item.category), 1)
-        componentsClone.push({name: item.category.name, index: item.index, top: dropCoords.y - top, left: dropCoords.x - left})
-      }
-      updateComponentsConfig(componentsConfigClone);
-      // if (id !== item.listId) {
-      //   // pushCard(item.card);
-      // }
-      // return {listId: id}
-    },
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver()
-    }),
+    drop: (item, monitor) => DNDUtil.dragHanlder(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig),
+    collect: monitor => ({isOver: !!monitor.isOver()}),
   })
 
   const cellRenders = cells && cells.length > 0 && cells.map(cell => <span className="position-absolute" style={cell} />);
   const componentRenders = componentsConfig.components.map(componentConfig => <ArmamentWrapper componentConfig={componentConfig} />);
 
   return (
-    <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef}>
+    <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef} >
       <LayoutSelector />
       <div className="c-ComponentContainer__layout h-100 position-relative">
         {cellRenders}
@@ -89,17 +78,21 @@ const ComponentContainer = props => {
 };
 
 ComponentContainer.propTypes = {
+  componentsConfig: PropTypes.object,
+  dispatchComponentsConfig: PropTypes.func,
   dispatchPreviousLayout: PropTypes.func,
   layout: PropTypes.string,
   previousLayout: PropTypes.string
 };
 
 const mapStateToProps = createPropsSelector({
+  componentsConfig: getComponentsConfig,
   layout: getLayout,
   previousLayout: getPreviousLayout
 })
 
 const mapDispatchToProps = {
+  dispatchComponentsConfig,
   dispatchPreviousLayout
 }
 

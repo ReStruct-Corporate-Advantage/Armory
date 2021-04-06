@@ -1,4 +1,7 @@
 /* PLOP_INJECT_IMPORT */
+import PropsForm from "./PropsForm";
+import SectionHeader from "./SectionHeader";
+import CodeTree from "./CodeTree";
 import Cylinder from "./repository/Cylinder";
 import Cube from "./repository/Cube";
 import Parallelogram from "./repository/Parallelogram";
@@ -29,6 +32,9 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	PropsForm,
+	SectionHeader,
+	CodeTree,
 	Cylinder,
 	Cube,
 	Parallelogram,
