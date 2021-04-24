@@ -1,4 +1,5 @@
 import {readFile} from "fs";
+// import {generateImage} from "component-image";
 
 class ArmoryController {
 
@@ -12,6 +13,18 @@ class ArmoryController {
             return res.json(data)
         });
     }
+
+    // TODO generate component snapshot
+    // getImage (req, res) {
+    //     const image = generateImage(<InputField />, {
+    //         viewport: {
+    //           width: 100,
+    //           height: 100
+    //         }
+    //     })
+    //     console.log(image);
+    //     return "test";
+    // }
 }
 
 export default ArmoryController;

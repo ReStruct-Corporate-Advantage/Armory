@@ -5,6 +5,7 @@ export const DISPATCH_CARD_POSITION = "DISPATCH_CARD_POSITION";
 export const DISPATCH_LAYOUT = "DISPATCH_LAYOUT";
 export const DISPATCH_PREVIOUS_LAYOUT = "DISPATCH_PREVIOUS_LAYOUT";
 export const DISPATCH_COMPONENT_CONFIG = "DISPATCH_COMPONENT_CONFIG";
+export const DISPATCH_HISTORY = "DISPATCH_HISTORY";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
@@ -52,5 +53,12 @@ export const dispatchComponentsConfig = componentConfig => {
     return {
         type: DISPATCH_COMPONENT_CONFIG,
         payload: {componentConfig}
+    }
+}
+
+export const dispatchHistory = history => {
+    return {
+        type: DISPATCH_HISTORY,
+        payload: {history}
     }
 }

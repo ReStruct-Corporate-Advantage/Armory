@@ -1,4 +1,19 @@
 /* PLOP_INJECT_IMPORT */
+import ComponentEditor from "./ComponentEditor";
+import CodeFragment from "./CodeFragment";
+import RichTooltip from "./RichTooltip";
+import CustomDragLayer from "./CustomDragLayer";
+import ToolsLeft from "./ToolsLeft";
+import ToolsRight from "./ToolsRight";
+import ToolWrapper from "./ToolWrapper";
+import FileViewer from "./FileViewer";
+import NotificationTool from "./NotificationTool";
+import ArmsCategory from "./ArmsCategory";
+import CodeLine from "./CodeLine";
+import TextComponent from "./repository/TextComponent";
+import CodeLineController from "./CodeLineController";
+import CodeCollapsable from "./CodeCollapsable";
+import CodeComment from "./CodeComment";
 import PropsForm from "./PropsForm";
 import SectionHeader from "./SectionHeader";
 import CodeTree from "./CodeTree";
@@ -32,6 +47,21 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ComponentEditor,
+	CodeFragment,
+	RichTooltip,
+	CustomDragLayer,
+	ToolsLeft,
+	ToolsRight,
+	ToolWrapper,
+	FileViewer,
+	NotificationTool,
+	ArmsCategory,
+	CodeLine,
+	TextComponent,
+	CodeLineController,
+	CodeCollapsable,
+	CodeComment,
 	PropsForm,
 	SectionHeader,
 	CodeTree,

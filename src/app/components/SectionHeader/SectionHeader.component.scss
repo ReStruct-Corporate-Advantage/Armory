@@ -1,15 +1,11 @@
 @import "./../../styles/variables";
 
 .c-SectionHeader {
-  height: 3.5rem;
+  height: $section-header-height;
   color: $primary-font-color;
   background: $primary-font-color-dark;
-  overflow: scroll;
-
-  .c-SectionHeader__title {
-    font-weight: bold;
-    padding: $small-font-padding;
-    margin: 0;
-    border-bottom: 1px solid $secondary-font-color;
-  }
+  font-weight: bold;
+  padding: $small-font-padding;
+  margin: 0;
+  border-bottom: 1px solid $secondary-font-color;
 }

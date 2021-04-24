@@ -4,22 +4,69 @@
             "displayName": "Shapes (Choose as shape or control)",
             "name": "shape",
             "icon": "",
+            "expanded": true,
             "items": [
                 {
                     "displayName": "Square",
                     "componentName": "Square",
+                    "meta": {
+                        "tags": ["container"],
+                        "createdBy": "mohiit1502@gmail.com",
+                        "createdTimeStamp": "11042021T093443" 
+                    },
                     "descriptor": {
+                        "allowChildren": true,
+                        "classes": "bg-grey text-center",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "elemType": "div",
+                        "handlers": {},
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "Square",
+                                "order": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "displayName": "Rectangle",
+                    "componentName": "Rectangle",
+                    "descriptor": {
+                        "allowChildren": true,
                         "elemType": "div",
                         "defaultWidth": "4rem",
                         "defaultHeight": "4rem",
                         "handlers": {},
                         "classes": "bg-grey text-center",
                         "styles": {},
-                        "innerText": "Square"
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "Rectangle",
+                                "order": 0
+                            }
+                        ]
                     }
                 },
-                {"displayName": "Rectangle", "componentName": "Rectangle"},
-                {"displayName": "Circle", "componentName": "Circle"},
+                {
+                    "displayName": "Circle",
+                    "componentName": "Circle"
+                },
                 {"displayName": "RoundedSquare", "componentName": "RoundedSquare"},
                 {"displayName": "RoundedRectangle", "componentName": "RoundedRectangle"},
                 {"displayName": "Line", "componentName": "Line"},
@@ -32,8 +79,48 @@
             "displayName": "Controls",
             "name": "controls",
             "icon": "",
+            "expanded": false,
             "items": [
-                {"displayName": "InputField", "componentName": "InputField"},
+                {
+                    "displayName": "InputField",
+                    "componentName": "InputField",
+                    "meta": {
+                        "tags": ["atomic, form-field"],
+                        "createdBy": "mohiit1502@gmail.com",
+                        "createdTimeStamp": "11042021T093443" 
+                    },
+                    "descriptor": {
+                        "allowChildren": true,
+                        "classes": "bg-grey text-center",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "elemType": "div",
+                        "handlers": {},
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "InputField",
+                                "order": 0,
+                                "descriptor": {
+                                    "allowChildren": true,
+                                    "classes": "bg-grey text-center",
+                                    "defaultWidth": "12rem",
+                                    "defaultHeight": "2rem",
+                                    "elemType": "input",
+                                    "handlers": {},
+                                    "styles": {}
+                                }
+                            }
+                        ]
+                    }
+                },
                 {"displayName": "Radio Button Group", "componentName": "RadioButtonGroup"},
                 {"displayName": "Drop Down (Select Option)", "componentName": "SingleSelectDropDown"},
                 {"displayName": "Multi Select Drop Down (Multi Select Option)", "componentName": "MultiSelectDropDown"},
@@ -49,6 +136,7 @@
             "displayName": "Animations",
             "name": "animations",
             "icon": "",
+            "expanded": false,
             "items": [
 
             ]
@@ -57,6 +145,7 @@
             "displayName": "Data Source",
             "name": "data",
             "icon": "",
+            "expanded": false,
             "items": [
                 
             ]
@@ -65,11 +154,13 @@
             "displayName": "Rich Controls",
             "name": "rich",
             "icon": "",
+            "expanded": false,
             "items": [
                 {
-                    "displayName": "Your Controls",
+                    "displayName": "My Controls",
                     "name": "self",
                     "icon": "",
+                    "expanded": false,
                     "items": [
 
                     ]
@@ -78,7 +169,10 @@
                     "displayName": "Community Controls",
                     "name": "community",
                     "icon": "",
+                    "expanded": false,
                     "items": [
+                        {"displayName": "Draggable", "componentName": "Draggable"},
+                        {"displayName": "Droppable", "componentName": "Droppable"},
                         {"displayName": "Progress Bar", "componentName": "ProgressBar"},
                         {"displayName": "Step Bar", "componentName": "StepBar"},
                         {"displayName": "FileSelector", "componentName": "FileSelector"},
@@ -107,6 +201,7 @@
             "displayName": "Functionalities",
             "name": "functionalities",
             "icon": "",
+            "expanded": false,
             "items": [
                 {"displayName": "Sort"},
                 {"displayName": "Search"},
@@ -117,17 +212,20 @@
             "displayName": "Theme",
             "name": "theme",
             "icon": "",
+            "expanded": false,
             "items": [
                 {
                     "displayName": "Control Set",
                     "name": "controlSet",
                     "icon": "",
+                    "expanded": false,
                     "items": []
                 },
                 {
                     "displayName": "Style",
                     "name": "style",
                     "icon": "",
+                    "expanded": false,
                     "items": [
                         {"displayName": "primary-base-color"},
                         {"displayName": "secondary-base-color"},

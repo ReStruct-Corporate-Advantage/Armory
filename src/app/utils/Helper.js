@@ -1,3 +1,5 @@
+import Layout from "../entities/Layout";
+
 export default class Helper {
     static isMobile () {
         var check = false;
@@ -6,4 +8,47 @@ export default class Helper {
         })(navigator.userAgent || navigator.vendor || window.opera);
         return check;
     };
+
+    static merge (arr1, arr2) {
+        if (!arr1 && !arr2) return [];
+        if (!arr1 || arr1.length === 0) return arr2
+        if (!arr2 || arr2.length === 0) return arr1;
+
+        arr2.forEach(item => arr1.push(item));
+        return arr1;
+    }
+
+    static isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    static getItemStateInViewport (element) {
+        if (!element) {
+            return {leftOut: false, rightOut: false, topOut: false, bottomOut: false}
+        }
+        const {top, left, bottom, right} = element.getBoundingClientRect();
+        const {wHeight, wWidth} = {
+            wWidth: window.innerWidth || document.documentElement.clientWidth,
+            wHeight: window.innerHeight || document.documentElement.clientHeight
+        }
+        return {leftOut: left < 0, rightOut: right > wWidth, topOut: top < 0, bottomOut: bottom > wHeight}; 
+    }
+
+    static calculateLayout (layoutOrder, previousLayout) {
+        previousLayout = previousLayout || 30;
+        const previousLayoutIndex = Layout.LAYOUT_VALS.findIndex(val => val === previousLayout);
+        let layoutValue;
+        if (layoutOrder === Layout.SHRINK) {
+          layoutValue = Layout.LAYOUT_VALS[previousLayoutIndex === 0 ? previousLayoutIndex : previousLayoutIndex - 1];
+        } else if (layoutOrder === Layout.EXPAND) {
+          layoutValue = Layout.LAYOUT_VALS[previousLayoutIndex === Layout.LAYOUT_VALS.length - 1 ? previousLayoutIndex : previousLayoutIndex + 1];
+        }
+        return layoutValue;
+      }
 }

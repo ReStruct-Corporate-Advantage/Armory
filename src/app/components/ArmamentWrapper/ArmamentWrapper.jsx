@@ -1,20 +1,21 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import PropTypes from "prop-types";
 import ReactDOMServer from "react-dom/server";
 import { useDrag, useDrop } from "react-dnd";
 import * as repository from "./../";
-import ITEM_TYPES from "../../../constants/types";
+import {ITEM_TYPE} from "../../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
-const ArmamentWrapper = props => {
+const ArmamentWrapper = memo(props => {
   const {componentConfig} = props;
   const Component = repository[componentConfig.name];
-  console.log(ReactDOMServer.renderToString(<Component />));
+//   console.log(ReactDOMServer.renderToString(<Component />));
 
   const ref = useRef(null)
-
+  
+  // Use this component to be dragged and dropped on other potential drop targets
   const [{isDragging}, drag] = useDrag({
-    item: {type: ITEM_TYPES.ARMAMENT_WRAPPER, index: componentConfig.index, category: componentConfig},
+    item: {type: ITEM_TYPE.ARMAMENT_WRAPPER, index: componentConfig.index, category: componentConfig},
     end(item, monitor) {
       const dr = monitor.getDropResult();
       console.log(dr);
@@ -27,16 +28,18 @@ const ArmamentWrapper = props => {
 		}),
   })
 
+  // Use this component for dropping other items
   const [, drop] = useDrop({
-    accept: ITEM_TYPES.ARMAMENT_WRAPPER,
+    accept: ITEM_TYPE.ARMAMENT_WRAPPER,
     hover: (item, monitor) => {
+      console.log(item)
       if (!ref.current) {
         return
       }
       const dragIndex = item.index
       const hoverIndex = componentConfig.index
-      // console.log("drag " + dragIndex)
-      // console.log("hover " + hoverIndex)
+      console.log("drag " + dragIndex)
+      console.log("hover " + hoverIndex)
       if (dragIndex === hoverIndex) {
         return
       }
@@ -61,7 +64,7 @@ const ArmamentWrapper = props => {
       // componentsConfigClone = {...componentsConfig};
       // const componentsClone = [...componentsConfigClone.components];
       // componentsConfigClone.components = componentsClone;
-      // if (item.type === ITEM_TYPES.ARMAMENT) {
+      // if (item.type === ITEM_TYPE.ARMAMENT) {
       //   componentsConfigClone.count = componentsConfigClone.count + 1;
       //   componentsClone.push({name: item.category.componentName, index: componentsConfigClone.count, top: dropCoords.y - top, left: dropCoords.x - left})
       // } else {
@@ -89,10 +92,10 @@ const ArmamentWrapper = props => {
         top: componentConfig.top,
         left: componentConfig.left
       }}>
-        {Component && <Component />}
+        {Component && <Component {...componentConfig} />}
     </div>
   );
-};
+});
 
 ArmamentWrapper.propTypes = {
   componentConfig: PropTypes.object

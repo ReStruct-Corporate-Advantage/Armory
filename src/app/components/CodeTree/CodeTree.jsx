@@ -1,22 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
-import { getComponentsConfig } from "../../pages/ComponentCreator/selectors";
+import {TransitionGroup} from "react-transition-group";
+import { getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import CodeGenerator from "../../utils/CodeGenerator";
 import "./CodeTree.component.scss";
 
 const CodeTree = props => {
-  const code = CodeGenerator.generate(props.componentsConfig.components);
+  const [components, setComponents] = useState(props.componentsConfig.components);
+
+  useEffect(() => {
+    setComponents(props.componentsConfig.components);
+  }, [props.componentsConfig.components])
+  
+  const code = CodeGenerator.generate(components);
 
   return (
-    <div className="c-CodeTree">
-      <code>
-        {"<div id='root'>"}<br />
-          {!code ? <p style={{fontSize: "0.6rem", color: "green !important", marginBottom: 0}}>// Add components from the left panel to view them here</p> : code}
-        {"</div>"}
-      </code>
-    </div>
+    <TransitionGroup className="c-CodeTree h-100">
+      {code}
+    </TransitionGroup>
   );
 };
 
@@ -25,7 +28,7 @@ CodeTree.propTypes = {
 };
 
 const mapStateToProps = createPropsSelector({
-  componentsConfig: getComponentsConfig
+  componentsConfig: getPresentComponentsConfig
 })
 
 export default connect(mapStateToProps)(CodeTree);

@@ -1,72 +1,58 @@
-import React, {useRef} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import PropTypes from "prop-types";
-import {useDrag, useDrop} from "react-dnd";
-import ITEM_TYPES from "../../constants/types";
+import {useDrag} from "react-dnd";
+import {getEmptyImage} from "react-dnd-html5-backend";
+import {ToolBox} from "./../";
+import {GrDrag} from "react-icons/gr";
+import { TOOLS_CONFIG } from "../../config";
+import {ITEM_TYPE} from "../../constants/types";
 import "./Armament.component.scss";
 
 const Armament = props => {
 
-  const {category, index, recursiveRenderer} = props;
+  const {category, clientRect, index, recursiveRenderer} = props;
   const ref = useRef(null)
+  const [hovered, setHovered] = useState(false);
+  const [expanded, setExpanded] = useState(category.expanded);
 
   const armamentId = `c-Armament-${index}`
   category.id = armamentId;
-  const [{isDragging}, drag] = useDrag({
-    item: {type: ITEM_TYPES.ARMAMENT, index, category},
-    end(item, monitor) {
-      const dr = monitor.getDropResult();
-      let dropListId;
-      dr && (dropListId = dr.listId)
-      console.log(dr);
-      // if (monitor.didDrop() && item.listId !== dropListId) {
-      //   removearmament(index, listId)
-      // }
-    },
+  const [{isDragging, clientOffset}, drag, preview] = useDrag({
+    item: {type: ITEM_TYPE.ARMAMENT, index, category},
 		collect: monitor => ({
-      isDragging: !!monitor.isDragging()
+      isDragging: !!monitor.isDragging(),
+      clientOffset: monitor.getClientOffset()
 		}),
   })
+  drag(ref)
 
-  const [, drop] = useDrop({
-    accept: ITEM_TYPES.ARMAMENT,
-    hover: (item, monitor) => {
-      if (!ref.current) {
-        return
-      }
-      const dragIndex = item.index
-      const hoverIndex = index
-      // console.log("drag " + dragIndex)
-      // console.log("hover " + hoverIndex)
-      if (dragIndex === hoverIndex) {
-        return
-      }
-      const hoverBoundingRect = ref.current.getBoundingClientRect()
-      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2
-      const clientOffset = monitor.getClientOffset()
-      const hoverClientY = clientOffset.y - hoverBoundingRect.top
-      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
-        return
-      }
-      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
-        return
-      }
-      // moveCard(dragIndex, hoverIndex)
-      item.index = hoverIndex
-    },
-  })
-  drag(drop(ref))
+  useEffect(() => {
+    preview(getEmptyImage(), { captureDraggingState: true });
+  }, []);
 
-  return <div
-    id={armamentId}
-    className="c-Armament c-Armament--modifier c-AttributeCreator--shadow"
-    ref={!category.items ? ref : null}
-    style={{
-      opacity: isDragging ? 0.5 : 1,
-      cursor: !category.items ? 'move' : "pointer",
-      position: 'relative'
-    }}>
-      <div><span className="c-Aside__list-item-text">{category.displayName}</span>{category.items && recursiveRenderer (category.items, index)}</div>
-    </div>;
+  return (
+    <div id={armamentId}
+      className="c-Armament c-Armament--modifier c-AttributeCreator--shadow"
+      ref={!category.items ? ref : null}
+      style={{
+        opacity: isDragging ? 0.5 : 1,
+        cursor: !category.items ? 'move' : "pointer",
+        position: 'relative'
+      }}>
+      <span className="c-Aside__list-item-text"
+        onMouseEnter={(e) => {
+          setHovered(true);
+        }}
+        onMouseLeave={() => setHovered(false)}>
+        {category.items ?
+          <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
+          : <GrDrag className="mr-2 svg-stroke-white" />}
+        {category.displayName}
+        {hovered && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
+      </span>
+      {category.items && recursiveRenderer(category.items, clientRect, index, expanded, setExpanded)}
+    </div>
+  )
 };
 
 Armament.propTypes = {
@@ -74,6 +60,8 @@ Armament.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
+  clientRect: PropTypes.object,
+  index: PropTypes.string,
   recursiveRenderer: PropTypes.func
 };
 

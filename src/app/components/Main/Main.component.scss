@@ -1,6 +1,7 @@
 @import "./../../styles/variables";
 
 .c-Main {
+    flex: auto;
     height: 100%;
     font-size: 0.8rem;
     background: $primary-font-color;

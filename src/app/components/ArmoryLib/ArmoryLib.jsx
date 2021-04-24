@@ -1,16 +1,18 @@
 import React, {useState, useEffect} from "react";
 import PropTypes from "prop-types";
-import {Armament} from "./../";
+import {ArmsCategory} from "./../";
 import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
   const [armory, setArmory] = useState([])
-
+  const {clientRect} = props;
   useEffect(() => {
+    // fetch("http://localhost:3001/armory/image")
+    //   .then(res => console.log(res));
     fetch("http://localhost:3001/armory")
       .then(res => res.json())
       .then(data => {
-        console.log(JSON.parse(data))
+//         console.log(JSON.parse(data))
         setArmory(JSON.parse(data).types)
       })
       .catch((err) => {
@@ -18,7 +20,8 @@ const ArmoryLib = props => {
       })
   }, []);
 
-  const renderArmory = (node, prevKey) => <ul>{node.map((category, key) => <li className="c-Aside__list-item"><Armament category={category} index={prevKey ? prevKey + "-" + key : key} recursiveRenderer={renderArmory} /></li>)}</ul>;
+  const renderArmory = (node, clientRect, prevKey, expanded, setExpanded) => <ArmsCategory root={!prevKey} node={node} clientRect={clientRect} 
+    prevKey={prevKey} renderArmory={renderArmory} expanded={expanded} setExpanded={setExpanded} {...props} />;
 
   return (
     <div className="c-ArmoryLib pb-5 h-100">
@@ -28,7 +31,7 @@ const ArmoryLib = props => {
 };
 
 ArmoryLib.propTypes = {
-
+  clientRect: PropTypes.object
 };
 
 export default ArmoryLib;

@@ -3,16 +3,32 @@ import {createGetSelector} from "reselect-immutable-helpers"
 
 const getData = ({data}) => data
 
-export const getComponentCreator = createSelector(
+const getPresentComponentCreator = createSelector(
     getData,
     (dataState) => {
-        return dataState.pages.componentCreator
+        return dataState.pages.componentCreator.present
     }
 )
 
-export const isMobile = createGetSelector(getComponentCreator, "isMobile")
-export const getFormErrors = createGetSelector(getComponentCreator, "formErrors")
-export const getFormValues = createGetSelector(getComponentCreator, "formValues")
-export const getLayout = createGetSelector(getComponentCreator, "layout")
-export const getPreviousLayout = createGetSelector(getComponentCreator, "previousLayout")
-export const getComponentsConfig = createGetSelector(getComponentCreator, "componentConfig")
+const getPastComponentCreator = createSelector(
+    getData,
+    (dataState) => {
+        return dataState.pages.componentCreator.past
+    }
+)
+
+const getFutureComponentCreator = createSelector(
+    getData,
+    (dataState) => {
+        return dataState.pages.componentCreator.future
+    }
+)
+
+
+export const getPresentComponentsConfig = createGetSelector(getPresentComponentCreator, "componentConfig")
+export const getFormErrors = createGetSelector(getPresentComponentCreator, "formErrors")
+export const getFormValues = createGetSelector(getPresentComponentCreator, "formValues")
+export const getHistory = createGetSelector(getPresentComponentCreator, "history")
+export const getLayout = createGetSelector(getPresentComponentCreator, "layout")
+export const getPreviousLayout = createGetSelector(getPresentComponentCreator, "previousLayout")
+export const isMobile = createGetSelector(getPresentComponentCreator, "isMobile")

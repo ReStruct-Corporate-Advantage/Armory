@@ -1,0 +1,42 @@
+.c-CodeCollapsable {
+//   overflow-x: scroll;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    max-height: 50rem;
+
+    &.collapsed {
+        max-height: 1.2rem;
+        overflow-y: hidden;
+    }
+
+    .c-CodeCollapsable__clickHandler {
+        color: white;
+        padding-left: 0.5rem;
+        width: 100%;
+        cursor: pointer;
+        height: 1.2rem;
+        background: transparent;
+        position: absolute;
+        top: 0;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            background: linear-gradient(90deg, rgba(50,50,50,1), rgba(50,50,50,0.5), rgba(255,255,255,0));
+            opacity: 1;
+            padding-left: 1rem;
+            border: 1px solid darkgray;
+            border-radius: 5px;
+            backdrop-filter: blur(2px);
+        }
+
+        &.collapsed {
+            color: black;
+            opacity: 1;
+            background: rgb(216, 216, 187);
+            border: 1px solid black;
+            border-radius: 5px;
+            // padding: 0.2rem;
+        }
+    }
+}

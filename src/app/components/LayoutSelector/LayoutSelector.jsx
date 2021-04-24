@@ -3,27 +3,20 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import {dispatchLayout, dispatchPreviousLayout} from "./../../pages/ComponentCreator/actions";
-import { getLayout } from "../../pages/ComponentCreator/selectors";
+import { getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
 import Layout from "../../entities/Layout";
+import Helper from "../../utils/Helper";
 import * as images from "./../../static/images";
 import "./LayoutSelector.component.scss";
 
 const LayoutSelector = props => {
+  const {layout} = props
 
-  const calculateLayout = (layout) => {
-    const previousLayoutIndex = Layout.LAYOUT_VALS.findIndex(val => val === props.layout);
-    let layoutValue;
-    if (layout === Layout.SHRINK) {
-      layoutValue = Layout.LAYOUT_VALS[previousLayoutIndex === 0 ? previousLayoutIndex : previousLayoutIndex - 1];
-    } else if (layout === Layout.EXPAND) {
-      layoutValue = Layout.LAYOUT_VALS[previousLayoutIndex === Layout.LAYOUT_VALS.length - 1 ? previousLayoutIndex : previousLayoutIndex + 1];
+  const updateLayout = (layoutOrder) => {
+    const layoutValue = Helper.calculateLayout(layoutOrder, layout);
+    if (props.layout !== layoutValue) {
+      props.dispatchLayout(layoutValue);
     }
-    return layoutValue;
-  }
-
-  const updateLayout = (layout) => {
-    const layoutValue = calculateLayout(layout);
-    props.layout !== layoutValue && props.dispatchLayout(layoutValue);
   }
   
   return (
@@ -38,11 +31,13 @@ const LayoutSelector = props => {
 LayoutSelector.propTypes = {
   dispatchLayout: PropTypes.func,
   dispatchPreviousLayout: PropTypes.func,
-  layout: PropTypes.string
+  layout: PropTypes.string,
+  previousLayout: PropTypes.string
 };
 
 const mapStateToProps = createPropsSelector({
-  layout: getLayout
+  layout: getLayout,
+  previousLayout: getPreviousLayout
 })
 
 const mapDispatchToProps = {

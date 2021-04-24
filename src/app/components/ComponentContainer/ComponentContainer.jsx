@@ -3,17 +3,18 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { useDrop } from "react-dnd";
-import { dispatchComponentsConfig, dispatchPreviousLayout } from "../../pages/ComponentCreator/actions";
-import { getComponentsConfig, getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
+import { dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout } from "../../pages/ComponentCreator/actions";
+import { getPresentComponentsConfig, getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
 import {ArmamentWrapper, LayoutSelector} from "../";
-import DNDUtil from "../../utils/dndUtil";
-import ITEM_TYPES from "../../constants/types";
+import dndUtil from "../../utils/dndUtil";
+import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
 
 const ComponentContainer = props => {
-  const {componentsConfig, dispatchComponentsConfig} = props;
+  const {componentsConfig, boundingClientRectProvider, dispatchComponentsConfig, dispatchHistory} = props;
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
+  const [selected, setSelected] = useState([]);
   const elem = comContainerRef.current;
   const [dimensions, setDimensions] = useState({ 
     height: elem ? elem.offsetHeight : 0,
@@ -24,9 +25,11 @@ const ComponentContainer = props => {
     const layout = props.layout || 30;
     const elemInner = comContainerRef.current;
     const {width, height, left, top} = elemInner.getBoundingClientRect();
+    boundingClientRectProvider({width, height, left, top});
     let horizontalCellCount = Math.floor(width / layout);
     let verticalCellCount = Math.floor(height / layout);
     const cellsRenew = []
+    // TODO fix this not working code to resize container
     if (elemInner && elemInner.getAttribute('listener') !== 'true') {
       elemInner.addEventListener('resize', () => {
         console.log(dimensions);
@@ -56,13 +59,15 @@ const ComponentContainer = props => {
   }, [props.layout, dimensions.height, dimensions.width]);
 
   const [{isOver}, drop] = useDrop({
-    accept: [ITEM_TYPES.ARMAMENT, ITEM_TYPES.ARMAMENT_WRAPPER],
-    drop: (item, monitor) => DNDUtil.dragHanlder(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig),
+    accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
+    drop: (item, monitor) => dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchHistory),
     collect: monitor => ({isOver: !!monitor.isOver()}),
   })
 
-  const cellRenders = cells && cells.length > 0 && cells.map(cell => <span className="position-absolute" style={cell} />);
-  const componentRenders = componentsConfig.components.map(componentConfig => <ArmamentWrapper componentConfig={componentConfig} />);
+  const cellRenders = cells && cells.length > 0 && cells.map((cell, key) => <span key={key} className="position-absolute" style={cell} />);
+  const componentRenders = componentsConfig.components[0].descriptor.children
+                  .map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper key={key} componentConfig={componentConfig} />)
+                  .filter(component => component);
 
   return (
     <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef} >
@@ -79,19 +84,22 @@ const ComponentContainer = props => {
 
 ComponentContainer.propTypes = {
   componentsConfig: PropTypes.object,
+  boundingClientRectProvider: PropTypes.func,
   dispatchComponentsConfig: PropTypes.func,
+  dispatchHistory: PropTypes.func,
   dispatchPreviousLayout: PropTypes.func,
   layout: PropTypes.string,
   previousLayout: PropTypes.string
 };
 
 const mapStateToProps = createPropsSelector({
-  componentsConfig: getComponentsConfig,
+  componentsConfig: getPresentComponentsConfig,
   layout: getLayout,
   previousLayout: getPreviousLayout
 })
 
 const mapDispatchToProps = {
+  dispatchHistory,
   dispatchComponentsConfig,
   dispatchPreviousLayout
 }

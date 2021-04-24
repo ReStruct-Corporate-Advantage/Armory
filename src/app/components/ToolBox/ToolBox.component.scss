@@ -1,23 +1,34 @@
 @import "./../../styles/variables";
 
 .c-ToolBox {
-  margin-left: auto;
+  min-height: $section-tool-panel-height;
+  // height: $section-tool-panel-height;
+  color: $primary-font-color;
+  background: $primary-font-color-dark;
+  padding: $small-font-padding;
+  // overflow-x: hidden;
+  // text-align: right;
 
-  &.c-SectionHeader__controlPanel {
-    padding: $small-font-padding;
-    text-align: right;
+  .c-ToolBox__toolDisplayer {
+    display: none;
+  }
 
-    .btn {
-        border: 1px solid $primary-font-color;
-        border-radius: 3px;
-        background: $secondary-font-color;
-        color: $primary-font-color-dark;
-        font-size: $default-small-font;
-        padding: 0 0.4rem;
-
-        &:not(:first-child) {
-            margin-left: 0.3rem;
-        }
+  &:hover {
+    .c-ToolBox__toolDisplayer {
+      cursor: pointer;
+      display: block;
+      right: 0;
+      top: 0;
+      width: 1rem;
+      height: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: inset 0 0 2000px rgba(0, 0, 0, .5);
+      backdrop-filter: blur(5px);
+      filter: blur(3px);
     }
+  }
+
+  &.borderRight {
+    border-right: 1px solid grey;
   }
 }

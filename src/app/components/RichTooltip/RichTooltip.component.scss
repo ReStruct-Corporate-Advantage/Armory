@@ -1,0 +1,31 @@
+.c-RichTooltip {
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    width: 10rem;
+    backdrop-filter: blur(2px);
+    //transition: opacity 0.5s ease-in-out;
+
+    &.fade-enter, &.fade-appear {
+        max-height: 0;
+        opacity: 0;
+    }
+    
+    &.fade-enter-active, &.fade-appear-active {
+        max-height: 30rem;
+        opacity: 1;
+        transition: all 1500ms;
+    }
+    
+    &.fade-exit {
+        max-height: 30rem;
+        opacity: 1;
+    }
+    
+    &.fade-exit-active {
+        max-height: 0;
+        opacity: 0;
+        transition: all 1500ms;
+    }
+}
