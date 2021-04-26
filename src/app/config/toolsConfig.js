@@ -50,10 +50,24 @@ const TOOLS_CONFIG = {
         classes: "backgroundNone pl-4",
         size: "1.7rem",
         tools: [
-            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", btnText: "", visibility: "visible", order: 1, icon: "gi.GiToggles", placement: "right"},
-            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right"},
-            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right"},
-            {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", btnText: "", visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right"},
+            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "",
+                visibility: "visible", order: 1, icon: "gi.GiToggles", placement: "right",
+                data: {
+                    toggles: [
+                        {
+                            name: "Show Tooltips",
+                            selected: true
+                        },
+                        {
+                            name: "Collapse Widgets",
+                            selected: false
+                        }
+                    ]
+                }
+            },
+            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right"},
+            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right"},
+            {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right"},
         ]
     }
 }

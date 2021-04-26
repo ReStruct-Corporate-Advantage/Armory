@@ -68,11 +68,17 @@
         border-radius: 20px !important;
     }
 
-    .button-details {
+    &.button-details {
         cursor: pointer;
-        width: 7rem;
+        max-width: 10rem;
         background: #e83e8c;
         border-radius: 20px;
         transition: width 0.4s ease-in-out;
+    }
+
+    span.button-text {
+        font-weight: bold;
+        font-size: 0;
+        transition: all 0.3s ease-in-out;
     }
 }

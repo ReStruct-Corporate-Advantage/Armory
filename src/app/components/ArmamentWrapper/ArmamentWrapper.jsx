@@ -1,9 +1,8 @@
 import React, { memo, useRef } from "react";
 import PropTypes from "prop-types";
-import ReactDOMServer from "react-dom/server";
 import { useDrag, useDrop } from "react-dnd";
 import * as repository from "./../";
-import {ITEM_TYPE} from "../../../constants/types";
+import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = memo(props => {

@@ -18,13 +18,15 @@ const RichTooltip = props => {
     const {leftOut, rightOut, topOut, bottomOut} = itemState;
     const verticalPositioner = bottomOut ? "bottom" : "top",
           horizontalPositioner = rightOut ? "right" : "left",
-          verticalPosition = bottomOut ? 0 : iconSize,
-          horizontalPosition = rightOut ? iconSize : 0;
-    return {[verticalPositioner]: verticalPosition, [horizontalPositioner]: horizontalPosition}
+          verticalPosition = bottomOut ? "-50%" : "150%",
+          horizontalPosition = 0,
+          marginLeft = rightOut ? "-10rem" : 0;
+    const positionClass = bottomOut ? rightOut ? "left-top" : "right-top" : rightOut ? "left-bottom" : "right-bottom" 
+    return {styles: {[verticalPositioner]: verticalPosition, [horizontalPositioner]: horizontalPosition, marginLeft}, positionClass};
   }
   return (
     <CSSTransition in={true} timeout={500} classNames="fade" appear>
-      <div className="c-RichTooltip position-absolute" ref={tipRef} style={tooltipPosition}>
+      <div className={`c-RichTooltip position-absolute${tooltipPosition.positionClass ? " " + tooltipPosition.positionClass : ""}`} ref={tipRef} style={tooltipPosition.styles}>
         In Component RichTooltip
       </div>
     </CSSTransition>

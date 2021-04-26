@@ -9,13 +9,9 @@
   background: $primary-base-color-translucent;
   backdrop-filter: $default-blur;
   border-bottom: 3px solid $primary-font-color;
+  z-index: 1;
 
   p {
     margin-bottom: 0;
-  }
-
-  .c-ToolBox {
-    // background: none;
-    // margin-left: auto;
   }
 }

@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import ToolActionContainer from "./ToolActionContainer";
 import ComponentEditor from "./ComponentEditor";
 import CodeFragment from "./CodeFragment";
 import RichTooltip from "./RichTooltip";
@@ -25,7 +26,7 @@ import RoundedRectangle from "./repository/RoundedRectangle";
 import RoundedSquare from "./repository/RoundedSquare";
 import Circle from "./repository/Circle";
 import Rectangle from "./repository/Rectangle";
-import ArmamentWrapper from "./repository/ArmamentWrapper";
+import ArmamentWrapper from "./ArmamentWrapper";
 import Square from "./repository/Square";
 import DefinePropertiesForm from "./DefinePropertiesForm";
 import CodeViewerWidget from "./CodeViewerWidget";
@@ -47,6 +48,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ToolActionContainer,
 	ComponentEditor,
 	CodeFragment,
 	RichTooltip,
