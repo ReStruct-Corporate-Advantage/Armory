@@ -1,0 +1,2 @@
+(this.webpackJsonparmory=this.webpackJsonparmory||[]).push([[13],{146:function(r,e,s){},175:function(r,e,s){"use strict";s.r(e);s(0),s(146);var n=s(2),c=function(r){return Object(n.jsx)("div",{className:"c-UserProfile",children:"In Page UserProfile"})};e.default=c}}]);
+//# sourceMappingURL=13.c6db02a8.chunk.js.map

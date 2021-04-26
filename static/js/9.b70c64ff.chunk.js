@@ -1,0 +1,2 @@
+(this.webpackJsonparmory=this.webpackJsonparmory||[]).push([[9],{144:function(n,c,i){},173:function(n,c,i){"use strict";i.r(c);i(0),i(144);var r=i(2),s=function(n){return Object(r.jsx)("div",{className:"c-Join",children:"In Page Join"})};c.default=s}}]);
+//# sourceMappingURL=9.b70c64ff.chunk.js.map
