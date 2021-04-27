@@ -7,7 +7,9 @@ import {
     DISPATCH_HISTORY,
     DISPATCH_LAYOUT,
     DISPATCH_PREVIOUS_LAYOUT,
-    IS_MOBILE,UPDATE_FORM_ERRORS,
+    DISPTACH_TOOL_ACTION_META,
+    IS_MOBILE,
+    UPDATE_FORM_ERRORS,
     UPDATE_FORM_VALUES
 } from "./actions";
 
@@ -44,6 +46,7 @@ const reducer = (state = initialState, action) => {
         case DISPATCH_HISTORY:
         case DISPATCH_LAYOUT:
         case DISPATCH_PREVIOUS_LAYOUT:
+        case DISPTACH_TOOL_ACTION_META:
         case UPDATE_FORM_ERRORS:
         case UPDATE_FORM_VALUES:
             return state.mergeDeep(action.payload)

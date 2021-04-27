@@ -6,7 +6,7 @@ import {DndProvider} from "react-dnd"
 import Backend from "react-dnd-html5-backend"
 import {getPresentComponentsConfig, isMobile} from "./selectors";
 import {dispatchDeviceType} from "./actions";
-import {Aside, Header, Main} from "./../../components";
+import {Aside, Header, Main, ToolActionContainer} from "./../../components";
 import Helper from "./../../utils/Helper";
 import ContainerEventHandlers from "../../utils/ContainerEventHandlers";
 import "./ComponentCreator.module.scss";
@@ -36,6 +36,7 @@ const ComponentCreator = props => {
             ]
           } position="right" styles={{fontSize: "0.8rem"}}/>
         </main>
+        <ToolActionContainer />
       </div>
     </DndProvider>;
 };

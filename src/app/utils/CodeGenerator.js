@@ -89,25 +89,12 @@ class CodeGenerator {
         Object.keys(handlers).forEach((handler, key) => fragments.push(<CodeFragment type={FRAGMENT_TYPE.HANDLER} attrKey={handler} value={handlers[handler]} key={id + "-" + key + "-" + 1} />))
         fragments.push(<CodeFragment type={FRAGMENT_TYPE.ENCLOSER} left={false} key={id + "-" + 9} />)
         return <CodeLine>{fragments}</CodeLine>;
-        // builder.build(`<${tag}`)
-        //     .build(" ")
-        //     .build(`id="${id}"`)
-        //     .build(" ")
-        //     .build(`style={{width: '${width}', height: '${height}'}}`)
-        //     .build(" ")
-        //     .build(classes ? `className="${classes}" ` : "")
-        //     .build(this.processHandlers(handlers))
-        //     .build(">");
-        // return <CodeLine text={builder.toString()}>{fragments}</CodeLine>;
     }
 
     generateClosingTag (component) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
         const id = descriptor.uuid;
         const tag = descriptor.elemType;
-        // const builder = new ComponentBuilder("")
-        // builder.build(`</${tag}`)
-        // return <CodeLine text={builder.toString()} />;
         const fragments = []
         fragments.push(<CodeFragment type={FRAGMENT_TYPE.ENCLOSER} left={true} initial={false} key={id + "-" + 1} />)
         fragments.push(<CodeFragment type={FRAGMENT_TYPE.TAG} value={tag} key={id + "-" + 2} />)

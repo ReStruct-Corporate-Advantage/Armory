@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import QuickOptionsContainer from "./QuickOptionsContainer";
 import ToolActionContainer from "./ToolActionContainer";
 import ComponentEditor from "./ComponentEditor";
 import CodeFragment from "./CodeFragment";
@@ -48,6 +49,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	QuickOptionsContainer,
 	ToolActionContainer,
 	ComponentEditor,
 	CodeFragment,

@@ -6,6 +6,7 @@ export const DISPATCH_LAYOUT = "DISPATCH_LAYOUT";
 export const DISPATCH_PREVIOUS_LAYOUT = "DISPATCH_PREVIOUS_LAYOUT";
 export const DISPATCH_COMPONENT_CONFIG = "DISPATCH_COMPONENT_CONFIG";
 export const DISPATCH_HISTORY = "DISPATCH_HISTORY";
+export const DISPTACH_TOOL_ACTION_META = "DISPTACH_TOOL_ACTION_META";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
@@ -60,5 +61,12 @@ export const dispatchHistory = history => {
     return {
         type: DISPATCH_HISTORY,
         payload: {history}
+    }
+}
+
+export const dispatchToolAction = toolActionMeta => {
+    return {
+        type: DISPTACH_TOOL_ACTION_META,
+        payload: {toolActionMeta}
     }
 }

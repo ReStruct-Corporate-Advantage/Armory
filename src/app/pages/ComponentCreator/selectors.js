@@ -32,3 +32,4 @@ export const getHistory = createGetSelector(getPresentComponentCreator, "history
 export const getLayout = createGetSelector(getPresentComponentCreator, "layout")
 export const getPreviousLayout = createGetSelector(getPresentComponentCreator, "previousLayout")
 export const isMobile = createGetSelector(getPresentComponentCreator, "isMobile")
+export const getToolActionMeta = createGetSelector(getPresentComponentCreator, "toolActionMeta")

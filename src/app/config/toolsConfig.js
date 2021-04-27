@@ -9,7 +9,7 @@ const TOOLS_CONFIG = {
             {name: "ToggleExpandCode", btnClasses: "btn btn-toggle-expand", btnText: "", visibility: "contained", order: 4, icon: "bs.BsChevronBarRight", toggleIcon: "bs.BsChevronBarDown", placement: "right"},
             {name: "UndoCode", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true},
             {name: "RedoCode", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true},
-            {name: "Export", btnClasses: "btn", btnText: "", visibility: "contained", order: 7, icon: "ai.AiOutlineExport", placement: "right"}
+            {name: "ExportCode", btnClasses: "btn", btnText: "", visibility: "contained", order: 7, icon: "ai.AiOutlineExport", placement: "right"}
         ]
     },
     CODE_PROPERTIES_TOOLS: {
@@ -33,7 +33,9 @@ const TOOLS_CONFIG = {
         classes: "ml-auto backgroundNone pr-4 borderRight",
         size: "1.4rem",
         tools: [
-            {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd", placement: "right"},
+            {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
+                placement: "right",
+                data: {modalTitle: "Add Page", headerTitle: "Please provide page details to proceed, for most cases defaults should work!"}},
             {name: "CreateComponent", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 2, icon: "hi.HiOutlineViewGridAdd", placement: "right"}
         ]
     },
@@ -61,6 +63,13 @@ const TOOLS_CONFIG = {
                         {
                             name: "Collapse Widgets",
                             selected: false
+                        },
+                        {
+                            name: "Enable Bootstrap",
+                            selected: false
+                        },
+                        {
+                            name: "More Settings"
                         }
                     ]
                 }

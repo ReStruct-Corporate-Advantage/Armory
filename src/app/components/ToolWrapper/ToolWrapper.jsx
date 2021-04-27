@@ -1,13 +1,15 @@
 import React, {memo, useState} from "react";
 import PropTypes from "prop-types";
 import {IconContext} from "react-icons";
+import {dispatchToolAction} from "./../../pages/ComponentCreator/actions";
 import useTool from "./../../hooks/useTool";
-import {RichTooltip, ToolActionContainer} from "./../";
+import {RichTooltip, QuickOptionsContainer} from "./../";
 import * as reactIcons from "react-icons/all";
 import "./ToolWrapper.component.scss";
+import { connect } from "react-redux";
 
 const ToolWrapper = memo(props => {
-  const {btnClasses, btnText, data, disabled, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, size, toggleIcon, visibility} = props;
+  const {btnClasses, btnText, data, disabled, dispatchToolAction, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, size, toggleIcon, visibility} = props;
   const [hovered, setHovered] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
   const [currentIcon, setCurrentIcon] = useState(icon)
@@ -21,11 +23,13 @@ const ToolWrapper = memo(props => {
           ${!expanded && visibility === "contained" ? " hide" : ""}
           ${layoutClasses ? " " + layoutClasses : ""}
           ${hoverClasses ? " " + hoverClasses : ""}`}>
-        <div className="h-100" onMouseEnter={() => setHovered(true)}
+        <div className="h-100" data-toggle="modal" data-target="#tool-action-modal"
+          onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           onClick={(e) => {
             setCurrentIcon(currentIcon === icon && toggleIcon ? toggleIcon : icon)
             setButtonClicked(!buttonClicked)
+            jsx && dispatchToolAction()
           }}>
           <button
             className={`h-100
@@ -40,7 +44,7 @@ const ToolWrapper = memo(props => {
           {hoverClasses && <span className={`button-text${hovered || buttonClicked ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>
         {hovered && !buttonClicked && <RichTooltip iconSize={iconSize} />}
-        {buttonClicked && jsx ? <ToolActionContainer type={type}>{jsx(data)}</ToolActionContainer>: null}
+      {buttonClicked && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data}>{jsx(data)}</QuickOptionsContainer>: null}
       </div>
     </IconContext.Provider>
   );
@@ -50,6 +54,7 @@ ToolWrapper.propTypes = {
   btnClasses: PropTypes.string,
   btnText: PropTypes.string,
   disabled: PropTypes.bool,
+  dispatchToolAction: PropTypes.func,
   expanded: PropTypes.bool,
   icon: PropTypes.string,
   leftSnapped: PropTypes.bool,
@@ -57,4 +62,8 @@ ToolWrapper.propTypes = {
   visibility: PropTypes.string
 };
 
-export default ToolWrapper;
+const mapDispatchToProps = {
+  dispatchToolAction
+}
+
+export default connect(null, mapDispatchToProps)(ToolWrapper);
