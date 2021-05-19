@@ -12,6 +12,14 @@ const TOOLS_CONFIG = {
             {name: "ExportCode", btnClasses: "btn", btnText: "", visibility: "contained", order: 7, icon: "ai.AiOutlineExport", placement: "right"}
         ]
     },
+    CODE_VIEWER_LANGUAGE_TOOLS: {
+        tools: [
+            {name: "React", btnClasses: "btn", btnText: "", visibility: "visible", order: 0, icon: "di.DiReact", placement: "left"},
+            {name: "Angular", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "di.DiAngularSimple", placement: "left"},
+            {name: "Vue", btnClasses: "btn btn-edit", btnText: "", visibility: "visible", order: 2, icon: "ri.RiVuejsFill", placement: "left"},
+            {name: "Vanilla", btnClasses: "btn btn-save", btnText: "", visibility: "visible", order: 3, icon: "di.DiJavascript", placement: "left"}
+        ]
+    },
     CODE_PROPERTIES_TOOLS: {
         tools: [
             {name: "ResizeProperties", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "fc.FcFolder", toggleIcon: "fc.FcOpenedFolder", placement: "right"},
@@ -76,7 +84,25 @@ const TOOLS_CONFIG = {
             },
             {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right"},
             {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right"},
-            {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right"},
+            {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "",
+                visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right",
+                data: {
+                    profileOptions: [
+                        {
+                            name: "View Profile"
+                        },
+                        {
+                            name: "Account Settings"
+                        },
+                        {
+                            name: "Privacy Settings"
+                        },
+                        {
+                            name: "Logout",
+                            onClick: "logout"
+                        }
+                    ]
+                }},
         ]
     }
 }

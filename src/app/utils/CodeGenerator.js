@@ -34,7 +34,7 @@ class CodeGenerator {
         } catch (e) {
             console.log(e);
         }
-        return <CodeCollapsable componentName="Root" indent={0}><CodeComment comment = "Couldn't generate code for requested component!" /></CodeCollapsable>;
+        return <CodeCollapsable componentName="Root" indent={0}><CodeComment comment = {"Couldn\"t generate code for requested component!"} /></CodeCollapsable>;
     }
 
     generateChildren (component, counter) {

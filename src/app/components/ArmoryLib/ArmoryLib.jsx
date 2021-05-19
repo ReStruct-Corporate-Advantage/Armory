@@ -11,7 +11,7 @@ const ArmoryLib = props => {
     // fetch("http://localhost:3001/armory/image")
     //   .then(res => console.log(res));
     setArmory(armoryRepo.types);
-    fetch("http://localhost:3001/armory")
+    fetch("http://localhost:3002/api/armory")
       .then(res => res.json())
       .then(data => {setArmory(JSON.parse(data).types)})
       .catch(err => console.log("Error: " + err))

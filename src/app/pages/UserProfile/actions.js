@@ -1,5 +1,5 @@
-export const UPDATE_FORM_VALUES = 'UPDATE_USER_PROFILE_FORM_VALUES'
-export const UPDATE_FORM_ERRORS = 'UPDATE_USER_PROFILE_FORM_ERRORS'
+export const UPDATE_FORM_VALUES = "UPDATE_USER_PROFILE_FORM_VALUES"
+export const UPDATE_FORM_ERRORS = "UPDATE_USER_PROFILE_FORM_ERRORS"
 
 export const updateFormValues = (formValues) => {
     return {

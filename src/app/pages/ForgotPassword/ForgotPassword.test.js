@@ -1,8 +1,8 @@
-import React from 'react';
-import ForgotPassword from './ForgotPassword';
+import React from "react";
+import ForgotPassword from "./ForgotPassword";
 
-describe('ForgotPassword', () => {
-   it('renders without error', () => {
+describe("ForgotPassword", () => {
+   it("renders without error", () => {
 
    });
 });

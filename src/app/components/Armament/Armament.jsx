@@ -36,8 +36,8 @@ const Armament = props => {
       ref={!category.items ? ref : null}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        cursor: !category.items ? 'move' : "pointer",
-        position: 'relative'
+        cursor: !category.items ? "move" : "pointer",
+        position: "relative"
       }}>
       <span className="c-Aside__list-item-text"
         onMouseEnter={(e) => {

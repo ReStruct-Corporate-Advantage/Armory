@@ -1,5 +1,5 @@
-import Immutable from 'immutable'
-import {UPDATE_FORM_ERRORS, UPDATE_FORM_VALUES} from './actions'
+import Immutable from "immutable"
+import {UPDATE_FORM_ERRORS, UPDATE_FORM_VALUES} from "./actions"
 
 const initialState = Immutable.Map()
 

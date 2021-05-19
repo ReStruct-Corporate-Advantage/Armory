@@ -87,7 +87,7 @@ const ArmamentWrapper = memo(props => {
       ref={ref}
       style={{
         opacity: isDragging ? 0.5 : 1,
-        cursor: 'move',
+        cursor: "move",
         top: componentConfig.top,
         left: componentConfig.left
       }}>

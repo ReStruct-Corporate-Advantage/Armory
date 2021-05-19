@@ -11,7 +11,7 @@ function history(reducer) {
       const { past, present, future } = state
   
       switch (action.type) {
-        case 'UNDO':
+        case "UNDO":
           const previous = past[past.length - 1]
           const newPast = past.slice(0, past.length - 1)
           return {
@@ -19,7 +19,7 @@ function history(reducer) {
             present: previous,
             future: [present, ...future]
           }
-        case 'REDO':
+        case "REDO":
           const next = future[0]
           const newFuture = future.slice(1)
           return {

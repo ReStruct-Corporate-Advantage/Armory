@@ -1,8 +1,8 @@
-import React from 'react';
-import Canvas from './Canvas';
+import React from "react";
+import Canvas from "./Canvas";
 
-describe('Canvas', () => {
-   it('renders without error', () => {
+describe("Canvas", () => {
+   it("renders without error", () => {
 
    });
 });

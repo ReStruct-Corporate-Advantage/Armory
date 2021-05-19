@@ -1,3 +1,3 @@
-import PositionAware from './PositionAware.jsx';
+import PositionAware from "./PositionAware.jsx";
 
 export default PositionAware;

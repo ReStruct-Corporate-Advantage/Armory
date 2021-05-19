@@ -1,8 +1,8 @@
-import React from 'react';
-import Search from './Search';
+import React from "react";
+import Search from "./Search";
 
-describe('Search', () => {
-   it('renders without error', () => {
+describe("Search", () => {
+   it("renders without error", () => {
 
    });
 });

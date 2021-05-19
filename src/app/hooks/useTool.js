@@ -50,8 +50,22 @@ function useTool(toolName) {
     }
 
     const profile = {
-        jsx: () => {},
-        type: "MODAL"
+        jsx: (data) => {
+            const profileOptions = data && data.profileOptions;
+            return <ul className="list-unstyled font-weight-bold">
+                {profileOptions && profileOptions.map(profileOption => <li style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
+                    if (profileOption.selected !== undefined) {
+                        const toggleValuesCloned = [...(toggleValues || profileOptions)];
+                        const clickedToggle = toggleValuesCloned.find(toggleInner => profileOption.name === toggleInner.name);
+                        clickedToggle.selected = !clickedToggle.selected
+                        setToggleValues(toggleValuesCloned);
+                    }
+                }}>
+                <span>{profileOption.name}</span>
+                {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
+            </li>)}</ul>
+        },
+        type: "TAGGED"
     }
 
     const sharearmament = {

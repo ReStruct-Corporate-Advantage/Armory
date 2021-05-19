@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect } from "react"
 
 const useCanvas = (draw, options={}) => {
   
@@ -7,7 +7,7 @@ const useCanvas = (draw, options={}) => {
   useEffect(() => {
     
     const canvas = canvasRef.current
-    const context = canvas.getContext(options.context || '2d')
+    const context = canvas.getContext(options.context || "2d")
     let frameCount = 0
     let animationFrameId
     const render = () => {

@@ -1,11 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import "./InputField.component.scss";
 
 const InputField = props => {
+  const {formId, id, inputClasses, label, labelClasses, layoutClasses, min, max, onChange, required, shrunk, type, value} = props;
+  const key = formId + "-" + id;
+  const [focussed, setFocussed] = useState(false);
+
   return (
-    <div className="c-InputField">
-      <input type="text"/>
+    <div className={`c-InputField row mb-4${layoutClasses ? " " + layoutClasses : ""}`}>
+      <div className="col-12 position-relative">
+        <input id={id} key={key} type={type} className={`${type !== "checkbox" ? " w-100" : ""}${inputClasses ? " " + inputClasses : ""}`} onChange={(e) => onChange(formId, id, e.target.value)} value={value} required={required}
+          onFocus={() => setFocussed(true)} onBlur={() => setFocussed(false)} min={min ? min : -999999999} max={max ? max : 9999999999} />
+        <label htmlFor={id} className={type !== "checkbox" ? `position-absolute label-contained${value || focussed || shrunk ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}` : labelClasses}>{label}</label>
+      </div>
     </div>
   );
 };

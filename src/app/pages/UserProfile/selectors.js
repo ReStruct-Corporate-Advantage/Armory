@@ -1,5 +1,5 @@
-import {createSelector} from 'reselect'
-import {createGetSelector} from 'reselect-immutable-helpers'
+import {createSelector} from "reselect"
+import {createGetSelector} from "reselect-immutable-helpers"
 
 const getData = ({data}) => data
 
@@ -10,5 +10,5 @@ export const getUserProfile = createSelector(
     }
 )
 
-export const getFormErrors = createGetSelector(getUserProfile, 'formErrors')
-export const getFormValues = createGetSelector(getUserProfile, 'formValues')
+export const getFormErrors = createGetSelector(getUserProfile, "formErrors")
+export const getFormValues = createGetSelector(getUserProfile, "formValues")

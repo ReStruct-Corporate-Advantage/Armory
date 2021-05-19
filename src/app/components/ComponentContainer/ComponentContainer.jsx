@@ -30,8 +30,8 @@ const ComponentContainer = props => {
     let verticalCellCount = Math.floor(height / layout);
     const cellsRenew = []
     // TODO fix this not working code to resize container
-    if (elemInner && elemInner.getAttribute('listener') !== 'true') {
-      elemInner.addEventListener('resize', () => {
+    if (elemInner && elemInner.getAttribute("listener") !== "true") {
+      elemInner.addEventListener("resize", () => {
         console.log(dimensions);
         setDimensions({
           height: elemInner.offsetHeight,

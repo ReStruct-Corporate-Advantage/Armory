@@ -1,8 +1,8 @@
-import React from 'react';
-import UserProfile from './UserProfile';
+import React from "react";
+import UserProfile from "./UserProfile";
 
-describe('UserProfile', () => {
-   it('renders without error', () => {
+describe("UserProfile", () => {
+   it("renders without error", () => {
 
    });
 });

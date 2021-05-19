@@ -1,4 +1,8 @@
 /* PLOP_INJECT_IMPORT */
+import PageLoader from "./PageLoader";
+import Modal from "./Modal";
+import ButtonsPanel from "./form-components/ButtonsPanel";
+import LoginForm from "./LoginForm";
 import QuickOptionsContainer from "./QuickOptionsContainer";
 import ToolActionContainer from "./ToolActionContainer";
 import ComponentEditor from "./ComponentEditor";
@@ -49,6 +53,10 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	PageLoader,
+	Modal,
+	ButtonsPanel,
+	LoginForm,
 	QuickOptionsContainer,
 	ToolActionContainer,
 	ComponentEditor,

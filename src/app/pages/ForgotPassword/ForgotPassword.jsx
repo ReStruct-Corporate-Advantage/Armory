@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './ForgotPassword.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import "./ForgotPassword.module.scss";
 
 const ForgotPassword = props => {
   return (

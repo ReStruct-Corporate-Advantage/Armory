@@ -1,3 +1,3 @@
-import Canvas from './Canvas.jsx';
+import Canvas from "./Canvas.jsx";
 
 export default Canvas;

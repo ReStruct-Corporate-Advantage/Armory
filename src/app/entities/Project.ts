@@ -1,5 +1,5 @@
 class Project {
-    // let properties:     
+    properties: Object[] = []
 }
 
 export default Project;

@@ -1,5 +1,5 @@
-export const UPDATE_FORM_VALUES = 'UPDATE_JOIN_FORM_VALUES'
-export const UPDATE_FORM_ERRORS = 'UPDATE_JOIN_FORM_ERRORS'
+export const UPDATE_FORM_VALUES = "UPDATE_JOIN_FORM_VALUES"
+export const UPDATE_FORM_ERRORS = "UPDATE_JOIN_FORM_ERRORS"
 
 export const updateFormValues = (formValues) => {
     return {

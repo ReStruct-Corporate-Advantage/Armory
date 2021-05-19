@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {FormField, SearchHelpers, ToolBox} from "../";
-import { TOOLS_CONFIG } from '../../config';
+import { TOOLS_CONFIG } from "../../config";
 import "./Search.component.scss";
 
 const Search = props => {

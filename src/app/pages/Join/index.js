@@ -1,3 +1,3 @@
-import Join from './Join.jsx';
+import Join from "./Join.jsx";
 
 export default Join;

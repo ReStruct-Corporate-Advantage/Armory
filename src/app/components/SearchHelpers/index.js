@@ -1,3 +1,3 @@
-import SearchHelpers from './SearchHelpers.jsx';
+import SearchHelpers from "./SearchHelpers.jsx";
 
 export default SearchHelpers;
