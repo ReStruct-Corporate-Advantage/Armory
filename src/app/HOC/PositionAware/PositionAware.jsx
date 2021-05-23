@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import * as $ from "jquery";
 import "./PositionAware.component.scss";
 
@@ -12,7 +11,7 @@ const PositionAware = Component => {
     }
 
     checkHeader () {
-      const container = $("[style*="position:fixed"]");
+      const container = $("[style*='position:fixed']");
       const header = container.find("header");
       console.log(container);
       console.log(header);
@@ -20,10 +19,6 @@ const PositionAware = Component => {
 
     render () {return <Component />};
   }
-};
-
-PositionAware.propTypes = {
-
 };
 
 export default PositionAware;
