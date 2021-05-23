@@ -7,6 +7,7 @@ import { dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout } fro
 import { getPresentComponentsConfig, getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
 import {ArmamentWrapper, LayoutSelector} from "../";
 import dndUtil from "../../utils/dndUtil";
+import DescriptorGenerator from "../../utils/DescriptorGenerator";
 import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
 
@@ -14,7 +15,6 @@ const ComponentContainer = props => {
   const {componentsConfig, boundingClientRectProvider, dispatchComponentsConfig, dispatchHistory} = props;
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
-  const [selected, setSelected] = useState([]);
   const elem = comContainerRef.current;
   const [dimensions, setDimensions] = useState({ 
     height: elem ? elem.offsetHeight : 0,
@@ -26,6 +26,7 @@ const ComponentContainer = props => {
     const elemInner = comContainerRef.current;
     const {width, height, left, top} = elemInner.getBoundingClientRect();
     boundingClientRectProvider({width, height, left, top});
+    DescriptorGenerator.generate();
     let horizontalCellCount = Math.floor(width / layout);
     let verticalCellCount = Math.floor(height / layout);
     const cellsRenew = []
@@ -56,8 +57,9 @@ const ComponentContainer = props => {
     }
     setCells(cellsRenew);
     // updateLayout
-  }, [props.layout, dimensions.height, dimensions.width]);
+  }, [props.layout, dimensions.height, dimensions.width, boundingClientRectProvider, dimensions]);
 
+  // eslint-disable-next-line no-unused-vars
   const [{isOver}, drop] = useDrop({
     accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
     drop: (item, monitor) => dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchHistory),

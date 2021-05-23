@@ -10,19 +10,19 @@ const getPresentComponentCreator = createSelector(
     }
 )
 
-const getPastComponentCreator = createSelector(
-    getData,
-    (dataState) => {
-        return dataState.pages.componentCreator.past
-    }
-)
+// const getPastComponentCreator = createSelector(
+//     getData,
+//     (dataState) => {
+//         return dataState.pages.componentCreator.past
+//     }
+// )
 
-const getFutureComponentCreator = createSelector(
-    getData,
-    (dataState) => {
-        return dataState.pages.componentCreator.future
-    }
-)
+// const getFutureComponentCreator = createSelector(
+//     getData,
+//     (dataState) => {
+//         return dataState.pages.componentCreator.future
+//     }
+// )
 
 
 export const getPresentComponentsConfig = createGetSelector(getPresentComponentCreator, "componentConfig")

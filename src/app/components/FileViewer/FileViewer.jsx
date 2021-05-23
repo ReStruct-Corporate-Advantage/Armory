@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./FileViewer.component.scss";
 
 const FileViewer = props => {
@@ -8,10 +7,6 @@ const FileViewer = props => {
       In Component FileViewer
     </div>
   );
-};
-
-FileViewer.propTypes = {
-
 };
 
 export default FileViewer;

@@ -1,3 +1,5 @@
+import Network from "../utils/network";
+
 const TOOLS_CONFIG = {
     CODE_VIEWER_TOOLS: {
         leftSnapped: true,
@@ -31,10 +33,11 @@ const TOOLS_CONFIG = {
     },
     SEARCH_BAR_TOOLS: {
         classes: "backgroundNone",
+        size: "1.1rem",
         tools: [
-            {name: "Search", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "fc.FcFolder", toggleIcon: "fc.FcOpenedFolder", placement: "right"},
-            {name: "DisplayConversation", btnClasses: "btn", btnText: "", visibility: "visible", order: 2, icon: "ai.AiFillEdit", toggleIcon: "fc.FcOpenedFolder", placement: "right"},
-            {name: "Speak", btnClasses: "btn", btnText: "", visibility: "visible", order: 3, icon: "fc.FcFolder", toggleIcon: "fc.FcOpenedFolder", placement: "right", disabled: true}
+            {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right"},
+            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right"},
+            {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 3, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right"}
         ]
     },
     PAGE_TOOLS: {
@@ -99,7 +102,14 @@ const TOOLS_CONFIG = {
                         },
                         {
                             name: "Logout",
-                            onClick: "logout"
+                            onClick: () => {
+                                Network.get("http://localhost:3002/api/auth/logout")
+                                    .then(res => {
+                                        if (res.status === 200) {
+                                            window.location.pathname = "/login";
+                                        }
+                                    })
+                            }
                         }
                     ]
                 }},

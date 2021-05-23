@@ -7,7 +7,7 @@ const Canvas = props => {
   const { context, ...moreConfig } = options;
   const canvasRef = useCanvas(draw, {context});
 
-  return <canvas ref={canvasRef} className="c-Canvas" {...rest} />;
+  return <canvas ref={canvasRef} className="c-Canvas" {...rest} {...moreConfig} />;
 };
 
 Canvas.propTypes = {

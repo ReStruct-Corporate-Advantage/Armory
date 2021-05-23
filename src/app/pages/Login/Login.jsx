@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
-import {dispatchDeviceType, setLoggedIn} from "../../global-actions";
-import {Header, LoginForm} from "./../../components";
+import {dispatchDeviceType} from "../../global-actions";
+import {LoginForm} from "./../../components";
 import Helper from "../../utils/Helper";
 import "./Login.module.scss";
 
@@ -23,7 +23,6 @@ const Login = props => {
 
   return (
     <div className="c-Login">
-      <Header />
       <main className="c-Login__content d-flex flex-row flex-nowrap position-fixed w-100 overflow-auto">
         <LoginForm />
       </main>

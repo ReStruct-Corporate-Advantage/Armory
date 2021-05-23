@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./DefinePropertiesForm.component.scss";
 
 const DefinePropertiesForm = props => {
@@ -8,10 +7,6 @@ const DefinePropertiesForm = props => {
       In Component DefinePropertiesForm
     </div>
   );
-};
-
-DefinePropertiesForm.propTypes = {
-
 };
 
 export default DefinePropertiesForm;

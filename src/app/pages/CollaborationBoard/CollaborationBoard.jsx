@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./CollaborationBoard.module.scss";
 
 const CollaborationBoard = props => {
@@ -8,10 +7,6 @@ const CollaborationBoard = props => {
       In Page CollaborationBoard
     </div>
   );
-};
-
-CollaborationBoard.propTypes = {
-
 };
 
 export default CollaborationBoard;

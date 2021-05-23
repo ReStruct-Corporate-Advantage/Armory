@@ -19,7 +19,7 @@ const useCanvas = (draw, options={}) => {
     return () => {
       window.cancelAnimationFrame(animationFrameId)
     }
-  }, [draw])
+  })
   return canvasRef
 }
 export default useCanvas

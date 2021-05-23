@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ForgotPassword.module.scss";
 
 const ForgotPassword = props => {
@@ -8,10 +7,6 @@ const ForgotPassword = props => {
       In Page ForgotPassword
     </div>
   );
-};
-
-ForgotPassword.propTypes = {
-
 };
 
 export default ForgotPassword;

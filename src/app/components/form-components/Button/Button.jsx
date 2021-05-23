@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Button.component.scss";
 
 const Button = props => {
@@ -8,10 +7,6 @@ const Button = props => {
       {props.displayValue ? props.displayValue : "Submit"}
     </input>
   );
-};
-
-Button.propTypes = {
-
 };
 
 export default Button;

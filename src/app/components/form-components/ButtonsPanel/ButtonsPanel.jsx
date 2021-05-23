@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Button} from "@material-ui/core";
 import "./ButtonsPanel.component.scss";
 
@@ -16,10 +15,6 @@ const ButtonsPanel = props => {
       </div>
     </div>
   );
-};
-
-ButtonsPanel.propTypes = {
-
 };
 
 export default ButtonsPanel;

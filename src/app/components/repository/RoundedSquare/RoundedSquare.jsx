@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./RoundedSquare.component.scss";
 
 const RoundedSquare = props => {
@@ -8,10 +7,6 @@ const RoundedSquare = props => {
       In Component RoundedSquare
     </div>
   );
-};
-
-RoundedSquare.propTypes = {
-
 };
 
 export default RoundedSquare;

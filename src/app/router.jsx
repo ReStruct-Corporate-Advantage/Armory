@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Provider } from "react-redux"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable"
-import { Modal, PageLoader } from "./components";
+import { Header, Modal, PageLoader } from "./components";
 
 const LoadableAuthenticator = Loadable({
     loader: () => import("./authenticator"),
@@ -31,6 +31,7 @@ class Router extends React.Component {
         const { store } = this.props
         return (
             <Provider store={store}>
+                <Header />
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={LoadableComponentCreator} />

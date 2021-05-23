@@ -41,12 +41,16 @@ export default class ContainerEventHandlers {
         switch (action) {
             case ACTIONS.UNDO:
                 ContainerEventHandlers.processUndo(componentConfig);
+                break;
             case ACTIONS.REDO:
                 ContainerEventHandlers.processRedo(componentConfig);
+                break;
             case ACTIONS.SELECTMANY:
                 ContainerEventHandlers.selectMultiple(componentConfig);
+                break;
             case ACTIONS.SELECTALL:
                 ContainerEventHandlers.selectAll(componentConfig);
+                break;
             default:
                 break;
         }

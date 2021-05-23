@@ -10,18 +10,18 @@ const ToolActionContainer = props => {
   const {children, containerClasses, data} = props;
   const content = (
     <>
-      <div class="modal-header">
-        <h5 class="modal-title">{data && data.modalTitle}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <div className="modal-header">
+        <h5 className="modal-title">{data && data.modalTitle}</h5>
+        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
         {children}
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-primary">Save</button>
+        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </>
   );
@@ -29,8 +29,8 @@ const ToolActionContainer = props => {
   return (
     <CSSTransition in={true} timeout={500} classNames="expand" appear>
       <div id="tool-action-modal" className={`c-ToolActionContainer modal${containerClasses ? " " + containerClasses : ""}`} onClick={() => {}}>
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
           {content}
           </div>
         </div>

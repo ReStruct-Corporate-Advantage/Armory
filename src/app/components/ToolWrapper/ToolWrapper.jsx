@@ -44,7 +44,7 @@ const ToolWrapper = memo(props => {
           {hoverClasses && <span className={`button-text${hovered || buttonClicked ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>
         {hovered && !buttonClicked && <RichTooltip iconSize={iconSize} />}
-        {buttonClicked && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data}>{jsx(data)}</QuickOptionsContainer>: null}
+        {buttonClicked && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data} show={buttonClicked}>{jsx(data)}</QuickOptionsContainer>: null}
       </div>
     </IconContext.Provider>
   );

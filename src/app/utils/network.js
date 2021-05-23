@@ -57,7 +57,7 @@ export default class Network {
   static async crud(urlString, options) {
     const response = await fetch(urlString, options);
     const { ok, status, headers } = response;
-    console.log(response);
+//     console.log(response);
     if (ok) {
       if (headers.get("content-type").indexOf("application/json") !== -1) {
         const body = await response.json();

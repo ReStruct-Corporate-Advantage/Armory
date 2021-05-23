@@ -1,8 +1,11 @@
 import React from "react";
+import {connect} from "react-redux";
 import { Redirect, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable"
 import { PageLoader } from "./components";
+import { dispatchUserDetails, setLoggedIn } from "./global-actions";
 import Helper from "./utils/Helper";
+import Network from "./utils/network";
 
 const LoadableDashboard = Loadable({
   loader: () => import("./pages/Dashboard"),
@@ -55,14 +58,19 @@ const LoadableCollaborationBoard = Loadable({
 })
 
 function Authenticator(props) {
-  const { history, match } = props;
+  const { dispatchUserDetails, history, match, setLoggedIn } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token")
   const username = Helper.getCookie("auth_session_user");
+  setLoggedIn(isLoggedIn);
   if (!isLoggedIn) {
     history.push("/login");
+  } else {
+    Network.get("http://localhost:3002/api/user/current")
+      .then(res => dispatchUserDetails(res.body))
+      .catch(e => console.log(e));
   }
 
-  return <div>
+  return <>
     <Route exact path="/" render={() => <Redirect to={`/${username}`} />} />
     <Route exact path={match.path} component={LoadableDashboard} />
     <Route path={`${match.path}/project`} component={LoadableProjectCreator} />
@@ -74,7 +82,12 @@ function Authenticator(props) {
     <Route path={`${match.path}/notifications`} component={LoadableNotifications} />
     <Route path={`${match.path}/settings`} component={LoadableSettings} />
     <Route path={`${match.path}/project/:project/collaborate`} component={LoadableCollaborationBoard} />
-  </div>
+  </>
 }
 
-export default withRouter(Authenticator);
+const mapDispatchToProps = {
+  dispatchUserDetails,
+  setLoggedIn
+}
+
+export default connect(null, mapDispatchToProps)(withRouter(Authenticator))

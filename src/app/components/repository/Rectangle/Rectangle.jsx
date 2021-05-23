@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Rectangle.component.scss";
 
 const Rectangle = props => {
@@ -8,10 +7,6 @@ const Rectangle = props => {
       In Component Rectangle
     </div>
   );
-};
-
-Rectangle.propTypes = {
-
 };
 
 export default Rectangle;

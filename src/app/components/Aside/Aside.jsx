@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import * as $ from "jquery";
-// import PositionAware from "./../../HOC/PositionAware";
 import * as components from "./../";
 import "./Aside.component.scss";
 

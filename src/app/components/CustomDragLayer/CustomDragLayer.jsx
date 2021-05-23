@@ -40,7 +40,7 @@ function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapTo
 
 const CustomDragLayer = (props) => {
   const {clientRect, layout} = props
-  const { itemType, isDragging, item, initialOffset, currentOffset, clientOffset, } = useDragLayer((monitor) => ({
+  const { itemType, isDragging, item, initialOffset, clientOffset, } = useDragLayer((monitor) => ({
       item: monitor.getItem(),
       itemType: monitor.getItemType(),
       clientOffset: monitor.getClientOffset(),
@@ -67,7 +67,7 @@ const CustomDragLayer = (props) => {
   </div>;
 };
 
-const propTypes = {
+CustomDragLayer.props = {
   clientRect: PropTypes.object,
   layout: PropTypes.string
 }

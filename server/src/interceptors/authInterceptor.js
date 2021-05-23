@@ -1,9 +1,10 @@
-var express = require("express");
-var router = express.Router();
-const jwt = require("jsonwebtoken");
+import express from "express";
+import jwt from "jsonwebtoken";
+
+const router = express.Router();
 
 router.use(function (req, res, next) {
-    var token = req.cookies[global.constants.ACCESS_TOKEN_IDENTIFIER];
+    const token = req.cookies[global.constants.ACCESS_TOKEN_IDENTIFIER];
     if (token) {
       jwt.verify(token,
         global.config.auth.secretKey,
@@ -29,4 +30,4 @@ router.use(function (req, res, next) {
     }
 });
 
-module.exports = router;
+export default router;

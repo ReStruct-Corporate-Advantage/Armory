@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./CodeLineController.component.scss";
 
 const CodeLineController = props => {
@@ -8,10 +7,6 @@ const CodeLineController = props => {
       In Component CodeLineController
     </div>
   );
-};
-
-CodeLineController.propTypes = {
-
 };
 
 export default CodeLineController;

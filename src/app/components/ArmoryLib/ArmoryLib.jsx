@@ -6,7 +6,7 @@ import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
   const [armory, setArmory] = useState([])
-  const {clientRect} = props;
+  // const {clientRect} = props;
   useEffect(() => {
     // fetch("http://localhost:3001/armory/image")
     //   .then(res => console.log(res));

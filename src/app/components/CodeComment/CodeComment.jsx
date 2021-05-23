@@ -4,6 +4,7 @@ import "./CodeComment.component.scss";
 
 const CodeComment = memo(props => {
   return (
+    // eslint-disable-next-line react/jsx-no-comment-textnodes
     <p className="c-CodeComment" style={{marginLeft: `${props.indent * 0.5}rem`}}>// {props.comment}</p>
   );
 });

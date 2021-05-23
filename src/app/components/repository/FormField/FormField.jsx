@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import "./FormField.component.scss";
 import { Button, InputField } from "../..";
 
@@ -9,9 +8,11 @@ const FormField = props => {
   const getComponentByType = (type) => {
     switch (type) {
       case "input":
-        return <InputField onChange={onChange} {...props} />;
+        return <InputField onChange={onChange} state={state} {...props} />;
       case "button":
-        return <Button {...props} />
+        return <Button {...props} />;
+      default:
+        return null;
     }
   }
   return (
@@ -19,10 +20,6 @@ const FormField = props => {
       {getComponentByType(props.type)}
     </div>
   );
-};
-
-FormField.propTypes = {
-
 };
 
 export default FormField;

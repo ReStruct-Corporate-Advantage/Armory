@@ -46,6 +46,14 @@ class Helper {
         const descryptedData = buff.toString('utf-8');
         return descryptedData;
     }
+
+    static filterObject(obj, filterKeys) {
+        if (!obj || !filterKeys || !filterKeys.length > 0)
+            return obj;
+        const objClone = {...obj};
+        filterKeys.forEach(key => delete objClone[key]);
+        return objClone;
+    }
 }
 
 export default Helper;

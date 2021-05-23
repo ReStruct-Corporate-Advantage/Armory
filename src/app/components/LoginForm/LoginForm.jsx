@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {withRouter, Redirect} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {makeStyles} from "@material-ui/core/styles";
 import { setLoggedIn, setUserRole } from "../../pages/Login/actions";
@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const LoginForm = props => {
-  const {setLoggedIn, setUserRole, history} = props;
+  const {setLoggedIn, history} = props;
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const [fieldValues, setFieldValues] = useState({loginform: {}, registerform: {}})
@@ -81,7 +81,7 @@ const LoginForm = props => {
             setLoggedIn(true);
             setLoginApiError(false);
             setLoginApiMessage("")
-            const username = res.body.user && res.body.user[0] && res.body.user[0].username;
+            const username = res.body.user && res.body.user.username;
             history.push(`/${username}`);
           } else if (res.body.error) {
             setLoginApiError(true);

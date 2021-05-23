@@ -1,4 +1,3 @@
-import {readFile, rename, writeFile} from "fs";
 import jwt from "jsonwebtoken";
 import dao from "./../dao/user.js";
 import Helper from "./../utils/helper.js";
@@ -13,7 +12,7 @@ class AuthController {
         try {
             dao.findUserByUserName(userdata.username)
                 .then(res_db => {
-                    if (res_db && res_db.length > 0) {
+                    if (res_db) {
                         let token = jwt.sign(userdata, global.config.auth.secretKey, {
                             algorithm: global.config.auth.algorithm,
                             expiresIn: "21600m" // 15 days
@@ -79,12 +78,9 @@ class AuthController {
     }
 
     logout (req, res) {
-        req.session.destroy(function(){
-            req.session = null;
-            res.cookie("auth_session_token", "", { expires: new Date() });
-            res.cookie("auth_session_user", "", { expires: new Date() });
-            res.redirect("http://localhost:7992");
-        });
+        res.cookie("auth_session_token", "", { expires: new Date() });
+        res.cookie("auth_session_user", "", { expires: new Date() });
+        res.status(200).json({message: "Logged out successfully, redirecting to login..."});
     }
 }
 

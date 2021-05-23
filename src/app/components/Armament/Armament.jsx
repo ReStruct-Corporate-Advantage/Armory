@@ -17,7 +17,7 @@ const Armament = props => {
 
   const armamentId = `c-Armament-${index}`
   category.id = armamentId;
-  const [{isDragging, clientOffset}, drag, preview] = useDrag({
+  const [{isDragging}, drag, preview] = useDrag({
     item: {type: ITEM_TYPE.ARMAMENT, index, category},
 		collect: monitor => ({
       isDragging: !!monitor.isDragging(),
@@ -28,7 +28,7 @@ const Armament = props => {
 
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
-  }, []);
+  }, [preview]);
 
   return (
     <div id={armamentId}

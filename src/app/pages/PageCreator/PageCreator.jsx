@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./PageCreator.module.scss";
 
 const PageCreator = props => {
@@ -8,10 +7,6 @@ const PageCreator = props => {
       In Page PageCreator
     </div>
   );
-};
-
-PageCreator.propTypes = {
-
 };
 
 export default PageCreator;

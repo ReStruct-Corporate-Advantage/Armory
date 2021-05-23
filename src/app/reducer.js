@@ -1,6 +1,6 @@
 import Immutable from "immutable"
 import {combineReducers} from "redux"
-import { IS_MOBILE } from "./global-actions"
+import { DISPATCH_USER_DETAILS, IS_MOBILE, SET_LOGGED_IN } from "./global-actions"
 import componentCreatorReducer from "./pages/ComponentCreator/reducer"
 import componentSelectorReducer from "./pages/ComponentSelector/reducer"
 
@@ -8,6 +8,8 @@ const initialState = Immutable.Map({modal: {meta: {}}})
 
 const globalReducer = (state = initialState, action) => {
     switch (action.type) {
+        case DISPATCH_USER_DETAILS:
+        case SET_LOGGED_IN:
         case IS_MOBILE:
             return state.mergeDeep(action.payload)
         default:

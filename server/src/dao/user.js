@@ -2,20 +2,20 @@ import {User} from "./../models/user.js";
 
 class UserDAO {
 
-    static async getUsers() {
+    static async getAllUsers() {
         return await User.find();
     }
     
     static async findUserById(_id) {
-        return await User.find({_id})
+        return await User.findOne({_id})
     }
 
     static async findUserByEmail(email) {
-        return await User.find({email});
+        return await User.findOne({email});
     }
 
     static async findUserByUserName(username) {
-        return await User.find({username});
+        return await User.findOne({username}).lean();
     }
 
     static async createUser(user) {

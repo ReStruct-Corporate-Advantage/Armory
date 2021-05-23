@@ -8,14 +8,14 @@ import * as components from "./..";
 import "./Modal.component.scss";
 
 const Modal = props => {
-  const {display, name, meta} = props.modal;
-  const {body, footer, header, primaryButtonHandler, primaryButtonText, secondaryButtonText, title} = meta;
+  const {display, meta} = props.modal;
+  const {body, footer, header, primaryButtonText, secondaryButtonText, title} = meta;
   const Component = typeof body==="string" ? components[body] ? components[body]: null : (body || null);
   //const submitHandler =  typeof primaryButtonHandler === "function" ? primaryButtonHandler : window[primaryButtonHandler];
   const [defaultHandler,setDefaultHandler] = useState()
 
   return (
-    <div className={`c-Modal modal fade ${display ? "show": ""}`} style={{display:display? "block":"none"}}id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className={`c-Modal modal fade ${display ? "show": ""}`} style={{display:display? "block":"none"}}id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <form className="modal-content">
           <div className="modal-header">

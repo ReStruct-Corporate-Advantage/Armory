@@ -1,6 +1,5 @@
 import { CodeCollapsable, CodeComment, CodeLine, CodeFragment } from "../components";
 import {FRAGMENT_TYPE} from "./../constants/types";
-import ComponentBuilder from "./../entities/ComponentBuilder";
 
 class CodeGenerator {
 
@@ -47,16 +46,16 @@ class CodeGenerator {
             innerText: text,
             order: 0
         });
-        return children.map(component => {
+        return children.map((component, key) => {
             if (component.componentName === "TextComponent") {
-                return <CodeLine indent={counter} ><CodeFragment type={FRAGMENT_TYPE.TEXT} value={component.innerText} /></CodeLine>
+                return <CodeLine key={key} indent={counter} ><CodeFragment type={FRAGMENT_TYPE.TEXT} value={component.innerText} /></CodeLine>
             } else {
-                return this.processDescriptor(component, counter);
+                return this.processDescriptor(component, counter, key);
             }
         })
     }
 
-    processDescriptor (component, counter) {
+    processDescriptor (component, counter, key) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
         descriptor.uuid = component.uuid;
         const children = <>
@@ -64,12 +63,11 @@ class CodeGenerator {
             {this.generateChildren(component, descriptor.children && descriptor.children.length > 0 ? counter + 1 : counter)}
             {this.generateClosingTag(component)}
         </>
-        return <CodeCollapsable componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
+        return <CodeCollapsable key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
     }
 
     generateStartingTag (component) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
-        const builder = new ComponentBuilder("");
         const fragments = []
         const tag = descriptor.elemType;
         const id = descriptor.uuid;

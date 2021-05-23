@@ -13,6 +13,26 @@
     border: 2px solid lightgrey;
     border-radius: 3px;
 
+    &.right-bottom:after {
+        bottom: 100%;
+        left: 10%;
+    }
+
+    &.left-bottom:after {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    &.right-top:after {
+        top: 100%;
+        left: 10%;
+    }
+
+    &.left-top:after {
+        top: 100%;
+        right: 10%;
+    }
+
     &.expand-enter, &.expand-appear {
         max-height: 0;
         max-width: 0;

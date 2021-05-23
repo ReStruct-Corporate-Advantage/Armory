@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ComponentEditor.component.scss";
 
 const ComponentEditor = props => {
@@ -8,10 +7,6 @@ const ComponentEditor = props => {
       In Component ComponentEditor
     </div>
   );
-};
-
-ComponentEditor.propTypes = {
-
 };
 
 export default ComponentEditor;

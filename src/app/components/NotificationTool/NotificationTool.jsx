@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./NotificationTool.component.scss";
 
 const NotificationTool = props => {
@@ -8,10 +7,6 @@ const NotificationTool = props => {
       In Component NotificationTool
     </div>
   );
-};
-
-NotificationTool.propTypes = {
-
 };
 
 export default NotificationTool;

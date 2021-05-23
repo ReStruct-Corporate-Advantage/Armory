@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Circle.component.scss";
 
 const Circle = props => {
@@ -8,10 +7,6 @@ const Circle = props => {
       In Component Circle
     </div>
   );
-};
-
-Circle.propTypes = {
-
 };
 
 export default Circle;

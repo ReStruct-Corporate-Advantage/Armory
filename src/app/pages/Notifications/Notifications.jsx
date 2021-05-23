@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Notifications.module.scss";
 
 const Notifications = props => {
@@ -8,10 +7,6 @@ const Notifications = props => {
       In Page Notifications
     </div>
   );
-};
-
-Notifications.propTypes = {
-
 };
 
 export default Notifications;

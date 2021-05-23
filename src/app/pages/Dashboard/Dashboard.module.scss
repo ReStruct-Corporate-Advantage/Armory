@@ -1,3 +1,55 @@
 .c-Dashboard {
-  
+  .c-Dashboard__main {
+    .page-header {
+        padding: 1.5rem;
+    }
+    .c-Dashboard__main__resume {
+        min-width: 25rem;
+        min-height: 35rem;
+        overflow: scroll;
+        height: 0px;
+    }
+
+    .c-Dashboard__main__buttons {
+        min-width: 25rem;
+        min-height: 35rem;
+        overflow: scroll;
+        height: 0px;
+
+        .c-Dashboard__btn {
+            font-size: 1rem;
+            padding: 1rem;
+            color: #2196F3;
+            border-left: 10px solid #2196F3;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            background: #ddffff;
+            border-radius: 2.8rem;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background: #2196F3;
+                border-left: 10px solid #2196F3;
+                border-right: 10px solid #09085e;
+                color: #ddffff;
+            }
+        }
+    }
+
+    .section-header, .option-separator {
+        padding: 1rem;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        font-size: 2rem;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0));;
+        color: #444;
+        font-weight: bolder;
+    }
+
+    .section-header {
+        font-size: 1.4rem;
+        color: rgba(16, 46, 16, 0.8);
+    }
+  }
 }

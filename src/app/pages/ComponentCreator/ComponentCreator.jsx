@@ -1,27 +1,20 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {DndProvider} from "react-dnd"
 import Backend from "react-dnd-html5-backend"
-import {getPresentComponentsConfig, isMobile} from "./selectors";
-import {dispatchDeviceType} from "./actions";
-import {Aside, Header, Main, ToolActionContainer} from "./../../components";
-import Helper from "./../../utils/Helper";
+import {getPresentComponentsConfig} from "./selectors";
+import {Aside, Main, ToolActionContainer} from "./../../components";
 import ContainerEventHandlers from "../../utils/ContainerEventHandlers";
 import "./ComponentCreator.module.scss";
 
 const ComponentCreator = props => {
-  const {componentConfig, dispatchDeviceType} = props
+  const {componentConfig} = props
   const [clientRect, setClientRect] = useState({});
-  useEffect(() => {
-    dispatchDeviceType({isMobile: Helper.isMobile()})
-    document.body.classList.add("body-modifier")
-  }, [dispatchDeviceType])
 
   return <DndProvider backend={Backend}>
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
-        <Header />
         <main className="c-ComponentCreator__content d-flex flex-row flex-nowrap position-fixed" 
           tabIndex="0"
           onKeyDown = {(e) => ContainerEventHandlers.handleKeyDown(e, componentConfig)}
@@ -43,21 +36,12 @@ const ComponentCreator = props => {
 
 ComponentCreator.propTypes = {
   componentConfig: PropTypes.object,
-  isMobile: PropTypes.bool,
   dispatchDeviceType: PropTypes.func
 };
 
 
 const mapStateToProps = createPropsSelector({
-  componentConfig: getPresentComponentsConfig,
-  isMobile: isMobile
+  componentConfig: getPresentComponentsConfig
 })
 
-const mapDispatchToProps = {
-  dispatchDeviceType
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ComponentCreator);
+export default connect(mapStateToProps)(ComponentCreator);

@@ -1,7 +1,6 @@
 import React, {memo} from "react";
 import PropTypes from "prop-types";
 import "./CodeLine.component.scss";
-import CodeLineController from "../CodeLineController";
 
 const CodeLine = memo(props => {
   return <div className="c-CodeLine" style={{marginLeft: `${props.indent * 0.5}rem`}}>

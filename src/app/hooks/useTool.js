@@ -53,14 +53,7 @@ function useTool(toolName) {
         jsx: (data) => {
             const profileOptions = data && data.profileOptions;
             return <ul className="list-unstyled font-weight-bold">
-                {profileOptions && profileOptions.map(profileOption => <li style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
-                    if (profileOption.selected !== undefined) {
-                        const toggleValuesCloned = [...(toggleValues || profileOptions)];
-                        const clickedToggle = toggleValuesCloned.find(toggleInner => profileOption.name === toggleInner.name);
-                        clickedToggle.selected = !clickedToggle.selected
-                        setToggleValues(toggleValuesCloned);
-                    }
-                }}>
+                {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
                 <span>{profileOption.name}</span>
                 {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
             </li>)}</ul>
@@ -77,7 +70,7 @@ function useTool(toolName) {
         jsx: (data) => {
             const toggles = data && data.toggles;
             return <ul className="list-unstyled font-weight-bold">
-                {toggles && toggles.map(toggle => <li style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
+                {toggles && toggles.map((toggle, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
                     if (toggle.selected !== undefined) {
                         const toggleValuesCloned = [...(toggleValues || toggles)];
                         const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);

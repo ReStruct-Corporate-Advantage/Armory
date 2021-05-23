@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Search, ToolBox} from "../";
 import {TOOLS_CONFIG} from "./../../config";
 import "./Header.component.scss";
@@ -12,10 +11,6 @@ const Header = props => {
       <ToolBox toolsConfig={TOOLS_CONFIG.GLOBAL_TOOLS} />
     </header>
   );
-};
-
-Header.propTypes = {
-
 };
 
 export default Header;

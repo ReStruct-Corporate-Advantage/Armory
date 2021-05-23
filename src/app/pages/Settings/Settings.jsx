@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Settings.module.scss";
 
 const Settings = props => {
@@ -8,10 +7,6 @@ const Settings = props => {
       In Page Settings
     </div>
   );
-};
-
-Settings.propTypes = {
-
 };
 
 export default Settings;

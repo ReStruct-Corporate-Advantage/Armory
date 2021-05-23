@@ -4,15 +4,15 @@ import {FRAGMENT_TYPE} from "./../../constants/types";
 import "./CodeFragment.component.scss";
 
 const CodeFragment = memo(props => {
-  const {count, initial, left, attrKey, type, value} = props;
+  const {initial, left, attrKey, type, value} = props;
   let fragment = "";
 
-  const processObjectValueOfAttribute = (valueObj) => {
-    return valueObj && Object.keys(valueObj) > 0 ? Object.keys(valueObj).reduce((acc, key) => {
-        const value = valueObj[key];
-        return acc + `${key}=${value} `;
-    }, ""): ""
-  }
+  // const processObjectValueOfAttribute = (valueObj) => {
+  //   return valueObj && Object.keys(valueObj) > 0 ? Object.keys(valueObj).reduce((acc, key) => {
+  //       const value = valueObj[key];
+  //       return acc + `${key}=${value} `;
+  //   }, ""): ""
+  // }
 
   switch (type) {
     case FRAGMENT_TYPE.ENCLOSER:
@@ -23,10 +23,10 @@ const CodeFragment = memo(props => {
       fragment = value
       break;
     case FRAGMENT_TYPE.SPACER:
-      if (count) {
-        while (count > 0) {
+      if (props.count) {
+        while (props.count > 0) {
           fragment += " ";
-          count--;
+          props.count--;
         }
       } else {
         fragment = " ";

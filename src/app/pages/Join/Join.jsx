@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./Join.module.scss";
 
 const Join = props => {
@@ -8,10 +7,6 @@ const Join = props => {
       In Page Join
     </div>
   );
-};
-
-Join.propTypes = {
-
 };
 
 export default Join;
