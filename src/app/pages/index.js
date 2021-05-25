@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import Help from "./Help";
+import ComponentImporter from "./ComponentImporter";
 import ProjectCreator from "./ProjectCreator";
 import PageCreator from "./PageCreator";
 import ForgotPassword from "./ForgotPassword";
@@ -14,6 +16,8 @@ import Dashboard from "./Dashboard";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	Help,
+	ComponentImporter,
 	ProjectCreator,
 	PageCreator,
 	ForgotPassword,

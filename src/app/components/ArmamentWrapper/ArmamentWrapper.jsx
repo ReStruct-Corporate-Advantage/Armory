@@ -16,8 +16,8 @@ const ArmamentWrapper = memo(props => {
   const [{isDragging}, drag] = useDrag({
     item: {type: ITEM_TYPE.ARMAMENT_WRAPPER, index: componentConfig.index, category: componentConfig},
     end(item, monitor) {
-      const dr = monitor.getDropResult();
-      console.log(dr);
+      // const dr = monitor.getDropResult();
+//       console.log(dr);
       // if (monitor.didDrop() && item.listId !== dropListId) {
       //   removearmament(index, listId)
       // }
@@ -37,8 +37,8 @@ const ArmamentWrapper = memo(props => {
       }
       const dragIndex = item.index
       const hoverIndex = componentConfig.index
-      console.log("drag " + dragIndex)
-      console.log("hover " + hoverIndex)
+//       console.log("drag " + dragIndex)
+//       console.log("hover " + hoverIndex)
       if (dragIndex === hoverIndex) {
         return
       }

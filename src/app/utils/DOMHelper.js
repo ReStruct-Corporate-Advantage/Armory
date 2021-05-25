@@ -17,7 +17,7 @@ class DOMHelper {
             domProperties: true,
             filter: false,
             htmlOnly: false,
-            metadata: true,
+            metadata: false,
             serialProperties: false,
             stringify: false
         };
@@ -26,6 +26,34 @@ class DOMHelper {
         this.ignored = [ "attributes", "childNodes", "children", "classList", "dataset", "style" ];
         this.serials = [ "innerHTML", "innerText", "outerHTML", "outerText", "prefix", "text", "textContent", "wholeText" ];
     }
+
+    static process(str) {
+        var div = document.createElement('div');
+        div.innerHTML = str.trim();
+      
+        return DOMHelper.format(div, 0).innerHTML;
+      }
+      
+      static format(node, level) {
+        var indentBefore = new Array(level++ + 1).join('  '),
+          indentAfter = new Array(level - 1).join('  '),
+          textNode;
+      
+        for (var i = 0; i < node.children.length; i++) {
+          textNode = document.createTextNode('\n' + indentBefore);
+          node.insertBefore(textNode, node.children[i]);
+      
+          DOMHelper.format(node.children[i], level);
+      
+          if (node.lastElementChild === node.children[i]) {
+            textNode = document.createTextNode('\n' + indentAfter);
+            node.appendChild(textNode);
+          }
+        }
+      
+        return node;
+      }
+      
 
     toJSON(node, opts) {
         var copy, options = {}, output = {};

@@ -11,9 +11,19 @@ const Dashboard = props => {
   const name = userDetails ? userDetails.firstname : ""
   return (
     <div className="c-Dashboard d-flex flex-column h-100">
-      <main className="c-Dashboard__main p-4 text-center flex-grow-1">
+      <main className="c-Dashboard__main p-4 mb-5 overflow-auto text-center flex-grow-1">
         <h4 className="page-header glass-panel text-left">Welcome {name}!</h4>
         <div className="content row mt-5">
+          {userDetails && userDetails.role && userDetails.role === "alpha" && <div className="col-7 mx-auto mb-5">
+            <div className="c-Dashboard__main__admin glass-panel mx-auto">
+              <div className="row">
+                <p className="section-header col-12">Armory Management</p>
+                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mt-4" onClick={() => history.push(`/${userDetails.username}/manage/component`)}>Manage Components</button>
+                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mt-4" onClick={() => history.push(`/${userDetails.username}/manage/project`)}>Manage Pages</button>
+                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-3 mt-4" onClick={() => history.push(`/${userDetails.username}/manage/project`)}>Manage Projects</button>
+              </div>
+            </div>
+          </div>}
           <div className="col-6">
             <div className="c-Dashboard__main__resume glass-panel mx-auto">
               <div className="row">

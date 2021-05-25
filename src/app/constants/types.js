@@ -18,4 +18,13 @@ const FRAGMENT_TYPE = {
     TEXT: "text"
 }
 
-export {ITEM_TYPE, ELEMENT_TYPE, FRAGMENT_TYPE};
+const ROLES = {
+    ADMIN: "alpha",
+    DEVELOPER: "developer",
+    DESIGNER: "designer",
+    GUEST: "guest",
+    TRAINER: "trainer",
+    STUDENT: "student"
+}
+
+export {ITEM_TYPE, ELEMENT_TYPE, FRAGMENT_TYPE, ROLES};
