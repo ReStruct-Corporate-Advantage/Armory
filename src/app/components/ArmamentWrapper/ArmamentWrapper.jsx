@@ -1,31 +1,28 @@
-import React, { memo, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { useDrag, useDrop } from "react-dnd";
+import {getEmptyImage} from "react-dnd-html5-backend";
 import * as repository from "./../";
 import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = memo(props => {
-  const {componentConfig} = props;
+  const {componentConfig, setSelectedComponent} = props;
   const Component = repository[componentConfig.name];
-//   console.log(ReactDOMServer.renderToString(<Component />));
 
   const ref = useRef(null)
-  
+
   // Use this component to be dragged and dropped on other potential drop targets
-  const [{isDragging}, drag] = useDrag({
+  const [{isDragging}, drag, preview] = useDrag({
     item: {type: ITEM_TYPE.ARMAMENT_WRAPPER, index: componentConfig.index, category: componentConfig},
-    end(item, monitor) {
-      // const dr = monitor.getDropResult();
-//       console.log(dr);
-      // if (monitor.didDrop() && item.listId !== dropListId) {
-      //   removearmament(index, listId)
-      // }
-    },
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
 		}),
   })
+  
+  useEffect(() => {
+    preview(getEmptyImage(), { captureDraggingState: true });
+  }, [preview]);
 
   // Use this component for dropping other items
   const [, drop] = useDrop({
@@ -37,8 +34,6 @@ const ArmamentWrapper = memo(props => {
       }
       const dragIndex = item.index
       const hoverIndex = componentConfig.index
-//       console.log("drag " + dragIndex)
-//       console.log("hover " + hoverIndex)
       if (dragIndex === hoverIndex) {
         return
       }
@@ -57,24 +52,6 @@ const ArmamentWrapper = memo(props => {
     },
     drop: (item, monitor) => {
       console.log(monitor.getClientOffset())
-      // let componentsConfigClone;
-      // const {left, top} = comContainerRef.current.getBoundingClientRect();
-      // const dropCoords = monitor.getClientOffset();
-      // componentsConfigClone = {...componentsConfig};
-      // const componentsClone = [...componentsConfigClone.components];
-      // componentsConfigClone.components = componentsClone;
-      // if (item.type === ITEM_TYPE.ARMAMENT) {
-      //   componentsConfigClone.count = componentsConfigClone.count + 1;
-      //   componentsClone.push({name: item.category.componentName, index: componentsConfigClone.count, top: dropCoords.y - top, left: dropCoords.x - left})
-      // } else {
-      //   componentsClone.splice(componentsClone.indexOf(item.category), 1)
-      //   componentsClone.push({name: item.category.name, index: item.index, top: dropCoords.y - top, left: dropCoords.x - left})
-      // }
-      // updateComponentsConfig(componentsConfigClone);
-      // if (id !== item.listId) {
-      //   // pushCard(item.card);
-      // }
-      // return {listId: id}
     },
   })
   drag(drop(ref))
@@ -82,22 +59,24 @@ const ArmamentWrapper = memo(props => {
 
   return (
     <div
-      id={`arm-${componentConfig.index}`}
       className="c-ArmamentWrapper position-absolute"
+      id={`${componentConfig.uuid}-RENDER`}
       ref={ref}
       style={{
-        opacity: isDragging ? 0.5 : 1,
+        opacity: isDragging ? 0 : 1,
         cursor: "move",
         top: componentConfig.top,
         left: componentConfig.left
-      }}>
+      }}
+      onClick={() => setSelectedComponent(componentConfig.uuid)}>
         {Component && <Component {...componentConfig} />}
     </div>
   );
 });
 
 ArmamentWrapper.propTypes = {
-  componentConfig: PropTypes.object
+  componentConfig: PropTypes.object,
+  setSelectedComponent: PropTypes.func
 };
 
 export default ArmamentWrapper;

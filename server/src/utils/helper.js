@@ -47,8 +47,16 @@ class Helper {
         return descryptedData;
     }
 
+    static filterEach(arr, filterKeys) {
+        if (!arr || arr.length === 0 || !filterKeys || filterKeys.length === 0) return arr;
+        return arr.map(item => {
+            item.items && (item.items = Helper.filterEach(item.items, filterKeys));
+            return Helper.filterObject(item, filterKeys)
+        });
+    }
+
     static filterObject(obj, filterKeys) {
-        if (!obj || !filterKeys || !filterKeys.length > 0)
+        if (!obj || !filterKeys || filterKeys.length === 0)
             return obj;
         const objClone = {...obj};
         filterKeys.forEach(key => delete objClone[key]);

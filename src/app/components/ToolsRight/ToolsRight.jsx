@@ -4,10 +4,13 @@ import {ToolWrapper} from "./../";
 import "./ToolsRight.component.scss";
 
 const ToolsRight = props => {
-  const {classes, expanded, size, tools} = props;
+  const {classes, expanded, handlers, size, tools} = props;
   return (
     <div className={`c-ToolsRight${classes ? " " + classes : ""}`}>
-      {tools && tools.map((tool, key) => <ToolWrapper key={key} {...tool} size={size} expanded={expanded} />)}
+      {tools && tools.map((tool, key) => {
+        const handler = handlers && handlers.find(handler => handler.name === tool.name)
+        return <ToolWrapper handler={handler} key={key} {...tool} size={size} expanded={expanded} />
+      })}
     </div>
   );
 };

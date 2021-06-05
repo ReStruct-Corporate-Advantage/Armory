@@ -5,6 +5,7 @@ import Helper from "./../../utils/Helper";
 import "./RichTooltip.component.scss";
 
 const RichTooltip = props => {
+  const {tooltip} = props;
   const tipRef = useRef(null);
   const [tooltipPosition, setTooltipPosition] = useState({})
 
@@ -15,7 +16,7 @@ const RichTooltip = props => {
   return (
     <CSSTransition in={true} timeout={500} classNames="fade" appear>
       <div className={`c-RichTooltip position-absolute${tooltipPosition.positionClass ? " " + tooltipPosition.positionClass : ""}`} ref={tipRef} style={tooltipPosition.styles}>
-        In Component RichTooltip
+        {tooltip || "In Component RichTooltip"}
       </div>
     </CSSTransition>
   );

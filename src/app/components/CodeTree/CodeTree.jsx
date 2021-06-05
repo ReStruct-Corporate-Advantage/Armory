@@ -14,7 +14,7 @@ const CodeTree = props => {
     setComponents(props.componentsConfig.components);
   }, [props.componentsConfig.components])
   
-  const code = CodeGenerator.generate(components);
+  const code = CodeGenerator.generate(components, props.setSelectedComponent);
 
   return (
     <TransitionGroup className="c-CodeTree h-100">
@@ -24,7 +24,8 @@ const CodeTree = props => {
 };
 
 CodeTree.propTypes = {
-  componentsConfig: PropTypes.object
+  componentsConfig: PropTypes.object,
+  setSelectedComponent: PropTypes.func
 };
 
 const mapStateToProps = createPropsSelector({

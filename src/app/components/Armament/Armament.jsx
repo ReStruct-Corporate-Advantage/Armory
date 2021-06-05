@@ -20,8 +20,7 @@ const Armament = props => {
   const [{isDragging}, drag, preview] = useDrag({
     item: {type: ITEM_TYPE.ARMAMENT, index, category},
 		collect: monitor => ({
-      isDragging: !!monitor.isDragging(),
-      clientOffset: monitor.getClientOffset()
+      isDragging: !!monitor.isDragging()
 		}),
   })
   drag(ref)

@@ -10,7 +10,7 @@ class UserController {
                     if (!res_db) {
                         return res.status(404).json({message: "User not found!"});
                     }
-                    const responseObj = Helper.filterObject(res_db, ["_id"]);
+                    const responseObj = Helper.filterObject(res_db, ["_id", "__v"]);
                     return res.status(200).json(responseObj);
                 })
                 .catch (e => res.status(500).json({message: "Unable to fetch the logged in user currently!"}))

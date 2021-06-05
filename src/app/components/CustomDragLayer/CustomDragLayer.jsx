@@ -11,6 +11,7 @@ const layerStyles = {
     position: "fixed",
     pointerEvents: "none",
     zIndex: 100,
+    color: "black",
     left: 0,
     top: 0,
     width: "100%",
@@ -51,6 +52,7 @@ const CustomDragLayer = (props) => {
   function renderItem() {
     switch (itemType) {
         case ITEM_TYPE.ARMAMENT:
+        case ITEM_TYPE.ARMAMENT_WRAPPER:
           const Component = components[item.category.componentName]
             return Component ? <Component {...item.category} /> : null;
         default:

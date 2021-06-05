@@ -12,6 +12,7 @@ import "./ComponentCreator.module.scss";
 const ComponentCreator = props => {
   const {componentConfig} = props
   const [clientRect, setClientRect] = useState({});
+  const [selectedComponent, setSelectedComponent] = useState("Root");
 
   return <DndProvider backend={Backend}>
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
@@ -21,13 +22,13 @@ const ComponentCreator = props => {
           onKeyUp = {ContainerEventHandlers.handleKeyUp}
           onClick = {ContainerEventHandlers.handleOnClick}>
           <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
-          <Main setClientRect={setClientRect} clientRect={clientRect} />
+          <Main setClientRect={setClientRect} clientRect={clientRect} setSelectedComponent={setSelectedComponent} />
           <Aside childItems={
             [
               {name: "PropertiesWidget", props: {title: "Component Details"}},
-              {name: "CodeViewerWidget", props: {title: "Generated Code"}}
+              {name: "CodeViewerWidget", props: {title: "Generated Code", setSelectedComponent}}
             ]
-          } position="right" styles={{fontSize: "0.8rem"}}/>
+          } selectedComponent={selectedComponent} position="right" styles={{fontSize: "0.8rem"}}/>
         </main>
         <ToolActionContainer />
       </div>

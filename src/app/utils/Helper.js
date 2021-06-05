@@ -128,4 +128,102 @@ export default class Helper {
         copy = DOMHelper.boolFilter(copy, opts.domProperties);
         return copy;
     };
+
+    static recurse (recursivepatharr, key, value, tree, j) {
+        let returnVal;
+        if (tree) {
+            if (tree.length) {  // List of components
+                const list = [...tree];
+                for (let i = 0; i < list.length; i++) {
+                    let currentNode = list[i];  // Root Component first
+                    returnVal = Helper.recurse(recursivepatharr, key, value, currentNode, j);
+                    if (returnVal) {
+                        return returnVal;
+                    }
+                }
+            } else {
+                if (j === 0 || j === recursivepatharr.length) {
+                    if (value) {
+                        if (tree[key] && (tree[key] === value)) {
+                            return tree;
+                        }
+                    } else {
+                        if (tree[key]) {
+                            return tree[key];
+                        }
+                    }
+                    j !== 0 && (j = -1);
+                }
+                const nextnode = tree[recursivepatharr[j]]
+                return Helper.recurse(recursivepatharr, key, value, nextnode, j+1);
+            }
+        }
+        return returnVal;
+    }
+
+    static searchInTree (key, value, tree, rootpath, recursivepath) {
+        if (!key || !tree) return {};
+        let returnVal;
+        let hasMore = false;
+        const rootpatharr = rootpath && rootpath.split(".");
+        const recursivepatharr = recursivepath && recursivepath.split(".");
+        if (rootpatharr) {
+            for (let i = 0; i < rootpatharr.length; i++) {
+                const pathStop = rootpatharr[i];
+                if (i < rootpatharr.length || recursivepath) {
+                    hasMore = true;
+                }
+                if (tree.length) {
+                    for (let i = 0; i < tree.length; i++) {
+                        const node = tree[i];
+                        let currentNode = node[pathStop];
+                        if (currentNode) {
+                            if (!hasMore) {
+                                if (value) {
+                                    if (currentNode[key] === value) {
+                                        returnVal = currentNode;
+                                    }
+                                } else {
+                                    if (currentNode[key]) {
+                                        returnVal = currentNode[key];
+                                    }
+                                }
+                            } else {
+                                currentNode = currentNode[pathStop];
+                            }
+                        }
+                    }
+                } else {
+                    if (!hasMore) {
+                        if (tree[key]) {
+                            returnVal = tree[key];
+                        }
+                    } else {
+                        tree = tree[pathStop];
+                    }
+                }
+            }
+        }
+        if (recursivepatharr) {
+            returnVal = Helper.recurse(recursivepatharr, key, value, tree, 0)
+        }
+        
+        return returnVal;
+    }
+
+    static filterEach(arr, filterKeys) {
+        if (!arr || arr.length === 0 || !filterKeys || filterKeys.length === 0) return arr;
+        return arr.map(item => {
+            item.items && (item.items = Helper.filterEach(item.items, filterKeys));
+            return Helper.filterObject(item, filterKeys)
+        });
+    }
+
+    static filterObject(obj, filterKeys) {
+        if (!obj || !filterKeys || filterKeys.length === 0)
+            return obj;
+        const objClone = {...obj};
+        filterKeys.forEach(key => delete objClone[key]);
+        return objClone;
+    }
 }

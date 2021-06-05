@@ -127,6 +127,18 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     padding: 1rem;
 }
 
+.border-small-radius {
+    border-radius: 6px !important;
+}
+
+.border-unset {
+    border: unset;
+}
+
+.background-none {
+    background: none!important;
+}
+
 .w-70 {
     width: 68% !important;
 }
@@ -194,3 +206,20 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         transform: rotate(360deg);
     }
 }
+
+
+////////////// TODO keep this class to convert search field to chat box
+
+// .test {
+//     background: grey;
+//     width: 25rem;
+//     position: absolute !important;
+//     bottom: 0;
+//     right: 26rem;
+//     z-index: 1;
+//     height: 22rem;
+
+//     input {
+//         margin-top: 81%;
+//     }
+// }

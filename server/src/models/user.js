@@ -13,7 +13,8 @@ const userSchema = new mongoose.Schema({
     createdby: String,
     updatedon: Date,
     updtedby: String
-});
+},
+{ timestamps: true });
 
 const User = mongoose.model('User', userSchema);
 

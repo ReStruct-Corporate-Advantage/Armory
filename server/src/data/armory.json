@@ -5,14 +5,14 @@
             "name": "shape",
             "icon": "",
             "expanded": true,
+            "leafCategory": true,
             "items": [
                 {
                     "displayName": "Square",
                     "componentName": "Square",
                     "meta": {
                         "tags": ["container"],
-                        "createdBy": "mohiit1502@gmail.com",
-                        "createdTimeStamp": "11042021T093443" 
+                        "createdBy": "mohiit1502@gmail.com"
                     },
                     "descriptor": {
                         "allowChildren": true,
@@ -28,8 +28,7 @@
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
-                                    "createdTimeStamp": "11042021T093443"
+                                    "createdBy": "mohiit1502@gmail.com"
                                 },
                                 "innerText": "Square",
                                 "order": 0
@@ -54,8 +53,7 @@
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
-                                    "createdTimeStamp": "11042021T093443"
+                                    "createdBy": "mohiit1502@gmail.com"
                                 },
                                 "innerText": "Rectangle",
                                 "order": 0
@@ -65,7 +63,28 @@
                 },
                 {
                     "displayName": "Circle",
-                    "componentName": "Circle"
+                    "componentName": "Circle",
+                    "descriptor": {
+                        "allowChildren": true,
+                        "elemType": "div",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "handlers": {},
+                        "classes": "bg-grey text-center",
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com"
+                                },
+                                "innerText": "Circle",
+                                "order": 0
+                            }
+                        ]
+                    }
                 },
                 {"displayName": "RoundedSquare", "componentName": "RoundedSquare"},
                 {"displayName": "RoundedRectangle", "componentName": "RoundedRectangle"},
@@ -80,14 +99,14 @@
             "name": "controls",
             "icon": "",
             "expanded": false,
+            "leafCategory": true,
             "items": [
                 {
                     "displayName": "InputField",
                     "componentName": "InputField",
                     "meta": {
                         "tags": ["atomic, form-field"],
-                        "createdBy": "mohiit1502@gmail.com",
-                        "createdTimeStamp": "11042021T093443" 
+                        "createdBy": "mohiit1502@gmail.com"
                     },
                     "descriptor": {
                         "allowChildren": true,
@@ -103,8 +122,7 @@
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
-                                    "createdTimeStamp": "11042021T093443"
+                                    "createdBy": "mohiit1502@gmail.com"
                                 },
                                 "innerText": "InputField",
                                 "order": 0,
@@ -137,39 +155,44 @@
             "name": "animations",
             "icon": "",
             "expanded": false,
+            "leafCategory": true,
             "items": [
 
             ]
         },
         {
             "displayName": "Data Source",
-            "name": "data",
+            "name": "dataSource",
             "icon": "",
             "expanded": false,
+            "leafCategory": true,
             "items": [
                 
             ]
         },
         {
             "displayName": "Rich Controls",
-            "name": "rich",
+            "name": "richControls",
             "icon": "",
             "expanded": false,
+            "leafCategory": false,
             "items": [
                 {
                     "displayName": "My Controls",
-                    "name": "self",
+                    "name": "myControls",
                     "icon": "",
                     "expanded": false,
+                    "leafCategory": true,
                     "items": [
 
                     ]
                 },
                 {
                     "displayName": "Community Controls",
-                    "name": "community",
+                    "name": "communityControls",
                     "icon": "",
                     "expanded": false,
+                    "leafCategory": true,
                     "items": [
                         {"displayName": "Draggable", "componentName": "Draggable"},
                         {"displayName": "Droppable", "componentName": "Droppable"},
@@ -202,6 +225,7 @@
             "name": "functionalities",
             "icon": "",
             "expanded": false,
+            "leafCategory": true,
             "items": [
                 {"displayName": "Sort"},
                 {"displayName": "Search"},
@@ -213,12 +237,14 @@
             "name": "theme",
             "icon": "",
             "expanded": false,
+            "leafCategory": false,
             "items": [
                 {
                     "displayName": "Control Set",
                     "name": "controlSet",
                     "icon": "",
                     "expanded": false,
+                    "leafCategory": true,
                     "items": []
                 },
                 {
@@ -226,6 +252,7 @@
                     "name": "style",
                     "icon": "",
                     "expanded": false,
+                    "leafCategory": true,
                     "items": [
                         {"displayName": "primary-base-color"},
                         {"displayName": "secondary-base-color"},
@@ -245,6 +272,14 @@
                         {"displayName": "article-margin"},
                         {"displayName": "section-margin"}
                     ]
+                },
+                {
+                    "displayName": "My Themes",
+                    "name": "myThemes",
+                    "icon": "",
+                    "expanded": false,
+                    "leafCategory": true,
+                    "items": []
                 }
             ]
         }

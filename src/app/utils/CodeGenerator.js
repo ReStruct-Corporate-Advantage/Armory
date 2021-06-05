@@ -17,28 +17,27 @@ class CodeGenerator {
         this.lineCounter = 1;
     }
 
-    static generate (root) {
+    static generate (root, setSelectedComponent) {
         try {
             const component = root[0];
-            component.descriptor.uuid = component.descriptor.id;
+            component.uuid = component.descriptor.id;
             const childrenMeta = component.descriptor.children;
             const generator = new CodeGenerator();
             this.indentCounter = 0;
             const children = <>
                 {generator.generateStartingTag(component)}
-                {childrenMeta && childrenMeta.length > 0 ? generator.generateChildren(component, ++this.indentCounter) : <CodeComment indent={1} comment = "Add components from the left panel to view them here!" />}
+                {childrenMeta && childrenMeta.length > 0 ? generator.generateChildren(component, ++this.indentCounter, setSelectedComponent) : <CodeComment indent={1} comment = "Add components from the left panel to view them here!" />}
                 {generator.generateClosingTag(component)}
             </>
-            return <CodeCollapsable componentName="Root" indent={0}>{children}</CodeCollapsable>;
+            return <CodeCollapsable id="arm-root" setSelectedComponent={setSelectedComponent} componentName="Root" indent={0}>{children}</CodeCollapsable>;
         } catch (e) {
             console.log(e);
         }
-        return <CodeCollapsable componentName="Root" indent={0}><CodeComment comment = {"Couldn\"t generate code for requested component!"} /></CodeCollapsable>;
+        return <CodeCollapsable id="arm-root" setSelectedComponent={setSelectedComponent} componentName="Root" indent={0}><CodeComment comment = {"Couldn\"t generate code for requested component!"} /></CodeCollapsable>;
     }
 
-    generateChildren (component, counter) {
+    generateChildren (component, counter, setSelectedComponent) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
-        descriptor.uuid = component.uuid;
         const children = descriptor.children ? descriptor.children : [];
         const text = descriptor.innerText;
         text && children.push({
@@ -50,27 +49,27 @@ class CodeGenerator {
             if (component.componentName === "TextComponent") {
                 return <CodeLine key={key} indent={counter} ><CodeFragment type={FRAGMENT_TYPE.TEXT} value={component.innerText} /></CodeLine>
             } else {
-                return this.processDescriptor(component, counter, key);
+                return this.processDescriptor(component, counter, key, setSelectedComponent);
             }
         })
     }
 
-    processDescriptor (component, counter, key) {
+    processDescriptor (component, counter, key, setSelectedComponent) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
         descriptor.uuid = component.uuid;
         const children = <>
             {this.generateStartingTag(component)}
-            {this.generateChildren(component, descriptor.children && descriptor.children.length > 0 ? counter + 1 : counter)}
+            {this.generateChildren(component, descriptor.children && descriptor.children.length > 0 ? counter + 1 : counter, setSelectedComponent)}
             {this.generateClosingTag(component)}
         </>
-        return <CodeCollapsable key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
+        return <CodeCollapsable id={component.descriptor && component.uuid} setSelectedComponent={setSelectedComponent} key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
     }
 
     generateStartingTag (component) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
         const fragments = []
         const tag = descriptor.elemType;
-        const id = descriptor.uuid;
+        const id = component.uuid;
         const width = descriptor.defaultWidth ? descriptor.defaultWidth : "2rem";
         const height = descriptor.defaultWidth ? descriptor.defaultWidth : "2rem"
         const classes = descriptor.classes;
@@ -91,7 +90,7 @@ class CodeGenerator {
 
     generateClosingTag (component) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
-        const id = descriptor.uuid;
+        const id = component.uuid;
         const tag = descriptor.elemType;
         const fragments = []
         fragments.push(<CodeFragment type={FRAGMENT_TYPE.ENCLOSER} left={true} initial={false} key={id + "-" + 1} />)

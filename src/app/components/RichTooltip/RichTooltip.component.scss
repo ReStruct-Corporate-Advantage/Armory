@@ -1,18 +1,18 @@
 .c-RichTooltip {
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 10px;
     background: rgba(0, 0, 0, 0.7);
     text-align: center;
-    z-index: 11;
-    width: 10rem;
+    z-index: 111111;
+    min-width: 4rem;
     backdrop-filter: blur(2px);
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     transition: opacity 0.5s ease-in-out;
 
     &:after {
         content: "";
         position: absolute;
-        margin-left: -5px;
+        margin-left: 2px;
         border-width: 5px;
         border-style: solid;
         border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;

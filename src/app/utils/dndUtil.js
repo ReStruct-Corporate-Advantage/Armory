@@ -6,27 +6,33 @@ export class DNDUtil {
     this.uuid = 1;
   }
 
-  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchHistory) {
-      let componentsConfigClone;
-      const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
-      const {x, y} = monitor.getClientOffset();
-      let left = Math.round(x - containerLeft);
-      let top = Math.round(y - containerTop);
-      componentsConfigClone = {...componentsConfig};
-      const componentsRoot = [...componentsConfigClone.components];
-      componentsConfigClone.components = componentsRoot;
-      const rootChildrenArray = componentsRoot[0].descriptor.children;
-      [left, top] = DNDUtil.snapToGrid(left, top);
+  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setSelectedComponent) {
+      this.updatePositionDescriptor(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setSelectedComponent)
+  }
 
-      if (item.type === ITEM_TYPE.ARMAMENT) {
-        componentsConfigClone.count = componentsConfigClone.count + 1;
-        item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
-        rootChildrenArray.push({name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category})
-      } else {
-        rootChildrenArray.splice(rootChildrenArray.indexOf(item.category), 1)
-        rootChildrenArray.push({name: item.category.name, index: item.index, top, left})
-      }
-      dispatchComponentsConfig(componentsConfigClone);
+  updatePositionDescriptor (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setSelectedComponent) {
+    let componentsConfigClone;
+    const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
+    const {x, y} = monitor.getClientOffset();
+    let left = Math.round(x - containerLeft);
+    let top = Math.round(y - containerTop);
+    componentsConfigClone = {...componentsConfig};
+    const componentsRoot = [...componentsConfigClone.components];
+    componentsConfigClone.components = componentsRoot;
+    const rootChildrenArray = componentsRoot[0].descriptor.children;
+    [left, top] = DNDUtil.snapToGrid(left, top);
+
+    if (item.type === ITEM_TYPE.ARMAMENT) {
+      componentsConfigClone.count = componentsConfigClone.count + 1;
+      item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
+      const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+      rootChildrenArray.push(droppedComponentConfig);
+    } else {
+      item.category.top = top;
+      item.category.left = left;
+    }
+    dispatchComponentsConfig(componentsConfigClone);
+    setSelectedComponent(item.category.uuid)
   }
 
   dragHandler () {

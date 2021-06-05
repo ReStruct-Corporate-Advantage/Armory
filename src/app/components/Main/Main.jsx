@@ -4,19 +4,18 @@ import {ComponentContainer, CustomDragLayer} from "./../";
 import "./Main.component.scss";
 
 const Main = props => {
-  
-  const {clientRect, setClientRect} = props;
-  const {snapFactor, setSnapFactor} = props;
+  const {snapFactor, setSelectedComponent, setSnapFactor, clientRect, setClientRect} = props;
 
   return <main className="c-Main p-2">
-        <ComponentContainer boundingClientRectProvider={setClientRect} setSnapFactor={setSnapFactor} />
+        <ComponentContainer boundingClientRectProvider={setClientRect} setSnapFactor={setSnapFactor} setSelectedComponent={setSelectedComponent} />
         <CustomDragLayer clientRect={clientRect} snapFactor={snapFactor} />
       </main>;
 };
 
 Main.propTypes = {
   clientRect: PropTypes.object,
-  setClientRect: PropTypes.func
+  setClientRect: PropTypes.func,
+  setSelectedComponent: PropTypes.func
 };
 
 export default Main;

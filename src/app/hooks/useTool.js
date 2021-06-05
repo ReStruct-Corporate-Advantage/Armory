@@ -1,7 +1,7 @@
 import {useState} from "react";
 import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
-function useTool(toolName) {
+function useTool(toolName, props) {
     const [toggleValues, setToggleValues] = useState(null);
 
     const addpage = {
@@ -37,6 +37,16 @@ function useTool(toolName) {
     const fileviewer = {
         jsx: () => {},
         type: "MODAL"
+    }
+
+    const editproperties = {
+        onClickHandler: () => {
+            const handlerObj = props.handler && props.handler.type === "onClick" && props.handler;
+            const handler = handlerObj && handlerObj.handler;
+            const currentValue = handlerObj && handlerObj.currentValue;
+            return handler(!currentValue);
+        },
+        type: "ACTION"
     }
 
     const help = {
@@ -92,7 +102,7 @@ function useTool(toolName) {
         }
     }
 
-    const toolProps = {addpage, addtoproject, createcomponent, displayconversation, editarmament, exportcode, fileviewer, help, notifications, profile, sharearmament, toggles, viewarmament}[toolName]
+    const toolProps = {addpage, addtoproject, createcomponent, displayconversation, editarmament, exportcode, fileviewer, editproperties, help, notifications, profile, sharearmament, toggles, viewarmament}[toolName]
     return toolProps || {};
 }
 
