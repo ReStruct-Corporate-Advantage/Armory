@@ -1,5 +1,5 @@
 import * as $ from "jquery";
-import DOMHelper from "./DOMHelper";
+import DOMHelper from "../DOMHelper";
 
 class DescriptorGenerator {
     static generate (codeString) {

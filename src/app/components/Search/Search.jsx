@@ -6,7 +6,7 @@ import "./Search.component.scss";
 const Search = props => {
   return (
     <div className="c-Search my-4 w-25 d-flex">
-      <FormField type="input" containerClasses="c-Search__search-field-container w-70" inputClasses="c-Search__search-field" />
+      <FormField type="input" containerClasses="c-Search__search-field-container w-70" inputClasses="w-100 c-Search__search-field" />
       <ToolBox toolsConfig={TOOLS_CONFIG.SEARCH_BAR_TOOLS} />
     </div>
   );

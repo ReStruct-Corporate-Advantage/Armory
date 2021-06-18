@@ -4,8 +4,9 @@ import { useDragLayer } from "react-dnd";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { getLayout } from "../../pages/ComponentCreator/selectors";
 import {DNDUtil} from "../../utils/dndUtil";
+import {forkedRepository, repository} from "./../../utils/CodeUtils/ComponentGenerator";
 import {ITEM_TYPE} from "./../../constants/types";
-import * as components from "../repository";
+// import * as components from "../repository";
 
 const layerStyles = {
     position: "fixed",
@@ -53,7 +54,7 @@ const CustomDragLayer = (props) => {
     switch (itemType) {
         case ITEM_TYPE.ARMAMENT:
         case ITEM_TYPE.ARMAMENT_WRAPPER:
-          const Component = components[item.category.componentName]
+          const Component = forkedRepository[item.category.name] || repository[item.category.componentName];
             return Component ? <Component {...item.category} /> : null;
         default:
             return null;

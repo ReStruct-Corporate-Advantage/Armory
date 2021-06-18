@@ -2,7 +2,9 @@ import Immutable from "immutable";
 import { ELEMENT_TYPE } from "../../constants/types";
 import historyProvider from "../../utils/historyUtil";
 import {
+    DISPTACH_ARMORY,
     DISPATCH_CARD_POSITION,
+    DISPTACH_CLEAR_PROPS_STATE,
     DISPATCH_COMPONENT_CONFIG,
     DISPATCH_HISTORY,
     DISPATCH_LAYOUT,
@@ -10,7 +12,8 @@ import {
     DISPTACH_TOOL_ACTION_META,
     IS_MOBILE,
     UPDATE_FORM_ERRORS,
-    UPDATE_FORM_VALUES
+    UPDATE_FORM_VALUES,
+    SET_COMPONENT_CONFIG
 } from "./actions";
 
 const initialState = Immutable.Map({
@@ -41,7 +44,9 @@ const initialState = Immutable.Map({
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case IS_MOBILE:
+        case DISPTACH_ARMORY:
         case DISPATCH_CARD_POSITION:
+        case DISPTACH_CLEAR_PROPS_STATE:
         case DISPATCH_COMPONENT_CONFIG:
         case DISPATCH_HISTORY:
         case DISPATCH_LAYOUT:
@@ -49,7 +54,9 @@ const reducer = (state = initialState, action) => {
         case DISPTACH_TOOL_ACTION_META:
         case UPDATE_FORM_ERRORS:
         case UPDATE_FORM_VALUES:
-            return state.mergeDeep(action.payload)
+            return state.mergeDeep(action.payload);
+        case SET_COMPONENT_CONFIG:
+            return state.set("componentConfig", action.payload);
         default:
             return state
     }

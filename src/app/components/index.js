@@ -1,4 +1,7 @@
 /* PLOP_INJECT_IMPORT */
+import BreadCrumb from "./BreadCrumb";
+import CheckBox from "./form-components/CheckBox";
+import SelectOption from "./form-components/SelectOption";
 import PageLoader from "./PageLoader";
 import Modal from "./Modal";
 import ButtonsPanel from "./form-components/ButtonsPanel";
@@ -53,6 +56,9 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	BreadCrumb,
+	CheckBox,
+	SelectOption,
 	PageLoader,
 	Modal,
 	ButtonsPanel,

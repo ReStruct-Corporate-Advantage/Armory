@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import {TransitionGroup} from "react-transition-group";
 import { getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
-import CodeGenerator from "../../utils/CodeGenerator";
+import CodeGenerator from "../../utils/CodeUtils/CodeGenerator";
 import "./CodeTree.component.scss";
 
 const CodeTree = props => {

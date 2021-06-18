@@ -49,6 +49,16 @@ function useTool(toolName, props) {
         type: "ACTION"
     }
 
+    const saveproperties = {
+        onClickHandler: () => {
+            const handlerObj = props.handler && props.handler.type === "onClick" && props.handler;
+            const handler = handlerObj && handlerObj.handler;
+            const currentValue = handlerObj && handlerObj.currentValue;
+            return handler(!currentValue);
+        },
+        type: "ACTION"
+    }
+
     const help = {
         jsx: () => {},
         type: "MODAL"
@@ -102,7 +112,7 @@ function useTool(toolName, props) {
         }
     }
 
-    const toolProps = {addpage, addtoproject, createcomponent, displayconversation, editarmament, exportcode, fileviewer, editproperties, help, notifications, profile, sharearmament, toggles, viewarmament}[toolName]
+    const toolProps = {addpage, addtoproject, createcomponent, displayconversation, editarmament, exportcode, fileviewer, editproperties, saveproperties, help, notifications, profile, sharearmament, toggles, viewarmament}[toolName]
     return toolProps || {};
 }
 

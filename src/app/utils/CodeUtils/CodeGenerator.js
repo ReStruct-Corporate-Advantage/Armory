@@ -1,5 +1,5 @@
-import { CodeCollapsable, CodeComment, CodeLine, CodeFragment } from "../components";
-import {FRAGMENT_TYPE} from "./../constants/types";
+import { CodeCollapsable, CodeComment, CodeLine, CodeFragment } from "../../components";
+import {FRAGMENT_TYPE} from "../../constants/types";
 
 class CodeGenerator {
 
@@ -56,13 +56,13 @@ class CodeGenerator {
 
     processDescriptor (component, counter, key, setSelectedComponent) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
-        descriptor.uuid = component.uuid;
+        // descriptor.uuid = component.uuid;
         const children = <>
             {this.generateStartingTag(component)}
             {this.generateChildren(component, descriptor.children && descriptor.children.length > 0 ? counter + 1 : counter, setSelectedComponent)}
-            {this.generateClosingTag(component)}
+            {!component.selfClosing && this.generateClosingTag(component)}
         </>
-        return <CodeCollapsable id={component.descriptor && component.uuid} setSelectedComponent={setSelectedComponent} key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
+        return <CodeCollapsable id={component.uuid} setSelectedComponent={setSelectedComponent} key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
     }
 
     generateStartingTag (component) {

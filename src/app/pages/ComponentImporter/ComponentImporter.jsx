@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import {IconContext} from "react-icons";
 import * as reactIcons from "react-icons/all";
 import JsonView from "../../utils/JsonUtils/JsonUtil";
-import DescriptorGenerator from "../../utils/DescriptorGenerator";
+import DescriptorGenerator from "../../utils/CodeUtils/DescriptorGenerator";
 import DOMHelper from "../../utils/DOMHelper";
 import "./ComponentImporter.module.scss";
 

@@ -29,5 +29,11 @@
       padding: 0.5rem;
       &:focus {outline: none;}
       &:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;}
+      &.small {
+        border-radius: 6px;
+        &.label-right-tagged {
+          border-radius: 6px 0 0 6px
+        }
+      }
     }
   }

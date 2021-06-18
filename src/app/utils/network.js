@@ -5,7 +5,7 @@ export default class Network {
 
   static async get(url, queryParams) {
     const urlString = queryString.stringifyUrl({ url, query: queryParams });
-    const options = { mode: "cors", method: "GET", "credentials": "include", };
+    const options = { method: "GET", mode: "cors", credentials: "include", };
     return Network.crud(urlString, options);
   }
 
@@ -38,6 +38,8 @@ export default class Network {
     const options = {
       method: "PUT",
       body: JSON.stringify(data),
+      mode: "cors",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       }

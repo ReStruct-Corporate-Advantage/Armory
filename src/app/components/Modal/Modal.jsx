@@ -8,11 +8,22 @@ import * as components from "./..";
 import "./Modal.component.scss";
 
 const Modal = props => {
-  const {display, meta} = props.modal;
-  const {body, footer, header, primaryButtonText, secondaryButtonText, title} = meta;
+  const {modal, dispatchModal} = props;
+  const {display, meta} = modal;
+  const {body, footer, header, primaryButtonText, secondaryButtonText, title, primaryHandler, secondaryHandler} = meta;
   const Component = typeof body==="string" ? components[body] ? components[body]: null : (body || null);
   //const submitHandler =  typeof primaryButtonHandler === "function" ? primaryButtonHandler : window[primaryButtonHandler];
   const [defaultHandler,setDefaultHandler] = useState()
+
+  const primaryHandlerWrapper = () => {
+    primaryHandler ? primaryHandler() : defaultHandler && defaultHandler();
+    dispatchModal({display: false, meta: {}})
+  }
+
+  const secondaryHandlerWrapper = () => {
+    secondaryHandler ? secondaryHandler() : defaultHandler && defaultHandler();
+    dispatchModal({display: false, meta: {}})
+  }
 
   return (
     <div className={`c-Modal modal fade ${display ? "show": ""}`} style={{display:display? "block":"none"}}id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -31,8 +42,8 @@ const Modal = props => {
           <div className="modal-footer">
             {footer ||
               <>
-                <button type="button" className="btn btn-secondary" data-dismiss="modal">{secondaryButtonText || "Close"}</button>
-                <button type="button" className="btn btn-primary" onClick={defaultHandler}>{primaryButtonText || "Submit"}</button>
+                <button type="button" className="btn btn-secondary" onClick={secondaryHandlerWrapper} data-dismiss="modal">{secondaryButtonText || "Close"}</button>
+                <button type="button" className="btn btn-primary" onClick={primaryHandlerWrapper}>{primaryButtonText || "Submit"}</button>
               </>
             }
           </div>

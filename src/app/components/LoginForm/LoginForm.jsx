@@ -126,8 +126,8 @@ const LoginForm = props => {
           <SectionHeader title="Please enter your credentials to login" className="col-12" />
           <form className="fields-container col-12 mt-3">
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}
-            <InputField formId="loginform" id="username" label="User Name/Email" type="text" value={fieldValues["loginform"]["username"]} inputClasses="border-5 border-none px-2 py-3" required={true} onChange={onChange} />
-            <InputField formId="loginform" id="password" label="Password" type="password" value={fieldValues["loginform"]["password"]} inputClasses="border-5 border-none px-2 py-3" required={true} onChange={onChange} />
+            <InputField formId="loginform" id="username" label="User Name/Email" type="text" value={fieldValues["loginform"]["username"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} />
+            <InputField formId="loginform" id="password" label="Password" type="password" value={fieldValues["loginform"]["password"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} />
             <ButtonsPanel formId="loginform" buttonsConfig={{btnSubmit: {type: "button", btnClasses: "btn btn-primary float-right", btnText: "Login", style: {background: "rgba(0, 150, 0, 0.7)"}, onClick: () => 
             {
               setLoginApiError(false);

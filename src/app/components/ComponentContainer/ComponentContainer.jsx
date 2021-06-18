@@ -4,15 +4,16 @@ import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { useDrop } from "react-dnd";
 import { useResizeDetector } from "react-resize-detector";
-import { dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout } from "../../pages/ComponentCreator/actions";
-import { getPresentComponentsConfig, getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
+import { dispatchClearPropsState, dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout, setComponentsConfig } from "../../pages/ComponentCreator/actions";
+import { dispatchModal } from "../../global-actions";
+import { getPresentComponentsConfig, getLayout, getPreviousLayout, getArmory } from "../../pages/ComponentCreator/selectors";
 import {ArmamentWrapper, LayoutSelector} from "../";
 import dndUtil from "../../utils/dndUtil";
 import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
 
 const ComponentContainer = props => {
-  const {componentsConfig, boundingClientRectProvider, dispatchComponentsConfig, dispatchHistory, setSelectedComponent} = props;
+  const {armory, componentsConfig, boundingClientRectProvider, dispatchClearPropsState, dispatchComponentsConfig, dispatchModal, selectedComponent, setSelectedComponent, setComponentsConfig} = props;
   const { width, height, ref } = useResizeDetector();
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
@@ -47,14 +48,15 @@ const ComponentContainer = props => {
   // eslint-disable-next-line no-unused-vars
   const [{isOver}, drop] = useDrop({
     accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
-    drop: (item, monitor) => dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setSelectedComponent),
+    drop: (item, monitor) => dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig,
+      setSelectedComponent, dispatchClearPropsState, dispatchModal, armory),
     collect: monitor => ({isOver: !!monitor.isOver()}),
   })
 
   const cellRenders = cells && cells.length > 0 && cells.map((cell, key) => <span key={key} className="position-absolute" style={cell} />);
-  const componentRenders = componentsConfig.components[0].descriptor.children
-                  .map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper setSelectedComponent={setSelectedComponent} key={key} componentConfig={componentConfig} />)
-                  .filter(component => component);
+  const componentRenderer = (items) => items.map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper selectedComponent={selectedComponent}
+          setSelectedComponent={setSelectedComponent} key={key} componentConfig={componentConfig} recursiveRenderer={componentRenderer} />)
+          .filter(component => component);
 
   return (
     <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef} >
@@ -63,33 +65,41 @@ const ComponentContainer = props => {
         {cellRenders}
       </div>
       <div className="c-ComponentContainer__renders position-absolute w-100 h-100" ref={drop}>
-        {componentRenders}
+        {componentRenderer(componentsConfig.components[0].descriptor.children)}
       </div>
     </div>
   );
 };
 
 ComponentContainer.propTypes = {
+  armory: PropTypes.array,
   componentsConfig: PropTypes.object,
   boundingClientRectProvider: PropTypes.func,
+  dispatchClearPropsState: PropTypes.func,
   dispatchComponentsConfig: PropTypes.func,
   dispatchHistory: PropTypes.func,
+  dispatchModal: PropTypes.func,
   dispatchPreviousLayout: PropTypes.func,
   layout: PropTypes.string,
   previousLayout: PropTypes.string,
-  setSelectedComponent: PropTypes.func
+  setSelectedComponent: PropTypes.func,
+  setComponentsConfig: PropTypes.func
 };
 
 const mapStateToProps = createPropsSelector({
+  armory: getArmory,
   componentsConfig: getPresentComponentsConfig,
   layout: getLayout,
   previousLayout: getPreviousLayout
 })
 
 const mapDispatchToProps = {
-  dispatchHistory,
+  dispatchClearPropsState,
   dispatchComponentsConfig,
-  dispatchPreviousLayout
+  dispatchHistory,
+  dispatchModal,
+  dispatchPreviousLayout,
+  setComponentsConfig
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ComponentContainer);

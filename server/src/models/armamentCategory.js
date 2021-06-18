@@ -5,7 +5,9 @@ const armamentCategorySchema = new mongoose.Schema({
     displayName: String,
     icon: String,
     expanded: Boolean,
+    scope: String,
     leafCategory: Boolean,
+    order: Number,
     meta: {    
         tags: [String],
         createdBy: String,

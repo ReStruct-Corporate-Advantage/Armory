@@ -4,10 +4,10 @@ import {ComponentContainer, CustomDragLayer} from "./../";
 import "./Main.component.scss";
 
 const Main = props => {
-  const {snapFactor, setSelectedComponent, setSnapFactor, clientRect, setClientRect} = props;
+  const {snapFactor, selectedComponent, setSelectedComponent, setSnapFactor, clientRect, setClientRect} = props;
 
   return <main className="c-Main p-2">
-        <ComponentContainer boundingClientRectProvider={setClientRect} setSnapFactor={setSnapFactor} setSelectedComponent={setSelectedComponent} />
+        <ComponentContainer boundingClientRectProvider={setClientRect} setSnapFactor={setSnapFactor} setSelectedComponent={setSelectedComponent} selectedComponent={selectedComponent} />
         <CustomDragLayer clientRect={clientRect} snapFactor={snapFactor} />
       </main>;
 };

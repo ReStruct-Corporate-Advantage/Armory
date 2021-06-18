@@ -5,8 +5,11 @@ export const DISPATCH_CARD_POSITION = "DISPATCH_CARD_POSITION";
 export const DISPATCH_LAYOUT = "DISPATCH_LAYOUT";
 export const DISPATCH_PREVIOUS_LAYOUT = "DISPATCH_PREVIOUS_LAYOUT";
 export const DISPATCH_COMPONENT_CONFIG = "DISPATCH_COMPONENT_CONFIG";
+export const SET_COMPONENT_CONFIG = "SET_COMPONENT_CONFIG";
 export const DISPATCH_HISTORY = "DISPATCH_HISTORY";
 export const DISPTACH_TOOL_ACTION_META = "DISPTACH_TOOL_ACTION_META";
+export const DISPTACH_CLEAR_PROPS_STATE = "DISPTACH_CLEAR_PROPS_STATE";
+export const DISPTACH_ARMORY = "DISPTACH_ARMORY";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
@@ -57,6 +60,13 @@ export const dispatchComponentsConfig = componentConfig => {
     }
 }
 
+export const setComponentsConfig = componentConfig => {
+    return {
+        type: SET_COMPONENT_CONFIG,
+        payload: componentConfig
+    }
+}
+
 export const dispatchHistory = history => {
     return {
         type: DISPATCH_HISTORY,
@@ -68,5 +78,19 @@ export const dispatchToolAction = toolActionMeta => {
     return {
         type: DISPTACH_TOOL_ACTION_META,
         payload: {toolActionMeta}
+    }
+}
+
+export const dispatchClearPropsState = clear => {
+    return {
+        type: DISPTACH_CLEAR_PROPS_STATE,
+        payload: {clear}
+    }
+}
+
+export const dispatchArmory = armory => {
+    return {
+        type: DISPTACH_ARMORY,
+        payload: {armory}
     }
 }

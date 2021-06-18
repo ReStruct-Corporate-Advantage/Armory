@@ -28,6 +28,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
+.bg-grey{
+    background: lightgrey;
+}
+
 .backgroundNone {
     background: none !important;
 }
@@ -127,6 +131,11 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     padding: 1rem;
 }
 
+.border-default {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
 .border-small-radius {
     border-radius: 6px !important;
 }
@@ -175,6 +184,22 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     background: rgba(255, 255, 255, 0.7);
     position: absolute;
     z-index: 1040;
+}
+
+.default-notification {
+    color: darkblue;
+    text-align: center;
+    margin: 1rem 3rem;
+}
+
+.toggle-resizable {
+    resize: both;
+    overflow: auto;
+
+    // > div {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
 }
 
 @-webkit-keyframes rotating {

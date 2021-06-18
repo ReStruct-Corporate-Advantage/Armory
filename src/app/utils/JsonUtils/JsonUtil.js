@@ -1,3 +1,4 @@
+/* eslint-disable no-func-assign */
 import "./JsonUtil.css";
 
 const JsonUtils = (function JsonView (exports) {

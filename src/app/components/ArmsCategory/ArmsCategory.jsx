@@ -9,7 +9,7 @@ const ArmsCategory = props => {
   return (
     <ul className={`c-ArmsCategory${expanded === false ? " collapsed" : ""}`}>
       {!root && <div className="c-ArmsCategory__clickHandler ml-4" onClick={() => setExpanded(!expanded)}>{expanded ? "Collapse" : "Expand"}</div>}
-      {node.map((category, key) =>
+      {node && node.map((category, key) =>
         <li key={prevKey ? prevKey + "-" + key : key} className="c-Aside__list-item">
           <Armament clientRect={clientRect} category={category} index={prevKey ? prevKey + "-" + key : "" + key} recursiveRenderer={renderArmory} />
         </li>

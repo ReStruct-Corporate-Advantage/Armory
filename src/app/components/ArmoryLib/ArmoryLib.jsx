@@ -1,20 +1,23 @@
-import React, {useState, useEffect} from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {createPropsSelector} from "reselect-immutable-helpers";
+import {dispatchArmory} from "./../../pages/ComponentCreator/actions";
+import {getArmory} from "../../pages/ComponentCreator/selectors";
 import {ArmsCategory} from "./../";
 import Network from "../../utils/network";
-import armoryRepo from "./../../data/armory.json";
+import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
 import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
-  const [armory, setArmory] = useState([])
-  // const {clientRect} = props;
+  const {armory, dispatchArmory} = props;
   useEffect(() => {
-    // setArmory(armoryRepo.types);
     Network.get("http://localhost:3002/api/armory")
       .then(res => {
-//         console.log(res.body)
-        setArmory(res.body)
-        })
+        const root = res.body
+        dispatchArmory(root)
+        compGen.populateComponentRepository(root);
+      })
       .catch(e => console.log("Error: ", e));
   }, []);
 
@@ -32,4 +35,12 @@ ArmoryLib.propTypes = {
   clientRect: PropTypes.object
 };
 
-export default ArmoryLib;
+const mapStateToProps = createPropsSelector({
+  armory: getArmory
+})
+
+const mapDispatchToProps = {
+  dispatchArmory
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArmoryLib);

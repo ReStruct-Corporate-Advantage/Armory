@@ -129,83 +129,87 @@ export default class Helper {
         return copy;
     };
 
-    static recurse (recursivepatharr, key, value, tree, j) {
+    static recurse (recursivepatharr, key, value, tree, parent, j, searchIndex) {
         let returnVal;
         if (tree) {
             if (tree.length) {  // List of components
-                const list = [...tree];
+                const list = tree;
                 for (let i = 0; i < list.length; i++) {
                     let currentNode = list[i];  // Root Component first
-                    returnVal = Helper.recurse(recursivepatharr, key, value, currentNode, j);
+                    returnVal = Helper.recurse(recursivepatharr, key, value, currentNode, list, j, searchIndex);
                     if (returnVal) {
                         return returnVal;
                     }
                 }
             } else {
-                if (j === 0 || j === recursivepatharr.length) {
+                if ((searchIndex && j === searchIndex) || (j === 0 || j === recursivepatharr.length)) {
                     if (value) {
                         if (tree[key] && (tree[key] === value)) {
-                            return tree;
+                            return {selectedComponentConfig: tree, parent};
                         }
                     } else {
                         if (tree[key]) {
-                            return tree[key];
+                            return {selectedComponentConfig: tree[key], parent};
                         }
                     }
-                    j !== 0 && (j = -1);
                 }
+                j = j === recursivepatharr.length ? 0 : j;
                 const nextnode = tree[recursivepatharr[j]]
-                return Helper.recurse(recursivepatharr, key, value, nextnode, j+1);
+                return Helper.recurse(recursivepatharr, key, value, nextnode, tree, j + 1, searchIndex);
             }
         }
         return returnVal;
     }
 
-    static searchInTree (key, value, tree, rootpath, recursivepath) {
+    static searchInTree (key, value, tree, rootpath, recursivepath, searchIndex) {
         if (!key || !tree) return {};
         let returnVal;
-        let hasMore = false;
-        const rootpatharr = rootpath && rootpath.split(".");
-        const recursivepatharr = recursivepath && recursivepath.split(".");
-        if (rootpatharr) {
-            for (let i = 0; i < rootpatharr.length; i++) {
-                const pathStop = rootpatharr[i];
-                if (i < rootpatharr.length || recursivepath) {
-                    hasMore = true;
-                }
-                if (tree.length) {
-                    for (let i = 0; i < tree.length; i++) {
-                        const node = tree[i];
-                        let currentNode = node[pathStop];
-                        if (currentNode) {
-                            if (!hasMore) {
-                                if (value) {
-                                    if (currentNode[key] === value) {
-                                        returnVal = currentNode;
+        let hasMore = false, parent = tree;
+        try {
+            const rootpatharr = rootpath && rootpath.split(".");
+            const recursivepatharr = recursivepath && recursivepath.split(".");
+            if (rootpatharr) {
+                for (let i = 0; i < rootpatharr.length; i++) {
+                    const pathStop = rootpatharr[i];
+                    if (i < rootpatharr.length || recursivepath) {
+                        hasMore = true;
+                    }
+                    if (tree.length) {
+                        for (let i = 0; i < tree.length; i++) {
+                            const node = tree[i];
+                            let currentNode = node[pathStop];
+                            if (currentNode) {
+                                if (!hasMore) {
+                                    if (value) {
+                                        if (currentNode[key] === value) {
+                                            returnVal = currentNode;
+                                        }
+                                    } else {
+                                        if (currentNode[key]) {
+                                            returnVal = currentNode[key];
+                                        }
                                     }
                                 } else {
-                                    if (currentNode[key]) {
-                                        returnVal = currentNode[key];
-                                    }
+                                    currentNode = currentNode[pathStop];
                                 }
-                            } else {
-                                currentNode = currentNode[pathStop];
                             }
                         }
-                    }
-                } else {
-                    if (!hasMore) {
-                        if (tree[key]) {
-                            returnVal = tree[key];
-                        }
                     } else {
-                        tree = tree[pathStop];
+                        if (!hasMore) {
+                            if (tree[key]) {
+                                returnVal = tree[key];
+                            }
+                        } else {
+                            tree = tree[pathStop];
+                        }
                     }
                 }
             }
-        }
-        if (recursivepatharr) {
-            returnVal = Helper.recurse(recursivepatharr, key, value, tree, 0)
+            if (recursivepatharr) {
+                returnVal = Helper.recurse(recursivepatharr, key, value, tree, parent, 0, searchIndex)
+            }
+        } catch (e) {
+            console.log(e);
         }
         
         return returnVal;
@@ -219,11 +223,23 @@ export default class Helper {
         });
     }
 
-    static filterObject(obj, filterKeys) {
-        if (!obj || !filterKeys || filterKeys.length === 0)
+    static filterObject(obj, removeArr, disableArr) {
+        if (!obj || ((!removeArr || removeArr.length === 0) && (!disableArr || disableArr.length === 0)))
             return obj;
         const objClone = {...obj};
-        filterKeys.forEach(key => delete objClone[key]);
+        removeArr && removeArr.forEach(key => delete objClone[key]);
+        disableArr && disableArr.forEach(key => obj[key] && typeof obj[key] === "object" && (obj[key].alwaysDisabled = true));
         return objClone;
+    }
+
+    static findMaxHyphenBased (obj, incoming) {
+        const maxInstance = Object.keys(obj).reduce((accInstance, currentInstance) => {
+            if (currentInstance.indexOf(incoming) > -1) {
+                const index = currentInstance.substring(currentInstance.indexOf("-") + 1);
+                return index > accInstance ? index : accInstance;
+            }
+            return accInstance;
+        }, -1)
+        return maxInstance;
     }
 }

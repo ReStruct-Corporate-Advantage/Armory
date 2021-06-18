@@ -9,6 +9,12 @@ const armamentSchema = new mongoose.Schema({
         updatedBy: String,
     },
     armamentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'ArmamentCategory' },
+    order: Number,
+    selfClosing: Boolean,
+    visibility: {
+        type: String,
+        default: "public"
+    },
     descriptor: {
         allowChildren: {
             type: Boolean,
@@ -26,6 +32,7 @@ const armamentSchema = new mongoose.Schema({
             type: String,
             default: "3rem"
         },
+        children: [Map],
         handlers: Map,
         classes: String,
         styles: Map

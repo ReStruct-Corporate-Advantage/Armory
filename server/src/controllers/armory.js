@@ -36,7 +36,7 @@ class ArmoryController {
                                     }
                                 }
                             });
-                            subCategories.sort();
+                            subCategories.sort((a, b) => a - b);
                             for (let i = subCategories.length - 1; i >= 0; i--) {
                                 categories.splice(subCategories[i], 1)
                             }
@@ -65,14 +65,14 @@ class ArmoryController {
     }
 
     updateArmament (req, res) {
-        const user_details = req.decode;
+        const user_details = req.decoded;
         try {
             userDao.findUserByUserName(user_details.username)
             .then (userObj => {
                 if (!userObj) {
                     return res.status(404).json({message: "User not found!"});
                 }
-                const armament = req.armament;
+                const armament = req.body;
                 dao.findArmamentByName(armament.componentName)
                     .then(doc => {
                         doc.meta = armament.meta;
