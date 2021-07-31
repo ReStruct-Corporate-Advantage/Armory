@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {withRouter} from "react-router-dom";
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {makeStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/styles";
 import { setLoggedIn, setUserRole } from "../../pages/Login/actions";
 import {isLoggedIn} from "./../../global-selectors";
 import {ButtonsPanel, InputField, SectionHeader} from "..";

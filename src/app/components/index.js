@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import ArmamentWrapperContextMenu from "./ArmamentWrapperContextMenu";
 import BreadCrumb from "./BreadCrumb";
 import CheckBox from "./form-components/CheckBox";
 import SelectOption from "./form-components/SelectOption";
@@ -56,6 +57,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ArmamentWrapperContextMenu,
 	BreadCrumb,
 	CheckBox,
 	SelectOption,

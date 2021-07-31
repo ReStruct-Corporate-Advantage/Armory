@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useRef } from "react";
+import React, { memo, useCallback, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
@@ -13,12 +13,14 @@ import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = props => {
-  const {componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, recursiveRenderer, selectedComponent, setSelectedComponent} = props;
-  const {descriptor} = componentConfig;
-  const {allowChildren} = descriptor ? descriptor : {};
-  const Component = componentConfig.state && componentConfig.state === "new" ? forkedRepository[componentConfig.name] : repository[componentConfig.name];
-  const {registerListener} = useEventHandler();
+  const {children, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, setSelectedComponent} = props;
+  const {descriptor} = componentConfig || {};
+  const {allowChildren} = descriptor || {};
+  // const Component = componentConfig.state && componentConfig.state === "new" ? forkedRepository[componentConfig.name] : repository[componentConfig.name];
+  const Component = children;
   const ref = useRef(null)
+  let {registerListener} = useEventHandler();
+  registerListener = useCallback(registerListener, [ref.current, registerListener]);
 
   // Use this component to be dragged and dropped on other potential drop targets
   const [{isDragging}, drag, preview] = useDrag({
@@ -31,7 +33,7 @@ const ArmamentWrapper = props => {
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
     ref && ref.current && registerListener(ref.current);
-  }, [preview]);
+  }, [preview, registerListener]);
 
   // Use this component for dropping other items
   const [, drop] = useDrop({

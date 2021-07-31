@@ -11,6 +11,7 @@ import {ArmamentWrapper, LayoutSelector} from "../";
 import dndUtil from "../../utils/dndUtil";
 import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
+import { compGen } from "../../utils/CodeUtils/ComponentGenerator";
 
 const ComponentContainer = props => {
   const {armory, componentsConfig, boundingClientRectProvider, dispatchClearPropsState, dispatchComponentsConfig, dispatchModal, selectedComponent, setSelectedComponent, setComponentsConfig} = props;
@@ -54,9 +55,11 @@ const ComponentContainer = props => {
   })
 
   const cellRenders = cells && cells.length > 0 && cells.map((cell, key) => <span key={key} className="position-absolute" style={cell} />);
-  const componentRenderer = (items) => items.map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper selectedComponent={selectedComponent}
-          setSelectedComponent={setSelectedComponent} key={key} componentConfig={componentConfig} recursiveRenderer={componentRenderer} />)
-          .filter(component => component);
+  const items = componentsConfig.components[0].descriptor.children;
+  const componentRenders = compGen.iterateAndGenerateWithConfig(items, selectedComponent, setSelectedComponent).map(componentObj => componentObj.item);
+  // const componentRenderer = (items) => items.map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper selectedComponent={selectedComponent}
+  //         setSelectedComponent={setSelectedComponent} key={key} componentConfig={componentConfig} recursiveRenderer={componentRenderer} />)
+  //         .filter(component => component);
 
   return (
     <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef} >
@@ -65,7 +68,7 @@ const ComponentContainer = props => {
         {cellRenders}
       </div>
       <div className="c-ComponentContainer__renders position-absolute w-100 h-100" ref={drop}>
-        {componentRenderer(componentsConfig.components[0].descriptor.children)}
+        {componentRenders}
       </div>
     </div>
   );

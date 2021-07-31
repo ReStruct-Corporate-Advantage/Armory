@@ -16,7 +16,7 @@ const ArmoryLib = props => {
       .then(res => {
         const root = res.body
         dispatchArmory(root)
-        compGen.populateComponentRepository(root);
+        compGen.iterateAndGenerate(root);
       })
       .catch(e => console.log("Error: ", e));
   }, []);

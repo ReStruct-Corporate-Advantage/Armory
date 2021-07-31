@@ -14,7 +14,7 @@ export class DNDUtil {
       if (rootChildrenArray.length === 0) {
         // console.log(monitor)
         dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
-          header: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
+          body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
           primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, setSelectedComponent, dispatchClearPropsState, armory),
           secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, setSelectedComponent, dispatchClearPropsState)}});
       } else {

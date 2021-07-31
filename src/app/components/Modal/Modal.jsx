@@ -11,7 +11,7 @@ const Modal = props => {
   const {modal, dispatchModal} = props;
   const {display, meta} = modal;
   const {body, footer, header, primaryButtonText, secondaryButtonText, title, primaryHandler, secondaryHandler} = meta;
-  const Component = typeof body==="string" ? components[body] ? components[body]: null : (body || null);
+  const Component = typeof body==="string" ? components[body] ? components[body]: body : (body || null);
   //const submitHandler =  typeof primaryButtonHandler === "function" ? primaryButtonHandler : window[primaryButtonHandler];
   const [defaultHandler,setDefaultHandler] = useState()
 
@@ -26,7 +26,8 @@ const Modal = props => {
   }
 
   return (
-    <div className={`c-Modal modal fade ${display ? "show": ""}`} style={{display:display? "block":"none"}}id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <>
+    <div className={`c-Modal modal fade${display ? " show": ""}`} style={{display:display? "block":"none"}}id="exampleModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog" role="document">
         <form className="modal-content">
           <div className="modal-header">
@@ -37,7 +38,7 @@ const Modal = props => {
             </button></>}
           </div>
           <div className="modal-body">
-            {Component && <Component setDefaultHandler={setDefaultHandler}/>}
+            {Component ? typeof Component === "string" ? Component : <Component setDefaultHandler={setDefaultHandler}/> : null}
           </div>
           <div className="modal-footer">
             {footer ||
@@ -50,6 +51,8 @@ const Modal = props => {
         </form>
       </div>
     </div>
+    {display && <div className="modal-backdrop fade show" />}
+    </>
   );
 };
 Modal.propTypes = {

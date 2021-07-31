@@ -59,7 +59,7 @@ const PropsForm = props => {
     selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
-    compGen.generate(selectedComponentConfigCloned, true, true); // Forking here
+    compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, true); // Forking here
     setComponentsConfig(componentsConfigCloned);
     updateFormState(formStateCloned);
   }
