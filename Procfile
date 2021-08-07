@@ -1,1 +1,1 @@
-web: cd server && node .
+web: cd server && npm start

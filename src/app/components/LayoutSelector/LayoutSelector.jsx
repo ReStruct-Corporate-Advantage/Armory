@@ -21,9 +21,9 @@ const LayoutSelector = props => {
   
   return (
     <div className="c-LayoutSelector">
-      <div className="pr-3 pl-2 d-inline-block"><img src={images.LayoutShrink} alt="Shrink" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.SHRINK)} /></div>
-      <div className="pr-3 d-inline-block"><img src={images.LayoutExpand} alt="Expand" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.EXPAND)} /></div>
-      <div className="pr-1 d-inline-block"><img src={images.LayoutCustom} alt="Custom" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.CUSTOM)} /></div>
+      <div className="pr-3 pl-2 d-inline-block btn"><img src={images.LayoutShrink} alt="Shrink" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.SHRINK)} /></div>
+      <div className="pr-3 d-inline-block btn"><img src={images.LayoutExpand} alt="Expand" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.EXPAND)} /></div>
+      <div className="pr-1 d-inline-block btn"><img src={images.LayoutCustom} alt="Custom" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.CUSTOM)} /></div>
     </div>
   );
 };

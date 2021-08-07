@@ -7,7 +7,7 @@ import { useResizeDetector } from "react-resize-detector";
 import { dispatchClearPropsState, dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout, setComponentsConfig } from "../../pages/ComponentCreator/actions";
 import { dispatchModal } from "../../global-actions";
 import { getPresentComponentsConfig, getLayout, getPreviousLayout, getArmory } from "../../pages/ComponentCreator/selectors";
-import {ArmamentWrapper, LayoutSelector} from "../";
+import {LayoutSelector} from "../";
 import dndUtil from "../../utils/dndUtil";
 import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
@@ -49,14 +49,19 @@ const ComponentContainer = props => {
   // eslint-disable-next-line no-unused-vars
   const [{isOver}, drop] = useDrop({
     accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
-    drop: (item, monitor) => dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig,
-      setSelectedComponent, dispatchClearPropsState, dispatchModal, armory),
+    drop: (item, monitor) => {
+      dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig,
+      setSelectedComponent, dispatchClearPropsState, dispatchModal, armory)
+      },
     collect: monitor => ({isOver: !!monitor.isOver()}),
   })
 
   const cellRenders = cells && cells.length > 0 && cells.map((cell, key) => <span key={key} className="position-absolute" style={cell} />);
   const items = componentsConfig.components[0].descriptor.children;
-  const componentRenders = compGen.iterateAndGenerateWithConfig(items, selectedComponent, setSelectedComponent).map(componentObj => componentObj.item);
+  if (!comContainerRef) {
+    debugger;
+  }
+  const componentRenders = compGen.iterateAndGenerateWithConfig(items, selectedComponent, setSelectedComponent, comContainerRef).map(componentObj => componentObj.item);
   // const componentRenderer = (items) => items.map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper selectedComponent={selectedComponent}
   //         setSelectedComponent={setSelectedComponent} key={key} componentConfig={componentConfig} recursiveRenderer={componentRenderer} />)
   //         .filter(component => component);

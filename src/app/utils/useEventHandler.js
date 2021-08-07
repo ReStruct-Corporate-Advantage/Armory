@@ -5,6 +5,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import {setComponentsConfig} from "./../pages/ComponentCreator/actions";
 import ACTIONS from "../constants/actions";
+import {forkedRepository} from "./../utils/CodeUtils/ComponentGenerator";
 import Helper from "./Helper";
 
 const useEventHandler = (props) => {
@@ -14,12 +15,12 @@ const useEventHandler = (props) => {
     const dispatch = useDispatch()
     // const componentsConfig = useSelector(state => state.data.pages.componentCreator.present.componentConfig);
     // const updateComponentConfig = useCallback((componentConfigCloned) => dispatch(dispatchComponentsConfig(componentConfigCloned)), [dispatch])
-    const handleKeyDown = (event, componentConfig, selectedComponent) => {
+    const handleKeyDown = (event, componentConfig, selectedComponent, setSelectedComponent) => {
         // if (event.metaKey) {
         //     ctrlKeyPressed = true;
         // }
         const action = getAction(event);
-        processAction(action, componentConfig, selectedComponent, event);
+        processAction(action, componentConfig, selectedComponent, setSelectedComponent, event);
     }
 
     const handleOnClick = (e) => {
@@ -44,10 +45,10 @@ const useEventHandler = (props) => {
         }
     }
 
-    const processAction = (action, componentConfig, selectedComponent, event) => {
+    const processAction = (action, componentConfig, selectedComponent, setSelectedComponent, event) => {
         switch (action) {
             case ACTIONS.DELETE:
-                deleteItem(componentConfig, selectedComponent, event);
+                deleteItem(componentConfig, selectedComponent, setSelectedComponent, event);
                 break;
             case ACTIONS.REDO:
                 processRedo(componentConfig, event);
@@ -82,14 +83,17 @@ const useEventHandler = (props) => {
         console.log("selecting all")
     }
 
-    const deleteItem = (componentConfig, selectedComponent, event) => {
+    const deleteItem = (componentConfig, selectedComponent, setSelectedComponent, event) => {
         if (event.target.nodeName !== "INPUT") {
             const componentConfigCloned = {...componentConfig};
+            const childArray = componentConfigCloned.components[0].descriptor.children;
             const searchedObj = Helper.searchInTree("uuid", selectedComponent, componentConfigCloned, "components", "descriptor.children");
             if (searchedObj) {
                 const {parent} = searchedObj;
                 parent.splice(parent.findIndex(item => item.uuid === selectedComponent), 1);
                 dispatch(setComponentsConfig(componentConfigCloned));
+                delete forkedRepository[selectedComponent]
+                childArray && childArray.length > 0 && setSelectedComponent(childArray[childArray.length - 1].uuid)
             }
         }
     }

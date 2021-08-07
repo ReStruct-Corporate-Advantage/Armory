@@ -35,11 +35,11 @@ export class DNDUtil {
     container.uuid = `arm-${container.componentName}-${this.uuid++}`;
     componentsConfigClone.count = componentsConfigClone.count + 1;
     item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
-    container.descriptor.children = container.descriptor.children ? container.descriptor.children : [];
+    container.descriptor.children = container.descriptor.children ? [...container.descriptor.children] : [];
     const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top, left, ...container}
     const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0, ...item.category}
     rootChildrenArray.push(containerComponentConfig);
-    container.descriptor.children.push(droppedComponentConfig);
+    container.descriptor.children.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
     dispatchComponentsConfig(componentsConfigClone);
     setSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
@@ -54,7 +54,7 @@ export class DNDUtil {
       componentsConfigClone.count = componentsConfigClone.count + 1;
       item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
       const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
-      rootChildrenArray.push(droppedComponentConfig);
+      rootChildrenArray.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
     } else {
       const {parent: droppedComponentParent, selectedComponentConfig: droppedComponentConfig} = Helper.searchInTree("uuid", item.category.uuid, componentsConfigClone, "components", "descriptor.children") || {};
       item.category.top = top;
@@ -67,9 +67,12 @@ export class DNDUtil {
     dispatchClearPropsState(true);
   }
 
-  armWrapperDropHandler (item, monitor, ref, componentsConfig, droppedOn, setComponentsConfig, setSelectedComponent, dispatchClearPropsState) {
-    if (monitor.isOver() && item.category.uuid !== droppedOn.uuid){
-      if (droppedOn.descriptor.allowChildren) {
+  armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, setSelectedComponent, dispatchClearPropsState) {
+    if (monitor.isOver()){
+      if (item.category.uuid === droppedOn.uuid) {
+        const position = this.getPosition(comContainerRef, monitor);
+        this.updatePositionDescriptor(item, position, componentsConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState);
+      } else if (droppedOn.descriptor.allowChildren) {
         const componentsConfigClone = {...componentsConfig};
         const {selectedComponentConfig: wrapper} = Helper.searchInTree("uuid", droppedOn.uuid, componentsConfigClone, "components", "descriptor.children");
         const wrapperChildrenArray = wrapper && wrapper.descriptor.children;

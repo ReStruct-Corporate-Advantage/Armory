@@ -6,14 +6,13 @@ import { useDrag, useDrop } from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
 import { getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
-import {forkedRepository, repository} from "./../../utils/CodeUtils/ComponentGenerator";
 import useEventHandler from "../../utils/useEventHandler";
 import dndUtil from "../../utils/dndUtil";
 import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = props => {
-  const {children, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, setSelectedComponent} = props;
+  const {children, comContainerRef, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, setSelectedComponent} = props;
   const {descriptor} = componentConfig || {};
   const {allowChildren} = descriptor || {};
   // const Component = componentConfig.state && componentConfig.state === "new" ? forkedRepository[componentConfig.name] : repository[componentConfig.name];
@@ -61,7 +60,9 @@ const ArmamentWrapper = props => {
       // moveCard(dragIndex, hoverIndex)
       item.index = hoverIndex
     },
-    drop: (item, monitor) => dndUtil.armWrapperDropHandler(item, monitor, ref, componentsConfig, componentConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState)
+    drop: (item, monitor) => {
+      dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState)
+    }
     // dispatchComponentsConfig,
     // setSelectedComponent, dispatchClearPropsState, dispatchModal, armory
   })

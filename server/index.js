@@ -2,6 +2,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+// import path, {dirname} from "path";
+// import { fileURLToPath } from 'url';
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -24,6 +26,7 @@ import component from "./src/routes/component.js";
 const app = express();
 const server = http.Server(app);
 const io = require("socket.io")(server);
+// const __dirname = dirname(fileURLToPath(import.meta.url));
 
 global.config = APP_CONFIG;
 global.config.auth = AUTH_CONFIG;
@@ -41,7 +44,11 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(cookieParser())
+// app.use(express.static(path.resolve(__dirname, '../build')));
 
+// app.get('*', function(request, response) {
+//     response.sendFile(path.resolve(__dirname, '../build', 'index.html'));
+// });
 app.use("/api/armory", armory);
 app.use("/api/auth", auth);
 app.use("/api/user", user);

@@ -38,7 +38,7 @@ class CodeGenerator {
 
     generateChildren (component, counter, setSelectedComponent) {
         const descriptor = component.descriptor || this.defaultComponentDescriptor;
-        const children = descriptor.children ? descriptor.children : [];
+        const children = descriptor.children ? [...descriptor.children] : [];
         const text = descriptor.innerText;
         text && children.push({
             componentName: "TextComponent",

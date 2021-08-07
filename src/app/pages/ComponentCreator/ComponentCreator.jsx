@@ -19,7 +19,7 @@ const ComponentCreator = props => {
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
         <main className="c-ComponentCreator__content d-flex flex-row flex-nowrap position-fixed" 
           tabIndex="0"
-          onKeyDown = {(e) => handleKeyDown(e, componentConfig, selectedComponent)}
+          onKeyDown = {(e) => handleKeyDown(e, componentConfig, selectedComponent, setSelectedComponent)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
           <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
