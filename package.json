@@ -47,7 +47,7 @@
   },
   "scripts": {
     "install": "cd server && npm install",
-    "clientstart": "serve -s build",
+    "clientstart": "PORT=7992 react-scripts start",
     "serverstart": "cd server && npm start",
     "start": "run-p clientstart serverstart",
     "build": "react-scripts build",
