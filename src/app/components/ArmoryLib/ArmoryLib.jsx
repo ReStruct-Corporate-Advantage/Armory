@@ -12,7 +12,7 @@ import "./ArmoryLib.component.scss";
 const ArmoryLib = props => {
   const {armory, dispatchArmory} = props;
   useEffect(() => {
-    Network.get("http://localhost:3002/api/armory")
+    Network.get("https://armory-service.herokuapp.com/api/armory")
       .then(res => {
         const root = res.body
         dispatchArmory(root)
