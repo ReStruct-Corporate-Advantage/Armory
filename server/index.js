@@ -49,6 +49,9 @@ app.use(cookieParser())
 // app.get('*', function(request, response) {
 //     response.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 // });
+app.use("/test", (req, res) => {
+    res.send(require("./data/armory.json"));
+})
 app.use("/api/armory", armory);
 app.use("/api/auth", auth);
 app.use("/api/user", user);
