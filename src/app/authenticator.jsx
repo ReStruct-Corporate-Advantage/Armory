@@ -6,6 +6,7 @@ import { PageLoader } from "./components";
 import { dispatchUserDetails, setLoggedIn } from "./global-actions";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
+import { API_CONFIG } from "./constants/api-config";
 
 const LoadableDashboard = Loadable({
   loader: () => import("./pages/Dashboard"),
@@ -69,7 +70,7 @@ function Authenticator(props) {
   if (!isLoggedIn) {
     history.push("/login");
   } else {
-    Network.get("http://localhost:3002/api/user/current")
+    Network.get(`http://${API_CONFIG.HOST.PROD}/api/user/current`)
       .then(res => dispatchUserDetails(res.body))
       .catch(e => console.log(e));
   }
