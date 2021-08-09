@@ -23,8 +23,8 @@ class AuthController {
                             algorithm: global.config.auth.algorithm,
                             expiresIn: "21600m" // 15 days
                         });
-                        res.cookie("auth_session_token", token, {maxAge: 1000 * 60 * 60 * 24 * 30, path: "/", sameSite: "Lax"});
-                        res.cookie("auth_session_user", userdata.username, {maxAge: 1000 * 60 * 60 * 24 * 30, path: "/", sameSite: "Lax"});
+                        res.cookie("auth_session_token", token, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: ".herokuapp.com", path: "/", sameSite: "Lax"});
+                        res.cookie("auth_session_user", userdata.username, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: ".herokuapp.com", path: "/", sameSite: "Lax"});
 
                         res.status(200).json({message: "Login Successful", user: res_db});
                     } else {
