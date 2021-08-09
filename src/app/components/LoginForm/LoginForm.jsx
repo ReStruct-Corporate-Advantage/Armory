@@ -63,7 +63,6 @@ const LoginForm = props => {
   const [isLoginApiError, setLoginApiError] = useState(false);
   const [registerApiMessage, setRegisterApiMessage] = useState("");
   const [isRegisterApiError, setRegisterApiError] = useState(false);
-
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -135,7 +134,7 @@ const LoginForm = props => {
             {
               setLoginApiError(false);
               setLoginApiMessage("");
-              handleSubmit("loginform")
+              handleSubmit("loginform", API_CONFIG)
             }}}}/>
           </form>
         </TabPanel>
@@ -161,7 +160,7 @@ const LoginForm = props => {
                   onClick: () => {
                     setRegisterApiError(false);
                     setRegisterApiMessage("");
-                    handleSubmit("registerform");
+                    handleSubmit("registerform", API_CONFIG);
                   }
                 }
               }
