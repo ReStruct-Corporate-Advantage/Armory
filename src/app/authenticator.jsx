@@ -70,7 +70,7 @@ function Authenticator(props) {
   if (!isLoggedIn) {
     history.push("/login");
   } else {
-    Network.get(`http://${API_CONFIG.HOST.PROD}/api/user/current`)
+    Network.get(`https://${API_CONFIG.HOST.PROD}/api/user/current`)
       .then(res => dispatchUserDetails(res.body))
       .catch(e => console.log(e));
   }
