@@ -7,12 +7,13 @@ import {getArmory} from "../../pages/ComponentCreator/selectors";
 import {ArmsCategory} from "./../";
 import Network from "../../utils/network";
 import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
+import { API_CONFIG } from "../../constants/api-config";
 import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
   const {armory, dispatchArmory} = props;
   useEffect(() => {
-    Network.get("https://armory-service.herokuapp.com/api/armory")
+    Network.get(`https://${API_CONFIG.HOST.PROD}/api/armory`)
       .then(res => {
         const root = res.body
         dispatchArmory(root)

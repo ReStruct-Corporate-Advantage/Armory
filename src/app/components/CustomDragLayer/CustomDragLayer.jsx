@@ -45,9 +45,9 @@ function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapTo
     [x, y] = DNDUtil.snapToGrid(x, y, layout);
     x += clientRect.left;
     y += clientRect.top;
-    console.log(x, y);
-    console.log(ref.current)
-    console.log(ref.current && ref.current.getBoundingClientRect());
+//     console.log(x, y);
+//     console.log(ref.current)
+//     console.log(ref.current && ref.current.getBoundingClientRect());
   }
   
   const transform = `translate(${x}px, ${y}px)`;

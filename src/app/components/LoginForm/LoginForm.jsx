@@ -9,6 +9,7 @@ import {isLoggedIn} from "./../../global-selectors";
 import {ButtonsPanel, InputField, SectionHeader} from "..";
 import {AppBar, Box, Tab, Tabs} from "@material-ui/core";
 import Network from "../../utils/network";
+import { API_CONFIG } from "../../constants/api-config";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
@@ -74,7 +75,7 @@ const LoginForm = props => {
 
   const handleSubmit = (form) => {
     const formObj = fieldValues[form];
-    Network.post("http://localhost:3002/api/auth/" + (form === "loginform" ? "login" : "register"), formObj)
+    Network.post(`http://${API_CONFIG.HOST.PROD}/api/auth/${form === "loginform" ? "login" : "register"}`, formObj)
       .then(res => {
         if (form === "loginform") {
           if (res.status === 200 && res.body.message === "Login Successful") {
