@@ -50,7 +50,7 @@ app.use(cookieParser())
 //     response.sendFile(path.resolve(__dirname, '../build', 'index.html'));
 // });
 app.use("/test", (req, res) => {
-    res.send(require("./data/armory.json"));
+    res.send(require("./src/data/armory.json"));
 })
 app.use("/api/armory", armory);
 app.use("/api/auth", auth);
