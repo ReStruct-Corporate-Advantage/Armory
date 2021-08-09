@@ -75,6 +75,7 @@ io.on("connection", function(socket) {
     });
 });
 
-server.listen(global.config.web.port, () => {
-    console.log(`App running on the port ${global.config.web.port}`);
+const listenPort = process.env.PORT || global.config.web.port
+server.listen(listenPort, () => {
+    console.log(`App running on the port ${listenPort}`);
 })
