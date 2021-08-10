@@ -17,6 +17,10 @@
       "@babel/react"
     ]
   },
+  "engines": {
+    "node": ">= 14.15.4",
+    "npm": ">= 7.14.0"
+  },
   "dependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.13.14",
