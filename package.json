@@ -72,6 +72,10 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": ">= 14.15.4",
+    "npm": ">= 7.14.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
     "@babel/core": "^7.9.0",
