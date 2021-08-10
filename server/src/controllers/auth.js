@@ -13,6 +13,12 @@ class AuthController {
             dao.findUserByUserName(userdata.username)
                 .then(res_db => {
                     if (res_db) {
+                        if (userdata.password !== res_db.password) {
+                            return res.status(401).send({
+                                auth_session_token: null,
+                                message: "Invalid Password!"
+                            });
+                        }
                         let token = jwt.sign(userdata, global.config.auth.secretKey, {
                             algorithm: global.config.auth.algorithm,
                             expiresIn: "21600m" // 15 days
@@ -22,7 +28,7 @@ class AuthController {
 
                         res.status(200).json({message: "Login Successful", user: res_db});
                     } else {
-                        res.status(401).json({error: "Username or password is incorrect"});
+                        res.status(404).json({error: "User not found!"});
                     }
                 })
                 .catch(e => {
@@ -30,7 +36,7 @@ class AuthController {
                 })
         } catch (e) {
             console.error(e);
-            res.status(520).json({error: "Unable to login at the moment"});
+            res.status(520).json({error: "Unable to login at the moment", message: e});
         }
     }
 
