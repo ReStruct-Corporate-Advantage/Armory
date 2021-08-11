@@ -6,7 +6,7 @@ import logger from "./../loaders/logs-loader.js";
 class AuthController {
 
     login (req, res) {
-        logger.info("[AuthController::login] Initiation login for the user: ", req.body.username);
+        logger.info("[AuthController::login] Initiating login for the user: ", req.body.username);
         const userdata = {
             username: req.body.username,
             password: req.body.password
@@ -32,10 +32,11 @@ class AuthController {
                             expiresIn: "21600m" // 15 days
                         });
                         logger.info("[AuthController::login] Authentication token has been generated for the user: ", req.body.username);
-                        res.cookie("auth_session_token", token, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
-                        res.cookie("auth_session_user", userdata.username, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
+                        // res.cookie("auth_session_token", token, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
+                        // res.cookie("auth_session_user", userdata.username, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
 
-                        res.status(200).json({message: "Login Successful", user: res_db});
+                        res.status(200).json({message: "Login Successful", user: res_db, access_token: token});
+                        logger.info("[AuthController::login] Completed login for the user: ", req.body.username);
                     } else {
                         logger.warn("[AuthController::login] User %s not found in db", req.body.username);
                         res.status(404).json({error: "User not found!"});
