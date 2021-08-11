@@ -1,52 +1,53 @@
 import jwt from "jsonwebtoken";
 import dao from "./../dao/user.js";
 import Helper from "./../utils/helper.js";
+import logger from "./../loaders/logs-loader.js";
 
 class AuthController {
 
     login (req, res) {
-        console.log("[AuthController::login] Initiation login for the user: ", req.body.username);
+        logger.info("[AuthController::login] Initiation login for the user: ", req.body.username);
         const userdata = {
             username: req.body.username,
             password: req.body.password
         };
         try {
-            console.log("[AuthController::login] Finding details for the user %s in db", req.body.username);
+            logger.info("[AuthController::login] Finding details for the user %s in db", req.body.username);
             dao.findUserByUserName(userdata.username)
                 .then(res_db => {
-                    console.log("[AuthController::login] DB search for the user %s completed", req.body.username);
+                    logger.info("[AuthController::login] DB search for the user %s completed", req.body.username);
                     if (res_db) {
-                        console.log("[AuthController::login] User %s exists in db", req.body.username);
+                        logger.info("[AuthController::login] User %s exists in db", req.body.username);
                         if (userdata.password !== res_db.password) {
-                            console.log('[AuthController::login] User details for the user %s are incorrect', req.body.username);
+                            logger.warn('[AuthController::login] User details for the user %s are incorrect', req.body.username);
                             return res.status(401).send({
                                 auth_session_token: null,
                                 message: "Invalid Password!"
                             });
                         }
-                        console.log("[AuthController::login] User credentials matched for the user: ", req.body.username);
-                        console.log("[AuthController::login] Generating authentication token for the user: ", req.body.username);
+                        logger.info("[AuthController::login] User credentials matched for the user: ", req.body.username);
+                        logger.info("[AuthController::login] Generating authentication token for the user: ", req.body.username);
                         let token = jwt.sign(userdata, global.config.auth.secretKey, {
                             algorithm: global.config.auth.algorithm,
                             expiresIn: "21600m" // 15 days
                         });
-                        console.log("[AuthController::login] Authentication token has been generated for the user: ", req.body.username);
+                        logger.info("[AuthController::login] Authentication token has been generated for the user: ", req.body.username);
                         res.cookie("auth_session_token", token, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
                         res.cookie("auth_session_user", userdata.username, {maxAge: 1000 * 60 * 60 * 24 * 30, domain: "herokuapp.com", path: "/", sameSite: "none"});
 
                         res.status(200).json({message: "Login Successful", user: res_db});
                     } else {
-                        console.log("[AuthController::login] User %s not found in db", req.body.username);
+                        logger.warn("[AuthController::login] User %s not found in db", req.body.username);
                         res.status(404).json({error: "User not found!"});
                     }
                 })
                 .catch(e => {
-                    console.log("[AuthController::login] Login failed for unknown reason for the user: ", req.body.username);
-                    console.log("[AuthController::login] Captured error: ", e)
+                    logger.error("[AuthController::login] Login failed for unknown reason for the user: ", req.body.username);
+                    logger.error("[AuthController::login] Captured error: ", e)
                     res.status(520).json({error: "Unable to login at the moment"});
                 })
         } catch (e) {
-            console.error(e);
+            logger.error(e);
             res.status(520).json({error: "Unable to login at the moment", message: e});
         }
     }
@@ -89,7 +90,7 @@ class AuthController {
                 res.status(500).json({error: `Data validation failed for the user ${userdata.username}`});
             }
         } catch (e) {
-            console.error(e);
+            logger.error(e);
             res.status(520).json({error: "Unable to register at the moment"});
         }
     }

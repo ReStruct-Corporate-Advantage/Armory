@@ -1,7 +1,6 @@
 /* eslint-disable import/first */
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-
 // import path, {dirname} from "path";
 // import { fileURLToPath } from 'url';
 import express from "express";
@@ -10,11 +9,13 @@ import cookieParser from "cookie-parser";
 import http from "http";
 
 import APP_CONFIG from "./src/config/app-config.js";
+import DB_CONFIG from "./src/config/db-config.js";
 import AUTH_CONFIG from "./src/secrets/auth.js";
 import KEYS from "./src/secrets/keys.js";
 import CONSTANTS from "./src/constants/constants.js";
 
 import dbInit from "./src/loaders/db-loader.js";
+import {logInit} from "./src/loaders/logs-loader.js";
 import armory from "./src/routes/armory.js";
 import auth from "./src/routes/auth.js";
 import user from "./src/routes/user.js";
@@ -28,12 +29,14 @@ const server = http.Server(app);
 const io = require("socket.io")(server);
 // const __dirname = dirname(fileURLToPath(import.meta.url));
 
-global.config = APP_CONFIG;
+global.config = {...global.config, ...APP_CONFIG};
+global.config.db = DB_CONFIG;
 global.config.auth = AUTH_CONFIG;
 global.keys = KEYS;
 global.constants = CONSTANTS
 
-const db = dbInit();
+logInit();
+const db = dbInit(logInit);
 
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -71,7 +74,7 @@ io.on("connection", function(socket) {
 
     //Whenever someone disconnects this piece of code executed
     socket.on("disconnect", function () {
-       console.log("A user disconnected");
+        console.log("A user disconnected");
     });
 });
 
