@@ -15,6 +15,14 @@ export function logInit (callback) {
                 level: "error",
                 format: format.combine(format.timestamp(), format.json())
             }),
+            new transports.Console({
+                level: "info",
+                format: format.combine(format.timestamp(), format.json())
+            }),
+            new transports.Console({
+                level: "error",
+                format: format.combine(format.timestamp(), format.json())
+            }),
             new transports.MongoDB({
                 level: "error",
                 db: global.config ? global.config.db.PROD.connection_string : "mongodb+srv://mohiit1502:astalavista2402@armory.ergdp.mongodb.net/Armory?retryWrites=true&w=majority",
