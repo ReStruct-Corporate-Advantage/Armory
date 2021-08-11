@@ -1,7 +1,7 @@
 {
   "name": "armory_backend",
   "version": "1.0.0",
-  "description": "Server to save and retrieve TODO lists",
+  "description": "Server to save and retrieve Armory components, pages, projects and users",
   "main": "index.js",
   "type": "module",
   "scripts": {
