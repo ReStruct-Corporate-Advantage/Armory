@@ -1,5 +1,5 @@
 const CONSTANTS = {
-    ACCESS_TOKEN_IDENTIFIER: "auth_session_token",
+    ACCESS_TOKEN_IDENTIFIER: "x-access-token",
     DB_FILE_NAMES: {
         SHIPPED_QR: "./data/qr_shipped.json",
         CREATED_QR: "./data/qr_created.json",

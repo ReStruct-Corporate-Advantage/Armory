@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 const router = express.Router();
 
 router.use(function (req, res, next) {
-    const token = req.cookies[global.constants.ACCESS_TOKEN_IDENTIFIER];
+    const token = req.headers[global.constants.ACCESS_TOKEN_IDENTIFIER];
     if (token) {
       jwt.verify(token,
         global.config.auth.secretKey,
