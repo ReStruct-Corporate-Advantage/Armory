@@ -50,6 +50,7 @@
     "clientstart": "PORT=7992 react-scripts start",
     "serverstart": "cd server && npm start",
     "start": "run-p clientstart serverstart",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate": "plop",
