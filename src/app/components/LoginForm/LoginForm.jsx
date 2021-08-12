@@ -9,6 +9,7 @@ import {isLoggedIn} from "./../../global-selectors";
 import {ButtonsPanel, InputField, SectionHeader} from "..";
 import {AppBar, Box, Tab, Tabs} from "@material-ui/core";
 import Network from "../../utils/network";
+import Helper from "../../utils/Helper";
 import { API_CONFIG } from "../../constants/api-config";
 import "./LoginForm.component.scss";
 
@@ -82,6 +83,7 @@ const LoginForm = props => {
             setLoginApiError(false);
             setLoginApiMessage("")
             const username = res.body.user && res.body.user.username;
+            res.body.access_token && Helper.setCookie("auth_session_token", res.body.access_token, 30);
             history.push(`/${username}`);
           } else if (res.body.error) {
             setLoginApiError(true);
