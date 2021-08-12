@@ -1,5 +1,6 @@
 import queryString from "query-string";
 import ArmoryError from "../errors/armory-error";
+import Helper from "./Helper";
 
 export default class Network {
 
@@ -57,6 +58,10 @@ export default class Network {
   }
 
   static async crud(urlString, options) {
+    if (!options.headers) {
+      options.headers = {}
+    }
+    options.headers["x-access-token"] = Helper.getCookie("auth_session_token");
     const response = await fetch(urlString, options);
     const { ok, status, headers } = response;
 //     console.log(response);
