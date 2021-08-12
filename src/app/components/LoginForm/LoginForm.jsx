@@ -75,7 +75,7 @@ const LoginForm = props => {
 
   const handleSubmit = (form) => {
     const formObj = fieldValues[form];
-    Network.post(`https://${API_CONFIG.HOST.PROD}/api/auth/${form === "loginform" ? "login" : "register"}`, formObj)
+    Network.post(`/api/auth/${form === "loginform" ? "login" : "register"}`, formObj)
       .then(res => {
         if (form === "loginform") {
           if (res.status === 200 && res.body.message === "Login Successful") {

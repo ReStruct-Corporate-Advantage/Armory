@@ -13,7 +13,7 @@ import "./ArmoryLib.component.scss";
 const ArmoryLib = props => {
   const {armory, dispatchArmory} = props;
   useEffect(() => {
-    Network.get(`https://${API_CONFIG.HOST.PROD}/api/armory`)
+    Network.get("/api/armory")
       .then(res => {
         const root = res.body
         dispatchArmory(root)

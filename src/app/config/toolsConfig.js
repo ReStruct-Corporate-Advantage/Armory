@@ -110,7 +110,7 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             onClick: () => {
-                                Network.get("http://localhost:3002/api/auth/logout")
+                                Network.get("/api/auth/logout")
                                     .then(res => {
                                         if (res.status === 200) {
                                             window.location.pathname = "/login";

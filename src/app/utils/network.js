@@ -1,6 +1,7 @@
 import queryString from "query-string";
 import ArmoryError from "../errors/armory-error";
 import Helper from "./Helper";
+import { API_CONFIG } from "../constants/api-config";
 
 export default class Network {
 
@@ -58,6 +59,8 @@ export default class Network {
   }
 
   static async crud(urlString, options) {
+    const host = API_CONFIG.HOST[process.env.NODE_ENV || "development"];
+    urlString = host ? host + urlString : urlString;
     if (!options.headers) {
       options.headers = {}
     }

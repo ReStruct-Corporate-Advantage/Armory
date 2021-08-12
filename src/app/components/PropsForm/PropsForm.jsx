@@ -87,7 +87,7 @@ const PropsForm = props => {
         })
       }
     })
-    Network.put("http://localhost:3002/api/armory", payload)
+    Network.put("/api/armory", payload)
       .then(res => {
         console.log(res);
       })
