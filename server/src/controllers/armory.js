@@ -40,6 +40,7 @@ class ArmoryController {
                             for (let i = subCategories.length - 1; i >= 0; i--) {
                                 categories.splice(subCategories[i], 1)
                             }
+                            categories.sort((cat1, cat2) => cat1.order - cat2.order);
                             const responseObj = Helper.filterEach(categories, ["_id", "__v", "leafCategory"]);
                             return res.status(200).json(responseObj);
                         })
