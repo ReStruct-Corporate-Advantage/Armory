@@ -7,7 +7,6 @@ import {getArmory} from "../../pages/ComponentCreator/selectors";
 import {ArmsCategory} from "./../";
 import Network from "../../utils/network";
 import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
-import { API_CONFIG } from "../../constants/api-config";
 import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
