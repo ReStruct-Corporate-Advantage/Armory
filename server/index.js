@@ -7,6 +7,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import http from "http";
+import cors from "cors";
 
 import APP_CONFIG from "./src/config/app-config.js";
 import DB_CONFIG from "./src/config/db-config.js";
@@ -46,6 +47,7 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "x-access-token, Origin, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
     next();
 });
+app.use(cors())
 app.use(cookieParser())
 // app.use(express.static(path.resolve(__dirname, '../build')));
 
