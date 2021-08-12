@@ -1,7 +1,6 @@
 /* eslint-disable import/first */
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-
 import express from "express";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
@@ -27,7 +26,6 @@ import component from "./src/routes/component.js";
 const app = express();
 const server = http.Server(app);
 const io = require("socket.io")(server);
-
 
 global.config = {...global.config, ...APP_CONFIG};
 global.config.db = DB_CONFIG;
