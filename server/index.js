@@ -40,14 +40,19 @@ logInit();
 const db = dbInit(logInit);
 
 app.use(bodyParser.json());
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Origin", req.headers.origin);
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,UPDATE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "x-access-token, Origin, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
-    next();
-});
-app.use(cors())
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header("Access-Control-Allow-Origin", req.headers.origin);
+//     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,UPDATE,OPTIONS");
+//     res.header("Access-Control-Allow-Headers", "x-access-token, Origin, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept");
+//     next();
+// });
+var whitelist = ['http://localhost:7992', 'https://armory-ui.herokuapp.com']
+var corsOptions = {
+  origin: (origin, callback) => whitelist.indexOf(origin) !== -1 ? callback(null, true) :  callback(new Error('Not allowed by CORS')),
+  credentials: true
+}
+app.use(cors(corsOptions))
 app.use(cookieParser())
 // app.use(express.static(path.resolve(__dirname, '../build')));
 
