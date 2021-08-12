@@ -82,8 +82,8 @@ const LoginForm = props => {
             setLoggedIn(true);
             setLoginApiError(false);
             setLoginApiMessage("")
-            const username = res.body.user && res.body.user.username;
             res.body.access_token && Helper.setCookie("auth_session_token", res.body.access_token, 30);
+            const username = res.body.user && res.body.user.username;
             history.push(`/${username}`);
           } else if (res.body.error) {
             setLoginApiError(true);
