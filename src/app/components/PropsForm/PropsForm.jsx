@@ -50,11 +50,11 @@ const PropsForm = props => {
   const onChangeActions = (formId, id, value, action, property, type) => {
     const formStateCloned = {...formState};
     const componentsConfigCloned = {...componentsConfig};
-    const selectedComponentConfigCloned = {...selectedComponentConfig};
+    const selectedComponentConfigCloned = JSON.parse(JSON.stringify(selectedComponentConfig));
     if (!formStateCloned[selectedComponent]) {
       formStateCloned[selectedComponent] = {};
     }
-    parent.splice(parent.indexOf(selectedComponentConfig), 1, selectedComponentConfigCloned);
+    parent.splice(parent.findIndex(child => child.uuid === selectedComponentConfig.uuid), 1, selectedComponentConfigCloned);
     action(formStateCloned, id, value, selectedComponentConfigCloned, property, type);
     selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)

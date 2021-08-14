@@ -40,6 +40,16 @@ function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapTo
   }
 
   if (isInstanceComponent) {
+    const draggedItem = ref.current;
+    const {x: draggedX, y: draggedY, top, left} = draggedItem ? draggedItem.getBoundingClientRect() : {};
+    // console.log(draggedX)
+    // console.log(draggedY)
+    // console.log(top)
+    // console.log(left)
+    console.log(clientOffset.x - left)
+    console.log(clientOffset.y - top)
+    // x = clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left - (clientOffset.x - left);
+    // y = clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top - (clientOffset.y - top);
     x = clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left;
     y = clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top;
     [x, y] = DNDUtil.snapToGrid(x, y, layout);
