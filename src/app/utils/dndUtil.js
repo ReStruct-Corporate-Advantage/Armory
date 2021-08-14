@@ -53,7 +53,9 @@ export class DNDUtil {
     if (item.type === ITEM_TYPE.ARMAMENT) {
       componentsConfigClone.count = componentsConfigClone.count + 1;
       item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
-      const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+      let droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+      // clone dropped item here
+      droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
       rootChildrenArray.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
     } else {
       const {parent: droppedComponentParent, selectedComponentConfig: droppedComponentConfig} = Helper.searchInTree("uuid", item.category.uuid, componentsConfigClone, "components", "descriptor.children") || {};
@@ -81,7 +83,9 @@ export class DNDUtil {
         if (item.type === ITEM_TYPE.ARMAMENT) {
           componentsConfigClone.count = componentsConfigClone.count + 1;
           item.category.uuid = `arm-${item.category.componentName}-${this.uuid++}`;
-          const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+          let droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+          // clone dropped item here
+          droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
           wrapperChildrenArray.push(droppedComponentConfig);
         } else {
           const {parent: droppedComponentParent, selectedComponentConfig: droppedComponentConfig} = Helper.searchInTree("uuid", item.category.uuid, componentsConfigClone, "components", "descriptor.children");

@@ -25,7 +25,7 @@ class ComponentGenerator {
         this.boardRepository = {};
     }
 
-    // ====================================================== GENERATE FORKED COMPONENTS ====================================================== //
+    // ====================================================== GENERATE FORKED COMPONENTS AND DRAG PREVIEW OF FORKED COMPONENTS ====================================================== //
     iterateAndGenerateWithConfig (root, selectedComponent, setSelectedComponent, comContainerRef) {
         if (!comContainerRef) {
             debugger;
