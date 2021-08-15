@@ -5,12 +5,21 @@ export class DNDUtil {
 
   constructor () {
     this.uuid = 1;
+    this.targetArmamentWrapper = null;
+    this.targetArmamentWrapperMonitorClientOffset= null;
   }
 
   dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState, dispatchModal, armory) {
-    if (monitor.isOver()){
+    // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
+    // In either case allow processing this dropped item
+    const handleChildArmamentWrapperDropForInverseDropScenario = this.targetArmamentWrapper && this.isDroppedItemParentOfMonitor(item.category, this.targetArmamentWrapper);
+    let clientOffset;
+    if (handleChildArmamentWrapperDropForInverseDropScenario) {
+      clientOffset = this.targetArmamentWrapperMonitorClientOffset;
+    }
+    if (monitor.isOver() || handleChildArmamentWrapperDropForInverseDropScenario){
       const rootChildrenArray = componentsConfig.components[0].descriptor.children;
-      const position = this.getPosition(comContainerRef, monitor);
+      const position = this.getPosition(comContainerRef, monitor, clientOffset);
       if (rootChildrenArray.length === 0) {
         // console.log(monitor)
         dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
@@ -20,6 +29,8 @@ export class DNDUtil {
       } else {
         this.updatePositionDescriptor(item, position, componentsConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState);
       }
+      this.targetArmamentWrapper = null;
+      this.targetArmamentWrapperMonitorClientOffset = null;
     }
   }
 
@@ -28,9 +39,7 @@ export class DNDUtil {
     const componentsConfigClone = {...componentsConfig};
     const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
     let {selectedComponentConfig: container} = Helper.searchInTree("componentName", "Container", armory, "", "items.descriptor", 1)
-    container = {...container};
-    container.descriptor = {...container.descriptor};
-    container.descriptor.children = [...container.descriptor.children];
+    container = JSON.parse(JSON.stringify(container));
     componentsConfigClone.count = componentsConfigClone.count + 1;
     container.uuid = `arm-${container.componentName}-${this.uuid++}`;
     componentsConfigClone.count = componentsConfigClone.count + 1;
@@ -70,7 +79,12 @@ export class DNDUtil {
   }
 
   armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, setSelectedComponent, dispatchClearPropsState) {
-    if (monitor.isOver()){
+    const isDroppedItemParentOfMonitor = this.isDroppedItemParentOfMonitor(item.category, droppedOn);
+    if (isDroppedItemParentOfMonitor) {
+      this.targetArmamentWrapper = droppedOn; // Use this value in component container drop handler to set position of dropped container (only applicable to container type elements)
+      this.targetArmamentWrapperMonitorClientOffset = monitor.getClientOffset();
+    }
+    if (monitor.isOver() && !isDroppedItemParentOfMonitor){
       if (item.category.uuid === droppedOn.uuid) {
         const position = this.getPosition(comContainerRef, monitor);
         this.updatePositionDescriptor(item, position, componentsConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState);
@@ -101,12 +115,27 @@ export class DNDUtil {
     }
   }
 
-  getPosition (comContainerRef, monitor) {
+  getPosition (comContainerRef, monitor, incomingClientOffset) {
     const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
-    const {x, y} = monitor.getClientOffset();
+    const clientOffset = monitor.getClientOffset() || incomingClientOffset;
+    const {x, y} = clientOffset;
     let left = Math.round(x - containerLeft);
     let top = Math.round(y - containerTop);
     return DNDUtil.snapToGrid(left, top);
+  }
+
+  isDroppedItemParentOfMonitor(droppedItem, droppedOn) {
+    if (!droppedItem || !droppedOn) {
+      return false;
+    }
+    const droppedItemChildren = droppedItem && droppedItem.descriptor.children;
+    if (!droppedItemChildren || droppedItemChildren.length === 0) {
+      return false;
+    }
+    if (droppedItemChildren.find(item => item.uuid === droppedOn.uuid)) {
+      return true;
+    }
+    return false;
   }
 
   dragHandler () {

@@ -7,7 +7,6 @@ import { useResizeDetector } from "react-resize-detector";
 import { dispatchClearPropsState, dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout, setComponentsConfig } from "../../pages/ComponentCreator/actions";
 import { dispatchModal } from "../../global-actions";
 import { getPresentComponentsConfig, getLayout, getPreviousLayout, getArmory } from "../../pages/ComponentCreator/selectors";
-import {LayoutSelector} from "../";
 import dndUtil from "../../utils/dndUtil";
 import {ITEM_TYPE} from "../../constants/types";
 import "./ComponentContainer.component.scss";
@@ -67,8 +66,7 @@ const ComponentContainer = props => {
   //         .filter(component => component);
 
   return (
-    <div className="c-ComponentContainer h-100 position-relative" ref={comContainerRef} >
-      <LayoutSelector />
+    <div className="c-ComponentContainer position-relative" ref={comContainerRef} >
       <div className="c-ComponentContainer__layout h-100 position-relative" ref={ref}>
         {cellRenders}
       </div>

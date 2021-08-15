@@ -85,13 +85,14 @@ const ArmamentWrapper = props => {
         className="c-ArmamentWrapper"
         id={`${componentConfig.uuid}-RENDER`}
         ref={ref}
+        role="presentation"
         style={{
           cursor: "move"
         }}
         onClick={(e) => {
           setSelectedComponent(componentConfig.uuid);
           e.stopPropagation();
-        }}>
+        }} onKeyDown={() => {}}>
           {Component && <Component allowChildren={allowChildren} {...componentConfig} />}
       </div>
     </div>
@@ -99,6 +100,7 @@ const ArmamentWrapper = props => {
         className="c-ArmamentWrapper position-absolute"
         id={`${componentConfig.uuid}-RENDER`}
         ref={ref}
+        role="presentation"
         style={{
           opacity: isDragging ? 0 : 1,
           cursor: "move",
@@ -108,7 +110,7 @@ const ArmamentWrapper = props => {
         onClick={(e) => {
           setSelectedComponent(componentConfig.uuid);
           e.stopPropagation();
-        }}>
+        }} onKeyDown={() => {}}>
           {Component && <Component allowChildren={allowChildren} {...componentConfig} />}
       </div>
   );
