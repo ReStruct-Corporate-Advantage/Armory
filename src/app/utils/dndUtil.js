@@ -117,10 +117,14 @@ export class DNDUtil {
 
   getPosition (comContainerRef, monitor, incomingClientOffset) {
     const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
+    const {x: initialClientX, y: initialClientY} = monitor.getInitialClientOffset() || {};
+    const {x: initialSourceX, y: initialSourceY} = monitor.getInitialSourceClientOffset() || {};
+    const xDisplacementFromItemLeftTop = initialClientX && initialSourceX ? initialClientX - initialSourceX : 0;
+    const yDisplacementFromItemLeftTop = initialClientY && initialSourceY ? initialClientY - initialSourceY : 0;
     const clientOffset = monitor.getClientOffset() || incomingClientOffset;
     const {x, y} = clientOffset;
-    let left = Math.round(x - containerLeft);
-    let top = Math.round(y - containerTop);
+    let left = Math.round(x - containerLeft - xDisplacementFromItemLeftTop);
+    let top = Math.round(y - containerTop - yDisplacementFromItemLeftTop);
     return DNDUtil.snapToGrid(left, top);
   }
 

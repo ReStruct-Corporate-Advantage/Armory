@@ -26,8 +26,8 @@
             opacity: 1;
             padding-left: 1rem;
             border: 1px solid darkgray;
-            border-radius: 5px;
-            backdrop-filter: blur(2px);
+            border-radius: 0.3125rem;
+            backdrop-filter: blur(0.1875rem);
         }
 
         &.collapsed {
@@ -35,7 +35,7 @@
             opacity: 1;
             background: rgb(216, 216, 187);
             border: 1px solid black;
-            border-radius: 5px;
+            border-radius: 0.3125rem;
             // padding: 0.2rem;
         }
     }

@@ -1,14 +1,14 @@
 .c-Square {
   // background: black;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   padding: 0.5rem;
 
   &:before {
     content: "";
-    width: 3px;
-    height: 3px;
-    border: 3px;
+    width: 0.1875rem;
+    height: 0.1875rem;
+    border: 0.1875rem;
     border: 1px solid black;
     background: black;
     display: inline-block;

@@ -21,10 +21,10 @@
     }
 
     .code-importer-input-tools, .code-importer-output-tools {
-        right: 9px;
+        right: 0.5625rem;
         background: rgba(150, 150, 150, 0.5);
         padding: 0.5rem 1rem;
-        border-bottom-left-radius: 15px;
+        border-bottom-left-radius: 1rem;
         transition: all 0.3s ease-in-out;
 
         .code-importer-input-tool, .code-importer-output-tool {
@@ -41,6 +41,6 @@
     }
 
     .code-importer-output-tools {
-        right: 14px;
+        right: 0.875rem;
     }
 }

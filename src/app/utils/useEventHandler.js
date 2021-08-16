@@ -100,7 +100,7 @@ const useEventHandler = (props) => {
     
     const registerListener = (element) => {
         element.addEventListener( "contextmenu", function(e) {
-            console.log(e, element);
+//             console.log(e, element);
             e.preventDefault();
         })
     };

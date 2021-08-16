@@ -11,7 +11,7 @@ const InputField = memo(props => {
     <div className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}`}>
       <div className="col-12 position-relative">
         <input id={id} key={key} type={type}
-          className={`${inputClasses ? " " + inputClasses : ""}`}
+          className={`px-3${inputClasses ? " " + inputClasses : ""}`}
           style={inputStyles}
           onChange={e => onChange ? onChange(formId, id, type === "number" ? +e.target.value : e.target.value) : {}}
           value={value}

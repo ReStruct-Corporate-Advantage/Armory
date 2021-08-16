@@ -19,7 +19,7 @@ const layerStyles = {
   width: "100%",
   height: "100%",
 };
-function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapToGrid, isInstanceComponent, ref) {
+function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientRect, layout, isSnapToGrid, isInstanceComponent, ref) {
   if (!DNDUtil.hoverInPrimaryContainer(clientRect, clientOffset)) {
     return {
       display: "none",
@@ -46,12 +46,12 @@ function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapTo
     // console.log(draggedY)
     // console.log(top)
     // console.log(left)
-    // console.log(clientOffset.x - left)
-    // console.log(clientOffset.y - top)
+    const xDiff = initialClientOffset.x - initialOffset.x
+    const yDiff = initialClientOffset.y - initialOffset.y
     // x = clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left - (clientOffset.x - left);
     // y = clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top - (clientOffset.y - top);
-    x = clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left;
-    y = clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top;
+    x = Math.round(clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left - (xDiff || 0));
+    y = Math.round(clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top - (yDiff || 0));
     [x, y] = DNDUtil.snapToGrid(x, y, layout);
     x += clientRect.left;
     y += clientRect.top;
@@ -72,10 +72,11 @@ function getItemStyles(initialOffset, clientOffset, clientRect, layout, isSnapTo
 const CustomDragLayer = (props) => {
   const { clientRect, layout } = props
   const dragPreview = useRef(null);
-  const { itemType, isDragging, item, initialOffset, clientOffset, } = useDragLayer((monitor) => ({
+  const { itemType, isDragging, item, initialOffset, initialClientOffset, clientOffset, } = useDragLayer((monitor) => ({
     item: monitor.getItem(),
     itemType: monitor.getItemType(),
     clientOffset: monitor.getClientOffset(),
+    initialClientOffset: monitor.getInitialClientOffset(),
     initialOffset: monitor.getInitialSourceClientOffset(),
     currentOffset: monitor.getSourceClientOffset(),
     isDragging: monitor.isDragging(),
@@ -96,7 +97,7 @@ const CustomDragLayer = (props) => {
     return null;
   }
   return <div className="c-CustomDragLayer" style={layerStyles}>
-    <div style={getItemStyles(initialOffset, clientOffset, clientRect, layout, true, itemType === ITEM_TYPE.ARMAMENT_WRAPPER, dragPreview)} ref={dragPreview}>
+    <div style={getItemStyles(initialOffset, initialClientOffset, clientOffset, clientRect, layout, true, itemType === ITEM_TYPE.ARMAMENT_WRAPPER, dragPreview)} ref={dragPreview}>
       {renderItem()}
     </div>
   </div>;

@@ -1,3 +1,4 @@
+import Helper from "../utils/Helper";
 import Network from "../utils/network";
 
 const TOOLS_CONFIG = {
@@ -110,12 +111,14 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             onClick: () => {
-                                Network.get("/api/auth/logout")
-                                    .then(res => {
-                                        if (res.status === 200) {
-                                            window.location.pathname = "/login";
-                                        }
-                                    })
+                                Helper.removeCookie("auth_session_token");
+                                window.location.pathname = "/login";
+                                // Network.get("/api/auth/logout")
+                                //     .then(res => {
+                                //         if (res.status === 200) {
+                                //             window.location.pathname = "/login";
+                                //         }
+                                //     })
                             }
                         }
                     ]
