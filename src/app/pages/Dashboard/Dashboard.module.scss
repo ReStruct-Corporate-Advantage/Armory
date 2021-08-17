@@ -11,7 +11,7 @@
         height: 0px;
     }
 
-    .c-Dashboard__main__buttons, .c-Dashboard__main__admin {
+    .c-Dashboard__main__buttons, .c-Dashboard__main__admin, .c-Dashboard__main__resume {
         min-width: 25rem;
         min-height: 35rem;
         overflow: scroll;
@@ -19,13 +19,14 @@
 
         .c-Dashboard__btn {
             font-size: 1rem;
+            font-weight: bold;
             padding: 1rem;
             color: #2196F3;
             border-left: 0.625rem solid #2196F3;
             border-right: none;
             border-top: none;
             border-bottom: none;
-            background: #ddffff;
+            background: #eeffff;
             border-radius: 2.8rem;
             transition: all 0.3s ease-in-out;
 
