@@ -1,13 +1,10 @@
-import Helper from "../utils/Helper";
-import Network from "../utils/network";
-
 const DASHBOARD_CONFIG = {
     ADMIN_ACTIONS: {
         containerClasses: "col-7 mx-auto mb-5",
         sectionClasses: "c-Dashboard__main__admin glass-panel mx-auto",
         protected: true,
         parts: [
-            {name: "AdminHeader", type: "p", classes: "section-header col-12", text: "Armory Management"},
+            {name: "AdminHeader", type: "header", classes: "section-header w-100 mb-0", text: "Armory Management"},
             {
                 name: "ManageCompoents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "Manage Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "Manage Components",
@@ -29,7 +26,7 @@ const DASHBOARD_CONFIG = {
         containerClasses: "col-6",
         sectionClasses: "c-Dashboard__main__resume glass-panel mx-auto",
         parts: [
-            {name: "ResumptionHeader", type: "p", classes: "section-header col-12", text: "Let's resume where your left..."},
+            {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "Let's resume where your left..."},
             {
                 name: "MyCompoents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "My Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "My Components",
@@ -51,7 +48,7 @@ const DASHBOARD_CONFIG = {
         containerClasses: "col-6",
         sectionClasses: "c-Dashboard__main__buttons glass-panel mx-auto",
         parts: [
-            {name: "ResumptionHeader", type: "p", classes: "section-header col-12", text: "...Or select one of the options below"},
+            {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "...Or select one of the options below"},
             {
                 name: "CreateProject", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mb-5 mt-4", text: "Create a Project", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "Create a Project",

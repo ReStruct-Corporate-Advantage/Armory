@@ -10,24 +10,32 @@ import "./Dashboard.module.scss";
 const Dashboard = props => {
   const { history, userDetails } = props;
   const name = userDetails ? userDetails.firstname : ""
-  const sections = DASHBOARD_CONFIG && Object.keys(DASHBOARD_CONFIG).map(key => {
-    const section = DASHBOARD_CONFIG[key];
+  const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
+  const sections = Object.keys(config).map(key => {
+    const section = {...config[key]};
+    config[key] = section;
     const display = section.protected ? userDetails && userDetails.role && userDetails.role === "alpha" : true;
-    const parts = section.parts;
+    const parts = [...section.parts];
+    section.parts = parts;
+    const header = parts && parts.find(part => part.type === "header");
+    parts && parts.splice(parts.findIndex(part => part.type === "header"), 1);
     return display &&
       <div className={section.containerClasses}>
         <div className={section.sectionClasses}>
-          <div className="row">
-            {parts && parts.map(part => {
-              switch (part.type) {
-                case "p":
-                  return <p className={part.classes}>{part.text}</p>
-                case "button":
-                  return <button className={part.classes} onClick={() => part.action(history, userDetails)}>{part.text}</button>
-                default:
-                  return null;
-              }
-            })}
+          <div className="h-100 d-flex flex-column">
+            {header && <p className={header.classes}>{header.text}</p>}
+            <div className="c-Dashboard__actions w-100">
+              {parts && parts.map(part => {
+                switch (part.type) {
+                  case "p":
+                    return <p className={part.classes}>{part.text}</p>
+                  case "button":
+                    return <button className={part.classes} onClick={() => part.action(history, userDetails)}>{part.text}</button>
+                  default:
+                    return null;
+                }
+              })}
+            </div>
           </div>
         </div>
       </div>

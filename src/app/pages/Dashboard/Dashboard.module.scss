@@ -4,17 +4,9 @@
         padding: 1.5rem;
     }
 
-    .c-Dashboard__main__resume {
-        min-width: 25rem;
-        min-height: 35rem;
-        overflow: scroll;
-        height: 0px;
-    }
-
     .c-Dashboard__main__buttons, .c-Dashboard__main__admin, .c-Dashboard__main__resume {
         min-width: 25rem;
         min-height: 35rem;
-        overflow: scroll;
         height: 0px;
 
         .c-Dashboard__btn {
@@ -36,6 +28,9 @@
                 border-right: 0.625rem solid #09085e;
                 color: #ddffff;
             }
+        }
+        .c-Dashboard__actions {
+            overflow: scroll;
         }
     }
 
