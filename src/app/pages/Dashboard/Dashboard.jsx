@@ -4,11 +4,13 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { getUserDetails } from "./../../global-selectors";
+import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
+import { dispatchComponentsConfig } from "../ComponentCreator/actions";
 import DASHBOARD_CONFIG from "../../config/dashboardConfig";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {
-  const { history, userDetails } = props;
+  const { componentsConfig, dispatchComponentsConfig, history, userDetails } = props;
   const name = userDetails ? userDetails.firstname : ""
   const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
   const sections = Object.keys(config).map(key => {
@@ -30,7 +32,7 @@ const Dashboard = props => {
                   case "p":
                     return <p className={part.classes}>{part.text}</p>
                   case "button":
-                    return <button className={part.classes} onClick={() => part.action(history, userDetails)}>{part.text}</button>
+                    return <button className={part.classes} onClick={() => part.action(componentsConfig, dispatchComponentsConfig, history, userDetails)}>{part.text}</button>
                   default:
                     return null;
                 }
@@ -53,11 +55,18 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
+  componentsConfig: PropTypes.object,
+  dispatchComponentsConfig: PropTypes.func,
   userDetails: PropTypes.object
 };
 
 const mapStateToProps = createPropsSelector({
+  componentsConfig: getPresentComponentsConfig,
   userDetails: getUserDetails
 })
 
-export default connect(mapStateToProps)(withRouter(Dashboard));
+const mapDispatchToProps = {
+  dispatchComponentsConfig
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dashboard));

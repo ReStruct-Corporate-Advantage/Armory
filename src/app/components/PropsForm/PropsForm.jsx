@@ -5,9 +5,9 @@ import {createPropsSelector} from "reselect-immutable-helpers";
 import { getClearPropsState, getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import { getUserDetails } from "../../global-selectors";
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
+import {SelectOption, InputField, CheckBox} from "../";
 import {compGen, forkedRepository} from "./../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
-import {SelectOption, InputField, CheckBox} from "../";
 import Network from "./../../utils/network";
 import "./PropsForm.component.scss";
 
@@ -94,7 +94,7 @@ const PropsForm = props => {
       .catch(err => console.log(err))
       .finally(() => {
         setInitiateSave(false);
-        toggleEditMode(false);
+        toggleEditMode({...editMode, [selectedComponent]: false});
       })
   }
 
@@ -121,12 +121,12 @@ const PropsForm = props => {
           const isBool = typeof valueInner === "boolean" || valueInner === "true" || valueInner === "false";
 
           if (isBool) {
-            return <CheckBox formId="propsForm" id={idInner} key={key + "-" + keyInner} value={valueInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode}
+            return <CheckBox formId="propsForm" id={idInner} key={key + "-" + keyInner} value={valueInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode[selectedComponent]}
               inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}}  label={idInner} labelClasses="prop-field-label" alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
               onChange={(formId, id, value) => onChangeActions(formId, id, value, onInnerChange, property, valueType)}/>
           } else {
             return <InputField formId="propsForm" id={idInner} key={key + "-" + keyInner} type={typeInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset"
-              inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} readOnly={!editMode} alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
+              inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} readOnly={!editMode[selectedComponent]} alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
               value={valueInner} label={idInner} labelClasses="prop-field-label" onChange={(formId, id, value) => onChangeActions(formId, id, value, onInnerChange, property, valueType)} />;
           }
         })
@@ -135,12 +135,12 @@ const PropsForm = props => {
         const type = typeof value === "number" ? "number" : "text";
         const isBool = typeof value === "boolean" || value === "true" || value === "false";
         if (isBool) {
-          return <CheckBox formId="propsForm" id={property} key={key} value={value} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode}
+          return <CheckBox formId="propsForm" id={property} key={key} value={value} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode[selectedComponent]}
               inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}}  label={property} labelClasses="prop-field-label" alwaysDisabled={alwaysDisabled.indexOf(property) > -1}
               onChange={(formId, id, value) => onChangeActions(formId, id, value, onChange)}/>
         } else {
           return <InputField formId="propsForm" id={property} key={key} type={type} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset"
-            inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} alwaysDisabled={alwaysDisabled.indexOf(property) > -1} readOnly={!editMode} value={value}
+            inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} alwaysDisabled={alwaysDisabled.indexOf(property) > -1} readOnly={!editMode[selectedComponent]} value={value}
             label={property} labelClasses="prop-field-label" onChange={(formId, id, value) => onChangeActions(formId, id, value, onChange)} />;
         }
       }

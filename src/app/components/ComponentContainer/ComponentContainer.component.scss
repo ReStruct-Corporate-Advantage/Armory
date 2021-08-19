@@ -1,6 +1,9 @@
+@import "./../../styles/variables";
+
 .c-ComponentContainer {
   height: 100vh;
   width: 100vw;
+  background: #fff;
   .c-ComponentContainer__renders {
     z-index: 9;
     top: 0;

@@ -5,7 +5,7 @@ import "./BreadCrumb.component.scss";
 const BreadCrumb = props => {
   const [levels, setLevels] = useState({});
   return (
-    <div className="c-BreadCrumb">
+    <div className="c-BreadCrumb px-3 py-2">
       In Component BreadCrumb
     </div>
   );

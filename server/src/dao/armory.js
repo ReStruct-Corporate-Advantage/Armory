@@ -8,6 +8,10 @@ class ArmoryController {
         return Armament.findOne({componentName})
     }
 
+    static async findArmamentCategoryByName (name) {
+        return ArmamentCategory.findOne({name})
+    }
+
     static async getArmsCategories () {
         return await ArmamentCategory.find().lean();
     }
@@ -50,6 +54,10 @@ class ArmoryController {
         await ArmamentCategory.insertMany(backReferencedCategories);
         await Armament.insertMany(backReferencedArms);
         return true;
+    }
+
+    static async createArmament (armament) {
+        return await Armament.create(armament);
     }
 
     static async updateArmament (doc) {        

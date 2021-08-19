@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import {ComponentContainer, CustomDragLayer, LayoutSelector} from "./../";
+import {BreadCrumb, ComponentContainer, CustomDragLayer, LayoutSelector} from "./../";
 import "./Main.component.scss";
 
 const Main = props => {
+  const containingParentRef = useRef(null);
   const {snapFactor, selectedComponent, setSelectedComponent, setSnapFactor, clientRect, setClientRect} = props;
 
   return <main className="c-Main p-2 position-relative overflow-auto">
           <LayoutSelector />
-          <div className="overflow-auto">
+          <BreadCrumb />
+          <div className="overflow-auto" ref={containingParentRef}>
             <ComponentContainer boundingClientRectProvider={setClientRect} setSnapFactor={setSnapFactor} setSelectedComponent={setSelectedComponent} selectedComponent={selectedComponent} />
-            <CustomDragLayer clientRect={clientRect} snapFactor={snapFactor} />
+            <CustomDragLayer containingParentRef={containingParentRef} clientRect={clientRect} snapFactor={snapFactor} />
           </div>
       </main>;
 };

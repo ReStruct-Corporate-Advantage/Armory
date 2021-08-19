@@ -51,7 +51,7 @@ const ComponentContainer = props => {
     drop: (item, monitor) => {
       dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig,
       setSelectedComponent, dispatchClearPropsState, dispatchModal, armory)
-      },
+    },
     collect: monitor => ({isOver: !!monitor.isOver()}),
   })
 

@@ -166,8 +166,10 @@ export class DNDUtil {
     return [x + xCorrection, y + yCorrection];
   }
 
-  static hoverInPrimaryContainer (clientRect, clientOffset) {
-    if (!clientRect || !clientOffset) return false;
+  static hoverInPrimaryContainer (containingParentRef, clientOffset) {
+    if (!containingParentRef || !clientOffset) return false;
+    const clientRect = containingParentRef && containingParentRef.current && containingParentRef.current.getBoundingClientRect();
+    if (!clientRect) return false;
     const {left, top, width, height} = clientRect;
     const {x, y} = clientOffset;
     return x > left && x < left + width

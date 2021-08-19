@@ -1,3 +1,6 @@
+import Network from "../utils/network";
+import { v4 as uuid } from "uuid";
+
 const DASHBOARD_CONFIG = {
     ADMIN_ACTIONS: {
         containerClasses: "col-7 mx-auto mb-5",
@@ -30,17 +33,17 @@ const DASHBOARD_CONFIG = {
             {
                 name: "MyCompoents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "My Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "My Components",
-                action: (history, userDetails) => history.push(`/${userDetails.username}/manage/component`)
+                action: (history, userDetails) => history.push(`/${userDetails.username}/component`)
             },
             {
                 name: "MyPages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "My Pages", visibility: "visible",
                 order: 1, icon: "fi.FiMaximize", tooltip: "My Pages",
-                action: (history, userDetails) => history.push(`/${userDetails.username}/manage/page`)
+                action: (history, userDetails) => history.push(`/${userDetails.username}/page`)
             },
             {
                 name: "MyProjects", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4 mb-3", text: "My Projects", visibility: "visible",
                 order: 2, icon: "ai.AiOutlineEdit", tooltip: "My Projects",
-                action: (history, userDetails) => history.push(`/${userDetails.username}/manage/project`)
+                action: (history, userDetails) => history.push(`/${userDetails.username}/project`)
             }
         ]
     },
@@ -62,7 +65,16 @@ const DASHBOARD_CONFIG = {
             {
                 name: "CreateComponent", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mb-5", text: "Create a Rich Component", visibility: "visible",
                 order: 2, icon: "ai.AiOutlineEdit", tooltip: "Create a Rich Component",
-                action: (history, userDetails) => history.push(`/${userDetails.username}/component`)
+                action: (componentsConfig, dispatchComponentsConfig, history, userDetails) => {
+                    const UID = uuid();
+                    Network.post("/api/armory", {visibility: "public", displayName: "DRAFT-" + UID, componentName: userDetails.username + "---DRAFT-" + UID, owner: userDetails.username, state: "DRAFT"})
+                        .then(res => {
+                            const componentsConfigCloned = {...componentsConfig};
+                            componentsConfigCloned.components[0].descriptor.children.push(res.body.record);
+                            dispatchComponentsConfig(componentsConfigCloned);
+                            history.push(`/${userDetails.username}/component`)
+                        })
+                }
             },
             {name: "OptionSeparator", type: "p", classes: "option-separator col-6 mx-auto mb-5", text: "Or"},
             {

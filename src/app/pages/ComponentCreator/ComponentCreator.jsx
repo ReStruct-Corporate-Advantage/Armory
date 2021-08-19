@@ -5,12 +5,13 @@ import {createPropsSelector} from "reselect-immutable-helpers";
 import {DndProvider} from "react-dnd"
 import Backend from "react-dnd-html5-backend"
 import {getPresentComponentsConfig} from "./selectors";
+import {dispatchComponentsConfig} from "./actions";
 import {Aside, Main, ToolActionContainer} from "./../../components";
 import useEventHandler from "../../utils/useEventHandler";
 import "./ComponentCreator.module.scss";
 
 const ComponentCreator = props => {
-  const {componentConfig} = props
+  const {componentConfig, dispatchComponentsConfig} = props
   const [clientRect, setClientRect] = useState({});
   const {handleKeyDown, handleKeyUp, handleOnClick} = useEventHandler();
   const [selectedComponent, setSelectedComponent] = useState("Root");
@@ -19,7 +20,7 @@ const ComponentCreator = props => {
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
         <main className="c-ComponentCreator__content d-flex flex-row flex-nowrap position-fixed" 
           tabIndex="0"
-          onKeyDown = {(e) => handleKeyDown(e, componentConfig, selectedComponent, setSelectedComponent)}
+          onKeyDown = {(e) => handleKeyDown(e, componentConfig, dispatchComponentsConfig, selectedComponent, setSelectedComponent, clientRect)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
           <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
@@ -38,6 +39,7 @@ const ComponentCreator = props => {
 
 ComponentCreator.propTypes = {
   componentConfig: PropTypes.object,
+  dispatchComponentsConfig: PropTypes.func,
   dispatchDeviceType: PropTypes.func
 };
 
@@ -46,4 +48,8 @@ const mapStateToProps = createPropsSelector({
   componentConfig: getPresentComponentsConfig
 })
 
-export default connect(mapStateToProps)(ComponentCreator);
+const mapDispatchToProps = {
+  dispatchComponentsConfig
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComponentCreator);
