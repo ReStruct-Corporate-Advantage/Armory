@@ -36,8 +36,8 @@ global.constants = CONSTANTS
 logInit();
 const db = dbInit(logInit);
 app.use(bodyParser.json());
-var whitelist = ['http://localhost:7992', 'https://armory-ui.herokuapp.com']
-var corsOptions = {
+const whitelist = ['http://localhost:7992', 'https://armory-ui.herokuapp.com', 'http://armory-ui.herokuapp.com']
+const corsOptions = {
   origin: (origin, callback) => whitelist.indexOf(origin) !== -1 ? callback(null, true) :  callback(new Error('Not allowed by CORS')),
   credentials: true
 }
