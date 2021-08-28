@@ -1,5 +1,5 @@
-import {createSelector} from 'reselect'
-import {createGetSelector} from 'reselect-immutable-helpers'
+import {createSelector} from "reselect"
+import {createGetSelector} from "reselect-immutable-helpers"
 
 const getData = ({data}) => data
 
@@ -10,5 +10,5 @@ export const get{{pascalCase name}} = createSelector(
     }
 )
 
-export const getFormErrors = createGetSelector(get{{pascalCase name}}, 'formErrors')
-export const getFormValues = createGetSelector(get{{pascalCase name}}, 'formValues')
+export const getFormErrors = createGetSelector(get{{pascalCase name}}, "formErrors")
+export const getFormValues = createGetSelector(get{{pascalCase name}}, "formValues")

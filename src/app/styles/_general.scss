@@ -1,23 +1,253 @@
+@import "./variables";
+
 html, body, #root {
     height: 100%;
+    width: 100%;
 }
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    &.body-board-view {
+    color: $primary-font-color;
+    &.body-modifier {
         background-position: 50%;
         background-size: cover;
         overflow: hidden;
-        background-image: url('https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1537x1920/5f72c67b5e9036f5ec4980298c7a22ff/photo-1584433213328-fad675bc3052.jpg');
+        // background-image: url("https://trello-backgrounds.s3.amazonaws.com/SharedBackground/1537x1920/5f72c67b5e9036f5ec4980298c7a22ff/photo-1584433213328-fad675bc3052.jpg");
+        // background-image: url("./../static/images/Gradiant\ Background\ -\ 1.jpeg");
+        background-image: url("./../static/images/PrimaryBG.jpeg");
     }
 }
   
 code {
-font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg-grey{
+    background: lightgrey;
+}
+
+.backgroundNone {
+    background: none !important;
+}
+
+.hoverBackgroundNone:hover {
+    background: none !important;
+}
+
+.scaleUpAndShadow {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        transform: scale(1.3);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+}
+
+.right-0 {
+    right: 0 !important;
+}
+
+.top-0 {
+    top: 0 !important;
+}
+
+.svg-stroke-white {
+    fill: #d3d3d3;
+    stroke: #d3d3d3;
+    path {
+        fill: #d3d3d3;
+        stroke: #d3d3d3;
+    }
+}
+
+.svg-stroke-theme {
+    fill: $primary-font-color-dark;
+    stroke: $primary-font-color-dark;
+    path {
+        fill: $primary-font-color-dark;
+        stroke: $primary-font-color-dark;
+    }
+}
+
+.font-size-12 {
+    font-size: 12px !important;
+}
+
+
+.glass-panel {
+    transition: all 0.3s ease-in-out;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    // padding: 0.4rem;
+    color: #ccc;
+}
+
+.raised-effect {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);;}
+}
+
+.unset-max-width {
+    max-width: unset;
+}
+
+.border-5 {
+    border-radius: 5px;
+}
+
+.border-14rem {
+    border-radius: 1.4rem !important;
+}
+
+.border-none {
+    border: none;
+}
+
+.container {
+    max-width: unset !important;
+}
+
+.sub-super-message {
+    font-size: 12px;
+    margin-bottom: 1.8rem;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 2px 5px;
+    background: white;
+    color: green;
+}
+
+.error {
+    color: #d33;
+    border: 1px solid #d33;
+}
+
+.page-header {
+    padding: 1rem;
+}
+
+.border-default {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.border-small-radius {
+    border-radius: 6px !important;
+}
+
+.border-unset {
+    border: unset;
+}
+
+.background-none {
+    background: none!important;
+}
+
+.w-70 {
+    width: 68% !important;
+}
+
+.loader {
+    position: relative;
+}
+
+.loader:before {
+    display: block;
+    content: "";
+    position: absolute;
+    background-color: transparent;
+    // background-image: url("./../static/images/loader.svg");
+    background-size: #{$loader-size};
+    background-repeat: no-repeat;
+    background-position: center;
+    height: $size-max;
+    width: $size-max;
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    z-index: 1050;
+}
+  
+.loader:after {
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    z-index: 1040;
+}
+
+.default-notification {
+    color: darkblue;
+    text-align: center;
+    margin: 1rem 3rem;
+}
+
+.toggle-resizable {
+    resize: both;
+    overflow: auto;
+
+    // > div {
+    //     width: 100% !important;
+    //     height: 100% !important;
+    // }
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+
+////////////// TODO keep this class to convert search field to chat box
+
+// .test {
+//     background: grey;
+//     width: 25rem;
+//     position: absolute !important;
+//     bottom: 0;
+//     right: 26rem;
+//     z-index: 1;
+//     height: 22rem;
+
+//     input {
+//         margin-top: 81%;
+//     }
+// }

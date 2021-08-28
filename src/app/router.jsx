@@ -1,25 +1,47 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {Provider} from 'react-redux'
-import {BrowserRouter, Route} from 'react-router-dom';
-import Loadable from 'react-loadable'
-import PageLoader from './components/PageLoader';
+import React from "react"
+import PropTypes from "prop-types"
+import { Provider } from "react-redux"
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import Loadable from "react-loadable"
+import { Header, Modal, PageLoader } from "./components";
 
-export const LoadableHome = Loadable({
-    loader: () => import('./pages/Home'),
+const LoadableAuthenticator = Loadable({
+    loader: () => import("./authenticator"),
+    loading: PageLoader
+})
+
+const LoadableComponentCreator = Loadable({
+    loader: () => import("./pages/ComponentCreator"),
+    loading: PageLoader
+})
+
+const LoadableLogin = Loadable({
+    loader: () => import("./pages/Login"),
+    loading: PageLoader
+})
+
+const LoadableJoin = Loadable({
+    loader: () => import("./pages/Join"),
     loading: PageLoader
 })
 
 class Router extends React.Component {
 
     render() {
-        const {store} = this.props
+        const { store } = this.props
         return (
             <Provider store={store}>
-                <BrowserRouter basename="subset_trello">
-                    <Route exact path="/" component={LoadableHome} />
-                    <Route exact path="/todos/manage" component={LoadableHome} />
+                <Header />
+                <BrowserRouter>
+                    <Switch>
+                        <Route exact path="/" component={LoadableComponentCreator} />
+                        <Route path="/login" component={LoadableLogin} />
+                        <Route path="/join" component={LoadableJoin} />
+                        <Route path="/:user" component={LoadableAuthenticator} />
+                        <Route render={() => <Redirect to="/" />} />
+                    </Switch>
                 </BrowserRouter>
+                <Modal />
             </Provider>
         )
     }

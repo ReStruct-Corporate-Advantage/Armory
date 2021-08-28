@@ -1,0 +1,62 @@
+.c-RichTooltip {
+    padding: 0.5rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    z-index: 111111;
+    min-width: 4rem;
+    backdrop-filter: blur(2px);
+    font-size: 0.5rem;
+    transition: opacity 0.5s ease-in-out;
+
+    &:after {
+        content: "";
+        position: absolute;
+        margin-left: 2px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+    }
+
+    &.right-bottom:after {
+        bottom: 100%;
+        left: 10%;
+    }
+
+    &.left-bottom:after {
+        bottom: 100%;
+        right: 10%;
+    }
+
+    &.right-top:after {
+        top: 100%;
+        left: 10%;
+    }
+
+    &.left-top:after {
+        top: 100%;
+        right: 10%;
+    }
+
+    &.fade-enter, &.fade-appear {
+        max-height: 0;
+        opacity: 0;
+    }
+    
+    &.fade-enter-active, &.fade-appear-active {
+        max-height: 30rem;
+        opacity: 1;
+        transition: all 1500ms;
+    }
+    
+    &.fade-exit {
+        max-height: 30rem;
+        opacity: 1;
+    }
+    
+    &.fade-exit-active {
+        max-height: 0;
+        opacity: 0;
+        transition: all 1500ms;
+    }
+}

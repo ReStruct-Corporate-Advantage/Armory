@@ -1,0 +1,16 @@
+.c-Square {
+  // background: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5rem;
+
+  &:before {
+    content: "";
+    width: 3px;
+    height: 3px;
+    border: 3px;
+    border: 1px solid black;
+    background: black;
+    display: inline-block;
+  }
+}

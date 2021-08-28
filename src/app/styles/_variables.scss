@@ -1,0 +1,31 @@
+// ================== COLOR ======================== //
+$primary-base-color: #3f3f3f;
+$primary-base-color-translucent: rgba(63, 63, 63, 0.6);
+// $primary-font-color: #d3d3d3;
+$primary-font-color: #eee;
+$primary-container-base-color: #e3d2d2;
+$primary-container-font-color: #635252;
+$secondary-base-color: #6e6e6e;
+$secondary-base-color-translucent: rgba(110, 110, 110, 0.6);
+$secondary-font-color: #fefefe;
+$primary-font-color-dark: #e83e8c;
+$secondary-font-color-dark: #c93969;
+$primary-icon-color: #FFCA28;
+
+// ================== TYPOGRAPHY =================== //
+$font-size-small-header: 0.8rem;
+$default-small-font: 0.8rem;
+
+// ================== LAYOUT ======================= //
+$small-font-padding: 0.25rem 0.5rem;
+$header-height: 4rem;
+$section-header-height: 1.75rem;
+$section-tool-panel-height: 2rem;
+
+// ================== ELEMENT SPECS =============== //
+$loader-size: 5rem;
+$size-max: 100%;
+
+// ================== OTHER ======================== //
+$default-blur: blur(3px);
+$default-aside-width: 20%;

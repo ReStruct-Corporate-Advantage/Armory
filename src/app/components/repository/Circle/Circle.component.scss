@@ -1,0 +1,13 @@
+.c-Circle {
+  border: 1px solid black;
+
+  &:before {
+    content: "";
+    width: 3px;
+    height: 3px;
+    border: 3px;
+    border: 1px solid black;
+    background: black;
+    display: inline-block;
+  }
+}

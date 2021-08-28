@@ -1,0 +1,11 @@
+@import "./../../styles/variables";
+
+.c-SectionHeader {
+  height: $section-header-height;
+  color: $primary-font-color;
+  background: $primary-font-color-dark;
+  font-weight: bold;
+  padding: $small-font-padding;
+  margin: 0;
+  border-bottom: 1px solid $secondary-font-color;
+}

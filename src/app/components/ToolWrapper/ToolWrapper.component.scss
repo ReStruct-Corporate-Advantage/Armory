@@ -1,0 +1,84 @@
+@import "./../../styles/variables";
+
+.c-ToolWrapper {
+
+    max-width: 3rem;
+    transition: all 0.3s ease-in-out;
+
+    &.hide {
+        // visibility: hidden;
+        max-width: 0;
+        border: 0;
+        margin-left: 0 !important;
+    }
+
+    .btn {
+        // border: 1px solid $primary-font-color;
+        border: none;
+        border-radius: 5px;
+        background: $secondary-font-color;
+        color: $primary-font-color-dark;
+        font-size: $default-small-font;
+        padding: 0.1rem 0.5rem;
+        transition: all 0.3s ease-in-out;
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.65;
+        }
+
+        &.hovered:not([disabled]) {
+            background: black;
+            transform: scale(1.1);
+
+            &.snappedButton {
+                transform: scale(1.1) translateX(2px);
+            }
+        }
+
+        &.snappedButton {
+            border-radius: 0 8px 8px 0;
+            background: #091472;
+        }
+
+        &.hide {
+            padding: 0;
+
+            svg {
+                height: 0;
+                width: 0;
+            }
+        }
+    }
+
+    &:not(:first-child) {
+        margin-left: 0.3rem;
+    }
+
+    &.h-25 {
+        height: 2.5rem !important;
+    }
+
+    .border-with-radius {
+        border: 1px solid white;
+        border-radius: 5px;
+    }
+
+    .extra-radial {
+        border-radius: 20px !important;
+    }
+
+    &.button-details {
+        cursor: pointer;
+        max-width: 10rem;
+        background: #e83e8c;
+        border-radius: 20px;
+        transition: width 0.4s ease-in-out;
+    }
+
+    span.button-text {
+        font-weight: bold;
+        font-size: 0;
+        transition: all 0.3s ease-in-out;
+    }
+}

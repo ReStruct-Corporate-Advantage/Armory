@@ -1,0 +1,252 @@
+{
+    "types": [
+        {
+            "displayName": "Shapes (Choose as shape or control)",
+            "name": "shape",
+            "icon": "",
+            "expanded": true,
+            "items": [
+                {
+                    "displayName": "Square",
+                    "componentName": "Square",
+                    "meta": {
+                        "tags": ["container"],
+                        "createdBy": "mohiit1502@gmail.com",
+                        "createdTimeStamp": "11042021T093443" 
+                    },
+                    "descriptor": {
+                        "allowChildren": true,
+                        "classes": "bg-grey text-center",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "elemType": "div",
+                        "handlers": {},
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "Square",
+                                "order": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "displayName": "Rectangle",
+                    "componentName": "Rectangle",
+                    "descriptor": {
+                        "allowChildren": true,
+                        "elemType": "div",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "handlers": {},
+                        "classes": "bg-grey text-center",
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "Rectangle",
+                                "order": 0
+                            }
+                        ]
+                    }
+                },
+                {
+                    "displayName": "Circle",
+                    "componentName": "Circle"
+                },
+                {"displayName": "RoundedSquare", "componentName": "RoundedSquare"},
+                {"displayName": "RoundedRectangle", "componentName": "RoundedRectangle"},
+                {"displayName": "Line", "componentName": "Line"},
+                {"displayName": "Parallelogram", "componentName": "Parallelogram"},
+                {"displayName": "Cube", "componentName": "Cube"},
+                {"displayName": "Cylinder", "componentName": "Cylinder"}
+            ]
+        },
+        {
+            "displayName": "Controls",
+            "name": "controls",
+            "icon": "",
+            "expanded": false,
+            "items": [
+                {
+                    "displayName": "InputField",
+                    "componentName": "InputField",
+                    "meta": {
+                        "tags": ["atomic, form-field"],
+                        "createdBy": "mohiit1502@gmail.com",
+                        "createdTimeStamp": "11042021T093443" 
+                    },
+                    "descriptor": {
+                        "allowChildren": true,
+                        "classes": "bg-grey text-center",
+                        "defaultWidth": "4rem",
+                        "defaultHeight": "4rem",
+                        "elemType": "div",
+                        "handlers": {},
+                        "styles": {},
+                        "children": [
+                            {
+                                "componentName": "TextComponent",
+                                "displayName": "TextComponent",
+                                "meta": {
+                                    "tags": ["content", "text"],
+                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdTimeStamp": "11042021T093443"
+                                },
+                                "innerText": "InputField",
+                                "order": 0,
+                                "descriptor": {
+                                    "allowChildren": true,
+                                    "classes": "bg-grey text-center",
+                                    "defaultWidth": "12rem",
+                                    "defaultHeight": "2rem",
+                                    "elemType": "input",
+                                    "handlers": {},
+                                    "styles": {}
+                                }
+                            }
+                        ]
+                    }
+                },
+                {"displayName": "Radio Button Group", "componentName": "RadioButtonGroup"},
+                {"displayName": "Drop Down (Select Option)", "componentName": "SingleSelectDropDown"},
+                {"displayName": "Multi Select Drop Down (Multi Select Option)", "componentName": "MultiSelectDropDown"},
+                {"displayName": "Check Box Group", "componentName": "CheckBoxGroup"},
+                {"displayName": "Check Box", "componentName": "CheckBox"},
+                {"displayName": "TextArea", "componentName": "TextArea"},
+                {"displayName": "Button", "componentName": "Button"},
+                {"displayName": "ButtonsPanel", "componentName": "ButtonsPanel"},
+                {"displayName": "Container", "componentName": "Container"}
+            ]
+        },
+        {
+            "displayName": "Animations",
+            "name": "animations",
+            "icon": "",
+            "expanded": false,
+            "items": [
+
+            ]
+        },
+        {
+            "displayName": "Data Source",
+            "name": "data",
+            "icon": "",
+            "expanded": false,
+            "items": [
+                
+            ]
+        },
+        {
+            "displayName": "Rich Controls",
+            "name": "rich",
+            "icon": "",
+            "expanded": false,
+            "items": [
+                {
+                    "displayName": "My Controls",
+                    "name": "self",
+                    "icon": "",
+                    "expanded": false,
+                    "items": [
+
+                    ]
+                },
+                {
+                    "displayName": "Community Controls",
+                    "name": "community",
+                    "icon": "",
+                    "expanded": false,
+                    "items": [
+                        {"displayName": "Draggable", "componentName": "Draggable"},
+                        {"displayName": "Droppable", "componentName": "Droppable"},
+                        {"displayName": "Progress Bar", "componentName": "ProgressBar"},
+                        {"displayName": "Step Bar", "componentName": "StepBar"},
+                        {"displayName": "FileSelector", "componentName": "FileSelector"},
+                        {"displayName": "PageLoader", "componentName": "PageLoader"},
+                        {"displayName": "FormLoader", "componentName": "FormLoader"},
+                        {"displayName": "FieldLoader", "componentName": "FieldLoader"},
+                        {"displayName": "NumberedList", "componentName": "NumberedList"},
+                        {"displayName": "UnorderedList", "componentName": "UnorderedList"},
+                        {"displayName": "SearchField", "componentName": "SearchField"},
+                        {"displayName": "Tab", "componentName": "Tab"},
+                        {"displayName": "TabBar", "componentName": "TabBar"},
+                        {"displayName": "Timer", "componentName": "Timer"},
+                        {"displayName": "Clock", "componentName": "Clock"},
+                        {"displayName": "ToolBar", "componentName": "ToolBar"},
+                        {"displayName": "Icon", "componentName": "Icon"},
+                        {"displayName": "Table", "componentName": "Table"},
+                        {"displayName": "Paginator", "componentName": "Paginator"},
+                        {"displayName": "Article", "componentName": "Article"},
+                        {"displayName": "DropTarget", "componentName": "DropTarget"},
+                        {"displayName": "Card", "componentName": "Card"}
+                    ]
+                }
+            ]
+        },
+        {
+            "displayName": "Functionalities",
+            "name": "functionalities",
+            "icon": "",
+            "expanded": false,
+            "items": [
+                {"displayName": "Sort"},
+                {"displayName": "Search"},
+                {"displayName": "Paginate"}
+            ]
+        },
+        {
+            "displayName": "Theme",
+            "name": "theme",
+            "icon": "",
+            "expanded": false,
+            "items": [
+                {
+                    "displayName": "Control Set",
+                    "name": "controlSet",
+                    "icon": "",
+                    "expanded": false,
+                    "items": []
+                },
+                {
+                    "displayName": "Style",
+                    "name": "style",
+                    "icon": "",
+                    "expanded": false,
+                    "items": [
+                        {"displayName": "primary-base-color"},
+                        {"displayName": "secondary-base-color"},
+                        {"displayName": "primary-font-color"},
+                        {"displayName": "secondary-font-color"},
+                        {"displayName": "border-dark"},
+                        {"displayName": "border-light"},
+                        {"displayName": "font-family"},
+                        {"displayName": "default-font-size"},
+                        {"displayName": "s1-font"},
+                        {"displayName": "s2-font"},
+                        {"displayName": "s3-font"},
+                        {"displayName": "s4-font"},
+                        {"displayName": "line-height"},
+                        {"displayName": "header-padding"},
+                        {"displayName": "body-padding"},
+                        {"displayName": "article-margin"},
+                        {"displayName": "section-margin"}
+                    ]
+                }
+            ]
+        }
+    ]
+}

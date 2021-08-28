@@ -1,6 +1,17 @@
+@import "./../../styles/variables";
+
 .c-Header {
-  header {
-    background-color: rgba(0,0,0, 0.4);
-    backdrop-filter: blur(3px);
+  top: 0;
+  height: $header-height;
+  max-height: 4rem;
+  left: 0;
+  width: 100%;
+  background: $primary-base-color-translucent;
+  // backdrop-filter: $default-blur;
+  border-bottom: 3px solid $primary-font-color;
+  z-index: 1;
+
+  p {
+    margin-bottom: 0;
   }
 }

@@ -1,8 +1,8 @@
-import React from 'react';
-import Aside from './Aside';
+import React from "react";
+import Aside from "./Aside";
 
-describe('Aside', () => {
-   it('renders without error', () => {
+describe("Aside", () => {
+   it("renders without error", () => {
 
    });
 });

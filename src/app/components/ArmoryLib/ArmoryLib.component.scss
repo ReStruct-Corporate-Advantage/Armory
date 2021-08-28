@@ -1,0 +1,27 @@
+@import "./../../styles/variables";
+
+.c-ArmoryLib {
+    overflow: scroll;
+    white-space: nowrap;
+    ul {
+        padding-left: 2rem;
+        &:first-child { padding-left: 0;}
+        .c-Aside__list-item {
+            list-style: none;
+            cursor: pointer;
+
+            .c-Aside__list-item-text {
+                display: block;
+                padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+                border-radius: 15px;
+                border: 1px solid transparent;
+                transition: all 0.3s ease-in-out;
+                
+                &:hover {
+                    border: 1px solid $primary-font-color-dark;
+                    color: $primary-font-color-dark;
+                }
+            }
+        }
+    }
+}
