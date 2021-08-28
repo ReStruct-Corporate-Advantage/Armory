@@ -11,6 +11,15 @@ const armamentSchema = new mongoose.Schema({
     armamentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'ArmamentCategory' },
     order: Number,
     selfClosing: Boolean,
+    state: String,
+    top: {
+        type: String,
+        default: "16px",
+    },
+    left: {
+        type: String,
+        default: "16px",
+    },
     visibility: {
         type: String,
         default: "public"

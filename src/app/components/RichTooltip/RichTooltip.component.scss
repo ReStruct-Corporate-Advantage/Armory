@@ -1,6 +1,6 @@
 .c-RichTooltip {
     padding: 0.5rem;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background: rgba(0, 0, 0, 0.7);
     text-align: center;
     z-index: 111111;
@@ -12,8 +12,8 @@
     &:after {
         content: "";
         position: absolute;
-        margin-left: 2px;
-        border-width: 5px;
+        margin-left: 0.125rem;
+        border-width: 0.3125rem;
         border-style: solid;
         border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
     }

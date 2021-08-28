@@ -13,8 +13,10 @@
             .c-Aside__list-item-text {
                 display: block;
                 padding: 0.3rem 0.3rem 0.3rem 0.5rem;
-                border-radius: 15px;
+                border-radius: 1rem;
                 border: 1px solid transparent;
+                font-size: 0.875rem;
+                line-height: 1.5rem;
                 transition: all 0.3s ease-in-out;
                 
                 &:hover {

@@ -1,3 +1,4 @@
+import Helper from "../utils/Helper";
 import Network from "../utils/network";
 
 const TOOLS_CONFIG = {
@@ -25,10 +26,10 @@ const TOOLS_CONFIG = {
     CODE_PROPERTIES_TOOLS: {
         tools: [
             {name: "ResizeProperties", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "fi.FiMaximize", toggleIcon: "fi.FiMinimize", placement: "right", tooltip: "Toggle Size"},
-            {name: "EditProperties", btnClasses: "btn btn-edit", btnText: "Edit", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", onClick: "toggleEditMode", tooltip: "Edit"},
-            {name: "SaveProperties", btnClasses: "btn btn-save", btnText: "Save", visibility: "visible", order: 3, icon: "ai.AiFillSave", placement: "right", disabled: true, tooltip: "Save"},
-            {name: "UndoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true, tooltip: "Undo"},
-            {name: "RedoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true, tooltip: "Redo"}
+            {name: "EditProperties", btnClasses: "btn btn-edit", btnText: "Edit", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", onClick: "toggleEditMode", tooltip: "Edit", componentSpecific: true},
+            {name: "SaveProperties", btnClasses: "btn btn-save", btnText: "Save", visibility: "visible", order: 3, icon: "ai.AiFillSave", placement: "right", disabled: true, tooltip: "Save", componentSpecific: true},
+            {name: "UndoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true, tooltip: "Undo", componentSpecific: true},
+            {name: "RedoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true, tooltip: "Redo", componentSpecific: true}
         ]
     },
     SEARCH_BAR_TOOLS: {
@@ -110,12 +111,14 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             onClick: () => {
-                                Network.get("/api/auth/logout")
-                                    .then(res => {
-                                        if (res.status === 200) {
-                                            window.location.pathname = "/login";
-                                        }
-                                    })
+                                Helper.removeCookie("auth_session_token");
+                                window.location.pathname = "/login";
+                                // Network.get("/api/auth/logout")
+                                //     .then(res => {
+                                //         if (res.status === 200) {
+                                //             window.location.pathname = "/login";
+                                //         }
+                                //     })
                             }
                         }
                     ]

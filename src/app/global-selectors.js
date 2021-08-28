@@ -15,3 +15,4 @@ export const getUserDetails = createGetSelector(getGlobal, "userDetails");
 export const getUserRole = createGetSelector(getGlobal, "userRole");
 export const isMobile = createGetSelector(getGlobal, "isMobile");
 export const getModal = createGetSelector(getGlobal, "modal");
+export const getLevels = createGetSelector(getGlobal, "levels");

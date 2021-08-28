@@ -5,7 +5,8 @@ const controller = new Controller();
 const router = express.Router();
 
 router.get("/", authInterceptor, controller.getArms);
-router.post("/", authInterceptor, controller.setArmaments);
+router.post("/bulk", authInterceptor, controller.setArmaments);
+router.post("/", authInterceptor, controller.createArmament);
 router.put("/", authInterceptor, controller.updateArmament);
 
 export default router;

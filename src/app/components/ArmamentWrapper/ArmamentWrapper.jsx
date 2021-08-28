@@ -12,7 +12,7 @@ import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = props => {
-  const {children, comContainerRef, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, setSelectedComponent} = props;
+  const {children, comContainerRef, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, dispatchSelectedComponent} = props;
   const {descriptor} = componentConfig || {};
   const {allowChildren} = descriptor || {};
   // const Component = componentConfig.state && componentConfig.state === "new" ? forkedRepository[componentConfig.name] : repository[componentConfig.name];
@@ -61,10 +61,10 @@ const ArmamentWrapper = props => {
       item.index = hoverIndex
     },
     drop: (item, monitor) => {
-      dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, setSelectedComponent, dispatchClearPropsState)
+      dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState)
     }
     // dispatchComponentsConfig,
-    // setSelectedComponent, dispatchClearPropsState, dispatchModal, armory
+    // dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory
   })
   drag(drop(ref))
   
@@ -85,13 +85,14 @@ const ArmamentWrapper = props => {
         className="c-ArmamentWrapper"
         id={`${componentConfig.uuid}-RENDER`}
         ref={ref}
+        role="presentation"
         style={{
           cursor: "move"
         }}
         onClick={(e) => {
-          setSelectedComponent(componentConfig.uuid);
+          dispatchSelectedComponent(componentConfig.uuid);
           e.stopPropagation();
-        }}>
+        }} onKeyDown={() => {}}>
           {Component && <Component allowChildren={allowChildren} {...componentConfig} />}
       </div>
     </div>
@@ -99,6 +100,7 @@ const ArmamentWrapper = props => {
         className="c-ArmamentWrapper position-absolute"
         id={`${componentConfig.uuid}-RENDER`}
         ref={ref}
+        role="presentation"
         style={{
           opacity: isDragging ? 0 : 1,
           cursor: "move",
@@ -106,9 +108,9 @@ const ArmamentWrapper = props => {
           left: componentConfig.left
         }}
         onClick={(e) => {
-          setSelectedComponent(componentConfig.uuid);
+          dispatchSelectedComponent(componentConfig.uuid);
           e.stopPropagation();
-        }}>
+        }} onKeyDown={() => {}}>
           {Component && <Component allowChildren={allowChildren} {...componentConfig} />}
       </div>
   );
@@ -117,7 +119,7 @@ const ArmamentWrapper = props => {
 ArmamentWrapper.propTypes = {
   componentConfig: PropTypes.object,
   recursiveRenderer: PropTypes.func,
-  setSelectedComponent: PropTypes.func
+  dispatchSelectedComponent: PropTypes.func
 };
 
 const mapStateToProps = createPropsSelector({

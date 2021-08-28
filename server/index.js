@@ -35,7 +35,6 @@ global.constants = CONSTANTS
 
 logInit();
 const db = dbInit(logInit);
-
 app.use(bodyParser.json());
 var whitelist = ['http://localhost:7992', 'https://armory-ui.herokuapp.com']
 var corsOptions = {

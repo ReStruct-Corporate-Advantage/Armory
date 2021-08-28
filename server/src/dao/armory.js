@@ -5,7 +5,11 @@ import { Armament } from "../models/armory.js";
 class ArmoryController {
 
     static async findArmamentByName (componentName) {
-        return Armament.findOne({componentName})
+        return await Armament.findOne({componentName})
+    }
+
+    static async findArmamentCategoryByName (name) {
+        return await ArmamentCategory.findOne({name})
     }
 
     static async getArmsCategories () {
@@ -50,6 +54,10 @@ class ArmoryController {
         await ArmamentCategory.insertMany(backReferencedCategories);
         await Armament.insertMany(backReferencedArms);
         return true;
+    }
+
+    static async createArmament (armament) {
+        return await Armament.create(armament);
     }
 
     static async updateArmament (doc) {        

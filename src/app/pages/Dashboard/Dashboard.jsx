@@ -1,51 +1,54 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux";
-import {withRouter} from "react-router-dom";
-import {createPropsSelector} from "reselect-immutable-helpers";
-import {getUserDetails} from "./../../global-selectors";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { createPropsSelector } from "reselect-immutable-helpers";
+import { getUserDetails } from "./../../global-selectors";
+import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
+import { dispatchLevels } from "../../global-actions";
+import { dispatchComponentsConfig, dispatchSelectedComponent } from "../ComponentCreator/actions";
+import DASHBOARD_CONFIG from "../../config/dashboardConfig";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {
-  const {history, userDetails} = props;
+  const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails } = props;
   const name = userDetails ? userDetails.firstname : ""
+  const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
+  const sections = Object.keys(config).map(key => {
+    const section = {...config[key]};
+    config[key] = section;
+    const display = section.protected ? userDetails && userDetails.role && userDetails.role === "alpha" : true;
+    const parts = [...section.parts];
+    section.parts = parts;
+    const header = parts && parts.find(part => part.type === "header");
+    parts && parts.splice(parts.findIndex(part => part.type === "header"), 1);
+    return display &&
+      <div className={section.containerClasses}>
+        <div className={section.sectionClasses}>
+          <div className="h-100 d-flex flex-column">
+            {header && <p className={header.classes}>{header.text}</p>}
+            <div className="c-Dashboard__actions w-100">
+              {parts && parts.map(part => {
+                switch (part.type) {
+                  case "p":
+                    return <p className={part.classes}>{part.text}</p>
+                  case "button":
+                    return <button className={part.classes} onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>{part.text}</button>
+                  default:
+                    return null;
+                }
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+  })
   return (
     <div className="c-Dashboard d-flex flex-column h-100">
       <main className="c-Dashboard__main p-4 mb-5 overflow-auto text-center flex-grow-1">
         <h4 className="page-header glass-panel text-left">Welcome {name}!</h4>
         <div className="content row mt-5">
-          {userDetails && userDetails.role && userDetails.role === "alpha" && <div className="col-7 mx-auto mb-5">
-            <div className="c-Dashboard__main__admin glass-panel mx-auto">
-              <div className="row">
-                <p className="section-header col-12">Armory Management</p>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mt-4" onClick={() => history.push(`/${userDetails.username}/manage/component`)}>Manage Components</button>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mt-4" onClick={() => history.push(`/${userDetails.username}/manage/project`)}>Manage Pages</button>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-3 mt-4" onClick={() => history.push(`/${userDetails.username}/manage/project`)}>Manage Projects</button>
-              </div>
-            </div>
-          </div>}
-          <div className="col-6">
-            <div className="c-Dashboard__main__resume glass-panel mx-auto">
-              <div className="row">
-                <p className="section-header col-12">Let's resume where your left...</p>
-                <p className="col-12">My Projects</p>
-                <p className="col-12">My Pages</p>
-                <p className="col-12">My Components</p>
-              </div>
-            </div>
-          </div>
-          <div className="col-6">
-            <div className="c-Dashboard__main__buttons glass-panel mx-auto">
-              <div className="row">
-                <span className="section-header col-12">...Or select one of the options below</span>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-5 mt-4" onClick={() => history.push(`/${userDetails.username}/project`)}>Create a Project</button>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-5" onClick={() => history.push(`/${userDetails.username}/page`)}>Create a Page Template</button>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-5" onClick={() => history.push(`/${userDetails.username}/component`)}>Create a Rich Component</button>
-                <span className="option-separator col-6 mx-auto mb-5">Or</span>
-                <button className="c-Dashboard__btn col-7 raised-effect mx-auto mb-5" onClick={() => history.push(`/${userDetails.username}/template`)}>Use an existing template</button>
-              </div>
-            </div>
-          </div>
+          {sections}
         </div>
       </main>
     </div>
@@ -53,11 +56,22 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
+  componentsConfig: PropTypes.object,
+  dispatchComponentsConfig: PropTypes.func,
+  dispatchLevels: PropTypes.func,
+  dispatchSelectedComponent: PropTypes.func,
   userDetails: PropTypes.object
 };
 
 const mapStateToProps = createPropsSelector({
+  componentsConfig: getPresentComponentsConfig,
   userDetails: getUserDetails
 })
 
-export default connect(mapStateToProps)(withRouter(Dashboard));
+const mapDispatchToProps = {
+  dispatchComponentsConfig,
+  dispatchLevels,
+  dispatchSelectedComponent
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dashboard));

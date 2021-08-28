@@ -16,7 +16,7 @@ const QuickOptionsContainer = props => {
   // }, [itemRef])
   
   return (
-    <CSSTransition in={props.show} timeout={500} classNames="expand" appear onEntered={() => {
+    <CSSTransition in={props.show} timeout={100} classNames="expand" appear onEntered={() => {
       setItemPosition(Helper.getItemPosition(itemRef.current));
       setPositionCorrected(true);
     }}>

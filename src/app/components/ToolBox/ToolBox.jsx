@@ -5,7 +5,7 @@ import Helper from "./../../utils/Helper";
 import "./ToolBox.component.scss";
 
 const ToolBox = props => {
-  const {toolsConfig: {classes, leftSnapped, size, tools}, handlers} = props
+  const {selectedComponent, toolsConfig: {classes, leftSnapped, size, tools}, handlers} = props
   const [expanded, setExpanded] = useState(false);
   // const leftSnappedTool = tools && tools.find(tool => tool.placement === "left" && tool.order === 0);
   
@@ -33,14 +33,15 @@ const ToolBox = props => {
     <div className={`c-ToolBox c-ToolBox__controlPanel d-inline-flex position-relative${classes ? " " + classes : ""}${leftSnapped ? " pl-0" : ""}`}
       onMouseLeave={() => setExpanded(false)}
       onMouseEnter={() => setExpanded(true)}>
-      <ToolsLeft classes="d-inline-block" handlers={handlers} size={size} tools={leftTools} />
-      <ToolsRight classes="ml-auto d-inline-block" handlers={handlers} size={size} tools={rightTools} expanded={expanded} />
+      <ToolsLeft classes="d-inline-block" handlers={handlers} size={size} tools={leftTools} selectedComponent={selectedComponent} />
+      <ToolsRight classes="ml-auto d-inline-block" handlers={handlers} size={size} tools={rightTools} expanded={expanded} selectedComponent={selectedComponent} />
       {rightContainedTools.length > 0 && <span className="c-ToolBox__toolDisplayer position-absolute">&lt;</span>}
     </div>
   );
 };
 
 ToolBox.propTypes = {
+  selectedComponent: PropTypes.string,
   toolsConfig: PropTypes.object
 };
 

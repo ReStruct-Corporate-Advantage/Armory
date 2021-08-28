@@ -9,16 +9,16 @@ import "./ToolWrapper.component.scss";
 import { connect } from "react-redux";
 
 const ToolWrapper = memo(props => {
-  const {btnClasses, btnText, data, disabled, dispatchToolAction, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, size, toggleIcon, tooltip, visibility} = props;
+  const {btnClasses, btnText, componentSpecific, data, disabled, dispatchToolAction, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, selectedComponent, size, toggleIcon, tooltip, visibility} = props;
   const [hovered, setHovered] = useState(false);
-  const [buttonClicked, setButtonClicked] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState(componentSpecific ? {} : false);
   const [currentIcon, setCurrentIcon] = useState(icon)
   const {onClickHandler, jsx, type} = useTool(name && name.toLowerCase(), props)
   const iconDescriptor = currentIcon && currentIcon.split(".");
   const Icon = reactIcons[iconDescriptor[1]];
   const iconSize = !expanded && visibility === "contained" ? "0" : size ? size : "1.1rem";
   return (
-    <IconContext.Provider value={{ color: !disabled && (hovered || buttonClicked) ? "#FFCA28" : "", size, className: "global-class-name" }}>
+    <IconContext.Provider value={{ color: !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "", size, className: "global-class-name" }}>
       <div className={`c-ToolWrapper position-relative d-inline-block h-100
           ${!expanded && visibility === "contained" ? " hide" : ""}
           ${layoutClasses ? " " + layoutClasses : ""}
@@ -28,24 +28,24 @@ const ToolWrapper = memo(props => {
           onMouseLeave={() => setHovered(false)}
           onClick={(e) => {
             setCurrentIcon(currentIcon === icon && toggleIcon ? toggleIcon : icon)
-            setButtonClicked(!buttonClicked)
+            setButtonClicked(componentSpecific ? {...buttonClicked, [selectedComponent]: !buttonClicked[selectedComponent]} : !buttonClicked)
             jsx && dispatchToolAction()
             onClickHandler && onClickHandler();
           }}>
           <button
             className={`h-100
               ${btnClasses ? " " + btnClasses : ""}
-              ${!disabled && (hovered || buttonClicked) ? " hovered" : ""}
+              ${!disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? " hovered" : ""}
               ${leftSnapped ? " snappedButton" : ""}
               ${!expanded && visibility === "contained" ? " hide" : ""}
               ${disabled ? " disabled" : ""}`}
             >
               {Icon ? <Icon className={hovered ? "hovered" : ""} /> : btnText}
           </button>
-          {hoverClasses && <span className={`button-text${hovered || buttonClicked ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
+          {hoverClasses && <span className={`button-text${hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked) ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>
         {hovered && !buttonClicked && <RichTooltip iconSize={iconSize} tooltip={tooltip} />}
-        {buttonClicked && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data} show={buttonClicked}>{jsx(data)}</QuickOptionsContainer>: null}
+        {(componentSpecific ? buttonClicked[selectedComponent] : buttonClicked) && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data} show={componentSpecific ? buttonClicked[selectedComponent] : buttonClicked}>{jsx(data)}</QuickOptionsContainer>: null}
       </div>
     </IconContext.Provider>
   );
@@ -60,6 +60,7 @@ ToolWrapper.propTypes = {
   handler: PropTypes.object,
   icon: PropTypes.string,
   leftSnapped: PropTypes.bool,
+  selectedComponent: PropTypes.string,
   toggleIcon: PropTypes.string,
   visibility: PropTypes.string
 };

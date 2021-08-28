@@ -2,12 +2,14 @@ import {readFile} from "fs";
 import Helper from "../utils/helper.js";
 import userDao from "./../dao/user.js";
 import dao from "./../dao/armory.js";
+import logger from "./../loaders/logs-loader.js";
 
 class ArmoryController {
 
     getArms (req, res) {
         const user_details = req.decoded;
         try {
+            logger.info("[ArmoryController::getArms] Initiating Arms Retrieval")
             userDao.findUserByUserName(user_details.username)
             .then (userObj => {
                 if (!userObj) {
@@ -18,6 +20,8 @@ class ArmoryController {
                         if (!categories) {
                             return res.status(404).json({message: "No arms available in your repository!", error: true, code: "ERR_DB_OR_QUERY_FAILURE"});
                         }
+                        logger.info("[ArmoryController::getArms] Receiving Armament Categories from DB");
+                        logger.info("[ArmoryController::getArms] Processing Armament Categories")
                         const categoryPromises = [];
                         const subCategories = [];
                         categories && categories.forEach(category => {
@@ -42,12 +46,18 @@ class ArmoryController {
                             }
                             categories.sort((cat1, cat2) => cat1.order - cat2.order);
                             const responseObj = Helper.filterEach(categories, ["_id", "__v", "leafCategory"]);
+                            logger.info("[ArmoryController::getArms] Completed processing Armament Categories")
+                            logger.info("[ArmoryController::getArms] Completed Arms Retrieval")
                             return res.status(200).json(responseObj);
                         })
                     })
-                    .catch (e => res.status(500).json({message: "Unable to fetch list of armaments at the moment, please try back in sometime or use the Contact Us option to report!"}))
+                    .catch (e => {
+                        logger.error("[ArmoryController::getArms] Error Occurred during arms category retrieval: ", e)
+                        res.status(500).json({message: "Unable to fetch list of armaments at the moment, please try back in sometime or use the Contact Us option to report!"})
+                    })
             });
         } catch (e) {
+            logger.error(`[ArmoryController::getArms] An unknown error occurred while trying to fetch armament categories for ${user_details.username}`)
             console.error(e);
             res.status(520).json({error: `An unknown error occurred while trying to get list of armament for ${user_details.username}`})
         }
@@ -63,6 +73,51 @@ class ArmoryController {
             arms && dao.bulkInsert(arms, user_details.username);
             return res.json({success: true}).status(200)
         });
+    }
+
+    createArmament (req, res) {
+        const user_details = req.decoded;
+        const queryParams = req.query;
+        logger.info(`[ArmoryController::createArmament] Creating armament named ${req.body.componentName}, requested by user: ${user_details.username}`);
+        try {
+            let armament = req.body;
+            if (req.body.visibility === "public") { // TODO Add handling for public visibility - push component to community controls
+                dao.findArmamentCategoryByName("myControls")
+                    .then(myControlsCategory => {
+                        armament.armamentCategory = myControlsCategory._id
+                        if (queryParams && queryParams.withContainer) {
+                            dao.findArmamentByName("Container")
+                                .then(container => {
+                                    armament.meta = {...container._doc.meta, ...armament.meta}
+                                    armament = {...container._doc, ...armament};
+                                    armament = JSON.parse(JSON.stringify(armament));
+                                    delete armament._id;
+                                    dao.createArmament(armament)
+                                        .then (createdRecord => {
+                                            logger.info(`[ArmoryController::createArmament] Finished creating armament named ${req.body.componentName}, requested by user: ${user_details.username}`)
+                                            const responseObj = JSON.parse(JSON.stringify(createdRecord));
+                                            return res.json({record: responseObj, success: true}).status(200);
+                                        })
+                                        .catch(err => {
+                                            logger.error(`[ArmoryController::createArmament][DBException] Unable to create armament named ${req.body.componentName}, requested by user: ${user_details.username}: `, err)
+                                            return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
+                                        })
+                                })
+                                .catch(err => {
+                                    logger.error(`[ArmoryController::createArmament][DBException] Error occurred while trying to get Container component, requested by user: ${user_details.username}: `, err)
+                                    return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
+                                })
+                        }
+                    })
+                    .catch(err => {
+                        logger.error(`[ArmoryController::createArmament][DBException] Error occurred while trying to fetch My Controls category, requested by user: ${user_details.username}: `, err)
+                        return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
+                    })
+            }
+        } catch (e) {
+            logger.error(`[ArmoryController::createArmament][Exception] Unable to create armament named ${req.body.componentName}, requested by user: ${user_details.username}: `, e)
+            return res.json({error: e, message: "An unknown error occurred"}).status(521);
+        }
     }
 
     updateArmament (req, res) {

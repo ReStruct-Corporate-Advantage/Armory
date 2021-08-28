@@ -27,7 +27,11 @@ export default class Helper {
         const d = new Date();
         d.setTime(d.getTime() + (exdays*24*60*60*1000));
         let expires = "expires="+ d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";Path=/";
+    }
+
+    static removeCookie(cname) {
+        document.cookie = cname + "=; Expires=Thu, 01 Jan 1970 00:00:01 GMT; Path=/";
     }
 
     static isInViewport(element) {
