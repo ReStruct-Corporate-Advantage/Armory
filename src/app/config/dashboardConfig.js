@@ -1,5 +1,6 @@
 import Network from "../utils/network";
 import { v4 as uuid } from "uuid";
+import { dispatchLevels } from "../global-actions";
 
 const DASHBOARD_CONFIG = {
     ADMIN_ACTIONS: {
@@ -65,14 +66,27 @@ const DASHBOARD_CONFIG = {
             {
                 name: "CreateComponent", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mb-5", text: "Create a Rich Component", visibility: "visible",
                 order: 2, icon: "ai.AiOutlineEdit", tooltip: "Create a Rich Component",
-                action: (componentsConfig, dispatchComponentsConfig, history, userDetails) => {
+                action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => {
                     const UID = uuid();
-                    Network.post("/api/armory", {visibility: "public", displayName: "DRAFT-" + UID, componentName: userDetails.username + "---DRAFT-" + UID, owner: userDetails.username, state: "DRAFT"})
+                    const username = userDetails.username;
+                    const containerConfig = {
+                        visibility: "public",
+                        displayName: "Container-" + username,
+                        componentName: "Container-" + username + "--" + UID,
+                        owner: username,
+                        state: "DRAFT",
+                        meta: {createdBy: username}
+                    }
+                    Network.post("/api/armory?withContainer=true", containerConfig)
                         .then(res => {
                             const componentsConfigCloned = {...componentsConfig};
+                            res.body.record.name = "Container"; // Set this up to allow picking Container component from generated components list
+                            res.body.record.uuid = `arm-Container-${UID}`;
                             componentsConfigCloned.components[0].descriptor.children.push(res.body.record);
                             dispatchComponentsConfig(componentsConfigCloned);
-                            history.push(`/${userDetails.username}/component`)
+                            dispatchSelectedComponent(res.body.record.uuid);
+                            dispatchLevels({username: {name: username, type: "Expandable"}, section: {name: "Components"}, item: {name: res.body.record.displayName + "[DRAFT]", type: "Expandable"}})
+                            history.push(`/${username}/component`)
                         })
                 }
             },

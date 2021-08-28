@@ -205,6 +205,14 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     // }
 }
 
+.pill {
+    background: rgb(233, 194, 21);
+    font-size: 0.5rem;
+    padding: 0.1rem 0.75rem;
+    border-radius: 0.3125rem;
+    color: #222;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 

@@ -5,12 +5,13 @@ import { withRouter } from "react-router-dom";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { getUserDetails } from "./../../global-selectors";
 import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
-import { dispatchComponentsConfig } from "../ComponentCreator/actions";
+import { dispatchLevels } from "../../global-actions";
+import { dispatchComponentsConfig, dispatchSelectedComponent } from "../ComponentCreator/actions";
 import DASHBOARD_CONFIG from "../../config/dashboardConfig";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {
-  const { componentsConfig, dispatchComponentsConfig, history, userDetails } = props;
+  const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails } = props;
   const name = userDetails ? userDetails.firstname : ""
   const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
   const sections = Object.keys(config).map(key => {
@@ -32,7 +33,7 @@ const Dashboard = props => {
                   case "p":
                     return <p className={part.classes}>{part.text}</p>
                   case "button":
-                    return <button className={part.classes} onClick={() => part.action(componentsConfig, dispatchComponentsConfig, history, userDetails)}>{part.text}</button>
+                    return <button className={part.classes} onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>{part.text}</button>
                   default:
                     return null;
                 }
@@ -57,6 +58,8 @@ const Dashboard = props => {
 Dashboard.propTypes = {
   componentsConfig: PropTypes.object,
   dispatchComponentsConfig: PropTypes.func,
+  dispatchLevels: PropTypes.func,
+  dispatchSelectedComponent: PropTypes.func,
   userDetails: PropTypes.object
 };
 
@@ -66,7 +69,9 @@ const mapStateToProps = createPropsSelector({
 })
 
 const mapDispatchToProps = {
-  dispatchComponentsConfig
+  dispatchComponentsConfig,
+  dispatchLevels,
+  dispatchSelectedComponent
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dashboard));

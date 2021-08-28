@@ -15,12 +15,12 @@ const useEventHandler = (props) => {
     const dispatch = useDispatch()
     // const componentsConfig = useSelector(state => state.data.pages.componentCreator.present.componentConfig);
     // const updateComponentConfig = useCallback((componentConfigCloned) => dispatch(dispatchComponentsConfig(componentConfigCloned)), [dispatch])
-    const handleKeyDown = (event, componentConfig, dispatchComponentsConfig, selectedComponent, setSelectedComponent, clientRect) => {
+    const handleKeyDown = (event, componentConfig, dispatchComponentsConfig, selectedComponent, dispatchSelectedComponent, clientRect) => {
         // if (event.metaKey) {
         //     ctrlKeyPressed = true;
         // }
         const action = getAction(event);
-        processAction(action, componentConfig, dispatchComponentsConfig, selectedComponent, setSelectedComponent, clientRect, event);
+        processAction(action, componentConfig, dispatchComponentsConfig, selectedComponent, dispatchSelectedComponent, clientRect, event);
     }
 
     const handleOnClick = (e) => {
@@ -53,10 +53,10 @@ const useEventHandler = (props) => {
         }
     }
 
-    const processAction = (action, componentConfig, dispatchComponentsConfig, selectedComponent, setSelectedComponent, clientRect, event) => {
+    const processAction = (action, componentConfig, dispatchComponentsConfig, selectedComponent, dispatchSelectedComponent, clientRect, event) => {
         switch (action) {
             case ACTIONS.DELETE:
-                deleteItem(componentConfig, selectedComponent, setSelectedComponent, event);
+                deleteItem(componentConfig, selectedComponent, dispatchSelectedComponent, event);
                 break;
             case ACTIONS.REDO:
                 processRedo(componentConfig, event);
@@ -97,7 +97,7 @@ const useEventHandler = (props) => {
         console.log("selecting all")
     }
 
-    const deleteItem = (componentConfig, selectedComponent, setSelectedComponent, event) => {
+    const deleteItem = (componentConfig, selectedComponent, dispatchSelectedComponent, event) => {
         if (event.target.nodeName !== "INPUT") {
             const componentConfigCloned = {...componentConfig};
             const childArray = componentConfigCloned.components[0].descriptor.children;
@@ -107,7 +107,7 @@ const useEventHandler = (props) => {
                 parent.splice(parent.findIndex(item => item.uuid === selectedComponent), 1);
                 dispatch(setComponentsConfig(componentConfigCloned));
                 delete forkedRepository[selectedComponent]
-                childArray && childArray.length > 0 && setSelectedComponent(childArray[childArray.length - 1].uuid)
+                childArray && childArray.length > 0 && dispatchSelectedComponent(childArray[childArray.length - 1].uuid)
             }
         }
     }

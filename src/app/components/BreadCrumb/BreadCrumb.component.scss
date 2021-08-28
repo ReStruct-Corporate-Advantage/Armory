@@ -1,3 +1,38 @@
 .c-BreadCrumb {
-  
+    li {
+        list-style: none;
+        display: inline;
+        margin-right: 0.5rem;
+        cursor: pointer;
+        font-size: 12px;
+
+        span {
+            padding: 0.3rem;
+            font-weight: bold;
+            background: rgb(233, 194, 21);
+            color: #222;
+            border-radius: 0.3rem;
+            margin-right: 0.2rem;
+        }
+
+        &::after {
+            content: "";
+            width: 0.4rem;
+            height: 0.4rem;
+            border-top: 2px solid;
+            border-right: 2px solid;
+            transform: rotate(45deg);
+            padding-top: 0.2rem;
+            font-weight: bold;
+            display: inline-block;
+            color:rgb(233, 194, 21);
+            transition: all 0.5s;
+        }
+
+        &.hovered {
+            &::after {
+                transform: rotate(135deg)
+            }
+        }
+    }
 }

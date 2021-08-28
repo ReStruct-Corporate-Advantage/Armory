@@ -12,5 +12,15 @@
       &.expanded {
         transform: rotate(135deg);
       }
-  }
+
+    }
+    .pill.created-by {
+      margin-left: 0.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .preview {
+      width: 1rem;
+      height: 1rem;
+    }
 }

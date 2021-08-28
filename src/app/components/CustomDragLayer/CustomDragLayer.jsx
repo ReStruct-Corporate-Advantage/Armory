@@ -46,7 +46,7 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
     const yDiff = initialClientOffset.y - initialOffset.y
     x = Math.round(clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left - (xDiff || 0));
     y = Math.round(clientOffset.y - initialOffset.y + 20 + 64 - clientRect.top - (yDiff || 0));
-    [x, y] = DNDUtil.snapToGrid(x, y, layout);
+    [x, y] = DNDUtil.snapToGrid(x, y, layout, true);
     x += clientRect.left;
     y += clientRect.top;
   }

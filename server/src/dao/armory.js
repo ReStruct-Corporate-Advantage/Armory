@@ -5,11 +5,11 @@ import { Armament } from "../models/armory.js";
 class ArmoryController {
 
     static async findArmamentByName (componentName) {
-        return Armament.findOne({componentName})
+        return await Armament.findOne({componentName})
     }
 
     static async findArmamentCategoryByName (name) {
-        return ArmamentCategory.findOne({name})
+        return await ArmamentCategory.findOne({name})
     }
 
     static async getArmsCategories () {

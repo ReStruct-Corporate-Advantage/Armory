@@ -1,9 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Provider } from "react-redux"
+import { connect, Provider } from "react-redux"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable"
+import { dispatchDeviceType } from "./global-actions";
 import { Header, Modal, PageLoader } from "./components";
+import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
     loader: () => import("./authenticator"),
@@ -26,6 +28,10 @@ const LoadableJoin = Loadable({
 })
 
 class Router extends React.Component {
+
+    componentDidMount() {
+        this.props.dispatchDeviceType({isMobile: Helper.isMobile()});
+    }
 
     render() {
         const { store } = this.props
@@ -51,4 +57,8 @@ Router.propTypes = {
     store: PropTypes.object
 }
 
-export default Router
+const mapDispatchToProps = {
+    dispatchDeviceType
+}
+
+export default connect(null, mapDispatchToProps)(Router);

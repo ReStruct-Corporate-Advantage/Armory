@@ -35,3 +35,4 @@ export const getPreviousLayout = createGetSelector(getPresentComponentCreator, "
 export const isMobile = createGetSelector(getPresentComponentCreator, "isMobile")
 export const getToolActionMeta = createGetSelector(getPresentComponentCreator, "toolActionMeta")
 export const getClearPropsState = createGetSelector(getPresentComponentCreator, "clear")
+export const getSelectedComponent = createGetSelector(getPresentComponentCreator, "selectedComponent")

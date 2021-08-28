@@ -9,6 +9,8 @@ class ComponentGenerator {
             "elemType": "div",
             "defaultWidth": "2rem",
             "defaultHeight": "4rem",
+            "defaultTop": "16px",
+            "defaultLeft": "16px",
             "handlers": {},
             "classes": "bg-grey text-center",
             "styles": {},
@@ -26,32 +28,32 @@ class ComponentGenerator {
     }
 
     // ====================================================== GENERATE FORKED COMPONENTS AND DRAG PREVIEW OF FORKED COMPONENTS ====================================================== //
-    iterateAndGenerateWithConfig (root, selectedComponent, setSelectedComponent, comContainerRef) {
+    iterateAndGenerateWithConfig (root, selectedComponent, dispatchSelectedComponent, comContainerRef) {
         if (!comContainerRef) {
             debugger;
         }
-        const components = root && root.length ? root.map(node => this.generateComponentWithConfig(node, selectedComponent, setSelectedComponent, comContainerRef)) : [];
+        const components = root && root.length ? root.map(node => this.generateComponentWithConfig(node, selectedComponent, dispatchSelectedComponent, comContainerRef)) : [];
         return components;
     }
 
     // Main Function for generating a component on the fly
-    generateComponentWithConfig (node, selectedComponent, setSelectedComponent, comContainerRef) {
+    generateComponentWithConfig (node, selectedComponent, dispatchSelectedComponent, comContainerRef) {
         if (!node.items) {
-            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, selectedComponent, setSelectedComponent, comContainerRef);
+            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, selectedComponent, dispatchSelectedComponent, comContainerRef);
         } else {
-            return this.iterateAndGenerateWithConfig(node.items, selectedComponent, setSelectedComponent, comContainerRef);
+            return this.iterateAndGenerateWithConfig(node.items, selectedComponent, dispatchSelectedComponent, comContainerRef);
         }
     }
 
-    decideTypeAndGenerateWithConfig(node, isComponentNode, selectedComponent, setSelectedComponent, comContainerRef) { // componentNode: React Component, not an HTML element
+    decideTypeAndGenerateWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) { // componentNode: React Component, not an HTML element
         if (node.isFunctional) {
-            return this.generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, setSelectedComponent, comContainerRef)
+            return this.generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef)
         } else {
-            return this.generateClassComponentWithConfig(node, isComponentNode, selectedComponent, setSelectedComponent, comContainerRef);
+            return this.generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef);
         }
     }
 
-    generateClassComponentWithConfig(node, isComponentNode, selectedComponent, setSelectedComponent, comContainerRef) {
+    generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) {
         const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -61,12 +63,19 @@ class ComponentGenerator {
         props.style = descriptor.styles ? {...descriptor.styles} : {};
         (props.style.height || descriptor.defaultHeight) && (props.style.height = props.style.height ? props.style.height : descriptor.defaultHeight);
         (props.style.width || descriptor.defaultWidth) && (props.style.width = props.style.width ? props.style.width : descriptor.defaultWidth);
+        (props.style.top || descriptor.defaultTop) && (node.top = props.style.top ? props.style.top : descriptor.defaultTop);
+        (props.style.left || descriptor.defaultLeft) && (node.left = props.style.left ? props.style.left : descriptor.defaultLeft);
         let childrenConfig = descriptor.children ? descriptor.children : [];
         const self = this;
 
         let c;
         if (isComponentNode) {
             c = class extends React.PureComponent {
+
+                componentDidCatch(error, errorInfo) {
+                    console.log(error);
+                    console.log(errorInfo);
+                }
 
                 render() {
                     // TODO snap resize to grid and push snapped position to componentConfig
@@ -85,7 +94,7 @@ class ComponentGenerator {
                             childrenConfig.push(dynamicChild);
                         }
                     })
-                    let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, setSelectedComponent, comContainerRef) : [];
+                    let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef) : [];
 //                     childRenders = childRenders.map(child => {
 //                         const Component = child.item;
 //                         return child.isChildComponentNode ? <Component /> : child.item
@@ -100,16 +109,16 @@ class ComponentGenerator {
             }
             Object.defineProperty(c, 'name', {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
-            c = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} setSelectedComponent={setSelectedComponent} comContainerRef={comContainerRef}>{c}</ArmamentWrapper>
+            c = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef}>{c}</ArmamentWrapper>
             this.boardRepository[node.uuid] = c;
         } else {
-            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, setSelectedComponent, comContainerRef))
+            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef))
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: c, isChildComponentNode: isComponentNode};
     }
 
-    generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, setSelectedComponent, comContainerRef) {
+    generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) {
         const componentName = node && node.componentName;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -119,6 +128,8 @@ class ComponentGenerator {
         props.style = descriptor.styles ? descriptor.styles : {};
         (props.style.height || descriptor.defaultHeight) && (props.style.height = props.style.height ? props.style.height : descriptor.defaultHeight);
         (props.style.width || descriptor.defaultWidth) && (props.style.width = props.style.width ? props.style.width : descriptor.defaultWidth);
+        (props.style.top || descriptor.defaultTop) && (node.top = props.style.top ? props.style.top : descriptor.defaultTop);
+        (props.style.left || descriptor.defaultLeft) && (node.left = props.style.left ? props.style.left : descriptor.defaultLeft);
         props.style.border = "1px solid black";
         props.style.borderRadius = "5px";
         let childrenConfig = descriptor.children ? descriptor.children : [];
@@ -140,10 +151,10 @@ class ComponentGenerator {
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
             Object.defineProperty(f, 'name', {value: componentName});
-            f = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} setSelectedComponent={setSelectedComponent} comContainerRef={comContainerRef}>{f}</ArmamentWrapper>
+            f = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef}>{f}</ArmamentWrapper>
             !this.boardRepository[node.uuid] && (this.boardRepository[node.uuid] = f);
         } else {
-            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, setSelectedComponent, comContainerRef))
+            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef))
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: f, isChildComponentNode: isComponentNode};
@@ -160,6 +171,8 @@ class ComponentGenerator {
         props.style = descriptor.styles ? {...descriptor.styles} : {};
         (props.style.height || descriptor.defaultHeight) && (props.style.height = props.style.height ? props.style.height : descriptor.defaultHeight);
         (props.style.width || descriptor.defaultWidth) && (props.style.width = props.style.width ? props.style.width : descriptor.defaultWidth);
+        (props.style.top || descriptor.defaultTop) && (node.top = props.style.top ? props.style.top : descriptor.defaultTop);
+        (props.style.left || descriptor.defaultLeft) && (node.left = props.style.left ? props.style.left : descriptor.defaultLeft);
         let childrenConfig = descriptor.children;
         const self = this;
 
@@ -200,6 +213,8 @@ class ComponentGenerator {
         props.style = descriptor.styles ? descriptor.styles : {};
         (props.style.height || descriptor.defaultHeight) && (props.style.height = props.style.height ? props.style.height : descriptor.defaultHeight);
         (props.style.width || descriptor.defaultWidth) && (props.style.width = props.style.width ? props.style.width : descriptor.defaultWidth);
+        (props.style.top || descriptor.defaultTop) && (node.top = props.style.top ? props.style.top : descriptor.defaultTop);
+        (props.style.left || descriptor.defaultLeft) && (node.left = props.style.left ? props.style.left : descriptor.defaultLeft);
         props.style.border = "1px solid black";
         props.style.borderRadius = "5px";
         const childrenConfig = descriptor.children ? descriptor.children : [];

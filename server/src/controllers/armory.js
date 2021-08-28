@@ -77,25 +77,46 @@ class ArmoryController {
 
     createArmament (req, res) {
         const user_details = req.decoded;
-        logger.info(`[ArmoryController::createArmament] Creating armament named ${req.body.name}, requested by user: ${user_details.username}`);
+        const queryParams = req.query;
+        logger.info(`[ArmoryController::createArmament] Creating armament named ${req.body.componentName}, requested by user: ${user_details.username}`);
         try {
-            const armament = req.body;
-            if (req.body.visiblity === "public") {
-                dao.findOne("myControls")
+            let armament = req.body;
+            if (req.body.visibility === "public") { // TODO Add handling for public visibility - push component to community controls
+                dao.findArmamentCategoryByName("myControls")
                     .then(myControlsCategory => {
                         armament.armamentCategory = myControlsCategory._id
+                        if (queryParams && queryParams.withContainer) {
+                            dao.findArmamentByName("Container")
+                                .then(container => {
+                                    armament.meta = {...container._doc.meta, ...armament.meta}
+                                    armament = {...container._doc, ...armament};
+                                    armament = JSON.parse(JSON.stringify(armament));
+                                    delete armament._id;
+                                    dao.createArmament(armament)
+                                        .then (createdRecord => {
+                                            logger.info(`[ArmoryController::createArmament] Finished creating armament named ${req.body.componentName}, requested by user: ${user_details.username}`)
+                                            const responseObj = JSON.parse(JSON.stringify(createdRecord));
+                                            return res.json({record: responseObj, success: true}).status(200);
+                                        })
+                                        .catch(err => {
+                                            logger.error(`[ArmoryController::createArmament][DBException] Unable to create armament named ${req.body.componentName}, requested by user: ${user_details.username}: `, err)
+                                            return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
+                                        })
+                                })
+                                .catch(err => {
+                                    logger.error(`[ArmoryController::createArmament][DBException] Error occurred while trying to get Container component, requested by user: ${user_details.username}: `, err)
+                                    return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
+                                })
+                        }
+                    })
+                    .catch(err => {
+                        logger.error(`[ArmoryController::createArmament][DBException] Error occurred while trying to fetch My Controls category, requested by user: ${user_details.username}: `, err)
+                        return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
                     })
             }
-            dao.createArmament(armament)
-                .then (async createdRecord => {
-                    logger.info(`[ArmoryController::createArmament] Finished creating armament named ${req.body.name}, requested by user: ${user_details.username}`)
-                    return res.json({record: await createdRecord.toObject(), success: true}).status(200);
-                })
-                .catch(err => {
-                    logger.error(`[ArmoryController::createArmament] Unable to create armament named ${req.body.name}, requested by user: ${user_details.username}: `, e)
-                })
         } catch (e) {
-            logger.error(`[ArmoryController::createArmament] Unable to create armament named ${req.body.name}, requested by user: ${user_details.username}: `, e)
+            logger.error(`[ArmoryController::createArmament][Exception] Unable to create armament named ${req.body.componentName}, requested by user: ${user_details.username}: `, e)
+            return res.json({error: e, message: "An unknown error occurred"}).status(521);
         }
     }
 
