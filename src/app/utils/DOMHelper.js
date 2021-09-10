@@ -388,6 +388,14 @@ class DOMHelper {
             return false;
         }
     };
+
+
+    /////////////////////////////////////// Armory Injection /////////////////////////////////////////
+    export (tree) {
+        while (tree.childNodes) {
+            
+        }
+    }
 }
 
 export default DOMHelper;

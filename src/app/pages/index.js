@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import LivePreview from "./LivePreview";
 import Help from "./Help";
 import ComponentImporter from "./ComponentImporter";
 import ProjectCreator from "./ProjectCreator";
@@ -16,6 +17,7 @@ import Dashboard from "./Dashboard";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	LivePreview,
 	Help,
 	ComponentImporter,
 	ProjectCreator,

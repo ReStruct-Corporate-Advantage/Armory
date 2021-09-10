@@ -10,7 +10,7 @@ import {ButtonsPanel, InputField, SectionHeader} from "..";
 import {AppBar, Box, Tab, Tabs} from "@material-ui/core";
 import Network from "../../utils/network";
 import Helper from "../../utils/Helper";
-import { API_CONFIG } from "../../constants/api-config";
+import API_CONFIG from "../../constants/api-config";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
