@@ -159,6 +159,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     position: relative;
 }
 
+.border-red {
+    border: 1px solid red !important;
+}
+
 .loader:before {
     display: block;
     content: "";

@@ -12,7 +12,7 @@ import {ITEM_TYPE} from "./../../constants/types";
 import "./ArmamentWrapper.component.scss";
 
 const ArmamentWrapper = props => {
-  const {children, comContainerRef, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, dispatchSelectedComponent} = props;
+  const {children, comContainerRef, componentConfig, componentsConfig, setComponentsConfig, dispatchClearPropsState, selectedComponent, dispatchSelectedComponent, socket} = props;
   const {descriptor} = componentConfig || {};
   const {allowChildren} = descriptor || {};
   // const Component = componentConfig.state && componentConfig.state === "new" ? forkedRepository[componentConfig.name] : repository[componentConfig.name];
@@ -61,7 +61,7 @@ const ArmamentWrapper = props => {
       item.index = hoverIndex
     },
     drop: (item, monitor) => {
-      dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState)
+      dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)
     }
     // dispatchComponentsConfig,
     // dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory

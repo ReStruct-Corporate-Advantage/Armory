@@ -12,7 +12,7 @@ class ComponentGenerator {
             "defaultTop": "16px",
             "defaultLeft": "16px",
             "handlers": {},
-            "classes": "bg-grey text-center",
+            "classes": "bg-grey text-center border-red",
             "styles": {},
             "innerText": "Descriptor not added!"
         };
@@ -28,32 +28,32 @@ class ComponentGenerator {
     }
 
     // ====================================================== GENERATE FORKED COMPONENTS AND DRAG PREVIEW OF FORKED COMPONENTS ====================================================== //
-    iterateAndGenerateWithConfig (root, selectedComponent, dispatchSelectedComponent, comContainerRef) {
-        if (!comContainerRef) {
-            debugger;
-        }
-        const components = root && root.length ? root.map(node => this.generateComponentWithConfig(node, selectedComponent, dispatchSelectedComponent, comContainerRef)) : [];
+    iterateAndGenerateWithConfig (root, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
+//         if (!comContainerRef) {
+//             debugger;
+//         }
+        const components = root && root.length ? root.map(node => this.generateComponentWithConfig(node, selectedComponent, dispatchSelectedComponent, comContainerRef, socket)) : [];
         return components;
     }
 
     // Main Function for generating a component on the fly
-    generateComponentWithConfig (node, selectedComponent, dispatchSelectedComponent, comContainerRef) {
+    generateComponentWithConfig (node, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
         if (!node.items) {
-            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, selectedComponent, dispatchSelectedComponent, comContainerRef);
+            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
         } else {
-            return this.iterateAndGenerateWithConfig(node.items, selectedComponent, dispatchSelectedComponent, comContainerRef);
+            return this.iterateAndGenerateWithConfig(node.items, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
         }
     }
 
-    decideTypeAndGenerateWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) { // componentNode: React Component, not an HTML element
+    decideTypeAndGenerateWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) { // componentNode: React Component, not an HTML element
         if (node.isFunctional) {
-            return this.generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef)
+            return this.generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket)
         } else {
-            return this.generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef);
+            return this.generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
         }
     }
 
-    generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) {
+    generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
         const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -94,7 +94,7 @@ class ComponentGenerator {
                             childrenConfig.push(dynamicChild);
                         }
                     })
-                    let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef) : [];
+                    let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) : [];
 //                     childRenders = childRenders.map(child => {
 //                         const Component = child.item;
 //                         return child.isChildComponentNode ? <Component /> : child.item
@@ -109,16 +109,16 @@ class ComponentGenerator {
             }
             Object.defineProperty(c, 'name', {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
-            c = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef}>{c}</ArmamentWrapper>
+            c = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef} socket={socket}>{c}</ArmamentWrapper>
             this.boardRepository[node.uuid] = c;
         } else {
-            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef))
+            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef), socket)
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: c, isChildComponentNode: isComponentNode};
     }
 
-    generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef) {
+    generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
         const componentName = node && node.componentName;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -140,7 +140,7 @@ class ComponentGenerator {
             f = function (_props_) {
                 const childrenFromSource = this.props.childItems;
                 childrenConfig = [...childrenConfig];
-                let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig) : [];
+                let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) : [];
                 childRenders = childRenders.map(child => {
                     const Component = child.item;
                     return child.isChildComponentNode ? <Component /> : child.item
@@ -151,10 +151,10 @@ class ComponentGenerator {
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
             Object.defineProperty(f, 'name', {value: componentName});
-            f = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef}>{f}</ArmamentWrapper>
+            f = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef} socket={socket}>{f}</ArmamentWrapper>
             !this.boardRepository[node.uuid] && (this.boardRepository[node.uuid] = f);
         } else {
-            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef))
+            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket))
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: f, isChildComponentNode: isComponentNode};

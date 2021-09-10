@@ -26,6 +26,9 @@ const ComponentImporter = props => {
     const descriptor = DescriptorGenerator.generate(codeString);
     const descriptorString = descriptor ? JSON.stringify(descriptor, undefined, 2) : "Unable to Generate Descriptor, please review provided string";
     const tree = JsonView.createTree(descriptorString);
+    console.log(tree)
+    // const armoryFormat = convertToArmoryFormat(tree);
+    // JsonView.render(armoryFormat, outputNode);
     JsonView.render(tree, outputNode);
     JsonView.expandChildren(tree);
     setJsonState({jsonString: descriptorString, jsonObj: tree, jsonView: "object"});

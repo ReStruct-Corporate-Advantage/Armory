@@ -1,7 +1,7 @@
 import queryString from "query-string";
 import ArmoryError from "../errors/armory-error";
 import Helper from "./Helper";
-import { API_CONFIG } from "../constants/api-config";
+import API_CONFIG from "../constants/api-config";
 
 export default class Network {
 

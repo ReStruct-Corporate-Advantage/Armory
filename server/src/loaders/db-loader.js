@@ -7,6 +7,7 @@ function dbInit (callback) {
 
         db.on("error", console.error.bind(console, "connection error:"));
         db.once("open", () => callback ? callback() : {});
+        global.db = db;
         return db;
     }
 }

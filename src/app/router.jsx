@@ -27,6 +27,11 @@ const LoadableJoin = Loadable({
     loading: PageLoader
 })
 
+const LoadableLivePreview = Loadable({
+    loader: () => import("./pages/LivePreview"),
+    loading: PageLoader
+  })
+
 class Router extends React.Component {
 
     componentDidMount() {
@@ -48,6 +53,9 @@ class Router extends React.Component {
                     </Switch>
                 </BrowserRouter>
                 <Modal />
+                <BrowserRouter>
+                    <Route exact path="/:user/page/live" component={LoadableLivePreview} />
+                </BrowserRouter>
             </Provider>
         )
     }

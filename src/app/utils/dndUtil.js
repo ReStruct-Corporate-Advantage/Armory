@@ -10,7 +10,7 @@ export class DNDUtil {
     this.targetArmamentWrapperMonitorClientOffset= null;
   }
 
-  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory) {
+  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket) {
     // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
     // In either case allow processing this dropped item
     const handleChildArmamentWrapperDropForInverseDropScenario = this.targetArmamentWrapper && this.isDroppedItemParentOfMonitor(item.category, this.targetArmamentWrapper);
@@ -22,14 +22,13 @@ export class DNDUtil {
       const rootChildrenArray = componentsConfig.components[0].descriptor.children;
       const position = this.getPosition(comContainerRef, monitor, clientOffset);
       if (rootChildrenArray.length === 0) {
-        // console.log(monitor)
         dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
           body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
-          primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory),
-          secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState)}});
+          primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
+          secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
       } else {
         if (item.category.uuid) {
-          this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState);
+          this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
         } else {
           dispatchModal({display: true, meta: {
             title: "Invalid Action",
@@ -41,7 +40,7 @@ export class DNDUtil {
                 <p>You can also wrap the new component alongwith existing component in a new Container.</p>
                 <span>Click "Cancel" to cancel this drop or "Wrap" to add another container.</span>
               </div>,
-            primaryHandler: () => this.wrapAllAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory),
+            primaryHandler: () => this.wrapAllAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
             secondaryHandler: undefined,
             bodyType: "jsx"
           }});
@@ -52,7 +51,7 @@ export class DNDUtil {
     }
   }
 
-  wrapAllAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory) {
+  wrapAllAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket) {
     const [left, top] = position;
     const componentsConfigClone = {...componentsConfig};
     let rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
@@ -87,11 +86,12 @@ export class DNDUtil {
     componentsConfigClone.components[0].descriptor.children.push(containerComponentConfig);
     this.normalizePositionsWithContainer(container.descriptor.children, topMin, leftMin);
     dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }
 
-  wrapAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory) {
+  wrapAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket) {
     const [left, top] = position;
     const componentsConfigClone = {...componentsConfig};
     const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
@@ -113,11 +113,12 @@ export class DNDUtil {
     container.descriptor.children.push(droppedComponentConfig);
 
     dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }
 
-  updatePositionDescriptor (item, position, componentsConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState) {
+  updatePositionDescriptor (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket) {
     const componentsConfigClone = {...componentsConfig};
     const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
     const [left, top] = position;
@@ -136,12 +137,13 @@ export class DNDUtil {
       droppedComponentParent && droppedComponentParent.splice(droppedComponentParent.indexOf(droppedComponentConfig), 1)
       droppedComponentConfig && rootChildrenArray.push(droppedComponentConfig);
     }
-    setComponentsConfig(componentsConfigClone);
+    dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }
 
-  armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState) {
+  armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket) {
     const isDroppedItemParentOfMonitor = this.isDroppedItemParentOfMonitor(item.category, droppedOn);
     if (isDroppedItemParentOfMonitor) {
       this.targetArmamentWrapper = droppedOn; // Use this value in component container drop handler to set position of dropped container (only applicable to container type elements)
@@ -171,6 +173,7 @@ export class DNDUtil {
           droppedComponentParent && droppedComponentParent.splice(droppedComponentParent.indexOf(droppedComponentConfig), 1)
           wrapperChildrenArray.push(droppedComponentConfig);
         }
+        socket && socket.emit("message", componentsConfigClone)
         setComponentsConfig(componentsConfigClone);
         dispatchSelectedComponent(item.category.uuid)
         dispatchClearPropsState(true);
