@@ -12,7 +12,7 @@ import Network from "./../../utils/network";
 import "./PropsForm.component.scss";
 
 const PropsForm = props => {
-  const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, toggleEditMode, userDetails} = props;
+  const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, socket, toggleEditMode, userDetails} = props;
   const [formState, updateFormState] = useState({});
   const key = "uuid";
   const alwaysDisabled = ["createdBy", "id", "uuid", "componentName", "meta#createdBy"];
@@ -60,6 +60,7 @@ const PropsForm = props => {
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
     compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, true); // Forking here
+    socket && socket.emit("message", componentsConfigCloned)
     setComponentsConfig(componentsConfigCloned);
     updateFormState(formStateCloned);
   }

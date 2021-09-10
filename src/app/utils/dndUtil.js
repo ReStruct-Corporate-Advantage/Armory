@@ -10,7 +10,7 @@ export class DNDUtil {
     this.targetArmamentWrapperMonitorClientOffset= null;
   }
 
-  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory) {
+  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket) {
     // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
     // In either case allow processing this dropped item
     const handleChildArmamentWrapperDropForInverseDropScenario = this.targetArmamentWrapper && this.isDroppedItemParentOfMonitor(item.category, this.targetArmamentWrapper);
@@ -22,56 +22,103 @@ export class DNDUtil {
       const rootChildrenArray = componentsConfig.components[0].descriptor.children;
       const position = this.getPosition(comContainerRef, monitor, clientOffset);
       if (rootChildrenArray.length === 0) {
-        // console.log(monitor)
         dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
           body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
-          primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory),
-          secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState)}});
+          primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
+          secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
       } else {
-        dispatchModal({display: true, meta: {
-          title: "Invalid Action",
-          primaryButtonText: "Wrap",
-          secondaryButtonText: "Cancel",
-          body: <div className="font-size-12">
-              <span>You cannot add more than one atomic component on this board!</span>
-              <span>If you intend to work with multiple components please use "Create Page" option on the dashboard.</span>
-              <p>You can also wrap the new component alongwith existing component in a new Container.</p>
-              <span>Click "Cancel" to cancel this drop or "Wrap" to add another container.</span>
-            </div>,
-          primaryHandler: () => this.wrapAllAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory),
-          bodyType: "jsx"
-        }});
+        if (item.category.uuid) {
+          this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
+        } else {
+          dispatchModal({display: true, meta: {
+            title: "Invalid Action",
+            primaryButtonText: "Wrap",
+            secondaryButtonText: "Cancel",
+            body: <div className="font-size-12">
+                <span>You cannot add more than one atomic component on this board!</span>
+                <span>If you intend to work with multiple components please use "Create Page" option on the dashboard.</span>
+                <p>You can also wrap the new component alongwith existing component in a new Container.</p>
+                <span>Click "Cancel" to cancel this drop or "Wrap" to add another container.</span>
+              </div>,
+            primaryHandler: () => this.wrapAllAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
+            secondaryHandler: undefined,
+            bodyType: "jsx"
+          }});
+        }
       }
       this.targetArmamentWrapper = null;
       this.targetArmamentWrapperMonitorClientOffset = null;
     }
   }
 
-  wrapAllAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory) {
-
-  }
-
-  wrapAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory) {
+  wrapAllAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket) {
     const [left, top] = position;
     const componentsConfigClone = {...componentsConfig};
-    const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
+    let rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
+    // Add dropped Item
+    item.category = JSON.parse(JSON.stringify(item.category));
+    componentsConfigClone.count = componentsConfigClone.count + 1;
+    item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
+    const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+    rootChildrenArray.push(droppedComponentConfig);
+    
+    // Add Container
     let {selectedComponentConfig: container} = Helper.searchInTree("componentName", "Container", armory, "", "items.descriptor", 1)
     container = JSON.parse(JSON.stringify(container));
     componentsConfigClone.count = componentsConfigClone.count + 1;
     container.uuid = `arm-${container.componentName}-${uuid()}`;
-    componentsConfigClone.count = componentsConfigClone.count + 1;
-    item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-    container.descriptor.children = container.descriptor.children ? [...container.descriptor.children] : [];
-    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top, left, ...container}
-    const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0, ...item.category}
-    rootChildrenArray.push(containerComponentConfig);
-    container.descriptor.children.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
+    const {leftMin, topMin, width, height} = this.findExtremes(rootChildrenArray);
+
+    container.descriptor.children = [];
+    container.descriptor.styles = container.descriptor.styles ?
+      {
+        ...container.descriptor.styles,
+        height: (Math.floor(height/16) + 2) + "rem",
+        width: (Math.floor(width/16) + 2) + "rem"
+      }
+      : {
+        height: (Math.floor(height/16) + 2) + "rem",
+        width: (Math.floor(width/16) + 2) + "rem"
+      }
+    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top: topMin - 16, left: leftMin - 16, ...container}
+    container.descriptor.children = container.descriptor.children.concat(rootChildrenArray);
+    componentsConfigClone.components[0].descriptor.children = [];
+    componentsConfigClone.components[0].descriptor.children.push(containerComponentConfig);
+    this.normalizePositionsWithContainer(container.descriptor.children, topMin, leftMin);
     dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }
 
-  updatePositionDescriptor (item, position, componentsConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState) {
+  wrapAndUpdate (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket) {
+    const [left, top] = position;
+    const componentsConfigClone = {...componentsConfig};
+    const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
+    
+    // Add Container
+    let {selectedComponentConfig: container} = Helper.searchInTree("componentName", "Container", armory, "", "items.descriptor", 1)
+    container = JSON.parse(JSON.stringify(container));
+    componentsConfigClone.count = componentsConfigClone.count + 1;
+    container.uuid = `arm-${container.componentName}-${uuid()}`;
+    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top, left, ...container}
+    rootChildrenArray.push(containerComponentConfig);
+    
+    // Add Item in Container
+    item.category = JSON.parse(JSON.stringify(item.category));
+    componentsConfigClone.count = componentsConfigClone.count + 1;
+    item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
+    container.descriptor.children = container.descriptor.children ? [...container.descriptor.children] : [];
+    const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0, ...item.category}
+    container.descriptor.children.push(droppedComponentConfig);
+
+    dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
+    dispatchSelectedComponent(item.category.uuid)
+    dispatchClearPropsState(true);
+  }
+
+  updatePositionDescriptor (item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket) {
     const componentsConfigClone = {...componentsConfig};
     const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
     const [left, top] = position;
@@ -90,12 +137,13 @@ export class DNDUtil {
       droppedComponentParent && droppedComponentParent.splice(droppedComponentParent.indexOf(droppedComponentConfig), 1)
       droppedComponentConfig && rootChildrenArray.push(droppedComponentConfig);
     }
-    setComponentsConfig(componentsConfigClone);
+    dispatchComponentsConfig(componentsConfigClone);
+    socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }
 
-  armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState) {
+  armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket) {
     const isDroppedItemParentOfMonitor = this.isDroppedItemParentOfMonitor(item.category, droppedOn);
     if (isDroppedItemParentOfMonitor) {
       this.targetArmamentWrapper = droppedOn; // Use this value in component container drop handler to set position of dropped container (only applicable to container type elements)
@@ -125,11 +173,37 @@ export class DNDUtil {
           droppedComponentParent && droppedComponentParent.splice(droppedComponentParent.indexOf(droppedComponentConfig), 1)
           wrapperChildrenArray.push(droppedComponentConfig);
         }
+        socket && socket.emit("message", componentsConfigClone)
         setComponentsConfig(componentsConfigClone);
         dispatchSelectedComponent(item.category.uuid)
         dispatchClearPropsState(true);
       }
     }
+  }
+
+  findExtremes (rootChildrenArray) {
+    const left = rootChildrenArray.reduce((a, b) => Math.min(a, b.left), 10000000)
+    const top = rootChildrenArray.reduce((a, b) => Math.min(a, b.top), 10000000)
+    const maxTop = rootChildrenArray.reduce((a, b) => {
+      const bHeighProp = b.descriptor && b.descriptor.styles && b.descriptor.styles.height ? b.descriptor.styles.height : b.defaultHeight ? b.defaultHeight : "15rem";
+      const bHeight = bHeighProp.endsWith("rem") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("rem"))) * 16 : bHeighProp.endsWith("px") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("px"))) : Number(bHeighProp);
+      return Math.max(a, b.top + bHeight);
+    }, 0);
+    const maxLeft = rootChildrenArray.reduce((a, b) => {
+      const bWidthProp = b.descriptor && b.descriptor.styles && b.descriptor.styles.width ? b.descriptor.styles.width : b.defaultWidth ? b.defaultWidth : "15rem";
+      const bWidth = bWidthProp.endsWith("rem") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("rem"))) * 16 : bWidthProp.endsWith("px") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("px"))) : Number(bWidthProp);
+      return Math.max(a, b.left + bWidth);
+    }, 0);
+    return {leftMin: left, topMin: top, width: maxLeft - left, height: maxTop - top};
+  }
+
+  normalizePositionsWithContainer (array, top, left) {
+    array && array.forEach(child => {
+      child.left -= left;
+      child.left += 16;
+      child.top -= top;
+      child.top += 16;
+    })
   }
 
   getPosition (comContainerRef, monitor, incomingClientOffset) {

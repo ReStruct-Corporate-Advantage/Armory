@@ -4,7 +4,7 @@ import {TOOLS_CONFIG} from "./../../config"
 import "./PropertiesWidget.component.scss";
 
 const PropertiesWidget = props => {
-  const {selectedComponent} = props;
+  const {selectedComponent, socket} = props;
   const [editMode, toggleEditMode] = useState({});
   const [initiateSave, setInitiateSave] = useState(false);
   const toolsConfig = {...TOOLS_CONFIG.CODE_PROPERTIES_TOOLS};
@@ -25,7 +25,7 @@ const PropertiesWidget = props => {
         {name: "EditProperties", handler: () => toggleEditMode({...editMode, [selectedComponent]: !editMode[selectedComponent]}), currentValue: editMode, type: "onClick"},
         {name: "SaveProperties", handler: setInitiateSave, currentValue: initiateSave, type: "onClick"}
       ]} selectedComponent={selectedComponent} />
-      <PropsForm selectedComponent={selectedComponent} editMode={editMode} toggleEditMode={toggleEditMode} initiateSave={initiateSave} setInitiateSave={setInitiateSave}/>
+      <PropsForm selectedComponent={selectedComponent} editMode={editMode} toggleEditMode={toggleEditMode} initiateSave={initiateSave} setInitiateSave={setInitiateSave} socket={socket} />
     </div>
   );
 };

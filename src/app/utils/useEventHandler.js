@@ -105,6 +105,7 @@ const useEventHandler = (props) => {
             if (searchedObj) {
                 const {parent} = searchedObj;
                 parent.splice(parent.findIndex(item => item.uuid === selectedComponent), 1);
+                props.socket && props.socket.emit("message", componentConfigCloned)
                 dispatch(setComponentsConfig(componentConfigCloned));
                 delete forkedRepository[selectedComponent]
                 childArray && childArray.length > 0 && dispatchSelectedComponent(childArray[childArray.length - 1].uuid)
@@ -148,7 +149,10 @@ const useEventHandler = (props) => {
                 default:
                     break;
             }
-            triggerAction && dispatchComponentsConfig(componentConfigCloned);
+            if (triggerAction) {
+                props.socket.emit("message", componentConfigCloned);
+                dispatchComponentsConfig(componentConfigCloned);
+            }
         }
     }
 
