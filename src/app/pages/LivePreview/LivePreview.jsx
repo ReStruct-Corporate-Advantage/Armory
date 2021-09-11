@@ -9,6 +9,7 @@ import { compGen } from "../../utils/CodeUtils/ComponentGenerator";
 import { DndProvider } from "react-dnd";
 import Backend from "react-dnd-html5-backend"
 import {TouchBackend} from "react-dnd-touch-backend"
+import API_CONFIG from "../../constants/api-config";
 import "./LivePreview.module.scss";
 
 const LivePreview = props => {
@@ -20,10 +21,13 @@ const LivePreview = props => {
   const dndBackend = isMobile ? TouchBackend : Backend;
 
   useEffect(() => {
-    const newSocket = io(`http://${window.location.hostname}:3002`);
-    setSocket(newSocket);
-    return () => newSocket.close();
-  }, [setSocket])
+    if (!socket) {
+      const host = API_CONFIG.HOST[process.env.NODE_ENV || "development"];
+      const newSocket = io(host);
+      setSocket(newSocket);
+      return () => newSocket.close();
+    }
+  }, [socket, setSocket])
 
   if (socket) {
     socket.on("message", message => setComponentConfig(message));

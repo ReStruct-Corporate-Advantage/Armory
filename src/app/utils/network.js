@@ -65,6 +65,8 @@ export default class Network {
       options.headers = {}
     }
     options.headers["x-access-token"] = Helper.getCookie("auth_session_token");
+    options.headers["Origin"] = window.location.protocol + '//' + window.location.host;
+    console.log(options.headers);
     const response = await fetch(urlString, options);
     const { ok, status, headers } = response;
 //     console.log(response);

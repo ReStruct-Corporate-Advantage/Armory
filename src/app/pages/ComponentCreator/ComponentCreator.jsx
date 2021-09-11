@@ -11,6 +11,7 @@ import {getPresentComponentsConfig, getSelectedComponent} from "./selectors";
 import {dispatchComponentsConfig, dispatchSelectedComponent} from "./actions";
 import {Aside, Main, ToolActionContainer} from "./../../components";
 import useEventHandler from "../../utils/useEventHandler";
+import API_CONFIG from "../../constants/api-config";
 import "./ComponentCreator.module.scss";
 
 const ComponentCreator = props => {
@@ -21,9 +22,12 @@ const ComponentCreator = props => {
   const dndBackend = isMobile ? TouchBackend : Backend;
 
   useEffect(() => {
-    const newSocket = io(`http://${window.location.hostname}:3002`);
-    setSocket(newSocket);
-    return () => newSocket.close();
+    if (!socket) {
+      const host = API_CONFIG.HOST[process.env.NODE_ENV || "development"];
+      const newSocket = io(host);
+      setSocket(newSocket);
+      return () => newSocket.close();
+    }
   }, [setSocket]);
   
   // return <DndProvider backend={Backend}>
