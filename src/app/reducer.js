@@ -1,6 +1,7 @@
 import Immutable from "immutable"
 import {combineReducers} from "redux"
-import { DISPATCH_MODAL, DISPATCH_USER_DETAILS, IS_MOBILE, SET_LOGGED_IN } from "./global-actions"
+import { DISPATCH_LEVELS, DISPATCH_MODAL, DISPATCH_USER_DETAILS, IS_MOBILE, SET_LOGGED_IN } from "./global-actions"
+import adminComponentManagerReducer from "./pages/AdminComponentManager/reducer"
 import componentCreatorReducer from "./pages/ComponentCreator/reducer"
 import componentSelectorReducer from "./pages/ComponentSelector/reducer"
 
@@ -11,6 +12,7 @@ const globalReducer = (state = initialState, action) => {
         case DISPATCH_USER_DETAILS:
         case SET_LOGGED_IN:
         case IS_MOBILE:
+        case DISPATCH_LEVELS:
         case DISPATCH_MODAL:
             return state.mergeDeep(action.payload)
         default:
@@ -23,7 +25,8 @@ export default combineReducers({
         global: globalReducer,
         pages: combineReducers({
             componentCreator: componentCreatorReducer,
-            componentSelector: componentSelectorReducer
+            componentSelector: componentSelectorReducer,
+            adminComponentManager: adminComponentManagerReducer
         })
     })
 })

@@ -1,7 +1,7 @@
 .c-PropsForm {
   .prop-field-label {
         font-size: 0.7rem !important;
-        right: 15px !important;
+        right: 1rem !important;
         height: 100%;
         min-width: 3rem;
         width: 7rem;
@@ -10,15 +10,20 @@
         left: unset !important;
         top: unset !important;
         text-align: right;
-        border-radius: 0 5px 5px 0 !important;
+        border-radius: 0 0.3125rem 0.3125rem 0 !important;
         color: #333 !important;
     }
 
     .c-PropsForm__propSelector {
-      // .col-5 {
-      //   padding-left: 0.5rem;
-      //   padding-right: 0.5rem;
-      // }
+      &.row, .row {
+        margin-left: 0;
+        margin-right: 0;
+      }
+      [class*='col-'] {
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-bottom: 0.5rem;
+      }
       .btn-add-prop {
         font-size: 0.5rem;
         padding: 0.2rem 0.5rem;

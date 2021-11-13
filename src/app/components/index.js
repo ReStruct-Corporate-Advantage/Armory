@@ -1,4 +1,9 @@
 /* PLOP_INJECT_IMPORT */
+import AdminCodeTree from "./AdminCodeTree";
+import AdminPropsForm from "./AdminPropsForm";
+import StaticArmamentWrapper from "./StaticArmamentWrapper";
+import StaticArmament from "./StaticArmament";
+import ComponentDescription from "./ComponentDescription";
 import ArmamentWrapperContextMenu from "./ArmamentWrapperContextMenu";
 import BreadCrumb from "./BreadCrumb";
 import CheckBox from "./form-components/CheckBox";
@@ -57,6 +62,11 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	AdminCodeTree,
+	AdminPropsForm,
+	StaticArmamentWrapper,
+	StaticArmament,
+	ComponentDescription,
 	ArmamentWrapperContextMenu,
 	BreadCrumb,
 	CheckBox,

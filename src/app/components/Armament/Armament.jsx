@@ -2,8 +2,8 @@ import React, {useEffect, useRef, useState} from "react";
 import PropTypes from "prop-types";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
-import {ToolBox} from "./../";
 import {GrDrag} from "react-icons/gr";
+import {ComponentDescription, RichTooltip, ToolBox} from "./../";
 import { TOOLS_CONFIG } from "../../config";
 import {ITEM_TYPE} from "../../constants/types";
 import "./Armament.component.scss";
@@ -29,6 +29,10 @@ const Armament = props => {
     preview(getEmptyImage(), { captureDraggingState: true });
   }, [preview]);
 
+  const getOwner = () => {
+    return category.meta && category.meta.createdBy && category.meta.createdBy.indexOf("mohiit1502") === -1 ? category.meta.createdBy : "Armory"
+  }
+
   return (
     <div id={armamentId}
       className="c-Armament c-Armament--modifier c-AttributeCreator--shadow"
@@ -45,9 +49,10 @@ const Armament = props => {
         onMouseLeave={() => setHovered(false)}>
         {category.items ?
           <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <GrDrag className="mr-2 svg-stroke-white" />}
-        {category.displayName}
-        {hovered && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
+          : <><span className="preview"></span><GrDrag className="mr-2 svg-stroke-white" /></>}
+        {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
+        {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
+        {hovered && !category.items && <RichTooltip tooltip={<ComponentDescription description={category} />} positionClasses="top-100" />}
       </span>
       {category.items && recursiveRenderer(category.items, clientRect, index, expanded, setExpanded)}
     </div>

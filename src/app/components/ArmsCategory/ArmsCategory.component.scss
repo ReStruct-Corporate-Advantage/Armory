@@ -2,7 +2,7 @@
     // position: relative;
     transition: all 0.3s ease-in-out;
     max-height: 50rem;
-    overflow: scroll;
+    overflow: auto;
 
     &.collapsed {
         max-height: 0rem;
@@ -25,11 +25,12 @@
             padding: 0.1rem 0.3rem 0.3rem 1rem;
             font-weight: bold;
             color: rgb(61, 38, 61);
-            border-radius: 15px;
+            border-radius: 1rem;
             background: linear-gradient(90deg, rgba(200, 200, 200,1), rgba(200, 200, 200,0.7), rgba(200, 200, 200,0));
             opacity: 1;
             border: 1px solid darkgray;
-            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(0.125rem);
+            backdrop-filter: blur(0.125rem);
         }
     }
 }

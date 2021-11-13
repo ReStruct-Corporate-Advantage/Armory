@@ -25,7 +25,7 @@ export function logInit (callback) {
             }),
             new transports.MongoDB({
                 level: "error",
-                db: global.config ? global.config.db.PROD.connection_string : "mongodb+srv://mohiit1502:astalavista2402@armory.ergdp.mongodb.net/Armory?retryWrites=true&w=majority",
+                db: global.config ? global.config.db[process.env.NODE_ENV].connection_string : "mongodb+srv://mohiit1502:astalavista2402@armory.ergdp.mongodb.net/Armory?retryWrites=true&w=majority",
                 options: {useNewUrlParser: true, useUnifiedTopology: true},
                 collection: "ERROR_AUDIT",
                 format: format.combine(format.timestamp(), format.json())

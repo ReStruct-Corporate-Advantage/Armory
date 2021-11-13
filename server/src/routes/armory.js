@@ -5,7 +5,26 @@ const controller = new Controller();
 const router = express.Router();
 
 router.get("/", authInterceptor, controller.getArms);
-router.post("/", authInterceptor, controller.setArmaments);
+/**
+ * @swagger
+ * /armory/bulk:
+ *  post:
+ *      description: Use to fetch armory documents
+ *      responses:
+ *          '200':
+ *              description: "Successfully retrieved armory documents"
+ */
+router.post("/bulk", authInterceptor, controller.setArmaments);
+/**
+ * @swagger
+ * /armory:
+ *  post:
+ *      description: Use to fetch armory documents
+ *      responses:
+ *          '200':
+ *              description: "Successfully retrieved armory documents"
+ */
+router.post("/", authInterceptor, controller.createArmament);
 router.put("/", authInterceptor, controller.updateArmament);
 
 export default router;

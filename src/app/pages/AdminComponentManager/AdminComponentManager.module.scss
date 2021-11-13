@@ -1,0 +1,13 @@
+@import "../../styles/variables";
+
+.c-AdminComponentManager {
+    .c-AdminComponentManager__content {
+        top: 4rem;
+        height: calc(100% - #{$header-height});
+        width: 100%;
+        flex: auto;
+        // aside {flex-grow: 1;}
+        // main {flex-grow: 4;}
+        transition: all 1s ease-in-out;
+    }
+}

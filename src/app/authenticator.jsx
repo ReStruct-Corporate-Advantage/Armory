@@ -6,7 +6,6 @@ import { PageLoader } from "./components";
 import { dispatchUserDetails, setLoggedIn } from "./global-actions";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
-import { API_CONFIG } from "./constants/api-config";
 
 const LoadableDashboard = Loadable({
   loader: () => import("./pages/Dashboard"),
@@ -78,9 +77,9 @@ function Authenticator(props) {
   return <Switch>
     <Route exact path={match.path} component={LoadableDashboard} />
     <Route path={`${match.path}/manage`} component={LoadableAuthorizer} />
-    <Route path={`${match.path}/project`} component={LoadableProjectCreator} />
+    <Route exact path={`${match.path}/project`} component={LoadableProjectCreator} />
     <Route path={`${match.path}/page`} component={LoadablePageCreator} />
-    <Route path={`${match.path}/component`} component={LoadableComponentCreator} />
+    <Route exact path={`${match.path}/component`} component={LoadableComponentCreator} />
     <Route path={`${match.path}/component/view`} component={LoadableComponentSelector} />
     <Route path={`${match.path}/reset`} component={LoadableForgotPassword} />
     <Route path={`${match.path}/profile`} component={LoadableUserProfile} />

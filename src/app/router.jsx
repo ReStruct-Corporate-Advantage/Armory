@@ -1,17 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Provider } from "react-redux"
+import { connect, Provider } from "react-redux"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable"
+import { dispatchDeviceType } from "./global-actions";
 import { Header, Modal, PageLoader } from "./components";
+import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
     loader: () => import("./authenticator"),
-    loading: PageLoader
-})
-
-const LoadableComponentCreator = Loadable({
-    loader: () => import("./pages/ComponentCreator"),
     loading: PageLoader
 })
 
@@ -25,7 +22,16 @@ const LoadableJoin = Loadable({
     loading: PageLoader
 })
 
+const LoadableLivePreview = Loadable({
+    loader: () => import("./pages/LivePreview"),
+    loading: PageLoader
+  })
+
 class Router extends React.Component {
+
+    componentDidMount() {
+        this.props.dispatchDeviceType({isMobile: Helper.isMobile()});
+    }
 
     render() {
         const { store } = this.props
@@ -34,7 +40,7 @@ class Router extends React.Component {
                 <Header />
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={LoadableComponentCreator} />
+                        <Route exact path="/" component={LoadableAuthenticator} />
                         <Route path="/login" component={LoadableLogin} />
                         <Route path="/join" component={LoadableJoin} />
                         <Route path="/:user" component={LoadableAuthenticator} />
@@ -42,6 +48,9 @@ class Router extends React.Component {
                     </Switch>
                 </BrowserRouter>
                 <Modal />
+                <BrowserRouter>
+                    <Route exact path="/:user/page/live" component={LoadableLivePreview} />
+                </BrowserRouter>
             </Provider>
         )
     }
@@ -51,4 +60,8 @@ Router.propTypes = {
     store: PropTypes.object
 }
 
-export default Router
+const mapDispatchToProps = {
+    dispatchDeviceType
+}
+
+export default connect(null, mapDispatchToProps)(Router);

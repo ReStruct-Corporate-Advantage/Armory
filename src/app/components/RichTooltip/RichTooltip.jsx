@@ -5,7 +5,7 @@ import Helper from "./../../utils/Helper";
 import "./RichTooltip.component.scss";
 
 const RichTooltip = props => {
-  const {tooltip} = props;
+  const {positionClasses: incomingPositionClasses, tooltip} = props;
   const tipRef = useRef(null);
   const [tooltipPosition, setTooltipPosition] = useState({})
 
@@ -15,7 +15,8 @@ const RichTooltip = props => {
 
   return (
     <CSSTransition in={true} timeout={500} classNames="fade" appear>
-      <div className={`c-RichTooltip position-absolute${tooltipPosition.positionClass ? " " + tooltipPosition.positionClass : ""}`} ref={tipRef} style={tooltipPosition.styles}>
+      <div className={`c-RichTooltip position-absolute${tooltipPosition.positionClass ? " " + tooltipPosition.positionClass : ""}${incomingPositionClasses ? " " + incomingPositionClasses : ""}`}
+        ref={tipRef} style={tooltipPosition.styles}>
         {tooltip || "In Component RichTooltip"}
       </div>
     </CSSTransition>
@@ -23,7 +24,8 @@ const RichTooltip = props => {
 };
 
 RichTooltip.propTypes = {
-  iconSize: PropTypes.string
+  iconSize: PropTypes.string,
+  positionClasses: PropTypes.string
 };
 
 export default RichTooltip;

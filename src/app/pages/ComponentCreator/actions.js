@@ -10,6 +10,7 @@ export const DISPATCH_HISTORY = "DISPATCH_HISTORY";
 export const DISPTACH_TOOL_ACTION_META = "DISPTACH_TOOL_ACTION_META";
 export const DISPTACH_CLEAR_PROPS_STATE = "DISPTACH_CLEAR_PROPS_STATE";
 export const DISPTACH_ARMORY = "DISPTACH_ARMORY";
+export const DISPTACH_SELECTED_COMPONENT = "DISPTACH_SELECTED_COMPONENT";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
@@ -92,5 +93,12 @@ export const dispatchArmory = armory => {
     return {
         type: DISPTACH_ARMORY,
         payload: {armory}
+    }
+}
+
+export const dispatchSelectedComponent = selectedComponent => {
+    return {
+        type: DISPTACH_SELECTED_COMPONENT,
+        payload: {selectedComponent}
     }
 }

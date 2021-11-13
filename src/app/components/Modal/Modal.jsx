@@ -10,10 +10,34 @@ import "./Modal.component.scss";
 const Modal = props => {
   const {modal, dispatchModal} = props;
   const {display, meta} = modal;
-  const {body, footer, header, primaryButtonText, secondaryButtonText, title, primaryHandler, secondaryHandler} = meta;
-  const Component = typeof body==="string" ? components[body] ? components[body]: body : (body || null);
-  //const submitHandler =  typeof primaryButtonHandler === "function" ? primaryButtonHandler : window[primaryButtonHandler];
+  const {body, bodyType, footer, header, primaryButtonText, secondaryButtonText, title, primaryHandler, secondaryHandler} = meta;
   const [defaultHandler,setDefaultHandler] = useState()
+  let Component;
+  if (bodyType){
+    if (bodyType === "string") {
+      if (components[body]) {
+        Component = components[body];
+      } else {
+        Component = body;
+      }
+    } else if (bodyType === "jsx") {
+      Component = body;
+    } else if (bodyType === "Component") {
+      Component = body;
+      Component = <Component setDefaultHandler={setDefaultHandler} />
+    }
+  } else {
+    if (typeof body === "string") {
+      if (components[body]) {
+        Component = components[body];
+      } else {
+        Component = body;
+      }
+    } else {
+      Component = body || null
+      Component = Component ? <Component setDefaultHandler={setDefaultHandler} /> : null;
+    }
+  }
 
   const primaryHandlerWrapper = () => {
     primaryHandler ? primaryHandler() : defaultHandler && defaultHandler();
@@ -33,12 +57,12 @@ const Modal = props => {
           <div className="modal-header">
             {header ||
             <><h5 className="modal-title" id="exampleModalLabel">{title}</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={() => dispatchModal({display: false, meta: {}})}>
               <span aria-hidden="true">&times;</span>
             </button></>}
           </div>
           <div className="modal-body">
-            {Component ? typeof Component === "string" ? Component : <Component setDefaultHandler={setDefaultHandler}/> : null}
+            {Component}
           </div>
           <div className="modal-footer">
             {footer ||

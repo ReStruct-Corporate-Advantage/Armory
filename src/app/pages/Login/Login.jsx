@@ -22,8 +22,8 @@ const Login = props => {
   }
 
   return (
-    <div className="c-Login">
-      <main className="c-Login__content d-flex flex-row flex-nowrap position-fixed w-100 overflow-auto">
+    <div className="c-Login h-100 overflow-auto">
+      <main className="c-Login__content w-100">
         <LoginForm />
       </main>
     </div>

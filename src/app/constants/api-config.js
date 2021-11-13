@@ -1,5 +1,5 @@
-export const API_CONFIG = {
-    "API_NAME": {
+const API_CONFIG = {
+    CREATE_ARMAMENT: {
         name: "<class>.<api-name>",
         preHook: "<class>.<pre-hook-name>",
         postHook: "<class>.<post-hook-name>"
@@ -9,3 +9,5 @@ export const API_CONFIG = {
         "production": "https://armory-service.herokuapp.com"
     }
 }
+
+export default API_CONFIG;

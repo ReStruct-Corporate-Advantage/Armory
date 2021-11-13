@@ -10,7 +10,7 @@ import {ButtonsPanel, InputField, SectionHeader} from "..";
 import {AppBar, Box, Tab, Tabs} from "@material-ui/core";
 import Network from "../../utils/network";
 import Helper from "../../utils/Helper";
-import { API_CONFIG } from "../../constants/api-config";
+import API_CONFIG from "../../constants/api-config";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
@@ -129,8 +129,8 @@ const LoginForm = props => {
           <SectionHeader title="Please enter your credentials to login" className="col-12" />
           <form className="fields-container col-12 mt-3">
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}
-            <InputField formId="loginform" id="username" label="User Name/Email" type="text" value={fieldValues["loginform"]["username"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} />
-            <InputField formId="loginform" id="password" label="Password" type="password" value={fieldValues["loginform"]["password"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} />
+            <InputField formId="loginform" id="username" label="User Name/Email" type="text" value={fieldValues["loginform"]["username"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
+            <InputField formId="loginform" id="password" label="Password" type="password" value={fieldValues["loginform"]["password"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
             <ButtonsPanel formId="loginform" buttonsConfig={{btnSubmit: {type: "button", btnClasses: "btn btn-primary float-right", btnText: "Login", style: {background: "rgba(0, 150, 0, 0.7)"}, onClick: () => 
             {
               setLoginApiError(false);
@@ -143,9 +143,9 @@ const LoginForm = props => {
           <SectionHeader title="Please enter following details to register" className="col-12" />
           <form className="fields-container col-12 mt-3">
             {registerApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isRegisterApiError ? " error" : ""}`}>{registerApiMessage}</p>}
-            <InputField formId="registerform" id="username" label="User Name/Email" type="text" value={fieldValues["registerform"]["username"]} inputClasses="border-5 border-none px-2 py-3" required={true} onChange={onChange} />
-            <InputField formId="registerform" id="newpassword" label="New Password" type="password" value={fieldValues["registerform"]["newpassword"]} inputClasses="border-5 border-none px-2 py-3" required={true} onChange={onChange} />
-            <InputField formId="registerform" id="confirmpassword" label="Confirm New Password" type="password" value={fieldValues["registerform"]["confirmpassword"]} inputClasses="border-5 border-none px-2 py-3" required={true} onChange={onChange} />
+            <InputField formId="registerform" id="username" label="User Name/Email" type="text" value={fieldValues["registerform"]["username"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
+            <InputField formId="registerform" id="newpassword" label="New Password" type="password" value={fieldValues["registerform"]["newpassword"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
+            <InputField formId="registerform" id="confirmpassword" label="Confirm New Password" type="password" value={fieldValues["registerform"]["confirmpassword"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
             <ButtonsPanel formId="registerform" buttonsConfig={
               {
                 btnLogin: {

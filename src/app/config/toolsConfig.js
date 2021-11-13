@@ -1,4 +1,4 @@
-import Network from "../utils/network";
+import Helper from "../utils/Helper";
 
 const TOOLS_CONFIG = {
     CODE_VIEWER_TOOLS: {
@@ -16,19 +16,19 @@ const TOOLS_CONFIG = {
     },
     CODE_VIEWER_LANGUAGE_TOOLS: {
         tools: [
-            {name: "React", btnClasses: "btn", btnText: "", visibility: "visible", order: 0, icon: "di.DiReact", placement: "left", tooltip: "React"},
-            {name: "Angular", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "di.DiAngularSimple", placement: "left", tooltip: "Angular"},
-            {name: "Vue", btnClasses: "btn btn-edit", btnText: "", visibility: "visible", order: 2, icon: "ri.RiVuejsFill", placement: "left", tooltip: "Vue"},
-            {name: "Vanilla", btnClasses: "btn btn-save", btnText: "", visibility: "visible", order: 3, icon: "di.DiJavascript", placement: "left", tooltip: "Vanilla JS"}
+            {name: "React", btnClasses: "btn", btnText: "", visibility: "visible", order: 0, icon: "di.DiReact", placement: "right", tooltip: "React"},
+            {name: "Angular", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "di.DiAngularSimple", placement: "right", tooltip: "Angular"},
+            {name: "Vue", btnClasses: "btn btn-edit", btnText: "", visibility: "visible", order: 2, icon: "ri.RiVuejsFill", placement: "right", tooltip: "Vue"},
+            {name: "Vanilla", btnClasses: "btn btn-save", btnText: "", visibility: "visible", order: 3, icon: "di.DiJavascript", placement: "right", tooltip: "Vanilla JS"}
         ]
     },
     CODE_PROPERTIES_TOOLS: {
         tools: [
             {name: "ResizeProperties", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "fi.FiMaximize", toggleIcon: "fi.FiMinimize", placement: "right", tooltip: "Toggle Size"},
-            {name: "EditProperties", btnClasses: "btn btn-edit", btnText: "Edit", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", onClick: "toggleEditMode", tooltip: "Edit"},
-            {name: "SaveProperties", btnClasses: "btn btn-save", btnText: "Save", visibility: "visible", order: 3, icon: "ai.AiFillSave", placement: "right", disabled: true, tooltip: "Save"},
-            {name: "UndoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true, tooltip: "Undo"},
-            {name: "RedoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true, tooltip: "Redo"}
+            {name: "EditProperties", btnClasses: "btn btn-edit", btnText: "Edit", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", onClick: "toggleEditMode", tooltip: "Edit", componentSpecific: true},
+            {name: "SaveProperties", btnClasses: "btn btn-save", btnText: "Save", visibility: "visible", order: 3, icon: "ai.AiFillSave", placement: "right", disabled: true, tooltip: "Save", componentSpecific: true},
+            {name: "UndoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true, tooltip: "Undo", componentSpecific: true},
+            {name: "RedoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true, tooltip: "Redo", componentSpecific: true}
         ]
     },
     SEARCH_BAR_TOOLS: {
@@ -110,12 +110,14 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             onClick: () => {
-                                Network.get("/api/auth/logout")
-                                    .then(res => {
-                                        if (res.status === 200) {
-                                            window.location.pathname = "/login";
-                                        }
-                                    })
+                                Helper.removeCookie("auth_session_token");
+                                window.location.pathname = "/login";
+                                // Network.get("/api/auth/logout")
+                                //     .then(res => {
+                                //         if (res.status === 200) {
+                                //             window.location.pathname = "/login";
+                                //         }
+                                //     })
                             }
                         }
                     ]

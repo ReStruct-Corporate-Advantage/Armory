@@ -12,7 +12,7 @@
     width: 0;
     
     .c-Widgets {
-        // overflow: scroll;
+        // overflow: auto;
     }
     
     &.expanded {
@@ -25,9 +25,9 @@
         position: absolute;
         top: 50%;
         border: solid $primary-base-color;
-        border-width: 0 3px 3px 0;
+        border-width: 0 0.1875rem 0.1875rem 0;
         display: inline-block;
-        padding: 6px;
+        padding: 0.375rem;
         z-index: 1;
 
         &.left {
@@ -37,7 +37,7 @@
 
             &.expanded {
                 border: solid white;
-                border-width: 0 3px 3px 0;
+                border-width: 0 0.1875rem 0.1875rem 0;
                 margin-left: -1.2rem;
                 transform: rotate(135deg);
                 -webkit-transform: rotate(135deg);
@@ -52,7 +52,7 @@
 
             &.expanded {
                 border: solid white;
-                border-width: 0 3px 3px 0;
+                border-width: 0 0.1875rem 0.1875rem 0;
                 margin-left: unset;
                 transform: rotate(-45deg);
                 -webkit-transform: rotate(-45deg);
@@ -60,7 +60,7 @@
         }
 
         &:hover {
-            border-width: 0 5px 5px 0;
+            border-width: 0 0.3125rem 0.3125rem 0;
         }
     }
 

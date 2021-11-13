@@ -1,4 +1,12 @@
+@import "./../../styles/variables";
+
 .c-ComponentContainer {
+  height: calc(100vh + 2rem);
+  width: calc(100vw + 2rem);
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem;
+
   .c-ComponentContainer__renders {
     z-index: 9;
     top: 0;

@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import "./FormField.component.scss";
+import PropTypes from "prop-types";
 import { Button, InputField } from "../..";
+import "./FormField.component.scss";
 
 const FormField = props => {
   const [state, setState] = useState({});
-  const onChange = (e) => setState({value: e.target.value})
+  const onChange = (formId, id, value) => {
+    setState({value})
+    props.onChange && props.onChange(value);
+  }
   const getComponentByType = (type) => {
     switch (type) {
       case "input":
-        return <InputField onChange={onChange} state={state} {...props} />;
+        return <InputField onChange={onChange} state={state} {...props.attributes} />;
       case "button":
         return <Button {...props} />;
       default:
@@ -21,5 +25,9 @@ const FormField = props => {
     </div>
   );
 };
+
+FormField.propTypes = {
+  attributes: PropTypes.object
+}
 
 export default FormField;

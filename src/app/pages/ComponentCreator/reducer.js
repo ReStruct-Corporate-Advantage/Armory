@@ -9,6 +9,7 @@ import {
     DISPATCH_HISTORY,
     DISPATCH_LAYOUT,
     DISPATCH_PREVIOUS_LAYOUT,
+    DISPTACH_SELECTED_COMPONENT,
     DISPTACH_TOOL_ACTION_META,
     IS_MOBILE,
     UPDATE_FORM_ERRORS,
@@ -38,7 +39,8 @@ const initialState = Immutable.Map({
                 }
             }
         ]
-    }
+    },
+    selectedComponent: "Root"
 })
 
 const reducer = (state = initialState, action) => {
@@ -51,6 +53,7 @@ const reducer = (state = initialState, action) => {
         case DISPATCH_HISTORY:
         case DISPATCH_LAYOUT:
         case DISPATCH_PREVIOUS_LAYOUT:
+        case DISPTACH_SELECTED_COMPONENT:
         case DISPTACH_TOOL_ACTION_META:
         case UPDATE_FORM_ERRORS:
         case UPDATE_FORM_VALUES:

@@ -5,22 +5,36 @@ import {createPropsSelector} from "reselect-immutable-helpers";
 import { getClearPropsState, getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import { getUserDetails } from "../../global-selectors";
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
+import {SelectOption, InputField, CheckBox} from "../";
 import {compGen, forkedRepository} from "./../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
-import {SelectOption, InputField, CheckBox} from "../";
 import Network from "./../../utils/network";
 import "./PropsForm.component.scss";
 
 const PropsForm = props => {
-  const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, toggleEditMode, userDetails} = props;
+  const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, socket, toggleEditMode, userDetails} = props;
   const [formState, updateFormState] = useState({});
+  const [selectorState, updateSelectorState] = useState({});
   const key = "uuid";
   const alwaysDisabled = ["createdBy", "id", "uuid", "componentName", "meta#createdBy"];
   const rootChildrenArray = componentsConfig && componentsConfig.components[0].descriptor.children;
   const returnVal = Helper.searchInTree(key, selectedComponent, componentsConfig, "components", "descriptor.children");
   let {selectedComponentConfig, parent} = returnVal ? returnVal : {};
   selectedComponentConfig = Helper.filterObject(selectedComponentConfig, ["armamentCategory", "name", "updatedAt", "index", "createdAt"])
-  const forkTriggeringProperties = [""];
+  // const forkTriggeringProperties = [""];
+
+
+
+  useEffect(() => {
+    if (selectedComponentConfig) {
+      const requiredProperties = {styles: {}, classes: ""};
+      Object.keys(requiredProperties).forEach(property => {
+        if (selectedComponentConfig.descriptor && !selectedComponentConfig.descriptor[property]) {
+          selectedComponentConfig.descriptor[property] = requiredProperties[property];
+        }
+      });
+    }
+  }, [selectedComponentConfig]);
 
   useEffect(() => {
     if (clear) {
@@ -50,22 +64,25 @@ const PropsForm = props => {
   const onChangeActions = (formId, id, value, action, property, type) => {
     const formStateCloned = {...formState};
     const componentsConfigCloned = {...componentsConfig};
-    const selectedComponentConfigCloned = {...selectedComponentConfig};
+    const selectedComponentConfigCloned = JSON.parse(JSON.stringify(selectedComponentConfig));
     if (!formStateCloned[selectedComponent]) {
       formStateCloned[selectedComponent] = {};
     }
-    parent.splice(parent.indexOf(selectedComponentConfig), 1, selectedComponentConfigCloned);
+    parent.splice(parent.findIndex(child => child.uuid === selectedComponentConfig.uuid), 1, selectedComponentConfigCloned);
     action(formStateCloned, id, value, selectedComponentConfigCloned, property, type);
     selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
-    compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, true); // Forking here
+    compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, null, ""); // Forking here
+    socket && socket.emit("message", componentsConfigCloned)
     setComponentsConfig(componentsConfigCloned);
     updateFormState(formStateCloned);
   }
 
   const updateProperties = () => {
     const payload = {...selectedComponentConfig};
+    delete payload.top;
+    delete payload.left;
     formState && Object.keys(formState).forEach(key => {
       const formValue = formState[key];
       if (typeof formValue === "string" || typeof formValue === "number") {
@@ -94,7 +111,7 @@ const PropsForm = props => {
       .catch(err => console.log(err))
       .finally(() => {
         setInitiateSave(false);
-        toggleEditMode(false);
+        toggleEditMode({...editMode, [selectedComponent]: false});
       })
   }
 
@@ -121,12 +138,12 @@ const PropsForm = props => {
           const isBool = typeof valueInner === "boolean" || valueInner === "true" || valueInner === "false";
 
           if (isBool) {
-            return <CheckBox formId="propsForm" id={idInner} key={key + "-" + keyInner} value={valueInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode}
+            return <CheckBox formId="propsForm" id={idInner} key={key + "-" + keyInner} value={valueInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode[selectedComponent]}
               inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}}  label={idInner} labelClasses="prop-field-label" alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
               onChange={(formId, id, value) => onChangeActions(formId, id, value, onInnerChange, property, valueType)}/>
           } else {
             return <InputField formId="propsForm" id={idInner} key={key + "-" + keyInner} type={typeInner} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset"
-              inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} readOnly={!editMode} alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
+              inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} readOnly={!editMode[selectedComponent]} alwaysDisabled={alwaysDisabled.indexOf(idInner) > -1}
               value={valueInner} label={idInner} labelClasses="prop-field-label" onChange={(formId, id, value) => onChangeActions(formId, id, value, onInnerChange, property, valueType)} />;
           }
         })
@@ -135,12 +152,12 @@ const PropsForm = props => {
         const type = typeof value === "number" ? "number" : "text";
         const isBool = typeof value === "boolean" || value === "true" || value === "false";
         if (isBool) {
-          return <CheckBox formId="propsForm" id={property} key={key} value={value} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode}
+          return <CheckBox formId="propsForm" id={property} key={key} value={value} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset" readOnly={!editMode[selectedComponent]}
               inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}}  label={property} labelClasses="prop-field-label" alwaysDisabled={alwaysDisabled.indexOf(property) > -1}
               onChange={(formId, id, value) => onChangeActions(formId, id, value, onChange)}/>
         } else {
           return <InputField formId="propsForm" id={property} key={key} type={type} layoutClasses="mb-1" inputClasses="small label-right-tagged border-unset"
-            inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} alwaysDisabled={alwaysDisabled.indexOf(property) > -1} readOnly={!editMode} value={value}
+            inputStyles={{padding: "0.2rem", fontSize: "0.7rem", width: "calc(100% - 7rem)"}} shrunkable={false} alwaysDisabled={alwaysDisabled.indexOf(property) > -1} readOnly={!editMode[selectedComponent]} value={value}
             label={property} labelClasses="prop-field-label" onChange={(formId, id, value) => onChangeActions(formId, id, value, onChange)} />;
         }
       }
@@ -148,31 +165,53 @@ const PropsForm = props => {
   }
 
   const additionalProperties = [
-    {name: "border", displayName: "border"},
-    {name: "borderRadius", displayName: "border-radius"},
-    {name: "fontSize", displayName: "font-size"},
-    {name: "background", displayName: "background"},
-    {name: "color", displayName: "color"},
-    {name: "padding", displayName: "padding"},
-    {name: "margin", displayName: "margin"},
-    {name: "lineHeight", displayName: "line-height"},
-    {name: "fontFamily", displayName: "font-family"},
+    {name: "border", displayName: "border", type: "style"},
+    {name: "borderRadius", displayName: "border-radius", type: "style"},
+    {name: "fontSize", displayName: "font-size", type: "style"},
+    {name: "background", displayName: "background", type: "style"},
+    {name: "color", displayName: "color", type: "style"},
+    {name: "padding", displayName: "padding", type: "style"},
+    {name: "margin", displayName: "margin", type: "style"},
+    {name: "lineHeight", displayName: "line-height", type: "style"},
+    {name: "fontFamily", displayName: "font-family", type: "style"},
+    {name: "other", displayName: "Other"},
   ]
 
   const types = [
+    {name: "style", displayName: "Style"},
+    {name: "class", displayName: "Class"},
+    {name: "variant", displayName: "Variant"},
     {name: "base", displayName: "Base"},
     {name: "meta", displayName: "Meta"},
     {name: "descriptor", displayName: "Descriptor"}
   ]
 
+  const selectorOnChange = (e, id) => {
+    const value = e.target.value;
+    const selectorStateCloned = {...selectorState};
+    selectorStateCloned[id] = value;
+    updateSelectorState(selectorStateCloned);
+  }
+
+  const otherSelected = selectorState["value-selector"] === "other";
+
   return (
     <div className="c-PropsForm p-1 overflow-auto">
       {selectedComponentConfig && <p className="pl-2 py-2 mb-0 text-muted">Owner: <b><i>{selectedComponentConfig && selectedComponentConfig.meta && selectedComponentConfig.meta.createdBy}</i></b></p>}
+      {selectedComponentConfig && <p className="pl-2 py-2 mb-0 text-muted">Selected: <b><i>{selectedComponentConfig && selectedComponentConfig.uuid}</i></b></p>}
       {selectedComponentConfig && <div className="c-PropsForm__propSelector row mb-2">
-        <SelectOption layoutClasses="col-5" options={additionalProperties} />
-        <SelectOption layoutClasses="col-5" options={types} />
-        <div className="col-2">
-          <button className="btn btn-success btn-add-prop" onClick={addProperty}>Add</button>
+          <SelectOption id="type-selector" layoutClasses="col-6" options={types} onChange={selectorOnChange} value={selectorState["type-selector"]} />
+          <SelectOption id="value-selector" layoutClasses="col-6" onChange={selectorOnChange}
+          options={additionalProperties.filter(prop => !prop.type || prop.type === selectorState["type-selector"])} value={selectorState["value-selector"]} />
+        {otherSelected && <><div className="col-6">
+            <input className="w-100" id="key-field" placeholder="Attribute Name" />
+          </div>
+          <div className="col-6">
+            <input className="w-100" id="value-field" placeholder="Attribute Value" />
+          </div>
+        </>}
+        <div className="col-4">
+          <button className="btn btn-success btn-add-prop w-100 h-100" onClick={addProperty}>Add</button>
         </div>
       </div>}
       {propFieldRenders()}

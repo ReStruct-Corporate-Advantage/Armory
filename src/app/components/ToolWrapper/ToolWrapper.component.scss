@@ -15,7 +15,7 @@
     .btn {
         // border: 1px solid $primary-font-color;
         border: none;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
         background: $secondary-font-color;
         color: $primary-font-color-dark;
         font-size: $default-small-font;
@@ -37,7 +37,7 @@
         }
 
         &.snappedButton {
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 0.5rem 0.5rem 0;
             background: #091472;
         }
 
@@ -61,18 +61,18 @@
 
     .border-with-radius {
         border: 1px solid white;
-        border-radius: 5px;
+        border-radius: 0.3125rem;
     }
 
     .extra-radial {
-        border-radius: 20px !important;
+        border-radius: 1.25rem !important;
     }
 
     &.button-details {
         cursor: pointer;
         max-width: 10rem;
         background: #e83e8c;
-        border-radius: 20px;
+        border-radius: 1.25rem;
         transition: width 0.4s ease-in-out;
     }
 
