@@ -40,8 +40,7 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
   }
 
   if (isInstanceComponent) {
-    const draggedItem = ref.current;
-    const {x: draggedX, y: draggedY, top, left} = draggedItem ? draggedItem.getBoundingClientRect() : {};
+    // Capture the difference moved by cursor
     const xDiff = initialClientOffset.x - initialOffset.x
     const yDiff = initialClientOffset.y - initialOffset.y
     x = Math.round(clientOffset.x - initialOffset.x + 310 + 64 - clientRect.left - (xDiff || 0));
@@ -50,7 +49,8 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
     x += clientRect.left;
     y += clientRect.top;
   }
-  
+  // console.log("x: ", x)
+  // console.log("y: ", y)
   const transform = `translate(${x}px, ${y}px)`;
   const opacity = "0.4";
   return {

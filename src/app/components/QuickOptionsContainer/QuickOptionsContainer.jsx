@@ -16,14 +16,17 @@ const QuickOptionsContainer = props => {
   // }, [itemRef])
   
   return (
-    <CSSTransition in={props.show} timeout={100} classNames="expand" appear onEntered={() => {
-      setItemPosition(Helper.getItemPosition(itemRef.current));
-      setPositionCorrected(true);
-    }}>
-      <div className={`c-QuickOptionsContainer ${containerClasses}${itemPosition.positionClass ? " " + itemPosition.positionClass : ""}${positionCorrected ? " expand-enter-done" : ""}`} ref={itemRef}  style={itemPosition.styles} onClick={() => {}}>
-        {children}
-      </div>
-    </CSSTransition>
+    // <div className="position-fixed w-100 h-100 z-index-1"> // Add this container to enable hiding menu on clicking anywhere
+      <CSSTransition in={props.show} timeout={100} classNames="expand" appear onEntered={() => {
+        setItemPosition(Helper.getItemPosition(itemRef.current));
+        setPositionCorrected(true);
+      }}>
+        <div className={`c-QuickOptionsContainer ${containerClasses}${itemPosition.positionClass ? " " + itemPosition.positionClass : ""}${positionCorrected ? " expand-enter-done" : ""}`}
+          ref={itemRef}  style={itemPosition.styles} onClick={() => {}}>
+          {children}
+        </div>
+      </CSSTransition>
+    // </div>
   );
 };
 

@@ -17,7 +17,7 @@ const LivePreview = props => {
   const [componentConfig, setComponentConfig] = useState(null);
   const [socket, setSocket] = useState(null);
   const items = componentConfig && componentConfig.value && componentConfig.value.components && componentConfig.value.components[0].descriptor.children;
-  const componentRenders = items ? compGen.iterateAndGenerateWithConfig(items, "", () => {}).map(componentObj => componentObj.item) : null;
+  const componentRenders = items ? compGen.iterateAndGenerateWithConfig(items, null, "", "", () => {}).map(componentObj => componentObj.item) : null;
   const dndBackend = isMobile ? TouchBackend : Backend;
 
   useEffect(() => {
@@ -43,7 +43,8 @@ const LivePreview = props => {
 };
 
 LivePreview.propTypes = {
-
+  componentsConfig: PropTypes.object,
+  userDetails: PropTypes.object
 };
 
 const mapStateToProps = createPropsSelector({

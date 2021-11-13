@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./ArmamentWrapperContextMenu.component.scss";
 
 const ArmamentWrapperContextMenu = props => {
@@ -8,10 +7,6 @@ const ArmamentWrapperContextMenu = props => {
       In Component ArmamentWrapperContextMenu
     </div>
   );
-};
-
-ArmamentWrapperContextMenu.propTypes = {
-
 };
 
 export default ArmamentWrapperContextMenu;

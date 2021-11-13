@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./InputField.component.scss";
 
 const InputField = memo(props => {
-  const {alwaysDisabled, formId, id, inputClasses, inputStyles, label, labelClasses, labelStyles, layoutClasses, min, max, onChange, readOnly, required, shrunk, shrunkable, type, value} = props;
+  const {alwaysDisabled, formId, id, inputClasses, inputStyles, label, labelClasses, labelStyles, layoutClasses, min, max, onChange, placeholder, readOnly, required, shrunk, shrunkable, type, value} = props;
   const key = formId + "-" + id;
   const [focussed, setFocussed] = useState(false);
 
@@ -14,6 +14,7 @@ const InputField = memo(props => {
           className={`px-3${inputClasses ? " " + inputClasses : ""}`}
           style={inputStyles}
           onChange={e => onChange ? onChange(formId, id, type === "number" ? +e.target.value : e.target.value) : {}}
+          placeholder={placeholder}
           value={value}
           required={required}
           onFocus={() => setFocussed(true)}

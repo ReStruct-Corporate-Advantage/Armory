@@ -2,7 +2,7 @@
 * TODO Add windows handling
 */
 // import { useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {setComponentsConfig} from "./../pages/ComponentCreator/actions";
 import ACTIONS from "../constants/actions";
 import {forkedRepository} from "./../utils/CodeUtils/ComponentGenerator";
@@ -156,10 +156,10 @@ const useEventHandler = (props) => {
         }
     }
 
-    const getComponentWidthAndHeight = component => {
-        const compStyles = component.descriptor.styles;
-        // const width = compStyles ? compStyles.width ? compStyles.width.endsWith("rem")
-    }
+    // const getComponentWidthAndHeight = component => {
+    //     const compStyles = component.descriptor.styles;
+    //     // const width = compStyles ? compStyles.width ? compStyles.width.endsWith("rem")
+    // }
     
     const registerListener = (element) => {
         element.addEventListener( "contextmenu", function(e) {

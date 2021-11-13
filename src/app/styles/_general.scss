@@ -56,6 +56,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     top: 0 !important;
 }
 
+.top-100 {
+    top: 100% !important;
+}
+
 .svg-stroke-white {
     fill: #d3d3d3;
     stroke: #d3d3d3;
@@ -72,6 +76,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         fill: $primary-font-color-dark;
         stroke: $primary-font-color-dark;
     }
+}
+
+.font-size-10 {
+    font-size: 0.625rem !important;
 }
 
 .font-size-12 {
@@ -100,7 +108,7 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 }
 
 .border-5 {
-    border-radius: 0.3125rem;
+    border-radius: 0.3125rem !important;
 }
 
 .border-14rem {
@@ -134,6 +142,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     padding: 1rem;
 }
 
+.border-default-coned {
+    border: 1px solid black !important;
+}
+
 .border-default {
     border: 1px solid black;
     border-radius: 0.3125rem;
@@ -161,6 +173,21 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 
 .border-red {
     border: 1px solid red !important;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: 12px;
+}
+
+::-moz-placeholder {
+    font-style: italic;
+    font-size: 12px;
+}
+
+::-ms-input-placeholder {  
+    font-style: italic;
+    font-size: 12px; 
 }
 
 .loader:before {

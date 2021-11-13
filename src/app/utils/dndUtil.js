@@ -138,7 +138,7 @@ export class DNDUtil {
       droppedComponentConfig && rootChildrenArray.push(droppedComponentConfig);
     }
     dispatchComponentsConfig(componentsConfigClone);
-    socket.emit("message", componentsConfigClone)
+    socket && socket.emit("message", componentsConfigClone)
     dispatchSelectedComponent(item.category.uuid)
     dispatchClearPropsState(true);
   }

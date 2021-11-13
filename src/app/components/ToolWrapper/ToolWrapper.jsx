@@ -1,4 +1,4 @@
-import React, {memo, useState} from "react";
+import React, {memo, useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {IconContext} from "react-icons";
 import {dispatchToolAction} from "./../../pages/ComponentCreator/actions";
@@ -11,12 +11,17 @@ import { connect } from "react-redux";
 const ToolWrapper = memo(props => {
   const {btnClasses, btnText, componentSpecific, data, disabled, dispatchToolAction, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, selectedComponent, size, toggleIcon, tooltip, visibility} = props;
   const [hovered, setHovered] = useState(false);
+  const [expand, setExpand] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(componentSpecific ? {} : false);
   const [currentIcon, setCurrentIcon] = useState(icon)
   const {onClickHandler, jsx, type} = useTool(name && name.toLowerCase(), props)
   const iconDescriptor = currentIcon && currentIcon.split(".");
   const Icon = reactIcons[iconDescriptor[1]];
   const iconSize = !expanded && visibility === "contained" ? "0" : size ? size : "1.1rem";
+
+  useEffect(() => {
+      setTimeout(() => setExpand(hovered), 1000)
+  }, [hovered])
   return (
     <IconContext.Provider value={{ color: !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "", size, className: "global-class-name" }}>
       <div className={`c-ToolWrapper position-relative d-inline-block h-100
@@ -42,7 +47,7 @@ const ToolWrapper = memo(props => {
             >
               {Icon ? <Icon className={hovered ? "hovered" : ""} /> : btnText}
           </button>
-          {hoverClasses && <span className={`button-text${hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked) ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
+          {hoverClasses && <span className={`button-text${expand && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>
         {hovered && !buttonClicked && <RichTooltip iconSize={iconSize} tooltip={tooltip} />}
         {(componentSpecific ? buttonClicked[selectedComponent] : buttonClicked) && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data} show={componentSpecific ? buttonClicked[selectedComponent] : buttonClicked}>{jsx(data)}</QuickOptionsContainer>: null}
@@ -50,6 +55,8 @@ const ToolWrapper = memo(props => {
     </IconContext.Provider>
   );
 });
+
+ToolWrapper.whyDidYouRender = true;
 
 ToolWrapper.propTypes = {
   btnClasses: PropTypes.string,

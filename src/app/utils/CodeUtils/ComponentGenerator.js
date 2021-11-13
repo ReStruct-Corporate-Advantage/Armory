@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { withResizeDetector } from "react-resize-detector";
-import {ArmamentWrapper} from "./../../components";
+import {ArmamentWrapper, StaticArmamentWrapper} from "./../../components";
 
 class ComponentGenerator {
     constructor () {
@@ -28,32 +27,33 @@ class ComponentGenerator {
     }
 
     // ====================================================== GENERATE FORKED COMPONENTS AND DRAG PREVIEW OF FORKED COMPONENTS ====================================================== //
-    iterateAndGenerateWithConfig (root, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
-//         if (!comContainerRef) {
-//             debugger;
-//         }
-        const components = root && root.length ? root.map(node => this.generateComponentWithConfig(node, selectedComponent, dispatchSelectedComponent, comContainerRef, socket)) : [];
-        return components;
+    iterateAndGenerateWithConfig (root, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) {
+        return root && root.length ? root.map((node, key) => this.generateComponentWithConfig(node, comContainerRef, context,
+            selectedComponent, dispatchSelectedComponent, socket, key)) : [];
     }
 
     // Main Function for generating a component on the fly
-    generateComponentWithConfig (node, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
+    generateComponentWithConfig (node, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket, key) {
         if (!node.items) {
-            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
+            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, comContainerRef, context, selectedComponent,
+                dispatchSelectedComponent, socket, key);
         } else {
-            return this.iterateAndGenerateWithConfig(node.items, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
+            return this.iterateAndGenerateWithConfig(node.items, comContainerRef, context, selectedComponent,
+                dispatchSelectedComponent, socket, key);
         }
     }
 
-    decideTypeAndGenerateWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) { // componentNode: React Component, not an HTML element
+    decideTypeAndGenerateWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket, key) { // componentNode: React Component, not an HTML element
         if (node.isFunctional) {
-            return this.generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket)
+            return this.generateFunctionalComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent,
+                dispatchSelectedComponent, socket, key);
         } else {
-            return this.generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket);
+            return this.generateClassComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent,
+                dispatchSelectedComponent, socket, key);
         }
     }
 
-    generateClassComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
+    generateClassComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket, key) {
         const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -85,40 +85,39 @@ class ComponentGenerator {
                     style = descriptor && descriptor.styles ? {...style, ...descriptor.styles} : style;
                     childrenConfig = [...childrenConfig];
                     let dynamicSetOfChildren = descriptor && descriptor.children;
-                    // if (childrenConfig && childrenConfig.) {
-                    //     console.log(node.getBoundingClientRect());
-                    // }
-                    // const childrenFromSource = this.props.childItems;
                     dynamicSetOfChildren && dynamicSetOfChildren.forEach(dynamicChild => {
-                        if ((dynamicChild.uuid && childrenConfig.findIndex(child => dynamicChild.uuid === child.uuid) < 0) || (!dynamicChild.uuid && childrenConfig.findIndex(child => !child.uuid) < 0)) {
+                        if ((dynamicChild.uuid && childrenConfig.findIndex(child => dynamicChild.uuid === child.uuid) < 0)
+                            || (!dynamicChild.uuid && childrenConfig.findIndex(child => !child.uuid) < 0)) {
                             childrenConfig.push(dynamicChild);
                         }
                     })
-                    let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) : [];
-//                     childRenders = childRenders.map(child => {
-//                         const Component = child.item;
-//                         return child.isChildComponentNode ? <Component /> : child.item
-//                     })
+                    let childRenders = childrenConfig
+                        ? self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) : [];
                     childRenders = childRenders.map(child => child.item)
                     innerText && childRenders.push(innerText);
-                    this.props.allowChildren && (style.overflow = "auto");
+                    // this.props.allowChildren && (style.overflow = "auto");
                     // childRenders = childrenFromSource ? [...childRenders, ...childrenFromSource] : childRenders
-                    return childRenders && childRenders.length > 0 ? React.createElement(elemType, {style, className: props.className, ...attributes}, childRenders)
+                    return childRenders && childRenders.length > 0
+                        ? React.createElement(elemType, {style, className: props.className, ...attributes}, childRenders)
                         : React.createElement(elemType, {style: props.style, className: props.className, ...attributes});
                 }
             }
             Object.defineProperty(c, 'name', {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
-            c = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef} socket={socket}>{c}</ArmamentWrapper>
+            c = context === "editor"
+                ? <StaticArmamentWrapper componentConfig={node} key={key}>{c}</StaticArmamentWrapper>
+                : <ArmamentWrapper  key={key} componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
+                comContainerRef={comContainerRef} socket={socket}>{c}</ArmamentWrapper>
             this.boardRepository[node.uuid] = c;
         } else {
-            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef), socket)
+            c = childrenConfig && childrenConfig.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className},
+                self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket))
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: c, isChildComponentNode: isComponentNode};
     }
 
-    generateFunctionalComponentWithConfig(node, isComponentNode, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) {
+    generateFunctionalComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) {
         const componentName = node && node.componentName;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -140,21 +139,28 @@ class ComponentGenerator {
             f = function (_props_) {
                 const childrenFromSource = this.props.childItems;
                 childrenConfig = [...childrenConfig];
-                let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket) : [];
+                let childRenders = childrenConfig ? self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent,
+                    dispatchSelectedComponent, socket) : [];
                 childRenders = childRenders.map(child => {
                     const Component = child.item;
                     return child.isChildComponentNode ? <Component /> : child.item
                 })
                 childRenders = childrenFromSource ? [...childRenders, ...childrenFromSource] : childRenders
                 innerText && childRenders.push(innerText);
-                return childRenders && childRenders.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, childRenders)
+                return childRenders && childRenders.length > 0
+                        ? React.createElement(elemType, {style: props.style, className: props.className},childRenders)
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
             Object.defineProperty(f, 'name', {value: componentName});
-            f = <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent} comContainerRef={comContainerRef} socket={socket}>{f}</ArmamentWrapper>
+            f = context === "editor"
+                ? <StaticArmamentWrapper componentConfig={node}>{f}</StaticArmamentWrapper>
+                : <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
+                comContainerRef={comContainerRef} socket={socket}>{f}</ArmamentWrapper>
             !this.boardRepository[node.uuid] && (this.boardRepository[node.uuid] = f);
         } else {
-            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerateWithConfig(childrenConfig, selectedComponent, dispatchSelectedComponent, comContainerRef, socket))
+            f = childrenConfig
+                ? React.createElement(elemType, {style: props.style, className: props.className},
+                    self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket))
                 : React.createElement(elemType, {style: props.style, className: props.className});
         }
         return {item: f, isChildComponentNode: isComponentNode};
@@ -181,7 +187,14 @@ class ComponentGenerator {
             c = class extends React.PureComponent {
                 render() {
                     // TODO snap resize to grid and push snapped position to componentConfig
-                    const style = {...props.style};
+                    let style = {...props.style};
+                    // Merge styles and classes from DB by styles and classes sent in props from calling component below
+                    const descriptor = this.props.descriptor;
+                    style = descriptor && descriptor.styles ? {...style, ...descriptor.styles} : style;
+                    const dbClasses = props.className ? props.className.split(" ") : [];
+                    const propClasses = descriptor && descriptor.classes ? descriptor.classes.split(" ") : [];
+                    propClasses.forEach(cls => dbClasses.indexOf(cls) < 0 && dbClasses.push(cls));
+                    props.className = dbClasses.join(" ");
                     let childRenders = childrenConfig ? self.iterateAndGenerate(childrenConfig) : [];
                     childRenders = childRenders.map(child => {
                         const Component = child.item;

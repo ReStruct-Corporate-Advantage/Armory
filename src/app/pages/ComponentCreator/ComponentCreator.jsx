@@ -28,7 +28,7 @@ const ComponentCreator = props => {
       setSocket(newSocket);
       return () => newSocket.close();
     }
-  }, [setSocket]);
+  }, [socket]);
   
   // return <DndProvider backend={Backend}>
   return <DndProvider backend={dndBackend}>

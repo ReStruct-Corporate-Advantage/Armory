@@ -11,7 +11,7 @@ const BreadCrumb = props => {
   const [hovered, setHovered] = useState({});
   
   return (
-    <ul className="c-BreadCrumb px-3 py-2 mb-1">
+    <ul className={`c-BreadCrumb px-3 mb-1${levels ? " py-2" : ""}`}>
       {levels && Object.keys(levels).map(key => {
         const level = levels[key];
         return <li className={`${hovered[key] ? " hovered" : ""}`} onMouseOver={() => setHovered({[key]: true})} onMouseLeave={() => setHovered({[key]: false})}>

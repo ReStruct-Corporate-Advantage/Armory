@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -12,6 +12,7 @@ import "./Dashboard.module.scss";
 
 const Dashboard = props => {
   const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails } = props;
+  const [hoverState, setHoverState] = useState({});
   const name = userDetails ? userDetails.firstname : ""
   const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
   const sections = Object.keys(config).map(key => {
@@ -33,7 +34,32 @@ const Dashboard = props => {
                   case "p":
                     return <p className={part.classes}>{part.text}</p>
                   case "button":
-                    return <button className={part.classes} onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>{part.text}</button>
+                    const hovered = hoverState && hoverState[part.name];
+                    return part.subOptions && hovered ?
+                      <div className={`${hovered ? "col-12" : "col-7 mx-auto"}`}>
+                        <div className="row ml-0"
+                          onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
+                          onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
+                          <button className={`${part.classes} my-auto col-5`}>{part.text}</button>
+                          <div className="col-7">
+                            <div className="m-2 p-2 sub-option">
+                              {
+                                part.subOptions.map(subOption => <button className={subOption.classes}
+                                  onClick={() => subOption.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>
+                                    {subOption.text}
+                                </button>
+                                )
+                              }
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      : <button className={part.classes + (part.hoverClasses ? " " + part.hoverClasses : "")}
+                          onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}
+                          onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
+                          onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
+                            {part.text}
+                        </button>
                   default:
                     return null;
                 }

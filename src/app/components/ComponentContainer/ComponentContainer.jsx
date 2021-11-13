@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { useDrop } from "react-dnd";
 import { useResizeDetector } from "react-resize-detector";
-import * as monaco from "monaco-editor";
+// import * as monaco from "monaco-editor";
 
 import { dispatchClearPropsState, dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout, setComponentsConfig } from "../../pages/ComponentCreator/actions";
 import { dispatchLevels, dispatchModal } from "../../global-actions";
@@ -17,7 +17,7 @@ import "./ComponentContainer.component.scss";
 
 const ComponentContainer = props => {
   const {armory, componentsConfig, boundingClientRectProvider, dispatchClearPropsState, dispatchComponentsConfig, dispatchLevels,
-    dispatchModal, selectedComponent, dispatchSelectedComponent, setComponentsConfig, socket, userDetails} = props;
+    dispatchModal, selectedComponent, dispatchSelectedComponent, socket, userDetails} = props;
   const { width, height, ref } = useResizeDetector();
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
@@ -67,10 +67,7 @@ const ComponentContainer = props => {
 
   const cellRenders = cells && cells.length > 0 && cells.map((cell, key) => <span key={key} className="position-absolute" style={cell} />);
   const items = componentsConfig.components[0].descriptor.children;
-  const componentRenders = compGen.iterateAndGenerateWithConfig(items, selectedComponent, dispatchSelectedComponent, comContainerRef, socket).map(componentObj => componentObj.item);
-  // const componentRenderer = (items) => items.map((componentConfig, key) => componentConfig.indent !== 0 && <ArmamentWrapper selectedComponent={selectedComponent}
-  //         dispatchSelectedComponent={dispatchSelectedComponent} key={key} componentConfig={componentConfig} recursiveRenderer={componentRenderer} />)
-  //         .filter(component => component);
+  const componentRenders = compGen.iterateAndGenerateWithConfig(items, comContainerRef, "", selectedComponent, dispatchSelectedComponent, socket).map(componentObj => componentObj.item);
 
   return (
     <div className="c-ComponentContainer position-relative" ref={comContainerRef} >

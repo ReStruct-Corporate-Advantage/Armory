@@ -38,7 +38,6 @@ const ArmamentWrapper = props => {
   const [, drop] = useDrop({
     accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
     hover: (item, monitor) => {
-//       console.log(item)
       if (!ref.current) {
         return
       }
@@ -57,14 +56,11 @@ const ArmamentWrapper = props => {
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return
       }
-      // moveCard(dragIndex, hoverIndex)
       item.index = hoverIndex
     },
     drop: (item, monitor) => {
       dndUtil.armWrapperDropHandler(item, monitor, comContainerRef, ref, componentsConfig, componentConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)
     }
-    // dispatchComponentsConfig,
-    // dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory
   })
   drag(drop(ref))
   

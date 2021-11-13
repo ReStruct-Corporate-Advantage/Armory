@@ -12,11 +12,6 @@ const LoadableAuthenticator = Loadable({
     loading: PageLoader
 })
 
-const LoadableComponentCreator = Loadable({
-    loader: () => import("./pages/ComponentCreator"),
-    loading: PageLoader
-})
-
 const LoadableLogin = Loadable({
     loader: () => import("./pages/Login"),
     loading: PageLoader
@@ -45,7 +40,7 @@ class Router extends React.Component {
                 <Header />
                 <BrowserRouter>
                     <Switch>
-                        <Route exact path="/" component={LoadableComponentCreator} />
+                        <Route exact path="/" component={LoadableAuthenticator} />
                         <Route path="/login" component={LoadableLogin} />
                         <Route path="/join" component={LoadableJoin} />
                         <Route path="/:user" component={LoadableAuthenticator} />

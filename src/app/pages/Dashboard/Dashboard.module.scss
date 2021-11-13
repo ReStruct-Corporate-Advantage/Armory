@@ -20,6 +20,7 @@
             border-bottom: none;
             background: #eeffff;
             border-radius: 2.8rem;
+            max-height: 3.5rem;
             transition: all 0.3s ease-in-out;
 
             &:hover {
@@ -30,13 +31,29 @@
             }
         }
         .c-Dashboard__actions {
-            overflow: scroll;
+            overflow: auto;
+        }
+
+        .sub-option {
+            background: rgb(170, 70, 70);
+            position: relative;
+            border-radius: 5px;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 41%;
+                transform: rotateZ(45deg);
+                border: 1rem solid rgb(170, 70, 70);
+                z-index: -1;
+                left: -1rem;
+            }
         }
     }
 
     .c-Dashboard__main__admin {
         // height: unset;
-        min-height: 23rem;
+        background: rgba(170,85,85,0.6);
     }
 
     .section-header, .option-separator {

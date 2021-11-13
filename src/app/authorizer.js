@@ -14,6 +14,11 @@ const LoadableComponentImporter = Loadable({
     loading: PageLoader
 })
 
+const LoadableAdminComponentManager = Loadable({
+    loader: () => import("./pages/AdminComponentManager"),
+    loading: PageLoader
+})
+
 function Authorizer(props) {
   const { history, match, userDetails } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
@@ -28,7 +33,9 @@ function Authorizer(props) {
 
   return <Switch>
     <Route exact path={match.path} component={LoadableComponentImporter} />
-    <Route path={`${match.path}/component`} component={LoadableComponentImporter} />
+    <Route exact path={`${match.path}/component`} component={LoadableComponentImporter} />
+    <Route path={`${match.path}/component/add`} component={LoadableComponentImporter} />
+    <Route path={`${match.path}/component/update`} component={LoadableAdminComponentManager} />
     <Route path={`${match.path}/page`} component={LoadableComponentImporter} />
     <Route path={`${match.path}/project`} component={LoadableComponentImporter} />
   </Switch>

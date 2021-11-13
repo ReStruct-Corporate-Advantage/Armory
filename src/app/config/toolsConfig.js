@@ -1,5 +1,4 @@
 import Helper from "../utils/Helper";
-import Network from "../utils/network";
 
 const TOOLS_CONFIG = {
     CODE_VIEWER_TOOLS: {
@@ -17,10 +16,10 @@ const TOOLS_CONFIG = {
     },
     CODE_VIEWER_LANGUAGE_TOOLS: {
         tools: [
-            {name: "React", btnClasses: "btn", btnText: "", visibility: "visible", order: 0, icon: "di.DiReact", placement: "left", tooltip: "React"},
-            {name: "Angular", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "di.DiAngularSimple", placement: "left", tooltip: "Angular"},
-            {name: "Vue", btnClasses: "btn btn-edit", btnText: "", visibility: "visible", order: 2, icon: "ri.RiVuejsFill", placement: "left", tooltip: "Vue"},
-            {name: "Vanilla", btnClasses: "btn btn-save", btnText: "", visibility: "visible", order: 3, icon: "di.DiJavascript", placement: "left", tooltip: "Vanilla JS"}
+            {name: "React", btnClasses: "btn", btnText: "", visibility: "visible", order: 0, icon: "di.DiReact", placement: "right", tooltip: "React"},
+            {name: "Angular", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "di.DiAngularSimple", placement: "right", tooltip: "Angular"},
+            {name: "Vue", btnClasses: "btn btn-edit", btnText: "", visibility: "visible", order: 2, icon: "ri.RiVuejsFill", placement: "right", tooltip: "Vue"},
+            {name: "Vanilla", btnClasses: "btn btn-save", btnText: "", visibility: "visible", order: 3, icon: "di.DiJavascript", placement: "right", tooltip: "Vanilla JS"}
         ]
     },
     CODE_PROPERTIES_TOOLS: {

@@ -2,8 +2,8 @@ import React, {useEffect, useRef, useState} from "react";
 import PropTypes from "prop-types";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
-import {ToolBox} from "./../";
 import {GrDrag} from "react-icons/gr";
+import {ComponentDescription, RichTooltip, ToolBox} from "./../";
 import { TOOLS_CONFIG } from "../../config";
 import {ITEM_TYPE} from "../../constants/types";
 import "./Armament.component.scss";
@@ -51,7 +51,8 @@ const Armament = props => {
           <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
           : <><span className="preview"></span><GrDrag className="mr-2 svg-stroke-white" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
-        {hovered && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
+        {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
+        {hovered && !category.items && <RichTooltip tooltip={<ComponentDescription description={category} />} positionClasses="top-100" />}
       </span>
       {category.items && recursiveRenderer(category.items, clientRect, index, expanded, setExpanded)}
     </div>

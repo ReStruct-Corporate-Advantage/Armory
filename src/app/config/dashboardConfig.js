@@ -3,14 +3,24 @@ import {helper} from "../utils/CodeUtils/ComponentConfigHelper";
 
 const DASHBOARD_CONFIG = {
     ADMIN_ACTIONS: {
-        containerClasses: "col-7 mx-auto mb-5",
+        containerClasses: "col mx-auto mb-5",
         sectionClasses: "c-Dashboard__main__admin glass-panel mx-auto",
         protected: true,
         parts: [
             {name: "AdminHeader", type: "header", classes: "section-header w-100 mb-0", text: "Armory Management"},
             {
-                name: "ManageCompoents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "Manage Components", visibility: "visible",
+                name: "ManageComponents", type: "button", classes: "c-Dashboard__btn raised-effect mx-auto mt-4", hoverClasses: "col-7", text: "Manage Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "Manage Components",
+                subOptions: [
+                    {
+                        name: "AddCoreComponent", type: "button", classes: "c-Dashboard__btn col-12 my-3 raised-effect font-size-12", text: "Add a Core Component", visibility: "hidden",
+                        action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/component/add`)
+                    },
+                    {
+                        name: "UpdateCoreComponent", type: "button", classes: "c-Dashboard__btn col-12 mb-3 raised-effect font-size-12", text: "Update a Core Component", visibility: "hidden",
+                        action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/component/update`)
+                    }
+                ],
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/component`)
             },
             {
@@ -26,7 +36,7 @@ const DASHBOARD_CONFIG = {
         ]
     },
     RESUMPTION_ACTIONS: {
-        containerClasses: "col-6",
+        containerClasses: "col",
         sectionClasses: "c-Dashboard__main__resume glass-panel mx-auto",
         parts: [
             {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "Let's resume where your left..."},
@@ -48,7 +58,7 @@ const DASHBOARD_CONFIG = {
         ]
     },
     NEW_ACTIONS: {
-        containerClasses: "col-6",
+        containerClasses: "col",
         sectionClasses: "c-Dashboard__main__buttons glass-panel mx-auto",
         parts: [
             {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "...Or select one of the options below"},
