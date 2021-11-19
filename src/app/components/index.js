@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import CompareView from "./CompareView";
+import LoadableIcon from "./LoadableIcon";
 import AdminCodeTree from "./AdminCodeTree";
 import AdminPropsForm from "./AdminPropsForm";
 import StaticArmamentWrapper from "./StaticArmamentWrapper";
@@ -62,6 +64,8 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	CompareView,
+	LoadableIcon,
 	AdminCodeTree,
 	AdminPropsForm,
 	StaticArmamentWrapper,

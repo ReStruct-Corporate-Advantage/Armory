@@ -7,7 +7,7 @@ const ArmsCategory = props => {
   const {clientRect, context, expanded, node, prevKey, renderArmory, root, setExpanded} = props;
   // const [collapsed, setCollapsed] = useState(false);
   return (
-    <ul className={`c-ArmsCategory${expanded === false ? " collapsed" : ""}`}>
+    <ul className={`c-ArmsCategory${expanded === false ? " collapsed" : ""}`} style={{overflow: expanded === false ? "auto" : "visible"}}>
       {!root && <div className="c-ArmsCategory__clickHandler ml-4" onClick={() => setExpanded(!expanded)}>{expanded ? "Collapse" : "Expand"}</div>}
       {node && node.map((category, key) =>
         <li key={prevKey ? prevKey + "-" + key : key} className="c-Aside__list-item">

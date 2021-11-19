@@ -10,6 +10,14 @@ import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./main.scss"
 
+// Use this for debugging when required to view "name" of an incoming object via API or import
+// This will help to look for available API on that object
+// Object.prototype.getName = function() { 
+//   var funcNameRegex = /function (.{1,})\(/;
+//   var results = (funcNameRegex).exec((this).constructor.toString());
+//   return (results && results.length > 1) ? results[1] : "";
+// };
+
 const composeEnhancers =
 typeof window === "object" &&
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
