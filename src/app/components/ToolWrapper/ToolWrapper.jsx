@@ -1,12 +1,12 @@
 import React, {memo, useEffect, useState} from "react";
 import PropTypes from "prop-types";
-import {IconContext} from "react-icons";
+import { connect } from "react-redux";
+// import {IconContext} from "react-icons";
 import {dispatchToolAction} from "./../../pages/ComponentCreator/actions";
 import useTool from "./../../hooks/useTool";
-import {RichTooltip, QuickOptionsContainer} from "./../";
-import * as reactIcons from "react-icons/all";
+import {LoadableIcon, RichTooltip, QuickOptionsContainer} from "./../";
+// import * as reactIcons from "react-icons/all";
 import "./ToolWrapper.component.scss";
-import { connect } from "react-redux";
 
 const ToolWrapper = memo(props => {
   const {btnClasses, btnText, componentSpecific, data, disabled, dispatchToolAction, expanded, hoverClasses, icon, layoutClasses, leftSnapped, name, selectedComponent, size, toggleIcon, tooltip, visibility} = props;
@@ -15,15 +15,15 @@ const ToolWrapper = memo(props => {
   const [buttonClicked, setButtonClicked] = useState(componentSpecific ? {} : false);
   const [currentIcon, setCurrentIcon] = useState(icon)
   const {onClickHandler, jsx, type} = useTool(name && name.toLowerCase(), props)
-  const iconDescriptor = currentIcon && currentIcon.split(".");
-  const Icon = reactIcons[iconDescriptor[1]];
   const iconSize = !expanded && visibility === "contained" ? "0" : size ? size : "1.1rem";
+  const iconColor = !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "";
+  const iconClass = `global-class-name${hovered ? " hovered" : ""}`;
 
   useEffect(() => {
       setTimeout(() => setExpand(hovered), 1000)
   }, [hovered])
   return (
-    <IconContext.Provider value={{ color: !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "", size, className: "global-class-name" }}>
+    // <IconContext.Provider value={{ color: !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "", size, className: "global-class-name" }}>
       <div className={`c-ToolWrapper position-relative d-inline-block h-100
           ${!expanded && visibility === "contained" ? " hide" : ""}
           ${layoutClasses ? " " + layoutClasses : ""}
@@ -45,18 +45,19 @@ const ToolWrapper = memo(props => {
               ${!expanded && visibility === "contained" ? " hide" : ""}
               ${disabled ? " disabled" : ""}`}
             >
-              {Icon ? <Icon className={hovered ? "hovered" : ""} /> : btnText}
+              {/* {Icon ? <Icon className={hovered ? "hovered" : ""} /> : btnText} */}
+              {currentIcon ? <LoadableIcon icon={currentIcon} size={size} color={iconColor} class={`mr-2${iconClass ? " " + iconClass : ""}`} /> : btnText}
           </button>
           {hoverClasses && <span className={`button-text${expand && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>
-        {hovered && !buttonClicked && <RichTooltip iconSize={iconSize} tooltip={tooltip} />}
+        {hovered && !buttonClicked && <RichTooltip iconSize={size} tooltip={tooltip} />}
         {(componentSpecific ? buttonClicked[selectedComponent] : buttonClicked) && jsx && type === "TAGGED" ? <QuickOptionsContainer data={data} show={componentSpecific ? buttonClicked[selectedComponent] : buttonClicked}>{jsx(data)}</QuickOptionsContainer>: null}
       </div>
-    </IconContext.Provider>
+    // </IconContext.Provider>
   );
 });
 
-ToolWrapper.whyDidYouRender = true;
+// ToolWrapper.whyDidYouRender = true;
 
 ToolWrapper.propTypes = {
   btnClasses: PropTypes.string,

@@ -1,5 +1,6 @@
 import {useState} from "react";
-import { BsToggleOff, BsToggleOn } from "react-icons/bs"
+import { LoadableIcon } from "../components";
+// import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
 function useTool(toolName, props) {
     const [toggleValues, setToggleValues] = useState(null);
@@ -75,7 +76,7 @@ function useTool(toolName, props) {
             return <ul className="list-unstyled font-weight-bold">
                 {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
                 <span>{profileOption.name}</span>
-                {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
+                {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <LoadableIcon icon="Bs.BsToggleOn" className="svg-stroke-theme" /> : <LoadableIcon icon="Bs.BsToggleOff" className="svg-stroke-theme" />}</span>}
             </li>)}</ul>
         },
         type: "TAGGED"
@@ -99,7 +100,7 @@ function useTool(toolName, props) {
                     }
                 }}>
                 <span>{toggle.name}</span>
-                {toggle.selected !== undefined && <span style={{float: "right"}}>{toggle.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
+                {toggle.selected !== undefined && <span style={{float: "right"}}>{toggle.selected ? <LoadableIcon icon="Bs.BsToggleOn" className="svg-stroke-theme" /> : <LoadableIcon icon="Bs.BsToggleOff" className="svg-stroke-theme" />}</span>}
             </li>)}</ul>
         },
         toggle: (toggleName) => !this.toggles[toggleName],

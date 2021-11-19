@@ -7,6 +7,10 @@ const API_CONFIG = {
     "HOST": {
         "development": "http://localhost:3002",
         "production": "https://armory-service.herokuapp.com"
+    },
+    "STATIC_HOST": {
+        "development": "http://localhost:8080",
+        "production": "https://armory-static.herokuapp.com"
     }
 }
 

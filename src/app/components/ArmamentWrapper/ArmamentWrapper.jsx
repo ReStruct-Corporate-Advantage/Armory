@@ -76,7 +76,10 @@ const ArmamentWrapper = props => {
         left: componentConfig.left,
         opacity: isDragging ? 0 : 1
       }}>
-      <span /><span /><span /><span />
+      <span className="selection-indicator" />
+      <span className="selection-indicator" />
+      <span className="selection-indicator" />
+      <span className="selection-indicator" />
       <div
         className="c-ArmamentWrapper"
         id={`${componentConfig.uuid}-RENDER`}
