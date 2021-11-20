@@ -49,11 +49,11 @@ export default class Component extends ArmoryEntity {
     }
 
     save () {
-        let transformedComponent = {};
+        let transformedComponent: any = {};
         Object.keys(this).forEach(key => {
             if (key !== "__proto__" && key.startsWith("_")) {
                 const trimmedKey = key.substring(1);
-                transformedComponent[trimmedKey] = this[key];
+                transformedComponent[trimmedKey] = (this as any)[key];
             }
         });
         return Network.post("/api/armory?withContainer=true", transformedComponent)
