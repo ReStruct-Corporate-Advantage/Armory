@@ -11,11 +11,11 @@ const ComponentDescription = props => {
   const createdBy = description && description.meta ? description.meta.createdBy  : "";
   description.descriptor = description.descriptor ? description.descriptor : {};
   description.descriptor.classes = description.descriptor.classes ? description.descriptor.classes : "";
-  description.descriptor.classes += " ml-4 mt-3";
+  description.descriptor.classes += " ms-4 mt-3";
   const Component = repository[description.componentName];
   const componentRender = Component ? <Component {...description} /> : null;
   return (
-    <div className="c-ComponentDescription text-left overflow-auto text-white">
+    <div className="c-ComponentDescription text-start overflow-auto text-white">
       {componentRender}
       <hr style={{background: "white"}} />
       <span className="d-block">Name: {displayName}</span>

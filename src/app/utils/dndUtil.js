@@ -21,6 +21,7 @@ export class DNDUtil {
     if (monitor.isOver() || handleChildArmamentWrapperDropForInverseDropScenario){
       const rootChildrenArray = componentsConfig.components[0].descriptor.children;
       const position = this.getPosition(comContainerRef, monitor, clientOffset);
+      item.type = monitor.getItemType();
       if (rootChildrenArray.length === 0) {
         dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
           body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",

@@ -47,8 +47,8 @@ const StaticArmament = props => {
       style={{position: "relative"}}>
       <span className="c-Aside__list-item-text">
         {category.items ?
-          <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><LoadableIcon icon="Gr.GrDrag" className="mr-2 svg-stroke-white" /></>}
+          <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
+          : <><span className="preview"></span><LoadableIcon icon="Gr.GrDrag" className="me-2 svg-stroke-white" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {/* {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />} */}
       </span>

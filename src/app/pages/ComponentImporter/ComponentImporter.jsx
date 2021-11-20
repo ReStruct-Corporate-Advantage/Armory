@@ -50,7 +50,7 @@ const ComponentImporter = props => {
       <div className="c-ComponentImporter px-3 overflow-auto flex-grow-1 d-flex flex-column">
         <div className="converter-tools row pt-2">
           <div className="col-12">
-            <button className="btn btn-success mr-3" onClick={renderDescriptor}><LoadableIcon icon="Vsc.VscDebugStart" />Run</button>
+            <button className="btn btn-success me-3" onClick={renderDescriptor}><LoadableIcon icon="Vsc.VscDebugStart" />Run</button>
             <button className="btn btn-danger" onClick={() => {
               setCodeString("");
               setJsonState({jsonString: "", jsonObj: null, jsonView: "object"});

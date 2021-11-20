@@ -37,7 +37,7 @@ const Dashboard = props => {
                     const hovered = hoverState && hoverState[part.name];
                     return part.subOptions && hovered ?
                       <div className={`${hovered ? "col-12" : "col-7 mx-auto"}`}>
-                        <div className="row ml-0"
+                        <div className="row ms-0"
                           onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
                           onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
                           <button className={`${part.classes} my-auto col-5`}>{part.text}</button>
@@ -72,7 +72,7 @@ const Dashboard = props => {
   return (
     <div className="c-Dashboard d-flex flex-column h-100">
       <main className="c-Dashboard__main p-4 mb-5 overflow-auto text-center flex-grow-1">
-        <h4 className="page-header glass-panel text-left">Welcome {name}!</h4>
+        <h4 className="page-header glass-panel text-start">Welcome {name}!</h4>
         <div className="content row mt-5">
           {sections}
         </div>

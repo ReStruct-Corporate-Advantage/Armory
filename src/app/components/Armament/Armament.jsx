@@ -17,7 +17,8 @@ const Armament = props => {
   const armamentId = `c-Armament-${index}`
   category.id = armamentId;
   const [{isDragging}, drag, preview] = useDrag({
-    item: {type: ITEM_TYPE.ARMAMENT, index, category},
+    type: ITEM_TYPE.ARMAMENT,
+    item: {index, category},
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
 		}),
@@ -47,8 +48,8 @@ const Armament = props => {
         }}
         onMouseLeave={() => setHovered(false)}>
         {category.items ?
-          <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><LoadableIcon icon="gr.GrDrag" classes="mr-2 svg-stroke-white" /></>}
+          <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
+          : <><span className="preview"></span><LoadableIcon icon="gr.GrDrag" classes="me-2 svg-stroke-white" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
         {hovered && !category.items && <RichTooltip tooltip={<ComponentDescription description={category} />} positionClasses="top-100" />}

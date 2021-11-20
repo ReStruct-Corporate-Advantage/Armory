@@ -125,7 +125,7 @@ const LoginForm = props => {
             <Tab label="Register" {...a11yProps(1)} />
           </Tabs>
         </AppBar>
-        <TabPanel value={value} index={0} className="text-left">
+        <TabPanel value={value} index={0} className="text-start">
           <SectionHeader title="Please enter your credentials to login" className="col-12" />
           <form className="fields-container col-12 mt-3">
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}
@@ -139,7 +139,7 @@ const LoginForm = props => {
             }}}}/>
           </form>
         </TabPanel>
-        <TabPanel value={value} index={1} className="text-left">
+        <TabPanel value={value} index={1} className="text-start">
           <SectionHeader title="Please enter following details to register" className="col-12" />
           <form className="fields-container col-12 mt-3">
             {registerApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isRegisterApiError ? " error" : ""}`}>{registerApiMessage}</p>}

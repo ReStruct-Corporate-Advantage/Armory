@@ -23,7 +23,8 @@ const ArmamentWrapper = props => {
 
   // Use this component to be dragged and dropped on other potential drop targets
   const [{isDragging}, drag, preview] = useDrag({
-    item: {type: ITEM_TYPE.ARMAMENT_WRAPPER, index: componentConfig.index, category: componentConfig},
+    type: ITEM_TYPE.ARMAMENT_WRAPPER,
+    item: {index: componentConfig.index, category: componentConfig},
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
 		}),

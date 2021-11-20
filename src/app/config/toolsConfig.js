@@ -36,13 +36,13 @@ const TOOLS_CONFIG = {
         classes: "backgroundNone",
         size: "1.1rem",
         tools: [
-            {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
-            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
+            {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
+            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
             {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 3, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
         ]
     },
     PAGE_TOOLS: {
-        classes: "ml-auto backgroundNone pr-4 borderRight",
+        classes: "ms-auto backgroundNone pr-4 borderRight",
         size: "1.4rem",
         tools: [
             {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
@@ -52,7 +52,7 @@ const TOOLS_CONFIG = {
         ]
     },
     ARMAMENT_TOOLS: {
-        classes: "ml-auto backgroundNone position-absolute right-0 top-0",
+        classes: "ms-auto backgroundNone position-absolute right-0 top-0",
         tools: [
             {name: "ViewArmament", btnClasses: "btn backgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiFillEye", placement: "right", tooltip: "View"},
             {name: "EditArmament", btnClasses: "btn backgroundNone", btnText: "", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", tooltip: "Edit"},
@@ -64,7 +64,7 @@ const TOOLS_CONFIG = {
         classes: "backgroundNone pl-4",
         size: "1.7rem",
         tools: [
-            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "",
+            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "",
                 visibility: "visible", order: 1, icon: "gi.GiToggles", placement: "right",
                 data: {
                     toggles: [
@@ -87,8 +87,8 @@ const TOOLS_CONFIG = {
                 },
                 tooltip: "Toggles"
             },
-            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right", tooltip: "Help n FAQ"},
-            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right", tooltip: "Notifications"},
+            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right", tooltip: "Help n FAQ"},
+            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right", tooltip: "Notifications"},
             {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "",
                 visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right",
                 data: {
