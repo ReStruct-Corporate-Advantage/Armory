@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {DndProvider} from "react-dnd"
-import Backend from "react-dnd-html5-backend"
+import {HTML5Backend as Backend} from "react-dnd-html5-backend"
 import {TouchBackend} from "react-dnd-touch-backend"
 import io from "socket.io-client";
 import { isMobile } from "../../global-selectors";

@@ -7,7 +7,7 @@ import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
 import { getUserDetails } from "../../global-selectors";
 import { compGen } from "../../utils/CodeUtils/ComponentGenerator";
 import { DndProvider } from "react-dnd";
-import Backend from "react-dnd-html5-backend"
+import {HTML5Backend as Backend} from "react-dnd-html5-backend"
 import {TouchBackend} from "react-dnd-touch-backend"
 import API_CONFIG from "../../constants/api-config";
 import "./LivePreview.module.scss";

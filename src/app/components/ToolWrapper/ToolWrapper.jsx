@@ -46,7 +46,7 @@ const ToolWrapper = memo(props => {
               ${disabled ? " disabled" : ""}`}
             >
               {/* {Icon ? <Icon className={hovered ? "hovered" : ""} /> : btnText} */}
-              {currentIcon ? <LoadableIcon icon={currentIcon} size={size} color={iconColor} class={`mr-2${iconClass ? " " + iconClass : ""}`} /> : btnText}
+              {currentIcon ? <LoadableIcon icon={currentIcon} size={size} color={iconColor} class={`me-2${iconClass ? " " + iconClass : ""}`} /> : btnText}
           </button>
           {hoverClasses && <span className={`button-text${expand && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? " px-2 font-size-12 h-100 " : ""}`}>{name}</span>}
         </div>

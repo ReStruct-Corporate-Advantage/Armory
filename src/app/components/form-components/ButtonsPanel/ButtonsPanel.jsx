@@ -10,7 +10,7 @@ const ButtonsPanel = props => {
   })
   return (
     <div className="c-ButtonsPanel row my-5">
-      <div className="col-12 text-right">
+      <div className="col-12 text-end">
         {buttonRenders}
       </div>
     </div>
