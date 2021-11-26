@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import ZoomSlider from "./ZoomSlider";
 import CompareView from "./CompareView";
 import LoadableIcon from "./LoadableIcon";
 import AdminCodeTree from "./AdminCodeTree";
@@ -64,6 +65,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ZoomSlider,
 	CompareView,
 	LoadableIcon,
 	AdminCodeTree,

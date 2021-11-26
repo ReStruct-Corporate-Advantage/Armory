@@ -42,7 +42,7 @@ const TOOLS_CONFIG = {
         ]
     },
     PAGE_TOOLS: {
-        classes: "ms-auto backgroundNone pr-4 borderRight",
+        classes: "ms-auto backgroundNone pe-4 borderRight",
         size: "1.4rem",
         tools: [
             {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
@@ -61,7 +61,7 @@ const TOOLS_CONFIG = {
         ]
     },
     GLOBAL_TOOLS: {
-        classes: "backgroundNone pl-4",
+        classes: "backgroundNone ps-4",
         size: "1.7rem",
         tools: [
             {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "",
@@ -69,19 +69,34 @@ const TOOLS_CONFIG = {
                 data: {
                     toggles: [
                         {
-                            name: "Show Tooltips",
+                            color: "#455964",
+                            displayName: "Show Tooltips",
+                            name: "tooltips",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: true
                         },
                         {
-                            name: "Collapse Widgets",
+                            color: "#455964",
+                            displayName: "Collapse Widgets",
+                            name: "collapseWidgets",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: false
                         },
                         {
-                            name: "Enable Bootstrap",
+                            color: "#455964",
+                            displayName: "Enable Bootstrap",
+                            name: "enableBootstrap",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: false
                         },
                         {
-                            name: "More Settings"
+                            displayName: "More Settings",
+                            name: "settings",
+                            generic: true,
+                            icon: "fc.FcSettings"
                         }
                     ]
                 },
@@ -94,22 +109,32 @@ const TOOLS_CONFIG = {
                 data: {
                     profileOptions: [
                         {
-                            name: "View Profile"
+                            name: "View Profile",
+                            icon: "bi.BiUser"
                         },
                         {
-                            name: "My Pages"
+                            name: "My Projects",
+                            icon: "ai.AiOutlineProject"
                         },
                         {
-                            name: "My Components"
+                            name: "My Pages",
+                            icon: "bs.BsFileEarmarkSpreadsheet"
                         },
                         {
-                            name: "Account Settings"
+                            name: "My Components",
+                            icon: "cg.CgComponents"
                         },
                         {
-                            name: "Privacy Settings"
+                            name: "Account Settings",
+                            icon: "md.MdOutlineAccountBalance"
+                        },
+                        {
+                            name: "Privacy Settings",
+                            icon: "md.MdOutlinePrivacyTip"
                         },
                         {
                             name: "Logout",
+                            icon: "md.MdLogout",
                             onClick: () => {
                                 Helper.removeCookie("auth_session_token");
                                 window.location.pathname = "/login";

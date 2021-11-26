@@ -8,8 +8,13 @@
     &.hide {
         // visibility: hidden;
         max-width: 0;
+        width: 0;
         border: 0;
         margin-left: 0 !important;
+
+        img {
+            width: 0;
+        }
     }
 
     .btn {

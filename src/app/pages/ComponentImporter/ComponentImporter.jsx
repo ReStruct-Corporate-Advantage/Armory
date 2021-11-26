@@ -59,7 +59,7 @@ const ComponentImporter = props => {
           </div>
         </div>
         <div className="row flex-grow-1 mb-3 pt-2 pb-3">
-          <div className={`col-6 pr-2 position-relative${inputHovered ? " hovered" : ""}`} onMouseEnter={() => setInputHovered(true)} onMouseLeave={() => setInputHovered(false)}>
+          <div className={`col-6 pe-2 position-relative${inputHovered ? " hovered" : ""}`} onMouseEnter={() => setInputHovered(true)} onMouseLeave={() => setInputHovered(false)}>
             <div className="code-importer-input-tools position-absolute">
               {/* <IconContext.Provider value={{ color: "black", size: "0.8rem", className: "code-importer-input-tool" }}> */}
                 <LoadableIcon icon="Vsc.VscDebugStart" onClick={renderDescriptor} />
@@ -69,7 +69,7 @@ const ComponentImporter = props => {
             </div>
             <textarea id="code-importer-input" className="c-ComponentImporter__code-input w-100 h-100" value={codeString} onChange={(e) => setCodeString(e.target.value)} name="code-importer-input" rows="20" />
           </div>
-          <div className={`col-6 pl-2 position-relative${outputHovered ? " hovered" : ""}`}  onMouseEnter={() => setOutputHovered(true)} onMouseLeave={() => setOutputHovered(false)}>
+          <div className={`col-6 ps-2 position-relative${outputHovered ? " hovered" : ""}`}  onMouseEnter={() => setOutputHovered(true)} onMouseLeave={() => setOutputHovered(false)}>
             <div className="code-importer-output-tools position-absolute">
               {/* <IconContext.Provider value={{ color: "black", size: "0.8rem", className: "code-importer-output-tool" }}> */}
                 <LoadableIcon icon="Ri.RiExchangeLine" onClick={toggleJson} />
