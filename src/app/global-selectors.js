@@ -24,4 +24,6 @@ export const getUserRole = createGetSelector(getGlobal, "userRole");
 export const isMobile = createGetSelector(getGlobal, "isMobile");
 export const getIcons = createGetSelector(getContent, "icons");
 export const getModal = createGetSelector(getGlobal, "modal");
+export const getTooltip = createGetSelector(getGlobal, "tooltip");
+export const getToggles = createGetSelector(getGlobal, "toggles");
 export const getLevels = createGetSelector(getGlobal, "levels");

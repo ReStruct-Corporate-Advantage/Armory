@@ -178,7 +178,7 @@ const AdminPropsForm = props => {
 
   return (
     <div className="c-AdminPropsForm p-1 overflow-auto">
-      {editedComponentConfig && <p className="pl-2 py-2 mb-0 text-muted">Owner: <b><i>{editedComponentConfig && editedComponentConfig.meta && editedComponentConfig.meta.createdBy}</i></b></p>}
+      {editedComponentConfig && <p className="ps-2 py-2 mb-0 text-muted">Owner: <b><i>{editedComponentConfig && editedComponentConfig.meta && editedComponentConfig.meta.createdBy}</i></b></p>}
       {editedComponentConfig && <div className="c-AdminPropsForm__propSelector row mb-2">
         <SelectOption layoutClasses="col-5" options={additionalProperties} />
         <SelectOption layoutClasses="col-5" options={types} />

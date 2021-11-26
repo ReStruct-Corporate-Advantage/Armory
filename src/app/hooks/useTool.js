@@ -1,10 +1,13 @@
 import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getToggles} from "../global-selectors";
+import {dispatchToggles} from "../global-actions";
 import { LoadableIcon } from "../components";
 // import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
 function useTool(toolName, props) {
-    const [toggleValues, setToggleValues] = useState(null);
-
+    const toggleStore = useSelector(getToggles);
+    const dispatch = useDispatch();
     const addpage = {
         jsx: () => {},
         type: "MODAL"
@@ -74,9 +77,11 @@ function useTool(toolName, props) {
         jsx: (data) => {
             const profileOptions = data && data.profileOptions;
             return <ul className="list-unstyled font-weight-bold">
-                {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
+                {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
                 <span>{profileOption.name}</span>
-                {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <LoadableIcon icon="Bs.BsToggleOn" className="svg-stroke-theme" /> : <LoadableIcon icon="Bs.BsToggleOff" className="svg-stroke-theme" />}</span>}
+                <span style={{float: "right"}}>
+                    <LoadableIcon size="1.4rem" color="#e83e8c" icon={profileOption.icon} className="svg-stroke-theme" />
+                </span>
             </li>)}</ul>
         },
         type: "TAGGED"
@@ -91,16 +96,27 @@ function useTool(toolName, props) {
         jsx: (data) => {
             const toggles = data && data.toggles;
             return <ul className="list-unstyled font-weight-bold">
-                {toggles && toggles.map((toggle, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
+                {toggles && toggles.map((toggle, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={() => {
                     if (toggle.selected !== undefined) {
-                        const toggleValuesCloned = [...(toggleValues || toggles)];
+                        const toggleStoreTransformed = toggleStore && !toggleStore.length ? toggleStore.toArray().map(item => item.toObject()) : toggleStore;
+                        toggles.forEach(toggle => {
+                            if (toggleStoreTransformed.findIndex(tInner => tInner.name === toggle.name) < 0) {
+                                toggleStoreTransformed.push(toggle);
+                            }
+                        })
+                        const toggleValuesCloned = [...toggleStoreTransformed];
                         const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);
                         clickedToggle.selected = !clickedToggle.selected
-                        setToggleValues(toggleValuesCloned);
+                        dispatch(dispatchToggles(toggleValuesCloned));
                     }
                 }}>
-                <span>{toggle.name}</span>
-                {toggle.selected !== undefined && <span style={{float: "right"}}>{toggle.selected ? <LoadableIcon icon="Bs.BsToggleOn" className="svg-stroke-theme" /> : <LoadableIcon icon="Bs.BsToggleOff" className="svg-stroke-theme" />}</span>}
+                <span>{toggle.displayName}</span>
+                {toggle.icon
+                    && <span style={{float: "right"}}>
+                        {toggle.selected || toggle.generic
+                            ? <LoadableIcon  size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.icon} className="svg-stroke-theme" />
+                            : <LoadableIcon  size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.iconOff} className="svg-stroke-theme" />}
+                        </span>}
             </li>)}</ul>
         },
         toggle: (toggleName) => !this.toggles[toggleName],

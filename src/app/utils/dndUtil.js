@@ -23,10 +23,14 @@ export class DNDUtil {
       const position = this.getPosition(comContainerRef, monitor, clientOffset);
       item.type = monitor.getItemType();
       if (rootChildrenArray.length === 0) {
-        dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
-          body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
-          primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
-          secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
+        if (item.category && item.category.descriptor && item.category.descriptor.allowChildren) {
+          this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
+        } else {
+          dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
+            body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
+            primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
+            secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
+        }
       } else {
         if (item.category.uuid) {
           this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
@@ -146,6 +150,7 @@ export class DNDUtil {
 
   armWrapperDropHandler (item, monitor, comContainerRef, ref, componentsConfig, droppedOn, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket) {
     const isDroppedItemParentOfMonitor = this.isDroppedItemParentOfMonitor(item.category, droppedOn);
+    item.type = monitor.getItemType();
     if (isDroppedItemParentOfMonitor) {
       this.targetArmamentWrapper = droppedOn; // Use this value in component container drop handler to set position of dropped container (only applicable to container type elements)
       this.targetArmamentWrapperMonitorClientOffset = monitor.getClientOffset();

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {DndProvider} from "react-dnd"
-import {HTML5Backend as Backend} from "react-dnd-html5-backend"
+import {HTML5Backend} from "react-dnd-html5-backend"
 import {TouchBackend} from "react-dnd-touch-backend"
 import io from "socket.io-client";
 import { isMobile } from "../../global-selectors";
@@ -19,7 +19,7 @@ const ComponentCreator = props => {
   const [clientRect, setClientRect] = useState({});
   const [socket, setSocket] = useState(null);
   const {handleKeyDown, handleKeyUp, handleOnClick} = useEventHandler({socket});
-  const dndBackend = isMobile ? TouchBackend : Backend;
+  const dndBackend = isMobile ? TouchBackend : HTML5Backend;
 
   useEffect(() => {
     if (!socket) {
@@ -31,7 +31,7 @@ const ComponentCreator = props => {
   }, [socket]);
   
   // return <DndProvider backend={Backend}>
-  return <DndProvider backend={dndBackend}>
+  return <DndProvider debugMode={true} backend={dndBackend}>
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
         <main className="c-ComponentCreator__content d-flex flex-row flex-nowrap position-fixed" 
           tabIndex="0"

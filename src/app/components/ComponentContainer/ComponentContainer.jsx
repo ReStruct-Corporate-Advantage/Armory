@@ -69,8 +69,26 @@ const ComponentContainer = props => {
   const items = componentsConfig.components[0].descriptor.children;
   const componentRenders = compGen.iterateAndGenerateWithConfig(items, comContainerRef, "", selectedComponent, dispatchSelectedComponent, socket).map(componentObj => componentObj.item);
 
+  const touchHandler = e => {
+    if (e.altKey && comContainerRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+      const target = comContainerRef.current;
+      const scale = target.getBoundingClientRect().width / target.offsetWidth;
+      if (e.deltaY < 0 && scale > 0.5) {
+        target.style.transformOrigin = "100px 100px";
+        target.style.transform = `scale(${scale - (4/100*scale)})`;
+      } else if (e.deltaY > 0 && scale < 1) {
+        let newScale = scale + (4/100*scale);
+        newScale = newScale > 1 ? 1 : newScale
+        target.style.transformOrigin = "100px 100px";
+        target.style.transform = `scale(${newScale})`;
+      }
+    }
+  }
+
   return (
-    <div className="c-ComponentContainer position-relative" ref={comContainerRef} >
+    <div className="c-ComponentContainer position-relative" ref={comContainerRef} onWheel={touchHandler}>
       <div className="c-ComponentContainer__layout h-100 position-relative" ref={ref}>
         {cellRenders}
       </div>

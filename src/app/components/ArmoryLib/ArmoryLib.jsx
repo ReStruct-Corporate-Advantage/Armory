@@ -47,7 +47,7 @@ const ArmoryLib = props => {
 
   return (
     <div className="c-ArmoryLib h-100">
-      <FormField type="input" containerClasses="c-Search__search-field-container pl-1 mb-3 w-100 justify-center"
+      <FormField type="input" containerClasses="c-Search__search-field-container ps-1 mb-3 w-100 justify-center"
         attributes={{placeholder: "Type to search", inputClasses: "w-100 c-Search__search-field border-5"}} onChange={searchFieldChangeHandler} />
       <div className="pb-5 h-100 overflow-auto">
         {renderArmory(armory)}

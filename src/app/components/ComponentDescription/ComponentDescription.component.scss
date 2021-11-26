@@ -1,4 +1,8 @@
 .c-ComponentDescription {
   cursor: default;
   min-width: 10rem;
+
+  .c-ComponentDescription__render {
+    max-height: 15rem;
+  }
 }

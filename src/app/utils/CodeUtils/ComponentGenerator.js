@@ -83,6 +83,13 @@ class ComponentGenerator {
                     const descriptor = this.props.descriptor;
                     const attributes = descriptor ? descriptor.attributes : {};
                     style = descriptor && descriptor.styles ? {...style, ...descriptor.styles} : style;
+                    style = this.props.style ? {...style, ...this.props.style} : style;
+                    const dbClasses = props.className ? props.className.split(" ") : [];
+                    const propClasses = descriptor && descriptor.classes ? descriptor.classes.split(" ") : [];
+                    const armamentClasses = this.props.classes ? this.props.classes.split(" ") : [];
+                    propClasses.forEach(cls => dbClasses.indexOf(cls) < 0 && dbClasses.push(cls));
+                    armamentClasses.forEach(cls => dbClasses.indexOf(cls) < 0 && dbClasses.push(cls));
+                    props.className = dbClasses.join(" ");
                     childrenConfig = [...childrenConfig];
                     let dynamicSetOfChildren = descriptor && descriptor.children;
                     dynamicSetOfChildren && dynamicSetOfChildren.forEach(dynamicChild => {
@@ -91,15 +98,23 @@ class ComponentGenerator {
                             childrenConfig.push(dynamicChild);
                         }
                     })
+                    const selectionIndicators = this.props.children;
                     let childRenders = childrenConfig
                         ? self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) : [];
                     childRenders = childRenders.map(child => child.item)
                     innerText && childRenders.push(innerText);
+                    childRenders = selectionIndicators && this.props.selected ? selectionIndicators.concat(childRenders) : childRenders;
+                    const outgoingProps = {style, className: props.className, ...attributes};
+                    this.props.dndRef && (outgoingProps.ref = this.props.dndRef);
+                    this.props.onClick && (outgoingProps.onClick = this.props.onClick);
+                    this.props.id && (outgoingProps.id = this.props.id);
+                    outgoingProps.key = key;
                     // this.props.allowChildren && (style.overflow = "auto");
                     // childRenders = childrenFromSource ? [...childRenders, ...childrenFromSource] : childRenders
+                    // console.log(outgoingProps);
                     return childRenders && childRenders.length > 0
-                        ? React.createElement(elemType, {style, className: props.className, ...attributes}, childRenders)
-                        : React.createElement(elemType, {style: props.style, className: props.className, ...attributes});
+                        ? React.createElement(elemType, outgoingProps, childRenders)
+                        : React.createElement(elemType, outgoingProps);
                 }
             }
             Object.defineProperty(c, 'name', {value: componentName});

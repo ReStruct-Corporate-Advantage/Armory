@@ -4,7 +4,7 @@ import { connect, Provider } from "react-redux"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType } from "./global-actions";
-import { Header, Modal, PageLoader } from "./components";
+import { Header, Modal, PageLoader, RichTooltip } from "./components";
 import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
@@ -48,6 +48,7 @@ class Router extends React.Component {
                     </Switch>
                 </BrowserRouter>
                 <Modal />
+                <RichTooltip />
                 <BrowserRouter>
                     <Route exact path="/:user/page/live" component={LoadableLivePreview} />
                 </BrowserRouter>
