@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import Logger from "./Logger";
+import PageContainer from "./PageContainer";
 import ZoomSlider from "./ZoomSlider";
 import CompareView from "./CompareView";
 import LoadableIcon from "./LoadableIcon";
@@ -65,6 +67,8 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	Logger,
+	PageContainer,
 	ZoomSlider,
 	CompareView,
 	LoadableIcon,

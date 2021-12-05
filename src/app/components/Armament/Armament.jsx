@@ -11,7 +11,7 @@ import "./Armament.component.scss";
 
 const Armament = props => {
 
-  const {category, clientRect, dispatchTooltip, index, recursiveRenderer} = props;
+  const {category, clientRect, dispatchTooltip, index, isSearched, recursiveRenderer} = props;
   const ref = useRef(null)
   const [hovered, setHovered] = useState(false);
   const [expanded, setExpanded] = useState(category.expanded);
@@ -43,8 +43,7 @@ const Armament = props => {
     return category.meta && category.meta.createdBy && category.meta.createdBy.indexOf("mohiit1502") === -1 ? category.meta.createdBy : "Armory"
   }
 
-  return (
-    <div id={armamentId}
+  return !isSearched || category.mark ? <div id={armamentId}
       className="c-Armament c-Armament--modifier c-AttributeCreator--shadow"
       ref={!category.items ? ref : null}
       style={{
@@ -64,8 +63,7 @@ const Armament = props => {
         {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
       </span>
       {category.items && recursiveRenderer(category.items, clientRect, index, expanded, setExpanded)}
-    </div>
-  )
+    </div> : null;
 };
 
 Armament.propTypes = {
@@ -74,6 +72,7 @@ Armament.propTypes = {
     PropTypes.object
   ]),
   clientRect: PropTypes.object,
+  isSearched: PropTypes.bool,
   index: PropTypes.string,
   recursiveRenderer: PropTypes.func
 };

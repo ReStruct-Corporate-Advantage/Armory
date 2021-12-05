@@ -93,6 +93,14 @@ const TOOLS_CONFIG = {
                             selected: false
                         },
                         {
+                            color: "#455964",
+                            displayName: "Developer mode",
+                            name: "developerMode",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: false
+                        },
+                        {
                             displayName: "More Settings",
                             name: "settings",
                             generic: true,
