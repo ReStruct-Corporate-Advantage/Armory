@@ -1,11 +1,10 @@
-import {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getToggles} from "../global-selectors";
 import {dispatchToggles} from "../global-actions";
 import { LoadableIcon } from "../components";
 // import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
-function useTool(toolName, props) {
+function useTool(toolName, props, setToolData) {
     const toggleStore = useSelector(getToggles);
     const dispatch = useDispatch();
     const addpage = {
@@ -105,9 +104,11 @@ function useTool(toolName, props) {
                             }
                         })
                         const toggleValuesCloned = [...toggleStoreTransformed];
+                        data.toggles = toggleValuesCloned;
                         const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);
                         clickedToggle.selected = !clickedToggle.selected
                         dispatch(dispatchToggles(toggleValuesCloned));
+                        // setToolData && setToolData({...data});
                     }
                 }}>
                 <span>{toggle.displayName}</span>

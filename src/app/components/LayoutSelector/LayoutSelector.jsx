@@ -22,13 +22,13 @@ const LayoutSelector = props => {
   }
   
   return (
-    <div className={`c-LayoutSelector position-absolute${hovered ? " hover" : ""}`}
+    <div className={`c-LayoutSelector position-absolute row${hovered ? " hover" : ""}`}
       onFocus={() => {}}
       onMouseOver={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}>
-      <div className="pe-3 ps-2 d-inline btn"><img src={images.LayoutShrink} alt="Shrink" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.SHRINK)} /></div>
-      <div className="pe-3 d-inline btn"><img src={images.LayoutExpand} alt="Expand" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.EXPAND)} /></div>
-      <div className="pe-1 d-inline btn"><img src={images.LayoutCustom} alt="Custom" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.CUSTOM)} /></div>
+      <div className={`${hovered ? "col-1 mx-2" : "col"} ps-2 btn`}><img src={images.LayoutShrink} alt="Shrink" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.SHRINK)} /></div>
+      <div className={`${hovered ? "col-1 mx-2" : "col"} ps-2 btn`}><img src={images.LayoutExpand} alt="Expand" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.EXPAND)} /></div>
+      <div className={`${hovered ? "col-1 mx-2" : "col"} ps-2 btn`}><img src={images.LayoutCustom} alt="Custom" className="scaleUpAndShadow" onClick={() => updateLayout(Layout.CUSTOM)} /></div>
       <ZoomSlider hovered={hovered} />
     </div>
   );

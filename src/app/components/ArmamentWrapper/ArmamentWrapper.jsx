@@ -76,26 +76,6 @@ const ArmamentWrapper = props => {
   // // Below line should always render child items of type Component and not HTML elements
   // const children = allowChildren && descriptor && descriptor.children && recursiveRenderer(descriptor.children)
 
-  // return Component
-  //   ? <Component
-  //       id={`${componentConfig.uuid}-RENDER`}
-  //       classes={`position-absolute${selectedComponent === componentConfig.uuid ? " SelectionIndicator" : ""}`}
-  //       selected={selectedComponent === componentConfig.uuid} allowChildren={allowChildren} {...componentConfig}
-  //       dndRef={ref}
-  //       onClick={clickHandler} onKeyDown={() => {}}
-  //       style={{
-  //         opacity: isDragging ? 0 : 1,
-  //         cursor: "move",
-  //         top: componentConfig.top,
-  //         left: componentConfig.left
-  //       }}>
-  //       <span className="selection-indicator" />
-  //       <span className="selection-indicator" />
-  //       <span className="selection-indicator" />
-  //       <span className="selection-indicator" />
-  //     </Component>
-  //   : null
-
   const wrapperStyles = {};
   const aggregatedStyles = StyleAggregator.aggregateStyles([descriptor.styles, {height: descriptor.defaultHeight, width: descriptor.defaultWidth}]);
   descriptor && descriptor.wrapperStyles && Object.keys(aggregatedStyles).forEach(key => {

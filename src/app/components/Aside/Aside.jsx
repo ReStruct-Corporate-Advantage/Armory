@@ -4,8 +4,9 @@ import * as components from "./../";
 import "./Aside.component.scss";
 
 const Aside = props => {
-  const {childItems, clientRect, componentConfig, context, position, selectedComponent, styles} = props;
-  const [expanded, setExpanded] = useState(true);
+  const {childItems, clientRect, componentConfig, context, isDevMode, persistent, position, selectedComponent, styles} = props;
+  let [expanded, setExpanded] = useState(true);
+  expanded = expanded && (persistent ? true : isDevMode);
   const asideComponents = childItems && childItems.map((child, key) => {
     const Component = components[child.name];
     return <Component key={key} selectedComponent={selectedComponent} {...child.props} componentsConfig={componentConfig}
@@ -27,6 +28,8 @@ Aside.propTypes = {
   clientRect: PropTypes.object,
   componentConfig: PropTypes.object,
   context: PropTypes.string,
+  isDevMode: PropTypes.bool,
+  persistent: PropTypes.bool,
   position: PropTypes.string,
   selectedComponent: PropTypes.string,
   styles: PropTypes.object

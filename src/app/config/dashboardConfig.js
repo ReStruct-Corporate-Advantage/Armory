@@ -4,12 +4,12 @@ import {helper} from "../utils/CodeUtils/ComponentConfigHelper";
 const DASHBOARD_CONFIG = {
     ADMIN_ACTIONS: {
         containerClasses: "col mx-auto mb-5",
-        sectionClasses: "c-Dashboard__main__admin glass-panel mx-auto",
+        sectionClasses: "c-Dashboard__main__admin mx-auto",
         protected: true,
         parts: [
             {name: "AdminHeader", type: "header", classes: "section-header w-100 mb-0", text: "Armory Management"},
             {
-                name: "ManageComponents", type: "button", classes: "c-Dashboard__btn raised-effect mx-auto mt-4", hoverClasses: "col-7", text: "Manage Components", visibility: "visible",
+                name: "ManageComponents", type: "button", classes: "c-Dashboard__btn raised-effect mx-auto col-7 mt-5 mb-4", text: "Manage Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "Manage Components",
                 subOptions: [
                     {
@@ -24,12 +24,12 @@ const DASHBOARD_CONFIG = {
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/component`)
             },
             {
-                name: "ManagePages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "Manage Pages", visibility: "visible",
+                name: "ManagePages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "Manage Pages", visibility: "visible",
                 order: 1, icon: "fi.FiMaximize", tooltip: "Manage Pages",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/page`)
             },
             {
-                name: "ManageProjects", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4 mb-3", text: "Manage Projects", visibility: "visible",
+                name: "ManageProjects", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "Manage Projects", visibility: "visible",
                 order: 2, icon: "ai.AiOutlineEdit", tooltip: "Manage Projects",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/manage/project`)
             }
@@ -37,21 +37,21 @@ const DASHBOARD_CONFIG = {
     },
     RESUMPTION_ACTIONS: {
         containerClasses: "col",
-        sectionClasses: "c-Dashboard__main__resume glass-panel mx-auto",
+        sectionClasses: "c-Dashboard__main__resume mx-auto",
         parts: [
             {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "Let's resume where your left..."},
             {
-                name: "MyCompoents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "My Components", visibility: "visible",
+                name: "MyComponents", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "My Components", visibility: "visible",
                 order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "My Components",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/component`)
             },
             {
-                name: "MyPages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4", text: "My Pages", visibility: "visible",
+                name: "MyPages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "My Pages", visibility: "visible",
                 order: 1, icon: "fi.FiMaximize", tooltip: "My Pages",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/page`)
             },
             {
-                name: "MyProjects", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-4 mb-3", text: "My Projects", visibility: "visible",
+                name: "MyProjects", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "My Projects", visibility: "visible",
                 order: 2, icon: "ai.AiOutlineEdit", tooltip: "My Projects",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails) => history.push(`/${userDetails.username}/project`)
             }
@@ -59,7 +59,7 @@ const DASHBOARD_CONFIG = {
     },
     NEW_ACTIONS: {
         containerClasses: "col",
-        sectionClasses: "c-Dashboard__main__buttons glass-panel mx-auto",
+        sectionClasses: "c-Dashboard__main__buttons mx-auto",
         parts: [
             {name: "ResumptionHeader", type: "header", classes: "section-header w-100 mb-0", text: "...Or select one of the options below"},
             {

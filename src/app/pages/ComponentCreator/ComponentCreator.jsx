@@ -6,20 +6,22 @@ import {DndProvider} from "react-dnd"
 import {HTML5Backend} from "react-dnd-html5-backend"
 import {TouchBackend} from "react-dnd-touch-backend"
 import io from "socket.io-client";
-import { isMobile } from "../../global-selectors";
+import { getToggles, getUserDetails, isMobile } from "../../global-selectors";
 import {getPresentComponentsConfig, getSelectedComponent} from "./selectors";
 import {dispatchComponentsConfig, dispatchSelectedComponent} from "./actions";
-import {Aside, Main, ToolActionContainer} from "./../../components";
+import {Aside, Main, Logger, ToolActionContainer} from "./../../components";
 import useEventHandler from "../../utils/useEventHandler";
 import API_CONFIG from "../../constants/api-config";
 import "./ComponentCreator.module.scss";
 
 const ComponentCreator = props => {
-  const {componentConfig, dispatchComponentsConfig, dispatchSelectedComponent, isMobile, selectedComponent} = props
+  const {componentConfig, dispatchComponentsConfig, dispatchSelectedComponent, isMobile, selectedComponent, toggles, user} = props
   const [clientRect, setClientRect] = useState({});
   const [socket, setSocket] = useState(null);
   const {handleKeyDown, handleKeyUp, handleOnClick} = useEventHandler({socket});
   const dndBackend = isMobile ? TouchBackend : HTML5Backend;
+  const devModeToggle = toggles && toggles.find(toggle => toggle.name === "developerMode");
+  const isDevMode = devModeToggle && devModeToggle.selected;
 
   useEffect(() => {
     if (!socket) {
@@ -33,14 +35,14 @@ const ComponentCreator = props => {
   // return <DndProvider backend={Backend}>
   return <DndProvider debugMode={true} backend={dndBackend}>
       <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
-        <main className="c-ComponentCreator__content d-flex flex-row flex-nowrap position-fixed" 
+        <main className={`c-ComponentCreator__content d-flex flex-row flex-nowrap ${isDevMode ? " developer-mode" : ""}`} 
           tabIndex="0"
           onKeyDown = {(e) => handleKeyDown(e, componentConfig, dispatchComponentsConfig, selectedComponent, dispatchSelectedComponent, clientRect)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
-          <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
-          <Main setClientRect={setClientRect} clientRect={clientRect} dispatchSelectedComponent={dispatchSelectedComponent} selectedComponent={selectedComponent} socket={socket} />
-          <Aside childItems={
+          <Aside persistent={true} childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
+          <Main isDevMode={isDevMode} setClientRect={setClientRect} clientRect={clientRect} dispatchSelectedComponent={dispatchSelectedComponent} selectedComponent={selectedComponent} socket={socket} />
+          <Aside persistent={false} isDevMode={isDevMode} childItems={
             [
               {name: "PropertiesWidget", props: {title: "Component Details", socket}},
               {name: "CodeViewerWidget", props: {title: "Generated Code", dispatchSelectedComponent}}
@@ -48,6 +50,7 @@ const ComponentCreator = props => {
           } selectedComponent={selectedComponent} position="right" styles={{fontSize: "0.8rem"}}/>
         </main>
         <ToolActionContainer />
+      <Logger isDevMode={isDevMode} user={user} />
       </div>
     </DndProvider>;
 };
@@ -55,15 +58,17 @@ const ComponentCreator = props => {
 ComponentCreator.propTypes = {
   componentConfig: PropTypes.object,
   dispatchComponentsConfig: PropTypes.func,
-  dispatchDeviceType: PropTypes.func,
   selectedComponent: PropTypes.string,
-  dispatchSelectedComponent: PropTypes.func
+  dispatchSelectedComponent: PropTypes.func,
+  user: PropTypes.object
 };
 
 const mapStateToProps = createPropsSelector({
   componentConfig: getPresentComponentsConfig,
   isMobile: isMobile,
-  selectedComponent: getSelectedComponent
+  selectedComponent: getSelectedComponent,
+  toggles: getToggles,
+  user: getUserDetails
 })
 
 const mapDispatchToProps = {

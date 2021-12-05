@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -13,8 +13,9 @@ import "./Dashboard.module.scss";
 const Dashboard = props => {
   const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails } = props;
   const [hoverState, setHoverState] = useState({});
-  const name = userDetails ? userDetails.firstname : ""
-  const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {}
+  const name = userDetails ? userDetails.firstname : "";
+  const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {};
+
   const sections = Object.keys(config).map(key => {
     const section = {...config[key]};
     config[key] = section;
@@ -23,10 +24,25 @@ const Dashboard = props => {
     section.parts = parts;
     const header = parts && parts.find(part => part.type === "header");
     parts && parts.splice(parts.findIndex(part => part.type === "header"), 1);
+
+    const getSubOptions = (part, hovered) => {
+      return <div className="col-7 offset-4">
+            <div className={`row m-2 p-2 sub-option${!hovered ? " unhovered" : ""}`}>
+              {
+                part.subOptions.map(subOption => <button className={subOption.classes}
+                  onClick={() => subOption.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>
+                    {subOption.text}
+                </button>
+                )
+              }
+            </div>
+          </div>;
+    }
+
     return display &&
-      <div className={section.containerClasses}>
+      <div className={"c-Dashboard__panel__container " + section.containerClasses}>
         <div className={section.sectionClasses}>
-          <div className="h-100 d-flex flex-column">
+          <div className="h-100 d-flex bg-white flex-column">
             {header && <p className={header.classes}>{header.text}</p>}
             <div className="c-Dashboard__actions w-100">
               {parts && parts.map(part => {
@@ -35,31 +51,17 @@ const Dashboard = props => {
                     return <p className={part.classes}>{part.text}</p>
                   case "button":
                     const hovered = hoverState && hoverState[part.name];
-                    return part.subOptions && hovered ?
-                      <div className={`${hovered ? "col-12" : "col-7 mx-auto"}`}>
-                        <div className="row ms-0"
-                          onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
-                          onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
-                          <button className={`${part.classes} my-auto col-5`}>{part.text}</button>
-                          <div className="col-7">
-                            <div className="m-2 p-2 sub-option">
-                              {
-                                part.subOptions.map(subOption => <button className={subOption.classes}
-                                  onClick={() => subOption.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>
-                                    {subOption.text}
-                                </button>
-                                )
-                              }
+                    return <div className="c-Dashboard__action col-12">
+                            <div className="row ms-0"
+                              onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}
+                              onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
+                              onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
+                              <button className={`${part.classes} my-auto`}>
+                                  {part.text}
+                              </button>
+                              {part.subOptions && getSubOptions(part, hovered)}
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      : <button className={part.classes + (part.hoverClasses ? " " + part.hoverClasses : "")}
-                          onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}
-                          onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
-                          onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
-                            {part.text}
-                        </button>
                   default:
                     return null;
                 }
@@ -71,9 +73,9 @@ const Dashboard = props => {
   })
   return (
     <div className="c-Dashboard d-flex flex-column h-100">
-      <main className="c-Dashboard__main p-4 mb-5 overflow-auto text-center flex-grow-1">
-        <h4 className="page-header glass-panel text-start">Welcome {name}!</h4>
-        <div className="content row mt-5">
+      <main className="c-Dashboard__main p-4 mb-5overflow-auto text-center flex-grow-1">
+        <h4 className="page-header bg-white text-start">Welcome {name}!</h4>
+        <div className="content row mt-3">
           {sections}
         </div>
       </main>

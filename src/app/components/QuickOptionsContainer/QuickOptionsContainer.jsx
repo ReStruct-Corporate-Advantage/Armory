@@ -24,7 +24,7 @@ const QuickOptionsContainer = props => {
         <div className={`c-QuickOptionsContainer ${containerClasses}
           ${itemPosition && itemPosition.positionClass ? " " + itemPosition.positionClass : ""}
           ${positionCorrected ? " expand-enter-done" : ""}`}
-          ref={itemRef}  style={itemPosition ? itemPosition.styles : {}} onClick={() => {}}>
+          ref={itemRef}  style={itemPosition ? itemPosition.styles : {}} onClick={e => e.stopPropagation()}>
           {children}
         </div>
       </CSSTransition>

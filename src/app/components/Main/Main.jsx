@@ -5,10 +5,10 @@ import "./Main.component.scss";
 
 const Main = props => {
   const containingParentRef = useRef(null);
-  const {clientRect, context, snapFactor, selectedComponent, dispatchSelectedComponent, setClientRect, setSnapFactor, socket} = props;
+  const {clientRect, context, isDevMode, snapFactor, selectedComponent, dispatchSelectedComponent, setClientRect, setSnapFactor, socket} = props;
 
   return <main className="c-Main p-2 position-relative overflow-hidden d-flex flex-column">
-          {context !== "editor" && <LayoutSelector />}
+          {context !== "editor" && isDevMode && <LayoutSelector />}
           <BreadCrumb />
           <div className="overflow-auto h-100" ref={containingParentRef}>
             {context === "editor" ? <ComponentEditor />

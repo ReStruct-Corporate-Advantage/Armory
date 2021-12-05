@@ -10,9 +10,10 @@ export class DNDUtil {
     this.targetArmamentWrapperMonitorClientOffset= null;
   }
 
-  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket) {
+  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket, logger) {
     // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
     // In either case allow processing this dropped item
+    logger({timestamp: new Date(), log: `Dropped component: ${item.displayName}`})
     const handleChildArmamentWrapperDropForInverseDropScenario = this.targetArmamentWrapper && this.isDroppedItemParentOfMonitor(item.category, this.targetArmamentWrapper);
     let clientOffset;
     if (handleChildArmamentWrapperDropForInverseDropScenario) {

@@ -97,18 +97,18 @@ export default class Helper {
                 // marginLeft = rightOut ? "-10rem" : 0;
             const styles = {};
             if (!leftOut) {
-                styles.left = parentLeft;
-                if (!bottomOut) {
-                    styles.top = parentTop;
-                } else {
-                    styles.top = parentTop - itemHeight;
-                }
-            } else {
                 styles.left = parentLeft - itemWidth;
                 if (!bottomOut) {
-                    styles.top = parentTop;
+                    styles.top = prefer === "bottom" ? parentTop + parentHeight : parentTop;
                 } else {
-                    styles.top = parentTop - itemHeight;
+                    styles.top = parentBottom - itemHeight;
+                }
+            } else {
+                styles.left = parentRight;
+                if (!bottomOut) {
+                    styles.top = prefer === "bottom" ? parentTop + parentHeight : parentTop;
+                } else {
+                    styles.top = parentBottom - itemHeight;
                 }
             }
             return { styles, meta };

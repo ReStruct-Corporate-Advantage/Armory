@@ -8,8 +8,9 @@ import { useResizeDetector } from "react-resize-detector";
 
 import { dispatchClearPropsState, dispatchComponentsConfig, dispatchHistory, dispatchPreviousLayout, setComponentsConfig } from "../../pages/ComponentCreator/actions";
 import { dispatchLevels, dispatchModal } from "../../global-actions";
-import { getUserDetails } from "../../global-selectors";
+import { getToggles, getUserDetails, getZoom } from "../../global-selectors";
 import { getPresentComponentsConfig, getLayout, getPreviousLayout, getArmory } from "../../pages/ComponentCreator/selectors";
+import useLogger from "../../hooks/useLogger";
 import dndUtil from "../../utils/dndUtil";
 import { compGen } from "../../utils/CodeUtils/ComponentGenerator";
 import {ITEM_TYPE} from "../../constants/types";
@@ -17,10 +18,13 @@ import "./ComponentContainer.component.scss";
 
 const ComponentContainer = props => {
   const {armory, componentsConfig, boundingClientRectProvider, dispatchClearPropsState, dispatchComponentsConfig, dispatchLevels,
-    dispatchModal, selectedComponent, dispatchSelectedComponent, socket, userDetails} = props;
+    dispatchModal, selectedComponent, dispatchSelectedComponent, socket, toggles, userDetails, zoom} = props;
+  const developerToggle = toggles && toggles.find(toggle => toggle.name === "developerMode");
+  const isDevMode = developerToggle && developerToggle.selected;
   const { width, height, ref } = useResizeDetector();
   const comContainerRef = useRef();
   const [cells, setCells] = useState([]);
+  const {logger} = useLogger();
 
   useEffect(() => {
     const layout = props.layout || 30;
@@ -55,12 +59,24 @@ const ComponentContainer = props => {
     // updateLayout
   }, [props.layout, height, width, boundingClientRectProvider]);
 
+  useEffect(() => {
+    const target = comContainerRef.current;
+    if (target) {
+      // const scale = target.getBoundingClientRect().width / target.offsetWidth;
+      let zoomValue = zoom/100;
+      zoomValue = zoomValue < 0.5 ? 0.5 : zoomValue;
+      const scaleValue = `scale(${zoom ? zoomValue : 1})`
+      target.style.transformOrigin = "100px 100px";
+      target.style.transform = scaleValue;
+    }
+  }, [zoom])
+
   // eslint-disable-next-line no-unused-vars
   const [{isOver}, drop] = useDrop({
     accept: [ITEM_TYPE.ARMAMENT, ITEM_TYPE.ARMAMENT_WRAPPER],
     drop: (item, monitor) => {
       dndUtil.dropHandler(item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig,
-        dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket)
+        dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket, logger)
     },
     collect: monitor => ({isOver: !!monitor.isOver()}),
   })
@@ -71,7 +87,6 @@ const ComponentContainer = props => {
 
   const touchHandler = e => {
     if (e.altKey && comContainerRef.current) {
-      e.preventDefault();
       e.stopPropagation();
       const target = comContainerRef.current;
       const scale = target.getBoundingClientRect().width / target.offsetWidth;
@@ -89,9 +104,9 @@ const ComponentContainer = props => {
 
   return (
     <div className="c-ComponentContainer position-relative" ref={comContainerRef} onWheel={touchHandler}>
-      <div className="c-ComponentContainer__layout h-100 position-relative" ref={ref}>
+      {isDevMode && <div className="c-ComponentContainer__layout h-100 position-relative" ref={ref}>
         {cellRenders}
-      </div>
+      </div>}
       <div className="c-ComponentContainer__renders position-absolute w-100 h-100" ref={drop}>
         {componentRenders}
       </div>
@@ -111,7 +126,8 @@ ComponentContainer.propTypes = {
   layout: PropTypes.string,
   previousLayout: PropTypes.string,
   dispatchSelectedComponent: PropTypes.func,
-  setComponentsConfig: PropTypes.func
+  setComponentsConfig: PropTypes.func,
+  zoom: PropTypes.number
 };
 
 const mapStateToProps = createPropsSelector({
@@ -119,7 +135,9 @@ const mapStateToProps = createPropsSelector({
   componentsConfig: getPresentComponentsConfig,
   layout: getLayout,
   previousLayout: getPreviousLayout,
-  userDetails: getUserDetails
+  toggles: getToggles,
+  userDetails: getUserDetails,
+  zoom: getZoom
 })
 
 const mapDispatchToProps = {
