@@ -107,8 +107,8 @@ const ComponentContainer = props => {
       {isDevMode && <div className="c-ComponentContainer__layout h-100 position-relative" ref={ref}>
         {cellRenders}
       </div>}
-      <div className="c-ComponentContainer__renders position-absolute w-100 h-100" ref={drop}>
-        {componentRenders}
+      <div className="c-ComponentContainer__renders position-absolute" ref={drop}>
+        {componentRenders.length > 0 ? componentRenders : <h1 className="drop-zone-msg" style={{fontFamily: "monospace"}}>Drop Zone!</h1>}
       </div>
     </div>
   );
@@ -139,6 +139,7 @@ const mapStateToProps = createPropsSelector({
   userDetails: getUserDetails,
   zoom: getZoom
 })
+
 
 const mapDispatchToProps = {
   dispatchClearPropsState,

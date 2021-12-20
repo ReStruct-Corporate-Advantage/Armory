@@ -15,9 +15,9 @@ const RichTooltip = props => {
 
   useEffect(() => {
     if (tipRef.current && itemRect) {
-      console.log(itemRect);
-      const positionAndMeta = Helper.getItemPosition(tipRef.current, itemRect, prefer);
-      console.log(positionAndMeta);
+      console.log(itemRect.scrollTop)
+      const boundingClientRect = itemRect.getBoundingClientRect();
+      const positionAndMeta = Helper.getItemPosition(tipRef.current, boundingClientRect, prefer);
       setTooltipPosition(positionAndMeta);
     }
 

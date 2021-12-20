@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { useDragLayer } from "react-dnd";
 import { createPropsSelector } from "reselect-immutable-helpers";
+import { getToggles } from "../../global-selectors";
 import { getLayout } from "../../pages/ComponentCreator/selectors";
 import { DNDUtil } from "../../utils/dndUtil";
 import { forkedRepository, repository } from "./../../utils/CodeUtils/ComponentGenerator";
@@ -39,7 +40,7 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
     y += clientRect.top;
   }
 
-  if (isInstanceComponent) {
+  if (isSnapToGrid && isInstanceComponent) {
     // Capture the difference moved by cursor
     const xDiff = initialClientOffset.x - initialOffset.x
     const yDiff = initialClientOffset.y - initialOffset.y
@@ -48,9 +49,14 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
     [x, y] = DNDUtil.snapToGrid(x, y, layout, true);
     x += clientRect.left;
     y += clientRect.top;
+    // x -= initialOffset.x;
+    // y -= initialOffset.y;
+    // [x, y] = DNDUtil.snapToGrid(x, y, layout, true);
+    // x += initialOffset.x;
+    // y += initialOffset.y;
   }
-  // console.log("x: ", x)
-  // console.log("y: ", y)
+  console.log("drag x: ", x)
+  console.log("drag y: ", y)
   const transform = `translate(${x}px, ${y}px)`;
   const opacity = "0.4";
   return {
@@ -61,7 +67,9 @@ function getItemStyles(initialOffset, initialClientOffset, clientOffset, clientR
 }
 
 const CustomDragLayer = (props) => {
-  const { clientRect, containingParentRef, layout } = props
+  const { clientRect, containingParentRef, layout, toggles } = props;
+  const snapToggle = toggles && toggles.find(toggle => toggle.name === "toggleComponentSnap");
+  const isSnapToGrid = snapToggle && snapToggle.selected;
   const dragPreview = useRef(null);
   const { itemType, isDragging, item, initialOffset, initialClientOffset, clientOffset, } = useDragLayer((monitor) => ({
     item: monitor.getItem(),
@@ -88,7 +96,7 @@ const CustomDragLayer = (props) => {
     return null;
   }
   return <div className="c-CustomDragLayer" style={layerStyles}>
-    <div style={getItemStyles(initialOffset, initialClientOffset, clientOffset, clientRect, containingParentRef, layout, true, itemType === ITEM_TYPE.ARMAMENT_WRAPPER, dragPreview)} ref={dragPreview}>
+    <div style={getItemStyles(initialOffset, initialClientOffset, clientOffset, clientRect, containingParentRef, layout, isSnapToGrid, itemType === ITEM_TYPE.ARMAMENT_WRAPPER, dragPreview)} ref={dragPreview}>
       {renderItem()}
     </div>
   </div>;
@@ -102,7 +110,8 @@ CustomDragLayer.props = {
 
 
 const mapStateToProps = createPropsSelector({
-  layout: getLayout
+  layout: getLayout,
+  toggles: getToggles
 })
 
 export default connect(mapStateToProps)(CustomDragLayer);

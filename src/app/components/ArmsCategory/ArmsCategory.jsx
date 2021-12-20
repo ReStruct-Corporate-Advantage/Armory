@@ -9,12 +9,12 @@ const ArmsCategory = props => {
   return (
     <ul className={`c-ArmsCategory overflow-auto${expanded === false ? " collapsed" : ""}`}>
       {!root && <div className="c-ArmsCategory__clickHandler ms-4" onClick={() => setExpanded(!expanded)}>{expanded ? "Collapse" : "Expand"}</div>}
-      {node && node.map((category, key) =>
+      {node && node.length > 0 ? node.map((category, key) =>
         <li key={prevKey ? prevKey + "-" + key : key} className="c-Aside__list-item">
           {context === "editor" ? <StaticArmament clientRect={clientRect} category={category} isSearched={isSearched} index={prevKey ? prevKey + "-" + key : "" + key} recursiveRenderer={renderArmory} />
             : <Armament clientRect={clientRect} category={category} isSearched={isSearched} index={prevKey ? prevKey + "-" + key : "" + key} recursiveRenderer={renderArmory} />}
         </li>
-      )}
+      ) : <span className="empty-armament-message">Nothing interesting here!</span>}
     </ul>
   );
 };

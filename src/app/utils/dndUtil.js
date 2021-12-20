@@ -13,7 +13,7 @@ export class DNDUtil {
   dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket, logger) {
     // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
     // In either case allow processing this dropped item
-    logger({timestamp: new Date(), log: `Dropped component: ${item.displayName}`})
+    logger({timestamp: new Date(), log: `Dropped component: ${item.category.displayName}`})
     const handleChildArmamentWrapperDropForInverseDropScenario = this.targetArmamentWrapper && this.isDroppedItemParentOfMonitor(item.category, this.targetArmamentWrapper);
     let clientOffset;
     if (handleChildArmamentWrapperDropForInverseDropScenario) {
@@ -24,14 +24,14 @@ export class DNDUtil {
       const position = this.getPosition(comContainerRef, monitor, clientOffset);
       item.type = monitor.getItemType();
       if (rootChildrenArray.length === 0) {
-        if (item.category && item.category.descriptor && item.category.descriptor.allowChildren) {
+        // if (item.category && item.category.descriptor && item.category.descriptor.allowChildren) {
           this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
-        } else {
-          dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
-            body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
-            primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
-            secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
-        }
+        // } else {
+        //   dispatchModal({display: true, meta: {title: "Add Container?", primaryButtonText: "Add", secondaryButtonText: "Cancel",
+        //     body: "Clicking on add will wrap your component with a container, cancel to just view/fork/edit the component",
+        //     primaryHandler: () => this.wrapAndUpdate(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, armory, socket),
+        //     secondaryHandler: () => this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket)}});
+        // }
       } else {
         if (item.category.uuid) {
           this.updatePositionDescriptor(item, position, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, socket);
@@ -215,15 +215,17 @@ export class DNDUtil {
 
   getPosition (comContainerRef, monitor, incomingClientOffset) {
     const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
-    const {x: initialClientX, y: initialClientY} = monitor.getInitialClientOffset() || {};
-    const {x: initialSourceX, y: initialSourceY} = monitor.getInitialSourceClientOffset() || {};
-    const xDisplacementFromItemLeftTop = initialClientX && initialSourceX ? initialClientX - initialSourceX : 0;
-    const yDisplacementFromItemLeftTop = initialClientY && initialSourceY ? initialClientY - initialSourceY : 0;
+    // const {x: initialClientX, y: initialClientY} = monitor.getInitialClientOffset() || {};
+    // const {x: initialSourceX, y: initialSourceY} = monitor.getInitialSourceClientOffset() || {};
+    // const xDisplacementFromItemLeftTop = initialClientX && initialSourceX ? initialClientX - initialSourceX : 0;
+    // const yDisplacementFromItemLeftTop = initialClientY && initialSourceY ? initialClientY - initialSourceY : 0;
     const clientOffset = monitor.getClientOffset() || incomingClientOffset;
     const {x, y} = clientOffset;
-    let left = Math.round(x - containerLeft - xDisplacementFromItemLeftTop); // Adjusting for container pdding
-    let top = Math.round(y - containerTop - yDisplacementFromItemLeftTop);
-    return DNDUtil.snapToGrid(left, top);
+    // let left = Math.round(x - containerLeft - xDisplacementFromItemLeftTop); // Adjusting for container pdding
+    // let top = Math.round(y - containerTop - yDisplacementFromItemLeftTop);
+    let left = Math.round(x - containerLeft); // Adjusting for container pdding
+    let top = Math.round(y - containerTop);
+    return false ? DNDUtil.snapToGrid(left, top) : [left, top];
   }
 
   isDroppedItemParentOfMonitor(droppedItem, droppedOn) {

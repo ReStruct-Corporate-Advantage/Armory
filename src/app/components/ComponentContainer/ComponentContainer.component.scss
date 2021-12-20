@@ -3,14 +3,24 @@
 .c-ComponentContainer {
   height: calc(100vh + 2rem);
   width: calc(100vw + 2rem);
-  background: #fff;
-  border-radius: 1rem;
+  background: rgba(200, 200, 200, 0.3);
+  border-radius: 0.25rem;
+  border: 2px solid rgba(black, 0.7);
   padding: 1rem;
   transition: transform 0.3s;
 
   .c-ComponentContainer__renders {
+    // background: rgba(200, 200, 200, 0.7);
     z-index: 9;
     top: 0;
     left: 0;
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
+    margin: 1rem;
+
+    .drop-zone-msg {
+      margin-left: calc(50% - 25rem);
+      margin-top: 15rem;
+    }
   }
 }

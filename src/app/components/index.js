@@ -1,4 +1,7 @@
 /* PLOP_INJECT_IMPORT */
+import MenuItem from "./MenuItem";
+import MenuBar from "./MenuBar";
+import Notification from "./Notification";
 import Logger from "./Logger";
 import PageContainer from "./PageContainer";
 import ZoomSlider from "./ZoomSlider";
@@ -67,6 +70,9 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	MenuItem,
+	MenuBar,
+	Notification,
 	Logger,
 	PageContainer,
 	ZoomSlider,

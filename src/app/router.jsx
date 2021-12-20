@@ -4,7 +4,7 @@ import { connect, Provider } from "react-redux"
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
-import { Header, Modal, PageLoader, RichTooltip } from "./components";
+import { Header, MenuBar, Modal, Notification, PageLoader, RichTooltip } from "./components";
 import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
@@ -25,7 +25,7 @@ const LoadableJoin = Loadable({
 const LoadableLivePreview = Loadable({
     loader: () => import("./pages/LivePreview"),
     loading: PageLoader
-  })
+})
 
 class Router extends React.Component {
 
@@ -38,6 +38,7 @@ class Router extends React.Component {
         return (
             <Provider store={store}>
                 <div className="global-events-interceptor h-100 w-100" onClick={() => dispatchHideQuickOptions(true)}>
+                    <MenuBar />
                     <Header />
                     <BrowserRouter>
                         <Switch>
@@ -53,6 +54,7 @@ class Router extends React.Component {
                     <BrowserRouter>
                         <Route exact path="/:user/page/live" component={LoadableLivePreview} />
                     </BrowserRouter>
+                    <Notification />
                 </div>
             </Provider>
         )

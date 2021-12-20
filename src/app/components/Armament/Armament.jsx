@@ -30,7 +30,7 @@ const Armament = props => {
 
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
-    ref.current && setItemRect(ref.current.getBoundingClientRect());
+    ref.current && setItemRect(ref.current);
   }, [preview, ref]);
 
 

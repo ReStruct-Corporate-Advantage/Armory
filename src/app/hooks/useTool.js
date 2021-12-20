@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {getToggles} from "../global-selectors";
-import {dispatchToggles} from "../global-actions";
+import {dispatchToggles, dispatchNotification} from "../global-actions";
 import { LoadableIcon } from "../components";
 // import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
@@ -108,6 +108,7 @@ function useTool(toolName, props, setToolData) {
                         const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);
                         clickedToggle.selected = !clickedToggle.selected
                         dispatch(dispatchToggles(toggleValuesCloned));
+                        dispatch(dispatchNotification({notification: `Toggle ${clickedToggle.displayName} ${clickedToggle.selected ? "activated!" : "deactivated!"}`, type: "success", show: true}))
                         // setToolData && setToolData({...data});
                     }
                 }}>

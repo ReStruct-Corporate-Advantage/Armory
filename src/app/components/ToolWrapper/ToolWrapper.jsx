@@ -25,8 +25,9 @@ const ToolWrapper = memo(props => {
   const iconClass = `global-class-name${hovered ? " hovered" : ""}`;
 
   useEffect(() => {
-      setTimeout(() => setExpand(buttonClicked || hovered), 1000);
-      ref.current && setItemRect(ref.current.getBoundingClientRect());
+      // setTimeout(() => setExpand(buttonClicked || hovered), 1000);
+      setExpand(buttonClicked || hovered)
+      ref.current && setItemRect(ref.current);
   }, [buttonClicked, hovered])
 
   /* eslint-disable react-hooks/exhaustive-deps */

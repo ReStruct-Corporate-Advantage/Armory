@@ -38,7 +38,7 @@ const PageCreator = props => {
           onKeyDown = {(e) => handleKeyDown(e, pageConfig, dispatchPageConfig, selectedComponent, dispatchSelectedComponent, clientRect)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
-          <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
+          <Aside persistent={true} childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
           <Main setClientRect={setClientRect} clientRect={clientRect} dispatchSelectedComponent={dispatchSelectedComponent} selectedComponent={selectedComponent} socket={socket} />
           <Aside childItems={
             [

@@ -94,6 +94,14 @@ const TOOLS_CONFIG = {
                         },
                         {
                             color: "#455964",
+                            displayName: "Toggle Snap",
+                            name: "toggleComponentSnap",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: true
+                        },
+                        {
+                            color: "#455964",
                             displayName: "Developer mode",
                             name: "developerMode",
                             icon: "Bs.BsToggleOn",
