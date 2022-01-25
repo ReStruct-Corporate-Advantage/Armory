@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
 import {dispatchTooltip} from "../../global-actions";
-import {ComponentDescription, LoadableIcon, ToolBox} from "./../";
+import {ComponentDescription, LoadableIcon, ToolBox} from "..";
 import { TOOLS_CONFIG } from "../../config";
 import {ITEM_TYPE} from "../../constants/types";
 import "./Armament.component.scss";

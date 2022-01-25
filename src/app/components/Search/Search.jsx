@@ -1,5 +1,5 @@
 import React from "react";
-import {FormField, ToolBox} from "../";
+import {FormField, ToolBox} from "..";
 import { TOOLS_CONFIG } from "../../config";
 import "./Search.component.scss";
 

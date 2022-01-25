@@ -1,8 +1,8 @@
-import React from 'react';
-import Modal from './Modal';
+import React from "react";
+import Modal from "./Modal";
 
-describe('Modal', () => {
-   it('renders without error', () => {
+describe("Modal", () => {
+   it("renders without error", () => {
 
    });
 });

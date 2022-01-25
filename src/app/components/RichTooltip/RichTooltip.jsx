@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {CSSTransition} from "react-transition-group";
 import {getToggles, getTooltip} from "../../global-selectors";
-import Helper from "./../../utils/Helper";
+import Helper from "../../utils/Helper";
 import "./RichTooltip.component.scss";
 
 const RichTooltip = props => {

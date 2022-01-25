@@ -8,7 +8,7 @@ import { getPresentComponentsConfig } from "../../pages/ComponentCreator/selecto
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
 import useEventHandler from "../../utils/useEventHandler";
 import dndUtil from "../../utils/dndUtil";
-import {ITEM_TYPE} from "./../../constants/types";
+import {ITEM_TYPE} from "../../constants/types";
 import Helper from "../../utils/Helper";
 import StyleAggregator from "../../utils/CodeUtils/StyleAggregator";
 import "./ArmamentWrapper.component.scss";

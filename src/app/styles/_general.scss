@@ -12,8 +12,8 @@ html, body, #root {
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: $primary-font-color;
@@ -30,6 +30,10 @@ body {
 code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.fall-behind {
+    z-index: 1;
 }
 
 .bg-grey{
@@ -253,8 +257,8 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active
 {
- -webkit-box-shadow: 0 0 0 30px white inset !important;
- background: white;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    background: white;
 }
 
 @-webkit-keyframes rotating {

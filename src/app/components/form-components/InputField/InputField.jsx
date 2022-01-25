@@ -23,7 +23,9 @@ const InputField = memo(props => {
           max={max ? max : 9999999999}
           disabled={alwaysDisabled || readOnly} />
         {/* <label htmlFor={id} className={type !== "checkbox" ? `position-absolute label-contained${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}` : labelClasses}>{label}</label> */}
-        <label htmlFor={id} className={`position-absolute overflow-auto label-contained${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}`}
+        <label htmlFor={id} className={`position-absolute overflow-auto label-contained
+          ${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}
+          ${labelClasses ? " " + labelClasses : ""}`}
           style={labelStyles}>{label}</label>
       </div>
     </div>

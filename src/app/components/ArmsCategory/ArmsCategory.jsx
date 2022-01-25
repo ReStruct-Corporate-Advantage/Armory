@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Armament, StaticArmament} from "../";
+import {Armament, StaticArmament} from "..";
 import "./ArmsCategory.component.scss";
 
 const ArmsCategory = props => {

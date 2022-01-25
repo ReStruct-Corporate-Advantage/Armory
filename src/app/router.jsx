@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { connect, Provider } from "react-redux"
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
 import { Header, MenuBar, Modal, Notification, PageLoader, RichTooltip } from "./components";
@@ -30,7 +30,7 @@ const LoadableLivePreview = Loadable({
 class Router extends React.Component {
 
     componentDidMount() {
-        this.props.dispatchDeviceType({isMobile: Helper.isMobile()});
+        this.props.dispatchDeviceType({ isMobile: Helper.isMobile() });
     }
 
     render() {
@@ -38,21 +38,29 @@ class Router extends React.Component {
         return (
             <Provider store={store}>
                 <div className="global-events-interceptor h-100 w-100" onClick={() => dispatchHideQuickOptions(true)}>
-                    <MenuBar />
+                    <MenuBar menuItems={[
+                        { name: "appCreator", label: "App Creator", selected: true },
+                        { name: "add", label: "+" },
+                        // { name: "pageCreator", label: "Page Creator" },
+                        // { name: "articleCreator", label: "Article Creator" },
+                        // { name: "configGenerator", label: "ArmConfig Generator" }
+                    ]} />
                     <Header />
                     <BrowserRouter>
-                        <Switch>
-                            <Route exact path="/" component={LoadableAuthenticator} />
-                            <Route path="/login" component={LoadableLogin} />
-                            <Route path="/join" component={LoadableJoin} />
-                            <Route path="/:user" component={LoadableAuthenticator} />
-                            <Route render={() => <Redirect to="/" />} />
-                        </Switch>
+                        <Routes>
+                            <Route path="/" element={<LoadableAuthenticator />} />
+                            <Route path="/login" element={<LoadableLogin />} />
+                            <Route path="join" element={<LoadableJoin />} />
+                            <Route path="/:user/*" element={<LoadableAuthenticator />} />
+                            <Route render={() => <Navigate to="/" />} />
+                        </Routes>
                     </BrowserRouter>
                     <Modal />
                     <RichTooltip />
                     <BrowserRouter>
-                        <Route exact path="/:user/page/live" component={LoadableLivePreview} />
+                        <Routes>
+                            <Route path="/:user/page/live" element={<LoadableLivePreview />} />
+                        </Routes>
                     </BrowserRouter>
                     <Notification />
                 </div>

@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {dispatchHideQuickOptions, dispatchTooltip} from "../../global-actions";
 import { getHideQuickOptions } from "../../global-selectors";
-import {dispatchToolAction} from "./../../pages/ComponentCreator/actions";
-import useTool from "./../../hooks/useTool";
-import {LoadableIcon, QuickOptionsContainer} from "./../";
+import {dispatchToolAction} from "../../pages/ComponentCreator/actions";
+import useTool from "../../hooks/useTool";
+import {LoadableIcon, QuickOptionsContainer} from "..";
 import "./ToolWrapper.component.scss";
 
 const ToolWrapper = memo(props => {

@@ -1,7 +1,7 @@
 import React from "react";
-import Circle from "./Circle";
+import Tabs from "./Tabs";
 
-describe("Circle", () => {
+describe("Tabs", () => {
    it("renders without error", () => {
 
    });

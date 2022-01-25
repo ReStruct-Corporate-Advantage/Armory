@@ -6,8 +6,8 @@ import { createPropsSelector } from "reselect-immutable-helpers";
 import { getToggles } from "../../global-selectors";
 import { getLayout } from "../../pages/ComponentCreator/selectors";
 import { DNDUtil } from "../../utils/dndUtil";
-import { forkedRepository, repository } from "./../../utils/CodeUtils/ComponentGenerator";
-import { ITEM_TYPE } from "./../../constants/types";
+import { forkedRepository, repository } from "../../utils/CodeUtils/ComponentGenerator";
+import { ITEM_TYPE } from "../../constants/types";
 // import * as components from "../repository";
 
 const layerStyles = {

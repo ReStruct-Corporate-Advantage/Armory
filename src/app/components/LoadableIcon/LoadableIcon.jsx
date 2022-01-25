@@ -32,6 +32,7 @@ const LoadableIcon = props => {
         Network.getStatic(`/icon/${iconCategory}/${iconName}`)
           .then(res => {
             const parsedSvg = parser.parseFromString(res.body, "image/svg+xml").querySelector("svg");
+            icons = {...icons};
             icons[iconKey] = parsedSvg;
             dispatchContent({icons});
           })

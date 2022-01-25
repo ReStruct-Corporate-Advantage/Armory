@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import { createPropsSelector } from "reselect-immutable-helpers";
-import { getUserDetails } from "./../../global-selectors";
+import { useNavigate } from "react-router-dom";
+import { getUserDetails } from "../../global-selectors";
 import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
 import { dispatchLevels } from "../../global-actions";
 import { dispatchComponentsConfig, dispatchSelectedComponent } from "../ComponentCreator/actions";
@@ -11,8 +11,9 @@ import DASHBOARD_CONFIG from "../../config/dashboardConfig";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {
-  const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails } = props;
+  const { componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, userDetails } = props;
   const [hoverState, setHoverState] = useState({});
+  const navigate = useNavigate();
   const name = userDetails ? userDetails.firstname : "";
   const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {};
 
@@ -30,7 +31,7 @@ const Dashboard = props => {
             <div className={`row m-2 p-2 sub-option${!hovered ? " unhovered" : ""}`}>
               {
                 part.subOptions.map(subOption => <button className={subOption.classes}
-                  onClick={() => subOption.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}>
+                  onClick={() => subOption.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, navigate, userDetails)}>
                     {subOption.text}
                 </button>
                 )
@@ -53,7 +54,7 @@ const Dashboard = props => {
                     const hovered = hoverState && hoverState[part.name];
                     return <div className="c-Dashboard__action col-12">
                             <div className="row ms-0"
-                              onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, history, userDetails)}
+                              onClick={() => part.action(componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, navigate, userDetails)}
                               onMouseOver={() => setHoverState({...hoverState, [part.name]: true})}
                               onMouseLeave={() => setHoverState({...hoverState, [part.name]: false})}>
                               <button className={`${part.classes} my-auto`}>
@@ -102,4 +103,4 @@ const mapDispatchToProps = {
   dispatchSelectedComponent
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Dashboard));
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

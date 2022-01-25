@@ -1,3 +1,24 @@
+@import "../../styles/variables";
+
 .c-MenuBar {
-  
+    .menu-bar {
+        height: 2rem;
+        list-style: none;
+        // background: $primary-font-color-dark;
+        background: $primary-base-color-translucent;
+        .menu-item {
+            display: inline-block;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            &.hovered {
+                background: #ddd;
+                color: black;
+            }
+            &.selected {
+                background: white;
+                color: black;
+            }
+        }
+    }
 }

@@ -7,20 +7,30 @@
       "esnext"
     ],
     "allowJs": true,
+    "baseUrl": "src",
+    "downlevelIteration": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "noImplicitAny": false,
+    "removeComments": true,
     "resolveJsonModule": true,
+    "sourceMap": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react"
   },
+  "paths": {
+    "*": ["src/*"]
+  },
+  "exclude": ["node_modules", "build"],
   "include": [
-    "src"
+    "../../../Groom/server/src"
   ]
 }

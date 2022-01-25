@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
 import {HTML5Backend as Backend} from "react-dnd-html5-backend"
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {getComponentConfig} from "../AdminComponentManager/selectors";
-import {dispatchComponentConfig} from "../AdminComponentManager/actions";
+import {getComponentConfig} from "./selectors";
+import {dispatchComponentConfig} from "./actions";
 import useEventHandler from "../../utils/useEventHandler";
 import { Aside, Main, ToolActionContainer } from "../../components";
 import "./AdminComponentManager.module.scss";

@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {isMobile} from "./selectors";
 import {dispatchDeviceType} from "./actions";
-import Helper from "./../../utils/Helper";
+import Helper from "../../utils/Helper";
 import "./ComponentSelector.module.scss";
 
 const ComponentSelector = props => {

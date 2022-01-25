@@ -1,6 +1,6 @@
 import React from "react";
 import { withResizeDetector } from "react-resize-detector";
-import {ArmamentWrapper, StaticArmamentWrapper} from "./../../components";
+import {ArmamentWrapper, StaticArmamentWrapper} from "../../components";
 
 class ComponentGenerator {
     constructor () {
@@ -117,7 +117,7 @@ class ComponentGenerator {
                         : React.createElement(elemType, outgoingProps);
                 }
             }
-            Object.defineProperty(c, 'name', {value: componentName});
+            Object.defineProperty(c, "name", {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             c = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node} key={key}>{c}</StaticArmamentWrapper>
@@ -166,7 +166,7 @@ class ComponentGenerator {
                         ? React.createElement(elemType, {style: props.style, className: props.className},childRenders)
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
-            Object.defineProperty(f, 'name', {value: componentName});
+            Object.defineProperty(f, "name", {value: componentName});
             f = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node}>{f}</StaticArmamentWrapper>
                 : <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
@@ -221,7 +221,7 @@ class ComponentGenerator {
                     : React.createElement(elemType, {key, style: props.style, className: props.className});
                 }
             }
-            Object.defineProperty(c, 'name', {value: componentName});
+            Object.defineProperty(c, "name", {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             this.baseRepository[componentName] = c;
         } else {
@@ -260,7 +260,7 @@ class ComponentGenerator {
                 return childRenders && childRenders.length > 0 ? React.createElement(elemType, {key, style: props.style, className: props.className}, childRenders)
                         : React.createElement(elemType, {key, style: props.style, className: props.className});
             }
-            Object.defineProperty(f, 'name', {value: componentName});
+            Object.defineProperty(f, "name", {value: componentName});
             this.baseRepository[componentName] = f;
         } else {
             f = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))

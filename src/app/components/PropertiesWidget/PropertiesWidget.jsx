@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-import {SectionHeader, PropsForm, ToolBox} from "./../";
-import {TOOLS_CONFIG} from "./../../config"
+import {SectionHeader, PropsForm, ToolBox} from "..";
+import {TOOLS_CONFIG} from "../../config"
 import AdminPropsForm from "../AdminPropsForm";
 import "./PropertiesWidget.component.scss";
 

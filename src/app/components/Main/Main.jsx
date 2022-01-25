@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import {BreadCrumb, ComponentContainer, ComponentEditor, CustomDragLayer, LayoutSelector} from "./../";
+import {BreadCrumb, ComponentContainer, ComponentEditor, CustomDragLayer, LayoutSelector} from "..";
 import "./Main.component.scss";
 
 const Main = props => {

@@ -43,7 +43,7 @@ const TOOLS_CONFIG = {
     },
     PAGE_TOOLS: {
         classes: "ms-auto backgroundNone pe-4 borderRight",
-        size: "1.4rem",
+        size: "1.2rem",
         tools: [
             {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
                 placement: "right",
@@ -62,7 +62,7 @@ const TOOLS_CONFIG = {
     },
     GLOBAL_TOOLS: {
         classes: "backgroundNone ps-4",
-        size: "1.7rem",
+        size: "1.3rem",
         tools: [
             {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "",
                 visibility: "visible", order: 1, icon: "gi.GiToggles", placement: "right",

@@ -1,7 +1,7 @@
 import React from "react";
-import Cube from "./Cube";
+import Tab from "./Tab";
 
-describe("Cube", () => {
+describe("Tab", () => {
    it("renders without error", () => {
 
    });

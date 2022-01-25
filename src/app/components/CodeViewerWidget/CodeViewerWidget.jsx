@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {CodeTree, SectionHeader, ToolBox} from "./../";
-import {TOOLS_CONFIG} from "./../../config"
+import {CodeTree, SectionHeader, ToolBox} from "..";
+import {TOOLS_CONFIG} from "../../config"
 import "./CodeViewerWidget.component.scss";
 
 const CodeViewerWidget = props => {

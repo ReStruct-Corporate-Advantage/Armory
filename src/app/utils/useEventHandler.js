@@ -3,9 +3,9 @@
 */
 // import { useCallback } from "react";
 import { useDispatch } from "react-redux";
-import {setComponentsConfig} from "./../pages/ComponentCreator/actions";
+import {setComponentsConfig} from "../pages/ComponentCreator/actions";
 import ACTIONS from "../constants/actions";
-import {forkedRepository} from "./../utils/CodeUtils/ComponentGenerator";
+import {forkedRepository} from "./CodeUtils/ComponentGenerator";
 import Helper from "./Helper";
 
 const useEventHandler = (props) => {

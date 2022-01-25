@@ -2,12 +2,12 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
-import {dispatchLayout, dispatchPreviousLayout} from "./../../pages/ComponentCreator/actions";
+import {dispatchLayout, dispatchPreviousLayout} from "../../pages/ComponentCreator/actions";
 import { getLayout, getPreviousLayout } from "../../pages/ComponentCreator/selectors";
 import { ZoomSlider } from "..";
 import Layout from "../../entities/Layout";
 import Helper from "../../utils/Helper";
-import * as images from "./../../static/images";
+import * as images from "../../static/images";
 import "./LayoutSelector.component.scss";
 
 const LayoutSelector = props => {

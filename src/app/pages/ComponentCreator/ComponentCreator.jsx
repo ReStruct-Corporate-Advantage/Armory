@@ -9,7 +9,7 @@ import io from "socket.io-client";
 import { getToggles, getUserDetails, isMobile } from "../../global-selectors";
 import {getPresentComponentsConfig, getSelectedComponent} from "./selectors";
 import {dispatchComponentsConfig, dispatchSelectedComponent} from "./actions";
-import {Aside, Main, Logger, ToolActionContainer} from "./../../components";
+import {Aside, Main, Logger, ToolActionContainer} from "../../components";
 import useEventHandler from "../../utils/useEventHandler";
 import API_CONFIG from "../../constants/api-config";
 import "./ComponentCreator.module.scss";

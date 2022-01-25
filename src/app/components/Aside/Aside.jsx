@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import * as components from "./../";
+import * as components from "..";
 import "./Aside.component.scss";
 
 const Aside = props => {

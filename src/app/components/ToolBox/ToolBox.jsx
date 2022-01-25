@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-import {ToolsLeft, ToolsRight} from "./../";
-import Helper from "./../../utils/Helper";
+import {ToolsLeft, ToolsRight} from "..";
+import Helper from "../../utils/Helper";
 import "./ToolBox.component.scss";
 
 const ToolBox = props => {
