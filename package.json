@@ -158,6 +158,7 @@
   },
   "devDependencies": {
     "plop": "^3.0.5",
+    "typescript": "^4.5.5",
     "webpack-bundle-analyzer": "^4.5.0"
   }
 }
