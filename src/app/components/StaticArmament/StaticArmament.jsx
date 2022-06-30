@@ -62,7 +62,6 @@ StaticArmament.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
-  clientRect: PropTypes.object,
   componentConfig: PropTypes.object,
   setComponentConfig: PropTypes.func,
   dispatchModal: PropTypes.func,

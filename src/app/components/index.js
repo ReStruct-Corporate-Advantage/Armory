@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import WidgetContainer from "./WidgetContainer";
 import Tab from "./Tab";
 import Tabs from "./Tabs";
 import MenuItem from "./MenuItem";
@@ -63,6 +64,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	WidgetContainer,
 	Tab,
 	Tabs,
 	MenuItem,

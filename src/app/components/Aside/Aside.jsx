@@ -7,9 +7,10 @@ const Aside = props => {
   const {childItems, clientRect, componentConfig, context, isDevMode, persistent, position, selectedComponent, styles} = props;
   let [expanded, setExpanded] = useState(true);
   expanded = expanded && (persistent ? true : isDevMode);
+  console.log(expanded)
   const asideComponents = childItems && childItems.map((child, key) => {
     const Component = components[child.name];
-    return <Component key={key} selectedComponent={selectedComponent} {...child.props} componentsConfig={componentConfig}
+    return <Component expanded={expanded} key={key} selectedComponent={selectedComponent} {...child.props} componentsConfig={componentConfig}
       context={context} clientRect={clientRect} />
   }).filter(child => child);
   

@@ -12,6 +12,7 @@ import "./Armament.component.scss";
 const Armament = props => {
 
   const {category, clientRect, dispatchTooltip, index, isSearched, recursiveRenderer} = props;
+  const type = category.type;
   const ref = useRef(null)
   const [hovered, setHovered] = useState(false);
   const [expanded, setExpanded] = useState(category.expanded);
@@ -20,7 +21,7 @@ const Armament = props => {
   const armamentId = `c-Armament-${index}`
   category.id = armamentId;
   const [{isDragging}, drag, preview] = useDrag({
-    type: ITEM_TYPE.ARMAMENT,
+    type: type || ITEM_TYPE.ARMAMENT,
     item: {index, category: {...category}},
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
@@ -74,7 +75,8 @@ Armament.propTypes = {
   clientRect: PropTypes.object,
   isSearched: PropTypes.bool,
   index: PropTypes.string,
-  recursiveRenderer: PropTypes.func
+  recursiveRenderer: PropTypes.func,
+  type: PropTypes.string
 };
 
 const mapDispatchToProps = {

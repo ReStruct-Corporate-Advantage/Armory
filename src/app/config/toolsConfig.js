@@ -33,16 +33,16 @@ const TOOLS_CONFIG = {
         ]
     },
     SEARCH_BAR_TOOLS: {
-        classes: "backgroundNone",
+        classes: "backgroundNone ms-auto",
         size: "1.1rem",
         tools: [
-            {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
-            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
-            {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 3, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
+            // {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
+            // {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
+            {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 1, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
         ]
     },
     PAGE_TOOLS: {
-        classes: "ms-auto backgroundNone pe-4 borderRight",
+        classes: "backgroundNone px-4 borderRight borderLeft",
         size: "1.2rem",
         tools: [
             {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
@@ -72,6 +72,14 @@ const TOOLS_CONFIG = {
                             color: "#455964",
                             displayName: "Show Tooltips",
                             name: "tooltips",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: true
+                        },
+                        {
+                            color: "#455964",
+                            displayName: "Floating Layout",
+                            name: "layout",
                             icon: "Bs.BsToggleOn",
                             iconOff: "Bs.BsToggleOff",
                             selected: true

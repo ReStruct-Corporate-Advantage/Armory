@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=development nodemon .",
+    "start": "nodemon .",
+    "dev": "NODE_ENV=development nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mohiit1502",

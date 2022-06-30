@@ -21,7 +21,7 @@ const ToolWrapper = memo(props => {
   // const [toolData, setToolData] = useState(data);
   // const {onClickHandler, jsx, type} = useTool(name && name.toLowerCase(), props, setToolData)
   const {onClickHandler, jsx, type} = useTool(name && name.toLowerCase(), props)
-  const iconColor = !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#FFCA28" : "#e83e8c";
+  const iconColor = !disabled && (hovered || (componentSpecific ? buttonClicked[selectedComponent] : buttonClicked)) ? "#fff" : "#e83e8c";
   const iconClass = `global-class-name${hovered ? " hovered" : ""}`;
 
   useEffect(() => {

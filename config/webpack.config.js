@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 const resolve = require('resolve');
-const {ModuleFederationPlugin} = require("webpack").container;
+// const {ModuleFederationPlugin} = require("webpack").container;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InlineChunkHtmlPlugin = require('react-dev-utils/InlineChunkHtmlPlugin');
@@ -564,17 +564,17 @@ module.exports = function (webpackEnv) {
     },
     plugins: [
       isEnvDevelopment && new BundleAnalyzerPlugin(),
-      new ModuleFederationPlugin({
-        name: "armory_remote",
-        filename: "remoteEntry.js",
-        exposes: {
-          "./Router": "./src/app/router"
-        },
-        remotes: {
-          federation_host: "federation_host_remote",
-        },
-        shared: ["react", "react-dom","react-router-dom", "css-loader"]
-      }),
+      // new ModuleFederationPlugin({
+      //   name: "armory_remote",
+      //   filename: "remoteEntry.js",
+      //   exposes: {
+      //     "./Router": "./src/app/router"
+      //   },
+      //   remotes: {
+      //     federation_host: "federation_host_remote",
+      //   },
+      //   shared: ["react", "react-dom","react-router-dom", "css-loader"]
+      // }),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(
         Object.assign(

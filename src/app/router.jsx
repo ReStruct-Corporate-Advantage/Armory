@@ -4,7 +4,7 @@ import { connect, Provider } from "react-redux"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
-import { Header, MenuBar, Modal, Notification, PageLoader, RichTooltip } from "./components";
+import { Header, Modal, Notification, PageLoader, RichTooltip } from "./components";
 import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
@@ -38,13 +38,6 @@ class Router extends React.Component {
         return (
             <Provider store={store}>
                 <div className="global-events-interceptor h-100 w-100" onClick={() => dispatchHideQuickOptions(true)}>
-                    <MenuBar menuItems={[
-                        { name: "appCreator", label: "App Creator", selected: true },
-                        { name: "add", label: "+" },
-                        // { name: "pageCreator", label: "Page Creator" },
-                        // { name: "articleCreator", label: "Article Creator" },
-                        // { name: "configGenerator", label: "ArmConfig Generator" }
-                    ]} />
                     <Header />
                     <BrowserRouter>
                         <Routes>
