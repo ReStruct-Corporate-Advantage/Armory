@@ -64,15 +64,19 @@ class ArmoryController {
     }
 
     setArmaments (req, res) {
-        const user_details = req.decoded;
-        readFile("./src/data/armory.json", "utf8", function(err, data) {
-            if (err) {
-                return res.json(err);
-            }
-            const arms = JSON.parse(data).types;
-            arms && dao.bulkInsert(arms, user_details.username);
-            return res.json({success: true}).status(200)
-        });
+        try {
+            const user_details = req.decoded;
+            readFile("./src/data/armory.json", "utf8", function(err, data) {
+                if (err) {
+                    return res.json(err);
+                }
+                const arms = JSON.parse(data).types;
+                arms && dao.bulkInsert(arms, user_details.username);
+                return res.json({success: true}).status(200)
+            });
+        } catch (e) {
+            logger.error(e)
+        }
     }
 
     /**

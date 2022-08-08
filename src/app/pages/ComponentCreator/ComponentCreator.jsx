@@ -38,7 +38,7 @@ const ComponentCreator = props => {
   }, [socket]);
 
   useEffect(() => {
-    floatingLayout && registerDragFor(document.getElementById("i-WidgetContainer"), "i-WidgetContainer__accordion-handle", setWidgetDragging);
+    floatingLayout && floatingLayout.selected && registerDragFor(document.getElementById("i-WidgetContainer"), "i-WidgetContainer__accordion-handle", setWidgetDragging);
   }, [floatingLayout]);
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const ComponentCreator = props => {
           onKeyDown = {(e) => handleKeyDown(e, componentConfig, dispatchComponentsConfig, selectedComponent, dispatchSelectedComponent, clientRect)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
-          {!floatingLayout && <Aside persistent={false} isDevMode={isDevMode} childItems={[{name: "ArmoryLib", props: {variant: 1}}]} clientRect={clientRect} position="left" />}
+          {(!floatingLayout || !floatingLayout.selected) && <Aside persistent={false} isDevMode={isDevMode} childItems={[{name: "ArmoryLib", props: {variant: 1}}]} clientRect={clientRect} position="left" />}
           <Main isDevMode={isDevMode} setClientRect={setClientRect} clientRect={clientRect} dispatchSelectedComponent={dispatchSelectedComponent} selectedComponent={selectedComponent} socket={socket} />
-          {!floatingLayout && <Aside persistent={false} isDevMode={isDevMode} childItems={
+          {(!floatingLayout || !floatingLayout.selected) && <Aside persistent={false} isDevMode={isDevMode} childItems={
             [
               {name: "PropertiesWidget", props: {title: "Component Details", socket}},
               {name: "CodeViewerWidget", props: {title: "Generated Code", dispatchSelectedComponent}}
@@ -64,7 +64,7 @@ const ComponentCreator = props => {
           } selectedComponent={selectedComponent} position="right" styles={{fontSize: "0.8rem"}}/>}
         </main>
         <ToolActionContainer />
-        {floatingLayout && <WidgetContainer widgetDragging={widgetDragging} ref={draggable} persistent={false} isDevMode={isDevMode} childItems={
+        {floatingLayout && floatingLayout.selected && isDevMode && <WidgetContainer widgetDragging={widgetDragging} ref={draggable} persistent={false} isDevMode={isDevMode} childItems={
           [
             {name: "ArmoryLib", props: {variant: 2}},
             {name: "PropertiesWidget", props: {title: "Component Details", socket}},
