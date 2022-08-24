@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkarmory=self.webpackChunkarmory||[]).push([[4],{9004:function(r,a,n){n.r(a),n.d(a,{default:function(){return e}});n(2791);var o=n(184),e=function(r){return(0,o.jsx)("div",{className:"c-CollaborationBoard",children:"In Page CollaborationBoard"})}}}]);
+//# sourceMappingURL=4.d9705a34.chunk.js.map

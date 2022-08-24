@@ -1,2 +1,0 @@
-(this.webpackJsonparmory=this.webpackJsonparmory||[]).push([[8],{145:function(r,s,o){},174:function(r,s,o){"use strict";o.r(s);o(0),o(145);var t=o(2),a=function(r){return Object(t.jsx)("div",{className:"c-ForgotPassword",children:"In Page ForgotPassword"})};s.default=a}}]);
-//# sourceMappingURL=8.072e5a09.chunk.js.map

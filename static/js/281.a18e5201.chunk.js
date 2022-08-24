@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkarmory=self.webpackChunkarmory||[]).push([[281],{6281:function(r,e,n){n.r(e),n.d(e,{default:function(){return u}});n(2791);var s=n(184),u=function(r){return(0,s.jsx)("div",{className:"c-UserProfile",children:"In Page UserProfile"})}}}]);
+//# sourceMappingURL=281.a18e5201.chunk.js.map

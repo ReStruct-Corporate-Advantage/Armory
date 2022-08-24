@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkarmory=self.webpackChunkarmory||[]).push([[591],{2591:function(n,e,r){r.r(e),r.d(e,{default:function(){return s}});r(2791);var t=r(184),s=function(n){return(0,t.jsx)("div",{className:"c-Settings",children:"In Page Settings"})}}}]);
+//# sourceMappingURL=591.eaca41b1.chunk.js.map

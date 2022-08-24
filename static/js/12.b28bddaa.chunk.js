@@ -1,2 +1,0 @@
-(this.webpackJsonparmory=this.webpackJsonparmory||[]).push([[12],{148:function(t,n,s){},177:function(t,n,s){"use strict";s.r(n);s(0),s(148);var e=s(2),c=function(t){return Object(e.jsx)("div",{className:"c-Settings",children:"In Page Settings"})};n.default=c}}]);
-//# sourceMappingURL=12.b28bddaa.chunk.js.map
