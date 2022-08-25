@@ -8,7 +8,16 @@ import docs from "../../docs/index.js";
 
 function injectLibMW (app) {
     logger.info("[InjectLibMiddleware::init] Initializing library middlewares: express bodyParser, cors, cookieParser, swagger; in that order");
-    const whitelist = ["http://localhost:7992", "https://armory-ui.herokuapp.com", "http://armory-ui.herokuapp.com", "https://restruct-corporate-advantage.github.io"]
+    const whitelist = [
+        "http://localhost:7992",
+        "https://armory-ui.herokuapp.com",
+        "http://armory-ui.herokuapp.com",
+        "https://restruct-corporate-advantage.github.io",
+        "https://wwww.armco.tech",
+        "https://armco.tech",
+        "http://www.armco.tech",
+        "http://armco.tech"
+    ]
     const corsOptions = {
         origin: (origin, callback) => {
             logger.info("[InjectLibMiddleware::init::corsorigin] Received a call from: ", origin)
