@@ -20,7 +20,8 @@ function injectLibMW (app) {
     ]
     const corsOptions = {
         origin: (origin, callback) => {
-            logger.info("[InjectLibMiddleware::init::corsorigin] Received a call from: ", origin)
+            logger.info("[InjectLibMiddleware::init::corsorigin] Received a call from: ", origin);
+            logger.info("[InjectLibMiddleware::init::corsorigin] Origin Check? ", !origin || whitelist.indexOf(origin) !== -1);
             logger.info("[InjectLibMiddleware::init::corsorigin] Checking against: http://localhost:7992, https://armory-ui.herokuapp.com");
             (!origin || whitelist.indexOf(origin) !== -1) ? callback(null, true) :  callback(new Error("Not allowed by CORS"))
             logger.info("[InjectLibMiddleware::init::corsorigin] CORS intercepter ended");
