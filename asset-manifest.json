@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/main.6825e82d.js",
+    "main.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/main.ece50c81.js",
     "static/css/123.11137382.chunk.css": "https://restruct-corporate-advantage.github.io/Armory/static/css/123.11137382.chunk.css",
-    "static/js/123.1eedd23b.chunk.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/123.1eedd23b.chunk.js",
+    "static/js/123.2dfd41c5.chunk.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/123.2dfd41c5.chunk.js",
     "static/js/77.8946054a.chunk.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/77.8946054a.chunk.js",
     "static/css/453.51ed5b5f.chunk.css": "https://restruct-corporate-advantage.github.io/Armory/static/css/453.51ed5b5f.chunk.css",
     "static/js/453.234b1278.chunk.js": "https://restruct-corporate-advantage.github.io/Armory/static/js/453.234b1278.chunk.js",
@@ -44,9 +44,9 @@
     "static/media/LayoutCustom.svg": "https://restruct-corporate-advantage.github.io/Armory/static/media/LayoutCustom.4bc3cbfa505e7815eed34f989c8b7339.svg",
     "static/media/LayoutExpand.svg": "https://restruct-corporate-advantage.github.io/Armory/static/media/LayoutExpand.90ce9501b2bae9035b71c2f42ac86b55.svg",
     "index.html": "https://restruct-corporate-advantage.github.io/Armory/index.html",
-    "main.6825e82d.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/main.6825e82d.js.map",
+    "main.ece50c81.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/main.ece50c81.js.map",
     "123.11137382.chunk.css.map": "https://restruct-corporate-advantage.github.io/Armory/static/css/123.11137382.chunk.css.map",
-    "123.1eedd23b.chunk.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/123.1eedd23b.chunk.js.map",
+    "123.2dfd41c5.chunk.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/123.2dfd41c5.chunk.js.map",
     "77.8946054a.chunk.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/77.8946054a.chunk.js.map",
     "453.51ed5b5f.chunk.css.map": "https://restruct-corporate-advantage.github.io/Armory/static/css/453.51ed5b5f.chunk.css.map",
     "453.234b1278.chunk.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/453.234b1278.chunk.js.map",
@@ -76,6 +76,6 @@
     "911.a7ff41fe.chunk.js.map": "https://restruct-corporate-advantage.github.io/Armory/static/js/911.a7ff41fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.6825e82d.js"
+    "static/js/main.ece50c81.js"
   ]
 }
