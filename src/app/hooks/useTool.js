@@ -1,9 +1,11 @@
-import {useState} from "react";
-import { BsToggleOff, BsToggleOn } from "react-icons/bs"
+import {useSelector} from "react-redux";
+import Immutable from "immutable";
+import {getToggles} from "../global-selectors";
+import { LoadableIcon, Toggle } from "../components";
+// import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
-function useTool(toolName, props) {
-    const [toggleValues, setToggleValues] = useState(null);
-
+function useTool(toolName, props, setToolData) {
+    const toggleStore = useSelector(getToggles);
     const addpage = {
         jsx: () => {},
         type: "MODAL"
@@ -73,9 +75,11 @@ function useTool(toolName, props) {
         jsx: (data) => {
             const profileOptions = data && data.profileOptions;
             return <ul className="list-unstyled font-weight-bold">
-                {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
+                {profileOptions && profileOptions.map((profileOption, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={profileOption.onClick ? profileOption.onClick : () => {}}>
                 <span>{profileOption.name}</span>
-                {profileOption.selected !== undefined && <span style={{float: "right"}}>{profileOption.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
+                <span style={{float: "right"}}>
+                    <LoadableIcon size="1.4rem" color="#e83e8c" icon={profileOption.icon} className="svg-stroke-theme" />
+                </span>
             </li>)}</ul>
         },
         type: "TAGGED"
@@ -87,20 +91,11 @@ function useTool(toolName, props) {
     }
 
     const toggles = {
-        jsx: (data) => {
-            const toggles = data && data.toggles;
+        jsx: data => {
+            const toggles = (toggleStore && toggleStore.size > 0) ? toggleStore.toJS() : data.toggles;
             return <ul className="list-unstyled font-weight-bold">
-                {toggles && toggles.map((toggle, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.3rem 0 0.5rem"}} onClick={() => {
-                    if (toggle.selected !== undefined) {
-                        const toggleValuesCloned = [...(toggleValues || toggles)];
-                        const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);
-                        clickedToggle.selected = !clickedToggle.selected
-                        setToggleValues(toggleValuesCloned);
-                    }
-                }}>
-                <span>{toggle.name}</span>
-                {toggle.selected !== undefined && <span style={{float: "right"}}>{toggle.selected ? <BsToggleOn className="svg-stroke-theme" /> : <BsToggleOff className="svg-stroke-theme" />}</span>}
-            </li>)}</ul>
+                {toggles.map((toggle, key) => <Toggle index={key} toggle={toggle} toggles={toggles} />)}
+            </ul>
         },
         toggle: (toggleName) => !this.toggles[toggleName],
         hoverEffect: {},

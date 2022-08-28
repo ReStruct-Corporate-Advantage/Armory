@@ -1,6 +1,6 @@
 import ArmoryEntity from "./ArmoryEntity";
 import {v4 as uuid} from "uuid";
-import {Descriptor, Meta} from "./";
+import {Descriptor, Meta} from ".";
 import Network from "../utils/network";
 export default class Component extends ArmoryEntity {
     private _armamentCategory: String;
@@ -49,11 +49,11 @@ export default class Component extends ArmoryEntity {
     }
 
     save () {
-        let transformedComponent = {};
+        let transformedComponent: any = {};
         Object.keys(this).forEach(key => {
             if (key !== "__proto__" && key.startsWith("_")) {
                 const trimmedKey = key.substring(1);
-                transformedComponent[trimmedKey] = this[key];
+                transformedComponent[trimmedKey] = (this as any)[key];
             }
         });
         return Network.post("/api/armory?withContainer=true", transformedComponent)

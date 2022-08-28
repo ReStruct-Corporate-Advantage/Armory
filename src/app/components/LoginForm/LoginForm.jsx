@@ -1,34 +1,29 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {withRouter} from "react-router-dom";
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {makeStyles} from "@material-ui/styles";
+import { useNavigate } from "react-router-dom";
 import { setLoggedIn, setUserRole } from "../../pages/Login/actions";
-import {isLoggedIn} from "./../../global-selectors";
-import {ButtonsPanel, InputField, SectionHeader} from "..";
-import {AppBar, Box, Tab, Tabs} from "@material-ui/core";
+import {isLoggedIn} from "../../global-selectors";
+import {ButtonsPanel, InputField, SectionHeader, Tabs, Tab} from "..";
 import Network from "../../utils/network";
 import Helper from "../../utils/Helper";
 import API_CONFIG from "../../constants/api-config";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, className, ...other } = props;
 
   return (
     <div
+      className={`c-TabPanel${className ? " " + className : ""}`}
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={2}>
-          {children}
-        </Box>
-      )}
+      {value === index && children}
     </div>
   );
 }
@@ -44,28 +39,17 @@ function a11yProps(index) {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
   };
-}
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    // flexGrow: 1,
-    // backgroundColor: theme.palette.background.paper,
-  },
-}));
-
+};
 
 const LoginForm = props => {
-  const {setLoggedIn, history} = props;
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const {setLoggedIn} = props;
+  const [tabValue, setTabValue] = React.useState(0);
   const [fieldValues, setFieldValues] = useState({loginform: {}, registerform: {}})
   const [loginApiMessage, setLoginApiMessage] = useState("");
   const [isLoginApiError, setLoginApiError] = useState(false);
   const [registerApiMessage, setRegisterApiMessage] = useState("");
   const [isRegisterApiError, setRegisterApiError] = useState(false);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const navigate = useNavigate();
 
   const onChange = (formId, id, value) => {
     const fieldValuesCloned = {...fieldValues};
@@ -84,8 +68,8 @@ const LoginForm = props => {
             setLoginApiMessage("")
             res.body.access_token && Helper.setCookie("auth_session_token", res.body.access_token, 30);
             const username = res.body.user && res.body.user.username;
-            res.body.access_token && Helper.setCookie("auth_session_token", res.body.access_token, 30);
-            history.push(`/${username}`);
+            res.body.user && Helper.setCookie("auth_session_user", res.body.user.username, 30);
+            navigate(`/${username}`, {replace: true});
           } else if (res.body.error) {
             setLoginApiError(true);
             setLoginApiMessage(res.body.error)
@@ -94,7 +78,7 @@ const LoginForm = props => {
           if (res.status === 200 && res.body.message && res.body.message.endsWith("please continue to login.")) {
             setRegisterApiError(false);
             setRegisterApiMessage(res.body.message)
-            history.push("/login");
+            navigate("login", {replace: true});
           } else if (res.body.error) {
             setRegisterApiError(true);
             setRegisterApiMessage(res.body.error)
@@ -116,32 +100,32 @@ const LoginForm = props => {
   }
 
   return (
-    <div className="c-LoginForm mx-auto row">
+    <div className="c-LoginForm ms-auto">
       {/* <TabPanel for login and register */}
-      <div className={classes.root + " w-100 glass-panel"}>
-        <AppBar position="static" className="darker-glass-panel">
-          <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" variant="fullWidth">
-            <Tab label="Login" {...a11yProps(0)} />
-            <Tab label="Register" {...a11yProps(1)} />
-          </Tabs>
-        </AppBar>
-        <TabPanel value={value} index={0} className="text-left">
-          <SectionHeader title="Please enter your credentials to login" className="col-12" />
-          <form className="fields-container col-12 mt-3">
+      <div className="w-100 border-small-radius overflow-hidden">
+        <Tabs value={tabValue} onChange={setTabValue} aria-label="simple tabs example" variant="fullWidth">
+          <Tab label="Login" {...a11yProps(0)} />
+          <Tab label="Register" {...a11yProps(1)} />
+        </Tabs>
+        <TabPanel value={tabValue} index={0} className="text-start">
+          <SectionHeader title="Please enter your credentials to login" className="col-12 font-size-12" />
+          <form className="fields-container col-12 mt-3 p-3">
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}
             <InputField formId="loginform" id="username" label="User Name/Email" type="text" value={fieldValues["loginform"]["username"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
             <InputField formId="loginform" id="password" label="Password" type="password" value={fieldValues["loginform"]["password"]} inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
-            <ButtonsPanel formId="loginform" buttonsConfig={{btnSubmit: {type: "button", btnClasses: "btn btn-primary float-right", btnText: "Login", style: {background: "rgba(0, 150, 0, 0.7)"}, onClick: () => 
-            {
-              setLoginApiError(false);
-              setLoginApiMessage("");
-              handleSubmit("loginform", API_CONFIG)
-            }}}}/>
+            <ButtonsPanel formId="loginform" buttonsConfig={
+              {btnSubmit: 
+                {type: "button", classes: "btn btn-success float-right raise-effect", displayValue: "Login", style: {background: "rgba(0, 150, 0, 0.7)"}, onClick: () => 
+                  {
+                    setLoginApiError(false);
+                    setLoginApiMessage("");
+                    handleSubmit("loginform", API_CONFIG)
+                  }}}}/>
           </form>
         </TabPanel>
-        <TabPanel value={value} index={1} className="text-left">
-          <SectionHeader title="Please enter following details to register" className="col-12" />
-          <form className="fields-container col-12 mt-3">
+        <TabPanel value={tabValue} index={1} className="text-start">
+          <SectionHeader title="Please enter following details to register" className="col-12 font-size-12" />
+          <form className="fields-container col-12 mt-3 p-3">
             {registerApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isRegisterApiError ? " error" : ""}`}>{registerApiMessage}</p>}
             <InputField formId="registerform" id="username" label="User Name/Email" type="text" value={fieldValues["registerform"]["username"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
             <InputField formId="registerform" id="newpassword" label="New Password" type="password" value={fieldValues["registerform"]["newpassword"]} layoutClasses="mb-5" inputClasses="w-100 border-5 border-none px-2 py-3" required={true} onChange={onChange} shrunkable />
@@ -150,13 +134,15 @@ const LoginForm = props => {
               {
                 btnLogin: {
                   type: "button",
-                  btnText: "< Back",
+                  classes: "btn btn-success raise-effect",
+                  displayValue: "< Back",
                   style: {background: "rgba(0, 0, 0, 0.7)", color: "white", marginRight: "1rem"},
-                  onClick: (e) => handleChange(e, 0)
+                  onClick: () => setTabValue(0)
                 },
                 btnSubmit: {
                   type: "button",
-                  btnText: "Register",
+                  classes: "btn btn-success raise-effect",
+                  displayValue: "Register",
                   style: {background: "rgba(0, 150, 0, 0.7)"},
                   onClick: () => {
                     setRegisterApiError(false);
@@ -186,4 +172,4 @@ const mapDispatchToProps = {
   setUserRole
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginForm));
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);

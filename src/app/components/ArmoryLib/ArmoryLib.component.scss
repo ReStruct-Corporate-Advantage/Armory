@@ -2,6 +2,13 @@
 
 .c-ArmoryLib {
     white-space: nowrap;
+    transition: all 0.3s;
+    &:hover {
+        transform: scale(1.02);
+        background: black;
+        transform-origin: top left;
+    }
+
     ul {
         padding-left: 2rem;
         &:first-child { padding-left: 0;}

@@ -1,4 +1,17 @@
 /* PLOP_INJECT_IMPORT */
+import ComponentContainerWrapper from "./ComponentContainerWrapper";
+import Toggle from "./Toggle";
+import WidgetContainer from "./WidgetContainer";
+import Tab from "./Tab";
+import Tabs from "./Tabs";
+import MenuItem from "./MenuItem";
+import MenuBar from "./MenuBar";
+import Notification from "./Notification";
+import Logger from "./Logger";
+import PageContainer from "./PageContainer";
+import ZoomSlider from "./ZoomSlider";
+import CompareView from "./CompareView";
+import LoadableIcon from "./LoadableIcon";
 import AdminCodeTree from "./AdminCodeTree";
 import AdminPropsForm from "./AdminPropsForm";
 import StaticArmamentWrapper from "./StaticArmamentWrapper";
@@ -32,16 +45,7 @@ import CodeComment from "./CodeComment";
 import PropsForm from "./PropsForm";
 import SectionHeader from "./SectionHeader";
 import CodeTree from "./CodeTree";
-import Cylinder from "./repository/Cylinder";
-import Cube from "./repository/Cube";
-import Parallelogram from "./repository/Parallelogram";
-import Line from "./repository/Line";
-import RoundedRectangle from "./repository/RoundedRectangle";
-import RoundedSquare from "./repository/RoundedSquare";
-import Circle from "./repository/Circle";
-import Rectangle from "./repository/Rectangle";
 import ArmamentWrapper from "./ArmamentWrapper";
-import Square from "./repository/Square";
 import DefinePropertiesForm from "./DefinePropertiesForm";
 import CodeViewerWidget from "./CodeViewerWidget";
 import PropertiesWidget from "./PropertiesWidget";
@@ -62,6 +66,19 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ComponentContainerWrapper,
+	Toggle,
+	WidgetContainer,
+	Tab,
+	Tabs,
+	MenuItem,
+	MenuBar,
+	Notification,
+	Logger,
+	PageContainer,
+	ZoomSlider,
+	CompareView,
+	LoadableIcon,
 	AdminCodeTree,
 	AdminPropsForm,
 	StaticArmamentWrapper,
@@ -95,16 +112,7 @@ export {
 	PropsForm,
 	SectionHeader,
 	CodeTree,
-	Cylinder,
-	Cube,
-	Parallelogram,
-	Line,
-	RoundedRectangle,
-	RoundedSquare,
-	Circle,
-	Rectangle,
 	ArmamentWrapper,
-	Square,
 	DefinePropertiesForm,
 	CodeViewerWidget,
 	PropertiesWidget,

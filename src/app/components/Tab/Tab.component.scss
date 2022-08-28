@@ -1,0 +1,10 @@
+.c-Tab {
+    background: rgba(0, 150, 0, 0.7);
+    transition: all 0.2s;
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgba(42, 197, 42, 0.7);
+    &.selected, &:hover {
+        background: rgba(42, 197, 42, 0.7);
+    }
+}

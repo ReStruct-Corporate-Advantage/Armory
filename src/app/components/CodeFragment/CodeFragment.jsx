@@ -1,6 +1,6 @@
 import React, {memo} from "react";
 import PropTypes from "prop-types";
-import {FRAGMENT_TYPE} from "./../../constants/types";
+import {FRAGMENT_TYPE} from "../../constants/types";
 import "./CodeFragment.component.scss";
 
 const CodeFragment = memo(props => {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {repository} from "./../../utils/CodeUtils/ComponentGenerator";
+import {repository} from "../../utils/CodeUtils/ComponentGenerator";
 import "./ComponentDescription.component.scss";
 
 const ComponentDescription = props => {
@@ -11,12 +11,12 @@ const ComponentDescription = props => {
   const createdBy = description && description.meta ? description.meta.createdBy  : "";
   description.descriptor = description.descriptor ? description.descriptor : {};
   description.descriptor.classes = description.descriptor.classes ? description.descriptor.classes : "";
-  description.descriptor.classes += " ml-4 mt-3";
+  // description.descriptor.classes.indexOf("ms-4 mt-3") < 0 && (description.descriptor.classes += " ms-4 mt-3");
   const Component = repository[description.componentName];
   const componentRender = Component ? <Component {...description} /> : null;
   return (
-    <div className="c-ComponentDescription text-left overflow-auto text-white">
-      {componentRender}
+    <div className="c-ComponentDescription text-start overflow-auto text-white">
+      <span className="c-ComponentDescription__render ms-4 mt-3">{componentRender}</span>
       <hr style={{background: "white"}} />
       <span className="d-block">Name: {displayName}</span>
       {tags && <span className="d-block">Tags: [{tags.join(", ")}]</span>}

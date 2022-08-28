@@ -5,10 +5,10 @@ import {createPropsSelector} from "reselect-immutable-helpers";
 import { getClearPropsState, getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import { getUserDetails } from "../../global-selectors";
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
-import {SelectOption, InputField, CheckBox} from "../";
-import {compGen, forkedRepository} from "./../../utils/CodeUtils/ComponentGenerator";
+import {SelectOption, InputField, CheckBox} from "..";
+import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
-import Network from "./../../utils/network";
+import Network from "../../utils/network";
 import "./PropsForm.component.scss";
 
 const PropsForm = props => {
@@ -197,8 +197,8 @@ const PropsForm = props => {
 
   return (
     <div className="c-PropsForm p-1 overflow-auto">
-      {selectedComponentConfig && <p className="pl-2 py-2 mb-0 text-muted">Owner: <b><i>{selectedComponentConfig && selectedComponentConfig.meta && selectedComponentConfig.meta.createdBy}</i></b></p>}
-      {selectedComponentConfig && <p className="pl-2 py-2 mb-0 text-muted">Selected: <b><i>{selectedComponentConfig && selectedComponentConfig.uuid}</i></b></p>}
+      {selectedComponentConfig && <p className="ps-2 pt-2 mb-0 text-muted">Owner: <b><i>{selectedComponentConfig && selectedComponentConfig.meta && selectedComponentConfig.meta.createdBy}</i></b></p>}
+      {selectedComponentConfig && <p className="ps-2 pb-2 mb-0 text-muted">Selected: <b><i>{selectedComponentConfig && selectedComponentConfig.uuid}</i></b></p>}
       {selectedComponentConfig && <div className="c-PropsForm__propSelector row mb-2">
           <SelectOption id="type-selector" layoutClasses="col-6" options={types} onChange={selectorOnChange} value={selectorState["type-selector"]} />
           <SelectOption id="value-selector" layoutClasses="col-6" onChange={selectorOnChange}

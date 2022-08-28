@@ -1,74 +1,94 @@
+@import "../../styles/variables";
+
 .c-Dashboard {
-  .c-Dashboard__main {
-    .page-header {
-        padding: 1.5rem;
-    }
-
-    .c-Dashboard__main__buttons, .c-Dashboard__main__admin, .c-Dashboard__main__resume {
-        min-width: 25rem;
-        min-height: 35rem;
-        height: 0px;
-
-        .c-Dashboard__btn {
-            font-size: 1rem;
-            font-weight: bold;
-            padding: 1rem;
-            color: #2196F3;
-            border-left: 0.625rem solid #2196F3;
-            border-right: none;
-            border-top: none;
-            border-bottom: none;
-            background: #eeffff;
-            border-radius: 2.8rem;
-            max-height: 3.5rem;
-            transition: all 0.3s ease-in-out;
-
-            &:hover {
-                background: #2196F3;
-                border-left: 0.625rem solid #2196F3;
-                border-right: 0.625rem solid #09085e;
-                color: #ddffff;
-            }
-        }
-        .c-Dashboard__actions {
-            overflow: auto;
-        }
-
-        .sub-option {
-            background: rgb(170, 70, 70);
-            position: relative;
+    .c-Dashboard__main {
+        .page-header {
+            padding: 1.5rem;
+            color: $primary-base-color;
             border-radius: 5px;
+        }
 
-            &:before {
-                content: "";
-                position: absolute;
-                top: 41%;
-                transform: rotateZ(45deg);
-                border: 1rem solid rgb(170, 70, 70);
-                z-index: -1;
-                left: -1rem;
+        .c-Dashboard__panel__container {
+                
+            .c-Dashboard__main__buttons, .c-Dashboard__main__admin, .c-Dashboard__main__resume {
+                min-width: 25rem;
+                min-height: 35rem;
+                height: 0px;
+                border-radius: 5px;
+                overflow: auto;
+
+                .c-Dashboard__btn {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding: 1rem;
+                    // color: #2196F3;
+                    color: white;
+                    border-left: 0.625rem solid #2196F3;
+                    border-right: none;
+                    border-top: none;
+                    border-bottom: none;
+                    // background: #eeffff;
+                    background: $primary-base-color;
+                    border-radius: 2.8rem;
+                    max-height: 3.5rem;
+
+                    &:hover {
+                        background: #2196F3;
+                        border-left: 0.625rem solid #2196F3;
+                        border-right: 0.625rem solid #09085e;
+                        color: #ddffff;
+                    }
+                }
+                .c-Dashboard__actions {
+                    overflow: auto;
+
+                    .c-Dashboard__action {
+                        max-height: 7rem;
+                        // overflow: hidden;
+                        .sub-option {
+                            background: rgb(170, 70, 70);
+                            position: relative;
+                            border-radius: 5px;
+                            max-height: 15rem;
+                            transition: max-height 0.6s;
+                            overflow: auto;
+                            
+                            &.unhovered {
+                                max-height: 0;
+                                width: 0;
+                                overflow: hidden;
+                                padding: 0 !important;
+                                margin: 0 !important;
+                            }
+                
+                            &:before {
+                                content: "";
+                                position: absolute;
+                                top: 41%;
+                                transform: rotateZ(45deg);
+                                border: 1rem solid rgb(170, 70, 70);
+                                z-index: -1;
+                                left: -1rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .section-header, .option-separator {
+                padding: 1rem;
+                // border-top: 1px solid white;
+                // border-bottom: 1px solid white;
+                font-size: 2rem;
+                // background: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0));
+                background: $primary-base-color;
+                color: white;
+                font-weight: bolder;
+            }
+
+            .section-header {
+                font-size: 1.4rem;
             }
         }
     }
-
-    .c-Dashboard__main__admin {
-        // height: unset;
-        background: rgba(170,85,85,0.6);
-    }
-
-    .section-header, .option-separator {
-        padding: 1rem;
-        border-top: 1px solid white;
-        border-bottom: 1px solid white;
-        font-size: 2rem;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0), #ccc, rgba(0, 0, 0, 0));
-        color: #444;
-        font-weight: bolder;
-    }
-
-    .section-header {
-        font-size: 1.4rem;
-        color: rgba(16, 46, 16, 0.8);
-    }
-  }
 }

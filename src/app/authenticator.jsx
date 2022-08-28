@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { PageLoader } from "./components";
 import { dispatchUserDetails, setLoggedIn } from "./global-actions";
@@ -63,30 +63,31 @@ const LoadableCollaborationBoard = Loadable({
 })
 
 function Authenticator(props) {
-  const { dispatchUserDetails, history, match, setLoggedIn } = props;
+  const { dispatchUserDetails, setLoggedIn } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
+  const navigate = useNavigate();
   setLoggedIn(isLoggedIn);
   if (!isLoggedIn) {
-    history.push("/login");
+    navigate("login");
   } else {
     Network.get("/api/user/current")
       .then(res => dispatchUserDetails(res.body))
       .catch(e => console.log(e));
   }
 
-  return <Switch>
-    <Route exact path={match.path} component={LoadableDashboard} />
-    <Route path={`${match.path}/manage`} component={LoadableAuthorizer} />
-    <Route exact path={`${match.path}/project`} component={LoadableProjectCreator} />
-    <Route path={`${match.path}/page`} component={LoadablePageCreator} />
-    <Route exact path={`${match.path}/component`} component={LoadableComponentCreator} />
-    <Route path={`${match.path}/component/view`} component={LoadableComponentSelector} />
-    <Route path={`${match.path}/reset`} component={LoadableForgotPassword} />
-    <Route path={`${match.path}/profile`} component={LoadableUserProfile} />
-    <Route path={`${match.path}/notifications`} component={LoadableNotifications} />
-    <Route path={`${match.path}/settings`} component={LoadableSettings} />
-    <Route path={`${match.path}/project/:project/collaborate`} component={LoadableCollaborationBoard} />
-  </Switch>
+  return <Routes>
+    <Route path="/" element={<LoadableDashboard />} />
+    <Route path="manage/*" element={<LoadableAuthorizer />} />
+    <Route path="project" element={<LoadableProjectCreator />} />
+    <Route path="page" element={<LoadablePageCreator />} />
+    <Route path="component" element={<LoadableComponentCreator />} />
+    <Route path="component/view" element={<LoadableComponentSelector />} />
+    <Route path="reset" element={<LoadableForgotPassword />} />
+    <Route path="profile" element={<LoadableUserProfile />} />
+    <Route path="notifications" element={<LoadableNotifications />} />
+    <Route path="settings" element={<LoadableSettings />} />
+    <Route path="project/:project/collaborate" element={<LoadableCollaborationBoard />} />
+  </Routes>
 }
 
 const mapDispatchToProps = {
@@ -94,4 +95,4 @@ const mapDispatchToProps = {
   setLoggedIn
 }
 
-export default connect(null, mapDispatchToProps)(withRouter(Authenticator))
+export default connect(null, mapDispatchToProps)(Authenticator);
