@@ -1,8 +1,8 @@
-function dragElement(elmnt, handle, cb) {
+function dragManager(elmnt, handle, cb) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     // if drag handle present, the header is where you move the DIV from; otherwise, move the DIV from anywhere inside the DIV::
-    const dragHandle = document.getElementById(handle) || document.getElementById(elmnt.id + "header") || elmnt;
-    dragHandle.onmousedown = dragMouseDown;
+    const dragHandle = document.getElementById(handle) || (elmnt && (document.getElementById(elmnt.id + "header") || elmnt));
+    dragHandle && (dragHandle.onmousedown = dragMouseDown);
 
     function dragMouseDown(e) {
         e = e || window.event;
@@ -38,4 +38,4 @@ function dragElement(elmnt, handle, cb) {
     }
 }
 
-export default dragElement;
+export default dragManager;

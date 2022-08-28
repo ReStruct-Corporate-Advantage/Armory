@@ -7,11 +7,11 @@ import componentCreatorReducer from "./pages/ComponentCreator/reducer"
 import pageCreatorReducer from "./pages/PageCreator/reducer"
 import componentSelectorReducer from "./pages/ComponentSelector/reducer"
 
-const initialState = Immutable.Map(
+const initialState = Immutable.fromJS(
     {
         modal: {meta: {}}, content: {icons: {}},
         tooltip: {show: false},
-        toggles: [{name: "tooltips", displayName: "Toggle Tooltips", selected: false}],
+        toggles: [],
         logs: []
     })
 
@@ -23,8 +23,8 @@ const globalReducer = (state = initialState, action) => {
         case DISPATCH_LOGS:
         case DISPATCH_MODAL:
         case DISPATCH_NOTIFICATION:
-        case DISPATCH_TOOLTIP:
         case DISPATCH_TOGGLES:
+        case DISPATCH_TOOLTIP:
         case DISPATCH_USER_DETAILS:
         case DISPATCH_ZOOM:
         case SET_LOGGED_IN:

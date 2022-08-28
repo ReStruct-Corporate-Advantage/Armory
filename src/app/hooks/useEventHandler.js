@@ -5,8 +5,8 @@
 import { useDispatch } from "react-redux";
 import {setComponentsConfig} from "../pages/ComponentCreator/actions";
 import ACTIONS from "../constants/actions";
-import {forkedRepository} from "./CodeUtils/ComponentGenerator";
-import Helper from "./Helper";
+import {forkedRepository} from "../utils/CodeUtils/ComponentGenerator";
+import Helper from "../utils/Helper";
 
 const useEventHandler = (props) => {
 // constructor () {

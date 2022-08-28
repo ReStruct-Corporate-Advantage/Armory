@@ -1,6 +1,6 @@
 import React from "react";
 
-const imgCache = {
+export const imgCache = {
     __cache: {},
     read(src) {
         if (!src) {
@@ -31,8 +31,10 @@ const imgCache = {
     }
 };
 
-export const SuspenseImg = ({ src, ...rest }) => {
+const SuspenseImg = ({ src, ...rest }) => {
     imgCache.read(src);
 
     return <img alt="" src={src} {...rest} />;
 };
+
+export default SuspenseImg;

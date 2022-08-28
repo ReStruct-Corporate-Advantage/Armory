@@ -1,12 +1,11 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+import Immutable from "immutable";
 import {getToggles} from "../global-selectors";
-import {dispatchToggles, dispatchNotification} from "../global-actions";
-import { LoadableIcon } from "../components";
+import { LoadableIcon, Toggle } from "../components";
 // import { BsToggleOff, BsToggleOn } from "react-icons/bs"
 
 function useTool(toolName, props, setToolData) {
     const toggleStore = useSelector(getToggles);
-    const dispatch = useDispatch();
     const addpage = {
         jsx: () => {},
         type: "MODAL"
@@ -92,34 +91,11 @@ function useTool(toolName, props, setToolData) {
     }
 
     const toggles = {
-        jsx: (data) => {
-            const toggles = data && data.toggles;
+        jsx: data => {
+            const toggles = (toggleStore && toggleStore.size > 0) ? toggleStore.toJS() : data.toggles;
             return <ul className="list-unstyled font-weight-bold">
-                {toggles && toggles.map((toggle, key) => <li key={key} style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={() => {
-                    if (toggle.selected !== undefined) {
-                        const toggleStoreTransformed = toggleStore && !toggleStore.length ? toggleStore.toArray().map(item => item.toObject()) : toggleStore;
-                        toggles.forEach(toggle => {
-                            if (toggleStoreTransformed.findIndex(tInner => tInner.name === toggle.name) < 0) {
-                                toggleStoreTransformed.push(toggle);
-                            }
-                        })
-                        const toggleValuesCloned = [...toggleStoreTransformed];
-                        data.toggles = toggleValuesCloned;
-                        const clickedToggle = toggleValuesCloned.find(toggleInner => toggle.name === toggleInner.name);
-                        clickedToggle.selected = !clickedToggle.selected
-                        dispatch(dispatchToggles(toggleValuesCloned));
-                        dispatch(dispatchNotification({notification: `Toggle ${clickedToggle.displayName} ${clickedToggle.selected ? "activated!" : "deactivated!"}`, type: "success", show: true}))
-                        // setToolData && setToolData({...data});
-                    }
-                }}>
-                <span>{toggle.displayName}</span>
-                {toggle.icon
-                    && <span style={{float: "right"}}>
-                        {toggle.selected || toggle.generic
-                            ? <LoadableIcon  size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.icon} className="svg-stroke-theme" />
-                            : <LoadableIcon  size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.iconOff} className="svg-stroke-theme" />}
-                        </span>}
-            </li>)}</ul>
+                {toggles.map((toggle, key) => <Toggle index={key} toggle={toggle} toggles={toggles} />)}
+            </ul>
         },
         toggle: (toggleName) => !this.toggles[toggleName],
         hoverEffect: {},

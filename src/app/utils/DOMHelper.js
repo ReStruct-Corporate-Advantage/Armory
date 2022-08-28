@@ -389,6 +389,21 @@ class DOMHelper {
         }
     };
 
+    static svgToBase64 (svg, svgProps) {
+        const {size, classes, color} = svgProps
+        svg.setAttribute("height", size || "1rem");
+        svg.setAttribute("width", size || "1rem");
+        svg.setAttribute("class", classes || "");
+        svg.setAttribute("stroke", color);
+        // svg.setAttribute("fill", color);
+        const path = svg.querySelector("path");
+        // Override stroke and color of "path" node inside SVG at below line.
+        path && color && !!path.getAttribute("stroke") && path.setAttribute("stroke", color);
+        // path && color && !!path.getAttribute("fill") && path.setAttribute("fill", color);
+        svg.style.color = color;
+        const serializedSvg = new XMLSerializer().serializeToString(svg);
+        return btoa(serializedSvg);
+    }
 
     /////////////////////////////////////// Armory Injection /////////////////////////////////////////
     export (tree) {

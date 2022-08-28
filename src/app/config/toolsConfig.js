@@ -82,7 +82,7 @@ const TOOLS_CONFIG = {
                             name: "layout",
                             icon: "Bs.BsToggleOn",
                             iconOff: "Bs.BsToggleOff",
-                            selected: true
+                            selected: false
                         },
                         {
                             color: "#455964",
@@ -114,7 +114,7 @@ const TOOLS_CONFIG = {
                             name: "developerMode",
                             icon: "Bs.BsToggleOn",
                             iconOff: "Bs.BsToggleOff",
-                            selected: false
+                            selected: true
                         },
                         {
                             displayName: "More Settings",

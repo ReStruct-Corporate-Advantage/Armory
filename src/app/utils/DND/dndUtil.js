@@ -1,16 +1,31 @@
 import {v4 as uuid} from "uuid";
-import {ITEM_TYPE} from "../constants/types";
-import Helper from "./Helper";
+import {ITEM_TYPE} from "../../constants/types";
+import Helper from "../Helper";
 
 export class DNDUtil {
 
   constructor () {
     this.uuid = 1;
+    DNDUtil.remsize = 14;
     this.targetArmamentWrapper = null;
     this.targetArmamentWrapperMonitorClientOffset= null;
   }
 
-  dropHandler (item, monitor, comContainerRef, componentsConfig, dispatchComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState, dispatchModal, armory, dispatchLevels, userDetails, socket, logger) {
+  dropHandler (item, monitor, rest) {
+    const {
+      comContainerRef,
+      componentsConfig,
+      dispatchComponentsConfig,
+      dispatchSelectedComponent,
+      dispatchClearPropsState,
+      dispatchModal,
+      dropLocation,
+      armory,
+      dispatchLevels,
+      userDetails,
+      socket,
+      logger
+    } = rest;
     // Check if component is dropped on component container, OR if not, whether the a parent component is dropped on child item
     // In either case allow processing this dropped item
     logger({timestamp: new Date(), log: `Dropped component: ${item.category.displayName}`})
@@ -21,7 +36,7 @@ export class DNDUtil {
     }
     if (monitor.isOver() || handleChildArmamentWrapperDropForInverseDropScenario){
       const rootChildrenArray = componentsConfig.components[0].descriptor.children;
-      const position = this.getPosition(comContainerRef, monitor, clientOffset);
+      const position = this.getPosition(comContainerRef, monitor, clientOffset, true);
       item.type = monitor.getItemType();
       if (rootChildrenArray.length === 0) {
         // if (item.category && item.category.descriptor && item.category.descriptor.allowChildren) {
@@ -65,7 +80,7 @@ export class DNDUtil {
     item.category = JSON.parse(JSON.stringify(item.category));
     componentsConfigClone.count = componentsConfigClone.count + 1;
     item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-    const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+    const droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
     rootChildrenArray.push(droppedComponentConfig);
     
     // Add Container
@@ -79,14 +94,14 @@ export class DNDUtil {
     container.descriptor.styles = container.descriptor.styles ?
       {
         ...container.descriptor.styles,
-        height: (Math.floor(height/16) + 2) + "rem",
-        width: (Math.floor(width/16) + 2) + "rem"
+        height: (Math.floor(height/DNDUtil.remsize) + 2) + "rem",
+        width: (Math.floor(width/DNDUtil.remsize) + 2) + "rem"
       }
       : {
-        height: (Math.floor(height/16) + 2) + "rem",
-        width: (Math.floor(width/16) + 2) + "rem"
+        height: (Math.floor(height/DNDUtil.remsize) + 2) + "rem",
+        width: (Math.floor(width/DNDUtil.remsize) + 2) + "rem"
       }
-    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top: topMin - 16, left: leftMin - 16, ...container}
+    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top: topMin - DNDUtil.remsize, left: leftMin - DNDUtil.remsize, ...container}
     container.descriptor.children = container.descriptor.children.concat(rootChildrenArray);
     componentsConfigClone.components[0].descriptor.children = [];
     componentsConfigClone.components[0].descriptor.children.push(containerComponentConfig);
@@ -115,7 +130,7 @@ export class DNDUtil {
     componentsConfigClone.count = componentsConfigClone.count + 1;
     item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
     container.descriptor.children = container.descriptor.children ? [...container.descriptor.children] : [];
-    const droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0, ...item.category}
+    const droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0}
     container.descriptor.children.push(droppedComponentConfig);
 
     dispatchComponentsConfig(componentsConfigClone);
@@ -132,7 +147,7 @@ export class DNDUtil {
     if (item.type === ITEM_TYPE.ARMAMENT) {
       componentsConfigClone.count = componentsConfigClone.count + 1;
       item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-      let droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+      let droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
       // clone dropped item here
       droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
       rootChildrenArray.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
@@ -158,7 +173,7 @@ export class DNDUtil {
     }
     if (monitor.isOver() && !isDroppedItemParentOfMonitor){
       if (item.category.uuid === droppedOn.uuid) {
-        const position = this.getPosition(comContainerRef, monitor);
+        const position = this.getPosition(comContainerRef, monitor, null, true);
         this.updatePositionDescriptor(item, position, componentsConfig, setComponentsConfig, dispatchSelectedComponent, dispatchClearPropsState);
       } else if (droppedOn.descriptor.allowChildren) {
         const componentsConfigClone = {...componentsConfig};
@@ -169,7 +184,7 @@ export class DNDUtil {
         if (item.type === ITEM_TYPE.ARMAMENT) {
           componentsConfigClone.count = componentsConfigClone.count + 1;
           item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-          let droppedComponentConfig = {name: item.category.componentName, index: componentsConfigClone.count, top, left, ...item.category}
+          let droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
           // clone dropped item here
           droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
           wrapperChildrenArray.push(droppedComponentConfig);
@@ -193,12 +208,12 @@ export class DNDUtil {
     const top = rootChildrenArray.reduce((a, b) => Math.min(a, b.top), 10000000)
     const maxTop = rootChildrenArray.reduce((a, b) => {
       const bHeighProp = b.descriptor && b.descriptor.styles && b.descriptor.styles.height ? b.descriptor.styles.height : b.defaultHeight ? b.defaultHeight : "15rem";
-      const bHeight = bHeighProp.endsWith("rem") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("rem"))) * 16 : bHeighProp.endsWith("px") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("px"))) : Number(bHeighProp);
+      const bHeight = bHeighProp.endsWith("rem") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("rem"))) * DNDUtil.remsize : bHeighProp.endsWith("px") ? Number(bHeighProp.substring(0, bHeighProp.indexOf("px"))) : Number(bHeighProp);
       return Math.max(a, b.top + bHeight);
     }, 0);
     const maxLeft = rootChildrenArray.reduce((a, b) => {
       const bWidthProp = b.descriptor && b.descriptor.styles && b.descriptor.styles.width ? b.descriptor.styles.width : b.defaultWidth ? b.defaultWidth : "15rem";
-      const bWidth = bWidthProp.endsWith("rem") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("rem"))) * 16 : bWidthProp.endsWith("px") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("px"))) : Number(bWidthProp);
+      const bWidth = bWidthProp.endsWith("rem") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("rem"))) * DNDUtil.remsize : bWidthProp.endsWith("px") ? Number(bWidthProp.substring(0, bWidthProp.indexOf("px"))) : Number(bWidthProp);
       return Math.max(a, b.left + bWidth);
     }, 0);
     return {leftMin: left, topMin: top, width: maxLeft - left, height: maxTop - top};
@@ -207,25 +222,23 @@ export class DNDUtil {
   normalizePositionsWithContainer (array, top, left) {
     array && array.forEach(child => {
       child.left -= left;
-      child.left += 16;
+      child.left += DNDUtil.remsize;
       child.top -= top;
-      child.top += 16;
+      child.top += DNDUtil.remsize;
     })
   }
 
-  getPosition (comContainerRef, monitor, incomingClientOffset) {
-    const {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
-    // const {x: initialClientX, y: initialClientY} = monitor.getInitialClientOffset() || {};
-    // const {x: initialSourceX, y: initialSourceY} = monitor.getInitialSourceClientOffset() || {};
-    // const xDisplacementFromItemLeftTop = initialClientX && initialSourceX ? initialClientX - initialSourceX : 0;
-    // const yDisplacementFromItemLeftTop = initialClientY && initialSourceY ? initialClientY - initialSourceY : 0;
-    const clientOffset = monitor.getClientOffset() || incomingClientOffset;
-    const {x, y} = clientOffset;
-    // let left = Math.round(x - containerLeft - xDisplacementFromItemLeftTop); // Adjusting for container pdding
-    // let top = Math.round(y - containerTop - yDisplacementFromItemLeftTop);
-    let left = Math.round(x - containerLeft); // Adjusting for container pdding
-    let top = Math.round(y - containerTop);
-    return false ? DNDUtil.snapToGrid(left, top) : [left, top];
+  getPosition (comContainerRef, monitor, incomingClientOffset, droppedOnPrimaryContainer) {
+    let {left: containerLeft, top: containerTop} = comContainerRef.current.getBoundingClientRect();
+    if (droppedOnPrimaryContainer) {
+      containerLeft += DNDUtil.remsize;
+      containerTop += DNDUtil.remsize;
+    }
+    const clientOffset = monitor.getItemType() === ITEM_TYPE.ARMAMENT_WRAPPER ? monitor.getSourceClientOffset() : monitor.getClientOffset() || incomingClientOffset;
+    let {x, y} = clientOffset;
+    let left = x - containerLeft;
+    let top = y - containerTop;
+    return true ? DNDUtil.snapToGrid(left, top, 30, true) : [left, top];
   }
 
   isDroppedItemParentOfMonitor(droppedItem, droppedOn) {
@@ -252,8 +265,8 @@ export class DNDUtil {
 
   static snapToGrid(x, y, layout, avoidPaddingCorrection) {
     layout = layout || 30;
-    const snappedX = Math.floor(x / layout) * layout + (avoidPaddingCorrection ? 0 : 16) // Adjusting for container pdding
-    const snappedY = Math.floor(y / layout) * layout + (avoidPaddingCorrection ? 0 : 16)
+    const snappedX = Math.floor(x / layout) * layout + (avoidPaddingCorrection ? 0 : DNDUtil.remsize) // Adjusting for container pdding
+    const snappedY = Math.floor(y / layout) * layout + (avoidPaddingCorrection ? 0 : DNDUtil.remsize)
     return [snappedX, snappedY]
   }
 
@@ -266,10 +279,10 @@ export class DNDUtil {
     return [x + xCorrection, y + yCorrection];
   }
 
-  static hoverInPrimaryContainer (containingParentRef, clientOffset) {
-    if (!containingParentRef || !clientOffset) return false;
-    const clientRect = containingParentRef && containingParentRef.current && containingParentRef.current.getBoundingClientRect();
-    if (!clientRect) return false;
+  static hoverInPrimaryContainer (clientRect, clientOffset) {
+    if (!clientRect || !clientOffset) return false;
+    // const clientRect = containingParentRef && containingParentRef.current && containingParentRef.current.getBoundingClientRect();
+    // if (!clientRect) return false;
     const {left, top, width, height} = clientRect;
     const {x, y} = clientOffset;
     return x > left && x < left + width

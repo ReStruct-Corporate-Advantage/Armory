@@ -10,7 +10,7 @@ import { isMobile } from "../../global-selectors";
 import {getPresentPageConfig, getSelectedComponent} from "./selectors";
 import {dispatchPageConfig, dispatchSelectedComponent} from "./actions";
 import {Aside, Main, ToolActionContainer} from "../../components";
-import useEventHandler from "../../utils/useEventHandler";
+import useEventHandler from "../../hooks/useEventHandler";
 import API_CONFIG from "../../constants/api-config";
 import "./PageCreator.module.scss";
 

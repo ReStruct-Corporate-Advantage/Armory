@@ -1,4 +1,6 @@
 /* PLOP_INJECT_IMPORT */
+import ComponentContainerWrapper from "./ComponentContainerWrapper";
+import Toggle from "./Toggle";
 import WidgetContainer from "./WidgetContainer";
 import Tab from "./Tab";
 import Tabs from "./Tabs";
@@ -64,6 +66,8 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ComponentContainerWrapper,
+	Toggle,
 	WidgetContainer,
 	Tab,
 	Tabs,

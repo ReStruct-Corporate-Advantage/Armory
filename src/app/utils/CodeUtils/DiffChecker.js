@@ -1,3 +1,4 @@
+/* eslint eqeqeq: 0 */
 var diff_match_patch = function () {
     this.Diff_Timeout = 1.0;
     this.Diff_EditCost = 4;

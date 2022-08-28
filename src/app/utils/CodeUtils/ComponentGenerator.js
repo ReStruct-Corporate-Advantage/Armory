@@ -292,4 +292,5 @@ const compGen = new ComponentGenerator()
 const repository = compGen.baseRepository;
 const forkedRepository = compGen.boardRepository;
 
-export {ComponentGenerator, compGen, forkedRepository, repository};
+export {compGen, forkedRepository, repository};
+export default ComponentGenerator;

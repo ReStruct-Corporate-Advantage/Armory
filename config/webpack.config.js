@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
+const { ProgressPlugin } = require('webpack');
 const resolve = require('resolve');
 // const {ModuleFederationPlugin} = require("webpack").container;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -601,6 +602,19 @@ module.exports = function (webpackEnv) {
             : undefined
         )
       ),
+      new ProgressPlugin(function (percentage, msg, current, active, modulepath) {
+        if (process.stdout.isTTY && percentage < 1) {
+          process.stdout.cursorTo(0)
+          modulepath = modulepath ? ' …' + modulepath.substr(modulepath.length - 30) : ''
+          current = current ? ' ' + current : ''
+          active = active ? ' ' + active : ''
+          process.stdout.write((percentage * 100).toFixed(0) + '% ' + msg + current + active + modulepath + ' ')
+          process.stdout.clearLine(1)
+        } else if (percentage === 1) {
+          process.stdout.write('\n')
+          console.log('webpack: done.')
+        }
+      }),
       // new BundleAnalyzerPlugin(),
       // Inlines the webpack runtime script. This script is too small to warrant
       // a network request.
