@@ -7,10 +7,10 @@ import { getClearPropsState } from "../../pages/ComponentCreator/selectors";
 import { getComponentConfig } from "../../pages/AdminComponentManager/selectors";
 import { dispatchClearPropsState } from "../../pages/ComponentCreator/actions";
 import { dispatchComponentConfig } from "../../pages/AdminComponentManager/actions";
-import {SelectOption, InputField, CheckBox} from "../";
-import {compGen, forkedRepository} from "./../../utils/CodeUtils/ComponentGenerator";
+import {SelectOption, InputField, CheckBox} from "..";
+import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
-import Network from "./../../utils/network";
+import Network from "../../utils/network";
 import "./AdminPropsForm.component.scss";
 
 const AdminPropsForm = props => {

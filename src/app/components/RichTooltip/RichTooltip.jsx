@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
 import {CSSTransition} from "react-transition-group";
 import {getToggles, getTooltip} from "../../global-selectors";
-import Helper from "./../../utils/Helper";
+import Helper from "../../utils/Helper";
 import "./RichTooltip.component.scss";
 
 const RichTooltip = props => {
@@ -15,9 +15,9 @@ const RichTooltip = props => {
 
   useEffect(() => {
     if (tipRef.current && itemRect) {
-      console.log(itemRect);
-      const positionAndMeta = Helper.getItemPosition(tipRef.current, itemRect, prefer);
-      console.log(positionAndMeta);
+      console.log(itemRect.scrollTop)
+      const boundingClientRect = itemRect.getBoundingClientRect();
+      const positionAndMeta = Helper.getItemPosition(tipRef.current, boundingClientRect, prefer);
       setTooltipPosition(positionAndMeta);
     }
 

@@ -1,6 +1,6 @@
 import ArmoryEntity from "./ArmoryEntity";
 import {v4 as uuid} from "uuid";
-import {Descriptor, Meta} from "./";
+import {Descriptor, Meta} from ".";
 import Network from "../utils/network";
 export default class Component extends ArmoryEntity {
     private _armamentCategory: String;

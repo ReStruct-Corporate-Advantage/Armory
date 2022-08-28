@@ -292,4 +292,12 @@ export default class Helper {
     static getDefaultKey(key) {
         return key && `default${key.length === 1 ? key.toUpperCase() : key.substring(0, 1).toUpperCase() + key.substring(1)}`;
     }
+
+    static debounce (fn, time) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => fn(...args), time || 100)
+        }
+    }
 }

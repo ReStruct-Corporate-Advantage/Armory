@@ -9,8 +9,8 @@ import io from "socket.io-client";
 import { isMobile } from "../../global-selectors";
 import {getPresentPageConfig, getSelectedComponent} from "./selectors";
 import {dispatchPageConfig, dispatchSelectedComponent} from "./actions";
-import {Aside, Main, ToolActionContainer} from "./../../components";
-import useEventHandler from "../../utils/useEventHandler";
+import {Aside, Main, ToolActionContainer} from "../../components";
+import useEventHandler from "../../hooks/useEventHandler";
 import API_CONFIG from "../../constants/api-config";
 import "./PageCreator.module.scss";
 
@@ -38,7 +38,7 @@ const PageCreator = props => {
           onKeyDown = {(e) => handleKeyDown(e, pageConfig, dispatchPageConfig, selectedComponent, dispatchSelectedComponent, clientRect)}
           onKeyUp = {handleKeyUp}
           onClick = {handleOnClick}>
-          <Aside childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
+          <Aside persistent={true} childItems={[{name: "ArmoryLib"}]} clientRect={clientRect} position="left" />
           <Main setClientRect={setClientRect} clientRect={clientRect} dispatchSelectedComponent={dispatchSelectedComponent} selectedComponent={selectedComponent} socket={socket} />
           <Aside childItems={
             [

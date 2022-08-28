@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {ToolWrapper} from "./../";
+import {ToolWrapper} from "..";
 import "./ToolsLeft.component.scss";
 
 const ToolsLeft = props => {

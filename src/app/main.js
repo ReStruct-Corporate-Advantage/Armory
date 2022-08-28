@@ -6,7 +6,10 @@ import {createStore, applyMiddleware, compose} from "redux"
 import reducer from "./reducer";
 import Router from "./router";
 import * as serviceWorker from "./serviceWorker";
+import OverlayScrollbars from "overlayscrollbars";
+import * as $ from "jquery";
 import "bootstrap/dist/css/bootstrap.min.css"
+import 'overlayscrollbars/css/OverlayScrollbars.css';
 import "./main.scss"
 
 // Use this for debugging when required to view "name" of an incoming object via API or import
@@ -21,6 +24,8 @@ const composeEnhancers =
 typeof window === "object" &&
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?   
 window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+  trace: true,
+  traceLimit: 25,
   serialize: { // prettier-ignore
     immutable: Immutable
   }

@@ -1,0 +1,44 @@
+$width: 20rem;
+
+.c-WidgetContainer {
+    top: 10%;
+    right: 1.5rem;
+    width: $width;
+    background: beige;
+    border-radius: 8px;
+    z-index: 2;
+
+    .c-WidgetContainer__accordion-handle {
+        min-height: 1.5rem;
+        cursor: pointer;
+    }
+
+    &:after {
+        content: "";
+        transition: all 0.3s;
+        width: 0.6rem;
+        height: 0.6rem;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        transform: rotateZ(45deg);
+        position: absolute;
+        right: 0.5rem;
+        top: 0.4rem;
+    }
+
+    &:hover::after {
+        border-top: 2px solid black;
+        border-right: 2px solid black;
+    }
+
+    .c-WidgetContainer__body {
+        max-height: 0;
+        transition: max-height 0.3s ease-out;
+        overflow: auto;
+        
+        &.expanded {
+            transition: max-height 0.3s ease-in;
+            max-height: 80vh;
+        }
+    }
+}

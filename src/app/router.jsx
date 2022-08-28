@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { connect, Provider } from "react-redux"
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
-import { Header, Modal, PageLoader, RichTooltip } from "./components";
+import { Header, Modal, Notification, PageLoader, RichTooltip } from "./components";
 import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
@@ -25,12 +25,12 @@ const LoadableJoin = Loadable({
 const LoadableLivePreview = Loadable({
     loader: () => import("./pages/LivePreview"),
     loading: PageLoader
-  })
+})
 
 class Router extends React.Component {
 
     componentDidMount() {
-        this.props.dispatchDeviceType({isMobile: Helper.isMobile()});
+        this.props.dispatchDeviceType({ isMobile: Helper.isMobile() });
     }
 
     render() {
@@ -40,19 +40,22 @@ class Router extends React.Component {
                 <div className="global-events-interceptor h-100 w-100" onClick={() => dispatchHideQuickOptions(true)}>
                     <Header />
                     <BrowserRouter>
-                        <Switch>
-                            <Route exact path="/" component={LoadableAuthenticator} />
-                            <Route path="/login" component={LoadableLogin} />
-                            <Route path="/join" component={LoadableJoin} />
-                            <Route path="/:user" component={LoadableAuthenticator} />
-                            <Route render={() => <Redirect to="/" />} />
-                        </Switch>
+                        <Routes>
+                            <Route path="/" element={<LoadableAuthenticator />} />
+                            <Route path="/login" element={<LoadableLogin />} />
+                            <Route path="join" element={<LoadableJoin />} />
+                            <Route path="/:user/*" element={<LoadableAuthenticator />} />
+                            <Route render={() => <Navigate to="/" />} />
+                        </Routes>
                     </BrowserRouter>
                     <Modal />
                     <RichTooltip />
                     <BrowserRouter>
-                        <Route exact path="/:user/page/live" component={LoadableLivePreview} />
+                        <Routes>
+                            <Route path="/:user/page/live" element={<LoadableLivePreview />} />
+                        </Routes>
                     </BrowserRouter>
+                    <Notification />
                 </div>
             </Provider>
         )
