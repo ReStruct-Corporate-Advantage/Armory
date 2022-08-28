@@ -2,15 +2,15 @@ import React, {useCallback, useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {dispatchArmory} from "./../../pages/ComponentCreator/actions";
+import {dispatchArmory} from "../../pages/ComponentCreator/actions";
 import {getArmory} from "../../pages/ComponentCreator/selectors";
-import {ArmsCategory, FormField} from "./../";
+import {ArmsCategory, FormField} from "..";
 import Network from "../../utils/network";
 import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
 import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
-  const {armory, dispatchArmory} = props;
+  const {armory, dispatchArmory, expanded} = props;
   const [searchValue, setSearchValue] = useState();
   const [localArmory, setLocalArmory] = useState(armory);
 
@@ -64,9 +64,9 @@ const ArmoryLib = props => {
     prevKey={prevKey} renderArmory={renderArmory} expanded={expanded} setExpanded={setExpanded} isSearched={!!searchValue} {...props} />;
 
   return (
-    <div className="c-ArmoryLib h-100">
+    <div className={`c-ArmoryLib h-100${!expanded ? " overflow-auto" : "" }`}>
       <FormField type="input" containerClasses="c-Search__search-field-container ps-1 mb-3 w-100 justify-center"
-        attributes={{placeholder: "Search by name, tags or creator...", inputClasses: "w-100 c-Search__search-field border-5"}} onChange={searchFieldChangeHandler} />
+        attributes={{placeholder: "Search by name, tags or creator...", inputClasses: `c-Search__search-field ${expanded ? " w-100 border-5" : " w-0 p-0 border-none"}`}} onChange={searchFieldChangeHandler} />
       <div className="pb-5 h-100 overflow-auto">
         {renderArmory(localArmory)}
       </div>
@@ -75,8 +75,11 @@ const ArmoryLib = props => {
 };
 
 ArmoryLib.propTypes = {
-  clientRect: PropTypes.object,
-  context: PropTypes.string
+  armory: PropTypes.array,
+  context: PropTypes.string,
+  dispatchArmory: PropTypes.func,
+  node: PropTypes.array,
+  variant: PropTypes.string
 };
 
 const mapStateToProps = createPropsSelector({

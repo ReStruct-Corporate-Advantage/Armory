@@ -11,7 +11,7 @@ const Logger = props => {
   return <div className={`c-Logger overflow-auto${isDevMode ? " expanded" : ""}`} style={{fontFamily: "Courier", fontSize: "0.75rem"}}>
       {logs && logs.map(log => <div>
         {user && <span style={{color: "yellow"}}>[{user.username}:   </span>}
-        <span style={{color: "yellow"}}>{log.timestamp ? log.timestamp.toLocaleString('en-US') : ""}]   </span>
+        <span style={{color: "yellow"}}>{log.timestamp ? log.timestamp.toLocaleString("en-US") : ""}]   </span>
         <span style={{color: "lightblue"}}>  {log.log}</span>
       </div>)}
       <div>{user && <span style={{color: "yellow"}}>[{user.username}] &gt;</span>}</div>

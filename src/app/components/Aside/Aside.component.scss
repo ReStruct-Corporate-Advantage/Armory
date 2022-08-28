@@ -3,7 +3,7 @@
 .c-Aside {
     max-width: $default-aside-width;
     background: $primary-base-color-translucent;
-    backdrop-filter: $default-blur;
+    // backdrop-filter: $default-blur;
     height: 100%;
     position: relative;
     transition: all 0.3s ease-in-out;

@@ -1,3 +1,53 @@
+@import "../../styles/variables";
+
 .c-MenuBar {
-  
+    .menu-bar {
+        height: 2rem;
+        list-style: none;
+        // background: $primary-font-color-dark;
+        // background: $primary-base-color-translucent;
+        .menu-item {
+            display: inline-block;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            &.hovered {
+                background: #ddd;
+                color: black;
+            }
+            &.selected {
+                background: white;
+                color: black;
+            }
+        }
+    }
+
+    .new-app-selector {
+        max-height: 0;
+        height: 0;
+        transition: all 0.3s;
+        overflow: hidden;
+
+        &.show {
+            background: #333;
+            top: 100%;
+            left: 90%;
+            z-index: 2;
+            width: -moz-fit-content;
+            width: fit-content;
+            height: auto;
+            max-height: unset;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid white;
+            .tab-type {
+                font-size: 0.8rem;
+                
+                &:hover {
+                    background: white;
+                    color: black;
+                }
+            }
+        }
+    }
 }

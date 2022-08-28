@@ -23,7 +23,7 @@ const ZoomSlider = props => {
 };
 
 ZoomSlider.propTypes = {
-  dispatchZoom: PropTypes.number
+  dispatchZoom: PropTypes.func
 }
 
 const mapDispatchToProps = {

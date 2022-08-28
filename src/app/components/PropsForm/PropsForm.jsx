@@ -5,10 +5,10 @@ import {createPropsSelector} from "reselect-immutable-helpers";
 import { getClearPropsState, getPresentComponentsConfig } from "../../pages/ComponentCreator/selectors";
 import { getUserDetails } from "../../global-selectors";
 import { dispatchClearPropsState, setComponentsConfig } from "../../pages/ComponentCreator/actions";
-import {SelectOption, InputField, CheckBox} from "../";
-import {compGen, forkedRepository} from "./../../utils/CodeUtils/ComponentGenerator";
+import {SelectOption, InputField, CheckBox} from "..";
+import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
-import Network from "./../../utils/network";
+import Network from "../../utils/network";
 import "./PropsForm.component.scss";
 
 const PropsForm = props => {

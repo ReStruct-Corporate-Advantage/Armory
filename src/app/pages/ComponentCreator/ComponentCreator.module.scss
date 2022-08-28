@@ -6,12 +6,9 @@
         height: calc(100% - #{$header-height});
         width: 100%;
         flex: auto;
-        // aside {flex-grow: 1;}
-        // main {flex-grow: 4;}
         transition: all 0.3s ease-in-out;
 
         &.developer-mode {
-            // transition: all 0.1s linear;
             height: calc(100% - #{$header-height} - #{$logger-height})
         }
     }

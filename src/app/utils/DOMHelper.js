@@ -28,25 +28,25 @@ class DOMHelper {
     }
 
     static process(str) {
-        var div = document.createElement('div');
+        var div = document.createElement("div");
         div.innerHTML = str.trim();
       
         return DOMHelper.format(div, 0).innerHTML;
       }
       
       static format(node, level) {
-        var indentBefore = new Array(level++ + 1).join('  '),
-          indentAfter = new Array(level - 1).join('  '),
+        var indentBefore = new Array(level++ + 1).join("  "),
+          indentAfter = new Array(level - 1).join("  "),
           textNode;
       
         for (var i = 0; i < node.children.length; i++) {
-          textNode = document.createTextNode('\n' + indentBefore);
+          textNode = document.createTextNode("\n" + indentBefore);
           node.insertBefore(textNode, node.children[i]);
       
           DOMHelper.format(node.children[i], level);
       
           if (node.lastElementChild === node.children[i]) {
-            textNode = document.createTextNode('\n' + indentAfter);
+            textNode = document.createTextNode("\n" + indentAfter);
             node.appendChild(textNode);
           }
         }
@@ -389,6 +389,21 @@ class DOMHelper {
         }
     };
 
+    static svgToBase64 (svg, svgProps) {
+        const {size, classes, color} = svgProps
+        svg.setAttribute("height", size || "1rem");
+        svg.setAttribute("width", size || "1rem");
+        svg.setAttribute("class", classes || "");
+        svg.setAttribute("stroke", color);
+        // svg.setAttribute("fill", color);
+        const path = svg.querySelector("path");
+        // Override stroke and color of "path" node inside SVG at below line.
+        path && color && !!path.getAttribute("stroke") && path.setAttribute("stroke", color);
+        // path && color && !!path.getAttribute("fill") && path.setAttribute("fill", color);
+        svg.style.color = color;
+        const serializedSvg = new XMLSerializer().serializeToString(svg);
+        return btoa(serializedSvg);
+    }
 
     /////////////////////////////////////// Armory Injection /////////////////////////////////////////
     export (tree) {

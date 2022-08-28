@@ -1,5 +1,5 @@
 import React from "react";
-import {ToolBox} from "./../";
+import {ToolBox} from "..";
 import { TOOLS_CONFIG } from "../../config";
 import "./SearchHelpers.component.scss";
 
