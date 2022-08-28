@@ -14,7 +14,6 @@ jobs:
         working-directory: ./server
     steps:
       - uses: actions/checkout@v2
-      - name: Setup Node.js environment
       - uses: actions/setup-node@v3.4.1
       - run: npm i
       - uses: FirebaseExtended/action-hosting-deploy@v0
