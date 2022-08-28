@@ -86,7 +86,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "dev": "NODE_ENV=development PORT=7992 node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "CI=false && node scripts/build.js",
     "test": "node scripts/test.js",
     "generate": "plop",
     "bundle-report": "webpack-bundle-analyzer --port 4200 compilation-stats.json",
