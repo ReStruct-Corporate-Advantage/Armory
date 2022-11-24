@@ -1,5 +1,9 @@
 @import "./variables";
 
+html {
+    font-size: 14px;
+}
+
 html, body, #root {
     height: 100%;
     width: 100%;
@@ -8,8 +12,8 @@ html, body, #root {
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-      "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-      sans-serif;
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: $primary-font-color;
@@ -26,6 +30,10 @@ body {
 code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.fall-behind {
+    z-index: 1;
 }
 
 .bg-grey{
@@ -167,6 +175,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     width: 68% !important;
 }
 
+.w-0 {
+    width: 0% !important;
+}
+
 .loader {
     position: relative;
 }
@@ -244,13 +256,26 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     color: #222;
 }
 
+.with-box-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    &:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+}
+
+.borderRight {
+    border-right: 1px solid grey;
+}
+
+.borderLeft {
+    border-left: 1px solid grey;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active
 {
- -webkit-box-shadow: 0 0 0 30px white inset !important;
- background: white;
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    background: white;
 }
 
 @-webkit-keyframes rotating {

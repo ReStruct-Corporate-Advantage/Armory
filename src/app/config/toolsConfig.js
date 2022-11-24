@@ -27,22 +27,23 @@ const TOOLS_CONFIG = {
             {name: "ResizeProperties", btnClasses: "btn", btnText: "", visibility: "visible", order: 1, icon: "fi.FiMaximize", toggleIcon: "fi.FiMinimize", placement: "right", tooltip: "Toggle Size"},
             {name: "EditProperties", btnClasses: "btn btn-edit", btnText: "Edit", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", onClick: "toggleEditMode", tooltip: "Edit", componentSpecific: true},
             {name: "SaveProperties", btnClasses: "btn btn-save", btnText: "Save", visibility: "visible", order: 3, icon: "ai.AiFillSave", placement: "right", disabled: true, tooltip: "Save", componentSpecific: true},
+            {name: "PreviewSaveProperties", btnClasses: "btn btn-save", btnText: "Preview & Save", visibility: "visible", order: 4, icon: "bi.BiGitCompare", placement: "right", disabled: true, tooltip: "Compare", componentSpecific: true},
             {name: "UndoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 5, icon: "ai.AiOutlineUndo", placement: "right", disabled: true, tooltip: "Undo", componentSpecific: true},
             {name: "RedoProperties", btnClasses: "btn", btnText: "", visibility: "contained", order: 6, icon: "ai.AiOutlineRedo", placement: "right", disabled: true, tooltip: "Redo", componentSpecific: true}
         ]
     },
     SEARCH_BAR_TOOLS: {
-        classes: "backgroundNone",
+        classes: "backgroundNone ms-auto",
         size: "1.1rem",
         tools: [
-            {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
-            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "mr-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
-            {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 3, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
+            // {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
+            // {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
+            {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 1, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
         ]
     },
     PAGE_TOOLS: {
-        classes: "ml-auto backgroundNone pr-4 borderRight",
-        size: "1.4rem",
+        classes: "backgroundNone px-4 borderRight borderLeft",
+        size: "1.2rem",
         tools: [
             {name: "AddPage", btnClasses: "btn hoverBackgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineFileAdd",
                 placement: "right",
@@ -51,7 +52,7 @@ const TOOLS_CONFIG = {
         ]
     },
     ARMAMENT_TOOLS: {
-        classes: "ml-auto backgroundNone position-absolute right-0 top-0",
+        classes: "ms-auto backgroundNone position-absolute right-0 top-0",
         tools: [
             {name: "ViewArmament", btnClasses: "btn backgroundNone", btnText: "", visibility: "visible", order: 1, icon: "ai.AiFillEye", placement: "right", tooltip: "View"},
             {name: "EditArmament", btnClasses: "btn backgroundNone", btnText: "", visibility: "visible", order: 2, icon: "ai.AiFillEdit", placement: "right", tooltip: "Edit"},
@@ -60,55 +61,104 @@ const TOOLS_CONFIG = {
         ]
     },
     GLOBAL_TOOLS: {
-        classes: "backgroundNone pl-4",
-        size: "1.7rem",
+        classes: "backgroundNone ps-4",
+        size: "1.3rem",
         tools: [
-            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "",
+            {name: "Toggles", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "",
                 visibility: "visible", order: 1, icon: "gi.GiToggles", placement: "right",
                 data: {
                     toggles: [
                         {
-                            name: "Show Tooltips",
+                            color: "#455964",
+                            displayName: "Show Tooltips",
+                            name: "tooltips",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: true
                         },
                         {
-                            name: "Collapse Widgets",
+                            color: "#455964",
+                            displayName: "Floating Layout",
+                            name: "layout",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: false
                         },
                         {
-                            name: "Enable Bootstrap",
+                            color: "#455964",
+                            displayName: "Collapse Widgets",
+                            name: "collapseWidgets",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
                             selected: false
                         },
                         {
-                            name: "More Settings"
+                            color: "#455964",
+                            displayName: "Enable Bootstrap",
+                            name: "enableBootstrap",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: false
+                        },
+                        {
+                            color: "#455964",
+                            displayName: "Toggle Snap",
+                            name: "toggleComponentSnap",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: true
+                        },
+                        {
+                            color: "#455964",
+                            displayName: "Developer mode",
+                            name: "developerMode",
+                            icon: "Bs.BsToggleOn",
+                            iconOff: "Bs.BsToggleOff",
+                            selected: true
+                        },
+                        {
+                            displayName: "More Settings",
+                            name: "settings",
+                            generic: true,
+                            icon: "fc.FcSettings"
                         }
                     ]
                 },
                 tooltip: "Toggles"
             },
-            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right", tooltip: "Help n FAQ"},
-            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "mr-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right", tooltip: "Notifications"},
+            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right", tooltip: "Help n FAQ"},
+            {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right", tooltip: "Notifications"},
             {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "",
                 visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right",
                 data: {
                     profileOptions: [
                         {
-                            name: "View Profile"
+                            name: "View Profile",
+                            icon: "bi.BiUser"
                         },
                         {
-                            name: "My Pages"
+                            name: "My Projects",
+                            icon: "ai.AiOutlineProject"
                         },
                         {
-                            name: "My Components"
+                            name: "My Pages",
+                            icon: "bs.BsFileEarmarkSpreadsheet"
                         },
                         {
-                            name: "Account Settings"
+                            name: "My Components",
+                            icon: "cg.CgComponents"
                         },
                         {
-                            name: "Privacy Settings"
+                            name: "Account Settings",
+                            icon: "md.MdOutlineAccountBalance"
+                        },
+                        {
+                            name: "Privacy Settings",
+                            icon: "md.MdOutlinePrivacyTip"
                         },
                         {
                             name: "Logout",
+                            icon: "md.MdLogout",
                             onClick: () => {
                                 Helper.removeCookie("auth_session_token");
                                 window.location.pathname = "/login";

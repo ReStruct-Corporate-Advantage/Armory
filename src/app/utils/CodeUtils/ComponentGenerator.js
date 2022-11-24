@@ -1,6 +1,6 @@
 import React from "react";
 import { withResizeDetector } from "react-resize-detector";
-import {ArmamentWrapper, StaticArmamentWrapper} from "./../../components";
+import {ArmamentWrapper, StaticArmamentWrapper} from "../../components";
 
 class ComponentGenerator {
     constructor () {
@@ -83,6 +83,13 @@ class ComponentGenerator {
                     const descriptor = this.props.descriptor;
                     const attributes = descriptor ? descriptor.attributes : {};
                     style = descriptor && descriptor.styles ? {...style, ...descriptor.styles} : style;
+                    style = this.props.style ? {...style, ...this.props.style} : style;
+                    const dbClasses = props.className ? props.className.split(" ") : [];
+                    const propClasses = descriptor && descriptor.classes ? descriptor.classes.split(" ") : [];
+                    const armamentClasses = this.props.classes ? this.props.classes.split(" ") : [];
+                    propClasses.forEach(cls => dbClasses.indexOf(cls) < 0 && dbClasses.push(cls));
+                    armamentClasses.forEach(cls => dbClasses.indexOf(cls) < 0 && dbClasses.push(cls));
+                    props.className = dbClasses.join(" ");
                     childrenConfig = [...childrenConfig];
                     let dynamicSetOfChildren = descriptor && descriptor.children;
                     dynamicSetOfChildren && dynamicSetOfChildren.forEach(dynamicChild => {
@@ -91,18 +98,26 @@ class ComponentGenerator {
                             childrenConfig.push(dynamicChild);
                         }
                     })
+                    const selectionIndicators = this.props.children;
                     let childRenders = childrenConfig
                         ? self.iterateAndGenerateWithConfig(childrenConfig, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) : [];
                     childRenders = childRenders.map(child => child.item)
                     innerText && childRenders.push(innerText);
+                    childRenders = selectionIndicators && this.props.selected ? selectionIndicators.concat(childRenders) : childRenders;
+                    const outgoingProps = {style, className: props.className, ...attributes};
+                    this.props.dndRef && (outgoingProps.ref = this.props.dndRef);
+                    this.props.onClick && (outgoingProps.onClick = this.props.onClick);
+                    this.props.id && (outgoingProps.id = this.props.id);
+                    outgoingProps.key = key;
                     // this.props.allowChildren && (style.overflow = "auto");
                     // childRenders = childrenFromSource ? [...childRenders, ...childrenFromSource] : childRenders
+                    // console.log(outgoingProps);
                     return childRenders && childRenders.length > 0
-                        ? React.createElement(elemType, {style, className: props.className, ...attributes}, childRenders)
-                        : React.createElement(elemType, {style: props.style, className: props.className, ...attributes});
+                        ? React.createElement(elemType, outgoingProps, childRenders)
+                        : React.createElement(elemType, outgoingProps);
                 }
             }
-            Object.defineProperty(c, 'name', {value: componentName});
+            Object.defineProperty(c, "name", {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             c = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node} key={key}>{c}</StaticArmamentWrapper>
@@ -151,7 +166,7 @@ class ComponentGenerator {
                         ? React.createElement(elemType, {style: props.style, className: props.className},childRenders)
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
-            Object.defineProperty(f, 'name', {value: componentName});
+            Object.defineProperty(f, "name", {value: componentName});
             f = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node}>{f}</StaticArmamentWrapper>
                 : <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
@@ -167,7 +182,7 @@ class ComponentGenerator {
     }
 
     // ====================================================== GENERATE COMPONENT REPOSITORY - ONLY FOR DRAG PREVIEW OF NEW COMPONENTS====================================================== //
-    generateClassComponent(node, isComponentNode) {
+    generateClassComponent(node, isComponentNode, key) {
         const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -202,21 +217,21 @@ class ComponentGenerator {
                     })
                     this.props.allowChildren && (style.overflow = "auto");
                     innerText && childRenders.push(innerText);
-                    return childRenders && childRenders.length > 0 ? React.createElement(elemType, {style, className: props.className}, childRenders)
-                    : React.createElement(elemType, {style: props.style, className: props.className});
+                    return childRenders && childRenders.length > 0 ? React.createElement(elemType, {key, style, className: props.className}, childRenders)
+                    : React.createElement(elemType, {key, style: props.style, className: props.className});
                 }
             }
-            Object.defineProperty(c, 'name', {value: componentName});
+            Object.defineProperty(c, "name", {value: componentName});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             this.baseRepository[componentName] = c;
         } else {
-            c = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
-                : React.createElement(elemType, {style: props.style, className: props.className});
+            c = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
+                : React.createElement(elemType, {key, style: props.style, className: props.className});
         }
         return {item: c, isChildComponentNode: isComponentNode};
     }
 
-    generateFunctionalComponent(node, isComponentNode) {
+    generateFunctionalComponent(node, isComponentNode, key) {
         const componentName = node && node.componentName;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
@@ -242,32 +257,32 @@ class ComponentGenerator {
                     return child.isChildComponentNode ? <Component /> : child.item
                 })
                 innerText && childRenders.push(innerText);
-                return childRenders && childRenders.length > 0 ? React.createElement(elemType, {style: props.style, className: props.className}, childRenders)
-                        : React.createElement(elemType, {style: props.style, className: props.className});
+                return childRenders && childRenders.length > 0 ? React.createElement(elemType, {key, style: props.style, className: props.className}, childRenders)
+                        : React.createElement(elemType, {key, style: props.style, className: props.className});
             }
-            Object.defineProperty(f, 'name', {value: componentName});
+            Object.defineProperty(f, "name", {value: componentName});
             this.baseRepository[componentName] = f;
         } else {
-            f = childrenConfig ? React.createElement(elemType, {style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
-                : React.createElement(elemType, {style: props.style, className: props.className});
+            f = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
+                : React.createElement(elemType, {key, style: props.style, className: props.className});
         }
         return {item: f, isChildComponentNode: isComponentNode};
     }
 
-    decideTypeAndGenerate(node, isComponentNode) { // componentNode: React Component, not an HTML element
+    decideTypeAndGenerate(node, isComponentNode, key) { // componentNode: React Component, not an HTML element
         if (node.isFunctional) {
-            return this.generateFunctionalComponent(node, isComponentNode)
+            return this.generateFunctionalComponent(node, isComponentNode, key)
         } else {
-            return this.generateClassComponent(node, isComponentNode);
+            return this.generateClassComponent(node, isComponentNode, key);
         }
     }
 
-    iterateAndGenerate(root) {
-        return root && root.length ? root.map(node => {
+    iterateAndGenerate(root, key) {
+        return root && root.length ? root.map((node, keyInner) => {
             if (!node.items) {
-                return this.decideTypeAndGenerate(node, !!node.componentName);
+                return this.decideTypeAndGenerate(node, !!node.componentName, `${key}-${keyInner}`);
             } else {
-                return this.iterateAndGenerate(node.items);
+                return this.iterateAndGenerate(node.items, `${key}-${keyInner}`);
             }
         }) : [];
     }
@@ -277,4 +292,5 @@ const compGen = new ComponentGenerator()
 const repository = compGen.baseRepository;
 const forkedRepository = compGen.boardRepository;
 
-export {ComponentGenerator, compGen, forkedRepository, repository};
+export {compGen, forkedRepository, repository};
+export default ComponentGenerator;

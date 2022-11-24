@@ -2,10 +2,11 @@ import React, {useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {GrDrag} from "react-icons/gr";
+// import {GrDrag} from "react-icons/gr";
 import {getComponentConfig} from "../../pages/AdminComponentManager/selectors";
 import {setComponentConfig} from "../../pages/AdminComponentManager/actions";
 import {dispatchModal} from "../../global-actions";
+import { LoadableIcon } from "..";
 import "./StaticArmament.component.scss";
 
 const StaticArmament = props => {
@@ -46,8 +47,8 @@ const StaticArmament = props => {
       style={{position: "relative"}}>
       <span className="c-Aside__list-item-text">
         {category.items ?
-          <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><GrDrag className="mr-2 svg-stroke-white" /></>}
+          <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
+          : <><span className="preview"></span><LoadableIcon icon="Gr.GrDrag" className="me-2 svg-stroke-white" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {/* {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />} */}
       </span>
@@ -61,7 +62,6 @@ StaticArmament.propTypes = {
     PropTypes.string,
     PropTypes.object
   ]),
-  clientRect: PropTypes.object,
   componentConfig: PropTypes.object,
   setComponentConfig: PropTypes.func,
   dispatchModal: PropTypes.func,

@@ -1,24 +1,28 @@
 import React, {useEffect, useRef, useState} from "react";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import {useDrag} from "react-dnd";
 import {getEmptyImage} from "react-dnd-html5-backend";
-import {GrDrag} from "react-icons/gr";
-import {ComponentDescription, RichTooltip, ToolBox} from "./../";
+import {dispatchTooltip} from "../../global-actions";
+import {ComponentDescription, LoadableIcon, ToolBox} from "..";
 import { TOOLS_CONFIG } from "../../config";
 import {ITEM_TYPE} from "../../constants/types";
 import "./Armament.component.scss";
 
 const Armament = props => {
 
-  const {category, clientRect, index, recursiveRenderer} = props;
+  const {category, clientRect, dispatchTooltip, index, isSearched, recursiveRenderer} = props;
+  const type = category.type;
   const ref = useRef(null)
   const [hovered, setHovered] = useState(false);
   const [expanded, setExpanded] = useState(category.expanded);
+  const [itemRect, setItemRect] = useState();
 
   const armamentId = `c-Armament-${index}`
   category.id = armamentId;
   const [{isDragging}, drag, preview] = useDrag({
-    item: {type: ITEM_TYPE.ARMAMENT, index, category},
+    type: type || ITEM_TYPE.ARMAMENT,
+    item: {index, category: {...category}},
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
 		}),
@@ -27,14 +31,20 @@ const Armament = props => {
 
   useEffect(() => {
     preview(getEmptyImage(), { captureDraggingState: true });
-  }, [preview]);
+    ref.current && setItemRect(ref.current);
+  }, [preview, ref]);
+
+
+  /* eslint-disable react-hooks/exhaustive-deps */
+  useEffect(() => {
+    !category.items && dispatchTooltip({show: hovered, prefer: "right", content: <ComponentDescription description={category} />, itemRect})
+  }, [hovered])
 
   const getOwner = () => {
     return category.meta && category.meta.createdBy && category.meta.createdBy.indexOf("mohiit1502") === -1 ? category.meta.createdBy : "Armory"
   }
 
-  return (
-    <div id={armamentId}
+  return !isSearched || category.mark ? <div id={armamentId}
       className="c-Armament c-Armament--modifier c-AttributeCreator--shadow"
       ref={!category.items ? ref : null}
       style={{
@@ -48,15 +58,13 @@ const Armament = props => {
         }}
         onMouseLeave={() => setHovered(false)}>
         {category.items ?
-          <span className={`c-Armament__list-item-text__collapseStatus mr-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><GrDrag className="mr-2 svg-stroke-white" /></>}
+          <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
+          : <><span className="preview"></span><LoadableIcon icon="gr.GrDrag" color="#d3d3d3" classes="me-2" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
-        {hovered && !category.items && <RichTooltip tooltip={<ComponentDescription description={category} />} positionClasses="top-100" />}
       </span>
       {category.items && recursiveRenderer(category.items, clientRect, index, expanded, setExpanded)}
-    </div>
-  )
+    </div> : null;
 };
 
 Armament.propTypes = {
@@ -65,8 +73,14 @@ Armament.propTypes = {
     PropTypes.object
   ]),
   clientRect: PropTypes.object,
+  isSearched: PropTypes.bool,
   index: PropTypes.string,
-  recursiveRenderer: PropTypes.func
+  recursiveRenderer: PropTypes.func,
+  type: PropTypes.string
 };
 
-export default Armament;
+const mapDispatchToProps = {
+  dispatchTooltip
+}
+
+export default connect(null, mapDispatchToProps)(Armament);

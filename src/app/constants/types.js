@@ -1,6 +1,8 @@
 const ITEM_TYPE = {
+    ANIMATION: "animation",
     ARMAMENT: "armament",
-    ARMAMENT_WRAPPER: "armamentWrapper"
+    ARMAMENT_WRAPPER: "armamentWrapper",
+    DATA_SOURCE: "dataSource"
 }
 
 const ELEMENT_TYPE = {

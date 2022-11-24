@@ -68,16 +68,51 @@ export default class Helper {
         return layoutValue;
     }
 
-
-    static getItemPosition(item) {
-        const { rightOut, bottomOut } = Helper.getItemStateInViewport(item);
-        const verticalPositioner = bottomOut ? "bottom" : "top",
-            horizontalPositioner = rightOut ? "right" : "left",
-            verticalPosition = bottomOut ? "-50%" : "150%",
-            horizontalPosition = 0,
-            marginLeft = rightOut ? "-10rem" : 0;
-        const positionClass = bottomOut ? rightOut ? "left-top" : "right-top" : rightOut ? "left-bottom" : "right-bottom"
-        return { styles: { [verticalPositioner]: verticalPosition, [horizontalPositioner]: horizontalPosition, marginLeft }, positionClass };
+    static getItemPositionRespectiveToParent(tooltip, itemRect) {
+        if (!tooltip) {
+            return { leftOut: false, rightOut: false, topOut: false, bottomOut: false }
+        }
+        const { top: parentTop, left: parentLeft, bottom: parentBottom, right: parentRight, height: parentHeight,
+            width: parentWidth } = itemRect;
+        const {height: itemHeight, width: itemWidth} = tooltip.getBoundingClientRect();
+        const { wHeight, wWidth } = {
+            wWidth: window.innerWidth || document.documentElement.clientWidth,
+            wHeight: window.innerHeight || document.documentElement.clientHeight
+        }
+        const maxLeft = parentLeft - itemWidth;
+        const maxRight = parentRight + itemWidth;
+        const maxTop = parentTop - itemHeight;
+        const maxBottom = parentBottom + itemHeight;
+        return { maxLeft, maxRight, maxTop, maxBottom, parentTop, parentRight, parentBottom, parentLeft, parentHeight,
+            parentWidth, itemHeight, itemWidth, leftOut: maxLeft < 0, rightOut: maxRight > wWidth, topOut: maxTop < 0,
+            bottomOut: maxBottom > wHeight };
+    }
+    
+    static getItemPosition(tooltip, itemRect, prefer) {
+        if (itemRect) {
+            const { parentTop, parentRight, parentBottom, parentLeft, parentHeight, parentWidth, itemHeight,
+                itemWidth, leftOut, topOut, rightOut, bottomOut } = Helper.getItemPositionRespectiveToParent(tooltip, itemRect);
+            // leftOut: maxLeft < 0, rightOut: maxRight > wWidth, topOut: maxTop < 0, bottomOut: maxBottom > wHeight
+            const meta = { parentTop, parentRight, parentBottom, parentLeft, parentHeight, parentWidth, itemHeight, itemWidth, rightOut, bottomOut, leftOut, topOut};
+                // marginLeft = rightOut ? "-10rem" : 0;
+            const styles = {};
+            if (!leftOut) {
+                styles.left = parentLeft - itemWidth;
+                if (!bottomOut) {
+                    styles.top = prefer === "bottom" ? parentTop + parentHeight : parentTop;
+                } else {
+                    styles.top = parentBottom - itemHeight;
+                }
+            } else {
+                styles.left = parentRight;
+                if (!bottomOut) {
+                    styles.top = prefer === "bottom" ? parentTop + parentHeight : parentTop;
+                } else {
+                    styles.top = parentBottom - itemHeight;
+                }
+            }
+            return { styles, meta };
+        }
     }
 
     static extend (target) {
@@ -243,7 +278,7 @@ export default class Helper {
         return objClone;
     }
 
-    static findMaxHyphenBased (obj, incoming) {
+    static findMaxHyphenBased(obj, incoming) {
         const maxInstance = Object.keys(obj).reduce((accInstance, currentInstance) => {
             if (currentInstance.indexOf(incoming) > -1) {
                 const index = currentInstance.substring(currentInstance.indexOf("-") + 1);
@@ -252,5 +287,17 @@ export default class Helper {
             return accInstance;
         }, -1)
         return maxInstance;
+    }
+
+    static getDefaultKey(key) {
+        return key && `default${key.length === 1 ? key.toUpperCase() : key.substring(0, 1).toUpperCase() + key.substring(1)}`;
+    }
+
+    static debounce (fn, time) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => fn(...args), time || 100)
+        }
     }
 }

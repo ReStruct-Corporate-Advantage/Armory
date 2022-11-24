@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
-import Backend from "react-dnd-html5-backend"
+import {HTML5Backend as Backend} from "react-dnd-html5-backend"
 import {createPropsSelector} from "reselect-immutable-helpers";
-import {getComponentConfig} from "../AdminComponentManager/selectors";
-import {dispatchComponentConfig} from "../AdminComponentManager/actions";
-import useEventHandler from "../../utils/useEventHandler";
+import {getComponentConfig} from "./selectors";
+import {dispatchComponentConfig} from "./actions";
+import useEventHandler from "../../hooks/useEventHandler";
 import { Aside, Main, ToolActionContainer } from "../../components";
 import "./AdminComponentManager.module.scss";
 

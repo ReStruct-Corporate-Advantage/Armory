@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import {CSSTransition} from "react-transition-group";
-import {getToolActionMeta} from "./../../pages/ComponentCreator/selectors";
+import {getToolActionMeta} from "../../pages/ComponentCreator/selectors";
 import "./ToolActionContainer.component.scss";
 
 const ToolActionContainer = props => {

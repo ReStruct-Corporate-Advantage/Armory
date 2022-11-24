@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
-import {ToolsLeft, ToolsRight} from "./../";
-import Helper from "./../../utils/Helper";
+import {ToolsLeft, ToolsRight} from "..";
+import Helper from "../../utils/Helper";
 import "./ToolBox.component.scss";
 
 const ToolBox = props => {
@@ -30,12 +30,12 @@ const ToolBox = props => {
   const rightTools = Helper.merge(rightVisibleTools, rightContainedTools);
 
   return (
-    <div className={`c-ToolBox c-ToolBox__controlPanel d-inline-flex position-relative${classes ? " " + classes : ""}${leftSnapped ? " pl-0" : ""}`}
+    <div className={`c-ToolBox c-ToolBox__controlPanel d-inline-flex position-relative${classes ? " " + classes : ""}${leftSnapped ? " ps-0" : ""}`}
       onMouseLeave={() => setExpanded(false)}
       onMouseEnter={() => setExpanded(true)}>
       <ToolsLeft classes="d-inline-block" handlers={handlers} size={size} tools={leftTools} selectedComponent={selectedComponent} />
-      <ToolsRight classes="ml-auto d-inline-block" handlers={handlers} size={size} tools={rightTools} expanded={expanded} selectedComponent={selectedComponent} />
-      {rightContainedTools.length > 0 && <span className="c-ToolBox__toolDisplayer position-absolute">&lt;</span>}
+      <ToolsRight classes="ms-auto d-inline-block" handlers={handlers} size={size} tools={rightTools} expanded={expanded} selectedComponent={selectedComponent} />
+      {/* {rightContainedTools.length > 0 && <span className="c-ToolBox__toolDisplayer position-absolute">&lt;</span>} */}
     </div>
   );
 };

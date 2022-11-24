@@ -7,9 +7,14 @@
   border-radius: 0.3125rem;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   transition: all 0.3s;
+  max-height: 3.25rem;
+  overflow: auto;
+  // width: 13rem;
+  max-width: 15rem;
 
   &:hover {
     background: rgba(61, 194, 227, 0.6);
+    max-width: 40rem;
   }
   
   .scaleUpAndShadow {

@@ -21,8 +21,10 @@ const QuickOptionsContainer = props => {
         setItemPosition(Helper.getItemPosition(itemRef.current));
         setPositionCorrected(true);
       }}>
-        <div className={`c-QuickOptionsContainer ${containerClasses}${itemPosition.positionClass ? " " + itemPosition.positionClass : ""}${positionCorrected ? " expand-enter-done" : ""}`}
-          ref={itemRef}  style={itemPosition.styles} onClick={() => {}}>
+        <div className={`c-QuickOptionsContainer ${containerClasses}
+          ${itemPosition && itemPosition.positionClass ? " " + itemPosition.positionClass : ""}
+          ${positionCorrected ? " expand-enter-done" : ""}`}
+          ref={itemRef}  style={itemPosition ? itemPosition.styles : {}} onClick={e => e.stopPropagation()}>
           {children}
         </div>
       </CSSTransition>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { getModal } from "../../global-selectors";
 import {dispatchModal} from "../../global-actions"
-import * as components from "./..";
+import * as components from "..";
 import "./Modal.component.scss";
 
 const Modal = props => {

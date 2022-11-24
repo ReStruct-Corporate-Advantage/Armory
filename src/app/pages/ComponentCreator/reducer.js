@@ -6,6 +6,7 @@ import {
     DISPATCH_CARD_POSITION,
     DISPTACH_CLEAR_PROPS_STATE,
     DISPATCH_COMPONENT_CONFIG,
+    DISPATCH_DROP_LOCATION,
     DISPATCH_HISTORY,
     DISPATCH_LAYOUT,
     DISPATCH_PREVIOUS_LAYOUT,
@@ -50,6 +51,7 @@ const reducer = (state = initialState, action) => {
         case DISPATCH_CARD_POSITION:
         case DISPTACH_CLEAR_PROPS_STATE:
         case DISPATCH_COMPONENT_CONFIG:
+        case DISPATCH_DROP_LOCATION:
         case DISPATCH_HISTORY:
         case DISPATCH_LAYOUT:
         case DISPATCH_PREVIOUS_LAYOUT:
@@ -57,6 +59,7 @@ const reducer = (state = initialState, action) => {
         case DISPTACH_TOOL_ACTION_META:
         case UPDATE_FORM_ERRORS:
         case UPDATE_FORM_VALUES:
+            console.log("dispatching: ", action.type)
             return state.mergeDeep(action.payload);
         case SET_COMPONENT_CONFIG:
             return state.set("componentConfig", action.payload);
