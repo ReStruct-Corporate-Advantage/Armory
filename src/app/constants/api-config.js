@@ -5,8 +5,8 @@ const API_CONFIG = {
         postHook: "<class>.<post-hook-name>"
     },
     "HOST": {
-        "development": "http://localhost:3002",
-        "production": "https://armory-service.herokuapp.com"
+        "development": "http://127.0.0.1:5001/armory-server/us-central1/armoryServerApp",
+        "production": "https://us-central1-armory-server.cloudfunctions.net/armoryServerApp"
     },
     "STATIC_HOST": {
         "development": "http://localhost:8080",

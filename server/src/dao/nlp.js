@@ -1,6 +1,3 @@
-class NLPController {
-
-  
-}
+class NLPController {}
 
 export default NLPController;

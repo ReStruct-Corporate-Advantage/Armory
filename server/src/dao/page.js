@@ -1,6 +1,3 @@
-class PageController {
-
-  
-}
+class PageController {}
 
 export default PageController;

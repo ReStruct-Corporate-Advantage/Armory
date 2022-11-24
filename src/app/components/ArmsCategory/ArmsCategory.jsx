@@ -19,7 +19,7 @@ const ArmsCategory = (props) => {
   // const [collapsed, setCollapsed] = useState(false);
   return (
     <ul
-      className={`c-ArmsCategory overflow-auto${
+      className={`c-ArmsCategory${
         expanded === false ? " collapsed" : ""
       }`}
     >
