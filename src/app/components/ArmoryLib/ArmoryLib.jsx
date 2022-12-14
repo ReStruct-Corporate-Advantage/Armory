@@ -8,9 +8,10 @@ import {ArmsCategory, FormField} from "..";
 import Network from "../../utils/network";
 import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
 import "./ArmoryLib.component.scss";
+import ENDPOINTS from "../../constants/endpoints";
 
 const ArmoryLib = props => {
-  const {armory, dispatchArmory, expanded} = props;
+  const {armory, dispatchArmory, parentExpanded} = props;
   const [searchValue, setSearchValue] = useState();
   const [localArmory, setLocalArmory] = useState(armory);
 
@@ -37,7 +38,7 @@ const ArmoryLib = props => {
   }, []);
 
   useEffect(() => {
-    Network.get("/api/armory")
+    Network.get(ENDPOINTS.BE.ARMORY.GET)
       .then(res => {
         const root = res.body
         dispatchArmory(root)
@@ -64,9 +65,9 @@ const ArmoryLib = props => {
     prevKey={prevKey} renderArmory={renderArmory} expanded={expanded} setExpanded={setExpanded} isSearched={!!searchValue} {...props} />;
 
   return (
-    <div className={`c-ArmoryLib h-100${!expanded ? " overflow-auto" : "" }`}>
+    <div className={`c-ArmoryLib h-100${!parentExpanded ? " overflow-auto" : "" }`}>
       <FormField type="input" containerClasses="c-Search__search-field-container ps-1 mb-3 w-100 justify-center"
-        attributes={{placeholder: "Search by name, tags or creator...", inputClasses: `c-Search__search-field ${expanded ? " w-100 border-5" : " w-0 p-0 border-none"}`}} onChange={searchFieldChangeHandler} />
+        attributes={{placeholder: "Search by name, tags or creator...", inputClasses: `c-Search__search-field ${parentExpanded ? " w-100 border-5" : " w-0 p-0 border-none"}`}} onChange={searchFieldChangeHandler} />
       <div className="pb-5 h-100 overflow-auto">
         {renderArmory(localArmory)}
       </div>
@@ -79,7 +80,10 @@ ArmoryLib.propTypes = {
   context: PropTypes.string,
   dispatchArmory: PropTypes.func,
   node: PropTypes.array,
-  variant: PropTypes.string
+  variant: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])
 };
 
 const mapStateToProps = createPropsSelector({

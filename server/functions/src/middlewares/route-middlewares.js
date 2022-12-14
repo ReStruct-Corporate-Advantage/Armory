@@ -17,13 +17,13 @@ function injectRouteMW(app) {
   app.get("/", (req, res) => {
     res.send("Hello User!");
   });
-  app.use("/api/armory", armory);
-  app.use("/api/auth", auth);
-  app.use("/api/user", user);
-  app.use("/api/nlp", nlp);
-  app.use("/api/project", project);
-  app.use("/api/page", page);
-  app.use("/api/component", component); // restructure /api/armory to return only armory list without descriptors
+  app.use("/armory", armory);
+  app.use("/auth", auth);
+  app.use("/user", user);
+  app.use("/nlp", nlp);
+  app.use("/project", project);
+  app.use("/page", page);
+  app.use("/component", component); // restructure /api/armory to return only armory list without descriptors
 }
 
 export default injectRouteMW;

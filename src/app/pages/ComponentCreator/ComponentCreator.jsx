@@ -94,6 +94,7 @@ const ComponentCreator = (props) => {
         >
           {(!floatingLayout || !floatingLayout.selected) && (
             <Aside
+              asideClasses="bg-transparent p-2"
               persistent={false}
               isDevMode={isDevMode}
               childItems={[{ name: "ArmoryLib", props: { variant: 1 } }]}
@@ -113,6 +114,7 @@ const ComponentCreator = (props) => {
           </Main>
           {(!floatingLayout || !floatingLayout.selected) && (
             <Aside
+              asideClasses="p-2"
               persistent={false}
               isDevMode={isDevMode}
               childItems={[

@@ -20,7 +20,7 @@ const ArmsCategory = (props) => {
   return (
     <ul
       className={`c-ArmsCategory${
-        expanded === false ? " collapsed" : ""
+        expanded === false ? " collapsed overflow-hidden" : ""
       }`}
     >
       {!root && (
@@ -37,7 +37,7 @@ const ArmsCategory = (props) => {
         node.map((category, key) => (
           <li
             key={prevKey ? prevKey + "-" + key : key}
-            className="c-Aside__list-item"
+            className="c-Aside__list-item overflow-auto"
           >
             {context === "editor" ? (
               <StaticArmament

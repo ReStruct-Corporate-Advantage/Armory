@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
@@ -6,6 +6,7 @@ import { PageLoader } from "./components";
 import { dispatchUserDetails, setLoggedIn } from "./global-actions";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
+import ENDPOINTS from "./constants/endpoints";
 
 const LoadableDashboard = Loadable({
   loader: () => import("./pages/Dashboard"),
@@ -66,14 +67,20 @@ function Authenticator(props) {
   const { dispatchUserDetails, setLoggedIn } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
   const navigate = useNavigate();
-  setLoggedIn(isLoggedIn);
-  if (!isLoggedIn) {
-    navigate("login");
-  } else {
-    Network.get("/api/user/current")
-      .then(res => dispatchUserDetails(res.body))
-      .catch(e => console.log(e));
-  }
+
+  useEffect(() => {
+    setLoggedIn(isLoggedIn);
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      Network.get(ENDPOINTS.BE.USER.CURRENT)
+        .then(res => {
+          // navigate("/")
+          dispatchUserDetails(res.body);
+        })
+        .catch(e => console.log(e));
+    }
+  }, [isLoggedIn]);
 
   return <Routes>
     <Route path="/" element={<LoadableDashboard />} />

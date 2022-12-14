@@ -12,8 +12,10 @@ function injectLibMW(app) {
   );
   const whitelist = [
     "http://localhost:7992",
-    "https://armory-ui.herokuapp.com",
-    "http://armory-ui.herokuapp.com",
+    "https://armory-server.web.app",
+    "http://armory-server.web.app",
+    "https://armory-server.firebaseapp.com",
+    "http://armory-server.firebaseapp.com",
     "https://restruct-corporate-advantage.github.io",
     "https://www.armco.tech",
     "https://armco.tech",

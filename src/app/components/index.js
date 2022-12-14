@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import SidePanel from "./SidePanel";
 import ComponentContainerWrapper from "./ComponentContainerWrapper";
 import Toggle from "./Toggle";
 import WidgetContainer from "./WidgetContainer";
@@ -66,6 +67,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	SidePanel,
 	ComponentContainerWrapper,
 	Toggle,
 	WidgetContainer,

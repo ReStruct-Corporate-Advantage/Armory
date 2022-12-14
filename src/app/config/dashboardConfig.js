@@ -24,6 +24,11 @@ const DASHBOARD_CONFIG = {
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, navigate, userDetails) => navigate(`/${userDetails.username}/manage/component`)
             },
             {
+                name: "ManageCategories", type: "button", classes: "c-Dashboard__btn raised-effect mx-auto col-7 mt-5 mb-4", text: "Manage Categories", visibility: "visible",
+                order: 0, icon: "fc.FcFolder", leftSnapped: true, tooltip: "Manage Categories",
+                action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, navigate, userDetails) => navigate(`/${userDetails.username}/manage/category`)
+            },
+            {
                 name: "ManagePages", type: "button", classes: "c-Dashboard__btn col-7 raised-effect mx-auto mt-5 mb-4", text: "Manage Pages", visibility: "visible",
                 order: 1, icon: "fi.FiMaximize", tooltip: "Manage Pages",
                 action: (componentsConfig, dispatchComponentsConfig, dispatchLevels, dispatchSelectedComponent, navigate, userDetails) => navigate(`/${userDetails.username}/manage/page`)

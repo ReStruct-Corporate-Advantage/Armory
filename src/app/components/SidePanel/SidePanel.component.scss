@@ -1,0 +1,6 @@
+@import "./../../styles/variables";
+
+.c-SidePanel {
+  top: $header-height;
+  height: calc(100% - #{$header-height});
+}

@@ -5,6 +5,7 @@ import "./Aside.component.scss";
 
 const Aside = (props) => {
   const {
+    asideClasses,
     childItems,
     clientRect,
     componentConfig,
@@ -25,7 +26,7 @@ const Aside = (props) => {
         const Component = components[child.name];
         return (
           <Component
-            expanded={expanded}
+            parentExpanded={expanded}
             key={key}
             selectedComponent={selectedComponent}
             {...child.props}
@@ -39,7 +40,7 @@ const Aside = (props) => {
 
   return (
     <aside
-      className={`c-Aside p-2 h-100${expanded ? " expanded" : ""}`}
+      className={`c-Aside h-100${expanded ? " expanded" : ""}${asideClasses ? " " + asideClasses : ""}`}
       style={styles ? styles : null}
     >
       <span
@@ -52,6 +53,7 @@ const Aside = (props) => {
 };
 
 Aside.propTypes = {
+  asideClasses: PropTypes.string,
   childItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   clientRect: PropTypes.object,
   componentConfig: PropTypes.object,

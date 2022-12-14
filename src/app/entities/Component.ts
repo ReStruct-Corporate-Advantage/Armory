@@ -2,6 +2,7 @@ import ArmoryEntity from "./ArmoryEntity";
 import {v4 as uuid} from "uuid";
 import {Descriptor, Meta} from ".";
 import Network from "../utils/network";
+import ENDPOINTS from "../constants/endpoints";
 export default class Component extends ArmoryEntity {
     private _armamentCategory: String;
     private _componentName: String;
@@ -56,7 +57,7 @@ export default class Component extends ArmoryEntity {
                 transformedComponent[trimmedKey] = (this as any)[key];
             }
         });
-        return Network.post("/api/armory?withContainer=true", transformedComponent)
+        return Network.post(ENDPOINTS.BE.ARMORY.POSTWITHCONTAINER, transformedComponent)
     }
 
     public get armamentCategory(): String {

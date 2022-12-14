@@ -36,7 +36,7 @@ const ToolWrapper = memo(props => {
   }, [buttonClicked, hovered]);
 
   useEffect(() => {
-    if (name === "toggles") {
+    if (name === "Toggles") {
       dispatchToggles(JSON.parse(JSON.stringify(data.toggles)));
     }
   }, []);

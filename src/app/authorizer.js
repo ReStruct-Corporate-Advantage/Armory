@@ -26,10 +26,10 @@ function Authorizer(props) {
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
   const isAuthorized = userDetails && userDetails.role && userDetails.role === ROLES.ADMIN;
   if (!isLoggedIn) {
-    navigate("login");
+    navigate("/login");
   } else {
       if (!isAuthorized) {
-        userDetails && navigate(userDetails.username)
+        userDetails && navigate("/" + userDetails.username);
       }
   }
 

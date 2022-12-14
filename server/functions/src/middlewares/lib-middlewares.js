@@ -5,6 +5,7 @@ import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 import logger from "./../loaders/logs-loader.js";
 import docs from "../docs/index.js";
+import CONSTANTS from "../constants/constants.js";
 
 function injectLibMW(app) {
   logger.info(
@@ -12,8 +13,10 @@ function injectLibMW(app) {
   );
   const whitelist = [
     "http://localhost:7992",
-    "https://armory-ui.herokuapp.com",
-    "http://armory-ui.herokuapp.com",
+    "https://armory-server.web.app",
+    "http://armory-server.web.app",
+    "https://armory-server.firebaseapp.com",
+    "http://armory-server.firebaseapp.com",
     "https://restruct-corporate-advantage.github.io",
     "https://www.armco.tech",
     "https://armco.tech",
@@ -34,7 +37,10 @@ function injectLibMW(app) {
           "[InjectLibMiddleware::init::corsorigin] Checking against: " + whitelist,
       );
       !origin || whitelist.indexOf(origin) !== -1 ?
-        callback(null, true) :
+        () => {
+          logger.info("[InjectLibMiddleware::init::corsorigin] Origin verified successfully, proceeding to next...")
+          callback(null, true)
+        } :
         callback(new Error("Not allowed by CORS"));
       logger.info(
           "[InjectLibMiddleware::init::corsorigin] CORS intercepter ended",
@@ -50,6 +56,11 @@ function injectLibMW(app) {
   app.use(cors(corsOptions));
   app.use(cookieParser());
   app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+  app.use((req, res, next) => {
+    req.url = req.url.startsWith(CONSTANTS.APP_ROOT) ? req.url.substring(CONSTANTS.APP_ROOT.length) : req.url;
+    req.url = !req.url ? "/" : req.url;
+    next();
+  });
 }
 
 export default injectLibMW;

@@ -7,7 +7,7 @@ import { getUserDetails } from "../../global-selectors";
 import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
 import { dispatchLevels } from "../../global-actions";
 import { dispatchComponentsConfig, dispatchSelectedComponent } from "../ComponentCreator/actions";
-import DASHBOARD_CONFIG from "../../config/dashboardConfig";
+import {DASHBOARD_CONFIG} from "../../config";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {

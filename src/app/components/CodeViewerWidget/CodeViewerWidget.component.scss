@@ -1,6 +1,6 @@
 @import "./../../styles/variables";
 
 .c-CodeViewerWidget {
-    background-color: rgb(30, 30, 30);
+    background-color: $default-aside-background;
     white-space: pre-wrap;
 }

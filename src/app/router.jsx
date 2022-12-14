@@ -4,7 +4,7 @@ import { connect, Provider } from "react-redux"
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
-import { Header, Modal, Notification, PageLoader, RichTooltip } from "./components";
+import { Header, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
 import Helper from "./utils/Helper";
 
 const LoadableAuthenticator = Loadable({
@@ -39,6 +39,7 @@ class Router extends React.Component {
             <Provider store={store}>
                 <div className="global-events-interceptor h-100 w-100" onClick={() => dispatchHideQuickOptions(true)}>
                     <Header />
+                    <SidePanel />
                     <BrowserRouter>
                         <Routes>
                             <Route path="/" element={<LoadableAuthenticator />} />

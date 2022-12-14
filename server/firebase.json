@@ -13,5 +13,31 @@
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
-  ]
+  ],
+  "hosting": {
+    "public": "functions/lib",
+    "rewrites": [
+      {
+        "source": "/api/static",
+        "function": "armoryStaticApp"
+      },
+      {
+        "source": "/api/static/**",
+        "function": "armoryStaticApp"
+      },
+      {
+        "source": "/api",
+        "function": "armoryServerApp"
+      },
+      {
+        "source": "/api/**",
+        "function": "armoryServerApp"
+      }
+    ],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }

@@ -9,6 +9,7 @@ import {ButtonsPanel, InputField, SectionHeader, Tabs, Tab} from "..";
 import Network from "../../utils/network";
 import Helper from "../../utils/Helper";
 import API_CONFIG from "../../constants/api-config";
+import ENDPOINTS from "../../constants/endpoints";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
@@ -59,7 +60,7 @@ const LoginForm = props => {
 
   const handleSubmit = (form) => {
     const formObj = fieldValues[form];
-    Network.post(`/api/auth/${form === "loginform" ? "login" : "register"}`, formObj)
+    Network.post(form === "loginform" ? ENDPOINTS.BE.AUTH.LOGIN : ENDPOINTS.BE.AUTH.REGISTER, formObj)
       .then(res => {
         if (form === "loginform") {
           if (res.status === 200 && res.body.message === "Login Successful") {

@@ -10,6 +10,7 @@ import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerato
 import Helper from "../../utils/Helper";
 import Network from "../../utils/network";
 import "./PropsForm.component.scss";
+import ENDPOINTS from "../../constants/endpoints";
 
 const PropsForm = props => {
   const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, socket, toggleEditMode, userDetails} = props;
@@ -104,7 +105,7 @@ const PropsForm = props => {
         })
       }
     })
-    Network.put("/api/armory", payload)
+    Network.put(ENDPOINTS.BE.ARMORY.PUT, payload)
       .then(res => {
         console.log(res);
       })

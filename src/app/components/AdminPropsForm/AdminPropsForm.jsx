@@ -11,6 +11,7 @@ import {SelectOption, InputField, CheckBox} from "..";
 import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
 import Network from "../../utils/network";
+import ENDPOINTS from "../../constants/endpoints";
 import "./AdminPropsForm.component.scss";
 
 const AdminPropsForm = props => {
@@ -98,7 +99,7 @@ const AdminPropsForm = props => {
         })
       }
     })
-    Network.put("/api/armory", payload)
+    Network.put(ENDPOINTS.BE.ARMORY.PUT, payload)
       .then(res => {
         console.log(res);
       })
