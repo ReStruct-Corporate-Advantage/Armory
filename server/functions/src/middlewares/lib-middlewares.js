@@ -36,12 +36,12 @@ function injectLibMW(app) {
       logger.info(
           "[InjectLibMiddleware::init::corsorigin] Checking against: " + whitelist,
       );
-      !origin || whitelist.indexOf(origin) !== -1 ?
-        () => {
+      if (!origin || whitelist.indexOf(origin) !== -1) {
           logger.info("[InjectLibMiddleware::init::corsorigin] Origin verified successfully, proceeding to next...")
           callback(null, true)
-        } :
-        callback(new Error("Not allowed by CORS"));
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
       logger.info(
           "[InjectLibMiddleware::init::corsorigin] CORS intercepter ended",
       );

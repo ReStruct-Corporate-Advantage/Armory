@@ -4,14 +4,40 @@
     z-index: 1000;
     max-height: 0;
     max-width: 0;
+    width: 15rem;
     background: white;
     color: $primary-container-font-color;
     transition: all 0.3s ease-in-out;
     left: 10%;
     top: 120%;
     // padding: 1rem;
-    border: 2px solid lightgrey;
     border-radius: 0.1875rem;
+    
+    &.show {
+        border: 2px solid lightgrey;
+        max-height: 30rem;
+        max-width: 30rem;
+    }
+
+    &.leftOut {
+        left: 10%;
+        right: unset;
+    }
+
+    &.rightOut {
+        right: 10%;
+        left: unset;
+    }
+
+    &.topOut {
+        top: 120%;
+        bottom: unset;
+    }
+
+    &.bottomOut {
+        bottom: 120%;
+        top: unset;
+    }
 
     &.right-bottom:after {
         bottom: 100%;

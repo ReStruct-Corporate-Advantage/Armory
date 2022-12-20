@@ -3,8 +3,23 @@ import Helper from "../utils/helper.js";
 import userDao from "../dao/user.js";
 import dao from "../dao/armory.js";
 import logger from "../loaders/logs-loader.js";
-
+import CONSTANTS from "../constants/constants.js";
 class ArmoryController {
+  constructor() {
+    this.getUserControlCategory = this.getUserControlCategory.bind(this);
+    this.getArms = this.getArms.bind(this);
+    this.setArmaments = this.setArmaments.bind(this);
+    this.createArmament = this.createArmament.bind(this);
+    this.updateArmament = this.updateArmament.bind(this);
+  }
+  
+  async getUserControlCategory() {
+    if (!this.USER_CONTROL_CATEGORY) {
+      this.USER_CONTROL_CATEGORY = (await dao.findArmamentCategoryByName(CONSTANTS.USER_CONTROL_CATEGORY_NAME));
+    }
+    return this.USER_CONTROL_CATEGORY;
+  }
+
   getArms(req, res) {
     const user_details = req.decoded;
     try {
@@ -115,7 +130,7 @@ class ArmoryController {
           return res.json(err);
         }
         const arms = JSON.parse(data).types;
-        arms && dao.bulkInsert(arms, user_details.username);
+        arms && dao.bulkInsert(arms, user_details.username, null, true);
         return res.json({success: true}).status(200);
       });
     } catch (e) {
@@ -160,6 +175,7 @@ class ArmoryController {
         }
       }
       armament.createdAt = new Date();
+      armament.armamentCategory = await this.getUserControlCategory();
       const createdRecord = await dao.createArmamentTransactional(armament);
       if (createdRecord) {
         logger.info(
@@ -198,6 +214,9 @@ class ArmoryController {
         }
         const armament = req.body;
         dao.findArmamentByName(armament.componentName).then((doc) => {
+          if (doc.freeze) {
+            return res.status(403).json({error: doc.displayName + " is a protected component and can not be edited!"});
+          }
           doc.meta = armament.meta;
           doc.descriptor = armament.descriptor;
           doc.displayName = armament.displayName;

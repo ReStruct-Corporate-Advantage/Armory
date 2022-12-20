@@ -1,0 +1,14 @@
+@import "./variables";
+
+@mixin app-header {
+    top: 0;
+    height: $header-height;
+    max-height: 4rem;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+
+    p {
+        margin-bottom: 0;
+    }
+}

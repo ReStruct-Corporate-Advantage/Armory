@@ -47,6 +47,10 @@ const ComponentCreator = (props) => {
   const isDevMode = devModeToggle && devModeToggle.selected;
 
   useEffect(() => {
+    document.body.classList.add("body-modifier");
+  }, []);
+  
+  useEffect(() => {
     if (!socket) {
       const host = API_CONFIG.HOST[process.env.NODE_ENV || "development"];
       const newSocket = io(host);

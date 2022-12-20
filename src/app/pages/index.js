@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import DashboardNew from "./DashboardNew";
 import CategoryManager from "./CategoryManager";
 import AdminComponentManager from "./AdminComponentManager";
 import LivePreview from "./LivePreview";
@@ -19,6 +20,7 @@ import Dashboard from "./Dashboard";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	DashboardNew,
 	CategoryManager,
 	AdminComponentManager,
 	LivePreview,

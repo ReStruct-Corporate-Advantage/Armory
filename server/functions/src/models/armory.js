@@ -14,6 +14,7 @@ const armamentSchema = new mongoose.Schema(
         ref: "ArmamentCategory",
       },
       order: Number,
+      freeze: Boolean,
       selfClosing: Boolean,
       state: String,
       top: {

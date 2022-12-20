@@ -1,6 +1,8 @@
 const CONSTANTS = {
   ACCESS_TOKEN_IDENTIFIER: "x-access-token",
-  APP_ROOT: "/api"
+  APP_ROOT: "/api",
+  USER_CONTROL_CATEGORY_NAME: "myControls",
+  COMMUNITY_CONTROL_CATEGORY_NAME: "communityControls"
 };
 
 export default CONSTANTS;

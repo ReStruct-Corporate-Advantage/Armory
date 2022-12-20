@@ -29,4 +29,9 @@ const ROLES = {
     STUDENT: "student"
 }
 
-export {ITEM_TYPE, ELEMENT_TYPE, FRAGMENT_TYPE, ROLES};
+const DRAWER_TYPE = {
+    APP_DRAWER: "app-drawer",
+    LIST_CONTENT_DRAWER: "list-content-drawer"
+}
+
+export {ITEM_TYPE, ELEMENT_TYPE, FRAGMENT_TYPE, ROLES, DRAWER_TYPE};

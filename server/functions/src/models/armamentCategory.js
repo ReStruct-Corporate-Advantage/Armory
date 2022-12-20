@@ -9,6 +9,10 @@ const armamentCategorySchema = new mongoose.Schema(
       scope: String,
       leafCategory: Boolean,
       order: Number,
+      freeze: {
+        type: Boolean,
+        default: true
+      },
       meta: {
         tags: [String],
         createdBy: String,

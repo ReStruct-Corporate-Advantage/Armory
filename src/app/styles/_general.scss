@@ -26,6 +26,16 @@ body {
         background-image: url("./../static/images/NKJDiIh-blue-nature-wallpaper.jpg");
     }
 }
+
+.c-Router__global-events-interceptor {
+    transition: all 0.5s ease-in-out;
+    &.dashboard {
+        padding: 1rem;
+        .c-Router__app-container {
+            border-radius: $dashboard-border-radius;
+        }
+    }
+}
   
 code {
 font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -156,6 +166,11 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 
 .border-default {
     border: 1px solid black;
+    border-radius: 0.3125rem;
+}
+
+.border-default-light {
+    border: 1px solid $default-border-color;
     border-radius: 0.3125rem;
 }
 

@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 import {ArmamentCategory} from "../models/armamentCategory.js";
 import {Armament} from "../models/armory.js";
+import CONSTANTS from "../constants/constants.js";
+
 class ArmoryDAO {
   static async findArmamentById(_id) {
     return await Armament.find({_id});
@@ -38,7 +40,7 @@ class ArmoryDAO {
     return category;
   }
 
-  static async bulkInsert(documents, username, parent) {
+  static async bulkInsert(documents, username, parent, freeze) {
     const backReferencedCategories = [];
     const backReferencedArms = [];
     const parentId = parent && parent._id;
@@ -59,18 +61,20 @@ class ArmoryDAO {
           flatInfo.meta.createdBy = flatInfo.meta.createdBy ?
             flatInfo.meta.createdBy :
             username;
+          flatInfo.freeze = true;
           parentId && (flatInfo.armamentCategory = parentId);
           const _id = new mongoose.Types.ObjectId();
           const category = new ArmamentCategory({_id, ...flatInfo});
           parent && parent.items.push(_id);
           backReferencedCategories.push(category);
-          ArmoryDAO.bulkInsert(document.items, username, category);
+          ArmoryDAO.bulkInsert(document.items, username, category, freeze);
         } else {
           document.armamentCategory = parentId;
           document.meta = document.meta ? document.meta : {};
           document.meta.createdBy = document.meta.createdBy ?
             document.meta.createdBy :
             username;
+          document.freeze = freeze;
           const _id = new mongoose.Types.ObjectId();
           const armament = new Armament({_id, ...document});
           parent && parent.items.push(_id);
@@ -89,28 +93,24 @@ class ArmoryDAO {
   static async createArmamentTransactional(armament) {
     const session = await mongoose.startSession();
     session.startTransaction();
-    let category =
-      armament.armamentCategory &&
-      ArmoryDAO.findArmamentCategoryById(armament.armamentCategory);
+    let category = armament.armamentCategory;
     if (!category) {
-      category = await ArmoryDAO.findArmamentCategoryByName("myControls");
+      category = await ArmoryDAO.findArmamentCategoryByName(CONSTANTS.USER_CONTROL_CATEGORY_NAME);
+      armament.armamentCategory = category._id;
       console.log(category);
+    } else if (typeof armament.armamentCategory === "object") {
+      armament.armamentCategory = category._id;
     }
-    armament.armamentCategory = category._id;
-    // also save to community controls
-    // if (res.body.visibility === "public") {
-    //     dao.findArmamentCategoryByName("communityControls")
-    // }
-    // dao.findArmamentCategoryByName("myControls")
-    // .then(async myControlsCategory => {
-    //     armament.armamentCategory = myControlsCategory._id
-    // })
-    // .catch(err => {
-    //     logger.error(`[ArmoryController::createArmament][DBException] Error occurred while trying to fetch My Controls category, requested by user: ${user_details.username}: `, err)
-    //     return res.json({error: err, message: "[DBException] An unknown error occurred"}).status(521);
-    // })
     const createdArmament = await Armament.create(armament);
+    category.items.push(createdArmament._id);
     console.log("before ending: ", createdArmament);
+    await category.save();
+    // also save to community controls
+    if (armament.visibility && armament.visibility === "public") {
+      category = await ArmoryDAO.findArmamentCategoryByName(CONSTANTS.COMMUNITY_CONTROL_CATEGORY_NAME);
+      category.items.push(createdArmament._id);
+      await category.save();
+    }
     session.endSession();
     console.log("after ending: ", createdArmament);
     return createdArmament;

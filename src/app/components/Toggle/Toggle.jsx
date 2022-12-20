@@ -22,8 +22,8 @@ const Toggle = props => {
         {toggle.icon
           && <span style={{float: "right"}}>
             {toggle.selected || toggle.generic
-              ? <LoadableIcon size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.icon} className="svg-stroke-theme" />
-              : <LoadableIcon size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.iconOff} className="svg-stroke-theme" />}
+              ? <LoadableIcon key={"Toggle-" + index + "-" + toggle.icon.replace(".", "-")} size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.icon} className="svg-stroke-theme" />
+              : <LoadableIcon key={"Toggle-" + index + "-" + toggle.icon.replace(".", "-")} size="1.5rem" color={toggle.color || "#e83e8c"} icon={toggle.iconOff} className="svg-stroke-theme" />}
             </span>}
       </li>;
 };

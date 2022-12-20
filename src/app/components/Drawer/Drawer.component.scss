@@ -1,0 +1,34 @@
+@import "../../styles/variables";
+
+.c-Drawer {
+    border-radius: 0 0 $dashboard-border-radius 0;
+    transition: all 0.3s;
+    &.bg-primary {
+        background-color: $primary-base-color !important;
+    }
+
+  .c-Drawer__controller {
+    right: -0.9rem;
+    top: 3rem;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.hovered {
+        background: $primary-font-color-dark;
+    }
+
+    img {
+        transition: all 0.3s;
+    }
+  }
+
+  &.expanded .c-Drawer__controller {
+    padding-left: 0.1rem;
+    img {
+        transform: rotateY(180deg) translateX(0.2rem);
+    }
+  }
+}

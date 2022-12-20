@@ -1,15 +1,16 @@
 import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes, useMatch, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { PageLoader } from "./components";
 import { dispatchUserDetails, setLoggedIn } from "./global-actions";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
 import ENDPOINTS from "./constants/endpoints";
+import {AUTHENTICATED_CHILDREN} from "./routes";
 
 const LoadableDashboard = Loadable({
-  loader: () => import("./pages/Dashboard"),
+  loader: () => import("./pages/DashboardNew"),
   loading: PageLoader
 })
 
@@ -63,10 +64,28 @@ const LoadableCollaborationBoard = Loadable({
   loading: PageLoader
 })
 
+const loadables = {
+  LoadableDashboard,
+  LoadableAuthorizer,
+  LoadableProjectCreator,
+  LoadablePageCreator,
+  LoadableComponentCreator,
+  LoadableComponentSelector ,
+  LoadableForgotPassword,
+  LoadableUserProfile,
+  LoadableNotifications,
+  LoadableSettings,
+  LoadableCollaborationBoard
+};
+
 function Authenticator(props) {
   const { dispatchUserDetails, setLoggedIn } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
+  const authSessionUser = Helper.getCookie("auth_session_user");
   const navigate = useNavigate();
+  if (isLoggedIn && window.location.pathname === "/" && authSessionUser) {
+    navigate("/" + authSessionUser);
+  }
 
   useEffect(() => {
     setLoggedIn(isLoggedIn);
@@ -75,26 +94,25 @@ function Authenticator(props) {
     } else {
       Network.get(ENDPOINTS.BE.USER.CURRENT)
         .then(res => {
-          // navigate("/")
+          // window.location.pathname === "/" && navigate("/" + res.body.username);
           dispatchUserDetails(res.body);
         })
         .catch(e => console.log(e));
     }
   }, [isLoggedIn]);
 
-  return <Routes>
-    <Route path="/" element={<LoadableDashboard />} />
-    <Route path="manage/*" element={<LoadableAuthorizer />} />
-    <Route path="project" element={<LoadableProjectCreator />} />
-    <Route path="page" element={<LoadablePageCreator />} />
-    <Route path="component" element={<LoadableComponentCreator />} />
-    <Route path="component/view" element={<LoadableComponentSelector />} />
-    <Route path="reset" element={<LoadableForgotPassword />} />
-    <Route path="profile" element={<LoadableUserProfile />} />
-    <Route path="notifications" element={<LoadableNotifications />} />
-    <Route path="settings" element={<LoadableSettings />} />
-    <Route path="project/:project/collaborate" element={<LoadableCollaborationBoard />} />
-  </Routes>
+  const getRoutes = () => {
+    return <Routes>
+        {
+          AUTHENTICATED_CHILDREN.map(route => {
+            const Component = loadables[route.element];
+            return <Route path={route.path} element={<Component />} />
+          })
+        }
+      </Routes>;
+  }
+
+  return getRoutes();
 }
 
 const mapDispatchToProps = {

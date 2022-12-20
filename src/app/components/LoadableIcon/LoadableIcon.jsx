@@ -30,6 +30,7 @@ const LoadableIcon = props => {
   const iconName = iconParts[1];
   const iconKey = `${iconCategory}_${iconName}`;
   const [b64, setB64] = useState();
+  const [styleUpdated, setStyleUpdated] = useState();
   const iData = useSelector(state => iconSelector(state, iconKey));
 
   const getIcon = () => {
@@ -61,11 +62,12 @@ const LoadableIcon = props => {
 
   // Below effect is only for property changes after first render like on hover, click etc
   useEffect(() => {
-    if (svg) {
+    if (svg && !styleUpdated) {
       const b64 = DOMHelper.svgToBase64(svg, {size, classes, color});
-      setB64(b64); 
+      setB64(b64);
+      setStyleUpdated(true);
     }
-  }, [classes, color, size])
+  })
   
   const iconAsB64 = b64 || iData;
   return iconAsB64 ? <img className={classes} src={`data:image/svg+xml;base64,${iconAsB64}`} alt="Icon" /> : null;

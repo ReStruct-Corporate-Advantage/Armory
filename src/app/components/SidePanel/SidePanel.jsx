@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import "./SidePanel.component.scss";
 
 const SidePanel = props => {
-  const {shouldDisplay, expanded} = props;
+  const {shouldDisplay, fixed, expanded} = props;
   return (
-    <div className={`c-SidePanel position-fixed${shouldDisplay ? "" : " d-none"}`}>
+    <div className={`c-SidePanel h-100${shouldDisplay ? "" : fixed ? " d-none" : " w-0"}`}>
       In Component SidePanel
     </div>
   );

@@ -1,4 +1,8 @@
 /* PLOP_INJECT_IMPORT */
+import UserImage from "./UserImage";
+import Summary from "./Summary";
+import Drawer from "./Drawer";
+import Widget from "./Widget";
 import SidePanel from "./SidePanel";
 import ComponentContainerWrapper from "./ComponentContainerWrapper";
 import Toggle from "./Toggle";
@@ -67,6 +71,10 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	UserImage,
+	Summary,
+	Drawer,
+	Widget,
 	SidePanel,
 	ComponentContainerWrapper,
 	Toggle,
