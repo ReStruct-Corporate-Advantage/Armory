@@ -20,17 +20,17 @@ const iconSelectorFactory = () => createSelector(
 );
 
 const LoadableIcon = props => {
-  const { classes, color, dispatchContent, size } = props;
+  const { classes, color, dispatchContent, height, size, width } = props;
   let {icon} = props;
-  const [svg, setSvg] = useState();
+  const [b64, setB64] = useState();
   const iconSelector = useMemo(iconSelectorFactory, []);
+
   icon = !icon || icon.indexOf(".") < 0 ? "gr.GrStatusPlaceholder" : icon;
   const iconParts = icon.split(".");
   const iconCategory = iconParts[0] ? iconParts[0].toLowerCase() : "";
   const iconName = iconParts[1];
   const iconKey = `${iconCategory}_${iconName}`;
-  const [b64, setB64] = useState();
-  const [styleUpdated, setStyleUpdated] = useState();
+  
   const iData = useSelector(state => iconSelector(state, iconKey));
 
   const getIcon = () => {
@@ -38,13 +38,9 @@ const LoadableIcon = props => {
       // console.log("Requesting Icon from Server for the icon: ", iconKey)
       ongoingApiCalls[iconKey] = true;
       Network.getStatic(`/icon/${iconCategory}/${iconName}`)
-      .then(res => {
+        .then(res => {
           const parsedSvg = parser.parseFromString(res.body, "image/svg+xml").querySelector("svg");
-          setSvg(parsedSvg); // save it to update style later when color or size change
-          if (!iData) { // Check again to prevent dispatchcontent for API calls of duplicate icons
-            const icon = DOMHelper.svgToBase64(parsedSvg, {size, classes, color});
-            dispatchContent({icons: {[iconKey]: icon}});
-          }
+          dispatchContent({icons: {[iconKey]: parsedSvg}});
         })
         .catch (e => console.log(e))
         .finally(() => ongoingApiCalls[iconKey] = false);
@@ -58,19 +54,14 @@ const LoadableIcon = props => {
     } else {
       console.log("Icon name and category is required, received: ", icon)
     }
-  });
+  }, []);
 
-  // Below effect is only for property changes after first render like on hover, click etc
-  useEffect(() => {
-    if (svg && !styleUpdated) {
-      const b64 = DOMHelper.svgToBase64(svg, {size, classes, color});
-      setB64(b64);
-      setStyleUpdated(true);
-    }
-  })
+  // Below is only for property changes after first render like on hover, click etc
+  if (iData && !b64) {
+    setB64(DOMHelper.svgToBase64(iData, {size, classes, color}));
+  }
   
-  const iconAsB64 = b64 || iData;
-  return iconAsB64 ? <img className={classes} src={`data:image/svg+xml;base64,${iconAsB64}`} alt="Icon" /> : null;
+  return b64 ? <img className={`c-LoadableIcon${classes ? " " + classes : ""}`} src={`data:image/svg+xml;base64,${b64}`} style={{width: width || size || "1rem", height: height || size || "1rem"}} alt="Icon" /> : null;
 };
 
 LoadableIcon.propTypes = {

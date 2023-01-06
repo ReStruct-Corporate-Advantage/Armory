@@ -1,0 +1,16 @@
+.c-Loader {
+    background-color: rgba(50, 50, 50, 0.4);
+    left: 0;
+    .c-Loader__loader-image {
+        animation: rotation 2s infinite linear;
+    }
+}
+
+@keyframes rotation {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(359deg);
+    }
+}

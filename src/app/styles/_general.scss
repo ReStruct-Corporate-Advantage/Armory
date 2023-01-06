@@ -70,10 +70,6 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     right: 0 !important;
 }
 
-.top-0 {
-    top: 0 !important;
-}
-
 .top-100 {
     top: 100% !important;
 }
@@ -284,6 +280,14 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     border-left: 1px solid grey;
 }
 
+.mw-0 {
+    max-width: 0;
+}
+
+.mw-unset {
+    max-width: unset;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
@@ -321,6 +325,38 @@ input:-webkit-autofill:active
         -o-transform: rotate(360deg);
         transform: rotate(360deg);
     }
+}
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.z-index-3 {
+    z-index: 3;
+}
+
+.z-index-4 {
+    z-index: 4;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.top-1 {
+    top: 100%;
+}
+
+.top-2 {
+    top: 200%;
+}
+
+.top-3 {
+    top: 300%;
 }
 
 

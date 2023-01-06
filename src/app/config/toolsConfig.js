@@ -1,4 +1,4 @@
-import Helper from "../utils/Helper";
+import EVENTS from "../utils/eventHandlers";
 
 const TOOLS_CONFIG = {
     CODE_VIEWER_TOOLS: {
@@ -159,16 +159,7 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             icon: "md.MdLogout",
-                            onClick: () => {
-                                Helper.removeCookie("auth_session_token");
-                                window.location.pathname = "/login";
-                                // Network.get("/api/auth/logout")
-                                //     .then(res => {
-                                //         if (res.status === 200) {
-                                //             window.location.pathname = "/login";
-                                //         }
-                                //     })
-                            }
+                            onClick: EVENTS.logout
                         }
                     ]
                 },

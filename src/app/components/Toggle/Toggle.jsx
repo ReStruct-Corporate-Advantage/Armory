@@ -11,7 +11,7 @@ const Toggle = props => {
   useTraceUpdate(props, "Toggle");
   // console.log("Rendering... ", toggle.name);
   const dispatch = useDispatch();
-  return <li className="c-Toggle" key={index} style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={() => {
+  return <li className="c-Toggle" style={{borderBottom: "1px solid #aaa", padding: "0.6rem 1rem 0.6rem"}} onClick={() => {
           const togglesClone = [...toggles];
           const clickedToggle = toggles.find(toggleInner => toggle.name === toggleInner.name);
           clickedToggle.selected = !clickedToggle.selected
@@ -29,7 +29,6 @@ const Toggle = props => {
 };
 
 Toggle.propTypes = {
-  key: PropTypes.string,
   toggle: PropTypes.object,
   toggleStore: PropTypes.oneOfType([
     PropTypes.array,

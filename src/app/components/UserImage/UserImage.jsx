@@ -3,14 +3,21 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
 import { getUserDetails } from "../../global-selectors";
-import LoadableIcon from "../LoadableIcon";
+import {LoadableIcon} from "..";
+import EVENTS from "../../utils/eventHandlers";
 import "./UserImage.component.scss";
 
 const UserImage = props => {
-  const {user} = props;
+  const {user, containerClasses, ...rest} = props;
   return (
-    <div className="c-UserImage">
-      <LoadableIcon key="user-image-fa-FaUserCircle"icon="fa.FaUserCircle" color="#bbb" />
+    <div className={`c-UserImage${containerClasses ? " " + containerClasses : ""}`} style={{height: rest.expandSize}}>
+      <span role="button">
+        <LoadableIcon key="user-image-fa-FaUserCircle" {...rest} />
+        {!rest.collapsed && <small className="text-center d-block mt-3" style={{cursor: "pointer"}}
+          onClick={() => EVENTS.genericDrawerMenuClickHandler(rest, user)}>
+          <u>Manage Profile</u>
+        </small>}
+      </span>
     </div>
   );
 };

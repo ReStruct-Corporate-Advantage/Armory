@@ -1,7 +1,7 @@
 import Immutable from "immutable"
 import {combineReducers} from "redux"
 import { DISPATCH_CONTENT, DISPATCH_HIDE_QUICKOPTIONS, DISPATCH_LEVELS, DISPATCH_LOGS, DISPATCH_MODAL, DISPATCH_NOTIFICATION, DISPATCH_TOGGLES, DISPATCH_TOOLTIP,
-    DISPATCH_USER_DETAILS, DISPATCH_ZOOM, IS_MOBILE, SET_LOGGED_IN } from "./global-actions"
+    DISPATCH_USER_DETAILS, DISPATCH_ZOOM, IS_MOBILE, SET_LOGGED_IN, TOGGLE_LOADER } from "./global-actions"
 import adminComponentManagerReducer from "./pages/AdminComponentManager/reducer"
 import componentCreatorReducer from "./pages/ComponentCreator/reducer"
 import pageCreatorReducer from "./pages/PageCreator/reducer"
@@ -28,6 +28,7 @@ const globalReducer = (state = initialState, action) => {
         case DISPATCH_USER_DETAILS:
         case DISPATCH_ZOOM:
         case SET_LOGGED_IN:
+        case TOGGLE_LOADER:
         case IS_MOBILE:
             return state.mergeDeep(action.payload)
         default:

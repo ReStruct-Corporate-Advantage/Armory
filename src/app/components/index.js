@@ -1,4 +1,8 @@
 /* PLOP_INJECT_IMPORT */
+import CumulativeWorksTable from "./CumulativeWorksTable";
+import Loader from "./Loader";
+import List from "./List";
+import Table from "./Table";
 import UserImage from "./UserImage";
 import Summary from "./Summary";
 import Drawer from "./Drawer";
@@ -71,6 +75,10 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	CumulativeWorksTable,
+	Loader,
+	List,
+	Table,
 	UserImage,
 	Summary,
 	Drawer,

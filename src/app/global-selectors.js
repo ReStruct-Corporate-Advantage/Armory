@@ -31,3 +31,4 @@ export const getToggles = createGetSelector(getGlobal, "toggles");
 export const getLevels = createGetSelector(getGlobal, "levels");
 export const getLogs = createGetSelector(getGlobal, "logs");
 export const getZoom = createGetSelector(getGlobal, "zoom");
+export const getLoaderState = createGetSelector(getGlobal, "loaderState");

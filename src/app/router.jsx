@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from "react"
 import PropTypes from "prop-types"
 import { connect, Provider } from "react-redux"
-import { matchPath, Route, Routes, useLocation } from "react-router-dom";
+import { matchPath, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
-import { Header, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
+import { Drawer, Header, Loader, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
 import Helper from "./utils/Helper";
 import ROUTES from "./routes";
+import usePageComponents from "./hooks/usePageComponents";
+import DASHBOARD_CONFIG from "./config/dashboardNewConfig";
 
 const LoadableAuthenticator = Loadable({
     loader: () => import("./authenticator"),
@@ -38,7 +40,10 @@ const loadables = {
 const Router = props => {
     const {dispatchDeviceType, dispatchHideQuickOptions, store} = props;
     const [matchedRoute, setMatchedRoute] = useState();
+    const { DrawerConfig } = usePageComponents(DASHBOARD_CONFIG);
+    const [drawerState, setDrawerState] = useState({collapsed: !(DrawerConfig && DrawerConfig.initialExpanded)});
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         let matchedRoute = ROUTES.find(route => matchPath({...route, caseSensitive: false, end: true}, location.pathname));
@@ -56,9 +61,9 @@ const Router = props => {
     }, []);
 
     const getRoutes = () => {
-        const routeRenders = ROUTES.map(route => {
+        const routeRenders = ROUTES.map((route, i) => {
             const Component = loadables[route.element];
-            return <Route path={route.path} element={<Component />} />
+            return <Route key={"router-route-" + i} path={route.path} element={<Component navigate={navigate} />} />
         });
         return <Routes>{routeRenders}</Routes>;
     };
@@ -67,11 +72,25 @@ const Router = props => {
                 <div className={`c-Router__global-events-interceptor h-100 w-100${matchedRoute && matchedRoute.class? " " + matchedRoute.class : ""}`} onClick={() => dispatchHideQuickOptions(true)}>
                     <div className="c-Router__app-container overflow-hidden h-100 w-100 d-flex flex-column">
                         <Header classes={matchedRoute && matchedRoute.class} />
-                        <SidePanel fixed={true} shouldDisplay={false} />
-                        {getRoutes()}
+                        <div className="d-flex h-100 w-100">
+                            <SidePanel fixed={true} shouldDisplay={false} />
+                            <Drawer
+                                type="app-drawer"
+                                config={{
+                                    ...DrawerConfig,
+                                    classes: `${DrawerConfig.classes} ${matchedRoute ? matchedRoute.class : ""}`,
+                                    collapseWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED,
+                                    expandWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED,
+                                }}
+                                state={drawerState}
+                                setState={setDrawerState}
+                            />
+                            {getRoutes()}
+                        </div>
                         <Modal />
                         <RichTooltip />
                         <Notification />
+                        <Loader />
                     </div>
                 </div>
             </Provider>;

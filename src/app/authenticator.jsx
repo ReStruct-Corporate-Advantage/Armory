@@ -1,9 +1,12 @@
 import React, {useEffect} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import { Route, Routes, useMatch, useNavigate } from "react-router-dom";
+import { createPropsSelector } from "reselect-immutable-helpers";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { PageLoader } from "./components";
-import { dispatchUserDetails, setLoggedIn } from "./global-actions";
+import { dispatchUserDetails, setLoggedIn, toggleLoader } from "./global-actions";
+import {getUserDetails} from "./global-selectors";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
 import ENDPOINTS from "./constants/endpoints";
@@ -79,34 +82,29 @@ const loadables = {
 };
 
 function Authenticator(props) {
-  const { dispatchUserDetails, setLoggedIn } = props;
+  const { dispatchUserDetails, navigate, setLoggedIn, toggleLoader, userDetails } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
   const authSessionUser = Helper.getCookie("auth_session_user");
-  const navigate = useNavigate();
-  if (isLoggedIn && window.location.pathname === "/" && authSessionUser) {
-    navigate("/" + authSessionUser);
-  }
+  const location = useLocation();
 
   useEffect(() => {
     setLoggedIn(isLoggedIn);
     if (!isLoggedIn) {
       navigate("/login");
     } else {
-      Network.get(ENDPOINTS.BE.USER.CURRENT)
-        .then(res => {
-          // window.location.pathname === "/" && navigate("/" + res.body.username);
-          dispatchUserDetails(res.body);
-        })
+      !userDetails && Network.get(ENDPOINTS.BE.USER.CURRENT, null, {toggleLoader})
+        .then(res => dispatchUserDetails(res.body))
         .catch(e => console.log(e));
+      window.location.pathname === "/" && navigate("/" + authSessionUser);
     }
-  }, [isLoggedIn]);
+  }, [isLoggedIn, location]);
 
   const getRoutes = () => {
     return <Routes>
         {
-          AUTHENTICATED_CHILDREN.map(route => {
+          AUTHENTICATED_CHILDREN.map((route, i) => {
             const Component = loadables[route.element];
-            return <Route path={route.path} element={<Component />} />
+            return <Route key={"authenticator-route-" + i} path={route.path} element={<Component navigate={navigate} />} />
           })
         }
       </Routes>;
@@ -115,9 +113,20 @@ function Authenticator(props) {
   return getRoutes();
 }
 
-const mapDispatchToProps = {
-  dispatchUserDetails,
-  setLoggedIn
+Authenticator.props = {
+  userDetails: PropTypes.object,
+  dispatchUserDetails: PropTypes.func,
+  setLoggedIn: PropTypes.func
 }
 
-export default connect(null, mapDispatchToProps)(Authenticator);
+const mapStateToProps = createPropsSelector({
+  userDetails: getUserDetails
+})
+
+const mapDispatchToProps = {
+  dispatchUserDetails,
+  setLoggedIn,
+  toggleLoader
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticator);

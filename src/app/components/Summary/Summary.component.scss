@@ -1,3 +1,35 @@
 .c-Summary {
-  
+  .c-Summary__granule {
+    font-weight: bold;
+    .c-Summary__granule__label {
+        font-size: 1.3rem;
+    }
+
+    .c-Summary__granule__value {
+        font-size: 1.2rem;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &.blue {
+        .c-Summary__granule__value {
+            color: rgba(34, 84, 88, 0.684);
+        }
+    }
+
+    &.orange {
+        .c-Summary__granule__value {
+            color: rgba(135, 86, 26, 0.888);
+        }
+    }
+
+    &.green {
+        .c-Summary__granule__value {
+            color: rgba(30, 122, 18, 0.754);
+        }
+    }
+  }
 }

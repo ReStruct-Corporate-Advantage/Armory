@@ -1,3 +1,31 @@
+$primary-widget-base: #a9a9a9;
+$widget-header-height: 2rem;
+
 .c-Widget {
-  
+  color: #676767;
+  border: 1px solid $primary-widget-base;
+  border-radius: 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 5px rgba(100, 100, 100, 0.5);
+
+  .c-Widget__header {
+    border-bottom: 1px solid $primary-widget-base;
+    height: $widget-header-height;
+  }
+
+  .c-Widget__content {
+    height: calc(100% - #{$widget-header-height});
+  }
+
+  &.bg-mild-red {
+    background: rgba(150, 0, 0, 0.3);
+  }
+
+  &.bg-mild-blue {
+    background: rgba(0, 0, 150, 0.3);
+  }
+
+  &.bg-mild-green {
+    background: rgba(0, 150, 0, 0.3);
+  }
 }
