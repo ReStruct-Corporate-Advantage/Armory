@@ -23,7 +23,7 @@ const StaticArmament = props => {
 
   const addComponent = () => {
     const componentConfigClone = JSON.parse(JSON.stringify(componentConfig));
-    componentConfigClone.component = {name: category.componentName, top: 0, left: 0, uuid: "edited-component", ...category};
+    componentConfigClone.component = {name: category.name, top: 0, left: 0, uuid: "edited-component", ...category};
     setComponentConfig(componentConfigClone);
   }
   

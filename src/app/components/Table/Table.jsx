@@ -12,7 +12,7 @@ const Table = props => {
   })
 
   // Render the UI for your table
-  return <table className="w-100 h-100 text-center" {...getTableProps()}>
+  return <table className="c-Table w-100 h-100 text-center" {...getTableProps()}>
       <thead>
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
@@ -31,7 +31,7 @@ const Table = props => {
             <tr {...row.getRowProps()}>
               {row.cells.map(cell => {
                 return (
-                  <td {...cell.getCellProps()}>
+                  <td className={cell.column.classes} style={cell.column.style} {...cell.getCellProps()}>
                     {cell.render('Cell')}
                   </td>
                 )

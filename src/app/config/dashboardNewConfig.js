@@ -16,24 +16,54 @@ const DASHBOARD_CONFIG = {
         ]
     },
     PROJECT_SUMMARY: {
+        actions: [{
+            action: "create",
+            route: "/:user/project"
+        }],
         header: "Project Summary",
+        instance: "Project",
         component: "Summary",
+        componentAction: {
+            action: "navigate",
+            route: "/:user/project",
+            navigateArgs: {state: {context: "view"}}
+        },
         type: "Widget",
         typeClasses: "bg-mild-red",
         location: "main",
         layout: "1.1.4"
     },
     PAGE_SUMMARY: {
+        actions: [{
+            action: "create",
+            route: "/:user/page"
+        }],
         header: "Page Summary",
+        instance: "Page",
         component: "Summary",
+        componentAction: {
+            action: "navigate",
+            route: "/:user/page",
+            navigateArgs: {state: {context: "view"}}
+        },
         type: "Widget",
         typeClasses: "bg-mild-blue",
         location: "main",
         layout: "1.2.4"
     },
     COMPONENT_SUMMARY: {
+        actions: [{
+            action: "create",
+            route: "/:user/component"
+        }],
         header: "Component Summary",
+        instance: "Component",
         component: "Summary",
+        componentAction: {
+            action: "navigate",
+            route: "/:user/component",
+            navigateArgs: {state: {context: "view"}}
+        },
         type: "Widget",
         typeClasses: "bg-mild-green",
         location: "main",
@@ -49,9 +79,34 @@ const DASHBOARD_CONFIG = {
     ACTIONS: {
         header: "Get Started with...",
         component: "List",
+        content: [
+            "Create a new project...",
+            "Use a template to start a project...",
+            "Create a page...",
+            "Create a rich component...",
+            "Start a blog...",
+            "Ask a question..."
+        ],
         type: "Widget",
+        listType: "link",
         location: "main",
         layout: "2.2.4"
+    },
+    SAMPLES: {
+        header: "What others are creating...",
+        component: "List",
+        type: "Widget",
+        content: [
+            "square",
+            "rectangle",
+            "input",
+            "Create a rich component...",
+            "Start a blog...",
+            "Ask a question..."
+        ],
+        listType: "carousel",
+        location: "main",
+        layout: "3.1.12"
     },
     ACTIVITY: {
         header: "User Activity",

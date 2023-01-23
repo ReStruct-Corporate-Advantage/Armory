@@ -6,13 +6,13 @@ class EVENTS {
         window.location.pathname = "/login";
     }
 
-    static genericDrawerMenuClickHandler(item, user) {
+    static genericNavigationClickHandler(item, user) {
         if (item && item.action) {
             if (item.actionArgs) {
                 const {navigate, ...rest} = item.actionArgs;
                 const args = Object.values(rest);
                 if (item.action === "navigate" && navigate) {
-                    const userPathIndex = args.findIndex(item => item.indexOf(":user") > -1);
+                    const userPathIndex = args.findIndex(item => item.indexOf && item.indexOf(":user") > -1);
                     if (userPathIndex > -1 && user) {
                         args[userPathIndex] = args[userPathIndex].replace(":user", user.username);
                     }

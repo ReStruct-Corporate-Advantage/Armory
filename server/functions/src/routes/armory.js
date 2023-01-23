@@ -5,6 +5,8 @@ const controller = new Controller();
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+router.get("/current", authInterceptor, controller.getCurrentUserArms);
+
 router.get("/", authInterceptor, controller.getArms);
 /**
  * @swagger

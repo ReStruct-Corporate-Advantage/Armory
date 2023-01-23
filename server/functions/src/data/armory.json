@@ -10,11 +10,10 @@
       "items": [
         {
           "displayName": "Square",
-          "componentName": "Square",
-          "isFunctional": true,
+          "name": "Square",
           "meta": {
             "tags": ["container", "shape", "flowchart"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -39,8 +38,7 @@
         },
         {
           "displayName": "Rectangle",
-          "componentName": "Rectangle",
-          "isFunctional": true,
+          "name": "Rectangle",
           "descriptor": {
             "allowChildren": true,
             "elemType": "div",
@@ -59,8 +57,7 @@
         },
         {
           "displayName": "Circle",
-          "componentName": "Circle",
-          "isFunctional": true,
+          "name": "Circle",
           "descriptor": {
             "allowChildren": true,
             "elemType": "div",
@@ -79,33 +76,27 @@
         },
         {
           "displayName": "RoundedSquare",
-          "isFunctional": true,
-          "componentName": "RoundedSquare"
+          "name": "RoundedSquare"
         },
         {
           "displayName": "RoundedRectangle",
-          "isFunctional": true,
-          "componentName": "RoundedRectangle"
+          "name": "RoundedRectangle"
         },
         {
           "displayName": "Line",
-          "isFunctional": true,
-          "componentName": "Line"
+          "name": "Line"
         },
         {
           "displayName": "Parallelogram",
-          "isFunctional": true,
-          "componentName": "Parallelogram"
+          "name": "Parallelogram"
         },
         {
           "displayName": "Cube",
-          "isFunctional": true,
-          "componentName": "Cube"
+          "name": "Cube"
         },
         {
           "displayName": "Cylinder",
-          "isFunctional": true,
-          "componentName": "Cylinder"
+          "name": "Cylinder"
         }
       ]
     },
@@ -119,11 +110,10 @@
       "items": [
         {
           "displayName": "InputField",
-          "componentName": "InputField",
-          "isFunctional": true,
+          "name": "InputField",
           "meta": {
             "tags": ["atomic, form-field"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -151,47 +141,39 @@
         },
         {
           "displayName": "Radio Button Group",
-          "isFunctional": true,
-          "componentName": "RadioButtonGroup"
+          "name": "RadioButtonGroup"
         },
         {
           "displayName": "Drop Down (Select Option)",
-          "isFunctional": true,
-          "componentName": "SingleSelectDropDown"
+          "name": "SingleSelectDropDown"
         },
         {
           "displayName": "Multi Select Drop Down (Multi Select Option)",
-          "isFunctional": true,
-          "componentName": "MultiSelectDropDown"
+          "name": "MultiSelectDropDown"
         },
         {
           "displayName": "Check Box Group",
-          "isFunctional": true,
-          "componentName": "CheckBoxGroup"
+          "name": "CheckBoxGroup"
         },
         {
           "displayName": "Check Box",
-          "isFunctional": true,
-          "componentName": "CheckBox"
+          "name": "CheckBox"
         },
         {
           "displayName": "TextArea",
-          "isFunctional": true,
-          "componentName": "TextArea"
+          "name": "TextArea"
         },
         {
           "displayName": "Button",
-          "isFunctional": true,
-          "componentName": "Button"
+          "name": "Button"
         },
         {
           "displayName": "ButtonsPanel",
-          "isFunctional": true,
-          "componentName": "ButtonsPanel"
+          "name": "ButtonsPanel"
         },
         {
           "displayName": "Container",
-          "componentName": "Container",
+          "name": "Container",
           "isFunctional": false,
           "meta": {
             "tags": ["container", "section"]
@@ -256,112 +238,112 @@
             {
               "displayName": "Draggable",
               "isFunctional": true,
-              "componentName": "Draggable"
+              "name": "Draggable"
             },
             {
               "displayName": "Droppable",
               "isFunctional": true,
-              "componentName": "Droppable"
+              "name": "Droppable"
             },
             {
               "displayName": "Progress Bar",
               "isFunctional": true,
-              "componentName": "ProgressBar"
+              "name": "ProgressBar"
             },
             {
               "displayName": "Step Bar",
               "isFunctional": true,
-              "componentName": "StepBar"
+              "name": "StepBar"
             },
             {
               "displayName": "FileSelector",
               "isFunctional": true,
-              "componentName": "FileSelector"
+              "name": "FileSelector"
             },
             {
               "displayName": "PageLoader",
               "isFunctional": true,
-              "componentName": "PageLoader"
+              "name": "PageLoader"
             },
             {
               "displayName": "FormLoader",
               "isFunctional": true,
-              "componentName": "FormLoader"
+              "name": "FormLoader"
             },
             {
               "displayName": "FieldLoader",
               "isFunctional": true,
-              "componentName": "FieldLoader"
+              "name": "FieldLoader"
             },
             {
               "displayName": "NumberedList",
               "isFunctional": true,
-              "componentName": "NumberedList"
+              "name": "NumberedList"
             },
             {
               "displayName": "UnorderedList",
               "isFunctional": true,
-              "componentName": "UnorderedList"
+              "name": "UnorderedList"
             },
             {
               "displayName": "SearchField",
               "isFunctional": true,
-              "componentName": "SearchField"
+              "name": "SearchField"
             },
             {
               "displayName": "Tab",
               "isFunctional": true,
-              "componentName": "Tab"
+              "name": "Tab"
             },
             {
               "displayName": "TabBar",
               "isFunctional": true,
-              "componentName": "TabBar"
+              "name": "TabBar"
             },
             {
               "displayName": "Timer",
               "isFunctional": true,
-              "componentName": "Timer"
+              "name": "Timer"
             },
             {
               "displayName": "Clock",
               "isFunctional": true,
-              "componentName": "Clock"
+              "name": "Clock"
             },
             {
               "displayName": "ToolBar",
               "isFunctional": true,
-              "componentName": "ToolBar"
+              "name": "ToolBar"
             },
             {
               "displayName": "Icon",
               "isFunctional": true,
-              "componentName": "Icon"
+              "name": "Icon"
             },
             {
               "displayName": "Table",
               "isFunctional": true,
-              "componentName": "Table"
+              "name": "Table"
             },
             {
               "displayName": "Paginator",
               "isFunctional": true,
-              "componentName": "Paginator"
+              "name": "Paginator"
             },
             {
               "displayName": "Article",
               "isFunctional": true,
-              "componentName": "Article"
+              "name": "Article"
             },
             {
               "displayName": "DropTarget",
               "isFunctional": true,
-              "componentName": "DropTarget"
+              "name": "DropTarget"
             },
             {
               "displayName": "Card",
               "isFunctional": true,
-              "componentName": "Card"
+              "name": "Card"
             }
           ]
         }
@@ -492,11 +474,10 @@
       "items": [
         {
           "displayName": "Aside",
-          "componentName": "Aside",
-          "isFunctional": true,
+          "name": "Aside",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -510,11 +491,10 @@
         },
         {
           "displayName": "Main",
-          "componentName": "Main",
-          "isFunctional": true,
+          "name": "Main",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -528,11 +508,10 @@
         },
         {
           "displayName": "Article",
-          "componentName": "Article",
-          "isFunctional": true,
+          "name": "Article",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -546,11 +525,10 @@
         },
         {
           "displayName": "Header",
-          "componentName": "Header",
-          "isFunctional": true,
+          "name": "Header",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -564,11 +542,10 @@
         },
         {
           "displayName": "Footer",
-          "componentName": "Footer",
-          "isFunctional": true,
+          "name": "Footer",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -582,11 +559,10 @@
         },
         {
           "displayName": "Nav",
-          "componentName": "Nav",
-          "isFunctional": true,
+          "name": "Nav",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -600,11 +576,10 @@
         },
         {
           "displayName": "Section",
-          "componentName": "Section",
-          "isFunctional": true,
+          "name": "Section",
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -629,12 +604,11 @@
       "items": [
         {
           "displayName": "Div",
-          "componentName": "Div",
+          "name": "Div",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -646,13 +620,12 @@
         },
         {
           "displayName": "Input",
-          "componentName": "Input",
+          "name": "Input",
           "componentType": "element",
-          "isFunctional": true,
           "selfClosing": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "classes": "",
@@ -663,12 +636,11 @@
         },
         {
           "displayName": "Paragraph",
-          "componentName": "Paragraph",
+          "name": "Paragraph",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -680,12 +652,11 @@
         },
         {
           "displayName": "Span",
-          "componentName": "Span",
+          "name": "Span",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -697,12 +668,11 @@
         },
         {
           "displayName": "Label",
-          "componentName": "Label",
+          "name": "Label",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -714,12 +684,11 @@
         },
         {
           "displayName": "Select",
-          "componentName": "Select",
+          "name": "Select",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -731,12 +700,11 @@
         },
         {
           "displayName": "Option",
-          "componentName": "Option",
+          "name": "Option",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -748,13 +716,12 @@
         },
         {
           "displayName": "Image",
-          "componentName": "Image",
+          "name": "Image",
           "componentType": "element",
-          "isFunctional": true,
           "selfClosing": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -766,12 +733,11 @@
         },
         {
           "displayName": "Embed",
-          "componentName": "Embed",
+          "name": "Embed",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -783,12 +749,11 @@
         },
         {
           "displayName": "Header 1",
-          "componentName": "Header_1",
+          "name": "Header_1",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -800,12 +765,11 @@
         },
         {
           "displayName": "Header 2",
-          "componentName": "Header_2",
+          "name": "Header_2",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -817,12 +781,11 @@
         },
         {
           "displayName": "Header 3",
-          "componentName": "Header_3",
+          "name": "Header_3",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -834,12 +797,11 @@
         },
         {
           "displayName": "Header 4",
-          "componentName": "Header_4",
+          "name": "Header_4",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -851,12 +813,11 @@
         },
         {
           "displayName": "Header 5",
-          "componentName": "Header_5",
+          "name": "Header_5",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -868,12 +829,11 @@
         },
         {
           "displayName": "Header 6",
-          "componentName": "Header_6",
+          "name": "Header_6",
           "componentType": "element",
-          "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,

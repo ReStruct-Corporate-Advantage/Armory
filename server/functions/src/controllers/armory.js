@@ -1,13 +1,19 @@
-import {readFile} from "fs";
 import Helper from "../utils/helper.js";
 import userDao from "../dao/user.js";
 import dao from "../dao/armory.js";
+import ComponentController from "./component.js";
+import PageController from "./page.js";
 import logger from "../loaders/logs-loader.js";
 import CONSTANTS from "../constants/constants.js";
+import { GET_FOR_CURRENT_USER_AND_PUBLIC_REPO } from "../constants/queries.js";
+
+const pageController = new PageController();
+const componentController = new ComponentController();
 class ArmoryController {
   constructor() {
     this.getUserControlCategory = this.getUserControlCategory.bind(this);
     this.getArms = this.getArms.bind(this);
+    this.getCurrentUserArms = this.getCurrentUserArms.bind(this);
     this.setArmaments = this.setArmaments.bind(this);
     this.createArmament = this.createArmament.bind(this);
     this.updateArmament = this.updateArmament.bind(this);
@@ -18,6 +24,108 @@ class ArmoryController {
       this.USER_CONTROL_CATEGORY = (await dao.findArmamentCategoryByName(CONSTANTS.USER_CONTROL_CATEGORY_NAME));
     }
     return this.USER_CONTROL_CATEGORY;
+  }
+
+  getCurrentUserArms(req, res) {
+    const user_details = req.decoded;
+    try {
+      logger.info("[ArmoryController::getCurrentUserArms] Initiating Arms Retrieval");
+      userDao.findUserByUserName(user_details.username).then((userObj) => {
+        if (!userObj) {
+          return res.status(404).json({message: "User not found!"});
+        }
+        dao
+            .getArmsCategories(GET_FOR_CURRENT_USER_AND_PUBLIC_REPO(user_details.username))
+            .then((categories) => {
+              if (!categories) {
+                return res
+                    .status(404)
+                    .json({
+                      message: "No arms available in your repository!",
+                      error: true,
+                      code: "ERR_DB_OR_QUERY_FAILURE",
+                    });
+              }
+              logger.info(
+                  "[ArmoryController::getCurrentUserArms] Receiving Armament Categories from DB",
+              );
+              logger.info(
+                  "[ArmoryController::getCurrentUserArms] Processing Armament Categories",
+              );
+              const categoryPromises = [];
+              const subCategories = [];
+              categories &&
+              categories.forEach((category) => {
+                category.items &&
+                  categoryPromises.push(
+                      dao.populateArmaments(category, GET_FOR_CURRENT_USER_AND_PUBLIC_REPO(user_details.username)),
+                  );
+              });
+              Promise.all(categoryPromises).then((categories) => {
+                categories &&
+                categories.forEach((category) => {
+                  if (category.armamentCategory) {
+                    const parentObj = categories.find((categoryInner) => {
+                      return (
+                        String(category.armamentCategory) ===
+                        String(categoryInner._id)
+                      );
+                    });
+                    if (parentObj) {
+                      const itemIndex =
+                        parentObj.items &&
+                        parentObj.items.findIndex(
+                            (item) => String(item._id) === String(category._id),
+                        );
+                      parentObj.items &&
+                        (parentObj.items[itemIndex] = category);
+                      subCategories.push(categories.indexOf(category));
+                    }
+                  }
+                });
+                subCategories.sort((a, b) => a - b);
+                for (let i = subCategories.length - 1; i >= 0; i--) {
+                  categories.splice(subCategories[i], 1);
+                }
+                categories.sort((cat1, cat2) => cat1.order - cat2.order);
+                const responseObj = Helper.filterEach(categories, [
+                  "_id",
+                  "__v",
+                  "leafCategory",
+                ]);
+                logger.info(
+                    "[ArmoryController::getCurrentUserArms] Completed processing Armament Categories",
+                );
+                logger.info(
+                    "[ArmoryController::getCurrentUserArms] Completed Arms Retrieval",
+                );
+                return res.status(200).json(responseObj);
+              });
+            })
+            .catch((e) => {
+              logger.error(
+                  "[ArmoryController::getCurrentUserArms] Error Occurred during arms category retrieval: ",
+                  e,
+              );
+              res
+                  .status(500)
+                  .json({
+                    message:
+                  "Unable to fetch list of armaments at the moment, please try back in sometime or use the Contact Us option to report!",
+                  });
+            });
+      });
+    } catch (e) {
+      logger.error(
+          `[ArmoryController::getCurrentUserArms] An unknown error occurred while trying to fetch armament categories for ${user_details.username}`,
+      );
+      console.error(e);
+      res
+          .status(520)
+          .json({
+            error: `An unknown error occurred while trying to get list of armament for ${user_details.username}`,
+          });
+    }
   }
 
   getArms(req, res) {
@@ -123,19 +231,9 @@ class ArmoryController {
   }
 
   setArmaments(req, res) {
-    try {
-      const user_details = req.decoded;
-      readFile("./src/data/armory.json", "utf8", function(err, data) {
-        if (err) {
-          return res.json(err);
-        }
-        const arms = JSON.parse(data).types;
-        arms && dao.bulkInsert(arms, user_details.username, null, true);
-        return res.json({success: true}).status(200);
-      });
-    } catch (e) {
-      logger.error(e);
-    }
+    componentController.populateComponents(req, res);
+    pageController.populatePages(req, res);
+    // return res.json({success: true, status: {ComponentStatus, PageStatus}}).status(200);
   }
 
   /**

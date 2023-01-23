@@ -27,6 +27,7 @@ const ComponentCreator = (props) => {
     componentConfig,
     dispatchComponentsConfig,
     dispatchSelectedComponent,
+    drawerWidth,
     isMobile,
     selectedComponent,
     toggles,
@@ -77,7 +78,7 @@ const ComponentCreator = (props) => {
   // return <DndProvider backend={Backend}>
   return (
     <DndProvider debugMode={true} backend={dndBackend}>
-      <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
+      <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100" style={{width: `calc(100% - ${drawerWidth || 0})`}}>
         <main
           className={`c-ComponentCreator__content d-flex flex-row flex-nowrap ${
             isDevMode ? " developer-mode" : ""
@@ -168,6 +169,7 @@ const ComponentCreator = (props) => {
 ComponentCreator.propTypes = {
   componentConfig: PropTypes.object,
   dispatchComponentsConfig: PropTypes.func,
+  drawerWidth: PropTypes.string,
   selectedComponent: PropTypes.string,
   dispatchSelectedComponent: PropTypes.func,
   user: PropTypes.object,

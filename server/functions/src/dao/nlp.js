@@ -1,3 +1,3 @@
-class NLPController {}
+class NLPDAO {}
 
-export default NLPController;
+export default NLPDAO;

@@ -79,15 +79,15 @@ export class DNDUtil {
     // Add dropped Item
     item.category = JSON.parse(JSON.stringify(item.category));
     componentsConfigClone.count = componentsConfigClone.count + 1;
-    item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-    const droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
+    item.category.uuid = `arm-${item.category.name}-${uuid()}`;
+    const droppedComponentConfig = {...item.category, name: item.category.name, index: componentsConfigClone.count, top, left}
     rootChildrenArray.push(droppedComponentConfig);
     
     // Add Container
-    let {selectedComponentConfig: container} = Helper.searchInTree("componentName", "Container", armory, "", "items.descriptor", 1)
+    let {selectedComponentConfig: container} = Helper.searchInTree("name", "Container", armory, "", "items.descriptor", 1)
     container = JSON.parse(JSON.stringify(container));
     componentsConfigClone.count = componentsConfigClone.count + 1;
-    container.uuid = `arm-${container.componentName}-${uuid()}`;
+    container.uuid = `arm-${container.name}-${uuid()}`;
     const {leftMin, topMin, width, height} = this.findExtremes(rootChildrenArray);
 
     container.descriptor.children = [];
@@ -101,7 +101,7 @@ export class DNDUtil {
         height: (Math.floor(height/DNDUtil.remsize) + 2) + "rem",
         width: (Math.floor(width/DNDUtil.remsize) + 2) + "rem"
       }
-    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top: topMin - DNDUtil.remsize, left: leftMin - DNDUtil.remsize, ...container}
+    const containerComponentConfig = {name: container.name, index: componentsConfigClone.count, top: topMin - DNDUtil.remsize, left: leftMin - DNDUtil.remsize, ...container}
     container.descriptor.children = container.descriptor.children.concat(rootChildrenArray);
     componentsConfigClone.components[0].descriptor.children = [];
     componentsConfigClone.components[0].descriptor.children.push(containerComponentConfig);
@@ -118,19 +118,19 @@ export class DNDUtil {
     const rootChildrenArray = componentsConfigClone.components[0].descriptor.children;
     
     // Add Container
-    let {selectedComponentConfig: container} = Helper.searchInTree("componentName", "Container", armory, "", "items.descriptor", 1)
+    let {selectedComponentConfig: container} = Helper.searchInTree("name", "Container", armory, "", "items.descriptor", 1)
     container = JSON.parse(JSON.stringify(container));
     componentsConfigClone.count = componentsConfigClone.count + 1;
-    container.uuid = `arm-${container.componentName}-${uuid()}`;
-    const containerComponentConfig = {name: container.componentName, index: componentsConfigClone.count, top, left, ...container}
+    container.uuid = `arm-${container.name}-${uuid()}`;
+    const containerComponentConfig = {name: container.name, index: componentsConfigClone.count, top, left, ...container}
     rootChildrenArray.push(containerComponentConfig);
     
     // Add Item in Container
     item.category = JSON.parse(JSON.stringify(item.category));
     componentsConfigClone.count = componentsConfigClone.count + 1;
-    item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
+    item.category.uuid = `arm-${item.category.name}-${uuid()}`;
     container.descriptor.children = container.descriptor.children ? [...container.descriptor.children] : [];
-    const droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top: 0, left: 0}
+    const droppedComponentConfig = {...item.category, name: item.category.name, index: componentsConfigClone.count, top: 0, left: 0}
     container.descriptor.children.push(droppedComponentConfig);
 
     dispatchComponentsConfig(componentsConfigClone);
@@ -146,8 +146,8 @@ export class DNDUtil {
 
     if (item.type === ITEM_TYPE.ARMAMENT) {
       componentsConfigClone.count = componentsConfigClone.count + 1;
-      item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-      let droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
+      item.category.uuid = `arm-${item.category.name}-${uuid()}`;
+      let droppedComponentConfig = {...item.category, name: item.category.name, index: componentsConfigClone.count, top, left}
       // clone dropped item here
       droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
       rootChildrenArray.push(JSON.parse(JSON.stringify(droppedComponentConfig)));
@@ -183,8 +183,8 @@ export class DNDUtil {
 
         if (item.type === ITEM_TYPE.ARMAMENT) {
           componentsConfigClone.count = componentsConfigClone.count + 1;
-          item.category.uuid = `arm-${item.category.componentName}-${uuid()}`;
-          let droppedComponentConfig = {...item.category, name: item.category.componentName, index: componentsConfigClone.count, top, left}
+          item.category.uuid = `arm-${item.category.name}-${uuid()}`;
+          let droppedComponentConfig = {...item.category, name: item.category.name, index: componentsConfigClone.count, top, left}
           // clone dropped item here
           droppedComponentConfig && (droppedComponentConfig = JSON.parse(JSON.stringify(droppedComponentConfig)));
           wrapperChildrenArray.push(droppedComponentConfig);

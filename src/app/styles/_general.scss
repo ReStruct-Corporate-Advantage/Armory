@@ -35,6 +35,11 @@ body {
             border-radius: $dashboard-border-radius;
         }
     }
+
+    &.login {
+        background: url("../static/images/home_page_bg.jpg");
+        background-size: contain;
+    }
 }
   
 code {
@@ -286,6 +291,10 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 
 .mw-unset {
     max-width: unset;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 input:-webkit-autofill,

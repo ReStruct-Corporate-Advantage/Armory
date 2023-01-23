@@ -20,8 +20,8 @@ class ArmoryDAO {
     return await ArmamentCategory.findOne({name});
   }
 
-  static async getArmsCategories() {
-    return await ArmamentCategory.find().lean();
+  static async getArmsCategories(query) {
+    return await ArmamentCategory.find(query || {}).lean();
   }
   /**
    * Gets armament objects corresponding to their ObjectIds in armament category and replaces IDs with objects in category.
@@ -29,12 +29,13 @@ class ArmoryDAO {
    * @param category
    * @returns
    */
-  static async populateArmaments(category) {
+  static async populateArmaments(category, query) {
     if (!category.leafCategory) {
       return category;
     }
     const armaments = await Armament.find({
       _id: {$in: category.items},
+      ...(query || {})
     }).lean();
     category.items = armaments;
     return category;

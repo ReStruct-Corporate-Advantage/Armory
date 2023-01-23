@@ -8,10 +8,10 @@
             "items": [
                 {
                     "displayName": "Square",
-                    "componentName": "Square",
+                    "name": "Square",
                     "meta": {
                         "tags": ["container"],
-                        "createdBy": "mohiit1502@gmail.com",
+                        "createdBy": "mohiit1502",
                         "createdTimeStamp": "11042021T093443" 
                     },
                     "descriptor": {
@@ -24,11 +24,11 @@
                         "styles": {},
                         "children": [
                             {
-                                "componentName": "TextComponent",
+                                "name": "TextComponent",
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdBy": "mohiit1502",
                                     "createdTimeStamp": "11042021T093443"
                                 },
                                 "innerText": "Square",
@@ -39,7 +39,7 @@
                 },
                 {
                     "displayName": "Rectangle",
-                    "componentName": "Rectangle",
+                    "name": "Rectangle",
                     "descriptor": {
                         "allowChildren": true,
                         "elemType": "div",
@@ -50,11 +50,11 @@
                         "styles": {},
                         "children": [
                             {
-                                "componentName": "TextComponent",
+                                "name": "TextComponent",
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdBy": "mohiit1502",
                                     "createdTimeStamp": "11042021T093443"
                                 },
                                 "innerText": "Rectangle",
@@ -65,14 +65,14 @@
                 },
                 {
                     "displayName": "Circle",
-                    "componentName": "Circle"
+                    "name": "Circle"
                 },
-                {"displayName": "RoundedSquare", "componentName": "RoundedSquare"},
-                {"displayName": "RoundedRectangle", "componentName": "RoundedRectangle"},
-                {"displayName": "Line", "componentName": "Line"},
-                {"displayName": "Parallelogram", "componentName": "Parallelogram"},
-                {"displayName": "Cube", "componentName": "Cube"},
-                {"displayName": "Cylinder", "componentName": "Cylinder"}
+                {"displayName": "RoundedSquare", "name": "RoundedSquare"},
+                {"displayName": "RoundedRectangle", "name": "RoundedRectangle"},
+                {"displayName": "Line", "name": "Line"},
+                {"displayName": "Parallelogram", "name": "Parallelogram"},
+                {"displayName": "Cube", "name": "Cube"},
+                {"displayName": "Cylinder", "name": "Cylinder"}
             ]
         },
         {
@@ -83,10 +83,10 @@
             "items": [
                 {
                     "displayName": "InputField",
-                    "componentName": "InputField",
+                    "name": "InputField",
                     "meta": {
                         "tags": ["atomic, form-field"],
-                        "createdBy": "mohiit1502@gmail.com",
+                        "createdBy": "mohiit1502",
                         "createdTimeStamp": "11042021T093443" 
                     },
                     "descriptor": {
@@ -99,11 +99,11 @@
                         "styles": {},
                         "children": [
                             {
-                                "componentName": "TextComponent",
+                                "name": "TextComponent",
                                 "displayName": "TextComponent",
                                 "meta": {
                                     "tags": ["content", "text"],
-                                    "createdBy": "mohiit1502@gmail.com",
+                                    "createdBy": "mohiit1502",
                                     "createdTimeStamp": "11042021T093443"
                                 },
                                 "innerText": "InputField",
@@ -121,15 +121,15 @@
                         ]
                     }
                 },
-                {"displayName": "Radio Button Group", "componentName": "RadioButtonGroup"},
-                {"displayName": "Drop Down (Select Option)", "componentName": "SingleSelectDropDown"},
-                {"displayName": "Multi Select Drop Down (Multi Select Option)", "componentName": "MultiSelectDropDown"},
-                {"displayName": "Check Box Group", "componentName": "CheckBoxGroup"},
-                {"displayName": "Check Box", "componentName": "CheckBox"},
-                {"displayName": "TextArea", "componentName": "TextArea"},
-                {"displayName": "Button", "componentName": "Button"},
-                {"displayName": "ButtonsPanel", "componentName": "ButtonsPanel"},
-                {"displayName": "Container", "componentName": "Container"}
+                {"displayName": "Radio Button Group", "name": "RadioButtonGroup"},
+                {"displayName": "Drop Down (Select Option)", "name": "SingleSelectDropDown"},
+                {"displayName": "Multi Select Drop Down (Multi Select Option)", "name": "MultiSelectDropDown"},
+                {"displayName": "Check Box Group", "name": "CheckBoxGroup"},
+                {"displayName": "Check Box", "name": "CheckBox"},
+                {"displayName": "TextArea", "name": "TextArea"},
+                {"displayName": "Button", "name": "Button"},
+                {"displayName": "ButtonsPanel", "name": "ButtonsPanel"},
+                {"displayName": "Container", "name": "Container"}
             ]
         },
         {
@@ -171,28 +171,28 @@
                     "icon": "",
                     "expanded": false,
                     "items": [
-                        {"displayName": "Draggable", "componentName": "Draggable"},
-                        {"displayName": "Droppable", "componentName": "Droppable"},
-                        {"displayName": "Progress Bar", "componentName": "ProgressBar"},
-                        {"displayName": "Step Bar", "componentName": "StepBar"},
-                        {"displayName": "FileSelector", "componentName": "FileSelector"},
-                        {"displayName": "PageLoader", "componentName": "PageLoader"},
-                        {"displayName": "FormLoader", "componentName": "FormLoader"},
-                        {"displayName": "FieldLoader", "componentName": "FieldLoader"},
-                        {"displayName": "NumberedList", "componentName": "NumberedList"},
-                        {"displayName": "UnorderedList", "componentName": "UnorderedList"},
-                        {"displayName": "SearchField", "componentName": "SearchField"},
-                        {"displayName": "Tab", "componentName": "Tab"},
-                        {"displayName": "TabBar", "componentName": "TabBar"},
-                        {"displayName": "Timer", "componentName": "Timer"},
-                        {"displayName": "Clock", "componentName": "Clock"},
-                        {"displayName": "ToolBar", "componentName": "ToolBar"},
-                        {"displayName": "Icon", "componentName": "Icon"},
-                        {"displayName": "Table", "componentName": "Table"},
-                        {"displayName": "Paginator", "componentName": "Paginator"},
-                        {"displayName": "Article", "componentName": "Article"},
-                        {"displayName": "DropTarget", "componentName": "DropTarget"},
-                        {"displayName": "Card", "componentName": "Card"}
+                        {"displayName": "Draggable", "name": "Draggable"},
+                        {"displayName": "Droppable", "name": "Droppable"},
+                        {"displayName": "Progress Bar", "name": "ProgressBar"},
+                        {"displayName": "Step Bar", "name": "StepBar"},
+                        {"displayName": "FileSelector", "name": "FileSelector"},
+                        {"displayName": "PageLoader", "name": "PageLoader"},
+                        {"displayName": "FormLoader", "name": "FormLoader"},
+                        {"displayName": "FieldLoader", "name": "FieldLoader"},
+                        {"displayName": "NumberedList", "name": "NumberedList"},
+                        {"displayName": "UnorderedList", "name": "UnorderedList"},
+                        {"displayName": "SearchField", "name": "SearchField"},
+                        {"displayName": "Tab", "name": "Tab"},
+                        {"displayName": "TabBar", "name": "TabBar"},
+                        {"displayName": "Timer", "name": "Timer"},
+                        {"displayName": "Clock", "name": "Clock"},
+                        {"displayName": "ToolBar", "name": "ToolBar"},
+                        {"displayName": "Icon", "name": "Icon"},
+                        {"displayName": "Table", "name": "Table"},
+                        {"displayName": "Paginator", "name": "Paginator"},
+                        {"displayName": "Article", "name": "Article"},
+                        {"displayName": "DropTarget", "name": "DropTarget"},
+                        {"displayName": "Card", "name": "Card"}
                     ]
                 }
             ]

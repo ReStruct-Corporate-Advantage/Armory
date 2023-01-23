@@ -35,7 +35,7 @@ class ComponentGenerator {
     // Main Function for generating a component on the fly
     generateComponentWithConfig (node, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket, key) {
         if (!node.items) {
-            return this.decideTypeAndGenerateWithConfig(node, !!node.componentName, comContainerRef, context, selectedComponent,
+            return this.decideTypeAndGenerateWithConfig(node, !!node.name, comContainerRef, context, selectedComponent,
                 dispatchSelectedComponent, socket, key);
         } else {
             return this.iterateAndGenerateWithConfig(node.items, comContainerRef, context, selectedComponent,
@@ -54,7 +54,7 @@ class ComponentGenerator {
     }
 
     generateClassComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket, key) {
-        const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
+        const name = node && node.name; // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
         const innerText = descriptor.innerText;
@@ -117,7 +117,7 @@ class ComponentGenerator {
                         : React.createElement(elemType, outgoingProps);
                 }
             }
-            Object.defineProperty(c, "name", {value: componentName});
+            Object.defineProperty(c, "name", {value: name});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             c = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node} key={key}>{c}</StaticArmamentWrapper>
@@ -133,7 +133,7 @@ class ComponentGenerator {
     }
 
     generateFunctionalComponentWithConfig(node, isComponentNode, comContainerRef, context, selectedComponent, dispatchSelectedComponent, socket) {
-        const componentName = node && node.componentName;
+        const name = node && node.name;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
         const innerText = descriptor.innerText;
@@ -166,7 +166,7 @@ class ComponentGenerator {
                         ? React.createElement(elemType, {style: props.style, className: props.className},childRenders)
                         : React.createElement(elemType, {style: props.style, className: props.className});
             }
-            Object.defineProperty(f, "name", {value: componentName});
+            Object.defineProperty(f, "name", {value: name});
             f = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node}>{f}</StaticArmamentWrapper>
                 : <ArmamentWrapper componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
@@ -183,7 +183,7 @@ class ComponentGenerator {
 
     // ====================================================== GENERATE COMPONENT REPOSITORY - ONLY FOR DRAG PREVIEW OF NEW COMPONENTS====================================================== //
     generateClassComponent(node, isComponentNode, key) {
-        const componentName = node && (node.name || node.componentName); // name is specific to componentsConfig and doesn't always exist in database
+        const name = node && node.name; // name is specific to componentsConfig and doesn't always exist in database
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
         const innerText = descriptor.innerText;
@@ -221,9 +221,9 @@ class ComponentGenerator {
                     : React.createElement(elemType, {key, style: props.style, className: props.className});
                 }
             }
-            Object.defineProperty(c, "name", {value: componentName});
+            Object.defineProperty(c, "name", {value: name});
             c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
-            this.baseRepository[componentName] = c;
+            this.baseRepository[name] = c;
         } else {
             c = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
                 : React.createElement(elemType, {key, style: props.style, className: props.className});
@@ -232,7 +232,7 @@ class ComponentGenerator {
     }
 
     generateFunctionalComponent(node, isComponentNode, key) {
-        const componentName = node && node.componentName;
+        const name = node && node.name;
         const descriptor = node.descriptor || (isComponentNode ? this.defaultComponentDescriptor : this.defaultElementDescriptor);
         const elemType = descriptor.elemType;
         const innerText = descriptor.innerText;
@@ -260,8 +260,8 @@ class ComponentGenerator {
                 return childRenders && childRenders.length > 0 ? React.createElement(elemType, {key, style: props.style, className: props.className}, childRenders)
                         : React.createElement(elemType, {key, style: props.style, className: props.className});
             }
-            Object.defineProperty(f, "name", {value: componentName});
-            this.baseRepository[componentName] = f;
+            Object.defineProperty(f, "name", {value: name});
+            this.baseRepository[name] = f;
         } else {
             f = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
                 : React.createElement(elemType, {key, style: props.style, className: props.className});
@@ -280,7 +280,7 @@ class ComponentGenerator {
     iterateAndGenerate(root, key) {
         return root && root.length ? root.map((node, keyInner) => {
             if (!node.items) {
-                return this.decideTypeAndGenerate(node, !!node.componentName, `${key}-${keyInner}`);
+                return this.decideTypeAndGenerate(node, !!node.descriptor, `${key}-${keyInner}`);
             } else {
                 return this.iterateAndGenerate(node.items, `${key}-${keyInner}`);
             }

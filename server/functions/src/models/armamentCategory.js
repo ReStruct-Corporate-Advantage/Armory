@@ -1,23 +1,13 @@
 import mongoose from "mongoose";
+import extendSchema from "mongoose-extend-schema";
+import { armamentSchema } from "./armory";
 
-const armamentCategorySchema = new mongoose.Schema(
+const armamentCategorySchema = extendSchema(armamentSchema,
     {
-      name: String,
-      displayName: String,
       icon: String,
       expanded: Boolean,
       scope: String,
       leafCategory: Boolean,
-      order: Number,
-      freeze: {
-        type: Boolean,
-        default: true
-      },
-      meta: {
-        tags: [String],
-        createdBy: String,
-        updatedBy: String,
-      },
       armamentCategory: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "ArmamentCategory",

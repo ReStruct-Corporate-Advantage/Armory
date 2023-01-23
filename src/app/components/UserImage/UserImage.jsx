@@ -14,7 +14,7 @@ const UserImage = props => {
       <span role="button">
         <LoadableIcon key="user-image-fa-FaUserCircle" {...rest} />
         {!rest.collapsed && <small className="text-center d-block mt-3" style={{cursor: "pointer"}}
-          onClick={() => EVENTS.genericDrawerMenuClickHandler(rest, user)}>
+          onClick={() => EVENTS.genericNavigationClickHandler(rest, user)}>
           <u>Manage Profile</u>
         </small>}
       </span>

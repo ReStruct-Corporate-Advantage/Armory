@@ -1,6 +1,6 @@
 import Immutable from "immutable"
 import {combineReducers} from "redux"
-import { DISPATCH_CONTENT, DISPATCH_HIDE_QUICKOPTIONS, DISPATCH_LEVELS, DISPATCH_LOGS, DISPATCH_MODAL, DISPATCH_NOTIFICATION, DISPATCH_TOGGLES, DISPATCH_TOOLTIP,
+import { DISPATCH_CONTENT, DISPATCH_HIDE_QUICKOPTIONS, DISPATCH_HIDE_SEARCH_RESULTS, DISPATCH_LEVELS, DISPATCH_LOGS, DISPATCH_MODAL, DISPATCH_NOTIFICATION, DISPATCH_TOGGLES, DISPATCH_TOOLTIP,
     DISPATCH_USER_DETAILS, DISPATCH_ZOOM, IS_MOBILE, SET_LOGGED_IN, TOGGLE_LOADER } from "./global-actions"
 import adminComponentManagerReducer from "./pages/AdminComponentManager/reducer"
 import componentCreatorReducer from "./pages/ComponentCreator/reducer"
@@ -19,6 +19,7 @@ const globalReducer = (state = initialState, action) => {
     switch (action.type) {
         case DISPATCH_CONTENT:
         case DISPATCH_HIDE_QUICKOPTIONS:
+        case DISPATCH_HIDE_SEARCH_RESULTS:
         case DISPATCH_LEVELS:
         case DISPATCH_LOGS:
         case DISPATCH_MODAL:

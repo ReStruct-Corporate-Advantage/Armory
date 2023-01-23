@@ -24,7 +24,7 @@ const Login = props => {
   }
 
   return (
-    <div className="c-Login h-100 overflow-auto">
+    <div className="c-Login h-100 overflow-auto flex-grow-1">
       <main className="c-Login__content w-100">
         {/* <LoginHero /> */}
         <LoginForm />

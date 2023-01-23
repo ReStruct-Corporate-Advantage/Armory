@@ -1,14 +1,15 @@
-import React, {memo, useState} from "react";
+import React, { memo, useState } from "react";
 import PropTypes from "prop-types";
 import "./InputField.component.scss";
 
 const InputField = memo(props => {
-  const {alwaysDisabled, formId, id, inputClasses, inputStyles, label, labelClasses, labelStyles, layoutClasses, min, max, onChange, placeholder, readOnly, required, shrunk, shrunkable, type, value} = props;
+  const { alwaysDisabled, formId, id, inputClasses, inputStyles, label, labelClasses, labelStyles, layoutClasses,
+    min, max, onClick, onChange, onFocus, onBlur, placeholder, readOnly, required, shrunk, shrunkable, type, value } = props;
   const key = formId + "-" + id;
   const [focussed, setFocussed] = useState(false);
 
   return (
-    <div className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}`}>
+    <div className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}`} onClick={onClick ? onClick : () => {}}>
       <div className="col-12 position-relative">
         <input id={id} key={key} type={type}
           className={`px-3${inputClasses ? " " + inputClasses : ""}`}
@@ -17,8 +18,14 @@ const InputField = memo(props => {
           placeholder={placeholder}
           value={value}
           required={required}
-          onFocus={() => setFocussed(true)}
-          onBlur={() => setFocussed(false)}
+          onFocus={e => {
+            onFocus && onFocus(e);
+            setFocussed(true);
+          }}
+          onBlur={e => {
+            onBlur && onBlur(e);
+            setFocussed(false);
+          }}
           min={min ? min : -999999999}
           max={max ? max : 9999999999}
           disabled={alwaysDisabled || readOnly} />

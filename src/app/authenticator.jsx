@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
@@ -82,10 +82,11 @@ const loadables = {
 };
 
 function Authenticator(props) {
-  const { dispatchUserDetails, navigate, setLoggedIn, toggleLoader, userDetails } = props;
+  const { dispatchUserDetails, drawerWidth, navigate, setLoggedIn, toggleLoader, userDetails } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
   const authSessionUser = Helper.getCookie("auth_session_user");
   const location = useLocation();
+  const [rawData, setRawData] = useState();
 
   useEffect(() => {
     setLoggedIn(isLoggedIn);
@@ -104,7 +105,8 @@ function Authenticator(props) {
         {
           AUTHENTICATED_CHILDREN.map((route, i) => {
             const Component = loadables[route.element];
-            return <Route key={"authenticator-route-" + i} path={route.path} element={<Component navigate={navigate} />} />
+            return <Route key={"authenticator-route-" + i} path={route.path}
+              element={<Component drawerWidth={drawerWidth} navigate={navigate} rawData={rawData} setRawData={setRawData} />} />
           })
         }
       </Routes>;

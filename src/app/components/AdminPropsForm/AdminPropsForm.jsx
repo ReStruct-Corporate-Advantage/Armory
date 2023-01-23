@@ -18,7 +18,7 @@ const AdminPropsForm = props => {
   const {adminComponentConfig, clear, dispatchClearPropsState, dispatchComponentConfig, editMode, initiateSave, setInitiateSave,
     toggleEditMode, userDetails} = props;
   const [formState, updateFormState] = useState({});
-  const alwaysDisabled = ["createdBy", "id", "uuid", "componentName", "meta#createdBy"];
+  const alwaysDisabled = ["createdBy", "id", "uuid", "name", "meta#createdBy"];
   let editedComponentConfig = adminComponentConfig && adminComponentConfig.component;
   editedComponentConfig = Helper.filterObject(editedComponentConfig, ["armamentCategory", "name", "updatedAt", "index", "createdAt"])
   const selectedComponent = editedComponentConfig ? editedComponentConfig.id : "";
@@ -67,7 +67,7 @@ const AdminPropsForm = props => {
       formStateCloned[selectedComponent] = {};
     }
     action(formStateCloned, id, value, selectedComponentConfigCloned, property, type);
-    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
+    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.name + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
     compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, null, "editor"); // Forking here

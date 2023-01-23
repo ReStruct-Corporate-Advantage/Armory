@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect, Provider } from "react-redux"
 import { matchPath, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
-import { dispatchDeviceType, dispatchHideQuickOptions } from "./global-actions";
+import { dispatchDeviceType, dispatchHideQuickOptions, dispatchHideSearchResults } from "./global-actions";
 import { Drawer, Header, Loader, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
 import Helper from "./utils/Helper";
 import ROUTES from "./routes";
@@ -38,10 +38,11 @@ const loadables = {
 }
 
 const Router = props => {
-    const {dispatchDeviceType, dispatchHideQuickOptions, store} = props;
+    const {dispatchDeviceType, dispatchHideQuickOptions, dispatchHideSearchResults, store} = props;
     const [matchedRoute, setMatchedRoute] = useState();
     const { DrawerConfig } = usePageComponents(DASHBOARD_CONFIG);
     const [drawerState, setDrawerState] = useState({collapsed: !(DrawerConfig && DrawerConfig.initialExpanded)});
+    const drawerWidth = drawerState.collapsed ? DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED : DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED;
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -63,18 +64,26 @@ const Router = props => {
     const getRoutes = () => {
         const routeRenders = ROUTES.map((route, i) => {
             const Component = loadables[route.element];
-            return <Route key={"router-route-" + i} path={route.path} element={<Component navigate={navigate} />} />
+            return <Route key={"router-route-" + i} path={route.path} element={
+                <Component
+                    drawerWidth={drawerWidth}
+                    navigate={navigate}
+                />}
+            />
         });
         return <Routes>{routeRenders}</Routes>;
     };
 
     return  <Provider store={store}>
-                <div className={`c-Router__global-events-interceptor h-100 w-100${matchedRoute && matchedRoute.class? " " + matchedRoute.class : ""}`} onClick={() => dispatchHideQuickOptions(true)}>
+                <div className={`c-Router__global-events-interceptor h-100 w-100${matchedRoute && matchedRoute.class? " " + matchedRoute.class : ""}`} onClick={() => {
+                    dispatchHideSearchResults(true)
+                    dispatchHideQuickOptions(true)
+                }}>
                     <div className="c-Router__app-container overflow-hidden h-100 w-100 d-flex flex-column">
                         <Header classes={matchedRoute && matchedRoute.class} />
                         <div className="d-flex h-100 w-100">
                             <SidePanel fixed={true} shouldDisplay={false} />
-                            <Drawer
+                            {matchedRoute && matchedRoute.class !== "login" && <Drawer
                                 type="app-drawer"
                                 config={{
                                     ...DrawerConfig,
@@ -84,7 +93,7 @@ const Router = props => {
                                 }}
                                 state={drawerState}
                                 setState={setDrawerState}
-                            />
+                            />}
                             {getRoutes()}
                         </div>
                         <Modal />
@@ -104,7 +113,8 @@ Router.propTypes = {
 
 const mapDispatchToProps = {
     dispatchDeviceType,
-    dispatchHideQuickOptions
+    dispatchHideQuickOptions,
+    dispatchHideSearchResults
 }
 
 export default connect(null, mapDispatchToProps)(Router);

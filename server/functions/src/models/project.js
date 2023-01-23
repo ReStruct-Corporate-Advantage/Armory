@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
-import {User} from "./user";
+import { armamentSchema } from "./armory";
 
-const projectSchema = new mongoose.Schema(
+const projectSchema = new mongoose.Schema(armamentSchema,
     {
-      name: String,
-      owner: User,
-      isTemplate: Boolean,
+      descriptor: {
+        pages: [{type: mongoose.Schema.Types.ObjectId, ref: "Page"}]
+      }
     },
     {timestamps: true},
 );

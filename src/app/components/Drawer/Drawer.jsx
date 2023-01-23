@@ -71,7 +71,7 @@ const Drawer = (props) => {
                     ref={menuRef}
                     onClick={() => {
                       setSelected(menuRef);
-                      EVENTS.genericDrawerMenuClickHandler(item, user);
+                      EVENTS.genericNavigationClickHandler(item, user);
                     }}
                   >
                   <Component {...item.props} {...state} />

@@ -23,6 +23,7 @@ export const getUserDetails = createGetSelector(getGlobal, "userDetails");
 export const getUserRole = createGetSelector(getGlobal, "userRole");
 export const isMobile = createGetSelector(getGlobal, "isMobile");
 export const getHideQuickOptions = createGetSelector(getGlobal, "hideQuickOptions");
+export const getHideSearchResults = createGetSelector(getGlobal, "hideSearchResults");
 export const getIcons = createGetSelector(getContent, "icons");
 export const getModal = createGetSelector(getGlobal, "modal");
 export const getNotification = createGetSelector(getGlobal, "notification");

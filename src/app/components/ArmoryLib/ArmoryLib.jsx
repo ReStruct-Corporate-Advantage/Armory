@@ -38,7 +38,7 @@ const ArmoryLib = props => {
   }, []);
 
   useEffect(() => {
-    Network.get(ENDPOINTS.BE.ARMORY.GET)
+    Network.get(ENDPOINTS.BE.COMPONENT.GET + ENDPOINTS.BE.COMPONENT.root + "?withPublic=true")
       .then(res => {
         const root = res.body
         dispatchArmory(root)

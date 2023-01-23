@@ -12,21 +12,43 @@ import {
 } from "../ComponentCreator/actions";
 import { SidePanel } from "../../components";
 import * as components from "../../components";
+import { Network } from "../../utils";
 import DASHBOARD_CONFIG from "../../config/dashboardNewConfig";
+import ENDPOINTS from "../../constants/endpoints";
 import "./DashboardNew.module.scss";
 
 const DashboardNew = (props) => {
   const {
+    drawerWidth,
     navigate,
+    rawData,
+    setRawData,
     userDetails,
   } = props;
-  const [hoverState, setHoverState] = useState({});
-  const { DrawerConfig, SidePanelConfig, WidgetConfig } = usePageComponents(DASHBOARD_CONFIG);
-  const [drawerState, setDrawerState] = useState({collapsed: !(DrawerConfig && DrawerConfig.initialExpanded)});
+  const { SidePanelConfig, WidgetConfig } = usePageComponents(DASHBOARD_CONFIG);
   const [sidePanelState, setSidePanelState] = useState({visible: !(SidePanelConfig && SidePanelConfig.initialVisible)});
   const name = userDetails ? userDetails.firstname : "";
-  const drawerWidth = drawerState.collapsed ? DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED : DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED;
+
   const sidePanelWidth = sidePanelState.visible ? DASHBOARD_CONFIG.SIDEPANEL_WIDTH : 0;
+
+  useEffect(() => {
+    if (!rawData) {
+      const types = ["Page", "Component", "Project"]
+      const final = {};
+      const promise = Promise.all([
+        Network.get(ENDPOINTS.BE.PAGE.GET + ENDPOINTS.BE.PAGE.root),
+        Network.get(ENDPOINTS.BE.COMPONENT.GET + ENDPOINTS.BE.COMPONENT.root),
+        Network.get(ENDPOINTS.BE.PROJECT.GET + ENDPOINTS.BE.PROJECT.root)
+      ]);
+      promise.then(responses => {
+        responses.forEach((item, i) => {
+          final[types[i]] = item.body;
+          item.body.forEach(subItem => subItem.type = types[i]);
+        });
+        setRawData(final);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     document.body.classList.contains("body-modifier") && document.body.classList.remove("body-modifier");
@@ -55,24 +77,24 @@ const DashboardNew = (props) => {
     return laidOutConfigs && laidOutConfigs.map((row, rowI) => {
       return <div key={"widget-row-" + rowI} className="row mb-3" style={{flexGrow: rowI === 1 ? rowI : 8}}>
         {row.map((config, colI) => {
-          const { header, component, type, typeClasses, ...contentConfig } = config;
+          const { actions, header, component, type, typeClasses, listType, ...contentConfig } = config;
           const Component = components[component];
           const Type = components[type];
           return <div key={"widget-col-" + rowI + "-" + colI} className={config.colClass}>
             <Type
+              actions={actions}
               classes={typeClasses}
               key={"dashboard-widget-" + rowI + "-" + colI}
               header={header}
               navigate={navigate}
-              content={<Component data={contentConfig} user={userDetails} navigate={navigate} />}
+              user={userDetails}
+              content={<Component key={component + "-" + colI} data={contentConfig} type={listType}
+                user={userDetails} navigate={navigate} rawData={rawData} />}
             />
           </div>
         })}
       </div>
     })
-    WidgetConfig.map((config, i) => {
-      
-      })
   }
 
   return (
@@ -83,7 +105,7 @@ const DashboardNew = (props) => {
             Welcome {name}
           </h3>
           <strong className="c-Dashboard__secondary-font-color">
-            Let's get started with your stuff
+            Here's a quick summary of your works
           </strong>
         </div>
         {WidgetConfig && renderWidgets()}

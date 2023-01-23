@@ -1,10 +1,16 @@
 import mongoose from "mongoose";
-import {User} from "./user";
 
 const projectSchema = new mongoose.Schema(
     {
-      name: String,
-      owner: User,
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+      state: {
+        type: String,
+        enum: ["NEW", "INPROGRESS", "COMPLETED", "ABANDONED", "DEFERRED", "ARCHIVED"],
+        default: "NEW"
+      },
       isTemplate: Boolean,
     },
     {timestamps: true},

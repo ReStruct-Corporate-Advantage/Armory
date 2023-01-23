@@ -181,6 +181,11 @@ export default class Helper {
         return copy;
     };
 
+    static toCamelCase (str, separater, includeFirst) {
+        const strParts = str.split(separater);
+        return strParts.map((part, i) => i === 0 && includeFirst ? part.charAt(0).toUpperCase() + part.slice(1) : part).join("");
+    }
+
     static recurse (recursivepatharr, key, value, tree, parent, j, searchIndex) {
         let returnVal;
         if (tree) {

@@ -1,5 +1,6 @@
 export const IS_MOBILE = "IS_MOBILE";
 export const DISPATCH_HIDE_QUICKOPTIONS = "DISPATCH_HIDE_QUICKOPTIONS";
+export const DISPATCH_HIDE_SEARCH_RESULTS = "DISPATCH_HIDE_SEARCH_RESULTS";
 export const DISPATCH_CONTENT = "DISPATCH_CONTENT";
 export const DISPATCH_LEVELS = "DISPATCH_LEVELS";
 export const DISPATCH_LOGS = "DISPATCH_LOGS";
@@ -16,6 +17,13 @@ export const dispatchDeviceType = (isMobile) => {
     return {
         type: IS_MOBILE,
         payload: isMobile
+    }
+}
+
+export const dispatchHideSearchResults = hideSearchResults => {
+    return {
+        type: DISPATCH_HIDE_SEARCH_RESULTS,
+        payload: {hideSearchResults}
     }
 }
 

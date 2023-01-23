@@ -14,7 +14,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "shape", "flowchart"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -123,7 +123,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["atomic, form-field"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -496,7 +496,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -514,7 +514,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -532,7 +532,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -550,7 +550,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -568,7 +568,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -586,7 +586,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -604,7 +604,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["container", "section"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -634,7 +634,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -652,7 +652,7 @@
           "selfClosing": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "classes": "",
@@ -668,7 +668,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -685,7 +685,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -702,7 +702,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -719,7 +719,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -736,7 +736,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -754,7 +754,7 @@
           "selfClosing": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -771,7 +771,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -788,7 +788,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -805,7 +805,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -822,7 +822,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -839,7 +839,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -856,7 +856,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,
@@ -873,7 +873,7 @@
           "isFunctional": true,
           "meta": {
             "tags": ["element", "html", "tag"],
-            "createdBy": "mohiit1502@gmail.com"
+            "createdBy": "mohiit1502"
           },
           "descriptor": {
             "allowChildren": true,

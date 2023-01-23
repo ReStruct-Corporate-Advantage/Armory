@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import SearchResult from "./SearchResult";
 import CumulativeWorksTable from "./CumulativeWorksTable";
 import Loader from "./Loader";
 import List from "./List";
@@ -75,6 +76,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	SearchResult,
 	CumulativeWorksTable,
 	Loader,
 	List,

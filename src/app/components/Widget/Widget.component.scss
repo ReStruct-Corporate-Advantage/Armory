@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 $primary-widget-base: #a9a9a9;
 $widget-header-height: 2rem;
 
@@ -11,6 +13,26 @@ $widget-header-height: 2rem;
   .c-Widget__header {
     border-bottom: 1px solid $primary-widget-base;
     height: $widget-header-height;
+
+    .c-Widget__action-btn {
+      background: black;
+      color: white;
+      font-weight: bold;
+      font-size: 0.7rem;
+      border-radius: 4px;
+      border: none;
+      overflow: hidden;
+      transition: all 0.3s;
+
+      &:hover {
+        background: white;
+        color: black;
+      }
+
+      .c-Widget__action-btn__text {
+        
+      }
+    }
   }
 
   .c-Widget__content {
