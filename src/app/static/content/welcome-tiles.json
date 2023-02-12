@@ -1,0 +1,288 @@
+{
+    "element": "div",
+    "attributes": {
+        "className": "c-Tiles__spacer position-relative row px-sm-5 justify-content-around py-4 m-0"
+    },
+    "content": {
+        "common": {
+            "element": "AnimateOnScroll",
+            "type": "HOC",
+            "content": {
+                "element": "div",
+                "attributes": {
+                    "className": "c-Tile p-4 overflow-auto bg-black"
+                }
+            },
+            "attributes": {
+                "reappear": true,
+                "classes": "col-12 col-lg-4 mb-3 mb-sm-0 duration-300",
+                "visibleClasses": "opacity-100 translate-x-0",
+                "hiddenClasses": "opacity-0 blur-lg -translate-x-20"
+            }
+        },
+        "items": [
+            {
+                "content": {
+                    "content": {
+                        "common": {
+                            "element": "div"
+                        },
+                        "items": [
+                            {
+                                "content": {
+                                    "element": "LoadableIcon",
+                                    "type": "react",
+                                    "attributes": {
+                                        "icon": "bs.BsFillPatchCheckFill",
+                                        "size": "10rem",
+                                        "color": "#43A047"
+                                    }
+                                },
+                                "attributes": {
+                                    "className": "text-center my-4"
+                                }
+                            },
+                            {
+                                "content": {
+                                    "common": {
+                                        "attributes": {
+                                            "className": "mb-4"
+                                        }
+                                    },
+                                    "items": [
+                                        {
+                                            "element": "h4",
+                                            "content": "A suite of products that's",
+                                            "attributes": {
+                                                "className": "text-center"
+                                            }
+                                        },
+                                        {
+                                            "element": "ul",
+                                            "content": {
+                                                "common": {
+                                                    "element": "li",
+                                                    "attributes": {
+                                                        "className": "mb-3"
+                                                    }
+                                                },
+                                                "items": [
+                                                    {
+                                                        "content": {
+                                                            "items": [
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": "Agile",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                },
+                                                                " Developing a component? Change in design?",
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": " Drag-n-drop!",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                },
+                                                                " It's that easy."
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "content": {
+                                                            "items": [
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": "Resilient",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                },
+                                                                " Your components are backed up as soon as you hit create.",
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": " Subsequent changes are auto-saved every few minutes!",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "content": {
+                                                            "items": [
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": "Lightening Fast",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                },
+                                                                " Use one of existing templates from Armco's respository, or publicly available from community. Or initiate a new one with ",
+                                                                {
+                                                                    "element": "strong",
+                                                                    "content": "Drag-n-drop!",
+                                                                    "attributes": {
+                                                                        "className": "fw-bold"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                ]
+                                            },
+                                            "attributes": {
+                                                "className": "list-style-none ps-0"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "content": {
+                    "content": {
+                        "common": {
+                            "element": "div"
+                        },
+                        "items": [
+                            {
+                                "content": {
+                                    "element": "LoadableIcon",
+                                    "type": "react",
+                                    "attributes": {
+                                        "icon": "gi.GiFullPizza",
+                                        "size": "10rem",
+                                        "color": "#43A047"
+                                    }
+                                },
+                                "attributes": {
+                                    "className": "text-center my-4"
+                                }
+                            },
+                            {
+                                "content": {
+                                    "common": {
+                                        "attributes": {
+                                            "className": "mb-4"
+                                        }
+                                    },
+                                    "items": [
+                                        {
+                                            "element": "h4",
+                                            "content": "What's offered",
+                                            "attributes": {
+                                                "className": "text-center"
+                                            }
+                                        },
+                                        {
+                                            "element": "ul",
+                                            "content": {
+                                                "common": {
+                                                    "element": "li",
+                                                    "attributes": {
+                                                        "className": "mb-3"
+                                                    }
+                                                },
+                                                "items": [
+                                                    {
+                                                        "content": "Repository of components, choose from a wide variety of public components or create your own"
+                                                    },
+                                                    {
+                                                        "content": "Drag n drop interface to spawn web pages"
+                                                    },
+                                                    {
+                                                        "content": "Export code and integrate with your existing workspace"
+                                                    },
+                                                    {
+                                                        "content": "Issue Manager, Document create and repository, fonts library, icon library, and the list is being updated."
+                                                    }
+                                                ]
+                                            },
+                                            "attributes": {
+                                                "className": "list-style-none ps-0"
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                "content": {
+                    "content": {
+                        "common": {
+                            "element": "div"
+                        },
+                        "items": [
+                            {
+                                "content": {
+                                    "element": "LoadableIcon",
+                                    "type": "react",
+                                    "attributes": {
+                                        "icon": "gi.GiThink",
+                                        "size": "10rem",
+                                        "color": "#43A047"
+                                    }
+                                },
+                                "attributes": {
+                                    "className": "text-center my-4"
+                                }
+                            },
+                            {
+                                "content": {
+                                    "items": [
+                                        {
+                                            "element": "h4",
+                                            "content": "What we charge?",
+                                            "attributes": {
+                                                "className": "text-center mb-2"
+                                            }
+                                        },
+                                        {
+                                            "element": "h3",
+                                            "content": "Not-a-buck!",
+                                            "attributes": {
+                                                "className": "text-center mb-3"
+                                            }
+                                        },
+                                        {
+                                            "element": "p",
+                                            "content": "Yes, you got that right. Team at Armco believes in open code and free distribution philosophy*"
+                                        },
+                                        {
+                                            "element": "p",
+                                            "content": "Find more about Armco's founding principles on 'About' page"
+                                        },
+                                        {
+                                            "element": "p",
+                                            "content": {
+                                                "items": [
+                                                    {
+                                                        "element": "span",
+                                                        "attributes": {
+                                                            "className": "fw-bold"
+                                                        },
+                                                        "content": "Single Sign On "
+                                                    },
+                                                    "One account is all you need to play around and explore Armco's stack of solutions"
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        ]
+    }
+}

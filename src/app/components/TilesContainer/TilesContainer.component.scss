@@ -1,0 +1,114 @@
+.c-TilesContainer {
+    font-family: "Capriola";
+    overflow: hidden;
+    margin-top: -0.75rem !important;
+    padding: 0.75rem 0.75rem 0.75rem 0 !important;
+    border-radius: 0 3rem 3rem 0;
+
+    .c-Tile:nth-child(2) {
+        transition-delay: 0.2s;
+    }
+
+    .c-Tile:nth-child(3) {
+        transition-delay: 0.4s;
+    }
+
+    &::before, &::after {
+        content: '';
+        position: absolute;
+    }
+
+    &::before {
+        top: 0;
+        left: 3rem;
+        background: linear-gradient(to left, red 33%, blue 66%, greenyellow 75%, transparent);
+    }
+
+    &::after {
+        top: 80%;
+        right: 0;
+        background: linear-gradient(to left, red 33%, blue 66%, greenyellow 75%, transparent);
+    }
+
+    &:not(.c-Join__solution-tiles):not(.c-Join__welcome-tiles) {
+        &::before, &::after {
+            width: 0;
+            height: 0;
+        }
+        &::before {
+            transition:
+                width 0.4s ease-out, // Width expands first
+                height 0.4s ease-out 0.4s; // And then height
+        }
+    
+        &::after {
+            transition:
+                width 0.4s ease-out 0.4s,
+                height 0.4s ease-out;
+        }
+    
+        &.animate-before::before {
+            width: calc(100% - 3rem);
+            height: 80%;
+        }
+    
+        &.animate-after::after {
+            width: calc(100% - 3rem);
+            height: 20%;
+        }
+    }
+
+    &.c-Join__solution-tiles, &.c-Join__welcome-tiles {
+        &::before, &::after {
+            width: calc(100% - 3rem);
+        }
+    
+        &::before {
+            height: 80%;
+        }
+    
+        &::after {
+            height: 20%;
+        }
+    }
+
+    .c-Tiles__spacer {
+        border-radius: 0 3rem 3rem 0;
+        background: black;
+        z-index: 1;
+    }
+
+    .c-Tile {
+        border-radius: 2px;
+        height: 38rem;
+        width: 100%;
+        box-shadow: 0px 3px 8px rgba(150, 150, 150, 0.7);
+        transition: box-shadow 0.3s;
+
+        &:hover {
+            box-shadow: 0px 5px 8px rgba(150, 150, 150, 0.7);
+        }
+    }
+
+    @media (min-width: 576px) {
+        border-radius: 0 5rem 5rem 0;
+        .c-Tile {
+            border-radius: 10px;
+        }
+        .c-Tiles__spacer {
+            border-radius: 0 4.75rem 4.75rem 0;
+            // background: linear-gradient(to left, white 80%, transparent);
+        }
+        &:before {
+            left: 8rem;
+        }
+        &:not(.c-Join__solution-tiles):not(.c-Join__welcome-tiles) {
+            &.animate-before::before {
+                width: calc(100% - 8rem);
+            }
+            &.animate-after::after {
+                width: calc(100% - 8rem);
+            }
+        }
+    }
+}

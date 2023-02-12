@@ -1,3 +1,19 @@
 .c-Join {
-  
+    .c-Join__content {
+        transition: opacity 1s;
+        .c-LoginHero__sign-up-prompt .c-InputField {
+            transition: all 0.3s;
+        }
+    }
+    &.onboarder {
+        .c-Join__content {
+            opacity: 0;
+            .c-LoginHero__sign-up-prompt .c-InputField {
+                opacity: 0;
+            }
+        }
+    }
+    // .c-Join__background {
+    //     z-index: 0;
+    // }
 }

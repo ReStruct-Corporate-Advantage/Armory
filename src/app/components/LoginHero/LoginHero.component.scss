@@ -1,0 +1,117 @@
+.c-LoginHero {
+    padding: 0.75rem;
+    border-radius: 5rem;
+
+    &:not(.c-Join__hero) {
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+        }
+
+        &::before {
+            border-radius: 5rem 5rem 0 0;
+            right: 0;
+            top: 0;
+            height: 0.75rem;
+            background: linear-gradient(to right, greenyellow 33%, blue 66%, red );
+            transition:
+                width 0.4s ease-out,
+                height 0.4s ease-out 0.4s;
+        }
+
+        &::after {
+            border-radius: 0 0 5rem 5rem;
+            left: 0;
+            top: 80%;
+            background: linear-gradient(to right, greenyellow 33%, blue 66%, red );
+            transition:
+                width 0.4s ease-out,
+                height 0.4s ease-out 0.4s,
+                border-radius 0.4s ease-out;
+        }
+
+        &.animate-before::before {
+            width: 100%;
+            height: 80%;
+        }
+
+        &.animate-after::after {
+            width: calc(100% - 5rem);
+            height: 20%;
+        }
+    }
+
+    &.c-Join__hero {
+        &::before, &::after {
+            content: '';
+            position: absolute;
+        }
+
+        &::before {
+            border-radius: 5rem 5rem 0 0;
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(to right, greenyellow 33%, blue 66%, red );
+        }
+
+        &::after {
+            border-radius: 0 0 5rem 5rem;
+            left: 0;
+            top: 80%;
+            width: calc(100% - 5rem);
+            height: 20%;
+            background: linear-gradient(to right, greenyellow 33%, blue 66%, red );
+        }
+    }
+
+    .c-LoginHero__wrapper {
+        min-height: 44rem;
+        z-index: 1;
+        border-radius: 4rem;
+    }
+
+    .c-LoginHero__hero-summary__descriptor:not(:first-child):before {
+        content: '\00B7';
+        padding: 0 5px;
+    }
+
+    .c-LoginHero__bg-container {
+        background: url(../../static/images/space_7.jpeg) no-repeat;
+        background-size: 100%;
+        background-position: 100% 0;
+        top: 5px;
+    }
+
+    .c-LoginHero__bg-container {
+        position: absolute;
+        top: 63%;
+        z-index: -1;
+        filter: blur(6px);
+    }
+
+    @media (min-width: 576px) {
+        border-radius: 8rem;
+        overflow: hidden;
+        .c-LoginHero__wrapper {
+            min-height: 50rem;
+            border-radius: 7.5rem;
+        }
+        .c-LoginHero__bg-container {
+            position: relative;
+            top: unset;
+            z-index: unset;
+            filter: unset;
+        }
+
+        &.animate-after::after {
+            width: calc(100% - 8rem);
+        }
+
+        .ps-sm-2p2rem {
+            padding-left: 2.2rem !important;
+        }
+    }
+}

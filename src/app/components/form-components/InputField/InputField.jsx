@@ -1,42 +1,146 @@
-import React, { memo, useState } from "react";
+import React, { memo, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import EVENTS from "../../../utils/eventHandlers";
 import "./InputField.component.scss";
 
-const InputField = memo(props => {
-  const { alwaysDisabled, formId, id, inputClasses, inputStyles, label, labelClasses, labelStyles, layoutClasses,
-    min, max, onClick, onChange, onFocus, onBlur, placeholder, readOnly, required, shrunk, shrunkable, type, value } = props;
+const InputField = memo((props) => {
+  const {
+    alwaysDisabled,
+    buttonClasses,
+    buttonRef,
+    buttonText,
+    formId,
+    id,
+    inputClasses,
+    inputRef,
+    inputStyles,
+    label,
+    labelClasses,
+    labelStyles,
+    layoutClasses,
+    min,
+    max,
+    onClick,
+    onChange,
+    onFocus,
+    onBlur,
+    placeholder,
+    readOnly,
+    containerRef,
+    required,
+    style,
+    submitOnClick,
+    type,
+    value,
+    variant,
+  } = props;
+  const inputRefInternal = useRef();
   const key = formId + "-" + id;
   const [focussed, setFocussed] = useState(false);
+  let variantRender;
 
-  return (
-    <div className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}`} onClick={onClick ? onClick : () => {}}>
-      <div className="col-12 position-relative">
-        <input id={id} key={key} type={type}
-          className={`px-3${inputClasses ? " " + inputClasses : ""}`}
-          style={inputStyles}
-          onChange={e => onChange ? onChange(formId, id, type === "number" ? +e.target.value : e.target.value) : {}}
-          placeholder={placeholder}
-          value={value}
-          required={required}
-          onFocus={e => {
-            onFocus && onFocus(e);
-            setFocussed(true);
-          }}
-          onBlur={e => {
-            onBlur && onBlur(e);
-            setFocussed(false);
-          }}
-          min={min ? min : -999999999}
-          max={max ? max : 9999999999}
-          disabled={alwaysDisabled || readOnly} />
-        {/* <label htmlFor={id} className={type !== "checkbox" ? `position-absolute label-contained${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}` : labelClasses}>{label}</label> */}
-        <label htmlFor={id} className={`position-absolute overflow-auto label-contained
-          ${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}
-          ${labelClasses ? " " + labelClasses : ""}`}
-          style={labelStyles}>{label}</label>
+  switch (variant) {
+    case "fillAndSubmit":
+      variantRender = <div
+        className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}${" " + variant}`}
+        onClick={onClick ? onClick : () => {}}
+        style={style}
+        ref={containerRef}
+      >
+        <div className="col-12 position-relative h-100">
+          <input
+            id={id}
+            key={key}
+            type={type}
+            className={`px-3${inputClasses ? " " + inputClasses : ""}`}
+            style={inputStyles}
+            onChange={(e) =>
+              onChange
+                ? onChange(
+                    formId,
+                    key,
+                    type === "number" ? +e.target.value : e.target.value
+                  )
+                : {}
+            }
+            placeholder={placeholder}
+            value={value}
+            required={required}
+            onFocus={(e) => {
+              onFocus && onFocus(e);
+              setFocussed(true);
+            }}
+            onBlur={(e) => {
+              onBlur && onBlur(e);
+              setFocussed(false);
+            }}
+            ref={inputRef || inputRefInternal}
+            disabled={alwaysDisabled || readOnly}
+          />
+          <button className={buttonClasses}
+            ref={buttonRef}
+            onClick={submitOnClick &&
+              (typeof submitOnClick == "function"
+                ? (e => submitOnClick(e, (inputRef || inputRefInternal)))
+                : typeof submitOnClick == "string"
+                  ? EVENTS[submitOnClick] && (e => EVENTS[submitOnClick](e, (inputRef || inputRefInternal)))
+                  : () => {}
+              )
+            }>{buttonText || "Submit"}</button>
+        </div>
       </div>
-    </div>
-  );
+      break;
+    case "containedLabel":
+    default:
+      variantRender = <div
+          className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}${" " + variant}`}
+          onClick={onClick ? onClick : () => {}}
+        >
+          <div className="col-12 position-relative">
+            <input
+              id={id}
+              key={key}
+              type={type}
+              className={`px-3${inputClasses ? " " + inputClasses : ""}`}
+              style={inputStyles}
+              onChange={(e) =>
+                onChange
+                  ? onChange(
+                      formId,
+                      key,
+                      type === "number" ? +e.target.value : e.target.value
+                    )
+                  : {}
+              }
+              placeholder={placeholder}
+              value={value}
+              required={required}
+              onFocus={(e) => {
+                onFocus && onFocus(e);
+                setFocussed(true);
+              }}
+              onBlur={(e) => {
+                onBlur && onBlur(e);
+                setFocussed(false);
+              }}
+              min={min ? min : -999999999}
+              max={max ? max : 9999999999}
+              ref={inputRef || inputRefInternal}
+              disabled={alwaysDisabled || readOnly}
+            />
+            {/* <label htmlFor={id} className={type !== "checkbox" ? `position-absolute label-contained${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}` : labelClasses}>{label}</label> */}
+            <label
+              htmlFor={id}
+              className={`position-absolute label-contained
+              ${labelClasses ? " " + labelClasses : ""}`}
+              style={labelStyles}
+            >
+              {label}
+            </label>
+          </div>
+        </div>;
+  }
+  return variantRender;
 });
 
 InputField.propTypes = {
@@ -55,7 +159,11 @@ InputField.propTypes = {
   shrunkable: PropTypes.bool,
   shrunk: PropTypes.bool,
   type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
 };
 
 export default InputField;

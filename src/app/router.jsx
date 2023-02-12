@@ -4,9 +4,9 @@ import { connect, Provider } from "react-redux"
 import { matchPath, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { dispatchDeviceType, dispatchHideQuickOptions, dispatchHideSearchResults } from "./global-actions";
-import { Drawer, Header, Loader, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
+import { Drawer, Footer, Header, Loader, Modal, Notification, PageLoader, RichTooltip, SidePanel } from "./components";
 import Helper from "./utils/Helper";
-import ROUTES from "./routes";
+import ROUTES, { AUTHENTICATED_CHILDREN } from "./routes";
 import usePageComponents from "./hooks/usePageComponents";
 import DASHBOARD_CONFIG from "./config/dashboardNewConfig";
 
@@ -14,6 +14,16 @@ const LoadableAuthenticator = Loadable({
     loader: () => import("./authenticator"),
     loading: PageLoader
 })
+
+const LoadableLanding = Loadable({
+    loader: () => import("./pages/Landing"),
+    loading: PageLoader
+})
+
+const LoadableComponentCreator = Loadable({
+    loader: () => import("./pages/ComponentCreator"),
+    loading: PageLoader
+  })
 
 const LoadableLogin = Loadable({
     loader: () => import("./pages/Login"),
@@ -32,6 +42,8 @@ const LoadableLivePreview = Loadable({
 
 const loadables = {
     LoadableAuthenticator,
+    LoadableLanding,
+    LoadableComponentCreator,
     LoadableLogin,
     LoadableJoin,
     LoadableLivePreview
@@ -74,16 +86,18 @@ const Router = props => {
         return <Routes>{routeRenders}</Routes>;
     };
 
+    const drawerLess = ROUTES.filter(r => r.drawerLess).concat(AUTHENTICATED_CHILDREN.filter(r => r.drawerLess)).map(r => r.class);
+    const rootClass = matchedRoute && matchedRoute.class ? " " + (matchedRoute.class.indexOf(" ") > -1 ? matchedRoute.class.split(" ")[0] : matchedRoute.class) : ""
     return  <Provider store={store}>
-                <div className={`c-Router__global-events-interceptor h-100 w-100${matchedRoute && matchedRoute.class? " " + matchedRoute.class : ""}`} onClick={() => {
+                <div className={`c-Router__global-events-interceptor h-100 w-100${rootClass}`} onClick={() => {
                     dispatchHideSearchResults(true)
                     dispatchHideQuickOptions(true)
                 }}>
                     <div className="c-Router__app-container overflow-hidden h-100 w-100 d-flex flex-column">
-                        <Header classes={matchedRoute && matchedRoute.class} />
-                        <div className="d-flex h-100 w-100">
+                        <Header route={matchedRoute} />
+                        <div className="c-Router__main-content d-flex h-100 w-100 overflow-auto">
                             <SidePanel fixed={true} shouldDisplay={false} />
-                            {matchedRoute && matchedRoute.class !== "login" && <Drawer
+                            {matchedRoute && drawerLess.indexOf(matchedRoute.class) === -1 && <Drawer
                                 type="app-drawer"
                                 config={{
                                     ...DrawerConfig,
@@ -96,6 +110,7 @@ const Router = props => {
                             />}
                             {getRoutes()}
                         </div>
+                        <Footer />
                         <Modal />
                         <RichTooltip />
                         <Notification />

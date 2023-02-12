@@ -56,6 +56,10 @@ const LoadableIcon = props => {
     }
   }, []);
 
+  useEffect(() => {
+    iData && setB64(DOMHelper.svgToBase64(iData, {size, classes, color}));
+  }, [size, classes, color])
+
   // Below is only for property changes after first render like on hover, click etc
   if (iData && !b64) {
     setB64(DOMHelper.svgToBase64(iData, {size, classes, color}));

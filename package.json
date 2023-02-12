@@ -78,6 +78,7 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
+    "validator": "^13.9.0",
     "web-vitals": "^2.1.2",
     "webpack": "^5.74.0",
     "webpack-dev-server": "^4.9.3",

@@ -1,4 +1,10 @@
 /* PLOP_INJECT_IMPORT */
+import Onboarder from "./Onboarder";
+import Hamburger from "./Hamburger";
+import Faq from "./Faq";
+import LoginHero from "./LoginHero";
+import TilesContainer from "./TilesContainer";
+import Footer from "./Footer";
 import SearchResult from "./SearchResult";
 import CumulativeWorksTable from "./CumulativeWorksTable";
 import Loader from "./Loader";
@@ -76,6 +82,12 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	Onboarder,
+	Hamburger,
+	Faq,
+	LoginHero,
+	TilesContainer,
+	Footer,
 	SearchResult,
 	CumulativeWorksTable,
 	Loader,

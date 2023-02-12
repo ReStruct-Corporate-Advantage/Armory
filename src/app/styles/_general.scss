@@ -1,7 +1,7 @@
 @import "./variables";
 
 html {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 html, body, #root {
@@ -36,9 +36,13 @@ body {
         }
     }
 
-    &.login {
+    &.login, &.landing, &.join {
         background: url("../static/images/home_page_bg.jpg");
-        background-size: contain;
+        background-size: cover;
+        
+        .c-Router__main-content {
+            backdrop-filter: blur(8px);
+        }
     }
 }
   
@@ -138,9 +142,9 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     border: none;
 }
 
-.container {
-    max-width: unset !important;
-}
+// .container {
+//     max-width: unset !important;
+// }
 
 .sub-super-message {
     font-size: 0.75rem;
@@ -177,6 +181,14 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 
 .border-small-radius {
     border-radius: 0.375rem !important;
+}
+
+.border-radius-top-only {
+    border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.border-radius-bottom-only {
+    border-radius: 0 0 0.375rem 0.375rem;
 }
 
 .border-unset {
@@ -285,6 +297,48 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     border-left: 1px solid grey;
 }
 
+.border-radius-right-only {
+    border-radius: 0 8px 8px 0;
+}
+
+.border-radius-left-only {
+    border-radius: 8px 0 0 8px;
+}
+@media (min-width: 576px) {
+    .border-radius-right-only-sm {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .border-radius-left-only-sm {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .w-sm-unset {
+        width: unset !important;
+    }
+
+    .w-sm-100 {
+        width: 100% !important;
+    }
+
+    .h-sm-4 {
+        height: 4rem !important;
+    }
+
+    .border-sm-right {
+        border-right: 1px solid grey !important;
+        border-bottom: unset !important;
+    }
+
+    html {
+        font-size: 14px;
+    }    
+}
+
+.border-bottom {
+    border-bottom: 1px solid grey;
+}
+
 .mw-0 {
     max-width: 0;
 }
@@ -368,6 +422,10 @@ input:-webkit-autofill:active
     top: 300%;
 }
 
+.list-style-none {
+    list-style: none;
+}
+
 
 ////////////// TODO keep this class to convert search field to chat box
 
@@ -384,3 +442,61 @@ input:-webkit-autofill:active
 //         margin-top: 81%;
 //     }
 // }
+
+.max-tablet {
+    max-width: 654px;
+}
+
+.l-0 {
+    left: 0 !important;
+}
+
+.r-0 {
+    right: 0 !important;
+}
+
+.arm-pt-4 {
+    padding-top: 4rem;
+}
+
+.arm-mt-6 {
+    margin-top: 6rem;
+}
+
+.z-1 {
+    z-index: 1;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+.z-3 {
+    z-index: 3;
+}
+
+.z-4 {
+    z-index: 4;
+}
+
+.z-n1 {
+    z-index: -1;
+}
+
+// Tailwind adapter
+.transition { transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform; }
+.duration-1000 { transition-duration: 1000ms; }
+.duration-500 { transition-duration: 500ms; }
+.duration-300 { transition-duration: 300ms; }
+.blur-none { filter: blur(0); }
+.blur-lg { 	filter: blur(16px); }
+.translate-x-0 { transform: translateX(0px); }
+.-translate-x-20 { transform: translateX(-20px); }
+///////
+
+@media (min-width: 576px) {
+    .extend-row {
+        margin-left: -4.2rem;
+        // margin-right: -2.5rem;
+    }
+}

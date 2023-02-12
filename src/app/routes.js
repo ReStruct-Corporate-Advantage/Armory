@@ -1,5 +1,5 @@
 export const AUTHENTICATED_CHILDREN = [
-    {path: "/", class: "dashboard", element: "LoadableDashboard"},
+    {path: "/", class: "dashboard", element: "LoadableDashboard", menuLess: true},
     {path: "manage/*", element: "LoadableAuthorizer"},
     {path: "project", class: "project-creator", element: "LoadableProjectCreator"},
     {path: "page", class: "page-creator", element: "LoadablePageCreator"},
@@ -13,9 +13,10 @@ export const AUTHENTICATED_CHILDREN = [
 ];
 
 const ROUTES = [
-    {path: "/", element: "LoadableAuthenticator"},
-    {path: "/login", class: "login", element: "LoadableLogin"},
-    {path: "/join", class: "join", element: "LoadableJoin"},
+    {path: "/", class: "landing", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableLanding", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true},
+    {path: "/playground", class: "playground", element: "LoadableComponentCreator", drawerLess: true, noTools: true},
+    {path: "/login", class: "login", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableLogin", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true},
+    {path: "/join", class: "join", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableJoin", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true, noSearch: true, displaySignInPrompt: true},
     {path: "/:user/*", element: "LoadableAuthenticator", children: AUTHENTICATED_CHILDREN},
     {path: "/:user/page/live", class: "preview", element: "LoadableLivePreview"}
 ];
