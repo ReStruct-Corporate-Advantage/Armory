@@ -351,15 +351,6 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     cursor: pointer;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active
-{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-    background: white;
-}
-
 @-webkit-keyframes rotating {
     from {
         -webkit-transform: rotate(0deg);

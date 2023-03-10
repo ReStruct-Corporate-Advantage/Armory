@@ -56,6 +56,7 @@
     "react-dnd-html5-backend": "^14.0.2",
     "react-dnd-touch-backend": "^14.1.1",
     "react-dom": "^17.0.2",
+    "react-google-recaptcha-v3": "^1.10.1",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.2.6",
     "react-refresh": "^0.11.0",
@@ -88,6 +89,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "dev": "NODE_ENV=development PORT=7992 node scripts/start.js",
+    "prod": "serve -s build",
     "build": "CI=false && node scripts/build.js",
     "test": "node scripts/test.js",
     "generate": "plop",

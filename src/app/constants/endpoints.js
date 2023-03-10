@@ -2,6 +2,7 @@ const ENDPOINTS = {
     UI: {},
     BE: {
         AUTH: {
+            BOTVALIDATE: "/auth/bot/validate",
             LOGIN: "/auth/login",
             REGISTER: "/auth/register"
         },

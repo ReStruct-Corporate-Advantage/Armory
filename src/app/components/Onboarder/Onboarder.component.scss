@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .c-Onboarder {
   z-index: 1;
   .c-Onboarder__content {
@@ -13,6 +15,10 @@
     transition: max-height 0.3s;
     max-height: 0;
     overflow: auto;
+  }
+
+  .c-Onboarder__error {
+    color: $error-color;
   }
 
   &.animate {

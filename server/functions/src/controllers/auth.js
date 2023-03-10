@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import axios from "axios";
 import dao from "../dao/user.js";
 import Helper from "../utils/helper.js";
 import logger from "../loaders/logs-loader.js";
@@ -170,6 +171,41 @@ class AuthController {
     res
         .status(200)
         .json({message: "Logged out successfully, redirecting to login..."});
+  }
+
+  captchaVerify(req, res) {
+    try {
+      axios("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: `secret=your_secret_key&response=${req.body.gRecaptchaToken}`,
+      })
+        .then((reCaptchaRes) => {
+          console.log(
+            reCaptchaRes,
+            "Response from Google reCatpcha verification API"
+          );
+          if (reCaptchaRes?.score > 0.5) {
+            // Save data to the database from here
+            res.status(200).json({
+              status: "success",
+              message: "Enquiry submitted successfully",
+            });
+          } else {
+            res.status(200).json({
+              status: "failure",
+              message: "Google ReCaptcha Failure",
+            });
+          }
+        });
+    } catch (err) {
+      res.status(405).json({
+        status: "failure",
+        message: "Error submitting the enquiry form",
+      });
+    }
   }
 }
 

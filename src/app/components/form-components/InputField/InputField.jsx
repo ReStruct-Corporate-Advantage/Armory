@@ -6,7 +6,10 @@ import "./InputField.component.scss";
 const InputField = memo((props) => {
   const {
     alwaysDisabled,
+    autoComplete,
+    autoFocus,
     buttonClasses,
+    buttonDisabled,
     buttonRef,
     buttonText,
     formId,
@@ -20,10 +23,11 @@ const InputField = memo((props) => {
     layoutClasses,
     min,
     max,
+    onBlur,
     onClick,
     onChange,
     onFocus,
-    onBlur,
+    onKeyUp,
     placeholder,
     readOnly,
     containerRef,
@@ -38,6 +42,7 @@ const InputField = memo((props) => {
   const key = formId + "-" + id;
   const [focussed, setFocussed] = useState(false);
   let variantRender;
+  const iRef = inputRef || inputRefInternal;
 
   switch (variant) {
     case "fillAndSubmit":
@@ -54,11 +59,13 @@ const InputField = memo((props) => {
             type={type}
             className={`px-3${inputClasses ? " " + inputClasses : ""}`}
             style={inputStyles}
+            autoComplete={autoComplete || id}
+            onKeyUp={e => onKeyUp(e, inputRef) || (() => {})}
             onChange={(e) =>
               onChange
                 ? onChange(
                     formId,
-                    key,
+                    id,
                     type === "number" ? +e.target.value : e.target.value
                   )
                 : {}
@@ -74,16 +81,19 @@ const InputField = memo((props) => {
               onBlur && onBlur(e);
               setFocussed(false);
             }}
-            ref={inputRef || inputRefInternal}
+            ref={iRef}
             disabled={alwaysDisabled || readOnly}
+            autoFocus={autoFocus}
           />
           <button className={buttonClasses}
+            type="button"
             ref={buttonRef}
+            disabled={buttonDisabled}
             onClick={submitOnClick &&
               (typeof submitOnClick == "function"
-                ? (e => submitOnClick(e, (inputRef || inputRefInternal)))
+                ? (e => submitOnClick(e, iRef))
                 : typeof submitOnClick == "string"
-                  ? EVENTS[submitOnClick] && (e => EVENTS[submitOnClick](e, (inputRef || inputRefInternal)))
+                  ? EVENTS[submitOnClick] && (e => EVENTS[submitOnClick](e, iRef))
                   : () => {}
               )
             }>{buttonText || "Submit"}</button>
@@ -125,7 +135,7 @@ const InputField = memo((props) => {
               }}
               min={min ? min : -999999999}
               max={max ? max : 9999999999}
-              ref={inputRef || inputRefInternal}
+              ref={iRef}
               disabled={alwaysDisabled || readOnly}
             />
             {/* <label htmlFor={id} className={type !== "checkbox" ? `position-absolute label-contained${(shrunkable && (value || focussed || shrunk)) ? " shrunk" : " normal"}${labelClasses ? " " + labelClasses : ""}` : labelClasses}>{label}</label> */}

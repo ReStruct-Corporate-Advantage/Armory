@@ -1,4 +1,5 @@
 /* PLOP_INJECT_IMPORT */
+import ArmcoCaptcha from "./ArmcoCaptcha";
 import Onboarder from "./Onboarder";
 import Hamburger from "./Hamburger";
 import Faq from "./Faq";
@@ -82,6 +83,7 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ArmcoCaptcha,
 	Onboarder,
 	Hamburger,
 	Faq,
