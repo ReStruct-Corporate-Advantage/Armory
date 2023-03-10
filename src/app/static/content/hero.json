@@ -1,0 +1,176 @@
+{
+    "items": [
+        {
+            "element": "div",
+            "attributes": {
+                "className": "c-LoginHero__wrapper position-relative row overflow-hidden bg-black h-100 m-0"
+            },
+            "content": {
+                "items": [
+                    {
+                        "element": "div",
+                        "content": {
+                            "items": [
+                                {
+                                    "element": "span",
+                                    "attributes": {
+                                        "className": "c-LoginHero__header display-4 d-inline-block mb-2 mb-sm-3 my-sm-2 text-sm-start"
+                                    },
+                                    "content": "Create with Armco"
+                                },
+                                {
+                                    "element": "div",
+                                    "attributes": {
+                                        "className": "c-LoginHero__hero-summary mb-4 mb-sm-5",
+                                        "style": {
+                                            "fontSize": "1.5rem"
+                                        }
+                                    },
+                                    "content": {
+                                        "items": [
+                                            {
+                                                "element": "span",
+                                                "content": "A Quick & Slick drag-n-drop no-code interface meant for everyone; ranging designers, content creators and developers alike",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__hero-summary__descriptor"
+                                                }
+                                            },
+                                            {
+                                                "element": "span",
+                                                "content": "Choose a creation mode and customize your interface as per your level of comfort",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__hero-summary__descriptor d-none d-sm-inline"
+                                                }
+                                            },
+                                            {
+                                                "element": "span",
+                                                "content": "Select from the vast repository of Armco's component and page templates",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__hero-summary__descriptor d-none d-sm-inline"
+                                                }
+                                            },
+                                            {
+                                                "element": "span",
+                                                "content": "Create awesome web!",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__hero-summary__descriptor d-none d-sm-inline"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "element": "div",
+                                    "attributes": {
+                                        "className": "c-LoginHero__actions row"
+                                    },
+                                    "content": {
+                                        "items": [
+                                            {
+                                                "element": "div",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__sign-up-prompt position-relative col-12 col-sm-6 border-sm-right border-bottom mb-4 mb-sm-0 pb-5"
+                                                },
+                                                "content": {
+                                                    "items": [
+                                                        {
+                                                            "element": "div",
+                                                            "attributes": {
+                                                                "className": "c-LoginHero__sub-header d-flex justify-content-center justify-content-sm-start mb-4",
+                                                                "style": {
+                                                                    "fontSize": "1.7rem"
+                                                                }
+                                                            },
+                                                            "content": "Ready to take off"
+                                                        },
+                                                        {
+                                                            "element": "InputField",
+                                                            "type": "react",
+                                                            "containerRef": "LoginHeroInputField",
+                                                            "attributes": {
+                                                                "variant": "fillAndSubmit",
+                                                                "layoutClasses": "w-75 mx-auto",
+                                                                "inputClasses": "border-radius-top-only w-100 py-3",
+                                                                "buttonClasses": "border-radius-bottom-only w-100 fw-bold bg-green py-1 py-sm-3",
+                                                                "buttonText": "Sign up for Armco",
+                                                                "placeholder": "Email address",
+                                                                "eventDescription": {
+                                                                    "submitOnClick": {
+                                                                        "handler": "genericNavigationClickHandler",
+                                                                        "handlerArgs": {
+                                                                            "action": "navigate",
+                                                                            "actionArgs": {
+                                                                                "route": "/join?from=landing"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                } 
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "element": "div",
+                                                "attributes": {
+                                                    "className": "c-LoginHero__playground-prompt col-12 col-sm-6"
+                                                },
+                                                "content": {
+                                                    "items": [
+                                                        {
+                                                            "element": "span",
+                                                            "attributes": {
+                                                                "className": "c-LoginHero__sub-header d-flex justify-content-center justify-content-sm-start mb-4",
+                                                                "style": {
+                                                                    "fontSize": "1.7rem"
+                                                                }
+                                                            },
+                                                            "content": "Or get a taste"
+                                                        },
+                                                        {
+                                                            "element": "Button",
+                                                            "type": "react",
+                                                            "attributes": {
+                                                                "classes": "btn btn-success d-flex fw-bold bg-green py-1 h-sm-4 w-75 w-sm-100 mx-auto justify-content-center align-items-center",
+                                                                "displayValue": "Playground",
+                                                                "style": {
+                                                                    "fontSize": "1.2rem",
+                                                                    "height": "2.5rem",
+                                                                    "border": "1px solid white"
+                                                                },
+                                                                "eventDescription": {
+                                                                    "click": {
+                                                                        "handler": "genericNavigationClickHandler",
+                                                                        "handlerArgs": {
+                                                                            "action": "navigate",
+                                                                            "actionArgs": {
+                                                                                "route": "/playground"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                } 
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "attributes": {
+                            "className": "c-LoginHero__content-container col-12 col-sm-6 ps-3 ps-sm-5 mt-2 mt-sm-5 pt-5"
+                        }
+                    },
+                    {
+                        "element": "div",
+                        "attributes": {
+                            "className": "c-LoginHero__bg-container col-12 col-sm-6 h-100"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

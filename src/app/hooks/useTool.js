@@ -94,7 +94,7 @@ function useTool(toolName, props, setToolData) {
         jsx: data => {
             const toggles = (toggleStore && toggleStore.size > 0) ? toggleStore.toJS() : data.toggles;
             return <ul className="list-unstyled font-weight-bold">
-                {toggles.map((toggle, key) => <Toggle index={key} toggle={toggle} toggles={toggles} />)}
+                {toggles.map((toggle, index) => <Toggle key={index} index={index} toggle={toggle} toggles={toggles} />)}
             </ul>
         },
         toggle: (toggleName) => !this.toggles[toggleName],

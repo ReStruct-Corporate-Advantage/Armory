@@ -12,7 +12,7 @@ const ComponentDescription = props => {
   description.descriptor = description.descriptor ? description.descriptor : {};
   description.descriptor.classes = description.descriptor.classes ? description.descriptor.classes : "";
   // description.descriptor.classes.indexOf("ms-4 mt-3") < 0 && (description.descriptor.classes += " ms-4 mt-3");
-  const Component = repository[description.componentName];
+  const Component = repository[description.name];
   const componentRender = Component ? <Component {...description} /> : null;
   return (
     <div className="c-ComponentDescription text-start overflow-auto text-white">

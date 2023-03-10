@@ -46,7 +46,7 @@
         },
         "visibility": "public",
         "displayName": "Label",
-        "componentName": "Label",
+        "name": "Label",
         "id": "c-Armament-8-4",
         "uuid": "arm-Label-13b827ec-d54c-444a-9234-a504ed42d484",
         "state": "new",
@@ -62,7 +62,7 @@
   },
   "visibility": "public",
   "displayName": "InputField",
-  "componentName": "InputField",
+  "name": "InputField",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -94,7 +94,7 @@
   },
   "visibility": "public",
   "displayName": "Radio Button Group",
-  "componentName": "RadioButtonGroup",
+  "name": "RadioButtonGroup",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -124,7 +124,7 @@
   },
   "visibility": "public",
   "displayName": "Drop Down (Select Option)",
-  "componentName": "SingleSelectDropDown",
+  "name": "SingleSelectDropDown",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -152,7 +152,7 @@
   },
   "visibility": "public",
   "displayName": "Multi Select Drop Down (Multi Select Option)",
-  "componentName": "MultiSelectDropDown",
+  "name": "MultiSelectDropDown",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -180,7 +180,7 @@
   },
   "visibility": "public",
   "displayName": "Check Box Group",
-  "componentName": "CheckBoxGroup",
+  "name": "CheckBoxGroup",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -208,7 +208,7 @@
   },
   "visibility": "public",
   "displayName": "Check Box",
-  "componentName": "CheckBox",
+  "name": "CheckBox",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -236,7 +236,7 @@
   },
   "visibility": "public",
   "displayName": "TextArea",
-  "componentName": "TextArea",
+  "name": "TextArea",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -264,7 +264,7 @@
   },
   "visibility": "public",
   "displayName": "Button",
-  "componentName": "Button",
+  "name": "Button",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -292,7 +292,7 @@
   },
   "visibility": "public",
   "displayName": "ButtonsPanel",
-  "componentName": "ButtonsPanel",
+  "name": "ButtonsPanel",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -330,7 +330,7 @@
   },
   "visibility": "public",
   "displayName": "Container",
-  "componentName": "Container",
+  "name": "Container",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83a0"
   },
@@ -364,7 +364,7 @@
   },
   "visibility": "public",
   "displayName": "Aside",
-  "componentName": "Aside",
+  "name": "Aside",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -398,7 +398,7 @@
   },
   "visibility": "public",
   "displayName": "Main",
-  "componentName": "Main",
+  "name": "Main",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -432,7 +432,7 @@
   },
   "visibility": "public",
   "displayName": "Article",
-  "componentName": "Article",
+  "name": "Article",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -466,7 +466,7 @@
   },
   "visibility": "public",
   "displayName": "Header",
-  "componentName": "Header",
+  "name": "Header",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -500,7 +500,7 @@
   },
   "visibility": "public",
   "displayName": "Footer",
-  "componentName": "Footer",
+  "name": "Footer",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -534,7 +534,7 @@
   },
   "visibility": "public",
   "displayName": "Nav",
-  "componentName": "Nav",
+  "name": "Nav",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -568,7 +568,7 @@
   },
   "visibility": "public",
   "displayName": "Section",
-  "componentName": "Section",
+  "name": "Section",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed842e"
   },
@@ -603,7 +603,7 @@
   },
   "visibility": "public",
   "displayName": "Input",
-  "componentName": "Input",
+  "name": "Input",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -639,7 +639,7 @@
   },
   "visibility": "public",
   "displayName": "Div",
-  "componentName": "Div",
+  "name": "Div",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -677,7 +677,7 @@
   },
   "visibility": "public",
   "displayName": "Paragraph",
-  "componentName": "Paragraph",
+  "name": "Paragraph",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -713,7 +713,7 @@
   },
   "visibility": "public",
   "displayName": "Span",
-  "componentName": "Span",
+  "name": "Span",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -750,7 +750,7 @@
   },
   "visibility": "public",
   "displayName": "Label",
-  "componentName": "Label",
+  "name": "Label",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -785,7 +785,7 @@
   },
   "visibility": "public",
   "displayName": "Select",
-  "componentName": "Select",
+  "name": "Select",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -820,7 +820,7 @@
   },
   "visibility": "public",
   "displayName": "Option",
-  "componentName": "Option",
+  "name": "Option",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -861,7 +861,7 @@
   },
   "visibility": "public",
   "displayName": "Image",
-  "componentName": "Image",
+  "name": "Image",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -896,7 +896,7 @@
   },
   "visibility": "public",
   "displayName": "Embed",
-  "componentName": "Embed",
+  "name": "Embed",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -932,7 +932,7 @@
   },
   "visibility": "public",
   "displayName": "Header 1",
-  "componentName": "Header_1",
+  "name": "Header_1",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -968,7 +968,7 @@
   },
   "visibility": "public",
   "displayName": "Header 2",
-  "componentName": "Header_2",
+  "name": "Header_2",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -1004,7 +1004,7 @@
   },
   "visibility": "public",
   "displayName": "Header 3",
-  "componentName": "Header_3",
+  "name": "Header_3",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -1040,7 +1040,7 @@
   },
   "visibility": "public",
   "displayName": "Header 4",
-  "componentName": "Header_4",
+  "name": "Header_4",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -1076,7 +1076,7 @@
   },
   "visibility": "public",
   "displayName": "Header 5",
-  "componentName": "Header_5",
+  "name": "Header_5",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -1112,7 +1112,7 @@
   },
   "visibility": "public",
   "displayName": "Header 6",
-  "componentName": "Header_6",
+  "name": "Header_6",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed843e"
   },
@@ -1140,7 +1140,7 @@
   },
   "visibility": "public",
   "displayName": "Draggable",
-  "componentName": "Draggable",
+  "name": "Draggable",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1168,7 +1168,7 @@
   },
   "visibility": "public",
   "displayName": "Droppable",
-  "componentName": "Droppable",
+  "name": "Droppable",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1196,7 +1196,7 @@
   },
   "visibility": "public",
   "displayName": "Progress Bar",
-  "componentName": "ProgressBar",
+  "name": "ProgressBar",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1224,7 +1224,7 @@
   },
   "visibility": "public",
   "displayName": "Step Bar",
-  "componentName": "StepBar",
+  "name": "StepBar",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1252,7 +1252,7 @@
   },
   "visibility": "public",
   "displayName": "FileSelector",
-  "componentName": "FileSelector",
+  "name": "FileSelector",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1280,7 +1280,7 @@
   },
   "visibility": "public",
   "displayName": "PageLoader",
-  "componentName": "PageLoader",
+  "name": "PageLoader",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1308,7 +1308,7 @@
   },
   "visibility": "public",
   "displayName": "FormLoader",
-  "componentName": "FormLoader",
+  "name": "FormLoader",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1336,7 +1336,7 @@
   },
   "visibility": "public",
   "displayName": "FieldLoader",
-  "componentName": "FieldLoader",
+  "name": "FieldLoader",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1364,7 +1364,7 @@
   },
   "visibility": "public",
   "displayName": "NumberedList",
-  "componentName": "NumberedList",
+  "name": "NumberedList",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1392,7 +1392,7 @@
   },
   "visibility": "public",
   "displayName": "UnorderedList",
-  "componentName": "UnorderedList",
+  "name": "UnorderedList",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1420,7 +1420,7 @@
   },
   "visibility": "public",
   "displayName": "SearchField",
-  "componentName": "SearchField",
+  "name": "SearchField",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1448,7 +1448,7 @@
   },
   "visibility": "public",
   "displayName": "Tab",
-  "componentName": "Tab",
+  "name": "Tab",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1476,7 +1476,7 @@
   },
   "visibility": "public",
   "displayName": "TabBar",
-  "componentName": "TabBar",
+  "name": "TabBar",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1504,7 +1504,7 @@
   },
   "visibility": "public",
   "displayName": "Timer",
-  "componentName": "Timer",
+  "name": "Timer",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1532,7 +1532,7 @@
   },
   "visibility": "public",
   "displayName": "Clock",
-  "componentName": "Clock",
+  "name": "Clock",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1560,7 +1560,7 @@
   },
   "visibility": "public",
   "displayName": "ToolBar",
-  "componentName": "ToolBar",
+  "name": "ToolBar",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1588,7 +1588,7 @@
   },
   "visibility": "public",
   "displayName": "Icon",
-  "componentName": "Icon",
+  "name": "Icon",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1616,7 +1616,7 @@
   },
   "visibility": "public",
   "displayName": "Table",
-  "componentName": "Table",
+  "name": "Table",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1644,7 +1644,7 @@
   },
   "visibility": "public",
   "displayName": "Paginator",
-  "componentName": "Paginator",
+  "name": "Paginator",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1672,7 +1672,7 @@
   },
   "visibility": "public",
   "displayName": "Article",
-  "componentName": "Article",
+  "name": "Article",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1700,7 +1700,7 @@
   },
   "visibility": "public",
   "displayName": "DropTarget",
-  "componentName": "DropTarget",
+  "name": "DropTarget",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -1728,7 +1728,7 @@
   },
   "visibility": "public",
   "displayName": "Card",
-  "componentName": "Card",
+  "name": "Card",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed83be"
   },
@@ -2222,7 +2222,7 @@
   },
   "visibility": "public",
   "displayName": "Square",
-  "componentName": "Square",
+  "name": "Square",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2262,7 +2262,7 @@
   },
   "visibility": "public",
   "displayName": "Rectangle",
-  "componentName": "Rectangle",
+  "name": "Rectangle",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2304,7 +2304,7 @@
   },
   "visibility": "public",
   "displayName": "Circle",
-  "componentName": "Circle",
+  "name": "Circle",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2340,7 +2340,7 @@
   },
   "visibility": "public",
   "displayName": "RoundedSquare",
-  "componentName": "RoundedSquare",
+  "name": "RoundedSquare",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2374,7 +2374,7 @@
   },
   "visibility": "public",
   "displayName": "RoundedRectangle",
-  "componentName": "RoundedRectangle",
+  "name": "RoundedRectangle",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2408,7 +2408,7 @@
   },
   "visibility": "public",
   "displayName": "Line",
-  "componentName": "Line",
+  "name": "Line",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2442,7 +2442,7 @@
   },
   "visibility": "public",
   "displayName": "Parallelogram",
-  "componentName": "Parallelogram",
+  "name": "Parallelogram",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2479,7 +2479,7 @@
           "createdBy": "mohiit1502@gmail.com"
         },
         "left": 0,
-        "componentName": "Div",
+        "name": "Div",
         "displayName": "Div",
         "descriptor": {
           "allowChildren": true,
@@ -2508,7 +2508,7 @@
           "createdBy": "mohiit1502@gmail.com"
         },
         "left": 0,
-        "componentName": "Div",
+        "name": "Div",
         "displayName": "Div",
         "descriptor": {
           "allowChildren": true,
@@ -2540,7 +2540,7 @@
           "createdBy": "mohiit1502@gmail.com"
         },
         "left": 0,
-        "componentName": "Div",
+        "name": "Div",
         "displayName": "Div",
         "descriptor": {
           "allowChildren": true,
@@ -2568,7 +2568,7 @@
   },
   "visibility": "public",
   "displayName": "Cube",
-  "componentName": "Cube",
+  "name": "Cube",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },
@@ -2603,7 +2603,7 @@
           "createdBy": "mohiit1502@gmail.com"
         },
         "left": -1,
-        "componentName": "Span",
+        "name": "Span",
         "displayName": "Span",
         "descriptor": {
           "styles": {
@@ -2635,7 +2635,7 @@
           "createdBy": "mohiit1502@gmail.com"
         },
         "left": "-1px",
-        "componentName": "Span",
+        "name": "Span",
         "displayName": "Span",
         "descriptor": {
           "styles": {
@@ -2666,7 +2666,7 @@
   },
   "visibility": "public",
   "displayName": "Cylinder",
-  "componentName": "Cylinder",
+  "name": "Cylinder",
   "armamentCategory": {
     "$oid": "60c653fd7d03515800ed838c"
   },

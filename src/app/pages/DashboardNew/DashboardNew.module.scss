@@ -1,0 +1,19 @@
+@import "../../styles/variables";
+
+.c-DashboardNew {
+  background: #f9f9f9;
+  border-radius: 0 0 $dashboard-border-radius $dashboard-border-radius;
+  background: linear-gradient(to bottom, $primary-base-color, white);
+
+  .c-Dashboard__main {
+    border-radius: 1.5rem 0 0 0;
+  }
+
+  .c-Dashboard__main-default-font-color {
+    color: #6f6f6f;
+  }
+
+  .c-Dashboard__secondary-font-color {
+    color: #a9a9a9;
+  }
+}

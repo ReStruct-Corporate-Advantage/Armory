@@ -23,7 +23,7 @@ const StaticArmament = props => {
 
   const addComponent = () => {
     const componentConfigClone = JSON.parse(JSON.stringify(componentConfig));
-    componentConfigClone.component = {name: category.componentName, top: 0, left: 0, uuid: "edited-component", ...category};
+    componentConfigClone.component = {name: category.name, top: 0, left: 0, uuid: "edited-component", ...category};
     setComponentConfig(componentConfigClone);
   }
   
@@ -48,7 +48,7 @@ const StaticArmament = props => {
       <span className="c-Aside__list-item-text">
         {category.items ?
           <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><LoadableIcon icon="Gr.GrDrag" className="me-2 svg-stroke-white" /></>}
+          : <><span className="preview"></span><LoadableIcon key={"StaticArmament-" + category.id + "-gr-GrDrag"} icon="Gr.GrDrag" className="me-2 svg-stroke-white" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {/* {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />} */}
       </span>

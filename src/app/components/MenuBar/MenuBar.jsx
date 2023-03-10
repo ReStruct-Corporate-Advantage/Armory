@@ -13,7 +13,7 @@ const MenuBar = props => {
     <div className="c-MenuBar position-relative">
       {menuItems && menuItems.length > 0
         ? <ul className="menu-bar d-flex align-items-center mb-0">
-            {menuItems.map(item => <li className={`menu-item px-2${hovered[item.name] ? " hovered" : ""}${selected === item.name ? " selected" : ""}`}
+            {menuItems.map((item, i) => <li key={"menubar-" + i} className={`menu-item px-2${hovered[item.name] ? " hovered" : ""}${selected === item.name ? " selected" : ""}`}
               onMouseEnter={() => setHovered({[item.name]: true})}
               onMouseLeave={() => setHovered({[item.name]: false})}
               onClick={() => setSelected(item.name)}>
@@ -23,8 +23,8 @@ const MenuBar = props => {
               onMouseEnter={() => setHovered({add: true})}
               onMouseLeave={() => setHovered({add: false})}>
                 <span>+</span>
-                <div className={`new-app-selector position-absolute${hovered.add ? " py-3 show" : ""}`}>
-                  <ul className="list-unstyled">{tabTypes.map(type => <li className="tab-type px-3 py-2 mb-2">{type}</li>)}</ul>
+                <div className={`new-app-selector position-absolute w-100${hovered.add ? " py-3 show" : ""}`}>
+                  <ul className="list-unstyled">{tabTypes.map((type, i) => <li key={"tabtypes-" + i} className="tab-type px-3 py-2 mb-2">{type}</li>)}</ul>
                 </div>
             </li>
           </ul>

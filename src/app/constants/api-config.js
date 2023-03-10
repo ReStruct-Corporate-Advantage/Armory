@@ -5,12 +5,16 @@ const API_CONFIG = {
         postHook: "<class>.<post-hook-name>"
     },
     "HOST": {
-        "development": "http://localhost:3002",
-        "production": "https://armory-service.herokuapp.com"
+        // "development": "http://127.0.0.1:5001/armory-server/us-central1/armoryServerApp",
+        "development": "http://localhost:5000/api",
+        // "production": "https://us-central1-armory-server.cloudfunctions.net/armoryServerApp"
+        "production": "https://armco.tech/api"
     },
     "STATIC_HOST": {
-        "development": "http://localhost:8080",
-        "production": "https://armory-static.herokuapp.com"
+        // "development": "http://127.0.0.1:5002/armory-server/us-central1/armoryStaticApp",
+        "development": "http://localhost:5003/api/static",
+        // "production": "https://us-central1-armory-server.cloudfunctions.net/armoryStaticApp"
+        "production": "https://armco.tech/api/static"
     }
 }
 

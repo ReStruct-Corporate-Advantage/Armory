@@ -56,11 +56,13 @@
     "react-dnd-html5-backend": "^14.0.2",
     "react-dnd-touch-backend": "^14.1.1",
     "react-dom": "^17.0.2",
+    "react-google-recaptcha-v3": "^1.10.1",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.2.6",
     "react-refresh": "^0.11.0",
     "react-resize-detector": "^6.7.7",
     "react-router-dom": "^6.2.1",
+    "react-table": "^7.8.0",
     "react-transition-group": "^4.4.2",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
@@ -77,6 +79,7 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
+    "validator": "^13.9.0",
     "web-vitals": "^2.1.2",
     "webpack": "^5.74.0",
     "webpack-dev-server": "^4.9.3",
@@ -86,12 +89,14 @@
   "scripts": {
     "start": "node scripts/start.js",
     "dev": "NODE_ENV=development PORT=7992 node scripts/start.js",
-    "build": "node scripts/build.js",
+    "prod": "serve -s build",
+    "build": "CI=false && node scripts/build.js",
     "test": "node scripts/test.js",
     "generate": "plop",
     "bundle-report": "webpack-bundle-analyzer --port 4200 compilation-stats.json",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "ghdeploy": "gh-pages -d build",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

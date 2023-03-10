@@ -1,6 +1,3 @@
-class ComponentController {
-
-  
-}
+class ComponentController {}
 
 export default ComponentController;

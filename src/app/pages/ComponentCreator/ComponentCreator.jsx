@@ -27,6 +27,7 @@ const ComponentCreator = (props) => {
     componentConfig,
     dispatchComponentsConfig,
     dispatchSelectedComponent,
+    drawerWidth,
     isMobile,
     selectedComponent,
     toggles,
@@ -46,6 +47,10 @@ const ComponentCreator = (props) => {
     toggles && toggles.find((toggle) => toggle.name === "layout");
   const isDevMode = devModeToggle && devModeToggle.selected;
 
+  useEffect(() => {
+    document.body.classList.add("body-modifier");
+  }, []);
+  
   useEffect(() => {
     if (!socket) {
       const host = API_CONFIG.HOST[process.env.NODE_ENV || "development"];
@@ -73,7 +78,7 @@ const ComponentCreator = (props) => {
   // return <DndProvider backend={Backend}>
   return (
     <DndProvider debugMode={true} backend={dndBackend}>
-      <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100">
+      <div className="c-ComponentCreator d-flex flex-column flex-nowrap h-100" style={{width: `calc(100% - ${drawerWidth || 0})`}}>
         <main
           className={`c-ComponentCreator__content d-flex flex-row flex-nowrap ${
             isDevMode ? " developer-mode" : ""
@@ -94,6 +99,7 @@ const ComponentCreator = (props) => {
         >
           {(!floatingLayout || !floatingLayout.selected) && (
             <Aside
+              asideClasses="bg-transparent p-2"
               persistent={false}
               isDevMode={isDevMode}
               childItems={[{ name: "ArmoryLib", props: { variant: 1 } }]}
@@ -113,6 +119,7 @@ const ComponentCreator = (props) => {
           </Main>
           {(!floatingLayout || !floatingLayout.selected) && (
             <Aside
+              asideClasses="p-2"
               persistent={false}
               isDevMode={isDevMode}
               childItems={[
@@ -162,6 +169,7 @@ const ComponentCreator = (props) => {
 ComponentCreator.propTypes = {
   componentConfig: PropTypes.object,
   dispatchComponentsConfig: PropTypes.func,
+  drawerWidth: PropTypes.string,
   selectedComponent: PropTypes.string,
   dispatchSelectedComponent: PropTypes.func,
   user: PropTypes.object,

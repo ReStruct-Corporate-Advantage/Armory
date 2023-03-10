@@ -4,7 +4,7 @@ import {CSSTransition} from "react-transition-group";
 import "./CodeCollapsable.component.scss";
 
 const CodeCollapsable = memo(props => {
-  const {children, id, indent, componentName, dispatchSelectedComponent} = props;
+  const {children, id, indent, name, dispatchSelectedComponent} = props;
   const [collapsed, setCollapsed] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -19,8 +19,8 @@ const CodeCollapsable = memo(props => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}>
           {hovered
-          ? ((collapsed ? "Expand " : "Collapse ") + (componentName || "component"))
-          : collapsed ? componentName || "component" : ""}
+          ? ((collapsed ? "Expand " : "Collapse ") + (name || "component"))
+          : collapsed ? name || "component" : ""}
         </div>
         {children}
       </div>
@@ -30,7 +30,7 @@ const CodeCollapsable = memo(props => {
 
 CodeCollapsable.propTypes = {
   indent: PropTypes.number,
-  componentName: PropTypes.string,
+  name: PropTypes.string,
   dispatchSelectedComponent: PropTypes.func
 };
 

@@ -1,4 +1,4 @@
-import Helper from "../utils/Helper";
+import EVENTS from "../utils/eventHandlers";
 
 const TOOLS_CONFIG = {
     CODE_VIEWER_TOOLS: {
@@ -37,7 +37,7 @@ const TOOLS_CONFIG = {
         size: "1.1rem",
         tools: [
             // {name: "Search", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 1, icon: "ai.AiOutlineSearch", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Search"},
-            // {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
+            {name: "DisplayConversation", btnClasses: "btn border-14rem c-Search__search-helpers", layoutClasses: "me-1", btnText: "", visibility: "visible", order: 2, icon: "bs.BsChatQuoteFill", toggleIcon: "fc.FcOpenedFolder", placement: "right", tooltip: "Display Chat"},
             {name: "Speak", btnClasses: "btn border-14rem c-Search__search-helpers", btnText: "", visibility: "visible", order: 1, icon: "bs.BsMic", toggleIcon: "bs.BsMic", placement: "right", tooltip: "Speak"}
         ]
     },
@@ -126,10 +126,10 @@ const TOOLS_CONFIG = {
                 },
                 tooltip: "Toggles"
             },
-            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelpCircle", placement: "right", tooltip: "Help n FAQ"},
+            {name: "Help", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 2, icon: "io.IoMdHelp", placement: "right", tooltip: "Help n FAQ"},
             {name: "Notifications", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "me-2 h-25", hoverClasses: "button-details", btnText: "", visibility: "visible", order: 3, icon: "ai.AiFillNotification", placement: "right", tooltip: "Notifications"},
             {name: "Profile", btnClasses: "btn extra-radial hoverBackgroundNone", layoutClasses: "h-25", hoverClasses: "button-details", btnText: "",
-                visibility: "visible", order: 4, icon: "fa.FaUserCircle", placement: "right",
+                visibility: "visible", order: 4, icon: "bs.BsPersonFill", placement: "right",
                 data: {
                     profileOptions: [
                         {
@@ -159,16 +159,7 @@ const TOOLS_CONFIG = {
                         {
                             name: "Logout",
                             icon: "md.MdLogout",
-                            onClick: () => {
-                                Helper.removeCookie("auth_session_token");
-                                window.location.pathname = "/login";
-                                // Network.get("/api/auth/logout")
-                                //     .then(res => {
-                                //         if (res.status === 200) {
-                                //             window.location.pathname = "/login";
-                                //         }
-                                //     })
-                            }
+                            onClick: EVENTS.logout
                         }
                     ]
                 },

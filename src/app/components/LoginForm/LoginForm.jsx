@@ -9,6 +9,7 @@ import {ButtonsPanel, InputField, SectionHeader, Tabs, Tab} from "..";
 import Network from "../../utils/network";
 import Helper from "../../utils/Helper";
 import API_CONFIG from "../../constants/api-config";
+import ENDPOINTS from "../../constants/endpoints";
 import "./LoginForm.component.scss";
 
 function TabPanel(props) {
@@ -42,7 +43,7 @@ function a11yProps(index) {
 };
 
 const LoginForm = props => {
-  const {setLoggedIn} = props;
+  const {containerClasses, setLoggedIn, style} = props;
   const [tabValue, setTabValue] = React.useState(0);
   const [fieldValues, setFieldValues] = useState({loginform: {}, registerform: {}})
   const [loginApiMessage, setLoginApiMessage] = useState("");
@@ -59,7 +60,7 @@ const LoginForm = props => {
 
   const handleSubmit = (form) => {
     const formObj = fieldValues[form];
-    Network.post(`/api/auth/${form === "loginform" ? "login" : "register"}`, formObj)
+    Network.post(form === "loginform" ? ENDPOINTS.BE.AUTH.LOGIN : ENDPOINTS.BE.AUTH.REGISTER, formObj)
       .then(res => {
         if (form === "loginform") {
           if (res.status === 200 && res.body.message === "Login Successful") {
@@ -100,14 +101,14 @@ const LoginForm = props => {
   }
 
   return (
-    <div className="c-LoginForm ms-auto">
+    <div className={`c-LoginForm${containerClasses ? " " + containerClasses : ""}`} style={style || {}}>
       {/* <TabPanel for login and register */}
-      <div className="w-100 border-small-radius overflow-hidden">
+      <div className="w-100 h-100 border-small-radius overflow-hidden d-flex flex-column">
         <Tabs value={tabValue} onChange={setTabValue} aria-label="simple tabs example" variant="fullWidth">
           <Tab label="Login" {...a11yProps(0)} />
           <Tab label="Register" {...a11yProps(1)} />
         </Tabs>
-        <TabPanel value={tabValue} index={0} className="text-start">
+        <TabPanel value={tabValue} index={0} className="text-start flex-grow-1">
           <SectionHeader title="Please enter your credentials to login" className="col-12 font-size-12" />
           <form className="fields-container col-12 mt-3 p-3">
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}

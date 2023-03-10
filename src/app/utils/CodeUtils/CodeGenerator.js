@@ -29,11 +29,11 @@ class CodeGenerator {
                 {childrenMeta && childrenMeta.length > 0 ? generator.generateChildren(component, ++this.indentCounter, dispatchSelectedComponent) : <CodeComment indent={1} comment = "Add components from the left panel to view them here!" />}
                 {generator.generateClosingTag(component)}
             </>
-            return <CodeCollapsable id="arm-root" dispatchSelectedComponent={dispatchSelectedComponent} componentName="Root" indent={0}>{children}</CodeCollapsable>;
+            return <CodeCollapsable id="arm-root" dispatchSelectedComponent={dispatchSelectedComponent} name="Root" indent={0}>{children}</CodeCollapsable>;
         } catch (e) {
             console.log(e);
         }
-        return <CodeCollapsable id="arm-root" dispatchSelectedComponent={dispatchSelectedComponent} componentName="Root" indent={0}><CodeComment comment = {"Couldn\"t generate code for requested component!"} /></CodeCollapsable>;
+        return <CodeCollapsable id="arm-root" dispatchSelectedComponent={dispatchSelectedComponent} name="Root" indent={0}><CodeComment comment = {"Couldn\"t generate code for requested component!"} /></CodeCollapsable>;
     }
 
     generateChildren (component, counter, dispatchSelectedComponent) {
@@ -41,12 +41,12 @@ class CodeGenerator {
         const children = descriptor.children ? [...descriptor.children] : [];
         const text = descriptor.innerText;
         text && children.push({
-            componentName: "TextComponent",
+            name: "TextComponent",
             innerText: text,
             order: 0
         });
         return children.map((component, key) => {
-            if (component.componentName === "TextComponent") {
+            if (component.name === "TextComponent") {
                 return <CodeLine key={key} indent={counter} ><CodeFragment type={FRAGMENT_TYPE.TEXT} value={component.innerText} /></CodeLine>
             } else {
                 return this.processDescriptor(component, counter, key, dispatchSelectedComponent);
@@ -62,7 +62,7 @@ class CodeGenerator {
             {this.generateChildren(component, descriptor.children && descriptor.children.length > 0 ? counter + 1 : counter, dispatchSelectedComponent)}
             {!component.selfClosing && this.generateClosingTag(component)}
         </>
-        return <CodeCollapsable id={component.uuid} dispatchSelectedComponent={dispatchSelectedComponent} key={key} componentName={component.componentName || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
+        return <CodeCollapsable id={component.uuid} dispatchSelectedComponent={dispatchSelectedComponent} key={key} name={component.name || "No Name!"} indent={counter}>{children}</CodeCollapsable>;
     }
 
     generateStartingTag (component) {

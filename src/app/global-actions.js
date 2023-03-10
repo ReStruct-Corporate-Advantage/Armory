@@ -1,20 +1,29 @@
 export const IS_MOBILE = "IS_MOBILE";
 export const DISPATCH_HIDE_QUICKOPTIONS = "DISPATCH_HIDE_QUICKOPTIONS";
-export const DISPATCH_CONTENT = "DISPATCH_CONTENT"
-export const DISPATCH_LEVELS = "DISPATCH_LEVELS"
-export const DISPATCH_LOGS = "DISPATCH_LOGS"
-export const DISPATCH_MODAL = "DISPATCH_MODAL"
-export const DISPATCH_NOTIFICATION = "DISPATCH_NOTIFICATION"
-export const DISPATCH_TOOLTIP = "DISPATCH_TOOLTIP"
-export const DISPATCH_TOGGLES = "DISPATCH_TOGGLES"
-export const SET_LOGGED_IN = "SET_LOGGED_IN"
-export const DISPATCH_USER_DETAILS = "DISPATCH_USER_DETAILS"
-export const DISPATCH_ZOOM = "DISPATCH_ZOOM"
+export const DISPATCH_HIDE_SEARCH_RESULTS = "DISPATCH_HIDE_SEARCH_RESULTS";
+export const DISPATCH_CONTENT = "DISPATCH_CONTENT";
+export const DISPATCH_LEVELS = "DISPATCH_LEVELS";
+export const DISPATCH_LOGS = "DISPATCH_LOGS";
+export const DISPATCH_MODAL = "DISPATCH_MODAL";
+export const DISPATCH_NOTIFICATION = "DISPATCH_NOTIFICATION";
+export const DISPATCH_TOOLTIP = "DISPATCH_TOOLTIP";
+export const DISPATCH_TOGGLES = "DISPATCH_TOGGLES";
+export const DISPATCH_USER_DETAILS = "DISPATCH_USER_DETAILS";
+export const DISPATCH_ZOOM = "DISPATCH_ZOOM";
+export const SET_LOGGED_IN = "SET_LOGGED_IN";
+export const TOGGLE_LOADER = "TOGGLE_LOADER";
 
 export const dispatchDeviceType = (isMobile) => {
     return {
         type: IS_MOBILE,
         payload: isMobile
+    }
+}
+
+export const dispatchHideSearchResults = hideSearchResults => {
+    return {
+        type: DISPATCH_HIDE_SEARCH_RESULTS,
+        payload: {hideSearchResults}
     }
 }
 
@@ -92,5 +101,12 @@ export const dispatchZoom = (zoom) => {
     return {
         type: DISPATCH_ZOOM,
         payload: {zoom}
+    }
+}
+
+export const toggleLoader = loaderState => {
+    return {
+        type: TOGGLE_LOADER,
+        payload: {loaderState}
     }
 }

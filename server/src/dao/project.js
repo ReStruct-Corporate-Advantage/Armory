@@ -1,6 +1,3 @@
-class ProjectController {
-
-  
-}
+class ProjectController {}
 
 export default ProjectController;

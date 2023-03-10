@@ -1,7 +1,8 @@
 import express from "express";
-import authInterceptor from "./../interceptors/authInterceptor.js";
-import Controller from "./../controllers/armory.js";
+import authInterceptor from "../interceptors/authInterceptor.js";
+import Controller from "../controllers/armory.js";
 const controller = new Controller();
+// eslint-disable-next-line new-cap
 const router = express.Router();
 
 router.get("/", authInterceptor, controller.getArms);

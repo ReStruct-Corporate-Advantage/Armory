@@ -1,6 +1,39 @@
 {
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ],
   "hosting": {
-    "public": "public",
+    "public": "functions/lib",
+    "rewrites": [
+      {
+        "source": "/api/static",
+        "function": "armoryStaticApp"
+      },
+      {
+        "source": "/api/static/**",
+        "function": "armoryStaticApp"
+      },
+      {
+        "source": "/api",
+        "function": "armoryServerApp"
+      },
+      {
+        "source": "/api/**",
+        "function": "armoryServerApp"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",

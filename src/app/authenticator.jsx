@@ -1,14 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { createPropsSelector } from "reselect-immutable-helpers";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import Loadable from "react-loadable"
 import { PageLoader } from "./components";
-import { dispatchUserDetails, setLoggedIn } from "./global-actions";
+import { dispatchUserDetails, setLoggedIn, toggleLoader } from "./global-actions";
+import {getUserDetails} from "./global-selectors";
 import Helper from "./utils/Helper";
 import Network from "./utils/network";
+import ENDPOINTS from "./constants/endpoints";
+import {AUTHENTICATED_CHILDREN} from "./routes";
 
 const LoadableDashboard = Loadable({
-  loader: () => import("./pages/Dashboard"),
+  loader: () => import("./pages/DashboardNew"),
   loading: PageLoader
 })
 
@@ -62,37 +67,68 @@ const LoadableCollaborationBoard = Loadable({
   loading: PageLoader
 })
 
+const loadables = {
+  LoadableDashboard,
+  LoadableAuthorizer,
+  LoadableProjectCreator,
+  LoadablePageCreator,
+  LoadableComponentCreator,
+  LoadableComponentSelector ,
+  LoadableForgotPassword,
+  LoadableUserProfile,
+  LoadableNotifications,
+  LoadableSettings,
+  LoadableCollaborationBoard
+};
+
 function Authenticator(props) {
-  const { dispatchUserDetails, setLoggedIn } = props;
+  const { dispatchUserDetails, drawerWidth, navigate, setLoggedIn, toggleLoader, userDetails } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
-  const navigate = useNavigate();
-  setLoggedIn(isLoggedIn);
-  if (!isLoggedIn) {
-    navigate("login");
-  } else {
-    Network.get("/api/user/current")
-      .then(res => dispatchUserDetails(res.body))
-      .catch(e => console.log(e));
+  const authSessionUser = Helper.getCookie("auth_session_user");
+  const location = useLocation();
+  const [rawData, setRawData] = useState();
+
+  useEffect(() => {
+    setLoggedIn(isLoggedIn);
+    if (!isLoggedIn) {
+      navigate("/login");
+    } else {
+      !userDetails && Network.get(ENDPOINTS.BE.USER.CURRENT, null, {toggleLoader})
+        .then(res => dispatchUserDetails(res.body))
+        .catch(e => console.log(e));
+      window.location.pathname === "/" && navigate("/" + authSessionUser);
+    }
+  }, [isLoggedIn, location]);
+
+  const getRoutes = () => {
+    return <Routes>
+        {
+          AUTHENTICATED_CHILDREN.map((route, i) => {
+            const Component = loadables[route.element];
+            return <Route key={"authenticator-route-" + i} path={route.path}
+              element={<Component drawerWidth={drawerWidth} navigate={navigate} rawData={rawData} setRawData={setRawData} />} />
+          })
+        }
+      </Routes>;
   }
 
-  return <Routes>
-    <Route path="/" element={<LoadableDashboard />} />
-    <Route path="manage/*" element={<LoadableAuthorizer />} />
-    <Route path="project" element={<LoadableProjectCreator />} />
-    <Route path="page" element={<LoadablePageCreator />} />
-    <Route path="component" element={<LoadableComponentCreator />} />
-    <Route path="component/view" element={<LoadableComponentSelector />} />
-    <Route path="reset" element={<LoadableForgotPassword />} />
-    <Route path="profile" element={<LoadableUserProfile />} />
-    <Route path="notifications" element={<LoadableNotifications />} />
-    <Route path="settings" element={<LoadableSettings />} />
-    <Route path="project/:project/collaborate" element={<LoadableCollaborationBoard />} />
-  </Routes>
+  return getRoutes();
 }
+
+Authenticator.props = {
+  userDetails: PropTypes.object,
+  dispatchUserDetails: PropTypes.func,
+  setLoggedIn: PropTypes.func
+}
+
+const mapStateToProps = createPropsSelector({
+  userDetails: getUserDetails
+})
 
 const mapDispatchToProps = {
   dispatchUserDetails,
-  setLoggedIn
+  setLoggedIn,
+  toggleLoader
 }
 
-export default connect(null, mapDispatchToProps)(Authenticator);
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticator);

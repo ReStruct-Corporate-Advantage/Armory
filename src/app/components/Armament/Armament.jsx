@@ -59,7 +59,7 @@ const Armament = props => {
         onMouseLeave={() => setHovered(false)}>
         {category.items ?
           <span className={`c-Armament__list-item-text__collapseStatus me-2 mt-2${expanded === false ? "" : " expanded"}`}/>
-          : <><span className="preview"></span><LoadableIcon icon="gr.GrDrag" color="#d3d3d3" classes="me-2" /></>}
+          : <><span className="preview"></span><LoadableIcon key={"Armament-" + category.id + "-gr-GrDrag"} icon="gr.GrDrag" color="#d3d3d3" classes="me-2" /></>}
         {category.displayName} {!category.items && <span className="pill created-by">{getOwner()}</span>}
         {hovered && !category.items && <ToolBox toolsConfig={TOOLS_CONFIG.ARMAMENT_TOOLS} />}
       </span>

@@ -1,4 +1,8 @@
 /* PLOP_INJECT_IMPORT */
+import Landing from "./Landing";
+import SearchResult from "./SearchResult";
+import DashboardNew from "./DashboardNew";
+import CategoryManager from "./CategoryManager";
 import AdminComponentManager from "./AdminComponentManager";
 import LivePreview from "./LivePreview";
 import Help from "./Help";
@@ -18,6 +22,10 @@ import Dashboard from "./Dashboard";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	Landing,
+	SearchResult,
+	DashboardNew,
+	CategoryManager,
 	AdminComponentManager,
 	LivePreview,
 	Help,

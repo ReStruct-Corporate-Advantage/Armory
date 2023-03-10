@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createPropsSelector } from "reselect-immutable-helpers";
@@ -7,7 +7,7 @@ import { getUserDetails } from "../../global-selectors";
 import { getPresentComponentsConfig } from "../ComponentCreator/selectors";
 import { dispatchLevels } from "../../global-actions";
 import { dispatchComponentsConfig, dispatchSelectedComponent } from "../ComponentCreator/actions";
-import DASHBOARD_CONFIG from "../../config/dashboardConfig";
+import {DASHBOARD_CONFIG} from "../../config";
 import "./Dashboard.module.scss";
 
 const Dashboard = props => {
@@ -16,6 +16,10 @@ const Dashboard = props => {
   const navigate = useNavigate();
   const name = userDetails ? userDetails.firstname : "";
   const config = DASHBOARD_CONFIG ? {...DASHBOARD_CONFIG} : {};
+
+  useEffect(() => {
+    document.body.classList.contains("body-modifier") && document.body.classList.remove("body-modifier");
+  }, []);
 
   const sections = Object.keys(config).map(key => {
     const section = {...config[key]};

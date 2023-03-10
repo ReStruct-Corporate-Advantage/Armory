@@ -27,7 +27,8 @@
         padding: 0.1rem 0.5rem;
         transition: all 0.3s ease-in-out;
 
-        .disabled {
+        &.disabled {
+            background: $secondary-font-color;
             pointer-events: none;
             opacity: 0.65;
         }

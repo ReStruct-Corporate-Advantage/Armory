@@ -4,16 +4,18 @@ import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
 import logger from "./../loaders/logs-loader.js";
-import docs from "../../docs/index.js";
+import docs from "../../functions/src/docs/index.js";
 
 function injectLibMW(app) {
   logger.info(
-    "[InjectLibMiddleware::init] Initializing library middlewares: express bodyParser, cors, cookieParser, swagger; in that order"
+      "[InjectLibMiddleware::init] Initializing library middlewares: express bodyParser, cors, cookieParser, swagger; in that order",
   );
   const whitelist = [
     "http://localhost:7992",
-    "https://armory-ui.herokuapp.com",
-    "http://armory-ui.herokuapp.com",
+    "https://armory-server.web.app",
+    "http://armory-server.web.app",
+    "https://armory-server.firebaseapp.com",
+    "http://armory-server.firebaseapp.com",
     "https://restruct-corporate-advantage.github.io",
     "https://www.armco.tech",
     "https://armco.tech",
@@ -23,21 +25,21 @@ function injectLibMW(app) {
   const corsOptions = {
     origin: (origin, callback) => {
       logger.info(
-        "[InjectLibMiddleware::init::corsorigin] Received a call from: " +
-          origin
+          "[InjectLibMiddleware::init::corsorigin] Received a call from: " +
+          origin,
       );
       logger.info(
-        "[InjectLibMiddleware::init::corsorigin] Origin Check: " +
-          (!origin || whitelist.indexOf(origin) !== -1)
+          "[InjectLibMiddleware::init::corsorigin] Origin Check: " +
+          (!origin || whitelist.indexOf(origin) !== -1),
       );
       logger.info(
-        "[InjectLibMiddleware::init::corsorigin] Checking against: " + whitelist
+          "[InjectLibMiddleware::init::corsorigin] Checking against: " + whitelist,
       );
-      !origin || whitelist.indexOf(origin) !== -1
-        ? callback(null, true)
-        : callback(new Error("Not allowed by CORS"));
+      !origin || whitelist.indexOf(origin) !== -1 ?
+        callback(null, true) :
+        callback(new Error("Not allowed by CORS"));
       logger.info(
-        "[InjectLibMiddleware::init::corsorigin] CORS intercepter ended"
+          "[InjectLibMiddleware::init::corsorigin] CORS intercepter ended",
       );
     },
     credentials: true,
@@ -45,7 +47,7 @@ function injectLibMW(app) {
   const swaggerDocs = swaggerJSDoc(docs);
   // console.log(JSON.stringify(docs, null, 4));
   app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  app.use(express.urlencoded({extended: true}));
   logger.info("[InjectLibMiddleware::init] Whitelisted Clients: " + whitelist);
   app.use(cors(corsOptions));
   app.use(cookieParser());

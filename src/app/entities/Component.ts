@@ -2,9 +2,10 @@ import ArmoryEntity from "./ArmoryEntity";
 import {v4 as uuid} from "uuid";
 import {Descriptor, Meta} from ".";
 import Network from "../utils/network";
+import ENDPOINTS from "../constants/endpoints";
 export default class Component extends ArmoryEntity {
     private _armamentCategory: String;
-    private _componentName: String;
+    private _instance: String;
     private _descriptor: Descriptor;
     private _displayName: String;
     private _index: Number;
@@ -20,7 +21,6 @@ export default class Component extends ArmoryEntity {
     constructor (config: any) {
         super(config ? config.createdAt : new Date(), config ? config.createdBy : "");
         this._armamentCategory = config ? config.armamentCategory : "";
-        this._componentName = config ? config.componentName : "";
         this._descriptor = new Descriptor(config ? config.descriptor : {});
         this._displayName = config ? config.displayName : "";
         this._index = config ? config.index : -1;
@@ -38,7 +38,7 @@ export default class Component extends ArmoryEntity {
         const UID = uuid();
         const username = userDetails.username;
         const meta = new Meta({tags: ["Container"], createdBy: username})
-        this.componentName = "Container-" + username + "--" + UID;
+        this.instance = "Container-" + username + "--" + UID;
         this.displayName = "Container-" + username;
         this.owner = username;
         this.state = "DRAFT";
@@ -56,7 +56,7 @@ export default class Component extends ArmoryEntity {
                 transformedComponent[trimmedKey] = (this as any)[key];
             }
         });
-        return Network.post("/api/armory?withContainer=true", transformedComponent)
+        return Network.post(ENDPOINTS.BE.ARMORY.POSTWITHCONTAINER, transformedComponent)
     }
 
     public get armamentCategory(): String {
@@ -65,11 +65,11 @@ export default class Component extends ArmoryEntity {
     public set armamentCategory(value: String) {
         this._armamentCategory = value;
     }
-    public get componentName(): String {
-        return this._componentName;
+    public get instance(): String {
+        return this._instance;
     }
-    public set componentName(value: String) {
-        this._componentName = value;
+    public set instance(value: String) {
+        this._instance = value;
     }
     public get descriptor(): Descriptor {
         return this._descriptor;

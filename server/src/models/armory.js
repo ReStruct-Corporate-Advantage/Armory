@@ -1,54 +1,59 @@
 import mongoose from "mongoose";
 
-const armamentSchema = new mongoose.Schema({
-    displayName: String,
-    componentName: String,
-    meta: {    
+const armamentSchema = new mongoose.Schema(
+    {
+      displayName: String,
+      componentName: String,
+      meta: {
         tags: [String],
         createdBy: String,
         updatedBy: String,
-    },
-    armamentCategory: { type: mongoose.Schema.Types.ObjectId, ref: 'ArmamentCategory' },
-    order: Number,
-    selfClosing: Boolean,
-    state: String,
-    top: {
+      },
+      armamentCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "ArmamentCategory",
+      },
+      order: Number,
+      selfClosing: Boolean,
+      state: String,
+      top: {
         type: String,
         default: "16px",
-    },
-    left: {
+      },
+      left: {
         type: String,
         default: "16px",
-    },
-    visibility: {
+      },
+      visibility: {
         type: String,
-        default: "public"
-    },
-    descriptor: {
+        default: "public",
+      },
+      descriptor: {
         allowChildren: {
-            type: Boolean,
-            default: false
+          type: Boolean,
+          default: false,
         },
         elemType: {
-            type: String,
-            default: "div"
+          type: String,
+          default: "div",
         },
         defaultWidth: {
-            type: String,
-            default: "6rem"
+          type: String,
+          default: "6rem",
         },
         defaultHeight: {
-            type: String,
-            default: "3rem"
+          type: String,
+          default: "3rem",
         },
         children: [Map],
         handlers: Map,
         classes: String,
-        styles: Map
-    }
-},
-{ timestamps: true });
+        styles: Map,
+      },
+    },
+    {timestamps: true},
+);
 
-const Armament = mongoose.model('Armament', armamentSchema);
+const Armament = mongoose.model("Armament", armamentSchema);
 
 export {armamentSchema, Armament};

@@ -11,13 +11,14 @@ import {SelectOption, InputField, CheckBox} from "..";
 import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
 import Network from "../../utils/network";
+import ENDPOINTS from "../../constants/endpoints";
 import "./AdminPropsForm.component.scss";
 
 const AdminPropsForm = props => {
   const {adminComponentConfig, clear, dispatchClearPropsState, dispatchComponentConfig, editMode, initiateSave, setInitiateSave,
     toggleEditMode, userDetails} = props;
   const [formState, updateFormState] = useState({});
-  const alwaysDisabled = ["createdBy", "id", "uuid", "componentName", "meta#createdBy"];
+  const alwaysDisabled = ["createdBy", "id", "uuid", "name", "meta#createdBy"];
   let editedComponentConfig = adminComponentConfig && adminComponentConfig.component;
   editedComponentConfig = Helper.filterObject(editedComponentConfig, ["armamentCategory", "name", "updatedAt", "index", "createdAt"])
   const selectedComponent = editedComponentConfig ? editedComponentConfig.id : "";
@@ -66,7 +67,7 @@ const AdminPropsForm = props => {
       formStateCloned[selectedComponent] = {};
     }
     action(formStateCloned, id, value, selectedComponentConfigCloned, property, type);
-    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
+    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.name + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
     compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, null, "editor"); // Forking here
@@ -98,7 +99,7 @@ const AdminPropsForm = props => {
         })
       }
     })
-    Network.put("/api/armory", payload)
+    Network.put(ENDPOINTS.BE.ARMORY.PUT, payload)
       .then(res => {
         console.log(res);
       })

@@ -52,7 +52,7 @@ const CustomDragLayer = (props) => {
   }));
   switch (itemType) {
     case ITEM_TYPE.ARMAMENT:
-      const Armament = repository[item.category.componentName];
+      const Armament = repository[item.category.name];
       dragged = Armament ? <Armament {...item.category} /> : null;
       break;
     case ITEM_TYPE.ARMAMENT_WRAPPER:

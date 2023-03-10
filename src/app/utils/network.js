@@ -71,6 +71,7 @@ export default class Network {
     if (!options.headers) {
       options.headers = {}
     }
+    options.toggleLoader && options.toggleLoader({[urlString]: true});
     options.headers["x-access-token"] = Helper.getCookie("auth_session_token");
     options.headers["Origin"] = window.location.protocol + "//" + window.location.host;
     const response = await fetch(urlString, options);
@@ -78,16 +79,20 @@ export default class Network {
     if (ok) {
       if (headers.get("content-type").indexOf("application/json") !== -1) {
         const body = await response.json();
+        options.toggleLoader && options.toggleLoader({[urlString]: false});
         return { status, body };
       } else if (headers.get("content-type").indexOf("application/zip") !== -1
         || headers.get("content-type").indexOf("application/pdf") !== -1) {
         const body = await response.arrayBuffer();
+        options.toggleLoader && options.toggleLoader({[urlString]: false});
         return { status, body };
       }
       const body = await response.text();
+      options.toggleLoader && options.toggleLoader({[urlString]: false});
       return { status, body };
     }
     const err = await response.json();
+    options.toggleLoader && options.toggleLoader({[urlString]: false});
     console.log(err);
     throw new ArmoryError(status, err.error, err.message);
   }

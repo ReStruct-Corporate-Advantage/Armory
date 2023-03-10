@@ -1,0 +1,849 @@
+{
+  "types": [
+    {
+      "displayName": "Shapes (Choose as shape or control)",
+      "name": "shape",
+      "icon": "",
+      "expanded": true,
+      "leafCategory": true,
+      "order": 0,
+      "items": [
+        {
+          "displayName": "Square",
+          "name": "Square",
+          "meta": {
+            "tags": ["container", "shape", "flowchart"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "4rem",
+            "defaultHeight": "4rem",
+            "elemType": "div",
+            "handlers": {},
+            "styles": {
+              "border": "1px solid black",
+              "borderRadius": "0.3125rem",
+              "height": "4rem",
+              "width": "4rem"
+            },
+            "children": [
+              {
+                "innerText": "Square",
+                "order": 0
+              }
+            ]
+          }
+        },
+        {
+          "displayName": "Rectangle",
+          "name": "Rectangle",
+          "descriptor": {
+            "allowChildren": true,
+            "elemType": "div",
+            "defaultWidth": "4rem",
+            "defaultHeight": "4rem",
+            "handlers": {},
+            "classes": "bg-grey text-center",
+            "styles": {},
+            "children": [
+              {
+                "innerText": "Rectangle",
+                "order": 0
+              }
+            ]
+          }
+        },
+        {
+          "displayName": "Circle",
+          "name": "Circle",
+          "descriptor": {
+            "allowChildren": true,
+            "elemType": "div",
+            "defaultWidth": "4rem",
+            "defaultHeight": "4rem",
+            "handlers": {},
+            "classes": "bg-grey text-center",
+            "styles": {},
+            "children": [
+              {
+                "innerText": "Circle",
+                "order": 0
+              }
+            ]
+          }
+        },
+        {
+          "displayName": "RoundedSquare",
+          "name": "RoundedSquare"
+        },
+        {
+          "displayName": "RoundedRectangle",
+          "name": "RoundedRectangle"
+        },
+        {
+          "displayName": "Line",
+          "name": "Line"
+        },
+        {
+          "displayName": "Parallelogram",
+          "name": "Parallelogram"
+        },
+        {
+          "displayName": "Cube",
+          "name": "Cube"
+        },
+        {
+          "displayName": "Cylinder",
+          "name": "Cylinder"
+        }
+      ]
+    },
+    {
+      "displayName": "Controls",
+      "name": "controls",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 1,
+      "items": [
+        {
+          "displayName": "InputField",
+          "name": "InputField",
+          "meta": {
+            "tags": ["atomic, form-field"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "c-InputField bg-grey text-center",
+            "elemType": "div",
+            "handlers": {},
+            "styles": {
+              "height": "3rem",
+              "width": "6rem",
+              "borderRadius": "0.3125rem",
+              "border": "2px solid grey"
+            },
+            "children": [
+              {
+                "order": 0,
+                "descriptor": {
+                  "elemType": "input",
+                  "type": "text",
+                  "handlers": {},
+                  "styles": {}
+                }
+              }
+            ]
+          }
+        },
+        {
+          "displayName": "Radio Button Group",
+          "name": "RadioButtonGroup"
+        },
+        {
+          "displayName": "Drop Down (Select Option)",
+          "name": "SingleSelectDropDown"
+        },
+        {
+          "displayName": "Multi Select Drop Down (Multi Select Option)",
+          "name": "MultiSelectDropDown"
+        },
+        {
+          "displayName": "Check Box Group",
+          "name": "CheckBoxGroup"
+        },
+        {
+          "displayName": "Check Box",
+          "name": "CheckBox"
+        },
+        {
+          "displayName": "TextArea",
+          "name": "TextArea"
+        },
+        {
+          "displayName": "Button",
+          "name": "Button"
+        },
+        {
+          "displayName": "ButtonsPanel",
+          "name": "ButtonsPanel"
+        },
+        {
+          "displayName": "Container",
+          "name": "Container",
+          "isFunctional": false,
+          "meta": {
+            "tags": ["container", "section"]
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "elemType": "div",
+            "defaultHeight": "15rem",
+            "defaultWidth": "20rem",
+            "styles": {
+              "height": "15rem",
+              "width": "20rem",
+              "background": "lightgrey",
+              "padding": "1rem"
+            },
+            "classes": "border-default position-relative toggle-resizable"
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Animations",
+      "name": "animations",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 2,
+      "items": []
+    },
+    {
+      "displayName": "Data Source",
+      "name": "dataSource",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 3,
+      "items": []
+    },
+    {
+      "displayName": "Rich Controls",
+      "name": "richControls",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": false,
+      "order": 4,
+      "items": [
+        {
+          "displayName": "My Controls",
+          "name": "myControls",
+          "icon": "",
+          "expanded": false,
+          "leafCategory": true,
+          "items": []
+        },
+        {
+          "displayName": "Community Controls",
+          "name": "communityControls",
+          "icon": "",
+          "expanded": false,
+          "leafCategory": true,
+          "items": [
+            {
+              "displayName": "Draggable",
+              "isFunctional": true,
+              "name": "Draggable"
+            },
+            {
+              "displayName": "Droppable",
+              "isFunctional": true,
+              "name": "Droppable"
+            },
+            {
+              "displayName": "Progress Bar",
+              "isFunctional": true,
+              "name": "ProgressBar"
+            },
+            {
+              "displayName": "Step Bar",
+              "isFunctional": true,
+              "name": "StepBar"
+            },
+            {
+              "displayName": "FileSelector",
+              "isFunctional": true,
+              "name": "FileSelector"
+            },
+            {
+              "displayName": "PageLoader",
+              "isFunctional": true,
+              "name": "PageLoader"
+            },
+            {
+              "displayName": "FormLoader",
+              "isFunctional": true,
+              "name": "FormLoader"
+            },
+            {
+              "displayName": "FieldLoader",
+              "isFunctional": true,
+              "name": "FieldLoader"
+            },
+            {
+              "displayName": "NumberedList",
+              "isFunctional": true,
+              "name": "NumberedList"
+            },
+            {
+              "displayName": "UnorderedList",
+              "isFunctional": true,
+              "name": "UnorderedList"
+            },
+            {
+              "displayName": "SearchField",
+              "isFunctional": true,
+              "name": "SearchField"
+            },
+            {
+              "displayName": "Tab",
+              "isFunctional": true,
+              "name": "Tab"
+            },
+            {
+              "displayName": "TabBar",
+              "isFunctional": true,
+              "name": "TabBar"
+            },
+            {
+              "displayName": "Timer",
+              "isFunctional": true,
+              "name": "Timer"
+            },
+            {
+              "displayName": "Clock",
+              "isFunctional": true,
+              "name": "Clock"
+            },
+            {
+              "displayName": "ToolBar",
+              "isFunctional": true,
+              "name": "ToolBar"
+            },
+            {
+              "displayName": "Icon",
+              "isFunctional": true,
+              "name": "Icon"
+            },
+            {
+              "displayName": "Table",
+              "isFunctional": true,
+              "name": "Table"
+            },
+            {
+              "displayName": "Paginator",
+              "isFunctional": true,
+              "name": "Paginator"
+            },
+            {
+              "displayName": "Article",
+              "isFunctional": true,
+              "name": "Article"
+            },
+            {
+              "displayName": "DropTarget",
+              "isFunctional": true,
+              "name": "DropTarget"
+            },
+            {
+              "displayName": "Card",
+              "isFunctional": true,
+              "name": "Card"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "displayName": "Functionalities",
+      "name": "functionalities",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 5,
+      "items": [
+        { "displayName": "Sort" },
+        { "displayName": "Search" },
+        { "displayName": "Paginate" }
+      ]
+    },
+    {
+      "displayName": "Theme",
+      "name": "theme",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": false,
+      "order": 6,
+      "items": [
+        {
+          "displayName": "Control Set",
+          "name": "controlSet",
+          "icon": "",
+          "expanded": false,
+          "leafCategory": true,
+          "items": []
+        },
+        {
+          "displayName": "Style",
+          "name": "style",
+          "icon": "",
+          "expanded": false,
+          "leafCategory": true,
+          "items": [
+            { "displayName": "primary-base-color" },
+            { "displayName": "secondary-base-color" },
+            { "displayName": "primary-font-color" },
+            { "displayName": "secondary-font-color" },
+            { "displayName": "border-dark" },
+            { "displayName": "border-light" },
+            { "displayName": "font-family" },
+            { "displayName": "default-font-size" },
+            { "displayName": "s1-font" },
+            { "displayName": "s2-font" },
+            { "displayName": "s3-font" },
+            { "displayName": "s4-font" },
+            { "displayName": "line-height" },
+            { "displayName": "header-padding" },
+            { "displayName": "body-padding" },
+            { "displayName": "article-margin" },
+            { "displayName": "section-margin" }
+          ]
+        },
+        {
+          "displayName": "My Themes",
+          "name": "myThemes",
+          "icon": "",
+          "expanded": false,
+          "leafCategory": false,
+          "items": [
+            {
+              "displayName": "Theme 1",
+              "name": "theme-1",
+              "expanded": false,
+              "leafCategory": true,
+              "items": [
+                {
+                  "displayName": "T1 - Control Set",
+                  "name": "t1ControlSet",
+                  "icon": "",
+                  "expanded": false,
+                  "leafCategory": true,
+                  "items": []
+                },
+                {
+                  "displayName": "T1 - Style",
+                  "name": "t1Style",
+                  "icon": "",
+                  "expanded": false,
+                  "leafCategory": true,
+                  "items": [
+                    { "displayName": "primary-base-color" },
+                    { "displayName": "secondary-base-color" }
+                  ]
+                }
+              ]
+            },
+            {
+              "displayName": "Theme 2",
+              "name": "theme-2",
+              "items": [],
+              "expanded": false,
+              "leafCategory": true
+            },
+            {
+              "displayName": "Theme 3",
+              "name": "theme-3",
+              "items": [],
+              "expanded": false,
+              "leafCategory": true
+            },
+            {
+              "displayName": "Theme 4",
+              "name": "theme-4",
+              "items": [],
+              "expanded": false,
+              "leafCategory": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "displayName": "Semantic Elements",
+      "scope": "page",
+      "name": "pageSections",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 7,
+      "items": [
+        {
+          "displayName": "Aside",
+          "name": "Aside",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "16rem",
+            "defaultHeight": "100%",
+            "elemType": "aside",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Main",
+          "name": "Main",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "100%",
+            "defaultHeight": "100%",
+            "elemType": "main",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Article",
+          "name": "Article",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "10rem",
+            "defaultHeight": "15rem",
+            "elemType": "article",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header",
+          "name": "Header",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "100%",
+            "defaultHeight": "3rem",
+            "elemType": "header",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Footer",
+          "name": "Footer",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "100%",
+            "defaultHeight": "3rem",
+            "elemType": "footer",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Nav",
+          "name": "Nav",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "100%",
+            "defaultHeight": "2rem",
+            "elemType": "nav",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Section",
+          "name": "Section",
+          "meta": {
+            "tags": ["container", "section"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "bg-grey text-center",
+            "defaultWidth": "10rem",
+            "defaultHeight": "15rem",
+            "elemType": "section",
+            "handlers": {},
+            "styles": {}
+          }
+        }
+      ]
+    },
+    {
+      "displayName": "Elements",
+      "scope": "component",
+      "name": "elements",
+      "icon": "",
+      "expanded": false,
+      "leafCategory": true,
+      "order": 8,
+      "items": [
+        {
+          "displayName": "Div",
+          "name": "Div",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "div",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Input",
+          "name": "Input",
+          "componentType": "element",
+          "selfClosing": true,
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "classes": "",
+            "elemType": "input",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Paragraph",
+          "name": "Paragraph",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "p",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Span",
+          "name": "Span",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "span",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Label",
+          "name": "Label",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "label",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Select",
+          "name": "Select",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "select",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Option",
+          "name": "Option",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "option",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Image",
+          "name": "Image",
+          "componentType": "element",
+          "selfClosing": true,
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "img",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Embed",
+          "name": "Embed",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "embed",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 1",
+          "name": "Header_1",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h1",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 2",
+          "name": "Header_2",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h2",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 3",
+          "name": "Header_3",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h3",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 4",
+          "name": "Header_4",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h4",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 5",
+          "name": "Header_5",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h5",
+            "handlers": {},
+            "styles": {}
+          }
+        },
+        {
+          "displayName": "Header 6",
+          "name": "Header_6",
+          "componentType": "element",
+          "meta": {
+            "tags": ["element", "html", "tag"],
+            "createdBy": "mohiit1502"
+          },
+          "descriptor": {
+            "allowChildren": true,
+            "classes": "",
+            "elemType": "h6",
+            "handlers": {},
+            "styles": {}
+          }
+        }
+      ]
+    }
+  ]
+}

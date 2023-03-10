@@ -1,0 +1,56 @@
+@import "../../styles/variables";
+
+.c-Onboarder {
+  z-index: 1;
+  .c-Onboarder__content {
+    background: #0c162d;
+    border: 1px solid #152751;
+    border-radius: 0.375rem;
+  }
+
+  .c-Onboarder__header {
+    color: #8d9ab9;
+    font-family: monospace;
+    font-size: 1.3rem;
+    transition: max-height 0.3s;
+    max-height: 0;
+    overflow: auto;
+  }
+
+  .c-Onboarder__error {
+    color: $error-color;
+  }
+
+  &.animate {
+    .c-Onboarder__header {
+      max-height: 4rem;
+    }
+  }
+
+  button.hide {
+    width: 0 !important;
+    height: 0 !important;
+    overflow: auto;
+    padding: 0 !important;
+    border: none;
+  }
+
+  button.onboard {
+    font-size: 1rem;
+  }
+
+  input.onboard {
+    border: none;
+    padding-right: 2rem;
+    color: white;
+    font-size: 1rem;
+  }
+
+  .w-30 {
+    width: 30% !important;
+  }
+
+  .w-65 {
+    width: 65% !important;
+  }
+}

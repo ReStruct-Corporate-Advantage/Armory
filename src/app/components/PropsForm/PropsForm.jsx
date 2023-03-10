@@ -9,14 +9,18 @@ import {SelectOption, InputField, CheckBox} from "..";
 import {compGen, forkedRepository} from "../../utils/CodeUtils/ComponentGenerator";
 import Helper from "../../utils/Helper";
 import Network from "../../utils/network";
+import ENDPOINTS from "../../constants/endpoints";
+import PROPS_CONTENT from "../../constants/props-content";
 import "./PropsForm.component.scss";
+
+PROPS_CONTENT.style.forEach(prop => prop.name = Helper.toCamelCase(prop.displayName, "-"));
 
 const PropsForm = props => {
   const {clear, componentsConfig, dispatchClearPropsState, setComponentsConfig, editMode, initiateSave, setInitiateSave, selectedComponent, socket, toggleEditMode, userDetails} = props;
   const [formState, updateFormState] = useState({});
-  const [selectorState, updateSelectorState] = useState({});
+  const [selectorState, updateSelectorState] = useState({"type-selector": "style"});
   const key = "uuid";
-  const alwaysDisabled = ["createdBy", "id", "uuid", "componentName", "meta#createdBy"];
+  const alwaysDisabled = ["createdBy", "id", "uuid", "name", "meta#createdBy"];
   const rootChildrenArray = componentsConfig && componentsConfig.components[0].descriptor.children;
   const returnVal = Helper.searchInTree(key, selectedComponent, componentsConfig, "components", "descriptor.children");
   let {selectedComponentConfig, parent} = returnVal ? returnVal : {};
@@ -70,7 +74,7 @@ const PropsForm = props => {
     }
     parent.splice(parent.findIndex(child => child.uuid === selectedComponentConfig.uuid), 1, selectedComponentConfigCloned);
     action(formStateCloned, id, value, selectedComponentConfigCloned, property, type);
-    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.componentName + "-" + userDetails.username : selectedComponentConfigCloned.name;
+    selectedComponentConfigCloned.name = userDetails ? selectedComponentConfigCloned.name + "-" + userDetails.username : selectedComponentConfigCloned.name;
     selectedComponentConfigCloned.name = selectedComponentConfigCloned.name + "-" + Helper.findMaxHyphenBased(forkedRepository, selectedComponentConfigCloned.name)
     selectedComponentConfigCloned.state = "new";
     compGen.decideTypeAndGenerateWithConfig(selectedComponentConfigCloned, true, null, ""); // Forking here
@@ -104,7 +108,7 @@ const PropsForm = props => {
         })
       }
     })
-    Network.put("/api/armory", payload)
+    Network.put(ENDPOINTS.BE.ARMORY.PUT, payload)
       .then(res => {
         console.log(res);
       })
@@ -164,19 +168,6 @@ const PropsForm = props => {
     }).filter(element => element);
   }
 
-  const additionalProperties = [
-    {name: "border", displayName: "border", type: "style"},
-    {name: "borderRadius", displayName: "border-radius", type: "style"},
-    {name: "fontSize", displayName: "font-size", type: "style"},
-    {name: "background", displayName: "background", type: "style"},
-    {name: "color", displayName: "color", type: "style"},
-    {name: "padding", displayName: "padding", type: "style"},
-    {name: "margin", displayName: "margin", type: "style"},
-    {name: "lineHeight", displayName: "line-height", type: "style"},
-    {name: "fontFamily", displayName: "font-family", type: "style"},
-    {name: "other", displayName: "Other"},
-  ]
-
   const types = [
     {name: "style", displayName: "Style"},
     {name: "class", displayName: "Class"},
@@ -193,23 +184,28 @@ const PropsForm = props => {
     updateSelectorState(selectorStateCloned);
   }
 
-  const otherSelected = selectorState["value-selector"] === "other";
+  const selectedValue = selectorState["value-selector"];
+  const otherSelected = selectedValue === "other";
+  const valueSelected = selectedValue && selectedValue !== "other"
 
   return (
     <div className="c-PropsForm p-1 overflow-auto">
       {selectedComponentConfig && <p className="ps-2 pt-2 mb-0 text-muted">Owner: <b><i>{selectedComponentConfig && selectedComponentConfig.meta && selectedComponentConfig.meta.createdBy}</i></b></p>}
       {selectedComponentConfig && <p className="ps-2 pb-2 mb-0 text-muted">Selected: <b><i>{selectedComponentConfig && selectedComponentConfig.uuid}</i></b></p>}
       {selectedComponentConfig && <div className="c-PropsForm__propSelector row mb-2">
-          <SelectOption id="type-selector" layoutClasses="col-6" options={types} onChange={selectorOnChange} value={selectorState["type-selector"]} />
-          <SelectOption id="value-selector" layoutClasses="col-6" onChange={selectorOnChange}
-          options={additionalProperties.filter(prop => !prop.type || prop.type === selectorState["type-selector"])} value={selectorState["value-selector"]} />
-        {otherSelected && <><div className="col-6">
-            <input className="w-100" id="key-field" placeholder="Attribute Name" />
-          </div>
-          <div className="col-6">
-            <input className="w-100" id="value-field" placeholder="Attribute Value" />
-          </div>
-        </>}
+          <SelectOption id="type-selector" layoutClasses="col-6" options={types} onChange={e => selectorOnChange(e, "type-selector")} value={selectorState["type-selector"]} />
+          <SelectOption id="value-selector" layoutClasses="col-6" onChange={e => selectorOnChange(e, "value-selector")}
+            options={PROPS_CONTENT[selectorState["type-selector"]]} value={selectorState["value-selector"]} />
+        {otherSelected &&
+          <>
+            <div className="col-6">
+              <input className="w-100" id="key-field" placeholder="Attribute Name" />
+            </div>
+            <div className="col-6">
+              <input className="w-100" id="value-field" placeholder="Attribute Value" />
+            </div>
+          </>
+        }
         <div className="col-4">
           <button className="btn btn-success btn-add-prop w-100 h-100" onClick={addProperty}>Add</button>
         </div>

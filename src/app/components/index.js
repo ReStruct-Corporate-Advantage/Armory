@@ -1,4 +1,21 @@
 /* PLOP_INJECT_IMPORT */
+import ArmcoCaptcha from "./ArmcoCaptcha";
+import Onboarder from "./Onboarder";
+import Hamburger from "./Hamburger";
+import Faq from "./Faq";
+import LoginHero from "./LoginHero";
+import TilesContainer from "./TilesContainer";
+import Footer from "./Footer";
+import SearchResult from "./SearchResult";
+import CumulativeWorksTable from "./CumulativeWorksTable";
+import Loader from "./Loader";
+import List from "./List";
+import Table from "./Table";
+import UserImage from "./UserImage";
+import Summary from "./Summary";
+import Drawer from "./Drawer";
+import Widget from "./Widget";
+import SidePanel from "./SidePanel";
 import ComponentContainerWrapper from "./ComponentContainerWrapper";
 import Toggle from "./Toggle";
 import WidgetContainer from "./WidgetContainer";
@@ -66,6 +83,23 @@ import Main from "./Main";
 
 export {
   /* PLOP_INJECT_EXPORT */
+	ArmcoCaptcha,
+	Onboarder,
+	Hamburger,
+	Faq,
+	LoginHero,
+	TilesContainer,
+	Footer,
+	SearchResult,
+	CumulativeWorksTable,
+	Loader,
+	List,
+	Table,
+	UserImage,
+	Summary,
+	Drawer,
+	Widget,
+	SidePanel,
 	ComponentContainerWrapper,
 	Toggle,
 	WidgetContainer,

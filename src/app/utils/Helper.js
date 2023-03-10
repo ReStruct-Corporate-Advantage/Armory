@@ -44,16 +44,22 @@ export default class Helper {
         );
     }
 
-    static getItemStateInViewport(element) {
+    static getItemStateInViewport(element, offsetDimensions) {
         if (!element) {
             return { leftOut: false, rightOut: false, topOut: false, bottomOut: false }
         }
-        const { top, left, bottom, right } = element.getBoundingClientRect();
+        let { top, left, bottom, right } = element.getBoundingClientRect();
+        if (offsetDimensions) {
+            offsetDimensions.y && (bottom = bottom + offsetDimensions.y);
+            offsetDimensions.x && (right = right + offsetDimensions.x);
+        }
         const { wHeight, wWidth } = {
             wWidth: window.innerWidth || document.documentElement.clientWidth,
             wHeight: window.innerHeight || document.documentElement.clientHeight
         }
-        return { leftOut: left < 0, rightOut: right > wWidth, topOut: top < 0, bottomOut: bottom > wHeight };
+        const state = { leftOut: left < 0, rightOut: right > wWidth, topOut: top < 0, bottomOut: bottom > wHeight };
+        state.positionClass = Object.keys(state).filter(key => state[key]).join(" ");
+        return state;
     }
 
     static calculateLayout(layoutOrder, previousLayout) {
@@ -174,6 +180,11 @@ export default class Helper {
         copy = DOMHelper.boolFilter(copy, opts.domProperties);
         return copy;
     };
+
+    static toCamelCase (str, separater, includeFirst) {
+        const strParts = str.split(separater);
+        return strParts.map((part, i) => i === 0 && includeFirst ? part.charAt(0).toUpperCase() + part.slice(1) : part).join("");
+    }
 
     static recurse (recursivepatharr, key, value, tree, parent, j, searchIndex) {
         let returnVal;
