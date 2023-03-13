@@ -96,7 +96,7 @@
     "bundle-report": "webpack-bundle-analyzer --port 4200 compilation-stats.json",
     "predeploy": "npm run build",
     "ghdeploy": "gh-pages -d build",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "firebase deploy"
   },
   "eslintConfig": {
     "extends": [

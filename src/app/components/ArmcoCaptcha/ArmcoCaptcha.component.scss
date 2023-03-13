@@ -1,3 +1,13 @@
 .c-ArmcoCaptcha {
-  
+    border: 1px solid rgb(39, 230, 39);
+    border-radius: 3px;
+    background: none;
+    color: rgb(39, 230, 39);
+
+    .c-ArmcoCaptcha__transition-text {
+        transition: all 0.3s;
+    }
+}
+.grecaptcha-badge { 
+    visibility: hidden;
 }

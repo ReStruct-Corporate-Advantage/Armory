@@ -381,6 +381,20 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     }
 }
 
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(-29deg); }
+    10% { transform: translate(-1px, -2px) rotate(-30deg); }
+    20% { transform: translate(-3px, 0px) rotate(-28deg); }
+    30% { transform: translate(3px, 2px) rotate(-29deg); }
+    40% { transform: translate(1px, -1px) rotate(-28deg); }
+    50% { transform: translate(-1px, 2px) rotate(-30deg); }
+    60% { transform: translate(-3px, 1px) rotate(-29deg); }
+    70% { transform: translate(3px, 1px) rotate(-30deg); }
+    80% { transform: translate(-1px, -1px) rotate(-28deg); }
+    90% { transform: translate(1px, 2px) rotate(-29deg); }
+    100% { transform: translate(1px, -2px) rotate(-30deg); }
+  }
+
 .z-index-1 {
     z-index: 1;
 }

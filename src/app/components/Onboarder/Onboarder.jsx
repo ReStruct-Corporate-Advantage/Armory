@@ -16,6 +16,7 @@ const Onboarder = (props) => {
   const [animate, initiateOnboarding] = useState();
   const [focussedInput, setFocussedInput] = useState(iConfig.email.id);
   const [formComponents, setFormComponents] = useState(iConfig);
+
   useEffect(() => {
     if (isVisible && formComponents) {
       const initialConfig = formComponents.email;
@@ -121,9 +122,18 @@ const Onboarder = (props) => {
       ) {
         props.buttonClasses += " visible";
       }
+      if (
+        props.inputClasses &&
+        props.inputClasses.indexOf("border-bottom") === -1
+      ) {
+        props.inputClasses += " border-bottom";
+      }
     } else {
       if (props.buttonClasses && props.buttonClasses.indexOf("visible") > -1) {
         props.buttonClasses = props.buttonClasses.replace("visible", "");
+      }
+      if (props.inputClasses && props.inputClasses.indexOf("border-bottom") > -1) {
+        props.inputClasses = props.inputClasses.replace("border-bottom", "");
       }
     }
   };
@@ -154,14 +164,7 @@ const Onboarder = (props) => {
 
   return (
     <GoogleReCaptchaProvider
-      reCaptchaKey={CAPTCHA_SITE_KEY}
-      container={{
-        element: "inline-captcha",
-        parameters: {
-          theme: "dark"
-        }
-      }}
-      useEnterprise={true}>
+      reCaptchaKey={CAPTCHA_SITE_KEY}>
       <div
         className={`c-Onboarder${classes ? " " + classes : ""}${
           animate ? " animate" : ""

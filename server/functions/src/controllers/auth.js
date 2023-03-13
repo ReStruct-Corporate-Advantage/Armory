@@ -175,23 +175,28 @@ class AuthController {
 
   captchaVerify(req, res) {
     try {
-      axios("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+      axios.post("https://www.google.com/recaptcha/api/siteverify",
+        {
+          secret: "6LddPJYkAAAAAPJaOqA8ObWcFw5jhHpbGZyEgiNZ",
+          response: req.body.gRecaptchaToken
         },
-        body: `secret=your_secret_key&response=${req.body.gRecaptchaToken}`,
-      })
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
+          }
+        }
+      )
         .then((reCaptchaRes) => {
           console.log(
             reCaptchaRes,
             "Response from Google reCatpcha verification API"
           );
-          if (reCaptchaRes?.score > 0.5) {
+          if (reCaptchaRes.data?.score > 0.5) {
             // Save data to the database from here
             res.status(200).json({
               status: "success",
               message: "Enquiry submitted successfully",
+              raw: reCaptchaRes.data
             });
           } else {
             res.status(200).json({

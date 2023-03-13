@@ -45,8 +45,7 @@ const ONBOARDER_CONFIG = (isEmail, isStrongPassword) => ({
   },
   captcha: {
     component: "ArmcoCaptcha",
-    id: "captcha",
-    placeholderCaptcha: "inline-captcha"
+    id: "captcha"
   }
 });
 
