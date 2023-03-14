@@ -78,7 +78,7 @@ class EVENTS {
   }
 
   static onboarderSubmitHandler = (form, navigate) => {
-    if (Validator.validate(form)) {
+    // if (Validator.validate(form)) {
       Network.post(ENDPOINTS.BE.AUTH.REGISTER, form)
         .then((res) => {
             if (res.status === 200) {
@@ -96,7 +96,7 @@ class EVENTS {
             // setRegisterApiMessage(e.error);
           }
         });
-    }
+    // }
   };
 }
 

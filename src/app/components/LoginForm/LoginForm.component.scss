@@ -3,8 +3,8 @@
   max-height: 50%;
   border-radius: 5px;
   color: white;
-
-  .c-TabPanel {
+  
+  .c-LoginForm__layout-provider {
     background: #ccc;
   }
 
@@ -16,8 +16,17 @@
     }
   }
 
-  .darker-glass-panel {
-    background-color: rgba(0,0,0, 0.2);
+  .dark-glass-panel {
+    background-color: rgba(80, 80, 80, 0.4);
     backdrop-filter: blur(0.1875rem);
+  }
+
+  .darker-glass-panel {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(0.1875rem);
+  }
+
+  .border-grey {
+    border: 1px solid #333;
   }
 }

@@ -8,7 +8,8 @@ const ArmcoCaptcha = props => {
   const {
     id,
     recaptchaRef,
-    style
+    style,
+    submitForm
   } = props;
 
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -23,7 +24,7 @@ const ArmcoCaptcha = props => {
     }
   };
 
-  return <button id={id} className="c-ArmcoCaptcha mt-4 w-100" style={style} ref={recaptchaRef} type="button" onClick={onVerify}>
+  return <button id={id} className="c-ArmcoCaptcha mt-4 w-100" style={style} ref={recaptchaRef} type="button" onClick={() => onVerify(submitForm)}>
     <span className="c-ArmcoCaptcha__transition-text">Jump In</span>
   </button>;
 };
@@ -32,7 +33,8 @@ ArmcoCaptcha.propTypes = {
   id: PropTypes.string,
   placeholderCaptcha: PropTypes.string,
   recaptchaRef: PropTypes.object,
-  style: PropTypes.object
+  style: PropTypes.object,
+  submitForm: PropTypes.func
 };
 
 export default ArmcoCaptcha;

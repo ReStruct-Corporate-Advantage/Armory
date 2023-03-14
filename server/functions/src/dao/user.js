@@ -27,6 +27,11 @@ class UserDAO {
     const userDetails = await User.findOne({username: user.username});
     return userDetails === null;
   }
+
+  static async checkEmailUnique(user) {
+    const userDetails = await User.findOne({email: user.email});
+    return userDetails === null;
+  }
 }
 
 export default UserDAO;

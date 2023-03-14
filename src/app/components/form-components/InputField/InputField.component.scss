@@ -84,6 +84,15 @@
       }
     }
   }
+
+  &.standard {
+    :-webkit-autofill {
+      transition: all 5000s ease-in-out 0s;
+      -webkit-text-fill-color: white;
+      background-color: transparent;
+      caret-color: #fff;
+    }
+  }
   
   &.fancy {
     transition: max-height 0.5s;

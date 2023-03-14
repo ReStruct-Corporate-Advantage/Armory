@@ -40,13 +40,19 @@ const LoadableLivePreview = Loadable({
     loading: PageLoader
 })
 
+const LoadableForgotPassword = Loadable({
+    loader: () => import("./pages/ForgotPassword"),
+    loading: PageLoader
+})
+
 const loadables = {
     LoadableAuthenticator,
     LoadableLanding,
     LoadableComponentCreator,
     LoadableLogin,
     LoadableJoin,
-    LoadableLivePreview
+    LoadableLivePreview,
+    LoadableForgotPassword,
 }
 
 const Router = props => {

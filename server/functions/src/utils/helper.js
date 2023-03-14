@@ -1,31 +1,36 @@
 import crypto from "crypto";
+import dao from "../dao/user";
 
 class Helper {
-  static validate(data, operation, users) {
+  static async validate(data, operation, users) {
     if (operation === "register") {
       return Helper.validateRegisterData(data);
     } else if (operation === "login") {
       return Helper.validateLoginData(data);
     } else if (operation === "unique") {
-      return Helper.validateUnique(data, users);
+      return await Helper.validateUnique(data, users);
     }
   }
 
   static validateRegisterData(data) {
-    if (!data || !data.username || !data.newpassword || !data.confirmpassword) {
+    if (!data || !data.username || !data.password || !data.email) {
       return false;
     }
 
-    if (data.newpassword !== data.confirmpassword) {
+    if (data.confirmpassword && data.password !== data.confirmpassword) {
       return false;
     }
     return true;
   }
 
-  static validateUnique(data, users) {
-    const index =
-      users.findIndex((user) => user.username === data.username) < 0;
-    return index;
+  static async validateUnique(data, users) {
+    if (users) {
+      const index =
+        users.findIndex((user) => user.username === data.username) < 0;
+      return index;
+    } else {
+      return {usernameUnique: await dao.checkUserUnique({username: user.username}), emailUnique: await dao.checkUserUnique({email: user.email})};
+    }
   }
 
   static encryptData(data) {

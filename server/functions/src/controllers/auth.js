@@ -97,24 +97,20 @@ class AuthController {
 
   resetPassword(req, res) {}
 
-  register(req, res) {
+  async register(req, res) {
     const userdata = {
       username: req.body.username,
-      newpassword: req.body.newpassword,
-      confirmpassword: req.body.confirmpassword,
-    };
-    const writedata = {
-      username: req.body.username,
-      password: req.body.newpassword,
+      password: req.body.password,
+      email: req.body.email,
     };
     try {
-      if (Helper.validate(userdata, "register")) {
+      if (await Helper.validate(userdata, "register")) {
         dao
             .checkUserUnique({username: userdata.username})
             .then((res_db_1) => {
               if (res_db_1) {
                 dao
-                    .createUser(writedata)
+                    .createUser(userdata)
                     .then((res_db_2) => {
                       if (!res_db_2.errors) {
                         return res
@@ -201,7 +197,8 @@ class AuthController {
           } else {
             res.status(200).json({
               status: "failure",
-              message: "Google ReCaptcha Failure",
+              message: "Google ReCaptcha Failure With Score of " + reCaptchaRes.data?.score,
+              raw: reCaptchaRes.data
             });
           }
         });

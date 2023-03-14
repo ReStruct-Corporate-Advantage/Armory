@@ -1,9 +1,12 @@
 import React, { createRef, useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 import { isEmail, isStrongPassword } from "validator";
+import { dispatchNotification } from "../../global-actions";
 import * as components from "..";
 import { Helper } from "../../utils";
+import EVENTS from "../../utils/eventHandlers";
 import ONBOARDER_CONFIG from "../../config/onboarderConfig";
 import { CAPTCHA_SITE_KEY, ENTER_KEY_CODE } from "../../constants";
 import "./Onboarder.component.scss";
@@ -16,6 +19,7 @@ const Onboarder = (props) => {
   const [animate, initiateOnboarding] = useState();
   const [focussedInput, setFocussedInput] = useState(iConfig.email.id);
   const [formComponents, setFormComponents] = useState(iConfig);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isVisible && formComponents) {
@@ -92,6 +96,11 @@ const Onboarder = (props) => {
     props.onKeyUp = (e, ref) =>
       ("which" in e ? e.which : e.keyCode) === ENTER_KEY_CODE &&
       props.submitOnClick(e, ref);
+    props.submitForm = () => EVENTS.onboarderSubmitHandler({
+      username: formComponents.username.value,
+      email: formComponents.email.value,
+      password: formComponents.password.value
+    }, () => dispatch(dispatchNotification({notification: `User ${formComponents.username.value} registered successfully, on to login!`, type: "success", show: true})));
   };
 
   const injectRefs = (props) => {
@@ -141,7 +150,7 @@ const Onboarder = (props) => {
   const itemRenders =
     formComponents &&
     Object.values(formComponents).map((obj, key) => {
-      obj.style = { maxHeight: obj.display ? "5rem" : 0, overflow: "auto" };
+      obj.style = { maxHeight: obj.display ? "5rem" : 0, overflow: "auto", border: "none" };
       const { component, display, validator, ...props } = obj;
       updateLayoutClasses(props, display);
       injectHandlers(props, validator);

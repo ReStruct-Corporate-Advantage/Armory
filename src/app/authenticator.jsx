@@ -42,11 +42,6 @@ const LoadableComponentSelector = Loadable({
   loading: PageLoader
 })
 
-const LoadableForgotPassword = Loadable({
-  loader: () => import("./pages/ForgotPassword"),
-  loading: PageLoader
-})
-
 const LoadableUserProfile = Loadable({
   loader: () => import("./pages/UserProfile"),
   loading: PageLoader
@@ -73,8 +68,7 @@ const loadables = {
   LoadableProjectCreator,
   LoadablePageCreator,
   LoadableComponentCreator,
-  LoadableComponentSelector ,
-  LoadableForgotPassword,
+  LoadableComponentSelector,
   LoadableUserProfile,
   LoadableNotifications,
   LoadableSettings,

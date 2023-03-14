@@ -1,5 +1,6 @@
 import dao from "../dao/user.js";
 import Helper from "../utils/helper.js";
+import logger from "../loaders/logs-loader.js";
 
 class UserController {
   getCurrentUser(req, res) {
@@ -38,6 +39,26 @@ class UserController {
               .status(500)
               .json({message: "Unable to get list of users currently"}),
         );
+  }
+
+  async getUserUniqueness(req, res) {
+    if (!req.query.username && !req.query.email) {
+      logger.error("[UserController::getUserUniqueness] Missing required parameter in request!");
+      res.send(422).json({error: "Missing required parameter!"});
+    }
+    try {
+      const isEmailCheck = !!req.query.email;
+      isEmailCheck
+        ? logger.info("[UserController::getUserUniqueness] Initiating email uniqueness check for: ", req.query.email)
+        : logger.info("[UserController::getUserUniqueness] Initiating username uniqueness check for: ", req.query.username);
+      const uniquenessStatus = isEmailCheck ? await dao.checkEmailUnique({email: req.query.email}) : await dao.checkUserUnique({username: req.query.username});
+      logger.info("[UserController::getUserUniqueness] Returning uniqueness status %s for the input candidate: %s", uniquenessStatus, isEmailCheck ? req.query.email : req.query.username);
+      res.status(200).json({uniquenessStatus});
+    } catch (e) {
+      logger.error("[UserController::getUserUniqueness] Uniqueness check failed for the user: ", req.query.username);
+      logger.error("[UserController::getUserUniqueness] Captured error: ", e);
+      res.status(520).json({error: "Unable to check user's uniqueness at the moment!"});
+    }
   }
 }
 
