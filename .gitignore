@@ -105,3 +105,5 @@ build/
 
 .DS_Store
 .vscode
+
+*.pem

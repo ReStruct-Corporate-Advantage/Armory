@@ -1,6 +1,6 @@
 import {createRequire} from "module";
 import Connection from "../sockets/messageHandler.js";
-import logger from "../loaders/logs-loader.js";
+import logger from "./logs-loader.js";
 const require = createRequire(import.meta.url);
 const socketIO = require("socket.io");
 
