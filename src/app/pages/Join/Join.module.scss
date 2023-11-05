@@ -5,6 +5,9 @@
             transition: all 0.3s;
         }
     }
+    .c-Join__background {
+        transition: opacity 2.5s;
+    }
     &.onboarder {
         .c-Join__content {
             opacity: 0;

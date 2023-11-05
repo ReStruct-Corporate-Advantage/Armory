@@ -5,7 +5,6 @@ export const AUTHENTICATED_CHILDREN = [
     {path: "page", class: "page-creator", element: "LoadablePageCreator"},
     {path: "component", class: "component-creator", element: "LoadableComponentCreator"},
     {path: "component/view", class: "component-selector", element: "LoadableComponentSelector"},
-    {path: "reset", class: "forgot-password", element: "LoadableForgotPassword"},
     {path: "profile", class: "user-profile", element: "LoadableUserProfile"},
     {path: "notifications", class: "notification", element: "LoadableNotifications"},
     {path: "settings", class: "settings", element: "LoadableSettings"},
@@ -15,10 +14,11 @@ export const AUTHENTICATED_CHILDREN = [
 const ROUTES = [
     {path: "/", class: "landing", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableLanding", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true},
     {path: "/playground", class: "playground", element: "LoadableComponentCreator", drawerLess: true, noTools: true},
-    {path: "/login", class: "login", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableLogin", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true},
+    {path: "/login", class: "login", headerClasses: "container mx-auto my-4 py-5", element: "LoadableLogin", menuLess: true, drawerLess: true, noTools: true, noHeader: true, concealHeaderHeight: true},
     {path: "/join", class: "join", headerClasses: "container position-absolute l-0 r-0 bg-black", element: "LoadableJoin", menuLess: true, drawerLess: true, noTools: true, concealHeaderHeight: true, noSearch: true, displaySignInPrompt: true},
     {path: "/:user/*", element: "LoadableAuthenticator", children: AUTHENTICATED_CHILDREN},
-    {path: "/:user/page/live", class: "preview", element: "LoadableLivePreview"}
+    {path: "/:user/page/live", class: "preview", element: "LoadableLivePreview"},
+    {path: "reset", class: "forgot-password", element: "LoadableForgotPassword"},
 ];
 
 export default ROUTES;

@@ -1,37 +1,40 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Network } from "../../utils";
 import "./ArmcoCaptcha.component.scss";
 
 const ArmcoCaptcha = props => {
   const {
     id,
-    placeholderCaptcha,
     recaptchaRef,
-    style
+    style,
+    submitForm
   } = props;
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
   
-  const onVerify = async () => {
-    if (props.googleReCaptchaProps.executeRecaptcha && typeof props.googleReCaptchaProps.executeRecaptcha === "function") {
-      const gRecaptchaToken = await props.googleReCaptchaProps.executeRecaptcha('register');
-      Network.post("/auth/captchaVerify", {gRecaptchaToken});
+  const onVerify = async callback => {
+    if (executeRecaptcha && typeof executeRecaptcha === "function") {
+      const gRecaptchaToken = await executeRecaptcha('register');
+      const result = await Network.post("/auth/captchaVerify", {gRecaptchaToken});
+      if (result && result.body && result.body.raw.success) {
+        callback && callback();
+      }
     }
   };
 
-  return (
-    <div id={id} className="c-ArmcoCaptcha" style={style} ref={recaptchaRef}>
-      <div id={placeholderCaptcha} />
-      <button type="button" onClick={onVerify}>Verify</button>
-    </div>
-  );
+  return <button id={id} className="c-ArmcoCaptcha mt-4 w-100" style={style} ref={recaptchaRef} type="button" onClick={() => onVerify(submitForm)}>
+    <span className="c-ArmcoCaptcha__transition-text">Jump In</span>
+  </button>;
 };
 
 ArmcoCaptcha.propTypes = {
   id: PropTypes.string,
   placeholderCaptcha: PropTypes.string,
   recaptchaRef: PropTypes.object,
-  style: PropTypes.object
+  style: PropTypes.object,
+  submitForm: PropTypes.func
 };
 
-export default withGoogleReCaptcha(ArmcoCaptcha);
+export default ArmcoCaptcha;

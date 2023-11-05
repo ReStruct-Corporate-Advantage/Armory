@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
 import dao from "../dao/user.js";
 import Helper from "../utils/helper.js";
-import logger from "../loaders/logs-loader.js";
 
 class AuthController {
   login(req, res) {
@@ -48,10 +47,6 @@ class AuthController {
                   "[AuthController::login] Generating authentication token for the user: ",
                   req.body.username,
               );
-              const token = jwt.sign(userdata, global.config.auth.secretKey, {
-                algorithm: global.config.auth.algorithm,
-                expiresIn: "21600m", // 15 days
-              });
               logger.info(
                   "[AuthController::login] Authentication token has been generated for the user: ",
                   req.body.username,
@@ -64,7 +59,6 @@ class AuthController {
                   .json({
                     message: "Login Successful",
                     user: res_db,
-                    access_token: token,
                   });
               logger.info(
                   "[AuthController::login] Completed login for the user: ",
@@ -147,8 +141,8 @@ class AuthController {
               res
                   .status(500)
                   .json({
-                    message: `Username ${userdata.username} has already been taken!`,
-                    code: "UNIQUENESS_CHECK_FAILED",
+                    message: `Struggling to talk to DB`,
+                    code: "CODE_RED",
                   }),
             );
       } else {

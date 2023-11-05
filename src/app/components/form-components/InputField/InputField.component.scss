@@ -84,6 +84,15 @@
       }
     }
   }
+
+  &.standard {
+    :-webkit-autofill {
+      transition: all 5000s ease-in-out 0s;
+      -webkit-text-fill-color: white;
+      background-color: transparent;
+      caret-color: #fff;
+    }
+  }
   
   &.fancy {
     transition: max-height 0.5s;
@@ -92,6 +101,17 @@
       &:disabled {
         color: #8d9ab9;
         border: 1px solid #8d9ab9;
+      }
+      &.loading {
+        &:before {
+          display: block;
+          content: "";
+          width: 2rem;
+          height: 2rem;
+          background: url('../../../static/images/rocket.svg') no-repeat center center/cover;
+          animation: shake 0.5s;
+          animation-iteration-count: infinite;
+        }
       }
     }
     input {
@@ -110,6 +130,7 @@
     :-webkit-autofill {
       transition: all 5000s ease-in-out 0s;
       -webkit-text-fill-color: white;
+      background-color: transparent;
       caret-color: #fff;
     }
   }

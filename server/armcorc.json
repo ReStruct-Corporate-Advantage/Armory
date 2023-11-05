@@ -1,0 +1,82 @@
+{
+  "APP_NAME": "ARMORY",
+  "APP_CONFIG": {
+    "default_stuff": [],
+    "username": "username",
+    "password": "password",
+    "app": {
+      "port": 8082
+    }
+  },
+  "DB_CONFIG": {
+    "production": {
+      "host": "mohiit1502:astalavista2402@armory.ergdp.mongodb.net",
+      "port": 27017,
+      "database": "<database>",
+      "options": "retryWrites=true&w=majority",
+      "connection_string": "mongodb+srv://mohiit1502:astalavista2402@armory.ergdp.mongodb.net/<database>?retryWrites=true&w=majority",
+      "protocol": "mongodb+srv"
+    },
+    "development": {
+      "host": "localhost:27017",
+      "port": 27017,
+      "database": "<database>",
+      "options": "retryWrites=true&w=majority",
+      "connection_string": "mongodb://localhost:27017/<database>?retryWrites=true&w=majority",
+      "protocol": "mongodb"
+    }
+  },
+  "KEYS": {
+    "armoryprivatekey": "y&zG5m(!dH6p)0*b3L"
+  },
+  "modules": ["log", "db", "socket"],
+  "middlewares": {
+    "helmet": true,
+    "cors": {
+      "arOptions": {
+        "whitelist": [
+          "http://localhost:7992",
+          "http://localhost:3000",
+          "http://localhost:3001",
+          "http://localhost:5000"
+        ],
+        "supportedDomains": ["notabuck.com", "armco.tech"],
+        "credentails": true
+      }
+    },
+    "rateLimiter": {
+      "libOptions": {
+        "windowMs": 900000,
+        "max": 100
+      }
+    },
+    "cookieParser": {
+      "arOptions": {
+        "key": "x-access-token",
+        "options": {
+          "signed": true,
+          "maxAge": 1296000000,
+          "secure": true
+        }
+      },
+      "libOptions": [
+        "%Th3$jKW#0d2H1m*"
+      ]
+    },
+    "acceptUrlEncoded": true,
+    "acceptJson": true,
+    "authentication": {
+      "arOptions": {
+        "urlPattern": "/api/secure",
+        "secretKey": "%Th3$jKW#0d2H1m*",
+        "algorithm": "HS256",
+        "expiry": 1296000000
+      }
+    },
+    "csrf": {
+      "arOptions": {
+        "urlPattern": "/secure"
+      }
+    }
+  }
+}

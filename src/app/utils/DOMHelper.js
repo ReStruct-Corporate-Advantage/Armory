@@ -27,6 +27,46 @@ class DOMHelper {
         this.serials = [ "innerHTML", "innerText", "outerHTML", "outerText", "prefix", "text", "textContent", "wholeText" ];
     }
 
+    static renderMatrix(id) {
+        var c = document.getElementById(id);
+        var ctx = c.getContext("2d");
+
+        //making the canvas full screen
+        c.height = c.offsetHeight + 56;
+        c.style.marginTop = "-56px";
+        c.width = c.offsetWidth;
+        const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+        const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const nums = '0123456789@#$%^&*()*&^%';
+
+        const matrix = (katakana + latin + nums).split("");
+        var font_size = 16;
+        var columns = c.width/font_size;
+        var drops = [];
+        for(var x = 0; x < columns; x++)
+            drops[x] = 1;
+        setInterval(() => {
+            // console.log(drops);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            ctx.fillRect(0, 0, c.width, c.height);
+
+            ctx.fillStyle = "rgba(0, 255, 0, 1)"; //green text
+            ctx.font = font_size + "px arial";
+            //looping over drops
+            for(var i = 0; i < drops.length; i++) {
+                if (i % 2 === 0) {
+                    var text = matrix[Math.floor(Math.random()*matrix.length)];
+                    ctx.fillText(text, i*font_size, drops[i]*font_size);
+
+                    if(drops[i]*font_size > c.height && Math.random() > 0.975)
+                        drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }, 35);
+    }
+
     static process(str) {
         var div = document.createElement("div");
         div.innerHTML = str.trim();

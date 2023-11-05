@@ -10,8 +10,14 @@ const Button = props => {
     classes.push("btn btn-primary");
   }
 
+  const outgoingProps = {};
+  outgoingProps.className = `c-Button ${classes.join(" ")}`;
+  onClick && (outgoingProps.onClick = onClick);
+  style && (outgoingProps.style = style);
+  outgoingProps.type = type || "button";
+  
   return (
-    <button className={`c-Button ${classes.join(" ")}`} type={type} onClick={onClick ? onClick : null} style={style}>
+    <button {...outgoingProps}>
       {displayValue ? displayValue : "Submit"}
     </button>
   );

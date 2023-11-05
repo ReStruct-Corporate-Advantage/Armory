@@ -1,19 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import { dispatchDeviceType } from "../../global-actions";
-import { Faq, LoginForm, LoginHero, TilesContainer } from "../../components";
-import Helper from "../../utils/Helper";
+import { Faq, LoginHero, TilesContainer } from "../../components";
 import { WELCOME_TILE_CONTENT, SOLUTION_TILE_CONTENT, HERO_CONTENT, FAQ_CONTENT } from "../../static/content";
 import "./Landing.module.scss";
 
-const Landing = props => {
+const Landing = () => {
   const [currentVisible, setCurrentVisible] = useState();
   const animatableElements = {"LoginHero": 0, "TilesContainer-1": 1, "TilesContainer-2": 2, "FAQ": 3};
-
-  useEffect(() => {
-    dispatchDeviceType({ isMobile: Helper.isMobile() });
-  }, []);
 
   return (
     <div className="c-Landing flex-grow-1 m-2 m-sm-4 arm-pt-4">
@@ -24,10 +19,6 @@ const Landing = props => {
           visibleClasses={currentVisible && animatableElements[currentVisible] !== undefined
             && animatableElements[currentVisible] >= 0 ? "animate-before" + (animatableElements[currentVisible] > 0 ? " animate-after" : "") : ""}
           setCurrentVisible={setCurrentVisible} />
-        {/* <LoginForm
-          containerClasses="col-12 col-sm-3"
-          style={{ marginTop: "5.5rem", height: "25rem" }}
-        /> */}
         <TilesContainer
           animateBorder={currentVisible && animatableElements[currentVisible] !== undefined
             && animatableElements["TilesContainer-1"] <= animatableElements[currentVisible]}
@@ -62,7 +53,7 @@ Landing.propTypes = {
 };
 
 const mapDispatchToProps = {
-  dispatchDeviceType,
+  dispatchDeviceType
 };
 
 export default connect(null, mapDispatchToProps)(Landing);

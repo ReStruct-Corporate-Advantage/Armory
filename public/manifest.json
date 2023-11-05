@@ -3,14 +3,14 @@
   "name": "React Rich Tool Creator and Repository",
   "icons": [
     { 
-      "src": "ARMCO_LOGO-192.png", 
+      "src": "ARMCO_LOGO-192.jpg", 
       "sizes": "192x192", 
-      "type": "image/png" 
+      "type": "image/jpeg" 
     }, 
     { 
-      "src": "ARMCO_LOGO-512.png", 
+      "src": "ARMCO_LOGO-512.jpg", 
       "sizes": "512x512", 
-      "type": "image/png" 
+      "type": "image/jpeg" 
     } 
   ],
   "start_url": "/",

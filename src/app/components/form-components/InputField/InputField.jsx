@@ -39,7 +39,7 @@ const InputField = memo((props) => {
     variant,
   } = props;
   const inputRefInternal = useRef();
-  const key = formId + "-" + id;
+  const key = formId ? formId + "-" + id : id;
   const [focussed, setFocussed] = useState(false);
   let variantRender;
   const iRef = inputRef || inputRefInternal;
@@ -100,6 +100,53 @@ const InputField = memo((props) => {
         </div>
       </div>
       break;
+    case "standard":
+      variantRender = <div
+          className={`c-InputField row${layoutClasses ? " " + layoutClasses : ""}${" " + variant}`}
+          onClick={onClick ? onClick : () => {}}
+        >
+          <div className="col-12 position-relative">
+            <label
+              htmlFor={id}
+              className={`mb-2${labelClasses ? " " + labelClasses : ""}`}
+              style={labelStyles}
+            >
+              {label}
+            </label>
+            <input
+              id={id}
+              key={key}
+              type={type}
+              className={`${inputClasses ? " " + inputClasses : ""}`}
+              style={inputStyles}
+              onChange={(e) =>
+                onChange
+                  ? onChange(
+                      formId,
+                      key,
+                      type === "number" ? +e.target.value : e.target.value
+                    )
+                  : {}
+              }
+              placeholder={placeholder}
+              value={value}
+              required={required}
+              onFocus={(e) => {
+                onFocus && onFocus(e);
+                setFocussed(true);
+              }}
+              onBlur={(e) => {
+                onBlur && onBlur(e);
+                setFocussed(false);
+              }}
+              min={min ? min : -999999999}
+              max={max ? max : 9999999999}
+              ref={iRef}
+              disabled={alwaysDisabled || readOnly}
+            />
+          </div>
+        </div>;
+        break;
     case "containedLabel":
     default:
       variantRender = <div

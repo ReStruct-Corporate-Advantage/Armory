@@ -5,20 +5,20 @@ import { Navigate } from "react-router-dom";
 import { dispatchDeviceType } from "../../global-actions";
 import { Faq, LoginHero, Onboarder, TilesContainer } from "../../components";
 import Helper from "../../utils/Helper";
+import { DOMHelper } from "../../utils";
 import { WELCOME_TILE_CONTENT, SOLUTION_TILE_CONTENT, HERO_CONTENT, FAQ_CONTENT } from "../../static/content";
 import "./Join.module.scss";
 
 const Join = props => {
+  const {dispatchDeviceType} = props;
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [animate, doAnimate] = useState();
   const [displayOnboarder, setDisplayOnboarder] = useState();
   const [hideMain, setHideMain] = useState();
   const [currentVisible, setCurrentVisible] = useState();
-  // const [translateBy, setTranslateBy] = useState();
+  const [matrixRendered, setMatrixRendered] = useState();
   const onboarderRef = useRef();
   const refs = useRef({});
   const animatableElements = {"LoginHero": 0, "TilesContainer-1": 1, "TilesContainer-2": 2, "FAQ": 3};
-
 
   useEffect(() => {
     dispatchDeviceType({ isMobile: Helper.isMobile() });
@@ -53,6 +53,13 @@ const Join = props => {
     displayOnboarder && setTimeout(() => setHideMain(true), 500);
   }, [displayOnboarder])
 
+  useEffect(() => {
+    if (hideMain) {
+      DOMHelper.renderMatrix("matrix-canvas");
+      setMatrixRendered(true);
+    }
+  }, [hideMain])
+
   if (isLoggedIn) {
     const username = Helper.getCookie("auth_session_user");
     if (username) {
@@ -63,7 +70,7 @@ const Join = props => {
   return (
     <div className={`c-Join h-100 overflow-auto position-relative flex-grow-1 arm-pt-4 d-flex flex-column align-items-center
       ${displayOnboarder ? " onboarder" : ""}`}>
-      <div className={`c-Join__background position-absolute bg-black w-100 h-100 opacity-0${displayOnboarder ? " z-1" : " z-n1"}`} />
+      <canvas id="matrix-canvas" className={`c-Join__background position-absolute bg-black w-100 h-100${displayOnboarder ? " z-1" : " z-n1"}${matrixRendered ? "" : " opacity-0"}`} />
       <Onboarder classes={`w-100 max-tablet arm-mt-6 position-absolute${displayOnboarder ? " z-1" : " z-n1"}`} contentRef={onboarderRef} isVisible={hideMain} />
       {!hideMain &&
         <main className="c-Join__content container h-100">

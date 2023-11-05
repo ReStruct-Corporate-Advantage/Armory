@@ -5,6 +5,7 @@ import LayoutShrink from "./LayoutShrink.svg";
 import LayoutCustom from "./LayoutCustom.svg";
 import Slash from "./slash.svg";
 import PageLoader from "./loader.svg"
+import Rocket from "./rocket.svg";
 
 export {
     APP_LOGO,
@@ -13,5 +14,6 @@ export {
     LayoutExpand,
     LayoutShrink,
     Slash,
-    PageLoader
+    PageLoader,
+    Rocket
 }

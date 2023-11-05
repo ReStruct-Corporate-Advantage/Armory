@@ -7,7 +7,7 @@ import {
   page,
   component,
 } from "../routes/index.js";
-import armoryData from "../data/armory.json";
+import armoryData from "../data/armory.json" assert {type: "json"};
 
 function injectRouteMW(app) {
   app.get("/test", (req, res) => {
