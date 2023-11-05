@@ -1,5 +1,4 @@
 import uuidv4 from "uuid";
-import logger from "../loaders/logs-loader.js";
 const messages = new Set();
 const users = new Map();
 

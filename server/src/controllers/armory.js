@@ -2,7 +2,6 @@ import {readFile} from "fs";
 import Helper from "../utils/helper.js";
 import userDao from "../dao/user.js";
 import dao from "../dao/armory.js";
-import logger from "../loaders/logs-loader.js";
 
 class ArmoryController {
   getArms(req, res) {

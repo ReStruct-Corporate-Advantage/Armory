@@ -63,6 +63,10 @@ const Router = props => {
     const drawerWidth = drawerState.collapsed ? DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED : DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED;
     const location = useLocation();
     const navigate = useNavigate();
+    const drawerLess = ROUTES.filter(r => r.drawerLess).concat(AUTHENTICATED_CHILDREN.filter(r => r.drawerLess)).map(r => r.class);
+    const rootClass = matchedRoute && matchedRoute.class ? " " + (matchedRoute.class.indexOf(" ") > -1 ? matchedRoute.class.split(" ")[0] : matchedRoute.class) : ""
+    const footerHeight = "1.5rem";
+    const mainContentPadding = rootClass && rootClass.replace(/\s/g, "") === "dashboard" ? "pb-2" : "pb-4"
 
     useEffect(() => {
         let matchedRoute = ROUTES.find(route => matchPath({...route, caseSensitive: false, end: true}, location.pathname));
@@ -92,8 +96,6 @@ const Router = props => {
         return <Routes>{routeRenders}</Routes>;
     };
 
-    const drawerLess = ROUTES.filter(r => r.drawerLess).concat(AUTHENTICATED_CHILDREN.filter(r => r.drawerLess)).map(r => r.class);
-    const rootClass = matchedRoute && matchedRoute.class ? " " + (matchedRoute.class.indexOf(" ") > -1 ? matchedRoute.class.split(" ")[0] : matchedRoute.class) : ""
     return  <Provider store={store}>
                 <div className={`c-Router__global-events-interceptor h-100 w-100${rootClass}`} onClick={() => {
                     dispatchHideSearchResults(true)
@@ -101,7 +103,7 @@ const Router = props => {
                 }}>
                     <div className="c-Router__app-container overflow-hidden h-100 w-100 d-flex flex-column">
                         <Header route={matchedRoute} />
-                        <div className="c-Router__main-content d-flex h-100 w-100 overflow-auto">
+                        <div className={`c-Router__main-content d-flex h-100 w-100 overflow-auto ${mainContentPadding}`}>
                             <SidePanel fixed={true} shouldDisplay={false} />
                             {matchedRoute && drawerLess.indexOf(matchedRoute.class) === -1 && <Drawer
                                 type="app-drawer"
@@ -116,7 +118,7 @@ const Router = props => {
                             />}
                             {getRoutes()}
                         </div>
-                        <Footer />
+                        <Footer footerHeight={footerHeight} />
                         <Modal />
                         <RichTooltip />
                         <Notification />

@@ -62,20 +62,20 @@ const LoginForm = props => {
           }}>
             {loginApiMessage && <p className={`c-LoginForm__api-response-message sub-super-message${isLoginApiError ? " error" : ""}`}>{loginApiMessage}</p>}
             <InputField id="username" label="User Name/Email" type="text" value={fieldValues["username"]} layoutClasses="mb-3"
-              inputClasses="w-100 border-5 p-2 bg-black text-light border-grey" required={true} onChange={onChange} variant="standard" shrunkable />
+              inputClasses="w-100 border-5 p-2 bg-black text-light border-grey" required={true} onChange={onChange} variant="standard" />
             <InputField id="password" label="Password" type="password" value={fieldValues["password"]}
-              inputClasses="w-100 border-5 p-2 bg-black text-light border-grey" required={true} onChange={onChange} variant="standard" shrunkable />
+              inputClasses="w-100 border-5 p-2 bg-black text-light border-grey" required={true} onChange={onChange} variant="standard" />
             <ButtonsPanel buttonsConfig={{
               btnSubmit: {type: "submit", classes: "btn btn-success float-right raise-effect w-100 fw-bold", displayValue: "Sign in", style: {background: "rgba(0, 150, 0, 0.7)"}}
             }} />
             <CheckBox id="rememberme" label="Remember me" value={fieldValues["rememberme"]} layoutClasses="mb-3"
               inputClasses="me-2 p-2 text-light" onChange={onChange} />
-            <Link className="mt-4 fw-bold" to="/reset">Forgot password?</Link>
+            <Link className="mt-4 fw-bold" to="/reset?from=reset-prompt-on-login">Forgot password?</Link>
           </form>
       </div>
       <div className="c-LoginForm__sign-up-prompt border-grey darker-glass-panel border-small-radius text-center p-4">
             New to Armco?
-            <Link className="ms-3" to="/join">Create an account</Link>
+            <Link className="ms-3" to="/join?from=sign-up-prompt-on-login">Create an account</Link>
       </div>
     </div>
   );

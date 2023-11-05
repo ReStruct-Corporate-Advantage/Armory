@@ -1,6 +1,5 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import logger from "../loaders/logs-loader.js";
 
 const router = express.Router();
 

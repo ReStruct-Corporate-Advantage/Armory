@@ -5,7 +5,7 @@ import "./SidePanel.component.scss";
 const SidePanel = props => {
   const {shouldDisplay, fixed, expanded} = props;
   return (
-    <div className={`c-SidePanel h-100${shouldDisplay ? "" : fixed ? " d-none" : " w-0"}`}>
+    <div className={`c-SidePanel h-100${shouldDisplay ? "" : fixed ? " d-none" : " w-0 overflow-hidden"}`}>
       In Component SidePanel
     </div>
   );

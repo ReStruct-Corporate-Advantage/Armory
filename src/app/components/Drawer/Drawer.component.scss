@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 
 .c-Drawer {
-  border-radius: 0 0 $dashboard-border-radius 0;
+  border-radius: 0 0 0 $dashboard-border-radius;
   transition: all 0.3s;
 
   &.dashboard {

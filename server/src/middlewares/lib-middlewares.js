@@ -3,7 +3,6 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import swaggerJSDoc from "swagger-jsdoc";
-import logger from "./../loaders/logs-loader.js";
 import docs from "../../functions/src/docs/index.js";
 
 function injectLibMW(app) {

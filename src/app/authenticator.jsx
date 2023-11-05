@@ -75,7 +75,7 @@ const loadables = {
   LoadableCollaborationBoard
 };
 
-function Authenticator(props) {
+const Authenticator = props => {
   const { dispatchUserDetails, drawerWidth, navigate, setLoggedIn, toggleLoader, userDetails } = props;
   const isLoggedIn = !!Helper.getCookie("auth_session_token");
   const authSessionUser = Helper.getCookie("auth_session_user");
