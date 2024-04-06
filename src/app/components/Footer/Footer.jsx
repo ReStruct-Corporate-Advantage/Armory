@@ -2,10 +2,10 @@ import React from "react";
 import "./Footer.component.scss";
 
 const Footer = (props) => {
-  const {containerClasses, footerHeight} = props;
+  const {context, containerClasses, footerHeight} = props;
   return (
     <div
-      className={`c-Footer position-fixed bottom-0 text-center bg-white w-100 overflow-auto text-dark${containerClasses ? " " + containerClasses : ""}`}
+      className={`c-Footer position-fixed bottom-0 w-100 overflow-auto text-dark flex-center${context === "dashboard" ? " d-none" : ""}${containerClasses ? " " + containerClasses : ""}`}
       style={{ height: footerHeight || 0 }}
     >
       <strong>

@@ -102,23 +102,25 @@ const Router = props => {
                     dispatchHideQuickOptions(true)
                 }}>
                     <div className="c-Router__app-container overflow-hidden h-100 w-100 d-flex flex-column">
-                        <Header route={matchedRoute} />
-                        <div className={`c-Router__main-content d-flex h-100 w-100 overflow-auto ${mainContentPadding}`}>
-                            <SidePanel fixed={true} shouldDisplay={false} />
-                            {matchedRoute && drawerLess.indexOf(matchedRoute.class) === -1 && <Drawer
-                                type="app-drawer"
-                                config={{
-                                    ...DrawerConfig,
-                                    classes: `${DrawerConfig.classes} ${matchedRoute ? matchedRoute.class : ""}`,
-                                    collapseWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED,
-                                    expandWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED,
-                                }}
-                                state={drawerState}
-                                setState={setDrawerState}
-                            />}
-                            {getRoutes()}
+                        <div className={`c-Router__header-main h-100 w-100 d-flex flex-column${matchedRoute?.class === "dashboard" ? " p-3" : ""}`}>
+                            <Header route={matchedRoute} />
+                            <div className={`c-Router__main-content d-flex flex-grow-1 w-100 overflow-auto ${mainContentPadding}`}>
+                                <SidePanel fixed={true} shouldDisplay={false} />
+                                {matchedRoute && drawerLess.indexOf(matchedRoute.class) === -1 && <Drawer
+                                    type="app-drawer"
+                                    config={{
+                                        ...DrawerConfig,
+                                        classes: `${DrawerConfig.classes} ${matchedRoute ? matchedRoute.class : ""}`,
+                                        collapseWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_COLLAPSED,
+                                        expandWidth: DASHBOARD_CONFIG.DRAWER_WIDTH_EXPANDED,
+                                    }}
+                                    state={drawerState}
+                                    setState={setDrawerState}
+                                />}
+                                {getRoutes()}
+                            </div>
                         </div>
-                        <Footer footerHeight={footerHeight} />
+                        <Footer footerHeight={footerHeight} context={matchedRoute?.class} />
                         <Modal />
                         <RichTooltip />
                         <Notification />
