@@ -1,5 +1,5 @@
 import React from "react";
-import { withResizeDetector } from "react-resize-detector";
+// import { withResizeDetector } from "react-resize-detector";
 import {ArmamentWrapper, StaticArmamentWrapper} from "../../components";
 
 class ComponentGenerator {
@@ -118,7 +118,7 @@ class ComponentGenerator {
                 }
             }
             Object.defineProperty(c, "name", {value: name});
-            c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
+            // c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             c = context === "editor"
                 ? <StaticArmamentWrapper componentConfig={node} key={key}>{c}</StaticArmamentWrapper>
                 : <ArmamentWrapper  key={key} componentConfig={node} selectedComponent={selectedComponent} dispatchSelectedComponent={dispatchSelectedComponent}
@@ -222,7 +222,7 @@ class ComponentGenerator {
                 }
             }
             Object.defineProperty(c, "name", {value: name});
-            c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
+            // c = descriptor.classes && descriptor.classes.indexOf("toggle-resizable") > -1 ? withResizeDetector(c) : c;
             this.baseRepository[name] = c;
         } else {
             c = childrenConfig ? React.createElement(elemType, {key, style: props.style, className: props.className}, self.iterateAndGenerate(childrenConfig))
