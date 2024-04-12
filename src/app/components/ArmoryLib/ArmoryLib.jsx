@@ -7,8 +7,8 @@ import {getArmory} from "../../pages/ComponentCreator/selectors";
 import {ArmsCategory, FormField} from "..";
 import Network from "../../utils/network";
 import {compGen} from "../../utils/CodeUtils/ComponentGenerator";
-import "./ArmoryLib.component.scss";
 import ENDPOINTS from "../../constants/endpoints";
+import "./ArmoryLib.component.scss";
 
 const ArmoryLib = props => {
   const {armory, dispatchArmory, parentExpanded} = props;

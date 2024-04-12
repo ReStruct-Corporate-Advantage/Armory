@@ -6,15 +6,15 @@ const API_CONFIG = {
     },
     "HOST": {
         // "development": "http://127.0.0.1:5001/armory-server/us-central1/armoryServerApp",
-        "development": "http://localhost:8082/api",
+        "development": "http://localhost:5000/api",
         // "production": "https://us-central1-armory-server.cloudfunctions.net/armoryServerApp"
-        "production": "https://armco.tech/api"
+        "production": "https://api.armco.tech/api"
     },
     "STATIC_HOST": {
         // "development": "http://127.0.0.1:5002/armory-server/us-central1/armoryStaticApp",
         "development": "http://localhost:5001/api",
         // "production": "https://us-central1-armory-server.cloudfunctions.net/armoryStaticApp"
-        "production": "https://armco.tech/api"
+        "production": "https://static.armco.tech/api"
     }
 }
 

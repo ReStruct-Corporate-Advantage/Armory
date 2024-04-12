@@ -8,32 +8,32 @@ const ENDPOINTS = {
         },
         CREATE_ARMAMENT: "",
         USER: {
-            CURRENT: "/user/current"
+            CURRENT: "/secure/user/current"
         },
         ARMORY: {
             root: "/current",
-            GET: "/armory",
-            PUT: "/armory",
-            POST: "/armory",
-            POSTWITHCONTAINER: "/armory?withContainer=true"
+            GET: "/secure/armory",
+            PUT: "/secure/armory",
+            POST: "/secure/armory",
+            POSTWITHCONTAINER: "/secure/armory?withContainer=true"
         },
         PROJECT: {
             root: "/current",
-            GET: "/project",
-            POST: "/project",
-            PUT: "/project"
+            GET: "/secure/project",
+            POST: "/secure/project",
+            PUT: "/secure/project"
         },
         PAGE: {
             root: "/current",
-            GET: "/page",
-            POST: "/page",
-            PUT: "/page"
+            GET: "/secure/page",
+            POST: "/secure/page",
+            PUT: "/secure/page"
         },
         COMPONENT: {
             root: "/current",
-            GET: "/component",
-            POST: "/component",
-            PUT: "/component"
+            GET: "/secure/component",
+            POST: "/secure/component",
+            PUT: "/secure/component"
         },
         ADMIN: {
             USER: {

@@ -30,7 +30,12 @@ const Header = props => {
       </span>
       : <>
           <span className="c-Header__app-logo mx-3" onClick={() => navigate("/")}>
-          <img src={APP_LOGO} className="h-100 w-100" />
+          {/* <img src={APP_LOGO} className="h-100 w-100" /> */}
+            <span className="ar-Header__app-name h-100 flex-center">
+              Stuffle.
+              <span className="ar-Header__app-name-i">i</span>
+              <span className="ar-Header__app-name-o">o</span>
+            </span>
           </span>
           {displayMenu && <MenuBar menuItems={[
               { name: "appCreator", label: "App Creator", selected: true }

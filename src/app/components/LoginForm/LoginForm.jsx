@@ -17,12 +17,15 @@ const LoginForm = props => {
   const [loginApiMessage, setLoginApiMessage] = useState("");
   const [isLoginApiError, setLoginApiError] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const onChange = (formId, id, value) => {
     const fieldValuesCloned = {...fieldValues};
     fieldValuesCloned[id] = value;
     setFieldValues(fieldValuesCloned);
+  }
+
+  const sendMessage = (data) => {
+    window.parent.postMessage({ event: "LOGGED_IN", data }, "*")
   }
 
   const handleSubmit = () => {
@@ -35,6 +38,9 @@ const LoginForm = props => {
           res.body.access_token && Helper.setCookie("auth_session_token", res.body.access_token, 30);
           const username = res.body.user && res.body.user.username;
           res.body.user && Helper.setCookie("auth_session_user", res.body.user.username, 30);
+          res.body.event = "LOGIN_EVENT";
+          res.body.data = {data: {body: {user: res.body}}};
+          sendMessage(res.body)
           navigate(`/${username}`);
         } else if (res.body.error) {
           setLoginApiError(true);

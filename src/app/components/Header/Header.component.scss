@@ -17,4 +17,17 @@
     height: 2rem;
     cursor: pointer;
   }
+
+  .ar-Header__app-name {
+    font-family: "Allerta Stencil", Capriola;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    .ar-Header__app-name-i {
+      color: red;
+    }
+    .ar-Header__app-name-o {
+      color: green;
+    }
+  }
 }

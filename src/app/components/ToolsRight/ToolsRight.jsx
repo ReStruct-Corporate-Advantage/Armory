@@ -6,7 +6,7 @@ import "./ToolsRight.component.scss";
 const ToolsRight = props => {
   const {classes, expanded, handlers, selectedComponent, size, tools} = props;
   return (
-    <div className={`c-ToolsRight${classes ? " " + classes : ""}`}>
+    <div className={`c-ToolsRight overflow-hidden${classes ? " " + classes : ""}`}>
       {tools && tools.map((tool, key) => {
         const handler = handlers && handlers.find(handler => handler.name === tool.name)
         return <ToolWrapper handler={handler} key={key} selectedComponent={selectedComponent} {...tool} size={size} expanded={expanded} />

@@ -6,7 +6,7 @@ import "./ToolsLeft.component.scss";
 const ToolsLeft = props => {
   const {classes, handlers, selectedComponent, size, tools} = props;
   return (
-    <div className={`c-ToolsLeft${classes ? " " + classes : ""}`}>
+    <div className={`c-ToolsLeft overflow-hidden${classes ? " " + classes : ""}`}>
       {tools && tools.map((tool, key) => {
         const handler = handlers && handlers.find(handler => handler.name === tool.name)
         return <ToolWrapper handler={handler} key={key} selectedComponent={selectedComponent} {...tool} size={size} />
