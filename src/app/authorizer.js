@@ -23,7 +23,7 @@ const LoadableAdminComponentManager = Loadable({
 function Authorizer(props) {
   const { userDetails } = props;
   const navigate = useNavigate();
-  const isLoggedIn = !!Helper.getCookie("auth_session_token");
+  const isLoggedIn = !!Helper.getCookie("x-access-token");
   const isAuthorized = userDetails && userDetails.role && userDetails.role === ROLES.ADMIN;
   if (!isLoggedIn) {
     navigate("/login");

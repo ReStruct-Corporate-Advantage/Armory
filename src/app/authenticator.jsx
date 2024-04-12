@@ -77,7 +77,7 @@ const loadables = {
 
 const Authenticator = props => {
   const { dispatchUserDetails, drawerWidth, navigate, setLoggedIn, toggleLoader, userDetails } = props;
-  const isLoggedIn = !!Helper.getCookie("auth_session_token");
+  const isLoggedIn = !!Helper.getCookie("x-access-token");
   const authSessionUser = Helper.getCookie("auth_session_user");
   const location = useLocation();
   const [rawData, setRawData] = useState();

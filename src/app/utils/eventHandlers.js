@@ -5,7 +5,7 @@ import { ENDPOINTS } from "../constants";
 
 class EVENTS {
   static logout() {
-    Helper.removeCookie("auth_session_token");
+    Helper.removeCookie("x-access-token");
     window.location.pathname = "/login";
   }
 

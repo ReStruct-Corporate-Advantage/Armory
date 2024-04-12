@@ -72,7 +72,7 @@ export default class Network {
       options.headers = {}
     }
     options.toggleLoader && options.toggleLoader({[urlString]: true});
-    options.headers["x-access-token"] = Helper.getCookie("auth_session_token");
+    options.headers["x-access-token"] = Helper.getCookie("x-access-token");
     options.headers["Origin"] = window.location.protocol + "//" + window.location.host;
     const response = await fetch(urlString, options);
     const { ok, status, headers } = response;

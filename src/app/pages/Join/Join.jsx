@@ -22,7 +22,7 @@ const Join = props => {
 
   useEffect(() => {
     dispatchDeviceType({ isMobile: Helper.isMobile() });
-    const sessionCookie = Helper.getCookie("auth_session_token");
+    const sessionCookie = Helper.getCookie("x-access-token");
     setIsLoggedIn(!!sessionCookie);
   }, [isLoggedIn]);
   
