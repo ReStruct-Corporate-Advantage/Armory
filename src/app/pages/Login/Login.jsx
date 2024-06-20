@@ -18,7 +18,7 @@ const Login = (props) => {
   }, [isLoggedIn]);
 
   if (isLoggedIn) {
-    const username = Helper.getCookie("auth_session_user");
+    const username = Helper.getCookie("auth-session-user");
     if (username) {
       return <Navigate to={`/${username}`} replace={true} />;
     }

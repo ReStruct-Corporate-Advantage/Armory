@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 import {Table} from "..";
-import ENDPOINTS from "../../constants/endpoints";
-import { Network } from "../../utils";
 import "./CumulativeWorksTable.component.scss";
 
 const columns = [
@@ -11,12 +9,12 @@ const columns = [
   {Header: "Description", accessor: "about"},
   {Header: "Type", accessor: "type"},
   {Header: "Status", accessor: "status"},
-  {Header: "Assignee", accessor: "assignee"},
+  {Header: "Assignee", accessor: "assignee.username"},
   {Header: "Actions"}
 ];
 
 const CumulativeWorksTable = props => {
-  const {data, user, navigate, rawData} = props;
+  const {rawData} = props;
   const [tableData, setTableData]  = useState();
 
   useEffect(() => {

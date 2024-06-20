@@ -37,7 +37,7 @@ const LoginForm = props => {
           setLoginApiMessage("")
           res.body.access_token && Helper.setCookie("x-access-token", res.body.access_token, 30);
           const username = res.body.user && res.body.user.username;
-          res.body.user && Helper.setCookie("auth_session_user", res.body.user.username, 30);
+          res.body.user && Helper.setCookie("auth-session-user", res.body.user.username, 30);
           res.body.event = "LOGIN_EVENT";
           res.body.data = {data: {body: {user: res.body}}};
           sendMessage(res.body)

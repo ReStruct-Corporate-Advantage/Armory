@@ -30,8 +30,8 @@ const ArmamentWrapper = props => {
 		collect: monitor => ({
       isDragging: !!monitor.isDragging()
 		}),
-    being: () => {
-      console.log("Being drag");
+    begin: () => {
+      console.log("Begin drag");
     },
     end: () => {
       console.log("End drag");
