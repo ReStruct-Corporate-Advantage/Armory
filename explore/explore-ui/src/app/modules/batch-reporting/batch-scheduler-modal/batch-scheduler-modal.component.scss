@@ -1,0 +1,46 @@
+.batch-scheduler-options {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+
+    .batch-scheduler-option-section {
+        margin-right: auto;
+        margin-top: 24px;
+
+        &.no-margin-top {
+            margin-top: 0 !important;
+        }
+
+        .batch-scheduler-time-option {
+            display: flex;
+
+            .time-value-option {
+                width: 80px;
+            }
+            .time-zone-option {
+                width: 220px;
+            }
+        }
+
+        &.batch-scheduler-folder-name-option {
+            width: 200px;
+        }
+
+        &.batch-scheduler-file-name-prefix-option {
+            width: 300px;
+        }
+
+        &.batch-frequency-options {
+
+            .batch-monthly-frequency-section {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

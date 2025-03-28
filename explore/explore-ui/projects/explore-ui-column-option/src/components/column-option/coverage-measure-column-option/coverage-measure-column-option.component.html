@@ -1,0 +1,33 @@
+<div>
+    <div class="measure-title--container">
+        <div>
+            <span>Measure</span>
+        </div>
+        <div>
+            <aux-button [label]="this.optionValue.column ? 'Edit Measure' : 'Select Measure'"
+                        [type]="'tertiary'"
+                        (click)="openMeasureSelectionModel()">
+            </aux-button>
+        </div>
+    </div>
+    <div>
+        <ng-container *ngIf="this.optionValue.column; else noMeasureSelected">
+            <span>{{this.optionValue.column.columnTitle}}</span>
+        </ng-container>
+        <ng-template #noMeasureSelected>
+            <span class="no-measure--text">No measure selected</span>
+        </ng-template>
+    </div>
+</div>
+
+<ng-container *ngIf="isMeasureSelectionModalOpen">
+    <explore-coverage-measure-selection [isOpen]="isMeasureSelectionModalOpen"
+                                        [widgetType]="widgetType"
+                                        [modalHeaderTitle]="'Coverage Measure'"
+                                        [columnMeasures]="optionValue?.column ? [optionValue.column] : []"
+                                        [restrictedColumnOptions]="modifiedRestrictedColumnOptions"
+                                        [isStringColumnNotSupported]="false"
+                                        [isSingleSelect]="true"
+                                        (modalClosed)="onMeasureSelected($event)">
+    </explore-coverage-measure-selection>
+</ng-container>

@@ -1,0 +1,32 @@
+.label-title {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.favorite-popover {
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.favorite-table {
+    margin: 16px 4px;
+
+    table {
+        text-align: left;
+        border-collapse: collapse;
+
+        tr th, td {
+            padding-left: 12px;
+            padding-right: 40px;
+        }
+        .first-child {
+            border-right: 1px solid;
+        }
+    }
+}
+
+.favorite-buttons-area {
+    vertical-align: top;
+    float: right;
+    display: inline-block;
+}

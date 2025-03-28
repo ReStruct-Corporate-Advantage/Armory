@@ -1,0 +1,485 @@
+{
+  "economyRiskSettings": {
+    "name": "Column",
+    "parentRiskSettings": {
+      "name": "Widget",
+      "parentRiskSettings": {
+        "name": "Portfolio",
+        "parentRiskSettings": {
+          "name": "Port Default",
+          "parentRiskSettings": {
+            "name": "Org Default",
+            "availableWeightingSchemes": [],
+            "availablePeriods": [
+              "6M",
+              "1Y",
+              "2Y",
+              "3Y",
+              "4Y",
+              "5Y",
+              "6Y",
+              "7Y",
+              "8Y",
+              "9Y",
+              "10Y",
+              "Other"
+            ],
+            "riskHorizons": [],
+            "_confidenceLevelSD": 1,
+            "_riskHorizon": 4,
+            "_weightingScheme": "DLY",
+            "_decayFactor": 0.982820599,
+            "_period": 252,
+            "_dateObject": {
+              "calCode": "GP_HK_STD",
+              "dateString": false,
+              "date": "03/11/2016"
+            }
+          },
+          "availableWeightingSchemes": [],
+          "availablePeriods": [
+            "6M",
+            "1Y",
+            "2Y",
+            "3Y",
+            "4Y",
+            "5Y",
+            "6Y",
+            "7Y",
+            "8Y",
+            "9Y",
+            "10Y",
+            "Other"
+          ],
+          "riskHorizons": [],
+          "_weightingScheme": "FMI"
+        },
+        "availableWeightingSchemes": [],
+        "availablePeriods": [
+          "6M",
+          "1Y",
+          "2Y",
+          "3Y",
+          "4Y",
+          "5Y",
+          "6Y",
+          "7Y",
+          "8Y",
+          "9Y",
+          "10Y",
+          "Other"
+        ],
+        "riskHorizons": [],
+        "_weightingScheme": "MTC"
+      },
+      "availableWeightingSchemes": [
+        {
+          "defaultDecay": 0.917,
+          "defaultPeriod": 104,
+          "label": "Weekly Short-Term Half-Life",
+          "halfLifeLabel": "weeks",
+          "isHalfLifeModifiable": false,
+          "isPeriodModifiable": true,
+          "toolTip": "Weekly Short-Term Half-Life",
+          "value": "WKS",
+          "isCustomScheme": false,
+          "displayName": "Weekly Short-Term Half-Life"
+        },
+        {
+          "defaultDecay": 0.982820599,
+          "defaultPeriod": 252,
+          "label": "Daily User-Defined Half-Life",
+          "halfLifeLabel": "days",
+          "isHalfLifeModifiable": true,
+          "isPeriodModifiable": true,
+          "toolTip": "Daily User-Defined Half-Life",
+          "value": "DLY",
+          "isCustomScheme": false,
+          "displayName": "Daily User-Defined Half-Life"
+        },
+        {
+          "defaultDecay": 0.9737,
+          "defaultPeriod": 104,
+          "label": "Weekly Long-Term Half-Life",
+          "halfLifeLabel": "weeks",
+          "isHalfLifeModifiable": false,
+          "isPeriodModifiable": true,
+          "toolTip": "Weekly Long-Term Half-Life",
+          "value": "WKL",
+          "isCustomScheme": false,
+          "displayName": "Weekly Long-Term Half-Life"
+        },
+        {
+          "defaultDecay": 1,
+          "defaultPeriod": 72,
+          "label": "Monthly Constant-Weighted",
+          "halfLifeLabel": "months",
+          "isHalfLifeModifiable": true,
+          "isPeriodModifiable": true,
+          "toolTip": "Monthly Constant-Weighted",
+          "value": "MTC",
+          "isCustomScheme": false,
+          "displayName": "Monthly Constant-Weighted"
+        },
+        {
+          "defaultDecay": 0.97,
+          "defaultPeriod": 252,
+          "label": "Market",
+          "halfLifeLabel": "days",
+          "isHalfLifeModifiable": true,
+          "isPeriodModifiable": true,
+          "toolTip": "Market",
+          "value": "MKT",
+          "isCustomScheme": false,
+          "displayName": "Market"
+        },
+        {
+          "defaultDecay": 0.980930088,
+          "defaultPeriod": 120,
+          "label": "Monthly User-Defined Half-Life",
+          "halfLifeLabel": "months",
+          "isHalfLifeModifiable": true,
+          "isPeriodModifiable": true,
+          "toolTip": "Monthly User-Defined Half-Life",
+          "value": "MTY",
+          "isCustomScheme": false,
+          "displayName": "Monthly User-Defined Half-Life"
+        },
+        {
+          "defaultDecay": 0.9867586943,
+          "defaultPeriod": 312,
+          "label": "Fermi",
+          "halfLifeLabel": "weeks",
+          "isHalfLifeModifiable": false,
+          "isPeriodModifiable": false,
+          "toolTip": "Fermi",
+          "value": "FMI",
+          "isCustomScheme": true,
+          "displayName": "Fermi"
+        }
+      ],
+      "availablePeriods": [
+        "6M",
+        "1Y",
+        "2Y",
+        "3Y",
+        "4Y",
+        "5Y",
+        "6Y",
+        "7Y",
+        "8Y",
+        "9Y",
+        "10Y",
+        "Other"
+      ],
+      "riskHorizons": [
+        {
+          "value": 1,
+          "text": "One Day"
+        },
+        {
+          "value": 5,
+          "text": "Two Days"
+        },
+        {
+          "value": 2,
+          "text": "One Week"
+        },
+        {
+          "value": 6,
+          "text": "Ten Days"
+        },
+        {
+          "value": 3,
+          "text": "One Month"
+        },
+        {
+          "value": 4,
+          "text": "One Year"
+        }
+      ],
+      "halfLifeInDays": null,
+      "halfLifeLabel": "months",
+      "isHalfLifeModifiable": true,
+      "isPeriodModifiable": true,
+      "confidenceLevelPercentage": 84
+    },
+    "availableWeightingSchemes": [
+      {
+        "defaultDecay": 0.917,
+        "defaultPeriod": 104,
+        "label": "Weekly Short-Term Half-Life",
+        "halfLifeLabel": "weeks",
+        "isHalfLifeModifiable": false,
+        "isPeriodModifiable": true,
+        "toolTip": "Weekly Short-Term Half-Life",
+        "value": "WKS",
+        "isCustomScheme": false,
+        "displayName": "Weekly Short-Term Half-Life"
+      },
+      {
+        "defaultDecay": 0.982820599,
+        "defaultPeriod": 252,
+        "label": "Daily User-Defined Half-Life",
+        "halfLifeLabel": "days",
+        "isHalfLifeModifiable": true,
+        "isPeriodModifiable": true,
+        "toolTip": "Daily User-Defined Half-Life",
+        "value": "DLY",
+        "isCustomScheme": false,
+        "displayName": "Daily User-Defined Half-Life"
+      },
+      {
+        "defaultDecay": 0.9737,
+        "defaultPeriod": 104,
+        "label": "Weekly Long-Term Half-Life",
+        "halfLifeLabel": "weeks",
+        "isHalfLifeModifiable": false,
+        "isPeriodModifiable": true,
+        "toolTip": "Weekly Long-Term Half-Life",
+        "value": "WKL",
+        "isCustomScheme": false,
+        "displayName": "Weekly Long-Term Half-Life"
+      },
+      {
+        "defaultDecay": 1,
+        "defaultPeriod": 72,
+        "label": "Monthly Constant-Weighted",
+        "halfLifeLabel": "months",
+        "isHalfLifeModifiable": true,
+        "isPeriodModifiable": true,
+        "toolTip": "Monthly Constant-Weighted",
+        "value": "MTC",
+        "isCustomScheme": false,
+        "displayName": "Monthly Constant-Weighted"
+      },
+      {
+        "defaultDecay": 0.97,
+        "defaultPeriod": 252,
+        "label": "Market",
+        "halfLifeLabel": "days",
+        "isHalfLifeModifiable": true,
+        "isPeriodModifiable": true,
+        "toolTip": "Market",
+        "value": "MKT",
+        "isCustomScheme": false,
+        "displayName": "Market"
+      },
+      {
+        "defaultDecay": 0.980930088,
+        "defaultPeriod": 120,
+        "label": "Monthly User-Defined Half-Life",
+        "halfLifeLabel": "months",
+        "isHalfLifeModifiable": true,
+        "isPeriodModifiable": true,
+        "toolTip": "Monthly User-Defined Half-Life",
+        "value": "MTY",
+        "isCustomScheme": false,
+        "displayName": "Monthly User-Defined Half-Life"
+      },
+      {
+        "defaultDecay": 0.9867586943,
+        "defaultPeriod": 312,
+        "label": "Fermi",
+        "halfLifeLabel": "weeks",
+        "isHalfLifeModifiable": false,
+        "isPeriodModifiable": false,
+        "toolTip": "Fermi",
+        "value": "FMI",
+        "isCustomScheme": true,
+        "displayName": "Fermi"
+      }
+    ],
+    "availablePeriods": [
+      "6M",
+      "1Y",
+      "2Y",
+      "3Y",
+      "4Y",
+      "5Y",
+      "6Y",
+      "7Y",
+      "8Y",
+      "9Y",
+      "10Y",
+      "Other"
+    ],
+    "riskHorizons": [],
+    "halfLifeInDays": 8,
+    "halfLifeLabel": "weeks",
+    "isHalfLifeModifiable": false,
+    "isPeriodModifiable": true,
+    "selectedPeriod": "2Y",
+    "confidenceLevelPercentage": 84,
+    "_dateObject": {
+      "calCode": "GP_HK_STD",
+      "dateString": false,
+      "date": "03/01/2016"
+    },
+    "dateObject": {
+      "calCode": "GP_HK_STD",
+      "dateString": false,
+      "date": "03/01/2016"
+    },
+    "_weightingScheme": "WKS",
+    "weightingScheme": "WKS",
+    "_riskHorizon": 2,
+    "riskHorizon": 2,
+    "_confidenceLevelSD": 0.84,
+    "confidenceLevelSD": 0.84
+  },
+  "exposureRiskSettings": {
+    "name": "Column",
+    "parentRiskSettings": {
+      "name": "Widget",
+      "parentRiskSettings": {
+        "name": "Portfolio",
+        "parentRiskSettings": {
+          "name": "Port Default",
+          "parentRiskSettings": {
+            "name": "Org Default",
+            "_riskModel": "P100"
+          },
+          "_riskModel": "^APWDA"
+        }
+      },
+      "riskModels": [
+        {
+          "value": "^APWDA",
+          "label": "GP Default (^APWDA)"
+        },
+        {
+          "value": "DEFAULT",
+          "label": "Organization Default"
+        },
+        {
+          "value": "^^STORM,^PRT_FI",
+          "label": "STORM for Equity"
+        },
+        {
+          "value": "^^STMNLT,^PRT_FI",
+          "label": "STORM (No Look Through)"
+        },
+        {
+          "value": "^NAMRA",
+          "label": "BFRE North America Equity"
+        },
+        {
+          "value": "^JAPNA",
+          "label": "BFRE Japan Equity"
+        },
+        {
+          "value": "^EMEAA",
+          "label": "BFRE Europe, Mid East & Africa"
+        },
+        {
+          "value": "^LATCA",
+          "label": "BFRE Latin America Equity"
+        },
+        {
+          "value": "^APXJA",
+          "label": "BFRE Asia Pacific Ex Japan"
+        },
+        {
+          "value": "^WRLDA",
+          "label": "BFRE World Equity"
+        },
+        {
+          "value": "^UKINA",
+          "label": "BFRE UK Equity"
+        },
+        {
+          "value": "^AUSTA",
+          "label": "BFRE Aust Equity"
+        },
+        {
+          "value": "^CANDA",
+          "label": "BFRE Canada Equity"
+        },
+        {
+          "value": "^USAMA",
+          "label": "BFRE US Equity"
+        },
+        {
+          "value": "^EMKTA",
+          "label": "BFRE EM Equity"
+        },
+        {
+          "value": "^NAMHA",
+          "label": "STORM 2.0 North America Equity"
+        },
+        {
+          "value": "^JAPHA",
+          "label": "STORM 2.0 Japan Equity"
+        },
+        {
+          "value": "^EMEHA",
+          "label": "STORM 2.0 Europe, Mid East & Africa"
+        },
+        {
+          "value": "^LATHA",
+          "label": "STORM 2.0 Latin America Equity"
+        },
+        {
+          "value": "^APXHA",
+          "label": "STORM 2.0 Asia Pacific Ex Japan"
+        },
+        {
+          "value": "^UKIHA",
+          "label": "STORM 2.0 UK Equity"
+        },
+        {
+          "value": "^AUSHA",
+          "label": "STORM 2.0 Aust Equity"
+        },
+        {
+          "value": "^CANHA",
+          "label": "STORM 2.0 Canada Equity"
+        },
+        {
+          "value": "^USAHA",
+          "label": "STORM 2.0 US Equity"
+        },
+        {
+          "value": "^EMKHA",
+          "label": "STORM 2.0 EM Equity"
+        },
+        {
+          "value": "^WRLHA",
+          "label": "STORM 2.0 World Equity"
+        },
+        {
+          "value": "^GEM3LB",
+          "label": "Barra Global Equity (GEM3)"
+        },
+        {
+          "value": "^GEM2_B",
+          "label": "Barra Global Equity (GEM2)"
+        }
+      ]
+    },
+    "_riskModel": "^^STORM,^PRT_FI",
+    "riskModel": "^^STORM,^PRT_FI"
+  },
+  "advancedRiskSettings": {
+    "name": "Column",
+    "parentRiskSettings": {
+      "name": "Widget",
+      "parentRiskSettings": {
+        "name": "Portfolio",
+        "parentRiskSettings": {
+          "name": "Port Default",
+          "parentRiskSettings": {
+            "name": "Org Default",
+            "_excludeBlock": ""
+          },
+          "_excludeBlock": null
+        }
+      }
+    }
+  },
+  "hvarRiskSettings": {
+    "name": "Column",
+    "includeTimeReturn": true
+  }
+}

@@ -1,0 +1,39 @@
+.combo-chart-column-settings {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    .col-settings-table-container {
+        flex: 1;
+        overflow: auto;
+        .col-settings-table {
+            border: 1px solid var(--dialog__border-color);
+            border-collapse: collapse;
+
+            th, td {
+                text-align: left;
+                vertical-align: top;
+                padding: .5rem
+            }
+
+            td {
+                padding: 1rem 1rem 1rem 0.5rem;
+            }
+
+            .col-title-header {
+                min-width: 20rem;
+            }
+
+            .col-scale-header {
+                min-width: 5rem;
+            }
+
+            .col-sec-axis-header {
+                min-width: 7rem;
+            }
+        }
+    }
+    .restore-default-button {
+        margin: .5rem 1rem;
+        align-items: flex-start;
+    }
+}

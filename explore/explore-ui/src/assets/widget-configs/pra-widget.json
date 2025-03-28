@@ -1,0 +1,279 @@
+{
+  "configType": "praWidget",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "The Factor-Based Analysis Widget displays factor exposures and a factor-based decomposition of portfolio risk.\n\nColumns like Standalone Risk, Risk Contribution, and Stress P&L can be included. The input and settings for these columns can be controlled at the widget level, or at the individual column level under the Risk Settings column options.",
+  "title": "Factor Based Analysis",
+  "image": ".\/assets\/images\/PRA.png",
+  "chartingLib": "agGrid",
+  "chartTransition": [
+    "praBar",
+    "praStackBar",
+    "praPie",
+    "praTimeSeries"
+  ],
+  "showOnlySingleColumn": false,
+  "showInSelector": true,
+  "showWidgetInfoIcon": true,
+  "hideTopBottomSectorToggle": true,
+  "restrictBreakdownToSingleLevel": false,
+  "canHaveMultipleOverrideDates": true,
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "riskColumnSettings",
+          "inputName": "riskColumnSettings",
+          "default": {
+            "columnSetSelected": {
+              "label": "Analytical VAR",
+              "value": "PRISM_VAR_COLS_AVAR"
+            },
+            "groupingTypeSelected": {
+              "label": "Factor",
+              "matchingRiskCategory": "BELONGS_TO_FACTOR_REPORT",
+              "value": "byFactor"
+            },
+            "disableSectorBreakdown": true,
+            "disableFactorBreakdown": false,
+            "isPortGroupSummaryRequest": false,
+            "showSecurities": false
+          },
+          "showFavorite": false
+        },
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "columnReports",
+              "value": [
+                "prism_var_factors",
+                "factor_attrib_dd",
+                "factor_attrib_resid",
+                "explore_ras"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": [
+                "FACTOR_ATTRIBUTES",
+                "custom_calc"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "=",
+              "key": "matchingRiskCategories",
+              "value": [
+                "BELONGS_TO_FACTOR_REPORT"
+              ]
+            }
+          ],
+          "default": [
+            {
+              "columnTag": "rfv_ftitle",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_ftitle"
+            },
+            {
+              "columnTag": "rfv_factor_type",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_factor_type_2"
+            },
+            {
+              "columnTag": "rfv_factor_lvl",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_factor_lvl_64"
+            },
+            {
+              "columnTag": "rfv_factor_vol",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_factor_vol_5"
+            },
+            {
+              "columnTag": "rfv_exp_port",
+              "positionColumnType": "PORT",
+              "columnKey": "rfv_exp_port_35"
+            },
+            {
+              "columnTag": "rfv_exp_bench",
+              "positionColumnType": "BENCH",
+              "columnKey": "rfv_exp_bench_756"
+            },
+            {
+              "columnTag": "rfv_exp_active",
+              "positionColumnType": "ACTIVE",
+              "columnKey": "rfv_exp_active_546"
+            },
+            {
+              "columnTag": "rfv_std_port",
+              "positionColumnType": "PORT",
+              "columnKey": "rfv_std_port_776"
+            },
+            {
+              "columnTag": "rfv_std_bench",
+              "positionColumnType": "BENCH",
+              "columnKey": "rfv_std_bench_5633"
+            },
+            {
+              "columnTag": "rfv_std_active",
+              "positionColumnType": "ACTIVE",
+              "columnKey": "rfv_std_active_63456"
+            },
+            {
+              "columnTag": "rfv_contrib_port",
+              "positionColumnType": "PORT",
+              "columnKey": "rfv_contrib_port_4"
+            },
+            {
+              "columnTag": "rfv_contrib_bench",
+              "positionColumnType": "BENCH",
+              "columnKey": "rfv_contrib_bench_674"
+            },
+            {
+              "columnTag": "rfv_contrib_active",
+              "positionColumnType": "ACTIVE",
+              "columnKey": "rfv_contrib_active_645"
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnTag": "rfv_block_path",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_block_path"
+            },
+            {
+              "columnTag": "rfv_ftitle",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_ftitle_hidden"
+            },
+            {
+              "columnTag": "rfv_ftitle_long",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_ftitle_long_hidden"
+            },
+            {
+              "columnTag": "rfv_factor_tag",
+              "positionColumnType": "ALL",
+              "columnKey": "rfv_factor_tag_hidden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "breakdown",
+      "categoryTitle": "Breakdown",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "$ref": "defaultBreakdown"
+        },
+        {
+          "$ref": "defaultFactorBreakdown"
+        }
+      ]
+    },
+    {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "topBottomFilter",
+          "inputName": "topBottomFilter",
+          "inputTitle": "Top/Bottom filtering",
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "minValFilter",
+          "inputName": "minValFilter",
+          "inputTitle": "Minimum value filtering",
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "riskSettings",
+      "categoryTitle": "Risk Settings",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "riskSettings",
+          "inputName": "riskSettings",
+          "otherNames": [
+            "widgetRiskSettings"
+          ],
+          "default": {}
+        }
+      ]
+    },
+    {
+      "categoryType": "performanceSettings",
+      "categoryTitle": "Performance Settings",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "performanceSettings",
+          "inputName": "performanceSettings",
+          "mandateSettingType": "ATTRIBUTION_TYPE",
+          "otherNames": [
+            "widgetPerformanceSettings"
+          ],
+          "default": {
+            "additionalSettings": {
+              "removeBMOnlyReturnBucket": false
+            },
+            "showAdditionalPerformanceSettings" : true,
+            "showAdditionalPerformanceSettingsAttributes": 8
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultExpandedState"
+    },
+    {
+      "$ref": "defaultSortedColumns"
+    },
+    {
+      "categoryType": "footnoteState",
+      "visible": false,
+      "inputs": [
+        {
+          "inputName": "footnoteState",
+          "inputConfigType": "footnoteState",
+          "default": [],
+          "oldProps": ["infoOpen"]
+        }
+      ]
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "columnBreakdown",
+      "aggregation",
+      "chartType",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "showAttributionSettings": false,
+  "showAdditionalPerformanceSettings": false
+}

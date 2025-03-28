@@ -1,0 +1,42 @@
+@import '../chart-settings.component';
+
+.decarbonization-chart-settings{
+    width: 650px;
+    .model-overview-link{
+        margin-top: -30px;
+    }
+    .section-header{
+        font-weight: bold;
+        margin-bottom: 6px;
+    }
+    .section{
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+    .margin-top__12{
+        margin-top: 12px;
+    }
+    .select-width__175{
+        width: 175px;
+    }
+    .select-width__500{
+        width: 500px;
+    }
+    .select-width__380{
+        width: 380px;
+    }
+    .display-flex{
+        display: flex;
+    }
+    .padding-top__35{
+        padding-top: 35px;
+    }
+    .reduction-input{
+        width: 100px;
+        padding-top: 5px;
+    }
+    .float-right{
+        float: right;
+    }
+}
+

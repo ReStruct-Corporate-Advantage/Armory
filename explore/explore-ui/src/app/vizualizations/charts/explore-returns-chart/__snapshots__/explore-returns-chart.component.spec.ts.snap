@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreReturnsChartComponent should format the tooltip points 1`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <tspan style='font-weight: bold'>Date:</tspan> 13-SEP-2022
+                    <br/><tspan style='font-weight: bold'>Benchmark Total Return Cumulative:</tspan> 6.962044
+                <div>"
+`;
+
+exports[`ExploreReturnsChartComponent should format the tooltip points 2`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <tspan style='font-weight: bold'>Date:</tspan> 10-SEP-2022
+                    <br/><tspan style='font-weight: bold'>Total Return Cumulative:</tspan> 5.6789
+                <div>"
+`;

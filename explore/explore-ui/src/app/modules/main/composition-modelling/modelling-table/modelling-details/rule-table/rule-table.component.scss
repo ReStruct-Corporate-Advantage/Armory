@@ -1,0 +1,13 @@
+.trade-table-head {
+    background: var(--grid__background-color-header);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.trade-table-cell {
+    color: var(--primary-text__color);
+    border-bottom: 1px solid var(--grid__border-color);
+    padding-left: 10px;
+    padding-right: 10px;
+}

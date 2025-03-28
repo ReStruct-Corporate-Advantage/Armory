@@ -1,0 +1,31 @@
+<div class="equity-column-options-container">
+    <!-- Add number of periods control. -->
+    <div *ngIf="periodsAttribute">
+        <aux-numeric-stepper (valueChanged)="onNumberOfPeriodsChanged($event)"
+                             [stepperValue]="optionValue.noOfPeriods"
+                             [label]="periodsAttributeLabel"
+                             [minValue]="1"
+                             [maxValue]="periodsAttribute.maximumPeriod">
+        </aux-numeric-stepper>
+    </div>
+
+    <!-- Add frequency dropdown. -->
+    <div class = "equity-option-select padding-top-24" *ngIf="frequencyAttribute">
+        <aux-select
+            [label]="frequencyAttributeLabel"
+            (selectionChanged)="setFrequencyAttribute($event)"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="displayDataForFrequencyAttribute">
+        </aux-select>
+    </div>
+
+    <!-- Add Measure Type Dropdown-->
+    <div class = "equity-option-select padding-top-24" *ngIf="measureTypeAttribute">
+        <aux-select
+            [label]="measureTypeAttribute.title"
+            (selectionChanged)="setMeasureTypeAttribute($event)"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="displayDataForMeasureTypeAttribute">
+        </aux-select>
+    </div>
+</div>

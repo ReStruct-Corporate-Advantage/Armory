@@ -1,0 +1,152 @@
+@use "sass:math";
+@function calculateRem($size) {
+    $remSize: math.div($size, 16px);
+    @return #{$remSize}rem;
+}
+
+.optimization {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .footer {
+        padding: 0.5rem;
+    }
+
+    .download-ros-request {
+        display: inline-block;
+        padding-right: 0.5rem
+    }
+
+    .download-ros-request-spinner-and-icon {
+        float: right;
+    }
+
+    .loading-icon {
+        display: inline-block;
+        padding-right: 0.5rem;
+    }
+
+    .footer-notification {
+        padding: 0 0.5rem 0.5rem;
+    }
+
+    .footer-buttons-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-buttons {
+        display: flex;
+    }
+
+    .footer-buttons-right {
+        padding-right: 0.5rem;
+        float: right;
+    }
+
+    .footer-button-item {
+        padding-left: 0.5rem;
+    }
+
+    .reset-button {
+        padding-top: 2.5px;
+    }
+}
+
+.timeout-stepper {
+    padding: 2% 0 2% 5%;
+    margin-left: 7%;
+    display: flex
+}
+
+.timeout-buttons {
+    padding-right: 5%;
+    float: right;
+}
+
+.footer-buttons-new {
+    padding-bottom: 5%;
+}
+
+.advanced-risk-setting-button {
+    padding-left: 5%;
+    float: left;
+}
+
+.container-spacing {
+    padding: 16px 0 0 0;
+
+    .radio-button-spacing {
+        padding-bottom: 12px;
+        padding-top: 5px;
+    }
+
+    .help-button-spacing {
+        padding-left: 1%;
+    }
+}
+.params-header {
+    padding: 0 1rem;
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.75rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}
+
+.opto-params-title {
+    padding-right: 1rem;
+}
+
+a {
+    color: var(--input-box__background-color);
+    background-color: var(--primary-link__color);
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 100%;
+    font-size: 10px;
+    text-align: center;
+}
+
+.section-separator {
+    margin: 0;
+    color: var(--option-group__border-color);
+}
+
+.tooltip-spacing {
+    padding-left: 0%;
+}
+
+.riskParityOptions {
+    padding-top: 10px;
+    display: flex;
+}
+
+.custom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.display-flex {
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+.popover-container {
+    width: calculateRem(300px);
+    white-space: pre-line;
+}
+
+.accordions-and-footer-buttons {
+    justify-content: space-between;
+}

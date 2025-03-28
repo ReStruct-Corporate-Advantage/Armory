@@ -1,0 +1,124 @@
+{
+  "footerDetails": {
+    "PUBLISH_TIME": 0
+  },
+  "data": {
+    "data": [
+      "MUOPF",
+      -0.00010025517267195491,
+      0.0000821850258883041,
+      -0.00018244019856025902,
+      -0.00010025517267195491,
+      0.0000821850258883041,
+      -0.00018244019856025902
+    ],
+    "children": [
+      {
+        "data": [
+          "01-SEP-2018",
+          -2.2469464374214665e-16,
+          -4.730277378927258e-17,
+          -1.7739186995287406e-16,
+          -2.2469464374214665e-16,
+          -4.730277378927258e-17,
+          -1.7739186995287406e-16
+        ],
+        "rowId": 2
+      },
+      {
+        "data": [
+          "02-SEP-2018",
+          0,
+          5.329070518200751e-17,
+          -5.329070518200751e-17,
+          -2.2469464374214665e-16,
+          5.987931392734929e-18,
+          -2.3068257513488157e-16
+        ],
+        "rowId": 3
+      },
+      {
+        "data": [
+          "03-SEP-2018",
+          0.0003259801270599638,
+          0.00004109251294414906,
+          0.00028488761411581473,
+          0.00032598012705973905,
+          0.00004109251294415505,
+          0.000284887614115584
+        ],
+        "rowId": 4
+      },
+      {
+        "data": [
+          "04-SEP-2018",
+          -0.0004260964007728304,
+          0.00004109082441891473,
+          -0.0004671872251917451,
+          -0.00010025517267195491,
+          0.0000821850258883041,
+          -0.00018244019856025902
+        ],
+        "rowId": 5
+      }
+    ],
+    "rowId": 1
+  },
+  "columnHeaderDetails": {
+    "columnKeyToTagMap": {
+      "date": "date",
+      "total_ret_cumulative": "total_ret",
+      "total_ret": "total_ret",
+      "bench_total_ret": "bench_total_ret",
+      "active_total_ret": "active_total_ret",
+      "active_total_ret_cumulative": "active_total_ret",
+      "bench_total_ret_cumulative": "bench_total_ret"
+    },
+    "possibleColumnGroups": [
+      {
+        "groupName": "Total Return",
+        "columnKeyToChildHeaderMap": {
+          "bench_total_ret": "Benchmark",
+          "total_ret": "Portfolio",
+          "active_total_ret": "Active"
+        },
+        "columnKeys": [
+          "bench_total_ret",
+          "total_ret",
+          "active_total_ret"
+        ]
+      },
+      {
+        "groupName": "Total Return Cumulative",
+        "columnKeyToChildHeaderMap": {
+          "total_ret_cumulative": "Portfolio",
+          "active_total_ret_cumulative": "Active",
+          "bench_total_ret_cumulative": "Benchmark"
+        },
+        "columnKeys": [
+          "active_total_ret_cumulative",
+          "total_ret_cumulative",
+          "bench_total_ret_cumulative"
+        ]
+      }
+    ],
+    "columnKeyToDisplayNameMap": {
+      "date": "Date",
+      "total_ret_cumulative": "Total Return Cumulative",
+      "total_ret": "Total Return",
+      "bench_total_ret": "Benchmark Total Return",
+      "active_total_ret": "Active Total Return",
+      "active_total_ret_cumulative": "Active Total Return Cumulative",
+      "bench_total_ret_cumulative": "Benchmark Total Return Cumulative"
+    }
+  },
+  "columns": [
+    "date",
+    "total_ret",
+    "bench_total_ret",
+    "active_total_ret",
+    "total_ret_cumulative",
+    "bench_total_ret_cumulative",
+    "active_total_ret_cumulative"
+  ]
+}

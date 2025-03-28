@@ -1,0 +1,45 @@
+<!--time Period Settings-->
+<div *ngIf="timePeriodAttribute">
+    <span class="text-font">Time period settings</span>
+    <div class="padding-top-12">
+        <explore-core-time-period-settings
+            [timePeriod]="timePeriod"
+            sourceNameSupported="true"
+            [defaultTimePeriod]="optionValue.parentPerformanceSettings.timePeriod"
+            (resetTimePeriod)="resetTimePeriod()"
+            (timePeriodChange)="onTimePeriodChange($event)"></explore-core-time-period-settings>
+    </div>
+</div>
+<!-- Attribution Settings -->
+<div *ngIf="excessSettingsAttribute" [ngClass]="{'padding-top-24' : !!timePeriodAttribute}">
+    <span class="text-font">Attribution settings</span>
+    <div class="padding-top-12">
+        <explore-core-attribution-settings [attributionSettings]="optionValue.attributionSettings"
+                                  [showExposureMode]=false
+                                  [showOtherSettings]="!!attributionSettingsAttribute">
+        </explore-core-attribution-settings>
+    </div>
+</div>
+<!-- As Reported -->
+<div *ngIf="asReportedAttribute" [ngClass]="{'padding-top-24' : !!excessSettingsAttribute || !!timePeriodAttribute}">
+    <span class="text-font">Additional settings</span>
+    <div class="padding-top-12">
+        <aux-checkbox label="As reported" [isChecked]="optionValue.additionalSettings && !!optionValue.additionalSettings.asReported"
+                      (checkboxChanged)="setAsReportedAttribute($event)">
+        </aux-checkbox>
+    </div>
+</div>
+<!-- Custom pivot point -->
+<div *ngIf="customPivotPointAttribute"
+     [ngClass]="{'padding-top-24' : !!asReportedAttribute || !!excessSettingsAttribute || !!timePeriodAttribute}">
+    <aux-select [data]="availableCustomPivotPoints"
+                label="Key rate for duration return"
+                (selectionChanged)="setCustomPivot($event)">
+    </aux-select>
+</div>
+
+<!--Gross vs Net Returns-->
+<div *ngIf="isNetGrossReturnsEnabled && netReturnsAttribute"
+     [ngClass]="{'padding-top-24' : !!asReportedAttribute || !!excessSettingsAttribute || !!timePeriodAttribute || !!customPivotPointAttribute}">
+    <aux-radio-group label="Return type" [data]="returnTypeDisplayOptions" (radioGroupChanged)="updateNetReturn()"></aux-radio-group>
+</div>

@@ -1,0 +1,43 @@
+.favorite-details-container {
+    // allows for overflow into ellipsis
+    // <explore-core-favorite-details-header /> must have css style, min-width: 0, for this to work
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
+}
+
+.favorite-icon {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 0.5rem;
+}
+
+.favorite-title {
+    vertical-align: middle;
+}
+
+.favorite-author {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--value-pair__pipe-color)
+}
+
+.favorite-author__label {
+    color: var(--secondary-text__color);
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.favorite-popover-container {
+    width: 100%;
+    position: relative;
+}
+
+.popover-target {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+}

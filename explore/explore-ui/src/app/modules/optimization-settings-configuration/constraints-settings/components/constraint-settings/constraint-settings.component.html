@@ -1,0 +1,65 @@
+<div class="constraint-settings" *ngIf="constraintMeasures?.length > 0">
+    <div class="constraints-panel-wrapper" >
+        <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3 constraints-panel-column">
+            <div class="constraints-title">
+                <aux-text>Constraint measures</aux-text>
+            </div>
+            <div class="column-measures">
+                <aux-advanced-tree-list #columnSelector [data]="constraintMeasures" hasDoubleClick="true"
+                    hasSearch="true" hasBorder="true" allowMultipleSelection="false"
+                    (itemDoubleClicked)="onDoubleClicked($event)">
+                </aux-advanced-tree-list>
+            </div>
+        </div>
+        <div class="constraint-card aux-g32--xs-9 aux-g32--sm-9 aux-g32--md-9 aux-g32--lg-9 aux-g32--xl-9">
+            <aux-card>
+                <div class="constraints-panel-row">
+                    <ng-container *ngIf="constraints.length > 0">
+                        <div class="constraints-table">
+                            <div class="constraints-title">
+                                <aux-text><b>Selected constraint measures</b></aux-text>
+                            </div>
+                            <app-horizontal-display-form [cols]="summary.columns" [rows]="rows"
+                                                         [selectedIndex]="selectedConstraintIndex"
+                                                         (enabled)="onEnabled($event)"
+                                                         (updated)="onTableUpdated($event)"
+                                                         (deleted)="onDeleted($event)"
+                                                         (selected)="onSelected($event)"
+                                                         (cloned)="onCloned($event)">
+                            </app-horizontal-display-form>
+                        </div>
+                    </ng-container>
+                    <ng-template #showProgressIndicator>
+                        <app-loading-spinner size="medium" id="constraintOptionsSpinner"></app-loading-spinner>
+                    </ng-template>
+                    <div class="constraints-panel-options">
+                        <ng-container *ngIf="!loadingConstraintOptions; else showProgressIndicator">
+                            <ng-container *ngIf="selectedConstraint">
+                                <div>
+                                    <div class="constraints-title">
+                                        <aux-text><b>{{ selectedConstraint.title }} options</b></aux-text>
+                                    </div>
+                                    <app-constraint-options [constraint]="selectedConstraint"
+                                                            [parentConfig]="parentConfig"
+                                                            (updated)="onOptionsUpdated()">
+                                    </app-constraint-options>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+                </div>
+            </aux-card>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="constraintMeasures?.length === 0">
+    <div class="constraint-settings">
+        <app-horizontal-display-form [cols]="summary.columns" [rows]="rows" [selectedIndex]="selectedConstraintIndex"
+                                     (enabled)="onEnabled($event)"
+                                     (updated)="onTableUpdated($event)" (deleted)="onDeleted($event)"
+                                     (selected)="onSelected($event)"
+                                     (cloned)="onCloned($event)">
+        </app-horizontal-display-form>
+    </div>
+</ng-container>

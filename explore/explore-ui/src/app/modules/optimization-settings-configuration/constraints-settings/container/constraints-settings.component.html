@@ -1,0 +1,13 @@
+<div class="tab-container">
+    <aux-tab-bar tabType="modern"
+                 [data]="settingsTabData"
+                 [activeUid]="activeIndex.toString()"
+                 (tabBarItemSelected)="onTabSelected($event)">
+    </aux-tab-bar>
+    <div class="tab-content">
+        <app-constraint-settings [summary]="summariesWithValues[activeIndex]?.summary"
+                                 [constraints]="constraintsData"
+                                 [parentConfig]="parentConfig" [(isClearSelection)]="clearSelection">
+        </app-constraint-settings>
+    </div>
+</div>

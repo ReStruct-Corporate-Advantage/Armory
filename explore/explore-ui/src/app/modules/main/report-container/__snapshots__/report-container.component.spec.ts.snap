@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportContainerComponent New Report Modal Tests should display the new report modal when isNewReportModalOpen is true 1`] = `<app-new-report />`;
+
+exports[`ReportContainerComponent onInit Test should NOT show report-presenter in DOM if currentReport doesn\`t have a widget 1`] = `
+<app-report-bar
+  title="Report 1"
+/>
+`;
+
+exports[`ReportContainerComponent onInit Test should NOT show report-presenter in DOM if currentReport doesn\`t have a widget 2`] = `<app-report-presenter />`;
+
+exports[`ReportContainerComponent onInit Test should show report-bar in AND report-presenter in the DOM if currentReport has widget 1`] = `
+<app-report-bar
+  title="Report 1"
+/>
+`;
+
+exports[`ReportContainerComponent onInit Test should show report-bar in AND report-presenter in the DOM if currentReport has widget 2`] = `<app-report-presenter />`;
+
+exports[`ReportContainerComponent onTabEdited Test should update report title and show report-bar with title, "Edited Report name", AND report-presenter in the DOM 1`] = `
+<app-report-bar
+  title="Edited Report Name"
+/>
+`;
+
+exports[`ReportContainerComponent onTabEdited Test should update report title and show report-bar with title, "Edited Report name", AND report-presenter in the DOM 2`] = `<app-report-presenter />`;
+
+exports[`ReportContainerComponent onTabSelected Test should updateCurrentReport and show show report-bar with title, "Report 2", in AND report-presenter in the DOM 1`] = `
+<app-report-bar
+  title="Report 2"
+/>
+`;
+
+exports[`ReportContainerComponent onTabSelected Test should updateCurrentReport and show show report-bar with title, "Report 2", in AND report-presenter in the DOM 2`] = `<app-report-presenter />`;

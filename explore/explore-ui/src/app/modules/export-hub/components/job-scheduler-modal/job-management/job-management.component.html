@@ -1,0 +1,35 @@
+<div class="export-hub-job-tables">
+    <div class="filter-section">
+        <aux-quick-filter-bar
+            [data]="quickFilterBarData"
+            (filterBarChanged)="this.filterDataChangedHandler($event)">
+        </aux-quick-filter-bar>
+        <aux-button icon="refresh" [type]="AuxButtonTypeEnum.TERTIARY" label="Refresh Jobs"
+                    (click)="refreshJobs()"></aux-button>
+    </div>
+    <div class="active-jobs-table-section">
+        <app-job-table [scheduledJobs]="filteredActiveScheduledJobs"
+                       [isActiveJobsTable]="true"
+                       (updateFilterOnDeletion)="updateFilterBarDataOnDelete($event)"></app-job-table>
+    </div>
+    <div class="inactive-jobs-card-section">
+        <aux-card
+            header="left"
+            [borderPadding]="'16'"
+            [hasBorder]="true"
+            [isVerticallyExpanded]="false"
+            [type]="AuxCardType.COLLAPSE_VERTICAL"
+        >
+            <div slot="left">
+                <span class="aux-p13 aux-bold">Inactive Jobs</span>
+            </div>
+            <div slot="content">
+                <div style="padding-top: 16px">
+                    <app-job-table [scheduledJobs]="inactiveJobs" [isActiveJobsTable]="false"></app-job-table>
+                </div>
+            </div>
+        </aux-card>
+    </div>
+</div>
+
+

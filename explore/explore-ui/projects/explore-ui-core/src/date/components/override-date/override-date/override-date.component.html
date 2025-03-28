@@ -1,0 +1,18 @@
+<div class="override-date-settings" [ngClass]="{'padding-top-24' : canHaveMultipleOverrideDates}">
+    <ng-container *ngIf="!isFBAPieChart">
+        <div class="override-checkbox">
+            <aux-checkbox-group label="Select"
+                                [isStacked]="true"
+                                [data]="availableOverrideDates"
+                                [hasSelectAll]="false"
+                                (checkboxGroupChanged)="onOverrideDateOptionGroupChanged($event)">
+            </aux-checkbox-group>
+        </div>
+    </ng-container>
+    <div class="override-date-picker">
+        <explore-core-date-picker [isDisabled]="isDatePickerDisabled()"
+                         [dateObject]="customOverrideDate"
+                         (dateChange)="setCustomOverrideDate($event)">
+        </explore-core-date-picker>
+    </div>
+</div>

@@ -1,0 +1,141 @@
+.tab-bar-content--separator {
+    border-top: 1px solid var(--tab__border-color);
+    margin-top: -1px;
+}
+
+.tab-container {
+    box-sizing: border-box;
+    border: 1px solid #DBDDE1;
+    min-height: 25vh;
+
+    .container-padding {
+        padding: 16px;
+
+        .checkbox-padding {
+            padding-top: 10px
+        }
+
+        .container-width {
+            width: 50%;
+        }
+
+        .center-panel {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .picklist-container {
+            display: flex;
+            height: 200px;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        .total-return-formula {
+            height: 32px;
+            width: 486px;
+            background: var(--default__background-color);
+
+            .total-return-holding {
+                padding: 8px 16px 8px 16px;
+            }
+        }
+    }
+}
+
+.info-link {
+    padding-bottom: 10px;
+}
+
+.other-settings-padding {
+    margin-top: 16px;
+    width: 100%;
+}
+
+.weight-block-settings {
+    width: calc(50% - 8px);
+}
+
+.reset-button {
+    float: right;
+    padding-right: 16px;
+    text-align: right;
+}
+
+.source-styl {
+    margin-top: 3px;
+    color: var(--secondary-text__color);
+    min-width: 125px;
+}
+
+.aux-select-line-item {
+    min-width: 250px;
+    width: 58%;
+    margin-top: 8px;
+}
+
+.available-attribution-method {
+    padding-bottom: 20px;
+}
+
+.text-font {
+    font-weight: bold;
+}
+
+.text-info {
+    color: dimgrey;
+    margin-bottom: 16px;
+    margin-right: 16px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.flex-container-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.additional-settings {
+    width: 80%;
+}
+
+.excess-return-text {
+    margin: 16px 0;
+}
+
+.margin-left-0 {
+    margin-left: 0;
+}
+
+.margin-right-0 {
+    margin-right: 0;
+}
+
+.weight-end-border {
+    height: 2px;
+    margin-top: 16px;
+    width: 100%;
+    border: 0;
+    background-color: var(--option-group__border-color);
+}
+
+.margin-right-16 {
+    margin-right: 16px;
+}
+
+.additional-settings-layout {
+    display: flex;
+    align-items: center;
+}
+
+.attrib-popover-container {
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,31 @@
+<div class="item-container">
+    <div class="item" *ngIf="!(showSpinner$ | async)">
+        <div class="label-start-end">Start Date - End Date</div>
+        <explore-core-date-range-picker [fromDate]="this.scenario.dateScenario.fromDate"
+                                        [toDate]="this.scenario.dateScenario.toDate"
+                                        [minDate]="minDate">
+        </explore-core-date-range-picker>
+    </div>
+
+    <div class="item holding-period-field">
+        <aux-input-mask [label]="'Holding period override'"
+                        [suffixLabel]="'Days'"
+                        [value]="scenario.dateScenario.holdingPeriodOverride"
+                        [type]="'number'"
+                        [size]="'regular'"
+                        [textAlign]="'left'"
+                        [isValid]="true"
+                        [validator]="validator"
+                        (rawValueChanged)="onHoldingPeriodOverrideChanged($event.detail.value)">
+        </aux-input-mask>
+    </div>
+
+    <div class="item-last">
+        <explore-extended-column-option-dxs-factor-unit [shockScenario]="scenario.dateScenario">
+        </explore-extended-column-option-dxs-factor-unit>
+    </div>
+
+
+</div>
+
+

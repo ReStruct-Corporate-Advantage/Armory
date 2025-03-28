@@ -1,0 +1,4 @@
+<div>
+    <app-pdf-export-options *ngIf="isPDFExportConfig" [exportConfig]="exportConfig" [horizontalView]="horizontalView"></app-pdf-export-options>
+    <app-excel-export-options *ngIf="isExcelExportConfig" [exportConfig]="exportConfig" [horizontalView]="horizontalView" [exportComposite]="exportComposite"></app-excel-export-options>
+</div>

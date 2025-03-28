@@ -1,0 +1,52 @@
+<aux-modal [isOpen]='isOpen' [type]="'action'" [header]="'Semantic Search (In Testing)'" [hasCustomFooter]="true">
+    <div slot='content' class='aux-g32--cw-8 content-container'>
+        <div class='column-search-container'>
+            <div class='column-search-type'>
+                <aux-select
+                    label='Widget Type'
+                    [hasInitialOptionPlaceholder]='false'
+                    [data]='widgetTypeOptions'
+                    (selectionChanged)='onWidgetTypeSelectionChanged($event)'>
+                </aux-select>
+                <div class='column-search-rows'>
+                    <aux-select
+                        label='Search Type'
+                        [hasInitialOptionPlaceholder]='false'
+                        [data]='searchTypeOptions'
+                        (selectionChanged)='onSearchTypeSelectionChanged($event)'>
+                    </aux-select>
+                </div>
+                <div class='column-search-rows'>
+                    <aux-numeric-stepper label='Rows'
+                                         [stepperValue]='rows'
+                                         maxValue='1000'
+                                         minValue='1'
+                                         (valueChanged)='onRowCountChanged($event)'>
+                    </aux-numeric-stepper>
+                </div>
+                <div class='column-search-box'>
+                    <aux-search-field
+                        placeholder='Search for column'
+                        (searchValueChanged)='onSearchValueChanged($event)'>
+                    </aux-search-field>
+                </div>
+            </div>
+            <div class='column-search-time'>
+                <div class='time-and-count'><span>Time Taken: {{ this.timeTakenForSearch }} ms</span></div>
+                <div class='time-and-count'><span style='padding-left: 50px'>Count: {{ this.noOfColumns }}</span></div>
+                <div class='like-dislike'>
+                    <div class='like-icon'><aux-icon type="like" state="primary" [isDisabled]="!this.isLikeDislikeEnabled" (click)="onLikeDislikeBtnClicked(true)"></aux-icon></div>
+                    <div class='like-icon'><aux-icon type="thumbs-down" state="primary" [isDisabled]="!this.isLikeDislikeEnabled" (click)="onLikeDislikeBtnClicked(false)"></aux-icon></div>
+                </div>
+            </div>
+            <div class='column-search-results'>
+                <aux-grid
+                    [gridOptions]='gridOptions'>
+                </aux-grid>
+            </div>
+        </div>
+    </div>
+    <div slot='custom-footer' class='custom-footer-container--one-button'>
+        <aux-button [label]='CLOSE_TEXT' type='secondary' (click)='closeModal()'></aux-button>
+    </div>
+</aux-modal>

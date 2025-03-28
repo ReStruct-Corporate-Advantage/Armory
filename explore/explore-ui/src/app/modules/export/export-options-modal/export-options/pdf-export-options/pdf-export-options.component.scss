@@ -1,0 +1,106 @@
+.pdf-export-options-horizontal-view {
+    display: flex;
+}
+
+.margin-zero {
+    margin: 0;
+}
+
+.setting-container {
+    margin-top: 24px;
+}
+
+.column1 {
+    padding-right: 35px;
+}
+
+.column2 {
+    padding-right: 35px;
+}
+
+.horizontal-view-column {
+    margin: 0 auto;
+}
+
+.horizontal-option {
+    width: 100%;
+}
+
+.horizontal-page-margin {
+    max-width: 180px;
+}
+
+.horizontal-page-margin-options {
+    flex-wrap: nowrap;
+}
+
+.page-layout-select {
+    min-width: 140px;
+}
+
+.custom-margin {
+    display: block;
+    margin-left: 20px;
+    padding-bottom: 8px;
+    padding-top: 24px;
+    width: 80px;
+}
+
+.custom-level-depth {
+    padding-top: 8px;
+}
+
+.append-timestamp-container {
+    margin-top: 24px;
+    margin-bottom: 32px;
+    padding-right: 35px;
+}
+
+.awc-timestamp-container {
+    height: 44px;
+
+    .export-options-append-filename-warning {
+        margin-top: 8px;
+        display: flex;
+
+        .filename-warning-icon {
+            margin-right: 8px;
+        }
+    }
+}
+
+.pdf-export-options-section-1 {
+    margin-top: 24px;
+}
+
+.radio-group-space {
+    margin-top: 8px;
+}
+
+.marginleft-zero{
+    margin-left: 0px;
+}
+
+.logo-present {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.upload-logo {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.logo-preview {
+    margin-top: 15px;
+    margin-bottom: 32px;
+}
+
+.show-preview {
+    margin-top: 24px;
+    margin-bottom: 20px;
+}
+
+.logo-settings {
+    margin-bottom: 10px;
+}

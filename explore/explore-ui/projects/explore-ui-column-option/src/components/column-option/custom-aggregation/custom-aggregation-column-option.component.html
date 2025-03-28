@@ -1,0 +1,80 @@
+<div class="custom-aggregation-column-option-container">
+    <div>
+        <div class="aux-select__label-container custom-aggregation-label-container">
+            <div class="aux-select__label custom-label"><label>{{customAggregationListAttribute.title}}</label></div>
+            <div class="aux-select__label custom-label-nowrap">
+              <aux-button 
+                [label]="SCENARIO_HELPER_TEXT"
+                [type]="AuxButtonTypeEnum.TERTIARY"
+                (click)="openScenariosDocumentationLink()"
+              ></aux-button>
+            </div>
+          </div>
+        <aux-select
+            (selectionChanged)="onCustomAggregationChange($event)"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="displayDataForCustomAggregationList">
+        </aux-select>
+    </div>
+    <div *ngIf="minValueAttribute && !isNoneSubtotallerSelected()" class="padding-top-20">
+        <hr class="section-separator"/>
+    </div>
+    <div *ngIf="minValueAttribute && !isNoneSubtotallerSelected()" class="padding-top-20">
+        <div class="aux-p13 aux-bold min-max-label">
+            Min/max limits
+        </div>
+        <div class="padding-top-12 min-max-wrapper">
+            <div class="min-value-class">
+                <aux-numeric-stepper (valueChanged)="onMinAggValueChanged($event)"
+                                     [stepperValue]="optionValue.minAggValue"
+                                     [label]="minValueAttribute.title">
+                </aux-numeric-stepper>
+            </div>
+            <div class="max-value-class">
+                <aux-numeric-stepper (valueChanged)="onMaxAggValueChanged($event)"
+                                     [stepperValue]="optionValue.maxAggValue"
+                                     [label]="maxValueAttribute.title">
+                </aux-numeric-stepper>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="excludeOrCapAttribute && !isNoneSubtotallerSelected()" class="padding-top-20">
+        <aux-radio-group
+            label="Method"
+            [isStacked]="true"
+            [data]="excludeCapOptions"
+            (radioGroupChanged)="onExcludeCapRadioGroupChanged($event.detail.value)">
+        </aux-radio-group>
+    </div>
+    <div *ngIf="minValueAttribute && !isNoneSubtotallerSelected()" class="padding-top-20">
+        <hr class="section-separator"/>
+    </div>
+    <div *ngIf="weightTypeAttribute && !isNoneSubtotallerSelected()" class=" padding-top-20">
+        <aux-select
+            [label]="weightTypeAttribute.title"
+            (selectionChanged)="onWeightTypeChange($event)"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="displayDataForWeightType">
+        </aux-select>
+    </div>
+
+    <div *ngIf="colWeightTypeAttribute && enableColumnWeight()" class=" padding-top-20">
+        <aux-select
+            [label]="colWeightTypeAttribute.title"
+            (selectionChanged)="onColWeightTypeChange($event)"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="displayDataForColWeightType">
+        </aux-select>
+    </div>
+
+    <div *ngIf="weightTypeAttribute && enableColumnWeight()" class=" padding-top-20">
+        <hr class="section-separator"/>
+        <div class=" padding-top-20">
+            <aux-checkbox
+                label="Exclude null values"
+                [isChecked]="this.optionValue.excludeNullValues"
+                (checkboxChanged)="onExcludeNullValuesChange($event)">
+            </aux-checkbox>
+        </div>
+    </div>
+</div>

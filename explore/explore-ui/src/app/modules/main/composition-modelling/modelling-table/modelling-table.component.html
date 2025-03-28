@@ -1,0 +1,142 @@
+<div class="modelling-table">
+    <div class="modelling-table-option-header">
+        <div class="header-div">
+            <label class="header-label">What-if {{modellingLabel}}</label>
+            <div class="header-menu-nav">
+                <div *ngIf="selectedTableOption != null && selectedTableOption !== ModellingTableOption.OPTIMIZATION">
+                    <aux-menu-nav [icon]="'actionarrow-back'" (click)="resetModellingTableOption()"></aux-menu-nav>
+                </div>
+                <div class="pipe-separator" *ngIf="selectedTableOption == ModellingTableOption.DETAILS || selectedTableOption == ModellingTableOption.CASH_OPTION || selectedTableOption == ModellingTableOption.ADD_SECURITY_OPTION"
+                     style="padding: 0 5px 0 3px">|
+                </div>
+                <div *ngIf="showTableConfigOption">
+                    <aux-menu-nav [icon]="!showTableConfiguration ? 'settings' : 'icon-detail'"
+                                  (click)="toggleTableConfiguration()">
+                    </aux-menu-nav>
+                </div>
+                <div class="pipe-separator" *ngIf="showTableConfigOption" style="padding: 0 3px 0 3px">|</div>
+                <div>
+                    <aux-menu-nav [icon]="!expandModellingContainer ? 'widget-maximize' : 'widget-minimize'"
+                                  (click)="toggleExpansion()">
+                    </aux-menu-nav>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="selectedTableOption == null">
+            <div class="modelling-table-option-div aux-layout_wrapper-16">
+                <div class="left modelling-table-option" *ngIf="(portfolio.modellingType !== ModellingType.EXPOSURE)">
+                    <aux-button label="View Details" type="tertiary" [size]="'small'"
+                                (click)="setModellingTableOption(ModellingTableOption.DETAILS)"></aux-button>
+                    <div *ngIf="(portfolio.modellingType == 1 || portfolio.modellingType == 2) && !portfolio['adhocParams']" class="option-padding pipe-separator">|</div>
+                    <div *ngIf="(portfolio.modellingType == 1 || portfolio.modellingType == 2) && !portfolio['adhocParams']">
+                        <aux-button label="Add Cash" type="tertiary" [size]="'small'"
+                                    (click)="setModellingTableOption(ModellingTableOption.CASH_OPTION)"></aux-button>
+                    </div>
+                    <div *ngIf="portfolio.modellingType != 0" class="option-padding pipe-separator">|</div>
+                    <div *ngIf="portfolio.modellingType != 0">
+                        <aux-button [label]="portfolio.modellingType == 2 ? 'Add Portfolios': 'Add Securities'"
+                                    type="tertiary" [size]="'small'"
+                                    (click)="setModellingTableOption(ModellingTableOption.ADD_SECURITY_OPTION)"></aux-button>
+                    </div>
+                    <div *ngIf="portfolio.modellingType == 1 && isOptimizationEnabled"
+                         class="option-padding pipe-separator">|
+                    </div>
+                    <div *ngIf="portfolio.modellingType == 1 && isOptimizationEnabled">
+                        <aux-button label="Optimize Model" type="tertiary" [size]="'small'"
+                                    (click)="setModellingTableOption(ModellingTableOption.OPTIMIZATION)">
+                        </aux-button>
+                    </div>
+                </div>
+                <div class="reset-button">
+                    <app-reset-composition [disableResetButton]="disableResetButton"
+                                           (resetComposition)="resetButton()">
+                    </app-reset-composition>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="this.selectedTableOption === ModellingTableOption.CASH_OPTION">
+            <ng-container *ngIf="portfolio.modellingType !== ModellingType.SECTOR && !portfolio['adhocParams']; else showEmptyAddCashDiv">
+                <app-add-cash
+                    [portfolio]="portfolio"
+                    [disableProRataOption]="disableProRataOption"
+                (showCompositionTable)="showCompositionTableCallback($event)"></app-add-cash>
+            </ng-container>
+            <ng-template #showEmptyAddCashDiv>
+                <div style="padding-top: 1.5rem"></div>
+            </ng-template>
+        </ng-container>
+        <ng-container *ngIf="this.selectedTableOption === ModellingTableOption.ADD_SECURITY_OPTION">
+            <ng-container *ngIf="portfolio.modellingType !== ModellingType.SECTOR; else showEmptyAddSecurityDiv">
+                <div [ngClass]="{'search-with-grid': selectedSecurities?.size>0 && !showUploadList, 'search-without-grid': selectedSecurities?.size === 0 && portfolio.modellingType !== ModellingType.PORTFOLIO,
+                'search-without-grid-portfolio': selectedSecurities?.size === 0 && portfolio.modellingType === ModellingType.PORTFOLIO}">
+                    <app-security-search
+                        [selectedSecurities]="selectedSecurities"
+                        [modellingType]="portfolio.modellingType"
+                        [currentPortfolio]="portfolio"
+                        [portBreakdownChildren]="portfolio?.compositionSetting?.breakdownTree?.children"
+                        [tableSize]="'small'"
+                        (showCompositionTable)="showCompositionTableCallback($event)"
+                        (clearSecurities)="clearSecurities()"
+                        (showUploadListChanged)="showUploadList = !showUploadList"
+                        [favoriteViewToJustSelectWhatIfs]="true"
+                        [showUploadList]="showUploadList">
+                    </app-security-search>
+                </div>
+            </ng-container>
+            <ng-template #showEmptyAddSecurityDiv>
+                <div style="padding-top: 1.5rem"></div>
+            </ng-template>
+        </ng-container>
+        <ng-container
+            *ngIf="selectedTableOption != ModellingTableOption.OPTIMIZATION && selectedTableOption != ModellingTableOption.DETAILS && selectedTableOption != ModellingTableOption.RISK_PARITY">
+            <ng-template #showCompositionTableView>
+                <ng-template #showProgressIndicator>
+                    <app-loading-spinner size="medium"></app-loading-spinner>
+                </ng-template>
+                <ng-container *ngIf="showCompositionTable; else showProgressIndicator">
+                    <div class="modelling-table-height">
+                        <app-explore-table [widgetPayload]="compositionPayload"
+                                           [compositionConfig]="portfolio.compositionConfig"
+                                           [defaultLevelExpanded]="[[compositionPayload.requestConfig.portfolio]]"
+                                           [shouldSizeColumnsToFit]="false">
+                        </app-explore-table>
+                    </div>
+                </ng-container>
+            </ng-template>
+            <ng-container *ngIf="showTableConfiguration; else showCompositionTableView">
+                <div class="modelling-table-height">
+                    <app-modelling-setting [portfolio]="portfolioInput"></app-modelling-setting>
+                <div class="done-cancel-container">
+                    <aux-button label="Apply" class="space-btw-buttons" (click)="applySetting(true)"></aux-button>
+                    <aux-button label="Cancel" type="secondary" (click)="applySetting()"></aux-button>
+                </div>
+                </div>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="selectedTableOption == ModellingTableOption.DETAILS">
+            <div class="margin-top-16">
+                <app-modelling-details [modellingTableOption]="selectedTableOption"
+                                       [portfolio]="portfolio"
+                                       [navigateToFeasibilityReport]="navigateToFeasibilityReport"
+                                       (showCompositionTable)="showCompositionTableCallback()"
+                                       (close)="resetModellingTableOption()">
+                </app-modelling-details>
+            </div>
+        </ng-container>
+    </div>
+    <ng-container *ngIf="selectedTableOption === ModellingTableOption.OPTIMIZATION">
+        <div class="nav-button" *ngIf="selectedTableOption != null">
+            <aux-button [icon]="'actionarrow-back'" [type]="'tertiary'" (click)="resetModellingTableOption()"></aux-button><b> Optimize Model</b>
+        </div>
+        <ng-container *ngIf="portfolio.modellingType === ModellingType.POSITION && isOptimizationEnabled">
+            <div class="modelling-table-content">
+                <app-optimization-main [disableResetButton]="disableResetButton"
+                                       (close)="resetModellingTableOption($event)"
+                                       (resetComposition)='resetButton()'
+                                       (showCompositionTable)="showCompositionTableCallback()">
+                </app-optimization-main>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

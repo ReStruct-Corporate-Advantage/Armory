@@ -1,0 +1,58 @@
+<aux-modal [isOpen]="isOpen" type="action" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <div slot="custom-header" class="custom-header">
+        <span class="header-title">Portfolio Settings</span>
+        <aux-text-input class="portfolio-label-container" [value]="populatedName"
+                        type="text" label="Portfolio Label" [isLeftLabel]="true"
+                        (valueChanged)="onValueChanged($event)">
+        </aux-text-input>
+    </div>
+    <div slot="content" class="portfolio-settings-content">
+        <div class="container portfolio-setting-modal-size">
+            <aux-tab-bar tabType="modern" class="tab-group-container" [customPadding]="32" (tabBarItemSelected)="onTabSelected($event)" [data]="portfolioSettingsTabData" [activeUid]="selectedOption">
+            </aux-tab-bar>
+            <div class="tab-content-container" role="tabpanel">
+                <app-split-setting *ngIf="selectedOption === '0'"
+                                   [splitSetting]="clonedPortfolio.splitPositionSettings"></app-split-setting>
+                <app-lookthrough-settings *ngIf="selectedOption === '1'"
+                                          [portfolio]="clonedPortfolio">
+                </app-lookthrough-settings>
+                <div class="custom-filter" *ngIf="selectedOption === '2'">
+                    <app-custom-filter  [filter]="clonedPortfolio.filter"
+                                       [fieldToUse]="'columnTag'" [showApplyTo]="true"
+                                       [disableNormalizedCheckbox]="true"
+                                       [applyFilterTo]="clonedPortfolio.applyFilterTo"
+                                       (updateApplyFilter)="updateApplyFilter($event)">
+                    </app-custom-filter>
+                </div>
+                <explore-risk-settings *ngIf="selectedOption === '3'"
+                                       [riskSettings]="clonedPortfolio.portfolioRiskSettings"
+                                       [showPositionModes]="showPositionModes"
+                                       [showFilterScalingOptions]="showFilterScalingOptions"
+                                       [positionModeSettings]="clonedPortfolio.positionModeSettings">
+                </explore-risk-settings>
+                <app-performance-settings *ngIf="selectedOption === '4'"
+                                          [performanceSettings]="clonedPortfolio.performanceSettings"
+                                          [expostSettings]="clonedPortfolio.expostSettings"
+                                          [portfolio]="clonedPortfolio"
+                                          sourceName="Portfolio"
+                                          [factorAttributionSettings]="clonedPortfolio.factorAttributionSettings"
+                                          [showAdvancedAttributionSettings]="showAdvancedAttributionSettings"
+                                          showExpostSettings="true"
+                                          showAttributionSettings="true"
+                                          [telemetryData]="displaySettingsOnDone">
+                </app-performance-settings>
+                <app-epnl-settings *ngIf="selectedOption === '5'"
+                                   [epnlSettings]="clonedPortfolio.epnlSettings">
+                </app-epnl-settings>
+                <app-multi-manager-config *ngIf="selectedOption === '6' && isMultiManagerEnabled"
+                                          [decisionLevelsConfig]="clonedPortfolio.decisionLevelsConfig"
+                                          [portfolio]="clonedPortfolio">
+                </app-multi-manager-config>
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="APPLY_TEXT" [type]="'primary'" (click)="closeModal(true)"></aux-button>
+        <aux-button [label]="CANCEL_TEXT" [type]="'secondary'" (click)="closeModal(false)"></aux-button>
+    </div>
+</aux-modal>

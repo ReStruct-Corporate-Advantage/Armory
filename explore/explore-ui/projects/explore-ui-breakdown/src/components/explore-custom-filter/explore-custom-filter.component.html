@@ -1,0 +1,64 @@
+<div class="custom-sector-rules-container">
+
+    <div class="filter-favorite-container" *ngIf="requireLoadAndSaveOptions">
+        <div class="favorite-row">
+            <span class="filter-title">{{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.FILTER}}</span>
+            <explore-core-load-new-favorite-buttons (loadClick)="loadFilterClicked.emit()"
+                                                    (newClick)="clearFilter()"></explore-core-load-new-favorite-buttons>
+            <div class="favorite-actions">
+                <aux-button [type]="AuxButtonTypeEnum.SECONDARY" [size]="AuxButtonSizeEnum.SMALL"
+                            label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.FILTER}}"
+                            (click)="saveFilterClicked.emit()"></aux-button>
+            </div>
+        </div>
+        <div class="favorite-row" *ngIf="filter.customSector.id">
+                <explore-previous-favorite-version-banner style="width: 100%"
+                                                          [favoriteId]="filter.customSector.id" [owner]="filter.customSector.owner"
+                                                          [currentFavoriteVersion]="filter.customSector.currentFavoriteVersion"
+                >
+                </explore-previous-favorite-version-banner>
+        </div>
+        <div class="favorite-row">
+            <ng-container *ngIf="filter.customSector.id">
+                <explore-favorite-info [favoriteConfig]='filter.customSector' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.FILTER" [loadFavoriteCallBack]="loadCustomSector"></explore-favorite-info>
+            </ng-container>
+            <div *ngIf="coreFavoriteUtils.showFavStatusTagMenu(filter.customSector)" class="favorite-actions">
+                <app-favorite-menu [favorite]="filter.customSector" [favoriteType]="favoriteType"></app-favorite-menu>
+            </div>
+        </div>
+        <div class="favorite-row" *ngIf="coreFavoriteUtils.showFavStatusTag(filter.customSector)">
+            <app-favorite-status-badge [favoriteStatus]="filter.customSector.statusTag"></app-favorite-status-badge>
+        </div>
+    </div>
+
+    <explore-custom-sector-item [rule]="filter.customSector.rule"
+                            [parent]="filter.customSector"
+                            [groupIndex]="0"
+                            [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+                            ruleCaption="Double click to define custom filter">
+    </explore-custom-sector-item>
+
+    <div class="custom-options-container">
+        <aux-checkbox label="Normalized"
+                      [isChecked]="isNormalized.data"
+                      [isDisabled]="disableNormalizedCheckbox"
+                      (checkboxChanged)="updateNormalizedCheckbox($event.detail.value.checked)">
+        </aux-checkbox>
+    </div>
+
+    <ng-container *ngIf="showApplyToNewWidgets">
+        <aux-checkbox class="custom-options-container" label="Apply filter to new widgets"
+                      [isChecked]="isApplyFilterToNewWidgetsChecked"
+                      (checkboxChanged)="isApplyFilterToNewWidgetsCheckedChange.emit($event.detail.value.checked)">
+        </aux-checkbox>
+    </ng-container>
+
+    <div *ngIf="showApplyTo" class="apply-to-select-drop-down-width">
+        <aux-select label="Apply to"
+                    [hasInitialOptionPlaceholder]="false"
+                    [size]="'small'"
+                    (selectionChanged)="updateFilterSelection($event.detail.value)"
+                    [data]="applyToData">
+        </aux-select>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="open-column-measure-div">
+    <div>
+        <ng-container>Measures</ng-container>
+    </div>
+    <div>
+        <aux-button [label]="selectedMeasureSummary && selectedMeasureSummary.length > 0 ? 'Edit Measures' : 'Add Measures'"
+                    type="tertiary"
+                    (click)="openColumnMeasuresModel()">
+        </aux-button>
+    </div>
+</div>
+
+<div class="column-measure-table-div">
+    <ng-template #showNoMeasuresMsg><span style="color: var(--disabled-text__color)">No measures selected</span></ng-template>
+    <table *ngIf="selectedMeasureSummary && selectedMeasureSummary.length > 0; else showNoMeasuresMsg" class="column-measure-table">
+        <tr class="column-measure-head-row">
+            <th class="column-measure-table-cell column-measure-head">Measure</th>
+            <th class="column-measure-table-cell column-measure-head">Type</th>
+            <th class="column-measure-table-cell">Variable</th>
+        </tr>
+        <tr class="column-measure-rows"
+            *ngFor="let measureInfo of selectedMeasureSummary">
+            <td class="column-measure-table-cell">{{measureInfo.title}}</td>
+            <td class="column-measure-table-cell">{{measureInfo.nodeType}}</td>
+            <td class="column-measure-table-cell">{{measureInfo.alias}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="clear-formula-div">
+    <div style="display: flex;">
+        <div>Formula</div>
+        <div class="question-mark-tooltip">
+            <aux-tooltip>
+                <aux-icon slot="target" type="help-subtle" state="primary"></aux-icon>
+                <div class="tool-tip-text" slot="content">
+                    Formula can support / (Division), * (Multiplication), + (Addition), - (Subtraction),
+                    min(), and max().
+                    Additional Javascript functions can be referenced, with documentation and examples provided in the
+                    product release note.
+                </div>
+            </aux-tooltip>
+        </div>
+    </div>
+    <div>
+        <aux-button label="Clear Formula"
+                    type="tertiary"
+                    (click)="onExpressionUpdate('')">
+        </aux-button>
+    </div>
+</div>
+
+<div class="function-container arithmetic-container">
+    <ng-container *ngFor="let arithmetic of arithmeticOperation">
+        <div class="tool-tip-button">
+            <aux-tooltip>
+                <aux-button slot="target" type="tertiary" [label]="arithmetic.name" (click)="addTextToTextArea($event)"></aux-button>
+                <div slot="content">{{arithmetic.tooltip}}</div>
+            </aux-tooltip>
+        </div>
+        <div class="math-function-div"></div>
+    </ng-container>
+    <div class="tool-tip-button">
+        <aux-tooltip>
+            <aux-button slot="target" type="tertiary" label="equals" (click)="addTextToTextArea($event)"></aux-button>
+            <div slot="content">Compare whether two values are equal to each other</div>
+        </aux-tooltip>
+    </div>
+</div>
+
+<div class="function-container math-container">
+    <ng-container *ngFor="let mathFunction of mathFunctionOperation; let last = last">
+        <div *ngIf="!last" class="tool-tip-button">
+            <aux-tooltip>
+                <aux-button slot="target" type="tertiary" [label]="mathFunction.name" (click)="addTextToTextArea($event)"></aux-button>
+                <div slot="content">{{mathFunction.tooltip}}</div>
+            </aux-tooltip>
+        </div>
+        <div *ngIf="!last" class="math-function-div"></div>
+    </ng-container>
+    <div class="tool-tip-button">
+        <aux-tooltip>
+            <aux-button slot="target" type="tertiary" label="x^y" (click)="addTextToTextArea($event)"></aux-button>
+            <div slot="content">Returns the value of x to the power of y</div>
+        </aux-tooltip>
+    </div>
+</div>
+
+<div class="text-area-div">
+    <aux-text-area #textAreaComponent
+                   placeholder="a+b.."
+                   [value]="optionValue.expression"
+                   (valueChanged)="optionValue.expression = $event.detail.value"
+                   (inputBlur)="onExpressionUpdate($event.detail.value)"
+                   [isResizeDisabled]="true">
+    </aux-text-area>
+</div>
+
+<explore-column-option-custom-calculation-measure *ngIf="showColumnMeasures"
+                                [widgetType]= "widgetType"
+                                [modalHeaderTitle]="'Custom Calculation'"
+                                [restrictedColumnOptions] = "modifiedRestrictedColumnOptions"
+                                [columnOptionsToAdd]="columnOptionsToAdd"
+                                [columnMeasures]="columnMeasures"
+                                [isOpen]="showColumnMeasures"
+                                [isStringColumnNotSupported]="false"
+                                [isSingleSelect]="false"
+                                (modalClosed)="onCloseOfColumnMeasuresModal($event)">
+</explore-column-option-custom-calculation-measure>

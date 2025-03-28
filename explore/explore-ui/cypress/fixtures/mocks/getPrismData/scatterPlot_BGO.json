@@ -1,0 +1,117 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "footerDetails": {
+                    "PUBLISH_TIME": 0
+                },
+                "data": {
+                    "data": [
+                        null,
+                        null,
+                        null
+                    ],
+                    "children": [
+                        {
+                            "data": [
+                                0.0,
+                                2.384185791015625E-7,
+                                2.384185791015625E-7
+                            ],
+                            "title": "CASH",
+                            "sectorOrder": 0,
+                            "rowId": 2
+                        },
+                        {
+                            "data": [
+                                6.741266832824285E8,
+                                6.741266832824285E8,
+                                4.5604857E7
+                            ],
+                            "title": "EQUITY",
+                            "sectorOrder": 0,
+                            "rowId": 3
+                        },
+                        {
+                            "data": [
+                                7798384.76,
+                                7798384.76,
+                                7798384.759999999
+                            ],
+                            "title": "FUND",
+                            "sectorOrder": 0,
+                            "rowId": 4
+                        },
+                        {
+                            "data": [
+                                2.53093806E-12,
+                                2.53093806E-12,
+                                2530938.06
+                            ],
+                            "title": "LOAN",
+                            "sectorOrder": 0,
+                            "rowId": 5
+                        },
+                        {
+                            "data": [
+                                -4258027.532440639,
+                                -4258027.532440639,
+                                -6404299.0
+                            ],
+                            "title": "OPTION",
+                            "sectorOrder": 0,
+                            "rowId": 6
+                        }
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "notional_mv_1": "Notional Market Value",
+                        "quantity": "Quantity",
+                        "market_val_0": "Market Value"
+                    },
+                    "columnKeyToTagMap": {
+                        "notional_mv_1": "notional_mv",
+                        "quantity": "quantity",
+                        "market_val_0": "market_val"
+                    }
+                },
+                "columns": [
+                    "market_val_0",
+                    "notional_mv_1",
+                    "quantity"
+                ]
+            },
+            "gaussian": null,
+            "userinfo": {
+                "runningRequests": 0,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1717086984607
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 672
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-05-30T16:36:24.592Z",
+            "detailedID": "9768da4f-46bb-4629-a57f-8225655c6c2a.672.1717086984592",
+            "IDWithContextChain": "9768da4f-46bb-4629-a57f-8225655c6c2a",
+            "chain": [],
+            "bmsMsgSize": 672,
+            "transactionId": "9768da4f-46bb-4629-a57f-8225655c6c2a",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "longRunningRequest",
+        "transactionId": "9768da4f-46bb-4629-a57f-8225655c6c2a",
+        "successCode": null
+    }
+]

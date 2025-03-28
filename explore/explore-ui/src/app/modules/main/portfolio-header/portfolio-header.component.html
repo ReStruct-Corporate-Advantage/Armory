@@ -1,0 +1,87 @@
+<div class="portfolio-header-container">
+    <div class="portfolio-header-container--left">
+        <div *ngIf="isWhatIfPortfolioLoaded && ((!searchMode && !isWhatIfMode) || (searchMode && isWhatIfMode))" class="what-if-badge">
+            <aux-badge type="custom" size="large">
+                <div slot="custom">{{ isExposureBasedPortfolio ? 'Exposure Based' : 'What-if' }}</div>
+            </aux-badge>
+        </div>
+        <div class="portfolio-title aux-primary">{{isIndexResearchPortfolio ? 'Index Research' :
+            'Portfolio'}}:</div>
+
+        <div class="portfolio-search-area" *ngIf="searchMode && !isWhatIfMode && !isIndexResearchPortfolio; else showTitle">
+            <blk-portfolio-search #portfolioSearch
+                  [searchString]="currentPort?.portName"
+                  (emitPortfolioSearchItem)="onChangePortfolio($event)"
+                  (emitPortfolioForTracking)="trackPortfolioTelemetry($event)"
+                  [portfolioSearchService]="portfolioSearchService"
+                  [isWhatIfLoaded]="isWhatIfPortfolioLoaded"
+                  (whatIfTypeSelected)="enableWhatIfSearch()"
+            >
+            </blk-portfolio-search>
+            <aux-button class="portfolio-search-cancel-button" [type]="'tertiary'" [label]="'Cancel'" (click)="onPortfolioChangeClicked(true)"></aux-button>
+        </div>
+
+        <ng-template #showTitle>
+            <div class="portfolio-title portfolio-header-inline-item">
+                <ng-container *ngIf="!(searchMode && isIndexResearchPortfolio)">
+                    <aux-popover
+                        trigger="hover"
+                        hasCloseIcon="true"
+                        [overridePlacement]="'leftTop'">
+                        <div slot="target">
+                            <div class="aux-primary portfolio-title-text"
+                                 (click)="onPortfolioChangeClicked()">
+                                {{ currentPortfolioHeaderTitle }}
+                            </div>
+                        </div>
+                        <div slot="content" class="popover-container">
+                            <div>{{ popoverHeader }}</div>
+                            <div class="aux-bold currency">Currency: <span>{{tooltipInfo.currency}}</span></div>
+                            <table *ngIf="tooltipInfo.indexWeights && tooltipInfo.indexWeights.length > 0"
+                                   class="popover-data table-format">
+                                <caption class="aux-bold table-caption">Components</caption>
+                                <tr *ngFor="let indexWeight of tooltipInfo.indexWeights">
+                                    <td class="aux-p10 td-string">{{indexWeight.portfolioPortName}}</td>
+                                    <td class="aux-p10 td-string">{{indexWeight.portfolioFullName}}</td>
+                                    <td class="aux-p10 td-number">{{indexWeight.weight | percent: '.2'}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </aux-popover>
+                </ng-container>
+                <ng-container *ngIf="!(searchMode && isIndexResearchPortfolio)">
+                    <aux-button class="portfolio-header-inline-item portfolio-header--change-button" [type]="'tertiary'"
+                                [label]="'Change'"
+                                (click)="onPortfolioChangeClicked()"
+                    ></aux-button>
+                </ng-container>
+                <ng-container *ngIf="searchMode && isIndexResearchPortfolio">
+                    <aux-popover [isOpen]="isIndexResearchPortfolio && searchMode"
+                                 (popoverClosed)="onIndexResearchPopoverClosed()"
+                                 header="{{popoverHeader}}">
+                        <div slot="target">
+                            <div class="aux-primary">{{currentPortfolioHeaderTitle}}</div>
+                        </div>
+                        <div slot="content" class="popover-container">
+                            <div class="index-tree-container">
+                                <aux-advanced-tree-list class="container-width"
+                                                        [sourceData]="indexResearchTreeData"
+                                                        [hasSearch]=true
+                                                        (sourceSelectionChanged)="onIndexSelectionChanged($event)">
+                                </aux-advanced-tree-list>
+                            </div>
+                        </div>
+                    </aux-popover>
+                </ng-container>
+            </div>
+        </ng-template>
+    </div>
+    <div>
+        <aux-button *ngIf="isWhatIfPortfolioLoaded" class="portfolio-header-right-btn" [type]="'secondary'" [label]="'Save as Portfolio'"
+                    [size]="'small'" [isDisabled]="isSaveAsPortfolioDisabled" (click)="saveAsPortfolio()">
+        </aux-button>
+        <aux-button  [type]="'secondary'" [label]="'What-if Model'"
+                     [size]="'small'" (click)="addWhatIfPortfolio()">
+        </aux-button>
+    </div>
+</div>

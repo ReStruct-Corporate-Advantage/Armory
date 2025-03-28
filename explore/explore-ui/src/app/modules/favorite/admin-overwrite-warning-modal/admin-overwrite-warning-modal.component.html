@@ -1,0 +1,13 @@
+<aux-dialog [header]="'Save Enterprise ' + CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteDisplayType]"
+            [type]="'prompt'"
+            [isOpen]="isOpen"
+            [primaryButtonLabel]="CoreCommonConstants.BUTTON_TEXT.CONTINUE"
+            (secondaryButtonClicked)="closeModal(false)"
+            (primaryButtonClicked)="closeModal(true)">
+    <div class="aux-g16--cw-4 admin-warning-container">
+        <span>This is an Enterprise {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteDisplayType]}}. Saving changes will update this {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteDisplayType].toLowerCase()}} for all users.</span>
+        <br/>
+        <br/>
+        <span>Click {{CoreCommonConstants.BUTTON_TEXT.CONTINUE}} to save, or {{CoreCommonConstants.BUTTON_TEXT.CANCEL}} to discard.</span>
+    </div>
+</aux-dialog>

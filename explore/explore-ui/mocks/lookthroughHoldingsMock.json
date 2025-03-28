@@ -1,0 +1,48 @@
+{
+    "cusip": "BRSU2N191",
+    "secType": "CLOSED_END",
+    "secDesc": "MSR AGGREGATOR II AV1A CORP",
+    "lookthroughType": "FULL",
+    "secGroup": "FUND",
+    "fullName": "MSR Aggregator II AV1A CORP.",
+    "displayName": [
+        "MSRAG2AV1A"
+    ],
+    "lookthroughHoldings": [
+        {
+            "cusip": "BRSU2N290",
+            "secType": "CLOSED_END",
+            "secDesc": "MSR AGGREGATOR II AV1B LLC",
+            "lookthroughType": "FULL",
+            "secGroup": "FUND",
+            "fullName": "MSR Aggregator II AV1B LLC",
+            "displayName": [
+                "MSRAG2AV1B"
+            ],
+            "lookthroughHoldings": [
+                {
+                    "cusip": "BRSU8L3A4",
+                    "secType": "OPEN_END",
+                    "secDesc": "MSR JUNE AV1B ECI UBTI",
+                    "lookthroughType": "FULL",
+                    "secGroup": "FUND",
+                    "fullName": "SCO MSR JUNE",
+                    "displayName": [
+                        "MSR-JUNE-A"
+                    ]
+                }
+            ]
+        },
+        {
+            "cusip": "BRSXR0SY4",
+            "secType": "OPEN_END",
+            "secDesc": "MSR ALPINE AV1B ECI UBTI",
+            "lookthroughType": "FULL",
+            "secGroup": "FUND",
+            "fullName": "MSR Alpine",
+            "displayName": [
+                "MSR-ALPN-A"
+            ]
+        }
+    ]
+}

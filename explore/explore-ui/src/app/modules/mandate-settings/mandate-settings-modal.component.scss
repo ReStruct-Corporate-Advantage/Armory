@@ -1,0 +1,43 @@
+.mandate-settings-body {
+    width: 100%;
+
+    .add-mandate-btn {
+        float: right;
+        margin: 24px 32px 16px;
+    }
+
+    table, tr, th {
+        border: 1px solid var(--dialog__border-color);
+        border-collapse: collapse;
+        text-align: left;
+        vertical-align: top;
+    }
+
+    .mandate-table-format {
+        .column-title {
+            margin: 8px;
+            color: var(--grid__text-header__color);
+        }
+
+        .settings {
+            margin: 8px 8px 12px;
+        }
+
+        .clear-settings {
+            margin: 16px 8px;
+        }
+
+        .curated-report-section {
+            width: 300px;
+        }
+
+        width: calc(100% - 64px);
+        margin: 0 32px 32px;
+    }
+}
+
+
+
+
+
+

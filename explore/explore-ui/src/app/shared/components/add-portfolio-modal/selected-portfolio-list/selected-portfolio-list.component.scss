@@ -1,0 +1,54 @@
+.content-horizontal {
+    display: flex;
+}
+
+.top-bottom-padding {
+    padding: 0.5em 0;
+}
+
+.port-picklist {
+    background-color: var(--container__background-color);
+    border-color: var(--picklist__border-color);
+    border-style: solid;
+    padding: 0.7em;
+    border-width: 1px;
+}
+
+.port-picklist__header {
+    min-height: 1em;
+}
+
+.port-picklist__content {
+    border-top: 0;
+    flex: 1;
+    overflow: auto;
+}
+
+.picklist-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+}
+
+.modal-list-div {
+    max-height: 3em;
+    padding: 0 0.5em;
+    align-self: center;
+}
+
+.modal-list-div.left {
+    width: 90%;
+}
+
+.modal-list-div.right {
+    width: 10%;
+}
+
+.icon-right {
+    float: right;
+}
+
+.column-label {
+    margin-bottom: 8px;
+}

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainComponent openExportOptionsModal/closeExportOptionsModal Test should set isExportOptionsModalOpen to false and remove app-export-options-modal in the html template 1`] = `null`;
+
+exports[`MainComponent openExportOptionsModal/closeExportOptionsModal Test should set isExportOptionsModalOpen to true and show app-export-options-modal in the html template 1`] = `<app-export-options-modal />`;
+
+exports[`MainComponent openSetReportGroupDateModal/closeSetReportGroupDateModal Test should set isReportGroupOptionsModalOpen to false and remove app-export-options-modal in the html template 1`] = `null`;
+
+exports[`MainComponent openSetReportGroupDateModal/closeSetReportGroupDateModal Test should set isReportGroupOptionsModalOpen to true and show app-report-group-settings-modal in the html template 1`] = `null`;
+
+exports[`MainComponent openSetWorkspaceDateModal/closeSetWorkspaceDateModal Test should set isSetWorkspaceDate to true and show app-set-workspace-date-modal in the html template 1`] = `<app-set-workspace-date-modal />`;
+
+exports[`MainComponent openSetWorkspaceDateModal/closeSetWorkspaceDateModal Test should set isSetWorkspaceDateModalOpen to false and remove app-set-workspace-date-modal in the html template 1`] = `null`;
+
+exports[`MainComponent should create 1`] = `
+<div
+  class="main-area"
+>
+  <div
+    class="portfolio-header-area"
+  >
+    <app-portfolio-header />
+  </div>
+  <div
+    class="portfolio-input-panel-area"
+  >
+    <app-portfolio-input-panel />
+  </div>
+  <app-report-container />
+  
+  
+  
+  
+</div>
+`;
+
+exports[`MainComponent should set isBreakdownSettingsModalOpen to false and remove app-breakdown-settings-modal-dialog in the html template 1`] = `null`;

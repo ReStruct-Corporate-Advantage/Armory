@@ -1,0 +1,54 @@
+{
+  "columns": [
+    {
+      "columnKey": "percentiles",
+      "columnTag": "percentiles",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "time_break_even",
+      "columnTag": "time_break_even",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "time_first_dist",
+      "columnTag": "time_first_dist",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "time_to_through",
+      "columnTag": "time_to_through",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "trough_magn",
+      "columnTag": "trough_magn",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "distb_wal",
+      "columnTag": "distb_wal",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "simulated_hrzn_1yr",
+      "columnTag": "simulated_hrzn_1yr",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "simulated_hrzn_3yr",
+      "columnTag": "simulated_hrzn_3yr",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "simulated_hrzn_5yr",
+      "columnTag": "simulated_hrzn_5yr",
+      "positionColumnType": "ALL"
+    },
+    {
+      "columnKey": "simulated_hrzn_10yr",
+      "columnTag": "simulated_hrzn_10yr",
+      "positionColumnType": "ALL"
+    }
+  ]
+}

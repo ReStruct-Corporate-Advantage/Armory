@@ -1,0 +1,189 @@
+{
+  "configType": "pgsBar",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "PGS Bar Chart",
+  "title": "Bar chart",
+  "image": ".\/assets\/images\/barwidget.png",
+  "showInSelector": false,
+  "hideSorting": false,
+  "hideBreakdownInSorting": true,
+  "hideTotal": true,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "hideTopBottomSectorToggle": true,
+  "showGridTransitionControl": true,
+  "canHaveMultipleOverrideDates": true,
+  "exportType": "pdf",
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Measure",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "MULTI_REPORT",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "reportTypes",
+              "value": [
+                "MULTI",
+                "RETATT",
+                "EXPOST"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": "FACTOR_ATTRIBUTES"
+            },
+            {
+              "type": "!=",
+              "key": "groups",
+              "value": [
+                "Factor-Based",
+                "Scenario",
+                "GP Breakdown",
+                "Liquidity"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "factor_attrib_dd",
+                "factor_attrib_resid",
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnTag",
+              "value": [
+                "pnl_benchmark",
+                "pnl_SectorDesc",
+                "pnl_SectorOrder",
+                "pnl_SectorPath",
+                "pnl_ccy",
+                "pnl_cusip",
+                "pnl_id",
+                "pnl_isin",
+                "pnl_sec_desc",
+                "pnl_sec_group",
+                "pnl_sec_type",
+                "pnl_sedol",
+                "pnl_strategy_path",
+                "pnl_ticker"
+              ]
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnTag": "portfolio",
+              "positionColumnType": "ALL",
+              "columnKey": "portfolio_hidden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "axis",
+      "categoryTitle": "Axis",
+      "inputs": [
+        {
+          "inputConfigType": "primaryAxisSettings",
+          "inputName": "primaryAxisSettings",
+          "inputTitle": "Primary axis",
+          "default": {},
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "secondaryAxisSettings",
+          "inputName": "secondaryAxisSettings",
+          "inputTitle": "Secondary axis",
+          "default": {},
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Format",
+      "inputs": [
+        {
+          "inputConfigType": "barSettings",
+          "inputName": "chart",
+          "inputTitle": "Chart format",
+          "oldProps": [
+            "chart"
+          ],
+          "default": {
+            "chartType": "column"
+          },
+          "isOpen": true
+        }, {
+          "inputConfigType": "comboChartColumnSettings",
+          "inputName": "comboChartColumnSettings",
+          "inputTitle": "Chart type and axis selection",
+          "isOpen": true,
+          "otherNames": [
+            "secondaryAxisColumn"
+          ],
+          "default": {
+            "columns": []
+          }
+        }, {
+          "inputConfigType": "pgsStackedBarChartSettings",
+          "inputName": "pgsStackedBarChartSettings",
+          "inputTitle": "Breakdown Orientation",
+          "isOpen": true,
+          "default": {
+            "isDisabled": false,
+            "isStackedBarChart": true
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultChartSettings"
+    },
+    {
+      "$ref": "defaultSortedColumns"
+    },
+    {
+      "visible": false,
+      "categoryType": "nestedSettings",
+      "inputs": [
+        {
+          "inputConfigType": "gridLines",
+          "inputName": "showGridLines",
+          "inputTitle": "Grid lines",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "aggregation",
+      "chartType",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "hc"
+}

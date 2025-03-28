@@ -1,0 +1,43 @@
+{
+  "ebc_enabled": true,
+  "name": "Explore",
+  "description": "Explore UI with design system",
+  "global_header_version": "2.2.0",
+  "icons": [
+    {
+      "src": "./favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "32x32"
+    }
+  ],
+  "aladdin_copilot_options": {
+   "enabled": true,
+   "visible": false
+  },
+  "account_options": {
+    "enabled": true
+  },
+  "persist_theme_preference": true,
+  "display_name": "Explore",
+  "start_page_url": "/apps/explore/",
+  "base_pathname": "/apps/explore",
+  "global_header": true,
+  "custom_frame": true,
+  "menubar_options": {
+    "aladdinHelpPath": "/apps/aladdinhelp/resources/?appName=Explore&sequencesBaseUrl=/apps/explore/assets/data/&issuesBaseUrl=/apps/explore/assets/data/",
+    "customHelpLinks": [
+      {
+        "label": "Explore FAQs",
+        "customProp": {
+          "id": "LAUNCH_EXPLORE_FAQS"
+        }
+      },
+      {
+        "label": "About Explore",
+        "customProp": {
+          "id": "LAUNCH_ABOUT_EXPLORE"
+        }
+      }
+    ]
+  }
+}

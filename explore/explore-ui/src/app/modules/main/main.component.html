@@ -1,0 +1,45 @@
+<div class="main-area">
+    <div class="portfolio-header-area">
+        <app-portfolio-header></app-portfolio-header>
+    </div>
+
+    <div class="portfolio-input-panel-area">
+        <app-portfolio-input-panel></app-portfolio-input-panel>
+    </div>
+
+    <app-report-container></app-report-container>
+
+    <!--  MAIN MODAL AREA -->
+    <ng-container *ngIf="isSetReportGroupDateModalOpen">
+        <app-set-report-group-date-modal [reportGroup]="reportGroup"
+                                         [isOpen]="isSetReportGroupDateModalOpen"
+                                         (modalClosed)="closeSetReportGroupDateModal()">
+        </app-set-report-group-date-modal>
+    </ng-container>
+
+    <ng-container *ngIf="isExportOptionsModalOpen">
+        <app-export-options-modal
+            [exportComposite]="exportComposite"
+            [isOpen]="isExportOptionsModalOpen"
+            (modalClosed)="closeExportOptionsModal()"
+        >
+        </app-export-options-modal>
+    </ng-container>
+
+    <ng-container *ngIf="isSetWorkspaceDateModalOpen">
+        <app-set-workspace-date-modal [isOpen]="isSetWorkspaceDateModalOpen" (modalClosed)="closeSetWorkspaceDateModal()">
+        </app-set-workspace-date-modal>
+    </ng-container>
+
+    <ng-container *ngIf="isBreakdownSettingsModalOpen">
+        <app-breakdown-settings-modal-dialog
+            [isOpen]="isBreakdownSettingsModalOpen"
+            [breakdown]="breakdownSettingsModalConfig.breakdown"
+            [breakdownBuilderSettings]="breakdownSettingsModalConfig.breakdownBuilderSettings"
+            [breakdownUpdatedCallback]="breakdownSettingsModalConfig.breakdownUpdatedCallback"
+            [widget]="currentWidget"
+            (modalClosed)="closeBreakdownSettingsModal()">
+        </app-breakdown-settings-modal-dialog>
+    </ng-container>
+
+</div>

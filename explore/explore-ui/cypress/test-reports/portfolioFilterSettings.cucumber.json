@@ -1,0 +1,112 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Validate Portfolio Filter Settings",
+    "line": 1,
+    "id": "validate-portfolio-filter-settings",
+    "tags": [],
+    "uri": "portfolioFilterSettings.feature",
+    "elements": [
+      {
+        "id": "validate-portfolio-filter-settings;validate-portfolio-filter-settings",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Validate Portfolio Filter Settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 5428000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "Navigate to portfolio filter settings",
+            "result": {
+              "status": "passed",
+              "duration": 334000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "Filter screen elements should be displayed correctly",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-portfolio-filter-settings;validate-user-can-configure-custom-filter-condition",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Validate user can configure custom filter condition",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2685000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "Navigate to portfolio filter settings",
+            "result": {
+              "status": "passed",
+              "duration": 366000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "User configure a custom filter rule",
+            "result": {
+              "status": "passed",
+              "duration": 1532000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "Filter is configured correctly",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "Filter can be reset using New button",
+            "result": {
+              "status": "passed",
+              "duration": 125000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

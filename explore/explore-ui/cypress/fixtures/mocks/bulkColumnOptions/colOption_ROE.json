@@ -1,0 +1,357 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": [
+        {
+          "options": [
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Last",
+                  "defaultValue": {
+                    "value": 1,
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "noOfYears"
+                  },
+                  "key": "noOfYears",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": 40,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "QUARTERLY"
+                    },
+                    {
+                      "value": 20,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "SEMI_ANNUAL"
+                    },
+                    {
+                      "value": 10,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "ANNUAL"
+                    }
+                  ],
+                  "dataType": "I"
+                },
+                {
+                  "title": "Frequency",
+                  "defaultValue": {
+                    "value": "ANNUAL",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "frequency"
+                  },
+                  "key": "frequency",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": "QUARTERLY",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Quarterly"
+                    },
+                    {
+                      "value": "SEMI_ANNUAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Semi Annual"
+                    },
+                    {
+                      "value": "ANNUAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Annual"
+                    }
+                  ],
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "equity_column_options",
+              "columnOptionTitle": "Equity settings",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.equity.EquityFrequencyColumnOption",
+              "columnOptionKey": "equity_column_options"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Collapsed look-through",
+                  "key": "ltSecurityTypes",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "collapsedLookthroughColumnOption",
+              "columnOptionTitle": "Collapsed look-through",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.CollapsedLookThroughColumnOption",
+              "columnOptionKey": "collapsedLookthroughColumnOption"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Type",
+                  "defaultValue": {
+                    "value": "43",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "Median"
+                  },
+                  "key": "subtotalType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": 43,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Median"
+                    },
+                    {
+                      "value": 0,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "None"
+                    },
+                    {
+                      "value": 2300,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Wt Avg"
+                    },
+                    {
+                      "value": 10,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Average"
+                    },
+                    {
+                      "value": 44,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Wt Avg Hmean"
+                    },
+                    {
+                      "value": 2,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Sum"
+                    }
+                  ],
+                  "dataType": "S"
+                },
+                {
+                  "title": "Min",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "key": "minAggValue",
+                  "defaultValue": {
+                    "value": null,
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": null
+                  },
+                  "dataType": "N"
+                },
+                {
+                  "title": "Max",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "key": "maxAggValue",
+                  "defaultValue": {
+                    "value": null,
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": null
+                  },
+                  "dataType": "N"
+                },
+                {
+                  "title": "Value Handling",
+                  "defaultValue": {
+                    "value": true,
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "Exclude"
+                  },
+                  "key": "excludeOrCap",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": true,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Exclude"
+                    },
+                    {
+                      "value": false,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Cap"
+                    }
+                  ],
+                  "dataType": "B"
+                },
+                {
+                  "title": "Weight type",
+                  "defaultValue": {
+                    "value": "PORT",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "Portfolio"
+                  },
+                  "key": "weightType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": "ALL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "All"
+                    },
+                    {
+                      "value": "PORT",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Portfolio"
+                    },
+                    {
+                      "value": "BENCH",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Benchmark"
+                    },
+                    {
+                      "value": "ACTIVE",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Active"
+                    }
+                  ],
+                  "dataType": "S"
+                },
+                {
+                  "title": "Column weight type",
+                  "defaultValue": {
+                    "value": "NOTIONAL",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "Notional Market Value/Market Value"
+                  },
+                  "key": "colWeightType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": "NOTIONAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Notional Market Value/Market Value"
+                    },
+                    {
+                      "value": "NORMAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Market Value/Market Value"
+                    },
+                    {
+                      "value": "NOTIONAL_BY_NOTIONAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Notional/Notional"
+                    },
+                    {
+                      "value": "DELTA_NOTIONAL",
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Delta Notional Market Value"
+                    }
+                  ],
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "customAggregation",
+              "columnOptionTitle": "Aggregation",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.customagg.CustomAggregationColumnOption",
+              "columnOptionKey": "customAggregation"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Title",
+                  "key": "title",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "customColumnTitle",
+              "columnOptionTitle": "Display options",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.CustomColumnTitleOption",
+              "columnOptionKey": "customColumnTitle"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Scaling",
+                  "key": "scaling",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "dataType": "S"
+                },
+                {
+                  "title": "Decimal Places",
+                  "key": "decimalPlaces",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "N"
+                },
+                {
+                  "title": "Use Thousands Separator",
+                  "key": "useThousandsSeparator",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "B"
+                }
+              ],
+              "columnOptionConfigType": "numericColumnFormatColumnOption",
+              "columnOptionTitle": "Display options",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.NumericFormattingOptions",
+              "columnOptionKey": "formatAndScaling"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Compare Type",
+                  "key": "compareType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                },
+                {
+                  "title": "Compare Value",
+                  "key": "compareValue",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                },
+                {
+                  "title": "Highlight Color",
+                  "key": "highlightColor",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "highlight",
+              "columnOptionTitle": "Conditional formatting",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.HighlightColumnOptions",
+              "columnOptionKey": "highlight"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Definition",
+                  "key": "definition",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "definition",
+              "columnOptionTitle": "Definition",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.DefinitionColumnOption",
+              "columnOptionKey": "definition"
+            }
+          ],
+          "colTag": "eq_fin_th_ws_147",
+          "columnOptionType": "ColumnOption",
+          "uses": "ALL"
+        }
+      ],
+      "message": null,
+      "gaussian": "/cZuo8wwnj8qRphEMX/SaguacfX4sG6iIOK3oKCpk0O2hFcckC4WJwhcg0dScbQ=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 626
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-08-07T19:05:24.021Z",
+      "detailedID": "df34aebe-1344-4442-87ec-1543889583b1.626.1723057524021",
+      "IDWithContextChain": "df34aebe-1344-4442-87ec-1543889583b1",
+      "chain": [],
+      "bmsMsgSize": 626,
+      "transactionId": "df34aebe-1344-4442-87ec-1543889583b1",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "bulkColumnOptions",
+    "transactionId": "df34aebe-1344-4442-87ec-1543889583b1",
+    "successCode": null
+  }
+]

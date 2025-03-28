@@ -1,0 +1,22 @@
+<aux-modal [type]="'action'" [header]="modalHeaderTitle" [isOpen]="isOpen" [hasCustomFooter]="true">
+    <div [slot]="'content'" style="height: 57vh; width: 75vw; padding: 32px;">
+        <explore-column-option-custom-calculation-settings
+            [widgetConfigInput]="columnWidgetConfigInput"
+            [inputs]="colSelectorWidgetInputs"
+            [singleSelectionAllowed]="isSingleSelect"
+            [isApplyButtonDisabled]="isApplyButtonDisabled"
+            [restrictedColumnOptions]="restrictedColumnOptions"
+            [columnOptionsToAdd]="columnOptionsToAdd"
+            [requireLoadAndSaveOptions]="false"
+            [widgetType]="widgetType"
+            [columnOptionsToModify]="columnOptionsToModify"
+            [sourceLabel]="'Column Measures'"
+            [targetLabel]="'Column Set'"
+            [enableOptoPrompt]="isEnableOptoPrompt()">
+        </explore-column-option-custom-calculation-settings>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [isDisabled]="isApplyButtonDisabled.value != 0" [label]="'Apply'" (click)="onApplyClicked(colSelectorWidgetInputs)"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

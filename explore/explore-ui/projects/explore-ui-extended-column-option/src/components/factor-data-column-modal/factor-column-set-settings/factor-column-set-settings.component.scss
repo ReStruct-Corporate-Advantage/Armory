@@ -1,0 +1,50 @@
+.column-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    .column-set-settings {
+        width: 100%;
+        padding-right: 1rem;
+        min-width: 0;
+    }
+
+    .column-options {
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        .column-options-div {
+            overflow: auto;
+            flex: 1;
+            background: var(--container__background-color);
+            border: 1px solid var(--accordion__border-color);
+        }
+    }
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.column-option-title {
+    padding-right: 1rem;
+}
+
+@media (max-width: 1919px) {
+    // in 1919px or less we want the width to be 5 columns out of 12, so width / (100% + width) = 5/12 => width = 71.43%
+    .column-options-width {
+        width: 71.43%;
+    }
+}
+
+@media (min-width: 1920px) {
+    // in 1920px or more we want the width to be 4 columns out of 12, so width / (100% + width) = 4/12 => width = 50%
+    .column-options-width {
+        width: 50%;
+    }
+}

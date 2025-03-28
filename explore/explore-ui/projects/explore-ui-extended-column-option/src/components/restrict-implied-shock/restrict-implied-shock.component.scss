@@ -1,0 +1,22 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: -16px;
+}
+
+.flex-item {
+    margin-top: 16px;
+    width: 250px;
+    margin-right: 16px;
+}
+
+.set-flex-column {
+    flex-direction: column;
+}
+
+.flex-item-cell-editor {
+    margin-top: 16px;
+    width: 250px;
+}

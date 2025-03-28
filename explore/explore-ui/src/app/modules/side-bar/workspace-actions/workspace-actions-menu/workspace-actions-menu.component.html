@@ -1,0 +1,14 @@
+<div class="workspace-action-menu-area">
+    <aux-inline-menu (inlineMenuItemClicked)="onMenuClicked($event)" [data]="menuOptions" overridePlacement="bottomRight"
+                     trigger="pressed">
+        <aux-icon slot="target" state="primary" type="action"></aux-icon>
+    </aux-inline-menu>
+</div>
+
+<ng-container *ngIf="isLoadWorkspaceWarningModalOpen">
+    <app-load-workspace-warning-modal [isOpen]="isLoadWorkspaceWarningModalOpen"
+                                      [workspaceAction]="clickedMenuItem"
+                                      (continueWithWorkspaceAction)="executeWorkspaceAction($event)"
+                                      (modalClosed)="closeLoadWorkspaceWarningModal()">
+    </app-load-workspace-warning-modal>
+</ng-container>

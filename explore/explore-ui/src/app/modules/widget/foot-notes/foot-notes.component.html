@@ -1,0 +1,66 @@
+<aux-accordion [isFreeMode]="true">
+    <ng-container *ngIf="riskSettingsSummaryDetails">
+        <aux-accordion-expansion-panel header="{{riskSettingsLevel}} Risk Settings" [uid]="'widget-risk-settings'">
+            <div slot="content">
+                <app-risk-settings-summary [riskSettingsSummaryDetails]="riskSettingsSummaryDetails" [hvarRiskSettingsSummaryDetail]="hvarRiskSettingsDetail" [mcvarRiskSettingsSummaryDetail]="mcVarRiskSettingsDetail"></app-risk-settings-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="columnSettingsOverrideDetails">
+        <aux-accordion-expansion-panel header="Column Risk Settings Overrides" [uid]="'column-risk-settings-overrides'">
+            <div slot="content">
+                <app-column-settings-override-summary [columnSettingsOverrideDetails]="columnSettingsOverrideDetails"></app-column-settings-override-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="scenarioDetails">
+        <aux-accordion-expansion-panel header="Stress Scenarios" [uid]="'stress-scenarios'">
+            <div slot="content">
+                <app-scenario-summary [scenarioDetails]="scenarioDetails"></app-scenario-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="lookThroughProxyDetails">
+        <aux-accordion-expansion-panel header="Lookthrough Proxy Information" [uid]="'lookthrough-proxy-information'">
+            <div slot="content">
+                <app-proxy-summary [lookThroughProxyDetails]="lookThroughProxyDetails"></app-proxy-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="missingExposureDetails">
+        <aux-accordion-expansion-panel header="Missing Exposures" [uid]="'missing-exposures'">
+            <div slot="content">
+                <app-exposure-summary [missingExposureDetails]="missingExposureDetails"></app-exposure-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="dateOverrideDetails">
+        <aux-accordion-expansion-panel header="Date Override Details" [uid]="'date-override-details'">
+            <div slot="content">
+                <app-date-override-summary [dateOverrideDetails]="dateOverrideDetails"></app-date-override-summary>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <aux-accordion-expansion-panel header="Factor Attribution Details" [uid]="'factor-attribution-details'" *ngIf="widget.configType!=='pnlTsWidget' && widget.configType!=='mcvarPnlTsWidget'">
+        <div slot="content">
+            <app-factor-attribution-details
+                [riskSettings$]="riskSettings$"
+                [footerDetails$]="footerDetails$">
+            </app-factor-attribution-details>
+        </div>
+    </aux-accordion-expansion-panel>
+
+    <ng-container *ngIf="missingUnitValuesDetails && missingUnitValuesDetails.length > 0">
+        <aux-accordion-expansion-panel header="Missing Unit Values" [uid]="'missing-unit-values-footnotes'">
+            <div slot="content">
+                <app-missing-unit-values [missingUnitValues]="missingUnitValuesDetails"></app-missing-unit-values>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+</aux-accordion>

@@ -1,0 +1,43 @@
+.rule-container {
+    margin-right: 0;
+    margin-left: 0;
+    height: 100%;
+}
+
+.column-value-field-container {
+    display: flex;
+
+    .column-value-field {
+        flex-grow: 1;
+    }
+}
+
+.include-null-values {
+    display: block;
+    margin-top: 12px;
+}
+
+.custom-filter-column{
+    font-weight: bold;
+    margin-top: -4px;
+    padding-bottom: 4px;
+}
+
+.rule-preview {
+    margin-top: 1rem;
+
+    .rule-caption {
+        margin-bottom: .5rem;
+    }
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.operator-column-value-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

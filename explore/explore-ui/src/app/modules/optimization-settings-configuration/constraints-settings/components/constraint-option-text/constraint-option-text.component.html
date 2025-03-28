@@ -1,0 +1,8 @@
+<div style="padding-bottom: 8px">{{ label }}</div>
+<div>
+    <aux-text-input
+        [isDisabled]="isDisabled"
+        [value]="value$ | async"
+        (valueChanged)="onValueChanged($event)">
+    </aux-text-input>
+</div>

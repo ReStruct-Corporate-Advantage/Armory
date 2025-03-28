@@ -1,0 +1,65 @@
+<div>
+    <div [className]="classNameForMultiOverrideDate">
+        <explore-core-multi-override-date
+            [multiOverrideDateSettings]="multiOverrideDateSettings"
+            (multiOverrideDateSettingsChanged)="onMultiOverrideDateSettingsChange()"
+            [showAppendReportDate]="showAppendReportDate"
+            [maxNumberOfPeriodsOverride]="maxNumberOfPeriodsOverride"
+            [calledFromFactorDataWidget]="isFactorDataWidget"
+        >
+        </explore-core-multi-override-date>
+    </div>
+    <div [className]="classNameForDateFormatDropdown">
+        <explore-column-option-date-format-dropdown
+            [dateFormat]="dateFormat"
+            (updatedDateFormat)='updateDateFormatValue($event)'
+        ></explore-column-option-date-format-dropdown>
+    </div>
+    <div [className]="classNameForChartTypeDiv">
+        <div [className]="classNameForChartTypeLabel">Chart type</div>
+        <aux-radio-group
+            [isStacked]="!isFactorDataWidget"
+            [data]="chartTypeOptions"
+            (radioGroupChanged)="onChartTypeChanged($event)">
+        </aux-radio-group>
+    </div>
+    <ng-container *ngIf="isFactorDataWidget">
+        <div class="align-elements">
+            <div style="margin-bottom: 12px">
+                <aux-toggle
+                    size="regular"
+                    label="Comparison Mode"
+                    isChecked="{{widgetInput.compareModeToggle}}"
+                    (toggleChanged)="onToggleChanged()"
+                ></aux-toggle>
+            </div>
+            <aux-radio-group
+                isStacked="false"
+                [isReadOnly]="!widgetInput.compareModeToggle"
+                [data]="compareModeOptions"
+                (radioGroupChanged)="onCompareModeChanged($event)">
+            </aux-radio-group>
+        </div>
+    </ng-container>
+</div>
+<ng-container *ngIf="!isFactorDataWidget">
+    <div class="label">Show</div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Data markers" [isChecked]="showDataMarker"
+                      (checkboxChanged)="onShowDataMarkerChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Total line" [isChecked]="showTotalLine" [isDisabled]="!totalSelectionEnabled"
+                      (checkboxChanged)="onShowTotalValueChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Baseline" [isChecked]="showBaseline" [isDisabled]="!baselineSelectionEnabled"
+                      (checkboxChanged)="onShowBaselineValueChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <app-grid-lines-settings [widgetInput]="gridLines"></app-grid-lines-settings>
+    </div>
+</ng-container>

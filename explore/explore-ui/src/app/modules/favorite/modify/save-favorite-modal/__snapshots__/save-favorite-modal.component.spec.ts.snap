@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveFavoriteModalComponent should create 1`] = `
+<aux-modal
+  class="save-favorite-modal-area"
+  type="action"
+>
+  <div
+    class="custom-header"
+    slot="custom-header"
+  >
+    <span
+      class="header-title"
+    >
+      
+    </span>
+  </div>
+  <div
+    slot="content"
+  >
+    
+  </div>
+  <div
+    class="custom-footer"
+    slot="custom-footer"
+  >
+    <aux-button
+      class="btn"
+    />
+    
+    
+  </div>
+</aux-modal>
+`;

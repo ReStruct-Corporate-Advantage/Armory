@@ -1,0 +1,102 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "teamName": null,
+        "globalFavPerms": false,
+        "lastName": null,
+        "preferences": {
+          "PDFExportOptions": "{\"configType\":\"TablePDFExportConfig\",\"orientation\":0,\"pageFormat\":\"LETTER\",\"fullyExpanded\":true,\"visibleOnly\":false,\"customLevel\":false,\"customLevelDepth\":0,\"type\":\"application/pdf\",\"scaling\":\"NO_SCALING\",\"appendTimestamp\":false,\"pageMargin\":\"NORMAL:1:1:1:1\"}",
+          "defaultWorkspace": "",
+          "navDrawerOpen": "true",
+          "theme": "light",
+          "showWidgetPreview": "false",
+          "excelExportOptions": "{\"configType\":\"ExcelExportConfig\",\"visibleOnly\":false,\"suppressRowShading\":false,\"isGroupingEnabled\":false,\"fullyExpanded\":true,\"isFilterFriendly\":false,\"freezeColumnHeaders\":false,\"exportToSingleSheet\":false,\"useMergedCellFooter\":false,\"outlineStyle\":\"HORIZONTAL\",\"appendTimestamp\":true,\"type\":\"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet\"}"
+        },
+        "userOrg": "DEV",
+        "perfDataPerms": true,
+        "access": true,
+        "atxAccess": true,
+        "fullName": null,
+        "login": "suresing",
+        "launchApps": [
+          "SECURITY_MASTER",
+          "ANSER",
+          "ALADDIN_VIEW",
+          "ALADDIN_RESEARCH",
+          "EXPLORE_FILE_DOWNLOADER",
+          "EXPLORE_FILE_DOWNLOADER_BETA"
+        ],
+        "firstName": null,
+        "apiAccess": true,
+        "sharedFavPerms": false,
+        "pricePopupAccess": true,
+        "location": null,
+        "email": null,
+        "tokens": {
+          "userPreferenceDisabled": "Y",
+          "enableCommitmentRisk2": "Y",
+          "enablePerfAttr": "Y",
+          "enableScheduledBatch": "Y",
+          "exploreLogoFeaturePdf": "Y",
+          "enableModelSelection": "Y",
+          "enableOptimization": "Y",
+          "enableEquityHedgeFundCash": "Y",
+          "exploreClimateLinkoutEnabled": "Y",
+          "launchAppFromServer": "Y",
+          "enableAdhocPort": "Y",
+          "exploreFundSectoring": "Y",
+          "enableLoadAll": "Y",
+          "exploreFileDownloaderInEbc": "Y",
+          "exploreExcelFormat": "xlsx",
+          "enableFileDownloader": "Y",
+          "loadAllRequestLimit": "1",
+          "enableClarityAI": "Y",
+          "enableEpnl": "Y",
+          "enablePFMConnection": "Y",
+          "enableCassiniMarginAnalytics": "Y",
+          "enableFactorAttribution": "Y",
+          "explorePRAADAGrossNetReturns": "Y",
+          "exploreTelemetryEnabled": "N",
+          "explorePerfCustomSectoring": "Y",
+          "exploreEnableHvar": "Y",
+          "exploreRiskBudgetTierVisible": "Y",
+          "explorePopupChart": "Y",
+          "exploreClimateEnabled": "Y",
+          "clarityPremiumAccess": "Y",
+          "maxUserThread": "6",
+          "enableExpost": "Y",
+          "enableAdvancedPraMode": "Y",
+          "enableIndexResearch": "true",
+          "enableRiskDataLookthrough": "Y",
+          "enablePublishState": "Y",
+          "exploreMarginAnalyticsGroupingModels": "Portfolio,Instrument,Trade_Level,Strategy",
+          "exploreRiskBudgetingVisible": "Y"
+        }
+      },
+      "message": null,
+      "gaussian": "NOKw+dYbhnhXMLS7iXPeJ+DAH4uw4YAa4SUTgjH6",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 536
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-11T14:27:22.201Z",
+      "detailedID": "ad394091-bb32-4d44-bbf1-deb81dbd1aa3.536.1681223242201",
+      "IDWithContextChain": "ad394091-bb32-4d44-bbf1-deb81dbd1aa3",
+      "chain": [],
+      "bmsMsgSize": 536,
+      "transactionId": "ad394091-bb32-4d44-bbf1-deb81dbd1aa3",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1630872*ts=1681223242206*btid=1825*snapenable=true*guid=f0847bb7-cde2-4e16-8116-dc53df9babc4*exitguid=4*unresolvedexitid=760*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][760]}",
+    "return_val": "SUCCESS",
+    "command": "getUserMetadata",
+    "transactionId": "ad394091-bb32-4d44-bbf1-deb81dbd1aa3",
+    "successCode": null
+  }
+]

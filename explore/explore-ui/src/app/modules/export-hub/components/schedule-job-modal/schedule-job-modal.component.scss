@@ -1,0 +1,43 @@
+.data-sections {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+}
+
+.data-sections-wrapper {
+    height: 712px;
+    width: 100%;
+}
+
+.progress-stepper {
+    padding: 1.5rem 0.6rem;
+    width: 100%;
+}
+
+.portfolio-section {
+    border-bottom: 0;
+}
+
+.widgets-section {
+    border-bottom: 0;
+    padding: 1rem 1.75rem;
+}
+
+.content-padding-schedule-modal,
+.content-padding-schedule-settings-modal {
+    padding: 0 !important;
+}
+
+.content-height {
+    max-height: 75vh;
+    overflow: auto;
+}
+
+.data-sections-padding {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+

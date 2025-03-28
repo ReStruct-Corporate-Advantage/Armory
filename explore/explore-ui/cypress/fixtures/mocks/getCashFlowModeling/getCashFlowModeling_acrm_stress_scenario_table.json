@@ -1,0 +1,1014 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "splitColumnKeys": {
+          "acrm_hrzn_j_curve": [
+            {
+              "header": "1 Year",
+              "originalKey": "acrm_hrzn_j_curve|1 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_j_curve|1 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_j_curve|1 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_j_curve|1 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_j_curve|1 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "1 Year",
+              "updatedKey": "acrm_hrzn_j_curve|1 Year"
+            },
+            {
+              "header": "3 Year",
+              "originalKey": "acrm_hrzn_j_curve|3 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_j_curve|3 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_j_curve|3 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_j_curve|3 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_j_curve|3 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "3 Year",
+              "updatedKey": "acrm_hrzn_j_curve|3 Year"
+            },
+            {
+              "header": "5 Year",
+              "originalKey": "acrm_hrzn_j_curve|5 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_j_curve|5 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_j_curve|5 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_j_curve|5 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_j_curve|5 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "5 Year",
+              "updatedKey": "acrm_hrzn_j_curve|5 Year"
+            }
+          ],
+          "acrm_hrzn_tvpi": [
+            {
+              "header": "1 Year",
+              "originalKey": "acrm_hrzn_tvpi|1 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_tvpi|1 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_tvpi|1 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_tvpi|1 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_tvpi|1 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "1 Year",
+              "updatedKey": "acrm_hrzn_tvpi|1 Year"
+            },
+            {
+              "header": "3 Year",
+              "originalKey": "acrm_hrzn_tvpi|3 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_tvpi|3 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_tvpi|3 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_tvpi|3 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_tvpi|3 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "3 Year",
+              "updatedKey": "acrm_hrzn_tvpi|3 Year"
+            },
+            {
+              "header": "5 Year",
+              "originalKey": "acrm_hrzn_tvpi|5 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_tvpi|5 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_tvpi|5 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_tvpi|5 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_tvpi|5 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "5 Year",
+              "updatedKey": "acrm_hrzn_tvpi|5 Year"
+            }
+          ],
+          "acrm_hrzn_fund_value": [
+            {
+              "header": "1 Year",
+              "originalKey": "acrm_hrzn_fund_value|1 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_fund_value|1 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_fund_value|1 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_fund_value|1 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_fund_value|1 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "1 Year",
+              "updatedKey": "acrm_hrzn_fund_value|1 Year"
+            },
+            {
+              "header": "3 Year",
+              "originalKey": "acrm_hrzn_fund_value|3 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_fund_value|3 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_fund_value|3 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_fund_value|3 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_fund_value|3 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "3 Year",
+              "updatedKey": "acrm_hrzn_fund_value|3 Year"
+            },
+            {
+              "header": "5 Year",
+              "originalKey": "acrm_hrzn_fund_value|5 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_fund_value|5 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_fund_value|5 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_fund_value|5 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_fund_value|5 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "5 Year",
+              "updatedKey": "acrm_hrzn_fund_value|5 Year"
+            }
+          ],
+          "acrm_hrzn_dpi": [
+            {
+              "header": "1 Year",
+              "originalKey": "acrm_hrzn_dpi|1 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_dpi|1 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_dpi|1 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_dpi|1 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_dpi|1 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "1 Year",
+              "updatedKey": "acrm_hrzn_dpi|1 Year"
+            },
+            {
+              "header": "3 Year",
+              "originalKey": "acrm_hrzn_dpi|3 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_dpi|3 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_dpi|3 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_dpi|3 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_dpi|3 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "3 Year",
+              "updatedKey": "acrm_hrzn_dpi|3 Year"
+            },
+            {
+              "header": "5 Year",
+              "originalKey": "acrm_hrzn_dpi|5 Year",
+              "children": [
+                {
+                  "header": "Base",
+                  "originalKey": "acrm_hrzn_dpi|5 Year|Base",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Base",
+                  "updatedKey": "acrm_hrzn_dpi|5 Year|Base"
+                },
+                {
+                  "header": "Stock Market Crash",
+                  "originalKey": "acrm_hrzn_dpi|5 Year|Stock Market Crash",
+                  "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                  "updatedKeySuffix": "Stock Market Crash",
+                  "updatedKey": "acrm_hrzn_dpi|5 Year|Stock Market Crash"
+                }
+              ],
+              "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+              "updatedKeySuffix": "5 Year",
+              "updatedKey": "acrm_hrzn_dpi|5 Year"
+            }
+          ]
+        },
+        "footerDetails": {
+          "missingExposures": {
+            "excluded_commitment_percentage": 45.79,
+            "all_funds_number": 4,
+            "excluded_nav_percentage": 34.36,
+            "excluded_funds_number": 2
+          }
+        },
+        "data": {
+          "data": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          "children": [
+            {
+              "title": "Mean",
+              "data": [
+                null,
+                null,
+                3870152.75,
+                1120074.625,
+                2755827.0,
+                1499724.125,
+                1918022.0,
+                1407200.75,
+                -58303.98828125,
+                -587306.0625,
+                1975049.75,
+                121609.1171875,
+                3524255.5,
+                1264831.75,
+                2.5316996965912804,
+                1.2140802018452048,
+                2.900988984042387,
+                1.6514937025336833,
+                3.186848156708901,
+                2.0736919636520312,
+                0.9765719405550763,
+                0.7640051658742492,
+                1.7936262168921797,
+                1.0488656504019918,
+                2.4161371689092404,
+                1.5082422033964538,
+                "Mean"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    1542877.375,
+                    644005.0625,
+                    1172499.0,
+                    778436.625,
+                    861163.0,
+                    716898.875,
+                    -73306.1953125,
+                    -199714.125,
+                    611971.0,
+                    137438.90625,
+                    1170591.875,
+                    600762.5,
+                    2.2419105947931435,
+                    1.3754629738199409,
+                    2.5080264992893904,
+                    1.7739914507108105,
+                    2.7170028092694696,
+                    2.1135340364852206,
+                    0.9380500834625783,
+                    0.8312247966992721,
+                    1.5171667132519053,
+                    1.1161473521732066,
+                    1.9892480001622561,
+                    1.5076944870331415,
+                    "Mean"
+                  ],
+                  "rowId": 3
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    2327275.25,
+                    476069.53125,
+                    1583328.125,
+                    721287.5,
+                    1056859.0,
+                    690301.875,
+                    15002.2041015625,
+                    -387591.90625,
+                    1363078.75,
+                    -15829.7861328125,
+                    2353663.5,
+                    664069.25,
+                    2.7944017773351466,
+                    1.0677820418286634,
+                    3.257220902840289,
+                    1.5404460574952599,
+                    3.6127765115967287,
+                    2.0375738800681824,
+                    1.0114931147415394,
+                    0.7030686323329439,
+                    2.044244728324364,
+                    0.987872943519813,
+                    2.803124509221841,
+                    1.508738628310957,
+                    "Mean"
+                  ],
+                  "rowId": 4
+                }
+              ],
+              "rowId": 2,
+              "sectorOrder": 0
+            },
+            {
+              "title": "10th Percentile",
+              "data": [
+                null,
+                null,
+                1977071.875,
+                683398.0625,
+                439746.21875,
+                358061.9375,
+                0.0,
+                0.0,
+                -801352.0,
+                -827150.4375,
+                125488.9375,
+                -460449.28125,
+                941164.875,
+                132808.5625,
+                1.4724347407052387,
+                0.9422365420708241,
+                1.227126171536077,
+                0.9588580719648153,
+                1.3781844077673355,
+                1.053365899986127,
+                0.6779959815397146,
+                0.6676294750977919,
+                1.0504247350384883,
+                0.8149794983383996,
+                1.3781844077673355,
+                1.053365899986127,
+                "10th Percentile"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    826250.9375,
+                    375309.90625,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    -314787.28125,
+                    -314787.28125,
+                    -173973.96875,
+                    -242229.015625,
+                    122404.1328125,
+                    -17671.59765625,
+                    1.4322295695207043,
+                    1.0511466570918684,
+                    0.8529773566162342,
+                    0.7952961690877258,
+                    1.1034417301060433,
+                    0.9850659978674313,
+                    0.7339783751533563,
+                    0.7339783751533563,
+                    0.8529773566162342,
+                    0.7952961690877258,
+                    1.1034417301060433,
+                    0.9850659978674313,
+                    "10th Percentile"
+                  ],
+                  "rowId": 6
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    869967.8125,
+                    220288.453125,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    -524592.0,
+                    -524592.0,
+                    -86501.0703125,
+                    -386594.1875,
+                    373239.90625,
+                    -81150.296875,
+                    1.264589900982514,
+                    0.7668752633443778,
+                    0.933732116522705,
+                    0.7038330013598146,
+                    1.2859363568459963,
+                    0.9378313829889108,
+                    0.5981138796851359,
+                    0.5981138796851359,
+                    0.933732116522705,
+                    0.7038330013598146,
+                    1.2859363568459963,
+                    0.9378313829889108,
+                    "10th Percentile"
+                  ],
+                  "rowId": 7
+                }
+              ],
+              "rowId": 5,
+              "sectorOrder": 0
+            },
+            {
+              "title": "25th Percentile",
+              "data": [
+                null,
+                null,
+                2733856.25,
+                915342.5,
+                1017770.75,
+                761319.5,
+                280735.46875,
+                298259.34375,
+                -679474.3125,
+                -787886.5625,
+                685821.0625,
+                -274995.40625,
+                1670852.375,
+                464060.15625,
+                1.8255039223736582,
+                1.0512150764288002,
+                1.6845473516204987,
+                1.1954175971029957,
+                1.784198564195561,
+                1.306319684779607,
+                0.7269695724340978,
+                0.6834067184693968,
+                1.275580666104847,
+                0.8894996754753275,
+                1.6713917713481832,
+                1.1864713444362527,
+                "25th Percentile"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    1170188.875,
+                    522454.5,
+                    309092.6875,
+                    252318.390625,
+                    0.0,
+                    0.0,
+                    -314787.28125,
+                    -314787.28125,
+                    2371.54931640625,
+                    -148908.75,
+                    427820.46875,
+                    184779.921875,
+                    1.7228859122224243,
+                    1.1754961539184736,
+                    1.2632133060962858,
+                    1.087389748268582,
+                    1.361544022839232,
+                    1.1561544593270725,
+                    0.7339783751533563,
+                    0.7339783751533563,
+                    1.0020041159801312,
+                    0.874159590675262,
+                    1.361544022839232,
+                    1.1561544593270725,
+                    "25th Percentile"
+                  ],
+                  "rowId": 9
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    1516230.625,
+                    375300.40625,
+                    146876.28125,
+                    109985.1328125,
+                    0.0,
+                    0.0,
+                    -477857.90625,
+                    -513927.9375,
+                    282564.90625,
+                    -275843.65625,
+                    905966.0,
+                    93992.6171875,
+                    1.7954898205427767,
+                    0.893798455365522,
+                    1.3289917501388544,
+                    0.872936966129125,
+                    1.6940539712332179,
+                    1.0720070672054853,
+                    0.6339165533487828,
+                    0.6062835404975773,
+                    1.2164708980522092,
+                    0.7886781548656465,
+                    1.6940539712332179,
+                    1.0720070672054853,
+                    "25th Percentile"
+                  ],
+                  "rowId": 10
+                }
+              ],
+              "rowId": 8,
+              "sectorOrder": 0
+            },
+            {
+              "title": "50th Percentile",
+              "data": [
+                null,
+                null,
+                3671929.75,
+                1124318.375,
+                1984692.875,
+                1312322.75,
+                887173.9375,
+                855529.125,
+                -409280.21875,
+                -701459.0,
+                1543414.5,
+                23730.2890625,
+                2804661.75,
+                946323.8125,
+                2.3110171932277463,
+                1.1699158144524533,
+                2.4176850526477365,
+                1.5368607489292092,
+                2.483475335271005,
+                1.72403122026802,
+                0.8355405799493478,
+                0.7181355296603295,
+                1.6201839780144958,
+                1.0095354299472232,
+                2.126985836338908,
+                1.380257427777564,
+                "50th Percentile"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    1523046.0,
+                    651544.125,
+                    916566.5625,
+                    679986.75,
+                    377711.9375,
+                    379430.125,
+                    -250822.734375,
+                    -282747.09375,
+                    377116.34375,
+                    34234.046875,
+                    971296.4375,
+                    450895.28125,
+                    2.075135070783154,
+                    1.3116643310666076,
+                    2.0932702499482914,
+                    1.6035763096842999,
+                    2.1400248222208,
+                    1.7016944350604943,
+                    0.7880337310931009,
+                    0.7610550151597452,
+                    1.3186947935872515,
+                    1.0289305951776566,
+                    1.8208266228406262,
+                    1.3810442234409737,
+                    "50th Percentile"
+                  ],
+                  "rowId": 12
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    2187856.75,
+                    486357.21875,
+                    867031.0625,
+                    557707.1875,
+                    159867.1875,
+                    167207.859375,
+                    -311629.1875,
+                    -470155.96875,
+                    969226.3125,
+                    -92374.0625,
+                    1745175.75,
+                    365180.375,
+                    2.43736430582422,
+                    1.0124116359910367,
+                    2.4067433876620763,
+                    1.3564882787811465,
+                    2.459439555283167,
+                    1.4078587588340068,
+                    0.7612631432784939,
+                    0.6398169038362094,
+                    1.7425171892057534,
+                    0.929232853886963,
+                    2.3369664642905024,
+                    1.2797620324440273,
+                    "50th Percentile"
+                  ],
+                  "rowId": 13
+                }
+              ],
+              "rowId": 11,
+              "sectorOrder": 0
+            },
+            {
+              "title": "75th Percentile",
+              "data": [
+                null,
+                null,
+                4742828.5,
+                1339300.75,
+                3544618.25,
+                2033563.75,
+                2201620.25,
+                1845197.0,
+                192855.921875,
+                -501385.59375,
+                2767287.75,
+                383604.21875,
+                4401432.0,
+                1663118.25,
+                2.983285949683959,
+                1.3366960304318856,
+                3.5362875442297343,
+                1.9712807970699657,
+                3.653277759466793,
+                2.409732063469612,
+                1.0774944424961468,
+                0.7985302513150004,
+                2.1119679937604467,
+                1.1541421372860414,
+                2.7686096390608563,
+                1.6682840495495581,
+                "75th Percentile"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    1924198.25,
+                    792654.6875,
+                    1674189.75,
+                    1131793.25,
+                    1142392.125,
+                    1014133.5625,
+                    -64167.76953125,
+                    -191999.234375,
+                    1003173.625,
+                    335486.4375,
+                    1573290.125,
+                    826223.4375,
+                    2.5718813401083693,
+                    1.507604063077892,
+                    3.262596025275608,
+                    2.2399740855085257,
+                    3.2949786817074664,
+                    2.5552556388737653,
+                    0.9457727751640044,
+                    0.837744511762403,
+                    1.847765567022637,
+                    1.2835140650448242,
+                    2.3295617248073683,
+                    1.6982279017480344,
+                    "75th Percentile"
+                  ],
+                  "rowId": 15
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    3013886.75,
+                    594930.3125,
+                    2044091.625,
+                    1059332.5,
+                    892047.625,
+                    791643.5625,
+                    85127.640625,
+                    -368557.28125,
+                    1964199.25,
+                    144559.5,
+                    2924316.25,
+                    853531.9375,
+                    3.374132399977017,
+                    1.1734227586999406,
+                    4.070722521211192,
+                    1.9222929155574282,
+                    3.923688832283148,
+                    2.260357047095551,
+                    1.0652156551050505,
+                    0.7176509681496945,
+                    2.5047587765499015,
+                    1.110745982801218,
+                    3.240297627027752,
+                    1.6538846647386667,
+                    "75th Percentile"
+                  ],
+                  "rowId": 16
+                }
+              ],
+              "rowId": 14,
+              "sectorOrder": 0
+            },
+            {
+              "title": "90th Percentile",
+              "data": [
+                null,
+                null,
+                6004604.0,
+                1531920.5,
+                5790408.0,
+                2863302.0,
+                4430398.5,
+                3343701.0,
+                1195208.625,
+                -137628.671875,
+                4215555.5,
+                804807.0,
+                6825808.0,
+                2701632.75,
+                3.893071405774982,
+                1.560262589231728,
+                5.0206555609344425,
+                2.473941336828683,
+                5.523035827101934,
+                3.4291719000309304,
+                1.4802657757114102,
+                0.9446971985398851,
+                2.693919439324233,
+                1.3233923270734544,
+                3.7427867974864584,
+                2.0855861118508616,
+                "90th Percentile"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "NewView Capital Fund I, L.P.",
+                    "BRTMXMM69",
+                    2334853.25,
+                    933157.9375,
+                    2582203.0,
+                    1661334.0,
+                    2275546.25,
+                    1876878.875,
+                    398619.84375,
+                    16487.064453125,
+                    1658257.25,
+                    640270.5625,
+                    2400762.75,
+                    1360130.375,
+                    3.310013460070535,
+                    1.8025294516949104,
+                    4.58354381199085,
+                    2.945048432802853,
+                    4.951872483631257,
+                    3.735543628607689,
+                    1.3368670507994598,
+                    1.0139328948616588,
+                    2.401366162299591,
+                    1.5410821592479937,
+                    3.028845452995494,
+                    2.1494238958823084,
+                    "90th Percentile"
+                  ],
+                  "rowId": 18
+                },
+                {
+                  "data": [
+                    "Thoma Bravo Discover Fund II, L.P.",
+                    "BRTEJLME8",
+                    3950626.25,
+                    720717.9375,
+                    3960299.25,
+                    1682358.375,
+                    2618612.5,
+                    1988340.0,
+                    1070459.125,
+                    -121047.71875,
+                    3181979.5,
+                    401993.75,
+                    4842566.0,
+                    1700694.25,
+                    4.846617126003102,
+                    1.4594029743550456,
+                    6.471647865474115,
+                    2.596807021239921,
+                    6.715954647310057,
+                    3.8261423400302608,
+                    1.82007105510122,
+                    0.9072661980732768,
+                    3.4376913795414934,
+                    1.3079644916017084,
+                    4.709854633903434,
+                    2.302889510275219,
+                    "90th Percentile"
+                  ],
+                  "rowId": 19
+                }
+              ],
+              "rowId": 17,
+              "sectorOrder": 0
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "sec_desc": "Description",
+            "acrm_hrzn_tvpi": "Projected TVPI",
+            "cusip": "CUSIP",
+            "percentiles": "Percentiles",
+            "acrm_hrzn_dpi": "Projected DPI",
+            "acrm_hrzn_j_curve": "Projected J-Curve",
+            "acrm_hrzn_fund_value": "Projected NAV"
+          },
+          "columnKeyToTagMap": {
+            "sec_desc": "sec_desc",
+            "acrm_hrzn_tvpi": "acrm_hrzn_tvpi",
+            "cusip": "cusip",
+            "percentiles": "percentiles",
+            "acrm_hrzn_dpi": "acrm_hrzn_dpi",
+            "acrm_hrzn_j_curve": "acrm_hrzn_j_curve",
+            "acrm_hrzn_fund_value": "acrm_hrzn_fund_value"
+          }
+        },
+        "columns": [
+          "sec_desc",
+          "cusip",
+          "acrm_hrzn_fund_value|1 Year|Base",
+          "acrm_hrzn_fund_value|1 Year|Stock Market Crash",
+          "acrm_hrzn_fund_value|3 Year|Base",
+          "acrm_hrzn_fund_value|3 Year|Stock Market Crash",
+          "acrm_hrzn_fund_value|5 Year|Base",
+          "acrm_hrzn_fund_value|5 Year|Stock Market Crash",
+          "acrm_hrzn_j_curve|1 Year|Base",
+          "acrm_hrzn_j_curve|1 Year|Stock Market Crash",
+          "acrm_hrzn_j_curve|3 Year|Base",
+          "acrm_hrzn_j_curve|3 Year|Stock Market Crash",
+          "acrm_hrzn_j_curve|5 Year|Base",
+          "acrm_hrzn_j_curve|5 Year|Stock Market Crash",
+          "acrm_hrzn_tvpi|1 Year|Base",
+          "acrm_hrzn_tvpi|1 Year|Stock Market Crash",
+          "acrm_hrzn_tvpi|3 Year|Base",
+          "acrm_hrzn_tvpi|3 Year|Stock Market Crash",
+          "acrm_hrzn_tvpi|5 Year|Base",
+          "acrm_hrzn_tvpi|5 Year|Stock Market Crash",
+          "acrm_hrzn_dpi|1 Year|Base",
+          "acrm_hrzn_dpi|1 Year|Stock Market Crash",
+          "acrm_hrzn_dpi|3 Year|Base",
+          "acrm_hrzn_dpi|3 Year|Stock Market Crash",
+          "acrm_hrzn_dpi|5 Year|Base",
+          "acrm_hrzn_dpi|5 Year|Stock Market Crash",
+          "percentiles"
+        ]
+      },
+      "gaussian": "G6RJCAGluhU0Vx7RPghjYQrotJIrW7iR95RUUs7OI993B6O2XFwz7EM=",
+      "userinfo": {
+        "runningRequests": 0,
+        "serverId": "sharedSession",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1717522537714
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2811
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-06-04T17:35:36.798Z",
+      "detailedID": "13a61591-b947-4ba8-aee3-2fa3693abaef.2811.1717522536798",
+      "IDWithContextChain": "13a61591-b947-4ba8-aee3-2fa3693abaef",
+      "chain": [],
+      "bmsMsgSize": 2811,
+      "transactionId": "13a61591-b947-4ba8-aee3-2fa3693abaef",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getCashFlowModeling",
+    "transactionId": "13a61591-b947-4ba8-aee3-2fa3693abaef",
+    "successCode": null
+  }
+]

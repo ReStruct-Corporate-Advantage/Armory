@@ -1,0 +1,482 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for conditional formatting",
+    "line": 1,
+    "id": "visual-comparison-tests-for-conditional-formatting",
+    "tags": [],
+    "uri": "conditional-formatting.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-conditional-formatting;validate-conditional-formatting-for-risk-and-exposure",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate Conditional Formatting for Risk and Exposure",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 6056000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I open widget settings modal from \"Risk and Exposure\"",
+            "result": {
+              "status": "passed",
+              "duration": 25760000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I select column \"Market Value %\"",
+            "result": {
+              "status": "passed",
+              "duration": 436000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "\"Market Value %\" column options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 33000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I select column option \"Conditional formatting\"",
+            "result": {
+              "status": "passed",
+              "duration": 161000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I click on Add Rule button",
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I select \"Greater than\" in the rule dropdown",
+            "result": {
+              "status": "passed",
+              "duration": 705000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "I enter \"10\" in the value field",
+            "result": {
+              "status": "passed",
+              "duration": 164000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "I select \"cell only\" in color field",
+            "result": {
+              "status": "passed",
+              "duration": 712000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I click on background color picker to select the color \"RGB,255,0,0\"",
+            "result": {
+              "status": "passed",
+              "duration": 1317000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I click \"Second to last level of data\" checkbox (CHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 185000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 124000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26541000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I right click on \"SNP100\" cell to open context menu and click on \"Expand All Levels\"",
+            "result": {
+              "status": "passed",
+              "duration": 658000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "Risk and Exposure should be displayed with conditional formatting applied",
+            "result": {
+              "status": "passed",
+              "duration": 4465000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-conditional-formatting;validate-conditional-formatting-for-risk-and-exposure-for-greather-than-or-equals-condition",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Validate Conditional Formatting for Risk and Exposure for Greather than or equals condition",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 4313000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "I open widget settings modal from \"Risk and Exposure\"",
+            "result": {
+              "status": "passed",
+              "duration": 25757000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I select column \"Market Value %\"",
+            "result": {
+              "status": "passed",
+              "duration": 466000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "\"Market Value %\" column options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 26,
+            "name": "I select column option \"Conditional formatting\"",
+            "result": {
+              "status": "passed",
+              "duration": 155000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 27,
+            "name": "I click on Add Rule button",
+            "result": {
+              "status": "passed",
+              "duration": 76000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I select \"Greater than or equal\" in the rule dropdown",
+            "result": {
+              "status": "passed",
+              "duration": 714000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I enter \"9\" in the value field",
+            "result": {
+              "status": "passed",
+              "duration": 150000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I select \"text only\" in color field",
+            "result": {
+              "status": "passed",
+              "duration": 703000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "I click on font text picker to select the color \"RGB,255,0,0\"",
+            "result": {
+              "status": "passed",
+              "duration": 1322000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "I click \"Last level of data\" checkbox (UNCHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 185000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 129000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 34,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26532000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I right click on \"SNP100\" cell to open context menu and click on \"Expand All Levels\"",
+            "result": {
+              "status": "passed",
+              "duration": 660000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 36,
+            "name": "Risk and Exposure should be displayed with conditional formatting applied",
+            "result": {
+              "status": "passed",
+              "duration": 4233000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-conditional-formatting;validate-conditional-formatting-for-risk-and-exposure-for-not-equals-condition",
+        "keyword": "Scenario",
+        "line": 38,
+        "name": "Validate Conditional Formatting for Risk and Exposure for Not equals condition",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 4311000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 39,
+            "name": "I open widget settings modal from \"Risk and Exposure\"",
+            "result": {
+              "status": "passed",
+              "duration": 25761000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 40,
+            "name": "I select column \"Market Value %\"",
+            "result": {
+              "status": "passed",
+              "duration": 467000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "\"Market Value %\" column options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "I select column option \"Conditional formatting\"",
+            "result": {
+              "status": "passed",
+              "duration": 193000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "I click on Add Rule button",
+            "result": {
+              "status": "passed",
+              "duration": 99000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "I select \"Does not equal\" in the rule dropdown",
+            "result": {
+              "status": "passed",
+              "duration": 721000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "I enter \"12\" in the value field",
+            "result": {
+              "status": "passed",
+              "duration": 167000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "I select \"cell and text\" in color field",
+            "result": {
+              "status": "passed",
+              "duration": 711000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "I click on color and text picker to select the color \"RGB,255,0,0/RGB,0,255,0\"",
+            "result": {
+              "status": "passed",
+              "duration": 2688000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 48,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 153000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 49,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26529000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 50,
+            "name": "I right click on \"SNP100\" cell to open context menu and click on \"Expand All Levels\"",
+            "result": {
+              "status": "passed",
+              "duration": 762000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 51,
+            "name": "Risk and Exposure should be displayed with conditional formatting applied",
+            "result": {
+              "status": "passed",
+              "duration": 4505000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+$light-blue: #9BD5FC;
+$dark-blue: #3BADF8;
+$yellow: #F8E71C;
+$grey: #888E9A;
+
+@mixin chart-colors($color) {
+    fill: $color !important;
+    stroke: $color !important;
+    path.highcharts-point, path.highcharts-halo {
+        fill: $color !important;
+        stroke: $color !important;
+    }
+}
+
+.aux-theme-light {
+    --midline-color: #00384A;
+}
+
+.aux-theme-dark {
+    --midline-color: #ffffff;
+}
+
+.scenario-midline {
+    stroke-dasharray: 5, 10;
+    @include chart-colors(var(--midline-color));
+}
+
+.midline {
+    @include chart-colors(var(--midline-color));
+}
+
+.light-blue {
+    @include chart-colors($light-blue);
+}
+
+.dark-blue {
+    @include chart-colors($dark-blue);
+}
+
+.scenario-dark-blue {
+    opacity: 0.8;
+    @include chart-colors($dark-blue);
+}
+
+.yellow {
+    @include chart-colors($yellow);
+}
+
+.midline path.highcharts-point,
+.scenario-midline path.highcharts-point,
+.light-blue path.highcharts-point,
+.dark-blue path.highcharts-point,
+.yellow path.highcharts-point,
+.scenario-dark-blue path.highcharts-point {
+    fill: $grey !important;
+    stroke: $grey !important;
+}
+
+

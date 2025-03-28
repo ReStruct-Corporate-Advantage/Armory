@@ -1,0 +1,126 @@
+<div class="column-set-settings--container">
+<ng-container *ngIf='displaySeparator'>
+    <div class="horizontal-break"></div>
+</ng-container>
+<div class="column-search">
+    <aux-select
+        type="simple"
+        [hasInitialOptionPlaceholder]="false"
+        [data]="selectDropdownProps"
+        (selectionChanged)="onSearchByChanged($event)">
+    </aux-select>
+    <div class="search-box">
+        <aux-search-field
+            (searchValueChanged)="columnSearchValueChanged($event)"
+            [isDisabled]="isDisabled">
+        </aux-search-field>
+    </div>
+</div>
+<div class="column-filter-bar">
+    <aux-filter-bar
+        hideAllSuffix="true"
+        showSelectionCount="true"
+        [data]="categoriesData"
+        (filterDataChanged)="onFilterBarDataChanged($event)"
+        (resetAllClicked)="onResetAllClicked()">
+    </aux-filter-bar>
+</div>
+<div class="column-container">
+    <div class="column-set-settings">
+        <explore-column-option-column-selector
+            [searchTermSubject$]="searchTermSubject$"
+            [selectedColumnConfig$]="selectedColumnConfig$"
+            [columnOptionUpdated$]="columnOptionUpdated$"
+            [config]="columnSelectorConfig"
+            [singleColumnOnly]="singleColumnOnly"
+            [requireLoadAndSaveOptions]="requireLoadAndSaveOptions"
+            [showColumnCounter]=true
+            [columnSet]="widgetInput"
+            [favoriteType]="favoriteType"
+            [loadColumnSet]="loadColumnSetVersion"
+            [parentColumnSet]="this.parentColumnSet"
+            [widgetType]="widgetType"
+            [searchBy]="searchBy"
+            [widgetRecentColumns]="widgetRecentColumns"
+            [sourceDataUpdated$]="sourceDataUpdated$"
+            [columnSetUpdated$]="columnSetUpdated$"
+            [columnOptionCopied$]="columnOptionCopied$"
+            [columnOptionsFetched$]="columnOptionsFetched$"
+            (filteredFlatDataChanged)="onChildFilteredDataChanged($event)"
+            (recentColumnsChanged)="updateRecentColumnsPreference($event)"
+            (saveColumnSetClicked)="openSaveColumnSetModal()"
+            (loadColumnSetClicked)="openLoadColumnSetModal()"
+            (targetSelectionChanged)="onTargetSelectionChanged($event)"
+            (targetItemRemoved)="onTargetItemRemoved($event)"
+            (sourceItemMoved)="onColumnsAddedToTargetArea($event)">
+        </explore-column-option-column-selector>
+    </div>
+
+    <ng-container *ngIf="!isColumnOptionsDisabled">
+        <ng-container *ngIf="(columnSetLoaded$ | async)">
+            <div class="loading-area loading-area-dimension">
+                <div class="loading-spinner">
+                    <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                            size="large"
+                                            type="loading" [loadingLabel]="'Loading column set'">
+                    </aux-progress-indicator>
+                </div>
+            </div>
+        </ng-container>
+        <div class="column-options column-options-width">
+            <ng-container *ngIf="(selectedColumnConfig$ | async) as columnConfig">
+                <div class="column-options-header">
+                    <div class="favorite-row">
+                        <label class="column-option-title">{{getColumnsOptionTitle(columnConfig)}}</label>
+                        <ng-container *ngIf="columnConfig?.columnTag === CUSTOM_CALCULATION || columnConfig?.columnTag === PGS_CUSTOM_CALCULATION">
+                            <explore-core-load-new-favorite-buttons [showLoadOnly]="true" (loadClick)="openLoadCustomCalcModal(columnConfig?.columnTag)"></explore-core-load-new-favorite-buttons>
+                        </ng-container>
+                        <aux-button *ngIf="columnConfig?.columnTag === CUSTOM_CALCULATION || columnConfig?.columnTag === PGS_CUSTOM_CALCULATION"
+                                    class="save-button--right" [type]="AuxButtonTypeEnum.SECONDARY"
+                                    [size]="AuxButtonSizeEnum.SMALL"
+                                    label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{columnConfig?.columnTag === CUSTOM_CALCULATION ? CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.CUSTOM_CALC_SAVE : CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.PGS_CUSTOM_CALC_SAVE}}"
+                                    (click)="openSaveCustomCalcModal(columnConfig?.columnTag)"></aux-button>
+                    </div>
+                    <div class="favorite-row" *ngIf="columnConfig?.columnTag === CUSTOM_CALCULATION || columnConfig?.columnTag === PGS_CUSTOM_CALCULATION">
+                        <explore-previous-favorite-version-banner [favoriteId]="columnConfig.id" [owner]="columnConfig.owner"
+                                                                  [currentFavoriteVersion]="columnConfig.currentFavoriteVersion"
+                        ></explore-previous-favorite-version-banner>
+                    </div>
+                    <div class="favorite-row favorite-info-actions-container" *ngIf="columnConfig?.columnTag === CUSTOM_CALCULATION || columnConfig?.columnTag === PGS_CUSTOM_CALCULATION">
+                        <ng-container *ngIf="columnConfig?.id">
+                            <explore-favorite-info [favoriteConfig]='columnConfig' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.CUSTOM_CALC" [loadFavoriteCallBack]="loadCustomCalcColumnVersion"></explore-favorite-info>
+                        </ng-container>
+                        <app-favorite-menu *ngIf="coreFavoriteUtils.showFavStatusTagMenu(columnConfig)" [favorite]="columnConfig" [favoriteType]="columnConfig?.columnTag === PGS_CUSTOM_CALCULATION? CoreFavoriteConstants.PGS_CUSTOM_CALC_COLUMN : customCalcFavoriteType"></app-favorite-menu>
+                    </div>
+                    <div class="favorite-row" *ngIf="coreFavoriteUtils.showFavStatusTag(columnConfig)">
+                        <app-favorite-status-badge [favoriteStatus]="columnConfig.statusTag"></app-favorite-status-badge>
+                    </div>
+                </div>
+
+                <div class="column-options-div">
+                    <explore-column-options
+                        [columnOptionUpdated$]="columnOptionUpdated$"
+                        [column]="columnConfig"
+                        [restrictedColumnOptions]="restrictedColumnOptions"
+                        [columnOptionsToAdd]="columnOptionsToAdd"
+                        [columnOptionsToModify]="columnOptionsToModify"
+                        [widgetType]="widgetType"
+                        (copyButtonClickEvent)="copyButtonClickEventHandler($event)">
+                    </explore-column-options>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isCopyColumnOptionsModalOpen">
+        <explore-copy-column-options-modal
+            [isOpen]="isCopyColumnOptionsModalOpen"
+            [column]="selectedColumnConfig"
+            [columns]="widgetInput.columns"
+            [columnOptionCopied$]="columnOptionCopied$"
+            [sourceColumnOptionMetaData]="sourceColumnOptionMetaDataForCopy"
+            [restrictedColumnOptions]="restrictedColumnOptions"
+            (modalClosed)="closeCopyColumnOptionsModal()"
+        ></explore-copy-column-options-modal>
+    </ng-container>
+</div>
+</div>

@@ -1,0 +1,11 @@
+<div class="security-search-bar__container">
+    <span class="search-field__label aux-primary">Add securities</span>
+    <aux-search-field
+        [placeholder]=placeholderText
+        [typeaheadProps]="typeaheadProps"
+        [searchValue]="searchTerm"
+        (searchValueChanged)="onSearchValueChanged($event)"
+        (searchSelectionChanged)="addSecurity($event)"
+        (clickSearch)="validateThenAddSecurity($event)">
+    </aux-search-field>
+</div>

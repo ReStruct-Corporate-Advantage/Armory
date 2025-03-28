@@ -1,0 +1,6 @@
+<div class="constraint-options-breakdown">
+    <div *ngIf="breakdown$ | async as breakdown" class="breakdown-preview">
+        <app-breakdown-preview [breakdown]="breakdown" [breakdownBuilderSettings]="breakdownBuilderSettings"
+            (breakdownChanged)="onBreakdownChanged()"></app-breakdown-preview>
+    </div>
+</div>

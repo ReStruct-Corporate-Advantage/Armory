@@ -1,0 +1,225 @@
+{
+  "configType": "pivotWidget",
+  "size": {
+    "height": 12,
+    "width": 16
+  },
+  "description": "The Pivot Table Widget is a three-dimensional report that displays information in a single view. Breakdowns can be configured for columns (X-axis), rows (Y-axis), and within the cells.",
+  "title": "Pivot Table",
+  "image": ".\/assets\/images\/riskExposureWidget.png",
+  "showInSelector": true,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": true,
+  "showOnlySingleColumn": true,
+  "createNestedNoneBuckets": false,
+  "createNestedOtherBuckets": false,
+  "chartTransition": [],
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Cell Measure",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "reportTypes",
+              "value": "SINGLE"
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": [
+                "FACTOR_ATTRIBUTES"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "uses",
+              "value": "Excess"
+            },
+            {
+              "type": "!=",
+              "key": "groups",
+              "value": [
+                "Factor-Based",
+                "Scenario",
+                "Attribution",
+                "Credit VaR"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "forTopdown",
+              "value": true
+            }
+          ],
+          "default": [
+            {
+              "$ref": "notionalMarketValuePercentColumn"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "breakdown",
+      "categoryTitle": "Breakdowns",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "breakdownTree",
+          "inputName": "breakdownTree",
+          "inputTitle": "Row Breakdown",
+          "portDefaultsRequired": false,
+          "groupByColumnFilters": {
+            "$ref": "defaultGroupByColumnFilters"
+          },
+          "customColumnFilters": {
+            "$ref": "defaultCustomColumnFilters"
+          },
+          "valueField": "columnTag",
+          "max": 5,
+          "includeNoBreakdown": false,
+          "default": {
+            "breakdown": {
+              "breakdownTitle": "Security Group",
+              "isConfigured": false,
+              "subSectors": [
+                {
+                  "breakdownRuleType": "String",
+                  "useNoneBuckets": true,
+                  "groupByColumn": {
+                    "columnTag": "sec_group",
+                    "columnName": "Security Group",
+                    "positionColumnType": "ALL"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "inputConfigType": "breakdownTree",
+          "inputName": "columnBreakdownTree",
+          "inputTitle": "Column Breakdown",
+          "groupByColumnFilters": {
+            "$ref": "defaultGroupByColumnFilters"
+          },
+          "customColumnFilters": {
+            "$ref": "defaultCustomColumnFilters"
+          },
+          "valueField": "columnTag",
+          "max": 5,
+          "includeNoBreakdown": false,
+          "default": {
+            "breakdown": {
+              "breakdownTitle": "Country Code",
+              "isConfigured": false,
+              "subSectors": [
+                {
+                  "breakdownRuleType": "String",
+                  "useNoneBuckets": true,
+                  "groupByColumn": {
+                    "columnTag": "country_code",
+                    "columnName": "Country Code",
+                    "positionColumnType": "ALL"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "inputConfigType": "breakdownTree",
+          "inputName": "cellBreakdownTree",
+          "inputTitle": "Cell Breakdown",
+          "portDefaultsRequired": false,
+          "groupByColumnFilters": {
+            "$ref": "defaultGroupByColumnFilters"
+          },
+          "customColumnFilters": {
+            "$ref": "defaultCustomColumnFilters"
+          },
+          "valueField": "columnTag",
+          "max": 5,
+          "default": {
+            "breakdown": {
+              "breakdownTitle": "Issuer Ticker",
+              "isConfigured": false,
+              "subSectors": [
+                {
+                  "breakdownRuleType": "String",
+                  "useNoneBuckets": true,
+                  "groupByColumn": {
+                    "columnTag": "issuer_ticker",
+                    "columnName": "Issuer Ticker",
+                    "positionColumnType": "ALL",
+                    "dataType": "STRING"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultFilter"
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Other Settings",
+      "inputs": [
+        {
+          "inputConfigType": "pivotSettings",
+          "inputName": "pivotSettings",
+          "inputTitle": "Settings",
+          "isOpen": true
+        }
+      ]
+    }
+  ],
+  "customCalculationColumn": {
+    "$ref": "customCalculationColumn"
+  },
+  "restrictedColumnOptions": {
+    "sections": [
+      "columnBreakdown",
+      "overrideDateColumnOption",
+      "chartType",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ],
+    "options": [
+      {
+        "section": "singleSelectOptions",
+        "options": [
+          "spawnsChildColumns"
+        ]
+      }
+    ]
+  },
+  "chartingLib": "agGrid",
+  "settingsThatCanUpdateWidgetTitle": [
+    "cellBreakdownTree",
+    "columns"
+  ]
+}

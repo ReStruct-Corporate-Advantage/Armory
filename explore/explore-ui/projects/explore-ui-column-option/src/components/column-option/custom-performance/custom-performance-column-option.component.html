@@ -1,0 +1,26 @@
+<div class="measures-select-boxes">
+        <aux-select
+                    label="Select measures"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onPositionColumnTypeChanged($event)"
+                    [data]="positionColumnTypeOptions">
+        </aux-select>
+    <div class="performance-column-type-select">
+        <aux-select
+            [hasInitialOptionPlaceholder]="false"
+            (selectionChanged)="onPerformanceColumnTypeChanged($event)"
+            [data]="performanceColumnTypeOptions">
+        </aux-select>
+    </div>
+</div>
+<div class="columns-to-combine">
+    <aux-select
+        [label]="this.option.columnOptionAttributes[2].title"
+        [hasInitialOptionPlaceholder]="true"
+        (selectionChanged)="onUnderlyingColumnsChanged($event)"
+        (dropdownOpened)="updateUnderlyingColumns()"
+        [data]="underlyingColumnsOptions"
+        size="regular"
+        type="filter-multiple">
+    </aux-select>
+</div>

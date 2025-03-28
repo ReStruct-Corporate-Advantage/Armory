@@ -1,0 +1,33 @@
+.bottom-space {
+    padding-bottom: 16px;
+}
+
+.sub-container {
+    padding-left: 12px;
+
+    .time-horizon-bar {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        .time-horizon-row-container {
+            display: flex;
+            align-items: flex-end;
+
+            .text-input-width {
+                padding: 0 0.5rem;
+                width: calc((100% - 3rem) / 3);
+            }
+
+            .input-stepper-width {
+                padding: 0 0.5rem;
+                width: calc((100% - 13rem) / 3);
+            }
+        }
+
+        .button--left-padding {
+            padding: 0 0 7px 8px;
+        }
+    }
+}

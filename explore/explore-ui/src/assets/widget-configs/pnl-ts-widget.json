@@ -1,0 +1,103 @@
+{
+    "configType": "pnlTsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "P&L Time Series widget shows the timeseries pnl for .",
+    "title": "HVaR Simulation P&L Time Series",
+    "image": ".\/assets\/images\/PGS.png",
+    "showOnlySingleColumn": false,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showInSelector": false,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "MULTI_REPORT",
+                    "default": [
+                        {
+                            "columnTag": "hvar_sim_sd",
+                            "positionColumnType": "ALL",
+                            "columnKey": "hvar_sim_sd"
+                        },
+                        {
+                            "columnTag": "hvar_sim_ed",
+                            "positionColumnType": "ALL",
+                            "columnKey": "hvar_sim_ed"
+                        },
+                        {
+                            "columnTag": "hvar_sim_raw_pnl",
+                            "positionColumnType": "PORT",
+                            "columnKey": "hvar_sim_raw_pnl"
+                        },
+                        {
+                          "columnTag": "hvar_sim_raw_pnl_b",
+                          "positionColumnType": "BENCH",
+                          "columnKey": "hvar_sim_raw_pnl_b"
+                        },
+                        {
+                          "columnTag": "hvar_sim_raw_pnl_a",
+                          "positionColumnType": "ACTIVE",
+                          "columnKey": "hvar_sim_raw_pnl_a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+          "categoryType": "footnoteState",
+          "visible": false,
+          "inputs": [
+            {
+              "inputName": "footnoteState",
+              "inputConfigType": "footnoteState",
+              "default": [],
+              "oldProps": ["infoOpen"]
+            }
+          ]
+        },
+        {
+            "categoryType": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultSortedColumns"
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+  "styleAnalysis": {
+    "$ref": "styleAnalysis"
+  },
+    "restrictedColumnOptions": {
+        "sections": [
+            "aggregation",
+            "chartType",
+            "economyExposureSettings",
+            "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "agGrid",
+    "chartTransition": [
+      "pgsBar"
+    ]
+}

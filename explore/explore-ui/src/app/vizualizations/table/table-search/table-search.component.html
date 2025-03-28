@@ -1,0 +1,37 @@
+<div class="table-search-container" #tableSearch>
+    <div class="table-search-header">
+        <span>Search</span>
+    </div>
+    <div class="table-search-field-container">
+        <aux-search-field
+            class="table-search-field"
+            (clickSearch)="onSearchClicked($event)"
+            (searchValueChanged)="onSearchValueChanged($event)"
+            (inputChange)="$event.stopPropagation()"
+            type="parametric"
+            [selectProps]="selectBoxColumns"
+            [hasAdvancedSearch]="false"
+            [size]="'small'"
+        >
+        </aux-search-field>
+        <ng-container *ngIf="tableSearch.offsetWidth >= BUTTONS_WRAP_BREAKPOINT"
+                      [ngTemplateOutlet]="searchActionButtons"></ng-container>
+    </div>
+    <div class="search-option">
+        <aux-checkbox [label]="'Wrap search'" [isChecked]="isWrap" (checkboxChanged)="toggleIsWrap()"></aux-checkbox>
+    </div>
+    <div *ngIf="tableSearch.offsetWidth < BUTTONS_WRAP_BREAKPOINT" class="buttons-container--small">
+        <ng-container [ngTemplateOutlet]="searchActionButtons"></ng-container>
+    </div>
+</div>
+
+<ng-template #searchActionButtons>
+    <aux-button class="button--padding" [label]="'Previous'" [size]="AuxButtonSizeEnum.SMALL"
+                [type]="AuxButtonTypeEnum.SECONDARY" [isDisabled]="!isPreviousEnabled"
+                (click)="showPreviousResult()"></aux-button>
+    <aux-button class="button--padding" [label]="'Next'" [size]="AuxButtonSizeEnum.SMALL"
+                [type]="AuxButtonTypeEnum.PRIMARY" [isDisabled]="!isNextEnabled"
+                (click)="showNextResult()"></aux-button>
+    <aux-button class="button--padding" [label]="'Close'" [size]="AuxButtonSizeEnum.SMALL" (click)="onCloseClicked()"
+                [type]="AuxButtonTypeEnum.SECONDARY"></aux-button>
+</ng-template>

@@ -1,0 +1,39 @@
+<div class="add-portfolio-container">
+    <div class="portfolio-search-container">
+        <blk-portfolio-search #portfolioSearchBar
+                              [isStackedView]="false"
+                              searchType="regular"
+                              [portfolioSearchService]="portfolioSearchService"
+                              (emitPortfolioSearchItem)="onAddPortfolioToSelectedListOfPortfolios($event)"
+                              (emitPortfolioForTracking)="trackPortfolioTelemetry($event)"
+                              (emitSearchValueChange)="onSearchValueChanged($event)">
+        </blk-portfolio-search>
+        <div class="portfolio-search-description">
+            Add individual portfolios or combine comma-separated portfolios to make a portfolio group
+        </div>
+    </div>
+    <ng-container *ngIf="allowPortUpload">
+        <div class="port-upload-display">
+            <div class="upload-file-text-color">Or upload a list of portfolios</div>
+
+            <div class="uploader">
+                <ng-container *ngIf="!showUploadScreen">
+                    <aux-button [type]="AuxButtonTypeEnum.SECONDARY" label="Upload a List" (click)="uploadPortfolios()"></aux-button>
+                </ng-container>
+            </div>
+        </div>
+        <ng-container *ngIf="showUploadScreen">
+            <app-quick-import (dataUploaded)="doWhenParsed($event)"
+                              [importConfig]="importConfig"
+                              [modelingType]="1"
+                              [uploadFileParsingLogic]="uploadFileParsingLogic"
+                              (hideUploadScreen)="hideUploadScreen()"
+            >
+            </app-quick-import>
+        </ng-container>
+    </ng-container>
+    <div class="selected-portfolio-list">
+        <app-selected-portfolio-list titleText="Portfolios to Add" (portfolioRemoved)="onPortfolioRemoved($event)"
+        (allPortfoliosRemoved)="onAllPortfoliosRemoved()"></app-selected-portfolio-list>
+    </div>
+</div>

@@ -1,0 +1,91 @@
+{
+    "options": [
+        {
+            "name": "EQUITY",
+            "label": "Active Equity Attribution",
+            "attributionWeightType": "MARKET_VALUE",
+            "attributionCalculatorMethod": "RELATIVE",
+            "sectorLevel": "BENCHMARK_TOTAL_LEVEL",
+            "notionalMode": "NotionalMV",
+            "assetClass": "EQ_MANDATE",
+            "excessMethodologies": [
+                {
+                    "name": "EQUITY",
+                    "factors": [],
+                    "label": "Equity with Effect of Currency and Trades"
+                }
+            ]
+        },
+        {
+            "name": "EQUITY_xFX",
+            "label": "Global Equity Attribution",
+            "attributionWeightType": "MARKET_VALUE",
+            "attributionCalculatorMethod": "RELATIVE",
+            "sectorLevel": "BENCHMARK_TOTAL_LEVEL",
+            "notionalMode": "NotionalMV",
+            "assetClass": "EQ_MANDATE",
+            "excessMethodologies": [
+                {
+                    "name": "EQUITY_xFX",
+                    "factors": [
+                        "fx_contr",
+                        "fxcarry_contr"
+                    ],
+                    "label": "Equity with Effect of Trades"
+                }
+            ]
+        },
+        {
+            "name": "FIXED_INCOME",
+            "label": "Core Fixed Income Attribution",
+            "attributionWeightType": "MARKET_VALUE",
+            "attributionCalculatorMethod": "RELATIVE",
+            "sectorLevel": "IMMEDIATE_PARENT_LEVEL",
+            "notionalMode": "MarketValue",
+            "assetClass": "FI_MANDATE",
+            "excessMethodologies": [
+                {
+                    "name": "FIXED_INCOME",
+                    "factors": [
+                        "rf_contr",
+                        "rldn_contr",
+                        "dur_contr",
+                        "conv_contr",
+                        "crv_contr",
+                        "tradeprice_contr",
+                        "fx_contr",
+                        "fxcarry_contr",
+                        "cvx_crv_contr"
+                    ],
+                    "label": "Fixed Income"
+                }
+            ]
+        },
+        {
+            "name": "FIXED_INCOME_DXS",
+            "label": "Hybrid Credit Attribution",
+            "attributionWeightType": "DXS",
+            "attributionCalculatorMethod": "HYBRID",
+            "sectorLevel": "IMMEDIATE_PARENT_LEVEL",
+            "notionalMode": "MarketValue",
+            "assetClass": "FI_MANDATE",
+            "excessMethodologies": [
+                {
+                    "name": "FIXED_INCOME",
+                    "factors": [
+                        "rf_contr",
+                        "rldn_contr",
+                        "dur_contr",
+                        "conv_contr",
+                        "crv_contr",
+                        "tradeprice_contr",
+                        "fx_contr",
+                        "fxcarry_contr",
+                        "cvx_crv_contr"
+                    ],
+                    "label": "Fixed Income"
+                }
+            ]
+        }
+    ]
+}

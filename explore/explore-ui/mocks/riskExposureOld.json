@@ -1,0 +1,71 @@
+{
+    "configType": "riskExposure",
+    "title": "Risk and Exposure",
+    "promiseQueue": [],
+    "sizeX": 8,
+    "sizeY": 6,
+    "row": 0,
+    "chartingLib": "agGrid",
+    "type": "agGrid",
+    "inputs": {
+        "columns": {
+            "type": "REPORT",
+            "id": "",
+            "list_order": "",
+            "owner": "",
+            "description": "",
+            "data": [
+                {
+                    "columnTag": "sec_desc",
+                    "positionColumnType": "ALL",
+                    "columnKey": "sec_desc"
+                },
+                {
+                    "columnTag": "cusip",
+                    "positionColumnType": "ALL",
+                    "columnKey": "cusip_0"
+                },
+                {
+                    "columnTag": "pct_mv",
+                    "positionColumnType": "PORT",
+                    "columnKey": "pct_mv_1"
+                }
+            ]
+        },
+        "breakdownTree": {
+            "type": "BREAKDOWN",
+            "id": "",
+            "list_order": "",
+            "owner": "",
+            "description": "",
+            "data": {
+                "breakdown": {
+                    "breakdownTitle": "Security Group",
+                    "subSectors": [
+                        {
+                            "breakdownRuleType": "String",
+                            "useNoneBuckets": true,
+                            "groupByColumn": {
+                                "columnTag": "sec_group",
+                                "columnName": "Security Group",
+                                "positionColumnType": "ALL"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "filter": {
+            "type": "CUSTOM_SEC",
+            "id": "",
+            "list_order": "",
+            "owner": "",
+            "description": "",
+            "data": null
+        },
+        "topBottomFilter": {
+            "data": null
+        }
+    },
+    "col": 0
+}

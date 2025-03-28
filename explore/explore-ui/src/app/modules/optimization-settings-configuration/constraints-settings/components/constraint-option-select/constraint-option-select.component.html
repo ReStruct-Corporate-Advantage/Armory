@@ -1,0 +1,5 @@
+<div style="padding-bottom: 8px">{{ label }}</div>
+<div *ngIf="selected" [ngStyle]="{'width':customWidth? '8rem' : '18.75rem'}">
+    <aux-select [isDisabled]="isDisabled" [data]="data" [hasInitialOptionPlaceholder]="false" [instructionalText]="instructionalText"
+                (selectionChanged)="onSelectionChanged($event)" (dropdownOpened)="onDropdownOpened()" (dropdownClosed)="onDropdownClosed()"></aux-select>
+</div>

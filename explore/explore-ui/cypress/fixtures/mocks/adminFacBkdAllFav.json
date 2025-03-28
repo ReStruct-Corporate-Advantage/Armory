@@ -1,0 +1,211 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": [
+        {
+          "owner": "_ADMIN",
+          "listOrder": 9,
+          "list_order": 9,
+          "description": " ",
+          "id": 1929010,
+          "type": "FAC_BKD",
+          "title": "Prod:custom factor breakdown",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 10,
+          "list_order": 10,
+          "description": " ",
+          "id": 1929012,
+          "type": "FAC_BKD",
+          "title": "Prod:custom factor breakdown1",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 4,
+          "list_order": 4,
+          "description": " ",
+          "id": 1428165,
+          "type": "FAC_BKD",
+          "title": "Factor - shared",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 2,
+          "list_order": 2,
+          "description": " ",
+          "id": 1322744,
+          "type": "FAC_BKD",
+          "title": "Sprint 2.10 - PRA Breakdown",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 2,
+          "list_order": 2,
+          "description": " ",
+          "id": 1306434,
+          "type": "FAC_BKD",
+          "title": "Prod: PRA - Global - Factor Breakdow",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 3,
+          "list_order": 3,
+          "description": " ",
+          "id": 1435981,
+          "type": "FAC_BKD",
+          "title": "Prod: Equity Factor Grouping",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 5,
+          "list_order": 5,
+          "description": " ",
+          "id": 1435982,
+          "type": "FAC_BKD",
+          "title": "Equity Factor Grouping",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 6,
+          "list_order": 6,
+          "description": " ",
+          "id": 1619784,
+          "type": "FAC_BKD",
+          "title": "Default Buckets",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 3,
+          "list_order": 3,
+          "description": " ",
+          "id": 1349735,
+          "type": "FAC_BKD",
+          "title": "TC-Factor breakdown",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 8,
+          "list_order": 8,
+          "description": " ",
+          "id": 1753006,
+          "type": "FAC_BKD",
+          "title": "Custom - Factor Exposure",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 14,
+          "list_order": 14,
+          "description": " ",
+          "id": 1975162,
+          "type": "FAC_BKD",
+          "title": "Custom factor Exposure",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 0,
+          "list_order": 0,
+          "description": " ",
+          "id": 2029117,
+          "type": "FAC_BKD",
+          "title": "customfactor",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 1,
+          "list_order": 1,
+          "description": " ",
+          "id": 1306907,
+          "type": "FAC_BKD",
+          "title": "Factor Asset Class Subclass",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 1,
+          "list_order": 1,
+          "description": " ",
+          "id": 1303592,
+          "type": "FAC_BKD",
+          "title": "Prod: BY_MODELS",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore",
+          "isSlim": true
+        },
+        {
+          "owner": "_ADMIN",
+          "listOrder": 12,
+          "list_order": 12,
+          "description": " ",
+          "id": 1915968,
+          "type": "FAC_BKD",
+          "title": "custom -break factor",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore_BETA",
+          "isSlim": true
+        }
+      ],
+      "message": null,
+      "gaussian": "Ff7h3uQpU8gYRNz6",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 604
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:08:25.644Z",
+      "detailedID": "b62e0c42-bf25-40b4-8500-8c4268ac6efb.604.1681294105644",
+      "IDWithContextChain": "b62e0c42-bf25-40b4-8500-8c4268ac6efb",
+      "chain": [],
+      "bmsMsgSize": 604,
+      "transactionId": "b62e0c42-bf25-40b4-8500-8c4268ac6efb",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681294105648*btid=1713*guid=9c7a79da-f605-4f54-81aa-76c3c8f35b53*exitguid=4*unresolvedexitid=595*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][595]}",
+    "return_val": "SUCCESS",
+    "command": "getAllFavoritesForUserAndType",
+    "transactionId": "b62e0c42-bf25-40b4-8500-8c4268ac6efb",
+    "successCode": null
+  }
+]

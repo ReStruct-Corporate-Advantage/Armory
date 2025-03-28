@@ -1,0 +1,67 @@
+<aux-column-selector
+    #columnSelector
+    [targetData]="targetData"
+    [hasAggregator]="columnSelectorConfig.hasAggregator"
+    [hasDoubleClick]="columnSelectorConfig.hasDoubleClick"
+    [allowDuplicates]="columnSelectorConfig.allowDuplicates"
+    [hasSelectedOnly]="columnSelectorConfig.hasSelectedOnly"
+    [selectedOnlyLabel]="columnSelectorConfig.selectedOnlyLabel"
+    [hasSearch]="columnSelectorConfig.hasSearch"
+    [isDisabled]="columnSelectorConfig.isDisabled"
+    [hasReorder]="columnSelectorConfig.hasReorder"
+    [isShowSelectedOnly]="columnSelectorConfig.isShowSelectedOnly"
+    [customSearch]="columnSelectorConfig.customSearch"
+    [customSort]="columnSelectorConfig.customSort"
+    [hasRemoveAll]="columnSelectorConfig.hasRemoveAll"
+    [removeAllLabel]="columnSelectorConfig.removeAllLabel"
+    [sourceControlLabel]="columnSelectorConfig.sourceControlLabel"
+    [hasSourceControl]="columnSelectorConfig.hasSourceControl"
+    [isSourceControlDisabled]="columnSelectorConfig.isSourceControlDisabled"
+    [multiSelection]="columnSelectorConfig.multiSelection"
+    containerHeight="calc(55vh - 12rem)"
+    [sourceDropdownProps]="selectDropdownProps"
+    [hasItemTooltip]="true"
+    [tooltipCallback]="onTooltip"
+    (targetSelectionChanged)="targetSelectionChangedHandler($event)"
+    (sourceItemMoved)="itemMovedToTargetAreaHandler($event)"
+    (itemMovedDoubleClicked)="itemMovedToTargetAreaHandler($event)"
+    (itemMovedDragAndDrop)="itemMovedToTargetAreaHandler($event)"
+    (reOrderDownClicked)="itemReOrderHandler()"
+    (reOrderUpClicked)="itemReOrderHandler()"
+    (itemReorderedDragAndDrop)="itemReOrderHandler(true)"
+    (removeAllItemsClicked)="removeItemClickedHandler($event, true)"
+    (removeItemClicked)="removeItemClickedHandler($event)"
+    (contextMenuClicked)="onContextMenuClick($event)"
+    [config]="auxConfig"
+>
+
+    <ng-container *ngIf="requireLoadAndSaveOptions">
+        <div class="source-label-area label-area" slot="sourceLabel">
+            <span class="source-label">{{columnSelectorConfig.sourceLabel + columnCount}}</span>
+        </div>
+        <div class="label-area" slot="targetLabel">
+            <div class="favorite-row">
+                <span class="favorite-title">Column Set</span>
+                <explore-core-load-new-favorite-buttons (loadClick)="onLoadColumnSetClicked()"
+                                                        (newClick)="removeItemClickedHandler(undefined, true)"></explore-core-load-new-favorite-buttons>
+                <aux-button class="save-button--right" [type]="AuxButtonTypeEnum.SECONDARY" [size]="AuxButtonSizeEnum.SMALL"
+                            label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.COLUMN_SET_SAVE}}"
+                            (click)="onSaveColumnSetClicked()"></aux-button>
+            </div>
+            <div class="favorite-row">
+                <explore-previous-favorite-version-banner [favoriteId]="columnSet.id" [owner]="columnSet.owner"
+                                                          [currentFavoriteVersion]="columnSet.currentFavoriteVersion"
+                ></explore-previous-favorite-version-banner>
+            </div>
+            <div class="favorite-row favorite-info-container">
+                <ng-container *ngIf="columnSet.id">
+                    <explore-favorite-info [favoriteConfig]='columnSet' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.COLUMN_SET_SAVE" [loadFavoriteCallBack]="loadColumnSet"></explore-favorite-info>
+                </ng-container>
+                <app-favorite-menu *ngIf="coreFavoriteUtils.showFavStatusTagMenu(columnSet)" [favorite]="columnSet" [favoriteType]="favoriteType" [statusUpdateCallback]="updateStatusTag"></app-favorite-menu>
+            </div>
+            <div class="favorite-row" *ngIf="coreFavoriteUtils.showFavStatusTag(columnSet)">
+                <app-favorite-status-badge  [favoriteStatus]="columnSet.statusTag"></app-favorite-status-badge>
+            </div>
+        </div>
+    </ng-container>
+</aux-column-selector>

@@ -1,0 +1,6 @@
+<app-quick-import (dataUploaded)="onDataUploaded($event)"
+                  [importConfig]="importConfig"
+                  [modelingType]="modellingType"
+                  (hideUploadScreen)="showGrid.emit()"
+                  (emitUploadType)="setUploadType($event)">
+</app-quick-import>

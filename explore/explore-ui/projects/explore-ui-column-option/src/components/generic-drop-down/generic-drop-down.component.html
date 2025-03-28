@@ -1,0 +1,27 @@
+<div class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6">
+    <div *ngIf="!isAggregation">
+        <aux-select
+            label="{{title}}"
+            [hasInitialOptionPlaceholder]="false"
+            (selectionChanged)="setSelectedValue($event.detail.value)"
+            [data]="selectOptions">
+        </aux-select>
+    </div>
+    <div *ngIf="isAggregation">
+        <div class="aux-select__label-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%; ">
+            <div class="aux-select__label" style="flex-grow: 1;"><label>{{title}}</label></div>
+            <div class="aux-select__label" style="flex-shrink: 0; white-space: nowrap;">
+                <aux-button 
+                    [label]="SCENARIO_HELPER_TEXT"
+                    [type]="AuxButtonTypeEnum.TERTIARY"
+                    (click)="openScenariosDocumentationLink()"
+                ></aux-button>
+            </div>
+        </div>
+        <aux-select
+            [hasInitialOptionPlaceholder]="false"
+            (selectionChanged)="setSelectedValue($event.detail.value)"
+            [data]="selectOptions">
+        </aux-select>
+    </div>
+</div>

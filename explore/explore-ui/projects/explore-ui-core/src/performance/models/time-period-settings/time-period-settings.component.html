@@ -1,0 +1,49 @@
+<div class="refresh-btn">
+    <aux-button label="Undo Changes"
+                icon="undo"
+                type="tertiary"
+                size="regular"
+                [isDisabled]="!isSettingChanged"
+                (click)="reset()">
+    </aux-button>
+    <div *ngIf="sourceNameSupported" class="source-styl">
+        Source: {{$any(timePeriod).getSourceDisplayName()}}
+    </div>
+</div>
+
+<div class="select-box-width">
+    <div class="time-period-select-box">
+        <aux-select [hasInitialOptionPlaceholder]="false"
+                    [label]="'Time period'"
+                    (selectionChanged)="onTimePeriodTypeChanged($event)"
+                    [data]="displayDataForAvailableTypes">
+        </aux-select>
+    </div>
+    <div class="time-period-settings select-box-width">
+        <aux-select id="frequencySelect"
+                    [hasInitialOptionPlaceholder]="false"
+                    [label]="'Frequency'"
+                    [isDisabled]="timePeriod.type === 'Custom'"
+                    (selectionChanged)="onTimePeriodIntervalChanged($event)"
+                    [data]="displayDataForAvailableIntervals">
+        </aux-select>
+    </div>
+    <div class="time-period-settings select-box-width">
+        <aux-numeric-stepper [stepperValue]=timePeriod.numberOfPeriods
+                             [label]="'Number of periods'"
+                             minValue=1
+                             [maxValue]="timePeriod.maxPeriods"
+                             [isDisabled]="timePeriod.type === 'Custom' || timePeriod.type == 'Other'"
+                             (valueChanged)="onNumberOfPeriodsChanged($event)">
+        </aux-numeric-stepper>
+    </div>
+    <div class="time-period-settings">
+        <div class="date-range-container">Range</div>
+        <explore-core-date-range-picker toDateLabel="to"
+                               [isDisabled]="timePeriod.type !== 'Custom'"
+                               [fromDate]="timePeriod.fromDate"
+                               [toDate]="timePeriod.toDate"
+                               (dateRangeChange)="onDateRangeChange()">
+        </explore-core-date-range-picker>
+    </div>
+</div>

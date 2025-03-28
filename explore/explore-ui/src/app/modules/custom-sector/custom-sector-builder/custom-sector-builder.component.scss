@@ -1,0 +1,50 @@
+.custom-sector-builder {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .custom-sector-details-container {
+        margin-bottom: 0.5rem;
+
+        .custom-sector-details-title {
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .custom-sector-name-field {
+            margin-right: 1rem;
+            flex: 1;
+        }
+
+        .custom-sector-details-author {
+            padding-top: 0.5rem
+        }
+
+        .favorite-info-custom-sector-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    .custom-sector-definition {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .custom-sector-definition-header {
+            display: flex;
+            align-items: center;
+
+            .custom-sector-definition-label {
+                flex: 1
+            }
+        }
+
+        .custom-sector-rules-container {
+            flex: 1;
+            border: 1px solid var(--card__border-color);
+            padding: 1rem;
+        }
+    }
+}

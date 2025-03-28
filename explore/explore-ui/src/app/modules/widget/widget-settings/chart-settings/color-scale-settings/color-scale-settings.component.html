@@ -1,0 +1,66 @@
+<div>
+    <div class="color-scale-settings">
+        <div class="select--container">
+            <aux-select
+                class="format-select"
+                label="Format style"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="formatOptions"
+                (selectionChanged)="onFormatChanged($event)"
+            ></aux-select>
+            <ng-container *ngIf="threeColorScale">
+                <div class="select--midpoint-container">
+                    <div class="aux-select__label-container">
+                            <div class="aux-select__label">Midpoint</div>
+                            <aux-popover [trigger]="'hover'">
+                                <aux-button 
+                                        type="tertiary"
+                                        icon="help"
+                                        assistiveText="Hover button"
+                                        slot="target">
+                                </aux-button>
+                                <div slot="content" class="popover-container">
+                                    <strong>Auto-Scale</strong>: Auto-Scale uses Explore's logic to auto-scale your gradient legend <br>
+                                    <strong>Zero-Centered</strong>: Zero creates a symmetrical gradient legend with zero centered in the middle <br>
+                                    <strong>Median</strong>: Median colors the median of your data series white. Data points on either side of your median will be colored according to your selected gradient  <br>
+                                </div>
+                            </aux-popover> 
+                    </div>
+                    <aux-select
+                        class="midpoint-select"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="midpointOptions"
+                        (selectionChanged)="onMidpointChanged($event)">
+                    </aux-select>
+                </div>
+           </ng-container>
+        </div>
+    </div>
+
+    <div class="select-gradient--container">
+        <span class="select-gradient--text"> Gradient </span>
+        <div class="gradient-box">
+            <div class="gradient-color-selection" [ngStyle]="gradientSelected.getStyle()"></div>
+        </div>
+
+        <aux-popover
+            class="select-gradient--text"
+            (popoverOpened)="isPopoverOpen = true"
+            (popoverClosed)="isPopoverOpen = false">
+
+            <aux-button
+                label="Edit"
+                icon="edit"
+                [type]="AuxButtonTypeEnum.TERTIARY"
+                slot="target">
+            </aux-button>
+
+            <div slot="content">
+                <div *ngFor="let gradient of gradientType" class="gradient-box gradient-color"
+                     [ngStyle]="gradient.getStyle()"
+                     (click)="onGradientChanged(gradient)">
+                </div>
+            </div>
+        </aux-popover>
+    </div>
+</div>

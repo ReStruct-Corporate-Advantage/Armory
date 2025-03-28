@@ -1,0 +1,122 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": [
+        {
+          "options": [
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Type",
+                  "defaultValue": {
+                    "value": "0",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                    "label": "None"
+                  },
+                  "key": "aggregationType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                  "values": [
+                    {
+                      "value": 2100,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "Unique Value"
+                    },
+                    {
+                      "value": 0,
+                      "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                      "label": "None"
+                    }
+                  ],
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "aggregation",
+              "columnOptionTitle": "Aggregation",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.AggregationColumnOption",
+              "columnOptionKey": "aggregation"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Title",
+                  "key": "title",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "customColumnTitle",
+              "columnOptionTitle": "Display options",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.CustomColumnTitleOption",
+              "columnOptionKey": "customColumnTitle"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Compare Type",
+                  "key": "compareType",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                },
+                {
+                  "title": "Compare Value",
+                  "key": "compareValue",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                },
+                {
+                  "title": "Highlight Color",
+                  "key": "highlightColor",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "highlight",
+              "columnOptionTitle": "Conditional formatting",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.HighlightColumnOptions",
+              "columnOptionKey": "highlight"
+            },
+            {
+              "columnOptionAttributes": [
+                {
+                  "title": "Definition",
+                  "key": "definition",
+                  "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                  "dataType": "S"
+                }
+              ],
+              "columnOptionConfigType": "definition",
+              "columnOptionTitle": "Definition",
+              "CLASS_TYPE": "com.bfm.prism.data.column.options.general.DefinitionColumnOption",
+              "columnOptionKey": "definition"
+            }
+          ],
+          "colTag": "cusip",
+          "columnOptionType": "ColumnOption",
+          "uses": "ALL"
+        }
+      ],
+      "message": null,
+      "gaussian": "kjpsy47bEAWkQJcAXYg=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 614
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-03-27T00:16:31.027Z",
+      "detailedID": "b7513b6a-74c9-40cc-bd1e-2e5f5173ca89.614.1711498591027",
+      "IDWithContextChain": "b7513b6a-74c9-40cc-bd1e-2e5f5173ca89",
+      "chain": [],
+      "bmsMsgSize": 614,
+      "transactionId": "b7513b6a-74c9-40cc-bd1e-2e5f5173ca89",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "bulkColumnOptions",
+    "transactionId": "b7513b6a-74c9-40cc-bd1e-2e5f5173ca89",
+    "successCode": null
+  }
+]

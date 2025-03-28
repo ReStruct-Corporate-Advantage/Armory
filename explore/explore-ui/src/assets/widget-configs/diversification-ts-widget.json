@@ -1,0 +1,139 @@
+{
+    "configType": "diversificationTsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "Diversification score time-series report .",
+    "title": "Diversification Score Time Series",
+    "image": ".\/assets\/images\/PGS.png",
+    "showOnlySingleColumn": false,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showInSelector": false,
+    "showSettings": true,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "MULTI_REPORT",
+                    "columnFilters": [
+                      {
+                        "type": "!=",
+                        "key": "isVisible",
+                        "value": false
+                      },
+                      {
+                        "type": "=",
+                        "key": "reportTypes",
+                        "value": "DIVERSIFICATION_SCORE_TS"
+                      }
+                    ],
+                    "default": [
+                        {
+                          "columnTag": "date",
+                          "positionColumnType": "ALL",
+                          "columnKey": "date"
+                        },
+                        {
+                          "columnTag": "diversification_score_rk",
+                          "positionColumnType": "PORT",
+                          "columnKey": "diversification_score_rk"
+                        },
+                        {
+                            "columnTag": "diversification_score_b_rk",
+                            "positionColumnType": "BENCH",
+                            "columnKey": "diversification_score_b_rk"
+                        },
+                        {
+                          "columnTag": "diversification_score_a_rk",
+                          "positionColumnType": "ACTIVE",
+                          "columnKey": "diversification_score_a_rk"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+          "categoryType": "settings",
+          "categoryTitle": "Settings",
+          "inputs": [
+            {
+              "inputConfigType": "timeSeriesTimePeriodSettings",
+              "inputName": "timeSeriesSettings",
+              "inputTitle": "Time period",
+              "default": {
+                "frequency": "DAILY",
+                "periods": 10,
+                "includeTotalValues": false,
+                "showDataMarker": true
+              },
+              "isOpen": true
+            }
+          ]
+        },
+        {
+          "categoryType": "settings",
+          "categoryTitle": "Factor Settings",
+          "inputs": [
+            {
+              "inputConfigType": "diversificationScoreFactorSettings",
+              "inputName": "diversificationScoreFactorSettings",
+              "inputTitle": "Factor Settings",
+              "default": {
+                "frequency": "DAILY",
+                "periods": 10,
+                "includeTotalValues": false,
+                "showDataMarker": true
+              },
+              "isOpen": true
+            }
+          ]
+        },
+        {
+          "categoryType": "footnoteState",
+          "visible": false,
+          "inputs": [
+            {
+              "inputName": "footnoteState",
+              "inputConfigType": "footnoteState",
+              "default": [],
+              "oldProps": ["infoOpen"]
+            }
+          ]
+        },
+        {
+            "categoryType": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultSortedColumns"
+        }
+    ],
+    "styleAnalysis": {
+        "$ref": "styleAnalysis"
+    },
+    "restrictedColumnOptions": {
+        "sections": [
+            "aggregation",
+            "chartType"
+        ]
+    },
+    "chartingLib": "agGrid"
+}

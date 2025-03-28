@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExportOptionsModalComponent ngOnInit Test should update the html template 1`] = `
+<aux-modal
+  class="export-options-modal-area"
+  type="action"
+>
+  <div
+    class="aux-g32--cw-6 custom-header"
+    slot="custom-header"
+  >
+    <div
+      class="header-title aux-p20 aux-bold aux-primary"
+    >
+      
+    </div>
+  </div>
+  <div
+    class="aux-g32--cw-6 content-container"
+    slot="content"
+  >
+    <div>
+      <app-export-options />
+    </div>
+  </div>
+  <div
+    class="custom-footer-container--two-buttons"
+    slot="custom-footer"
+  >
+    <aux-button
+      class="custom-footer--primary-button"
+    />
+    <aux-button />
+  </div>
+</aux-modal>
+`;

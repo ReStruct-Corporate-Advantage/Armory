@@ -1,0 +1,22 @@
+.workpad-title-container {
+    padding: 1.5rem 1rem;
+}
+
+.portfolio-change {
+    padding: 0 1rem 1.5rem;
+}
+
+.report-tabs {
+    margin-left: -1px;
+}
+
+.report-container {
+    width: calc(100% + 2px);
+    margin-top: -1px;
+    margin-left: -1px;
+}
+
+.nested-changes__top-border {
+    margin-top: -1px;
+    border-top: 1px solid var(--card__border-color);
+}

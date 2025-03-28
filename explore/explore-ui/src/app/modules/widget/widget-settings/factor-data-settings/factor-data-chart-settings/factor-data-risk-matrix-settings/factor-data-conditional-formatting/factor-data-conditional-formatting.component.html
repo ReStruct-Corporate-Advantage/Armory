@@ -1,0 +1,47 @@
+<div class="margin-top-16">
+    <aux-card class="mode-settings"
+              [header]="'left'"
+              [borderPadding]="'16'"
+              [hasBorder]="true"
+              [isVerticallyExpanded]="false"
+              [type]="'collapse-vertical'"
+              [assistiveText]="'Collapse Vertical Card'"
+    >
+        <div slot="left" class="conditional-header">Conditional Formatting</div>
+        <div slot="content" class="content-div">
+            <ng-container *ngIf="!(isTriangularMatrix$ | async); else triangleAccordionView">
+                <explore-highlight-column-option
+                    [column]="lowerCol"
+                    [option]="option"
+                    [calledFromFactorDataWidget]="true"
+                >
+                </explore-highlight-column-option>
+            </ng-container>
+        </div>
+    </aux-card>
+</div>
+
+<ng-template #triangleAccordionView>
+    <aux-accordion [isFreeMode]="true" size="standard" [expandAll]="false" [style.width]="'100%'">
+        <aux-accordion-expansion-panel [isExpanded]="true" header="Lower triangle">
+            <div class="accordion-font" slot="content">
+                <explore-highlight-column-option
+                    [column]="lowerCol"
+                    [option]="option"
+                    [calledFromFactorDataWidget]="true"
+                >
+                </explore-highlight-column-option>
+            </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel [isExpanded]="false" header="Upper triangle">
+            <div class="accordion-font" slot="content">
+                <explore-highlight-column-option
+                    [column]="upperCol"
+                    [option]="option"
+                    [calledFromFactorDataWidget]="true"
+                >
+                </explore-highlight-column-option>
+            </div>
+        </aux-accordion-expansion-panel>
+    </aux-accordion>
+</ng-template>

@@ -1,0 +1,14 @@
+<aux-accordion [isFreeMode]="true" *ngFor="let details of dateOverrideDetails">
+    <aux-accordion-expansion-panel header="{{details?.columnTitle}}">
+        <div slot="content">
+            <aux-accordion [isFreeMode]="true" *ngFor="let date of details.dates">
+                <aux-accordion-expansion-panel *ngIf="details?.dates?.length" header="{{date.dateTitle}}">
+                    <div slot="content">
+                        <p class="no-margin">Exposure Date: {{date.expDate}}</p>
+                        <p class="no-margin">Economy Date: {{date.econDate}}</p>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </aux-accordion>
+        </div>
+    </aux-accordion-expansion-panel>
+</aux-accordion>

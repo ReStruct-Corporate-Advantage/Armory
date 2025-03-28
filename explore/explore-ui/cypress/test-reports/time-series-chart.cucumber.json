@@ -1,0 +1,133 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for time series chart",
+    "line": 1,
+    "id": "visual-comparison-tests-for-time-series-chart",
+    "tags": [],
+    "uri": "time-series-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-time-series-chart;validate-time-series-chart-with-chart-type-settings",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate time series chart with chart type settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Time Series Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6039000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I open widget settings modal from \"Time Series Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25744000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 145000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I select chart type \"Marker\" for column \"0\"",
+            "result": {
+              "status": "passed",
+              "duration": 687000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 85000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26616000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "\"Time Series Chart\" should be displayed, aligning with the snapshot \"timeSeriesChart_with_marker\"",
+            "result": {
+              "status": "failed",
+              "duration": 4927000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/time-series-chart.feature/__diff_output__/timeSeriesChart_with_marker.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-time-series-chart;validate-time-series-chart-is-loading",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Validate time series chart is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Time Series Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 4252000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26830000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "\"Time Series Chart\" should be displayed, aligning with the snapshot \"timeseries_default_settings\"",
+            "result": {
+              "status": "failed",
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/time-series-chart.feature/__diff_output__/timeseries_default_settings.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

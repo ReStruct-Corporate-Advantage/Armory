@@ -1,0 +1,31 @@
+<aux-modal [isOpen]="isOpen" [hasCustomHeader]="true" (modalClosed)="closeModal()" [type]="'action'" [hasCustomFooter]="true">
+    <div slot="custom-header" class="aux-g32--cw-6 custom-header">
+        <div class="aux-p20 aux-bold aux-primary">
+            {{customColumnTitle?.customTitle?.length ? colDef?.title : column?.columnTitle}}
+        </div>
+        <div class="aux-primary aux-p13 custom-title" *ngIf="customColumnTitle?.customTitle">
+            (Custom Title: {{customColumnTitle.customTitle}})
+        </div>
+    </div>
+    <div slot="content" class="aux-g32--cw-6 dialog-container">
+        <div class="dialog-item">
+            <div class="item-header aux-p13 aux-bold aux-primary">
+                Definition:
+            </div>
+            <div class="item-value">
+                {{colDef?.columnDesc}}
+            </div>
+        </div>
+        <div class="dialog-item">
+            <div class="item-header aux-p13 aux-bold aux-primary">
+                Column Path:
+            </div>
+            <div class="item-value">
+                {{colDef?.getColumnPath()}}
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="OK_TEXT" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

@@ -1,0 +1,54 @@
+<aux-drawer [isOpened]="isOpen"
+            header="Workspace"
+            (drawerClosed)="onDrawerClosed()"
+            (drawerOpened)="onDrawerOpened()">
+    <div class="drawer-content" slot="header-bottom">
+        <app-workspace-actions></app-workspace-actions>
+
+        <div class="portfolio-actions">
+            <div class="portfolio-name-container">
+                <div class="aux-secondary aux-p12">Portfolios</div>
+                <aux-inline-menu (inlineMenuItemClicked)="onMenuClicked($event)" [data]="portfolioMenuOptions" overridePlacement="bottomRight"
+                                 trigger="pressed">
+                    <aux-icon slot="target" state="primary" type="action"></aux-icon>
+                </aux-inline-menu>
+            </div>
+        </div>
+    </div>
+    <div class="workpads-container">
+        <app-side-bar-workpads></app-side-bar-workpads>
+    </div>
+</aux-drawer>
+
+<ng-container *ngIf="isAddPortfolioModalOpen">
+    <app-add-portfolio-modal [isOpen]="isAddPortfolioModalOpen"
+                             [portfolioType]="portfolioType"
+                             (modalClosed)="closeAddPortfolioModal()">
+    </app-add-portfolio-modal>
+</ng-container>
+
+<ng-container *ngIf="isCreateMultiPortfolioAnalysisModalComponentOpen">
+    <app-create-multi-portfolio-analysis-modal 
+                    [isOpen]="isCreateMultiPortfolioAnalysisModalComponentOpen"
+                    [title]="'Multi-Portfolio Analysis'"
+                    [applyText]="applyText"
+                    [cancelText]="cancelText"
+                    (applyClick)="createGroupModal()"
+                    (cancelClick)="closeCreateMultiPortfolioAnalysisModalComponent()">
+    </app-create-multi-portfolio-analysis-modal>
+</ng-container>
+
+<ng-container *ngIf="isMultiPortfolioAnalysisSelectMenuComponentOpen">
+    <app-multi-portfolio-analysis-select-menu 
+                       [isOpen]="isMultiPortfolioAnalysisSelectMenuComponentOpen"
+                       (modalClosed)="closeMultiPortfolioAnalysisSelectMenuComponent()"
+                       [reportGroups]="reportGroups">
+    </app-multi-portfolio-analysis-select-menu>
+</ng-container>
+
+
+<ng-container *ngIf="isCreateGroupModalPortfolioMenuOpen">
+    <app-create-group-modal-portfolio-menu [isOpen]="isCreateGroupModalPortfolioMenuOpen"
+                             (modalClosed)="closeCreateGroupModalPortfolioMenuModal()">
+    </app-create-group-modal-portfolio-menu>
+</ng-container>

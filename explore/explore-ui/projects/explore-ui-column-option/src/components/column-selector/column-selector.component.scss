@@ -1,0 +1,35 @@
+.label-area {
+    width: 100%;
+    margin-bottom: -8px;
+}
+.source-label-area {
+    float: left;
+    padding-bottom: 0.5rem;
+
+    .source-label {
+        vertical-align: top;
+        display: inline-block;
+    }
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.favorite-info-container {
+    justify-content: space-between;
+}
+
+.save-button--right {
+    margin-left: auto
+}
+
+.favorite-title {
+    padding-right: 1rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}

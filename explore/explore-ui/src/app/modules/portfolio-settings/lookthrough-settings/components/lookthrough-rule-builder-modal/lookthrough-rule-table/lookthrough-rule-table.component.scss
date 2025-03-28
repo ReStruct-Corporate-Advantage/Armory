@@ -1,0 +1,44 @@
+.lt-rule-table {
+    border: 1px solid var(--grid__border-color);
+    overflow-y: auto;
+    max-height: 152px;
+    height: 152px;
+    background-color: var(--grid__background-color);
+
+    .table {
+        border-spacing: 0px;
+        width: 100%;
+
+        .table-header-row {
+            border-bottom: 1px solid var(--grid__border-color);
+        }
+
+        .table-head {
+            background: var(--grid__background-color-header);
+            position: -webkit-sticky;
+            position: sticky;
+            text-align: left;
+            padding: 8px 6px 8px 6px;
+            z-index: 1;
+            top: 0;
+        }
+
+        .table-col {
+            padding: 6px;
+            border-bottom: 1px solid var(--dialog__border-color);
+        }
+
+        .col-width {
+            width: 10%;
+        }
+
+        .selected {
+            background-color: var(--grid__background-color--select);
+        }
+
+        .no-rule-message {
+            padding-top: 16px;
+            text-align: center;
+        }
+    }
+}

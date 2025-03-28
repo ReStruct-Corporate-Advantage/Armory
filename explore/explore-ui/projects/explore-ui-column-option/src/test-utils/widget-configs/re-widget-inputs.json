@@ -1,0 +1,65 @@
+{
+  "columns": {
+    "columns": [
+      {
+        "optionValues": [],
+        "columnTag": "security_description",
+        "columnKey": "security_description_1",
+        "positionColumnType": "ALL",
+        "columnTitle": "Security Description"
+      },
+      {
+        "optionValues": [],
+        "columnTag": "cusip",
+        "columnKey": "cusip_0",
+        "positionColumnType": "ALL",
+        "columnTitle": "CUSIP"
+      },
+      {
+        "optionValues": [],
+        "columnTag": "pct_mv",
+        "columnKey": "pct_mv_1",
+        "positionColumnType": "PORT",
+        "columnTitle": "Market Value %"
+      }
+    ],
+    "columnState": {
+      "columns": [
+        {
+          "columnKey": "security_description_1"
+        },
+        {
+          "columnKey": "cusip_0"
+        },
+        {
+          "columnKey": "pct_mv_1"
+        }
+      ]
+    }
+  },
+  "breakdownTree": {
+    "children": [
+      {
+        "columnName": "Security Group",
+        "columnTag": "sec_group",
+        "positionColumnType": "ALL",
+        "useNoneBuckets": true,
+        "children": []
+      }
+    ],
+    "isConfigured": true,
+    "title": "Security Group"
+  },
+  "isLightLookthroughEnabled": {
+    "isEnabled": false
+  },
+  "topBottomFilter": {},
+  "filter": {},
+  "normalizedWidgetFilter": {},
+  "riskAndExposureAdditionalSettings":  {
+    "closedPositionAggregationType": "NONE",
+    "benchmarkPositionAggregationType": "NONE",
+    "portfolioPositionAggregationType": "NONE"
+  },
+  "sortedColumns": {}
+}

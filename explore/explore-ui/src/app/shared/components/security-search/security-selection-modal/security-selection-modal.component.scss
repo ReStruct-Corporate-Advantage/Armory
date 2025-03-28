@@ -1,0 +1,39 @@
+.custom-header {
+    display: flex;
+    padding: 1.25rem 2rem 1.1875rem;
+    align-items: baseline;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+}
+
+.content-container {
+    margin: 2rem;
+}
+
+.pre-text {
+    margin-right: 10px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+
+.select-box {
+    margin-bottom: 5px;
+}
+
+// modal width of 6 column from 960px to 1440px
+@media (min-width: 960px) and (max-width: 1440px) {
+    .security-selection-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 6) +
+            (16px * 3));
+    }
+}
+
+// modal width of 4 column above 1920px
+@media (min-width: 1920px) {
+    .security-selection-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 4) +
+            (16px * 1)
+        );
+    }
+}

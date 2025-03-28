@@ -1,0 +1,11 @@
+<div class="favorite-user-search-area">
+    <aux-type-ahead placeholder="Search users"
+                    [initialStateData]="auxAllFavoriteUsersData"
+                    [data]="auxFilteredFavoriteUsersData"
+                    debounceTime="200"
+                    highlightMode="dynamic"
+                    [isLoading]="isLoading"
+                    (typeaheadValueChanged)="onDynamicTypeaheadValueChanged($event)"
+                    (typeaheadSelectionChanged)="onFavoriteUserSelected($event)">
+    </aux-type-ahead>
+</div>

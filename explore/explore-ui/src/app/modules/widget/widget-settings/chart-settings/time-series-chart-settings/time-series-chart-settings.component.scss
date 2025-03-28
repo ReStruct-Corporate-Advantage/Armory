@@ -1,0 +1,27 @@
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+.ts-settings-outer-div {
+    width: 225px;
+}
+
+.ts-settings-mod-div {
+    width: 400px;
+}
+
+.ts-settings-main-div {
+    margin-top: 20px;
+}
+
+.align-elements {
+    margin-left: 16px;
+    margin-top: 16px;
+    float: left;
+}
+
+.chart-type-style {
+    margin-bottom: 12px;
+    font-weight: bold;
+}

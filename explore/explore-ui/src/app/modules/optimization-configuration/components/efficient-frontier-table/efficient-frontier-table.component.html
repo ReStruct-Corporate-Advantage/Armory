@@ -1,0 +1,85 @@
+<!--  TABLE  -->
+<div class="ef-table">
+    <table
+        class="aux-simple-table aux-simple-table__container--vertical table-width"
+        aria-describedby="container-2-caption"
+        aria-label="Container Grey">
+        <thead>
+        <tr>
+            <th class="table-col table-header">
+                <aux-checkbox [isChecked]="false" label="Select All"
+                              (checkboxChanged)="enableDisableAll($event.detail.value.checked)">
+                </aux-checkbox>
+            </th>
+            <th class="table-col table-header">Portfolio</th>
+            <th class="table-col table-header">{{getColumnName('Returns (Active) - Alpha Score')}}</th>
+            <th class="table-col table-header">{{getColumnName('Risk (Active)')}}</th>
+            <th class="table-col table-header">Transaction Cost</th>
+            <th class="table-col table-header">Turnover</th>
+            <th class="table-col table-header">{{getColumnName('Systematic Risk (Active)')}}</th>
+            <th class="table-col table-header">
+                <div style="display: flex">
+                    <div>
+                        Optimization Run Status
+                    </div>
+                    <div>
+                        <aux-tooltip style="width: 50%">
+                            <aux-button
+                                slot="target"
+                                icon="help"
+                                type="tertiary"
+                                [assistiveText]="'help'"
+                            ></aux-button>
+                            <span slot="content">Efficient frontier run status meanings :<br>
+                                <ul>
+                                    <ng-container *ngFor="let solverStatus of optoRunStatus | keyvalue : maintainOriginalOrder">
+                                        <li><span class="aux-bold">{{solverStatus.key}}: </span><span [innerHTML]="solverStatus.value"></span></li>
+                                    </ng-container>
+                                </ul>
+                            </span>
+                        </aux-tooltip>
+                    </div>
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let optoRunDetails of portfolio.latestOptimizationRunDetails; index as i">
+            <td class="table-col checkbox-width">
+                <aux-checkbox [isChecked]="optoRunDetails?.isSelected" [isDisabled]="optoRunDetails?.isSolverStatusRed()"
+                              (checkboxChanged)="enableDisableIteration(optoRunDetails)">
+                </aux-checkbox>
+            </td>
+            <td class="table-col">{{portfolio.title}}_{{i + 1}}</td>
+            <td class="table-col">{{formatValueToBps(optoRunDetails?.expectedReturn)}}</td>
+            <td class="table-col">{{formatValueToBps(optoRunDetails?.expectedVolatility)}}</td>
+            <td class="table-col">{{formatValueToBps(optoRunDetails?.tcostOfTrades)}}</td>
+            <td class="table-col">{{formatValueToBps(optoRunDetails?.turnover)}}</td>
+            <td class="table-col">{{formatValueToBps(optoRunDetails?.expectedFactorVolatility)}}</td>
+            <td class="table-col" [ngClass]="{'status-red' : optoRunDetails?.isSolverStatusRed(),
+                                              'status-yellow' : optoRunDetails?.isSolverStatusYellow(),
+                                              'status-green': optoRunDetails?.isSolverStatusGreen()}">
+                {{optoRunDetails?.solverStatus}}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--  FOOTER  -->
+<div class="footer">
+    <span class="button-area">
+    <aux-button label="Generate What-if and Trades" [isDisabled]="isAllSolutionsInfeasible()"
+                (click)="onEfficientFrontierRun()"></aux-button>
+    </span>
+    <aux-button label="Close" type="secondary" (click)="onClose()"></aux-button>
+</div>
+
+<!--  LOADING SPINNER  -->
+<ng-container *ngIf="efficientFrontierStatus.spinnerFlag">
+    <div class="loading-spinner-area">
+        <div class="loading-spinner">
+            <app-loading-spinner size="large" [loadingLabel]="'Generating What-if and Trades'"></app-loading-spinner>
+        </div>
+    </div>
+</ng-container>

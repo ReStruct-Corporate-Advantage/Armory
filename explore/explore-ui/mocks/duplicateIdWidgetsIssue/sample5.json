@@ -1,0 +1,101 @@
+{
+    "widgets": [
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure",
+            "id": 126,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        []
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure",
+            "id": 126,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        []
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis - MTD",
+            "id": 127,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis - YTD",
+            "id": 128,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis - WTD",
+            "id": 128,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis",
+            "id": 128,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis",
+            "id": 129,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis",
+            "id": 130,
+            "inputs": null
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "2f261028-2be3-433a-b415-8c5801e751c7",
+            "observers": [
+                128
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "2f261028-2be3-433a-b415-fd789jh79879e",
+            "observers": [
+                128
+            ]
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "2f261028-2be3-433a-b415-fd789jh79879e",
+            "observers": [
+                128
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "2f261028-2be3-433a-b415-fd789jh79879e",
+            "observers": [
+                129
+            ]
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "2f261028-2be3-433a-b415-fd789jh79879e",
+            "observers": [
+                130
+            ]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="19" failures="0" errors="0" time="25.374">
+  <testsuite name="LookThroughSettingsModel" errors="0" failures="0" skipped="0" timestamp="2025-03-21T16:19:02" time="21.634" tests="11">
+    <testcase classname="LookThroughSettingsModel should create an instance" name="LookThroughSettingsModel should create an instance" time="0.139">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests Serialize/Deserialize" name="LookThroughSettingsModel tests Serialize/Deserialize" time="0.003">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests Deserialize - with source having selectedProxyTypes instead of ltProxies" name="LookThroughSettingsModel tests Deserialize - with source having selectedProxyTypes instead of ltProxies" time="0.005">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests Deserialize - with source as ltSettings object" name="LookThroughSettingsModel tests Deserialize - with source as ltSettings object" time="0.002">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel Tests doCopyFrom - ltSettings is defined" name="LookThroughSettingsModel Tests doCopyFrom - ltSettings is defined" time="0.001">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel Tests doCopyFrom - ltSettings is not defined" name="LookThroughSettingsModel Tests doCopyFrom - ltSettings is not defined" time="0.006">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel Tests doCopyFrom - ltSettings is null" name="LookThroughSettingsModel Tests doCopyFrom - ltSettings is null" time="0">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel Tests isAnyLookthroughEnabled method" name="LookThroughSettingsModel Tests isAnyLookthroughEnabled method" time="0.001">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests addLookThroughSettingsToRequest" name="LookThroughSettingsModel tests addLookThroughSettingsToRequest" time="0.001">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests addLookThroughSettingsToRequest - with new ltSettings object" name="LookThroughSettingsModel tests addLookThroughSettingsToRequest - with new ltSettings object" time="0.001">
+    </testcase>
+    <testcase classname="LookThroughSettingsModel tests addLookThroughSettingsToRequest - with only bench enabled" name="LookThroughSettingsModel tests addLookThroughSettingsToRequest - with only bench enabled" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="LtSecurityProxyTypes test cases" errors="0" failures="0" skipped="0" timestamp="2025-03-21T16:19:02" time="21.603" tests="1">
+    <testcase classname="LtSecurityProxyTypes test cases Deserialize test" name="LtSecurityProxyTypes test cases Deserialize test" time="0.128">
+    </testcase>
+  </testsuite>
+  <testsuite name="LtSecurity type test case" errors="0" failures="0" skipped="0" timestamp="2025-03-21T16:19:02" time="21.636" tests="1">
+    <testcase classname="LtSecurity type test case Deserialize test case" name="LtSecurity type test case Deserialize test case" time="0.152">
+    </testcase>
+  </testsuite>
+  <testsuite name="LookthroughSettingsComponent" errors="0" failures="0" skipped="0" timestamp="2025-03-21T16:19:02" time="22.039" tests="6">
+    <testcase classname="LookthroughSettingsComponent should create" name="LookthroughSettingsComponent should create" time="0.373">
+    </testcase>
+    <testcase classname="LookthroughSettingsComponent should change look-through group" name="LookthroughSettingsComponent should change look-through group" time="0.04">
+    </testcase>
+    <testcase classname="LookthroughSettingsComponent should enable look-through" name="LookthroughSettingsComponent should enable look-through" time="0.029">
+    </testcase>
+    <testcase classname="LookthroughSettingsComponent should change security type group" name="LookthroughSettingsComponent should change security type group" time="0.024">
+    </testcase>
+    <testcase classname="LookthroughSettingsComponent should change inheritance" name="LookthroughSettingsComponent should change inheritance" time="0.023">
+    </testcase>
+    <testcase classname="LookthroughSettingsComponent should create LT Proxies if null" name="LookthroughSettingsComponent should create LT Proxies if null" time="0.02">
+    </testcase>
+  </testsuite>
+</testsuites>

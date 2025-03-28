@@ -1,0 +1,36 @@
+<div class="aux-checkbox-group-container">
+    <aux-checkbox-group [label]="label"
+                        [data]="comparisonStackedData"
+                        [isStacked]="isStacked"
+                        [hasSelectAll]="hasSelectAll"
+                        [isDisabled]="isDisabled"
+                        (checkboxGroupChanged)="onCheckboxGroupChanged()">
+    </aux-checkbox-group>
+  </div>
+  
+  <div class="base-portfolio-container">
+    <div class="base-portfolio-label">
+      <span [ngClass]="((isComparisonListEmpty$ | async) || !isComparisonEnabled) ? 'aux-disabled-text__color' : 'aux-primary-text__color'">Base portfolio</span>
+  
+      <div class="inline-flex">
+        <aux-popover [trigger]="'hover'" hasCloseIcon="false">
+          <aux-button
+              type="tertiary-subtle"
+              icon="info-bold"
+              assistiveText="Button"
+              slot="target">
+          </aux-button>
+          <div slot="content" class="custom-popover-container" [innerHTML]="basePortfolioText">
+          </div>
+        </aux-popover>
+      </div>
+    </div>
+    <div class="anchor-section">
+      <aux-select
+          [isDisabled]="(isComparisonListEmpty$ | async) || !isComparisonEnabled"
+          [hasInitialOptionPlaceholder]="false"
+          (selectionChanged)="setSelectedAnchorValue($event)"
+          [data]="anchorOptions">
+      </aux-select>
+    </div>
+  </div>

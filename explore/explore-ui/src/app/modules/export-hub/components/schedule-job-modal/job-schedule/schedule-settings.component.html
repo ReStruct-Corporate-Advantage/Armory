@@ -1,0 +1,183 @@
+<ng-template #reusableSelectTemplate let-radioChecked="radioChecked" let-frequencyOptions="frequencyOptions" let-genericDaysOptions="genericDaysOptions" let-daysOfMonthOptions="daysOfMonthOptions">
+    <div class="flex">
+        <aux-radio [isChecked]="!radioChecked" (radioChanged)="onTheRadioChanged(false)">
+        </aux-radio>
+        <aux-select class="spacing" [hasInitialOptionPlaceholder]="false" [data]="frequencyOptions" [isDisabled]="radioChecked" (selectionChanged)="onTheFrequencyOptionChanged($event.detail.value)">
+        </aux-select>
+        <aux-select [hasInitialOptionPlaceholder]="false" [data]="genericDaysOptions" [isDisabled]="radioChecked" (selectionChanged)="onTheFrequencyDaysOptionChanged($event.detail.value)">
+        </aux-select>
+    </div>
+</ng-template>
+
+<div class="data-sections flex">
+    <aux-icon class="padding-right" type="alert-bold" state="primary"></aux-icon>
+    <span class="subtitle">Aladdin is a T-1 system. When running for month end data, schedule on the first of every month.<br>
+        The process starts at 8AM each day, completion is subject to the contents of the report.</span>
+</div>
+<div class="flex all-sides-padding">
+    <div class="spacing">
+        <aux-date-picker
+            label="From"
+            #startDatePicker
+            [showInputGuide]="false"
+            [closeCalendarOnBlur]="false"
+            [showMarkerPopovers]="false"
+            [dateFormat]="AuxDatePickerDateFormatEnum.MM_DD_YYYY"
+            [minDate]="minDate"
+            [hasFooterSettings]="false"
+            [validator]="dateValidator"
+            [value]="startDate"
+            [separator]="AuxDatePickerSeparatorsEnum.FORWARD_SLASH"
+            (dateSelected)="startDateChanged($event)"
+            (valueChanged)="startDateChanged($event)">
+        </aux-date-picker>
+    </div>
+    <div class="flex">
+        <aux-select class="spacing"
+                    label="Frequency"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="frequencyOptions"
+                    (selectionChanged)="frequencyChanged($event.detail.value)">
+        </aux-select>
+        <ng-container *ngIf="scheduleSettings.getJobFrequency() !== Frequency.FREQUENCY_ONCE">
+            <div [ngSwitch]="scheduleSettings.getJobFrequency()">
+                <div *ngSwitchCase="Frequency.FREQUENCY_DAILY" class="spacing flex">
+                    <aux-select
+                        label="Every"
+                        class="days-select-dropdown spacing"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="dailyIntervalOptions"
+                        (selectionChanged)="onDailyIntervalChanged($event.detail.value)">
+                    </aux-select>
+                    <span class="top-padding">{{ scheduleSettings.getDaily().getDayInterval() > 1 ? 'days' : 'day' }}</span>
+                </div>
+                <div *ngSwitchCase="Frequency.FREQUENCY_WEEKLY">
+                    <aux-checkbox-group
+                        label="Every"
+                        isHeaderBold="false"
+                        [isStacked]="true"
+                        [data]="weeklyOptions"
+                        [validator]="weekValidator"
+                        (checkboxGroupChanged)="everyChangedWeekly($event)">
+                    </aux-checkbox-group>
+                </div>
+                <div *ngSwitchCase="Frequency.FREQUENCY_MONTHLY" class="spacing flex">
+                    <aux-select
+                                label="Every"
+                                class="every-monthly-dropdown spacing"
+                                [hasInitialOptionPlaceholder]="false"
+                                [data]="monthlyIntervalOptions"
+                                (selectionChanged)="onMonthlyIntervalChanged($event.detail.value)">
+                    </aux-select>
+                    <span class="text-padding">{{ scheduleSettings.getMonthly().getMonthInterval() > 1 ? ' months' : ' month' }}</span>
+                    <div class="inline">
+                        <div class="inline">
+                            <span>On the</span>
+                            <div class="flex bottom-padding top-padding-16">
+                                <aux-radio
+                                           [isChecked]="onTheRadioChecked"
+                                           (radioChanged)="onTheRadioChanged(true)">
+                                </aux-radio>
+                                <aux-select
+                                            class="days-select-dropdown spacing"
+                                            [hasInitialOptionPlaceholder]="false"
+                                            [data]="daysOfMonthOptions"
+                                            [isDisabled]="!onTheRadioChecked"
+                                            (selectionChanged)="onTheDaysOptionSelected($event.detail.value)">
+                                </aux-select>
+                                <span>day</span>
+                            </div>
+                        </div>
+                        <ng-container *ngTemplateOutlet="reusableSelectTemplate; context: { radioChecked: onTheRadioChecked, frequencyOptions: onTheFrequencyOptions, genericDaysOptions: onTheGenericDaysSelectOptions, daysOfMonthOptions: daysOfMonthOptions }">
+                        </ng-container>
+                    </div>
+                </div>
+                <div class="flex" *ngSwitchCase="Frequency.FREQUENCY_YEARLY">
+                    <aux-select class="spacing"
+                        label="Every"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="yearlyOptions"
+                        (selectionChanged)="everyChangedYearly($event)">
+                    </aux-select>
+                    <div class="inline">
+                        <div class="inline">
+                            <span>On the</span>
+                            <div class="flex bottom-padding top-padding-16">
+                                <aux-radio
+                                           [isChecked]="onTheRadioChecked"
+                                           (radioChanged)="onTheRadioChanged(true)">
+                                </aux-radio>
+                                <aux-select class="days-select-dropdown spacing"
+                                            [hasInitialOptionPlaceholder]="false"
+                                            [data]="daysOfMonthOptions"
+                                            [isDisabled]="!onTheRadioChecked"
+                                            (selectionChanged)="onTheDaysOptionSelected($event.detail.value)">
+                                </aux-select>
+                                <span>day</span>
+                            </div>
+                        </div>
+                        <ng-container *ngTemplateOutlet="reusableSelectTemplate; context: { radioChecked: onTheRadioChecked, frequencyOptions: onTheFrequencyOptions, genericDaysOptions: onTheGenericDaysSelectOptions, daysOfMonthOptions: daysOfMonthOptions }">
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="flex all-sides-padding">
+    <aux-time-entry #timeEntry class="spacing"
+                    label="At"
+                    [validator]="timeValidator"
+                    [value]="time"
+                    (rawValueChanged)="rawTimeChanged($event)"
+                    (valueChanged)="timeChanged($event)">
+    </aux-time-entry>
+    <aux-select
+        label="Timezone"
+        type="filter-simple"
+        [hasInitialOptionPlaceholder]="false"
+        [data]="timeZoneOptions"
+        (selectionChanged)="timeZoneChanged($event.detail.value)">
+    </aux-select>
+</div>
+<div class="all-sides-padding">
+<ng-container *ngIf="scheduleSettings.getJobFrequency() !== Frequency.FREQUENCY_ONCE">
+    <div class="flex">
+        <aux-select class="spacing"
+                    label="End"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="endDateOptions"
+                    (selectionChanged)="endPeriodChanged($event.detail.value)">
+        </aux-select>
+        <div [ngSwitch]="scheduleSettings.getJobEndPeriod()">
+            <div *ngSwitchCase="EndPeriod.END_PERIOD_ON_THIS_DAY" class="padding-top-rem">
+                <aux-date-picker
+                    #endDatePicker
+                    [showInputGuide]="false"
+                    [showMarkerPopovers]="false"
+                    [closeCalendarOnBlur]="false"
+                    [value]="endDate"
+                    [dateFormat]="AuxDatePickerDateFormatEnum.MM_DD_YYYY"
+                    [hasFooterSettings]="false"
+                    [minDate]="minEndDate"
+                    [validator]="dateValidator"
+                    [validationType]="AuxFormValidationType.ERROR"
+                    [separator]="AuxDatePickerSeparatorsEnum.FORWARD_SLASH"
+                    (dateSelected)="endDateChanged($event)"
+                    (valueChanged)="endDateChanged($event)">
+                </aux-date-picker>
+            </div>
+            <div *ngSwitchCase="EndPeriod.END_PERIOD_AFTER_N_OCCURRENCES" class="flex padding-top-rem">
+                <aux-numeric-stepper class="spacing"
+                                     defaultValue="1"
+                                     minValue="1"
+                                     maxValue="99"
+                                     [stepperValue]="scheduleSettings.getJobEndOccurrence()"
+                                     (valueChanged)="endAfterStepperChanged($event)">
+                </aux-numeric-stepper>
+                <span class="padding-top-half-rem">occurrences</span>
+            </div>
+        </div>
+    </div>
+</ng-container>
+</div>

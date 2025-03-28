@@ -1,0 +1,44 @@
+<div class="highlight-container">
+    <ng-container *ngFor="let rule of highlightColumnOption?.highlightSettings; let i = index">
+        <div class="rule-item__container" [ngStyle]="getStyleForRule(i)">
+            <div class="rule-item__header">
+                <div class="rule-item__header-label--bold">Rule {{i + 1}}</div>
+                <div class="rule-item__header--right">
+                    <div class="rule-item__header-label">Reorder</div>
+                    <aux-button icon="arrow-up" type="secondary" size="small" [isDisabled]="i == 0"
+                                (click)="reorderHighlightRule(i, true)">
+                    </aux-button>
+                    <aux-button class="button--secondary" icon="arrow-down" type="secondary" size="small"
+                                [isDisabled]="i == highlightColumnOption?.highlightSettings?.length-1"
+                                (click)="reorderHighlightRule(i, false)">
+                    </aux-button>
+                </div>
+            </div>
+            <explore-column-option-highlight-rule [highlightSettings]="rule"
+                                                  [columnTitle]="column.columnTitle"
+                                                  [dataFormatter]="dataFormatter"
+                                                  [validOperators]="validOperators"
+                                                  (deleteHighlightRule)="deleteHighlightRule(i)">
+            </explore-column-option-highlight-rule>
+        </div>
+    </ng-container>
+
+    <div [ngClass]="!calledFromFactorDataWidget ? 'add-rule-button' : '' ">
+        <aux-button icon="add" label="Rule" type="secondary" (click)="addNewHighlightRule()"></aux-button>
+    </div>
+    <ng-container *ngIf="!calledFromFactorDataWidget">
+        <div class="add-rule-button">
+            <div>Only show conditional formatting at</div>
+        </div>
+        <div class="add-rule-button">
+            <aux-checkbox [label]="secondLastLeafLevelLabel" [isChecked]="highlightColumnOption?.highlightSecondLastLeaf"
+                          (checkboxChanged)="updateHighlightSecondLastLeafLevel($event)">
+            </aux-checkbox>
+        </div>
+        <div class="add-rule-button">
+            <aux-checkbox [label]="onlyLeafLevelLabel" [isChecked]="highlightColumnOption?.highlightOnlyLeaf"
+                          (checkboxChanged)="updateHighlightOnlyLeafLevel($event)">
+            </aux-checkbox>
+        </div>
+    </ng-container>
+</div>

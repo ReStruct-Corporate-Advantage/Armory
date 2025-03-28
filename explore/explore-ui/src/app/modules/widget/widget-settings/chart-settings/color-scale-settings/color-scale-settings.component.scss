@@ -1,0 +1,50 @@
+.color-scale-settings {
+    display: flex;
+}
+
+.select--container {
+    display: inline-flex !important;
+    flex: 1;
+
+    .format-select {
+        width: 100%;
+        max-width: 360px;
+    }
+    .midpoint-select {
+        padding-left: 0.75rem;
+    }
+}
+
+.select--midpoint-container {
+    padding-left: 0.75rem;
+    .midpoint-select {        
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+.select-gradient--container {
+    padding-top: 1rem;
+    display: inline-flex !important;
+    flex: 1;
+
+    .select-gradient--text {
+        margin-top: 0.4rem;
+    }
+}
+
+.gradient-box {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.gradient-color-selection {
+    height: 2rem;
+    width: 8rem;
+}
+.gradient-color {
+    height: 2rem;
+    width: 12rem;
+    margin-bottom: 10px;
+}
+

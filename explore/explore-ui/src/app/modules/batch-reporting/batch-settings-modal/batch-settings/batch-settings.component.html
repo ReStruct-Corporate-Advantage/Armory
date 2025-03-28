@@ -1,0 +1,75 @@
+<div class="batch-settings">
+    <div class="batch-favorite-info">
+        <div class="favorite-row">
+            <span class="batch-title">{{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.BATCH_REPORT}}</span>
+            <explore-core-load-new-favorite-buttons (loadClick)="loadBatchReport()"
+                                                    (newClick)="createNewBatchReport()"></explore-core-load-new-favorite-buttons>
+        </div>
+        <div class="favorite-row">
+            <div class="favorite-title__container">
+                <ng-container *ngIf="batchReportConfig.id">
+                        <explore-favorite-info [favoriteConfig]='batchReportConfig' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.BATCH_REPORT" [loadFavoriteCallBack]="loadBatchFavoriteVersion"></explore-favorite-info>
+                </ng-container>
+                <aux-button [type]="AuxButtonTypeEnum.SECONDARY" [size]="AuxButtonSizeEnum.SMALL"
+                            label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.BATCH_REPORT}}"
+                            (click)="saveBatchReport()"></aux-button>
+            </div>
+            <div class="batch-action-buttons">
+                <ng-container *ngIf="enableScheduledBatch">
+                    <div class="open-scheduled-batches-button aux-border--left">
+                        <aux-button [type]="AuxButtonTypeEnum.TERTIARY" label="View Scheduled"
+                                    (click)="openScheduledBatchOverviewModal()"></aux-button>
+                    </div>
+                </ng-container>
+                <aux-button class="add-row-button" icon="add" [type]="AuxButtonTypeEnum.SECONDARY"
+                            (click)="addBatchRow()"
+                            [isDisabled]="downloadInProgress" label="Add batch row"
+                            [size]="AuxButtonSizeEnum.SMALL"></aux-button>
+            </div>
+        </div>
+    </div>
+    <div class="batch-settings-configuration">
+        <div class="batch-settings-header">
+            <div class="batch-settings-drag-handle"></div>
+            <div class="batch-settings-active-checkbox">
+                <aux-checkbox [isChecked]="allActiveRows"
+                              [isDisabled]="downloadInProgress"
+                              (checkboxChanged)="toggleActiveRows()">
+                </aux-checkbox>
+            </div>
+            <div class="batch-settings-portfolio">Portfolio</div>
+            <div class="batch-settings-run-as">Run as</div>
+            <div class="batch-settings-date">Date</div>
+            <div class="batch-settings-benchmark">Benchmark</div>
+            <div class="batch-settings-currency">Currency</div>
+            <div class="batch-settings-report-selector">Report(s)</div>
+            <div class="batch-settings-export-as">Export as</div>
+            <div class="batch-settings-portfolio-settings">Portfolio Settings</div>
+            <div class="batch-settings-status">Status</div>
+            <div class="batch-settings-delete"></div>
+        </div>
+        <div class="batch-settings-rows" cdkDropList (cdkDropListDropped)="drop($event)">
+                <app-batch-settings-row
+                    class="batch-settings-row" cdkDrag *ngFor="let batchRow of batchReportConfig.batchRowConfigs; let i=index"
+                                        [rowIndex]="i"
+                                        [isRowDisabled]="downloadInProgress"
+                                        (click)="selectBatchSettingsRow(batchRow)"
+                                        (selectBatchSettingsRow)="selectBatchSettingsRow($event)"
+                                        [rowConfig]="batchRow"
+                                        [isSelected]="batchRow === selectedBatchSettingsRow"
+                                        (updateAllActiveRowsFlag)="updateAllActiveRowsFlag()"
+                                        (removeBatchRowHandler)="removeBatchRow($event)">
+                </app-batch-settings-row>
+        </div>
+    </div>
+    <div class="batch-settings-export-options">
+        <div class="selected-batch-settings-row-label">{{getSelectedBatchRowLabel()}}</div>
+        <app-export-options [exportConfig]="selectedBatchSettingsRow.exportConfig"
+                            [horizontalView]="true"></app-export-options>
+    </div>
+</div>
+
+<ng-container *ngIf="isScheduledBatchOverviewModalOpen">
+    <app-scheduled-batch-overview-modal [isOpen]="isScheduledBatchOverviewModalOpen"
+                                        (modalClosed)="closeScheduledBatchOverviewModal()"></app-scheduled-batch-overview-modal>
+</ng-container>

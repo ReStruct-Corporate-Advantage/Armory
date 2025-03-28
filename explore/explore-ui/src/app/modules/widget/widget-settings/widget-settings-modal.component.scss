@@ -1,0 +1,90 @@
+.widget-settings-modal-container {
+    display: flex;
+    height: calc(65vh + 40px);
+
+    .setting-tab-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .setting-tab-bar {
+            padding-top: 0.5rem;
+        }
+        .tab-content--fixed-height {
+            height: calc(100% - 40px); // reduce for tab bar height
+            background-color: var(--modal__background-color--grey);
+            border-top: 1px solid var(--tab__border-color);
+            margin-top: -1px;
+        }
+
+        .tab-content--overflow {
+            height: 100%;
+            overflow: auto;
+        }
+    }
+
+    .widget-settings-container {
+        height: calc(100% - 4rem);
+        padding: 2rem;
+
+        .widget-setting-header {
+            font-weight: bold;
+            padding-left: 2px;
+        }
+    }
+}
+
+.custom-header {
+    display: flex;
+    padding: 1rem 2rem 1.25rem;
+    align-items: baseline;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: var(--primary-text__color);
+
+    .display-title {
+        width: 225px;
+    }
+
+    .title-padding {
+        padding-right: 1rem
+    }
+
+    .title-padding-left {
+        padding-left: 1rem
+    }
+
+    .table-label-padding {
+        padding-right: 0.75rem
+    }
+
+    .show-preview {
+        margin-left: auto;
+    }
+}
+
+.widget-preview {
+    height: 100%;
+}
+
+@media (max-width: 1919px) {
+    // in 1919px or less we want the width to be 5 columns out of 12, so width / (100% + width) = 5/12 => width = 71.43%
+    .widget-preview {
+        width: 71.43%;
+    }
+
+    .widget-setting--preview-open {
+        min-width: calc(171.43% - 4rem);
+    }
+}
+
+@media (min-width: 1920px) {
+    // in 1920px or more we want the width to be 4 columns out of 12, so width / (100% + width) = 4/12 => width = 50%
+    .widget-preview {
+        width: 50%;
+    }
+
+    .widget-setting--preview-open {
+        min-width: calc(150% - 4rem);
+    }
+}

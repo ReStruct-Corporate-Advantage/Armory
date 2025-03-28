@@ -1,0 +1,10 @@
+.scenario-component {
+    width: 97%;  // This is really to leave a bit of space for a scroll bar.  Is there a better way?
+    max-height: 500px;  // would be nice to set this so that the bottom of it moved to the same point as the column selection.
+    overflow-y: auto;
+}
+
+.item-container {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}

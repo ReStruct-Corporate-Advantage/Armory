@@ -1,0 +1,235 @@
+<!--Reset Button-->
+<div class="reset-button">
+    <aux-button label="Undo Changes"
+                icon="undo"
+                type="tertiary"
+                size="regular"
+                [isDisabled]="!attributionSettings.checkSettings()"
+                (click)="resetSettings()">
+    </aux-button>
+    <div class="source-styl">
+        Source: {{attributionSettings.getSourceDisplayName()}}
+    </div>
+</div>
+
+<aux-popover trigger="hover" header="Attribution Settings" [hasCloseIcon]="true">
+    <aux-link slot="target" label="More information on attribution settings" (mouseover)="onLinkClicked('MORE_INFO_SETTINGS_HOVERED')"></aux-link>
+    <div slot="content" class="attrib-popover-container">
+        <label>Attribution methodologies seek to decompose active excess return into allocation and selection terms,
+            thereby providing practitioners insight into how investment decisions drove their returns. The factors
+            selected for attribution will be stripped out from the active total return, with the the difference
+            between the sum of these factors and the total return representing the excess return. The removal of
+            certain attributions factors is generally done to avoid the measurement of factors that are not within
+            the control of the portfolio manager, and the relevant factors to remove are dictated by the fund
+            management style.
+        </label>
+        <aux-link label="Additional information about attribution models" [href]='attributionSettingsLink' [target]='AuxTargetAtrEnum.BLANK' (click)="onLinkClicked('ADDITIONAL_INFO_MODELS_CLICKED')"></aux-link>
+    </div>
+</aux-popover>
+
+<div class="flex-container">
+    <div class="margin-right-16">
+        <div>Asset Class</div>
+        <div class="aux-select-line-item">
+            <aux-select
+                [data]="displayAssetTypes"
+                [hasInitialOptionPlaceholder]="false"
+                (selectionChanged)="onAssetClassChanged($event)">
+            </aux-select>
+        </div>
+    </div>
+
+    <div class="margin-right-16">
+        <div class="additional-settings-layout" style="padding-right: 5px">
+            <div>Attribution Models</div>
+            <aux-popover [trigger]="'hover'" header="Attribution Models" [hasCloseIcon]="true" (mouseover)="onLinkClicked('ATTRIBUTION_MODELS_HOVERED')">
+                <aux-button
+                    type="tertiary_subtle"
+                    icon="info-bold"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="attrib-popover-container">
+                    <label>
+                        Fixed Income<br>
+                        <ul>
+                            <li><strong>Core Fixed Income:</strong> Suitable for portfolios managed with capital allocations budgets, where duration and FX are managed at the portfolio level</li>
+                            <li><strong>Hybrid Credit:</strong> Suitable for portfolios managed with risk allocation budgets (e.g., spread duration (DxS)), with independent allocations within each primary sector</li>
+                            <li><strong>Relative Credit:</strong> Suitable for portfolios managed with risk allocation budgets (e.g., spread duration (DxS)), with top-down allocations across the portfolio</li>
+                            <li><strong>Global Fixed Income:</strong> Suitable for portfolios managed with capital allocation budgets, where duration is managed at the portfolio level, but without an explicit hedging program</li><br>
+                        </ul>
+                        Equity<br>
+                        <ul>
+                            <li><strong>Active Equity:</strong> Suitable for portfolios focused on stock selection, without FX hedging programs or requirements</li>
+                            <li><strong>Global Equity:</strong> Suitable for portfolios focused on stock selection, with considerations for portfolio-level FX</li>
+                            <li><strong>Passive Equity:</strong> Designed for passive portfolios, introducing additional attribution terms to strip out common sources of active return for equity index products, including tracking error implications of cash and futures</li><br>
+                        </ul>
+                        Multi-Asset<br>
+                        <ul>
+                            <li><strong>Multi-Manager:</strong> Suitable for top-down portfolio groups or fund-of-fund (FoF) investment structures, where decisions are made to invest in specific funds or managers, without control over the underlying investment decisions of these products</li>
+                            <li><strong>Balanced Fund:</strong> Suitable for multi-asset portfolios, where multiple investment teams independently manage sector allocations</li>
+                        </ul>
+                    </label>
+                </div>
+            </aux-popover>
+        </div>
+        <div class="aux-select-line-item">
+            <aux-select
+                [data]="availableAttributionMethods"
+                [hasInitialOptionPlaceholder]="false"
+                (selectionChanged)="onAvailableAttributionModelChanged($event)">
+            </aux-select>
+        </div>
+    </div>
+
+    <!-- Add Multi Manager attribution settings-->
+    <div class="margin-right-16" *ngIf="showLookthroughSettings()">
+        <div class="additional-settings-layout" style="padding-right: 5px">
+            <div>Look-through settings</div>
+            <aux-popover [trigger]="'hover'" header="Look-through settings" [hasCloseIcon]="true" (mouseover)="onLinkClicked('LOOKTHROUGH_SETTINGS_HOVERED')">
+                <aux-button
+                    type="tertiary_subtle"
+                    icon="info-bold"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="attrib-popover-container">
+                    <label>
+                        <ul>
+                            <li><strong>Default:</strong> Uses the look-through from Explore</li>
+                            <li><strong>Bottom-Up:</strong> The look-through settings are read from the portfolio default settings for use in the Brinson analysis; hence, there's a mismatch relative to the look through settings in Explore by design</li>
+                            <li><strong>Top-Down:</strong> Turns look through off, ignoring the configuration in Explore and applies the top down framework for multi-manager attribution</li>
+                        </ul>
+                    </label>
+                </div>
+            </aux-popover>
+        </div>
+        <div class="aux-select-line-item">
+            <aux-select
+                [data]="attributionMethodData"
+                [hasInitialOptionPlaceholder]="false"
+                (selectionChanged)="onAttributionMethodChanged($event)">
+            </aux-select>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="promptDialog$ | async">
+    <explore-core-dialog (emitDialogClosed)="closeDialog()"
+                         [dialogContent$]="promptDialog$">
+    </explore-core-dialog>
+</ng-container>
+
+<div class="excess-return-text">
+    <span class="text-font">Total Return - Selected Factors = Excess Return</span>
+    <div>The active excess return that remains can then be further decomposed into allocation and selection decisions.</div>
+</div>
+
+<div class="flex-container">
+    <div class="aux-g32--xs-6 aux-g32--sm-6 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6 margin-left-0">
+        <div>Selected Factors</div>
+        <div class="flex-container-2">
+            <div class="text-info">Factors below will be removed from the total return</div>
+            <div>
+                <aux-button icon="add" label="Add Factors" type="tertiary"
+                            (click)="onClickOpenModal()"
+                            [isDisabled]="!isCustomSettings()">
+                </aux-button>
+            </div>
+        </div>
+
+        <div class="tab-container">
+            <div class="container-padding">
+                <explore-core-attribution-factor-view [cannedMethod]="attributionSettings.cannedMethod"
+                                                      [factorsList]="allFactors"
+                                                      [settings]="attributionSettings"
+                                                      [sourceLabel]="'Factors'"
+                                                      (columnsUpdated)="updateColumnsList($event)"
+                                                      [showFactors]="showFactors"
+                                                      [isOpenModal]="isOpenModal"
+                                                      (closeModal)="closeModal()"
+                                                      [isCustom]="isCustomSettings()"
+                                                      [resetExcessFlagMap]="resetExcessFlagMap">
+                </explore-core-attribution-factor-view>
+                <div class="checkbox-padding">
+                    <aux-checkbox *ngIf="isColumnUpdateEnabled"
+                                  label="Automatically add updated factors from selected column set"
+                                  [isChecked]="attributionSettings.isColumnListUpdateEnabled"
+                                  (checkboxChanged)="setColumnListUpdateEnabled()">
+                    </aux-checkbox>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aux-g32--xs-6 aux-g32--sm-6 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6 margin-right-0 " *ngIf="showOtherSettings">
+        <div class="additional-settings-layout" style="padding-right: 5px">
+            <div>Additional Settings</div>
+            <aux-popover [trigger]="'hover'" [hasCloseIcon]="true" (mouseover)="onLinkClicked('ADDITIONAL_SETTINGS_HOVERED')">
+                <aux-button
+                        type="tertiary_subtle"
+                        icon="info-bold"
+                        assistiveText="Button"
+                        slot="target">
+                </aux-button>
+                <div slot="content" class="custom-popover-container">
+                    <aux-link label="Additional information about attribution settings" href="./assets/performance/Aladdin-Attribution-Methodologies.xlsx" target="_blank" (click)="onLinkClicked('ATTRIB_METHODOLOGIES_FILE_DOWNLOADED')"></aux-link>
+                </div>
+            </aux-popover>
+        </div>
+        <div class="text-info">Adjustments to how the attribution model is calculated</div>
+
+        <!-- Exposure drop down-->
+        <div class="flex-container additional-settings">
+            <div class="flex-container">
+                <!-- Calculation method drop down-->
+                <aux-select
+                    class="weight-block-settings margin-right-16"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onCalculatorMethodChange($event)"
+                    [data]="attributionCalculatorMethodsData"
+                    [isDisabled]="!isCustomSettings()"
+                    [label]="'Calculation method'">
+                </aux-select>
+                <aux-select
+                        class="weight-block-settings"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="onSectorWeightingChange($event)"
+                        [data]="sectorWeightingsData"
+                        [isDisabled]="!isCustomSettings()"
+                        [label]="'Weight type'">
+                </aux-select>
+            </div>
+
+            <hr class="other-settings-padding weight-end-border ">
+
+            <!-- Calculation Method/Level dropdown-->
+            <ng-container *ngIf="sectorLevelData.length > 0">
+                <aux-select
+                    class="other-settings-padding"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="adjustCombinedSettingOnSectorLevelChange($event)"
+                    [data]="sectorLevelData"
+                    [isDisabled]="!isCustomSettings()"
+                    [label]="'Calculation level'">
+                </aux-select>
+            </ng-container>
+
+            <!-- Exposure Modes dropdown-->
+            <ng-container *ngIf="showExposureMode">
+                <aux-select
+                    class="other-settings-padding"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onExposureModeChange($event)"
+                    [data]="exposureModeData"
+                    [isDisabled]="!isCustomSettings()"
+                    [label]="'Exposure mode'">
+                </aux-select>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+
+
+

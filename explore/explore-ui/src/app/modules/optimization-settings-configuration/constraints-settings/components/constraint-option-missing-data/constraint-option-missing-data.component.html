@@ -1,0 +1,7 @@
+<div class="constraint-option-missing-data">
+    <ng-container *ngIf="missingDataOption.length !== 0">
+        <div class="full-width">
+            <app-constraint-option-radio [options]="missingDataOption" [isStacked]="false" (updated)="onUpdated($event)"></app-constraint-option-radio>
+        </div>
+    </ng-container>
+</div>

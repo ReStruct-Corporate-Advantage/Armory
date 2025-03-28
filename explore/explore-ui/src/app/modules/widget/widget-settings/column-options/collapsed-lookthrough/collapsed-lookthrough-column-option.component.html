@@ -1,0 +1,24 @@
+<div>
+    <aux-checkbox-group
+        [label]="'Security type/proxies'"
+        [data]="availableSecurities"
+        [isStacked]="true"
+        [hasSelectAll]="false"
+        (checkboxGroupChanged)="onSecurityTypeGroupChanged($event)">
+    </aux-checkbox-group>
+
+    <ng-container *ngIf="isConstraintOption; else NoteForWidgets">
+        <div class='collapsed-lt-note'>
+            Note: Collapsed look-through configured in optimization does not apply to columns in Explore reports. Users
+            also do not need to enable look-through in their portfolio settings in order for collapsed look-through to
+            apply in optimization.
+        </div>
+    </ng-container>
+
+    <ng-template #NoteForWidgets>
+        <div class='collapsed-lt-note'>
+            Note: Collapsed look-through will not be applied onto the widget if look-through has been enabled at the
+            portfolio level.
+        </div>
+    </ng-template>
+</div>

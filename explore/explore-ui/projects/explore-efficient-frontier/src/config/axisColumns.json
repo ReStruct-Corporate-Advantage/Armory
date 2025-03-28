@@ -1,0 +1,66 @@
+{
+  "xAxisColConfig": [
+    {
+      "columnKey": "max_total_risk",
+      "columnTitle": "Risk (Active)",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    }
+  ],
+  "yAxisColConfig": [
+    {
+      "columnKey": "expectedFactorVolatility",
+      "columnTitle": "Systematic Risk (Active)",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    },
+    {
+      "columnKey": "expectedReturn",
+      "columnTitle": "Returns (Active) - Alpha Score",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    },
+    {
+      "columnKey": "expectedVolatility",
+      "columnTitle": "Risk (Active)",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    },
+    {
+      "columnKey": "tcostOfTrades",
+      "columnTitle": "Tcost of Trades",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    },
+    {
+      "columnKey": "turnover",
+      "columnTitle": "Turnover",
+      "dataType": "DOUBLE",
+      "isSubtotalable": true,
+      "formatter": {
+        "scalingFactor": 0.01,
+        "decimalPlaces": 4
+      }
+    }
+  ]
+}

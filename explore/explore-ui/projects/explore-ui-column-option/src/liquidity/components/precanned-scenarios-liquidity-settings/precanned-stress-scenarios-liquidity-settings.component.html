@@ -1,0 +1,22 @@
+<div class="bottom-space-container">
+    <label>Pre-canned Stress Scenario Settings</label>
+</div>
+<div class="sub-container">
+    <ng-container *ngIf="isShowPrecannedScenarioSettings">
+        <div class="bottom-space select-width-bar">
+            <aux-select label="Asset Stress Scenario"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="preCannedStressScenarioOptions"
+                        (selectionChanged)="onPrecannedStressScenarioChanged($event)">
+            </aux-select>
+        </div>
+
+        <div class="bottom-space select-width-bar">
+            <aux-select label="Stress Multiplier Type"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="multiplierTypeOptions"
+                        (selectionChanged)="onMultiplierTypeChanged($event)">
+            </aux-select>
+        </div>
+    </ng-container>
+</div>

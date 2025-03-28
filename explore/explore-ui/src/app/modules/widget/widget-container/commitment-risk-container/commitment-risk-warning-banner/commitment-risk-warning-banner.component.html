@@ -1,0 +1,14 @@
+<div class="warning-message-container">
+    <div class="warning-message-sticker">
+        <aux-icon
+            [type]="'alert-subtle'"
+            [state]="'warning'"
+            [isDecorative]="true"
+            [hasCursor]="false">
+        </aux-icon>
+        <div class="warning-message-text">{{warningMsg}}</div>
+    </div>
+    <div class="warning-message-action">
+        <aux-button type="tertiary" (click)="launchExcludedFundsSpritelet()" label="View excluded funds"></aux-button>
+    </div>
+</div>

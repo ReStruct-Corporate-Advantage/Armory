@@ -1,0 +1,87 @@
+.upload__title {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.upload__container {
+    display: flex;
+    align-items: stretch;
+
+    .upload-column--single {
+        flex: 1;
+    }
+
+    .upload-column--double {
+        flex: 2;
+    }
+
+    .column-content--center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .upload-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: 0.5rem;
+
+        .table-label {
+            margin-bottom: 0.5rem;
+        }
+
+        .upload-text {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    table, tr, td {
+        background-color: var(--grid__background-color);
+        border: 1px solid var(--grid__border-color);
+    }
+
+    .paste-container {
+        position: relative;
+        background-color: var(--text-area__background-color);
+        border: 1px dashed var(--uploader__container-border-color--dashed);
+        margin: 0 0.5rem;
+
+        .paste-area {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            opacity: 0;
+        }
+
+        .paste-area:focus{
+            cursor: text;
+        }
+    }
+
+    .paste-container--focus {
+        background-color: var(--uploader__drag-over-background-color);
+        border: 1px dashed var(--uploader__drag-over-border-color);
+        color: var(--primary-action__color)
+    }
+
+    .uploader-label {
+        margin: 0 0.5rem;
+    }
+
+    .uploader-file {
+        margin-left: 0.5rem;
+    }
+}

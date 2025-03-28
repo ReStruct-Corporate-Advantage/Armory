@@ -1,0 +1,28 @@
+.modelling-setting-container {
+    border-top: 1px solid var(--dialog__border-color);
+
+    .tab-bar-content--separator {
+        border-top: 1px solid var(--tab__border-color);
+        margin-top: -1px;
+    }
+
+    .tab-content {
+        padding-left: 16px;
+    }
+
+    .tab-content-container {
+        padding: 16px;
+
+        .available-columns-container {
+            padding-top: 5px;
+            width: 300px;
+        }
+    }
+
+    .custom-filter {
+        min-height: 58vh;
+        border: 1px solid var(--card__border-color);
+        background-color: var(--secondary__background-color);
+        padding: 2rem;
+    }
+}

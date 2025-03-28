@@ -1,0 +1,22 @@
+<ng-container *ngIf="!hideRiskSettingsMessage; else hideRiskSettings">
+    <div class="factor-risk-settings-style">
+        <div [className]="cssClassNameForRiskSettings">
+            <explore-risk-settings [riskSettings]="widgetInput"
+                                   [widgetType]="widgetType">
+            </explore-risk-settings>
+        </div>
+        <ng-container *ngIf="showComparisonSettings">
+            <div class="layout-risk-settings set-width-half">
+                <div class="comparison-label-style">Comparison Matrix Settings</div>
+                <explore-risk-settings [riskSettings]="comparisonMatrixRiskSettings"
+                                       [widgetType]="widgetType"
+                                       [hideEconomyDate]="true">
+                </explore-risk-settings>
+            </div>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-template #hideRiskSettings>
+    <div class="hide-message">{{hideRiskSettingsMessage}}</div>
+</ng-template>

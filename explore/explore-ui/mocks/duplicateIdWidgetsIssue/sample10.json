@@ -1,0 +1,365 @@
+{
+    "widgets": [
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure123",
+            "type": "agGrid",
+            "id": 126,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                },
+                "sortedColumns": []
+            }
+        },
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure345",
+            "type": "agGrid",
+            "id": 126,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                },
+                "sortedColumns": []
+            }
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis567",
+            "type": "returnGrid",
+            "id": 127,
+            "inputs": null
+        },
+        {
+            "configType": "returnsTimeSeries",
+            "title": "Time Series for AJINOMOTO INC",
+            "type": "returnsSpritelet",
+            "id": 1569864891253,
+            "inputs": null,
+            "pnlID": "SecurityGroup.EQUITY.S60109063",
+            "nodeDesc": "AJINOMOTO INC",
+            "sectorPathRules": [
+                {
+                    "lineItem": null,
+                    "newWeight": null,
+                    "ruleType": "Sector"
+                }
+            ]
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis345",
+            "type": "praAgGrid",
+            "id": 128,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis234",
+            "type": "praAgGrid",
+            "id": 128,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis678",
+            "type": "returnGrid",
+            "id": 127,
+            "inputs": null
+        },
+        {
+            "configType": "returnsTimeSeries",
+            "title": "Time Series for AJINOMOTO INC",
+            "type": "returnsSpritelet",
+            "id": 1569864903176,
+            "inputs": null,
+            "pnlID": "SecurityGroup.EQUITY.S60109063",
+            "nodeDesc": "AJINOMOTO INC",
+            "sectorPathRules": [
+                {
+                    "lineItem": null,
+                    "newWeight": null,
+                    "ruleType": "Sector"
+                }
+            ]
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis764445",
+            "type": "returnGrid",
+            "id": 131,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis",
+            "type": "praAgGrid",
+            "id": 129,
+            "inputs": null
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis",
+            "type": "praAgGrid",
+            "id": 129,
+            "inputs": null
+        },
+        {
+            "configType": "expostReturnsWidget",
+            "title": "Ex-Post Returns",
+            "type": "expostReturns",
+            "id": 1569860808556,
+            "inputs": {
+                "expandedState": {
+                    "allExpanded": true
+                }
+            }
+        },
+        {
+            "configType": "praWidget",
+            "title": "Factor Based Analysis32336",
+            "type": "praAgGrid",
+            "id": 1569860805602,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis34543",
+            "type": "returnGrid",
+            "id": 130,
+            "inputs": null
+        },
+        {
+            "configType": "praPie",
+            "title": "Pie Chart",
+            "type": "praPie",
+            "id": 1569864933215,
+            "inputs": null,
+            "chartSettings": {
+                "labelShow": true,
+                "legendShow": true
+            }
+        },
+        {
+            "configType": "pgsWidget",
+            "title": "Portfolio Group Summary",
+            "type": "pgsGrid",
+            "id": 1569860813472,
+            "inputs": {
+                "expandedState": {
+                    "allExpanded": true
+                },
+                "sortedColumns": []
+            }
+        },
+        {
+            "configType": "expostTimeSeriesWidget",
+            "title": "Ex-Post Time Series",
+            "type": "expostTimeSeries",
+            "id": 1569860807672,
+            "inputs": {
+                "expandedState": {
+                    "allExpanded": true
+                }
+            }
+        },
+        {
+            "configType": "praBar",
+            "title": "Bar Chart",
+            "type": "praBar",
+            "id": 1569864951614,
+            "inputs": null,
+            "chartSettings": {
+                "labelShow": true,
+                "legendShow": true
+            },
+            "chart": {
+                "chartType": "column"
+            },
+            "secondaryAxisColumn": {
+                "data": {
+                    "data": null
+                }
+            },
+            "overrideAxisTitle": {
+                "primaryAxisTitle": "",
+                "secondaryAxisTitle": ""
+            },
+            "showGridLines": {
+                "data": false
+            },
+            "topBottomFilter": {
+                "configType": "topBottomFilter"
+            }
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "443562e7-ebb9-4b3b-8d2c-1aa35267e441",
+            "observers": [
+                127,
+                1569864903176
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ],
+                        [
+                            "_ROOT_",
+                            "EQUITY"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "5c0eb8fe-f964-4ee7-8a6f-63f7ddc3e871",
+            "observers": [
+                127,
+                1569864891253
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ],
+                        [
+                            "_ROOT_",
+                            "EQUITY"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "7d15bbd0-b155-4e99-afbf-8007db3940e0",
+            "observers": [
+                128,
+                1569864951614
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "3fcb171a-1fbc-4a45-a220-1150156d1e55",
+            "observers": [
+                128,
+                1569864933215
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "b9e18ae7-43a1-45f7-97c1-0a403a4c1c1c",
+            "observers": [
+                131
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "63236fbc-bb4e-4946-a3c4-0729c7362e73",
+            "observers": [
+                1569860805602
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "09bbdb6e-bf8d-4efe-88df-4501e2e08015",
+            "observers": [
+                1569864891253
+            ],
+            "parentDataStore": "5c0eb8fe-f964-4ee7-8a6f-63f7ddc3e871",
+            "metaData": {}
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "d287baf2-0abd-4b63-af15-d12ef8efdd5d",
+            "observers": [
+                1569864903176
+            ],
+            "parentDataStore": "443562e7-ebb9-4b3b-8d2c-1aa35267e441",
+            "metaData": {
+                "columns": {
+                    "configType": "columnSet"
+                }
+            }
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "efad25c3-e9ba-4731-80bb-a409840077e8",
+            "observers": [
+                1569864933215
+            ],
+            "parentDataStore": "3fcb171a-1fbc-4a45-a220-1150156d1e55",
+            "metaData": {
+                "columns": {
+                    "configType": "columnSet",
+                    "type": "RISK_REPORT"
+                }
+            }
+        },
+        {
+            "configType": "RiskDataStore",
+            "name": "d085c3d4-aaeb-4109-9c39-2f733963815b",
+            "observers": [
+                1569864951614
+            ],
+            "parentDataStore": "7d15bbd0-b155-4e99-afbf-8007db3940e0",
+            "metaData": {
+                "columns": {
+                    "configType": "columnSet",
+                    "type": "RISK_REPORT"
+                }
+            }
+        }
+    ]
+}

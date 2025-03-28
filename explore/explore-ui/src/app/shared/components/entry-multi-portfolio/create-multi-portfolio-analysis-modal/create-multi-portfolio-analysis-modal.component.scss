@@ -1,0 +1,28 @@
+@use '../../../../../style-functions';
+
+.create-multi-portfolio-analysis-modal-menu {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    margin: 16px 16px;
+
+    .create-multi-portfolio-analysis-modal-container {
+        display: flex;
+        flex-direction: column;
+        padding: 16px 16px;
+    
+    }
+    
+}
+@media (max-width: 1919px) {
+    .create-multi-portfolio-analysis-modal-menu-size {
+        width: style-functions.explore-col-to-vw-32(6) !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .create-multi-portfolio-analysis-modal-menu-size {
+        width: style-functions.explore-col-to-vw-32(4) !important;
+    }
+}
+

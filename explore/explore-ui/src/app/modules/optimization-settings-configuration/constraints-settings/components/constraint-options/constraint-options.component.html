@@ -1,0 +1,60 @@
+<div class="constraint-options">
+    <ng-container *ngIf="sectorConstraintOption">
+        <app-constraint-option-wrapper class="data-sections" [component]="sectorConstraintOption.component"
+                                       [options]="sectorConstraintOption.options"
+                                       [parentConfig]="parentConfig" [optionValues$]="optionValues$"
+                                       [columnConfig]="columnConfig" (updated)=onUpdated($event)>
+        </app-constraint-option-wrapper>
+    </ng-container>
+    <aux-accordion #accordion [activeTabIndex]="0" [isBorderLess]="true" (tabChanged)="tabChangeHandler()">
+        <ng-container *ngIf="!!groupedOptions.length">
+            <aux-accordion-expansion-panel [uid]=CONSTRAINT_SETTINGS_HEADER [header]=CONSTRAINT_SETTINGS_HEADER
+                                           [isExpanded]="true">
+                <div slot="content">
+                    <ng-container *ngFor="let option of groupedOptions; index as i">
+                        <ng-container *ngIf="option.isVisible$ | async">
+                            <div class="options-item">
+                                <app-constraint-option-wrapper class="options-item" [component]="option.component"
+                                                               [options]="option.options"
+                                                               [parentConfig]="parentConfig"
+                                                               [optionValues$]="optionValues$"
+                                                               [columnConfig]="columnConfig"
+                                                               (updated)=onUpdated($event)>
+                                </app-constraint-option-wrapper>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </aux-accordion-expansion-panel>
+        </ng-container>
+        <ng-container *ngIf="!!unGroupedOptions.length">
+            <ng-container *ngFor="let option of unGroupedOptions; index as i">
+                <ng-container *ngIf="option.isVisible$ | async">
+                    <aux-accordion-expansion-panel [uid]="option.headerName" [header]="option.headerName">
+                        <ng-container *ngIf="!option.isColumnOption else columnOption">
+                            <div slot="content" class="options-item">
+                                <app-constraint-option-wrapper [component]="option.component" [options]="option.options"
+                                                               [parentConfig]="parentConfig"
+                                                               [optionValues$]="optionValues$"
+                                                               [columnConfig]="columnConfig"
+                                                               (updated)=onUpdated($event)>
+                                </app-constraint-option-wrapper>
+                            </div>
+                        </ng-container>
+                        <ng-template #columnOption>
+                            <div slot="content" class="options-item">
+                                <explore-column-option
+                                    [columnOptionUpdated$]="columnOptionUpdated$"
+                                    [optionType]="option.optionType"
+                                    [option]="option.options"
+                                    [column]="option.columnConfig"
+                                    [widgetType]="widgetConfigType">
+                                </explore-column-option>
+                            </div>
+                        </ng-template>
+                    </aux-accordion-expansion-panel>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </aux-accordion>
+</div>

@@ -1,0 +1,45 @@
+
+.mode-settings {
+    height: auto;
+}
+
+.factor-options {
+    width: 200px;
+    margin-left: 12px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.align-elements {
+    display: inline-block;
+    margin: 16px 0 16px 16px;
+}
+.plot {
+    margin-top: 16px;
+    margin-left: 16px;
+    font-weight: bold;
+}
+
+.margin-bottom-16 {
+    margin-bottom: 16px;
+}
+
+.layout-column-sets {
+    width: 49%;
+    display: inline-block;
+}
+.width-full {
+    width: 100%;
+}
+
+.right-column-set {
+    float: right;
+}
+
+.loading-spinner-factor-chart-settings {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2147483647;
+}

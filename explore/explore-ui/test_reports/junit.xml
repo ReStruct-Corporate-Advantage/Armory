@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="1" failures="0" errors="0" time="23.204">
+  <testsuite name="EssScenarioViewsComponent" errors="0" failures="0" skipped="0" timestamp="2025-03-27T10:59:41" time="21.416" tests="1">
+    <testcase classname="EssScenarioViewsComponent should create" name="EssScenarioViewsComponent should create" time="15.574">
+    </testcase>
+  </testsuite>
+</testsuites>

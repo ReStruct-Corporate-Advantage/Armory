@@ -1,0 +1,228 @@
+{
+  "configType": "praFactorData",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "FBA Factor Data",
+  "title": "Factor Data",
+  "image": ".\/assets\/images\/timeseriesWidget.png",
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": true,
+  "showGridTransitionControl": false,
+  "restrictedColumnOptions": {
+    "sections": [
+      "shockSettingColumnOption",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "agGrid",
+  "inputCategories": [
+    {
+      "categoryType": "Factor Data Chart Settings",
+      "categoryTitle": "Chart Settings",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "factorDataChartSettings",
+          "inputName": "factorDataChartSettings",
+          "default": {}
+        }
+      ]
+    },
+    {
+      "categoryType": "Factor Data Risk Settings",
+      "categoryTitle": "Risk Settings",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "riskSettings",
+          "inputName": "riskSettings",
+          "default": {}
+        }
+      ]
+    },
+    {
+      "categoryType": "Other Settings",
+      "categoryTitle": "Other Settings",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "timeSeriesSettings",
+          "inputName": "timeSeriesSettings",
+          "inputTitle": "timeSeriesSettings",
+          "default": {
+            "frequency": "DAILY",
+            "periods": 252,
+            "chartType": "line",
+            "dateFormat": "Aladdin date format",
+            "compareModeToggle": false
+          }
+        },
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "default": {}
+        },
+        {
+          "inputConfigType": "columns",
+          "inputName": "factorComparisonColumns",
+          "valueField": "columnTag",
+          "default": {}
+        },
+        {
+          "inputConfigType": "riskSettings",
+          "inputName": "factorComparisonMatrixRiskSettings",
+          "default": {}
+        },
+        {
+          "inputConfigType": "showAsChartInput",
+          "inputName": "showAsChartInput",
+          "default": {}
+        },
+        {
+          "$ref": "defaultFactorBreakdown"
+        },
+        {
+          "inputConfigType": "factorDataRiskMatrixSettings",
+          "inputName": "factorDataRiskMatrixSettings",
+          "default": {
+            "isTriangularMatrix": false,
+            "showChangeInUpperTriangle": false
+          }
+        },
+        {
+          "inputConfigType": "factorDataHighlightSettings",
+          "inputName": "factorDataHighlightSettings",
+          "default": {
+            "lowerHighlightSettings": {
+              "highlightSettings": [
+                {
+                  "comparisonType": 0,
+                  "backGroundColors": [
+                    "rgb(144,238,144)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    1
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 2,
+                  "backGroundColors": [
+                    "rgb(0,0,255)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    0.7
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 2,
+                  "backGroundColors": [
+                    "rgb(173,216,230)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    0.3
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 3,
+                  "backGroundColors": [
+                    "rgb(255,0,0)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    -0.7
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 3,
+                  "backGroundColors": [
+                    "rgb(255,187,187)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    -0.3
+                  ],
+                  "isEnabled": true
+                }
+              ],
+              "highlightOnlyLeaf": true
+            },
+            "upperHighlightSettings": {
+              "highlightSettings": [
+                {
+                  "comparisonType": 0,
+                  "backGroundColors": [
+                    "rgb(144,238,144)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    1
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 2,
+                  "backGroundColors": [
+                    "rgb(255,165,0)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    0.7
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 2,
+                  "backGroundColors": [
+                    "rgb(254,212,134)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    0.3
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 3,
+                  "backGroundColors": [
+                    "rgb(160,32,240)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    -0.7
+                  ],
+                  "isEnabled": true
+                },
+                {
+                  "comparisonType": 3,
+                  "backGroundColors": [
+                    "rgb(209,137,254)",
+                    "rgb(211,211,211)"
+                  ],
+                  "comparisonRawValues": [
+                    -0.3
+                  ],
+                  "isEnabled": true
+                }
+              ],
+              "highlightOnlyLeaf": true
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        const baseUrl = location.pathname.includes("-beta") ? "/apps/explore-beta/" : location.pathname.includes("-gamma") ? "/apps/explore-gamma/" : "/apps/explore/";
+        const baseTag = document.createElement("base");
+        baseTag.setAttribute("href", baseUrl);
+        document.head.appendChild(baseTag);
+    </script>
+
+    <!--This script will be replaced by scripts with name of all the js from dist/explore-folder after npm build step-->
+    <script></script>
+
+</head>
+<body>
+</body>
+</html>

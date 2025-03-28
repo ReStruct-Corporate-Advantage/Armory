@@ -1,0 +1,24 @@
+.side-bar-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.portfolio-actions {
+    padding-top: 1rem;
+
+    .buttons-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+}
+
+.workpads-container {
+    margin-top: -17px;
+}
+
+.portfolio-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

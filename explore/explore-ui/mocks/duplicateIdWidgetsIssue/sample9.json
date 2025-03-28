@@ -1,0 +1,61 @@
+{
+    "widgets": [
+        {
+            "configType": "returnsTimeSeries",
+            "title": "Time Series for BLK ICS USD LEAF AGENCY DIST",
+            "type": "returnsSpritelet",
+            "id": 1569825897971,
+            "inputs": null,
+            "sectorPathRules": [
+                {
+                    "lineItem": null,
+                    "newWeight": null,
+                    "ruleType": "Sector"
+                }
+            ]
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "sizeX": 8,
+            "sizeY": 6,
+            "type": "returnGrid",
+            "row": 0,
+            "col": 8,
+            "id": 1569825892330,
+            "inputs": null
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "f7262e18-773b-4460-9791-dc7b0daa2fb6",
+            "observers": [
+                1569825897971,
+                1569825892330
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "18152b4f-8a44-4bc0-b422-8ca077c454dc",
+            "observers": [
+                1569825897971
+            ],
+            "parentDataStore": "f7262e18-773b-4460-9791-dc7b0daa2fb6",
+            "metaData": {
+                "columns": {
+                    "configType": "columnSet"
+                }
+            }
+        }
+    ]
+}

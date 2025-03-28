@@ -1,0 +1,19 @@
+.factor-container {
+    display: flex;
+
+    .factor-container-width {
+        width: 50%;
+
+        .factor-header-padding {
+            padding: 10px 0px;
+        }
+    }
+
+    .factor-container-margin {
+        margin-right: 30px;
+    }
+}
+
+.horizontal-break {
+    border-top: 1px solid var(--dialog__border-color);
+}

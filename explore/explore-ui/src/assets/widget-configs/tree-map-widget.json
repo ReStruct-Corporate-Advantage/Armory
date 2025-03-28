@@ -1,0 +1,121 @@
+{
+    "configType": "treemap",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Tree Map Widget displays a hierarchical view of data using nested rectangles and colors. If a multi-level breakdown has been applied to the widget, you can drill down to lower levels of a breakdown.",
+    "title": "Tree Map",
+    "image": ".\/assets\/images\/tree-map.png",
+    "imageDescription": "This tree map shows the market value and notional market value of each GICS sector in the S&P500 as nested rectangles. The market value is represented by rectangle size, and the notional market value is represented by color.",
+    "setUpRequirements": [
+      "1 size measure",
+      "1 color measure",
+      "Sector breakdown",
+      "Optional: Multi-level breakdown (to drill-down)"
+    ],
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": true,
+    "showGridTransitionControl": true,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Size Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "sizeColumn",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "$ref": "marketValueColumn"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Color Measure",
+            "noAccordion": true,
+            "horizontalScroll": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "colorColumn",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "columnTag": "notional_mv",
+                            "positionColumnType": "PORT",
+                            "columnKey": "notional_mv_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "$ref": "defaultBreakdown"
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartFilter"
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                  "inputConfigType": "colorScale",
+                  "inputName": "colorScale",
+                  "inputTitle": "Color scale",
+                  "default": {
+                    "format": "3-Color Scale",
+                    "midpoint": "Auto-Scale",
+                    "colors": "redToGreen"
+                  },
+                  "isOpen": true
+                },
+                {
+                    "inputConfigType": "absoluteValue",
+                    "inputName": "showAbsoluteValue",
+                    "inputTitle": "Negative size",
+                    "default": {
+                        "useAbsoluteValue": false
+                    },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartSettings"
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "restrictedColumnOptions": {
+        "$ref": "defaultRestrictedColumnOptions"
+    },
+    "chartingLib": "hc",
+  "settingsThatCanUpdateWidgetTitle": ["sizeColumn"],
+  "showCompareTabs": true
+}

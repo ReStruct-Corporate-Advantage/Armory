@@ -1,0 +1,23 @@
+.temp-align-climate-scenarios-container {
+    .climate-scenario__container {
+        width: 100%;
+
+        .single-scenario-container {
+            display: flex;
+        }
+
+        .targets-select {
+            width: calc(((100% - 3rem) / 24) * 8);
+            padding-right: 0.5rem;
+        }
+
+        .scenario-type-select {
+             width: calc(((100% - 3rem) / 24) * 11);
+             padding-right: 0.5rem;
+        }
+
+        .timeframe-select {
+            width: calc(((100% - 3rem) / 24) * 5);
+        }
+    }
+}

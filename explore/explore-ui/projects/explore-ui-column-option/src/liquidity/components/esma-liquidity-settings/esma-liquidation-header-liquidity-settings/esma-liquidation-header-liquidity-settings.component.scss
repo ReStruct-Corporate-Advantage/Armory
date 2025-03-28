@@ -1,0 +1,14 @@
+.bottom-space-container {
+    padding-bottom: 12px;
+}
+
+.sub-container {
+    padding-left: 12px;
+
+    .inline-container {
+        display: inline-flex;
+        padding: 0 12px 12px 0;
+    }
+}
+
+

@@ -1,0 +1,29 @@
+<aux-accordion [isFreeMode]="true">
+    <aux-accordion-expansion-panel header="Summary" [uid]="'summary'">
+        <div slot="content">
+            <app-factor-attribution-details-summary [summaryValueList]="summaryValueList"></app-factor-attribution-details-summary>
+        </div>
+    </aux-accordion-expansion-panel>
+
+    <ng-container *ngIf="missingBetasMap">
+        <aux-accordion-expansion-panel header="Missing Betas" [uid]="'missing-betas'">
+            <div slot="content">
+                <app-factor-attribution-details-missing-info [missingInfoMap]="missingBetasMap"></app-factor-attribution-details-missing-info>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <ng-container *ngIf="missingExposuresMap">
+        <aux-accordion-expansion-panel header="Missing Exposures" [uid]="'missing-exposure'">
+            <div slot="content">
+                <app-factor-attribution-details-missing-info [missingInfoMap]="missingExposuresMap"></app-factor-attribution-details-missing-info>
+            </div>
+        </aux-accordion-expansion-panel>
+    </ng-container>
+
+    <aux-accordion-expansion-panel header="Factor Proxying" [uid]="'factor-proxy'">
+        <div slot="content">
+            <app-factor-attribution-details-factor-proxying [proxyInfo]="proxyInfo"></app-factor-attribution-details-factor-proxying>
+        </div>
+    </aux-accordion-expansion-panel>
+</aux-accordion>

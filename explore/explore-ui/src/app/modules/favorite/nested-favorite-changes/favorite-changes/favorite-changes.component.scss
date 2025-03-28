@@ -1,0 +1,25 @@
+.favorite-changes{
+    padding: 1.5rem 1rem 0 1rem;
+}
+
+.other-owners-container {
+    display: inline-flex;
+    padding-bottom: 1.5rem;
+}
+
+.warn-icon {
+    padding-right: 0.5rem;
+}
+
+.favorite-change {
+    border-top: 1px solid var(--card__border-color);
+    padding: 1rem 0;
+}
+
+.select-all-checkbox {
+    padding-bottom: 0.5rem;
+}
+
+.no-changes-text {
+    padding: 1.5rem;
+}

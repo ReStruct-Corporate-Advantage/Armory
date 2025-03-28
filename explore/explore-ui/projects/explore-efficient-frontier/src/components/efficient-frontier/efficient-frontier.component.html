@@ -1,0 +1,28 @@
+<div class="explore-highchart">
+    <div class="axis-selection">
+        <div class="dropdown">
+            <aux-select
+                label="Y-axis"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="yAxis"
+                (selectionChanged)="onYAxisColumnChanged($event)">
+            </aux-select>
+        </div>
+        <ng-container *ngIf="showXAxis">
+            <div class="dropdown">
+                <aux-select
+                    label="X-axis"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="xAxis"
+                    (selectionChanged)="onXAxisColumnChanged($event)">
+                </aux-select>
+            </div>
+        </ng-container>
+    </div>
+    <explore-efficient-frontier-chart [portfolio]="basePortfolioName"
+                                      [objectiveType]="optoObjectiveType"
+                                      [latestOptimizationRunDetails]="latestOptimizationRunDetails"
+                                      [selectedYAxisColumn]="selectedYAxisColumn"
+                                      [selectedXAxisColumn]="selectedXAxisColumn">
+    </explore-efficient-frontier-chart>
+</div>

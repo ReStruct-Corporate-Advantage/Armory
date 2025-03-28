@@ -1,0 +1,283 @@
+<div class="batch-buttons" *ngIf="showBatchPDFToggleButton">
+    <button (click)="hideMainContainer = !hideMainContainer">Toggle Batch Container</button>
+    <button (click)="runCurrentBatch()">Run Current Batch</button>
+</div>
+<ng-container *ngIf="!userMetaDataError; else errorInFetchingUserMetaData">
+    <ng-container *ngIf="access !== false; else noAccess">
+        <ng-container *ngIf="!definitionsError; else errorInFetchingDefinitions">
+        <!--  WRAPPER WITH HEADER, BODY, AND FOOTER  -->
+        <ng-container *ngIf="isAppReady">
+            <ng-container *ngIf="(workspace$ | async) as workspace">
+                <explore-previous-favorite-version-banner [favoriteId]="workspace.id" [owner]="workspace.owner"
+                                                          [currentFavoriteVersion]="workspace.currentFavoriteVersion"
+                                                          [previousVersionMessage]="WORKSPACE_PREV_VERSION_MESSAGE"
+                ></explore-previous-favorite-version-banner>
+            </ng-container>
+            <aux-app-frame type="parallel-drawer" (mainContentScroll)="onMainContentScrollHandler($event)"
+                           [hidden]="hideMainContainer" [hasSkipLink]="false" [backgroundColor]="'dark'">
+                <!--  TOOLBAR  -->
+                <div style="width: 100%; position: absolute; z-index: 2;" slot="toolbar">
+                    <aux-toolbar
+                        *ngIf="showMain && isVisibleToggledMainToolbar && scrollPastPortfolioSection"
+                        [isSticky]="false">
+                        <div class="portfolio-floating-toolbar-container">
+                            <app-portfolio-floating-toolbar></app-portfolio-floating-toolbar>
+                            <div
+                                style="align-self: center; margin-left: auto; margin-right: 15%; color: var(--primary-text__color);">
+                                <app-user-session-info></app-user-session-info>
+                            </div>
+                        </div>
+                        <div *ngIf="scrollPastReportSection" style="padding-top: 8px">
+                            <app-reports-floating-toolbar></app-reports-floating-toolbar>
+                        </div>
+                    </aux-toolbar>
+                </div>
+
+                <!--  MAIN  -->
+                <div slot="main" id="main-container" class="main-slot full-height"
+                     *ngIf="(workspace$ | async) as workspace">
+                    <div class="workspace-panel-container aux-container"
+                         *ngIf="!isNavDrawerOpen && workspace?.workpads.length > 0">
+                        <div class="workspace-top-header">
+                            <span class="workspace-top-header-title aux-primary">{{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.WORKSPACE}}: {{workspace.title}}</span>
+                            <div *ngIf="workspace.owner" class="workspace-top-header-author">
+                                <aux-value-pair [label]="'Owner'" [value]="workspace.getUserGroup()"
+                                                [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+                            </div>
+                            <div class="workspace-quick-save">
+                                <aux-button [type]="AuxButtonTypeEnum.SECONDARY" [size]="'small'"
+                                            label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.WORKSPACE}}"
+                                            [isDisabled]="(quickSaveLoadingStatus$ | async) || workspace?.workpads.length === 0"
+                                            (click)="onQuickSaveWorkspace()">
+                                </aux-button>
+                                <span *ngIf="(quickSaveLoadingStatus$ | async)" class="in-progress-container">
+                                        <aux-icon [type]="'loading'" state="primary"></aux-icon>
+                                    </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <ng-container *ngIf="showSemanticSearchModal">
+                        <app-semantic-search-modal
+                            [isOpen]="showSemanticSearchModal"
+                            (modalClosed)="closeSemanticSearchModal()">
+                        </app-semantic-search-modal>
+                    </ng-container>
+                    <ng-container *ngIf="showLocaleSettingModal">
+                        <app-locale-setting-modal
+                            [isOpen]="showLocaleSettingModal"
+                            (modalClosed)="closeLocaleSettingModal()">
+                        </app-locale-setting-modal>
+                    </ng-container>
+                    <app-intro *ngIf="showIntro"></app-intro>
+
+                    <app-main *ngIf="showMain" [workspace]="workspace"></app-main>
+
+                    <ng-container *ngIf="isLoadFavoriteModalOpen">
+                        <app-load-favorite-modal [isOpen]="isLoadFavoriteModalOpen"
+                                                 [optoSettings]="loadAladdinTemplate"
+                                                 (modalClosed)="closeLoadFavoriteModal($event)">
+                        </app-load-favorite-modal>
+                    </ng-container>
+
+                    <ng-container *ngIf="isBatchSettingsModalOpen">
+                        <app-batch-settings-modal [isOpen]="isBatchSettingsModalOpen"
+                                                  (modalClosed)="closeBatchSettingsModal()">
+                        </app-batch-settings-modal>
+                    </ng-container>
+
+                    <ng-container *ngIf="isFavoriteStatusModalOpen">
+                        <app-favorite-status-modal [isOpen]="isFavoriteStatusModalOpen"
+                                                   [favorite]="favStatusUpdate.favorite"
+                                                   [favoriteType]="favStatusUpdate.favoriteType"
+                                                   [statusUpdateCallback]="favStatusUpdate.statusUpdateCallback"
+                                                   (modalClosed)="isFavoriteStatusModalOpen = false">
+                        </app-favorite-status-modal>
+                    </ng-container>
+
+                    <ng-container *ngIf="isJobExecutionHistoriesModalOpen" >
+                       <div class="job-execution-histories-modal">
+                           <app-job-execution-histories
+                               [isOpen]="isJobExecutionHistoriesModalOpen"
+                               [jobExecutionHistory]="jobExecutionHistory"
+                               (modalClosed)="closeJobExecutionHistoriesModal()"></app-job-execution-histories>
+                       </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="isJobSchedulerModalOpen" >
+                        <div class="job-scheduler-modal">
+                            <app-job-scheduler-modal [isOpen]="isJobSchedulerModalOpen"
+                                                     (modalClosed)="closeJobSchedulerModal()">
+                            </app-job-scheduler-modal>
+                        </div>
+                    </ng-container>
+
+                    <ng-container *ngIf="isScheduleJobModalOpen">
+                        <app-schedule-job-modal [isOpen]="isScheduleJobModalOpen"
+                                                [exportHubJob]="jobToBeEdited"
+                                                (createJobHandler)="createJobHandler($event)"
+                                                 (modalClosed)="closeScheduleJobModal()">
+                        </app-schedule-job-modal>
+                    </ng-container>
+
+                    <ng-container *ngIf="isSaveFavoriteModalOpen">
+                        <app-save-favorite-modal [isOpen]="isSaveFavoriteModalOpen"
+                                                 (modalClosed)="closeSaveFavoriteModal()"></app-save-favorite-modal>
+                    </ng-container>
+                    <ng-container *ngIf="isSaveReportModalOpen">
+                        <app-save-report-modal [isOpen]="isSaveReportModalOpen" (modalClosed)="updateSaveReportModalState(false)"></app-save-report-modal>
+                    </ng-container>
+                    <ng-container *ngIf="isSaveWorkspaceModalOpen">
+                        <app-save-workspace-modal [isOpen]="isSaveWorkspaceModalOpen" (modalClosed)="updateSaveWorkspaceState(false)"></app-save-workspace-modal>
+                    </ng-container>
+                    <ng-container *ngIf="isDeleteWorkspaceModalOpen">
+                        <app-delete-favorite-modal [isOpen]="isDeleteWorkspaceModalOpen"
+                                                 (modalClosed)="closeDeleteWorkspaceModal()">
+                        </app-delete-favorite-modal>
+                    </ng-container>
+                    <ng-container *ngIf="isFavoriteVersionLogModalOpen">
+                        <app-favorite-version-log-modal [isOpen]="isFavoriteVersionLogModalOpen" [favDisplayName]='favoriteType' [loadFavoriteCallBack]="loadFavoriteCallBack" [favoriteId]="favoriteId" (modalClosed)="closeFavoriteVersionModal()"></app-favorite-version-log-modal>
+                    </ng-container>
+                    <ng-container *ngIf="isViewUsageModalOpen">
+                        <app-view-usage-modal [isOpen]="isViewUsageModalOpen" [modalHeader]='favoriteType' [favoriteId]='favoriteId' (modalClosed)="closeViewUsageLinkModal()"></app-view-usage-modal>
+                    </ng-container>
+                </div>
+
+                <!--  DRAWER  -->
+                <app-side-bar slot="drawer"></app-side-bar>
+            </aux-app-frame>
+
+            <!--  MANDATE SETTINGS CONTROLLER MODAL (ADMIN SCREEN)  -->
+            <ng-container *ngIf="isMandateSettingsModalOpen">
+                <app-mandate-settings-modal [isOpen]="isMandateSettingsModalOpen"
+                                            (modalClosed)="updateMandateSettingsModalState(false)">
+                </app-mandate-settings-modal>
+            </ng-container>
+
+            <!--  DIALOG  -->
+            <ng-container *ngIf="dialogContent$ | async">
+                <explore-core-dialog (emitDialogClosed)="closeDialog()"
+                                    [dialogContent$]="dialogContent$"
+                ></explore-core-dialog>
+            </ng-container>
+        </ng-container>
+        </ng-container>
+
+        <!--  LOADING  -->
+        <ng-container *ngIf="(isLoading$ | async)">
+            <ng-container *ngIf="(loadingMessageInfo$ | async) as loadingMessageInfo">
+                <div class="loading-area"
+                     [ngClass]="{'loading-area-dimension': !loadingMessageInfo.enableClickOnBackground}">
+                    <div class="loading-spinner">
+                        <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" [progress]="30"
+                                                [size]="'large'" [type]="'loading'" [loadingLabel]="loadingMessageInfo.message">
+                        </aux-progress-indicator>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+    </ng-container>
+</ng-container>
+
+<!--  NO ACCESS  -->
+<ng-template #noAccess>
+    <div id="no-access">
+        <h1>Access Denied</h1>
+        <span>You must have access to <strong>Explore</strong> to use this
+            tool</span>
+        <span>Please contact Aladdin Support for access</span>
+    </div>
+</ng-template>
+
+<!--  ERROR IN FETCHING USER META DATA  -->
+<ng-template #errorInFetchingUserMetaData>
+    <div id="user-meta-data-error">
+        <h1>{{ userMetaDataError.name }}</h1>
+        <span>{{ userMetaDataError.message }}</span>
+    </div>
+</ng-template>
+
+<!--  ERROR IN FETCHING DEFINITIONS  -->
+<ng-template #errorInFetchingDefinitions>
+    <div id="definitions-error">
+        <h1>{{ definitionsError.name }}</h1>
+        <span>{{ definitionErrorFailMessage }}</span>
+    </div>
+</ng-template>
+
+<!-- NOTIFICATION (TOAST)  -->
+<div class="notification-container">
+    <aux-notification-group type="toast" #toastNotification></aux-notification-group>
+</div>
+
+<!-- BATCH CONTAINER -->
+<div class="batch-container"
+     [ngClass]="isNavDrawerOpen ? 'batch-container__width--drawer-open' : 'batch-container__width--drawer-closed'">
+    <app-batch-container></app-batch-container>
+</div>
+
+<div class="copilot-embedded-wrapper" [hidden]="!isAladdinCopilotChatVisible" *ngIf="isAladdinCopilotChatInitialized && embeddedCopilot">
+    <axf-copilot-chat [options]="{chatService: chatService, hasHeader: false}"/>
+</div>
+<aux-popover [trigger]="'pressed'" id="job-scheduler" class="global-utilities" [hasCloseIcon]="true"
+             header="Job Scheduler Recent Status" (popoverOpened)="jobSchedulerPopupOpened()">
+    <button type="button" aria-label="Job Scheduler"></button>
+    <div slot="content" class="job-scheduler">
+
+        <ng-container *ngIf="jobSchedulerInProgress; else showJobs">
+            <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                    size="regular"
+                                    type="loading" loadingLabel="Fetching daily execution status">
+            </aux-progress-indicator>
+        </ng-container>
+        <ng-template #showJobs>
+            <div class="refresh-button-container">
+                <aux-button icon="refresh" [type]="AuxButtonTypeEnum.TERTIARY" label="Refresh"
+                            (click)="refreshDailyStatus()"></aux-button>
+            </div>
+            <div class="no-jobs" *ngIf="dailyExecutionHistories.length === 0; else jobDetails">
+                {{ dailyExecutionJobsErrorMessage }}
+                <br>
+                <br>
+                Schedule an export job (run once or recurring) from a report or a widget in this workspace. You can view
+                the Job Scheduler to view all jobs.
+            </div>
+            <ng-template #jobDetails>
+                <div class="job-details-container">
+                    <div class="job-details" *ngFor="let job of dailyExecutionHistories">
+                        <aux-card borderPadding="4" [hasBorder]="true" assistiveText="Job card">
+                            <div slot="content" class="job-detail-card">
+                                <div class="job-name">
+                                    <span class="aux-p13 aux-bold">{{ job.getJobName() }}</span>
+                                    <span class="aux-p10">{{ job.getExportType().toUpperCase() }}
+                                        | {{ ExportHubUtils.convertProtobufDateToString(job.getExecutionDate()) + CommonConstants.SINGLE_SPACE + job.getJobTime()}}</span>
+                                    <span
+                                        class="aux-p10">{{ scheduledJobPortfoliosCountMap.get(job.getJobId()) > 1 ? scheduledJobPortfoliosCountMap.get(job.getJobId()) + CommonConstants.SINGLE_SPACE + PORTFOLIOS : scheduledJobPortfoliosCountMap.get(job.getJobId()) + CommonConstants.SINGLE_SPACE + PORTFOLIO }}
+                                        , {{ scheduledJobWidgetsCountMap.get(job.getJobId()) > 1 ? scheduledJobWidgetsCountMap.get(job.getJobId()) + CommonConstants.SINGLE_SPACE + WIDGETS : scheduledJobWidgetsCountMap.get(job.getJobId()) + CommonConstants.SINGLE_SPACE + WIDGET }}</span>
+                                </div>
+                                <div class="job-status-and-action">
+                                    <div class="job-status">
+                                        <aux-badge [type]="auxBadgeTypeEnum.TEXT"
+                                                   [badgeStyle]="badgeStyles[exportHubJobsStates.get(job.getState())]"
+                                                   [value]="exportHubJobsStates.get(job.getState())"></aux-badge>
+                                    </div>
+                                    <div class="action-btn">
+                                        <aux-button label="View Job Details" [type]="AuxButtonTypeEnum.TERTIARY"
+                                                    (click)="viewJobDetails(job)"></aux-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </aux-card>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-template>
+        <div class="job-scheduler-btn">
+            <aux-button [type]="AuxButtonTypeEnum.SECONDARY" [size]="'small'"
+                        label="View All Jobs"
+                        (click)="openJobScheduler()">
+            </aux-button>
+        </div>
+    </div>
+</aux-popover>

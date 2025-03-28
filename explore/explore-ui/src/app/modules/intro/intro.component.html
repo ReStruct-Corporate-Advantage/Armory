@@ -1,0 +1,48 @@
+<div class="intro-area aux-primary">
+    <div class="intro-portfolio-search-area">
+        <aux-card [borderPadding]="32">
+            <div class="intro-card-container">
+                <div class="intro-card-title">Add a Portfolio</div>
+                <div class="intro-card-description">Add a portfolio to your workspace</div>
+
+                <ng-container *ngIf="!whatIfMode; else whatIfSearch">
+                    <blk-portfolio-search (emitPortfolioSearchItem)="onAddPortfolio($event)"
+                                          (emitPortfolioForTracking)="trackPortfolioTelemetry($event)"
+                                          [portfolioSearchService]="portfolioSearchService"
+                                          [isAddBtnHidden]="false"
+                                          (whatIfTypeSelected)="switchToWhatIfMode(true)"
+                    >
+                    </blk-portfolio-search>
+                </ng-container>
+                <ng-template #whatIfSearch>
+                    <app-favorite [favType]="loadFavAction?.type"
+                                  [favTreeType]="loadFavAction?.treeType"
+                                  [favDisplayName]="loadFavAction?.displayName"
+                                  [loadEnterpriseTree]="!loadFavAction?.ignoreEnterpriseTree"
+                                  [loadFavoriteCallBack]="loadFavAction?.callback"
+                                  [subCategoryData]="loadFavAction?.subCategoryData"
+                                  [stickySearch]="true"
+                                  (closeAction)="switchToWhatIfMode($event)"
+                    >
+                    </app-favorite>
+                </ng-template>
+            </div>
+        </aux-card>
+    </div>
+
+    <div class="intro-favorite-area">
+        <aux-card [borderPadding]="32">
+            <div class="intro-card-container">
+                <div class="intro-card-title">Load a Workspace</div>
+                <div class="intro-card-description">Browse available workspaces</div>
+
+                <app-favorite [favType]="favType"
+                              [favTreeType]="favTreeType"
+                              [favDisplayName]="favDisplayName"
+                              [loadEnterpriseTree]="true"
+                              [loadFavoriteCallBack]="loadFavoriteCallBack">
+                </app-favorite>
+            </div>
+        </aux-card>
+    </div>
+</div>

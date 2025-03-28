@@ -1,0 +1,10 @@
+.favorite-buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+.vertical-line-divider {
+    border-left: 0.0625rem solid var(--value-pair__pipe-color);
+    height: 1rem;
+    margin: 0 0.75rem;
+}

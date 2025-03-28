@@ -1,0 +1,32 @@
+<aux-modal [isOpen]="isOpen" [type]="'information'" [header]="'Add/Manage Scenarios'" (modalClosed)="closeModal()">
+    <div slot="content" class="modal-size-lg widget-settings-modal-container">
+        <ng-container *ngIf="(showSpinner$ | async);">
+            <div class="loading-spinner-scenarios modal-size-lg">
+                <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                        size="large"
+                                        type="loading" [loadingLabel]="'Loading Scenarios'">
+                </aux-progress-indicator>
+            </div>
+        </ng-container>
+
+        <div class="manage-scenario" [style.visibility]="(showSpinner$ | async) ? 'hidden' : 'unset'">
+            <explore-extended-column-option-manage-scenario [lookBackDate]="optionValue.lookBackDate"
+                                                            [optionValue]="optionValue"
+                                                            [showSpinner$]="showSpinner$"
+                                                            [promptDialog$]="promptDialog$"
+                                                            [allowNamedScenarioSingleSelection]="allowNamedScenarioSingleSelection"
+                                                            [isScenarioCreationDisabled]="isScenarioCreationDisabled"
+                                                            [disableCreateScenarioButton]="disableCreateScenarioButton"
+                                                            [openCreateScenarioModalEmitter]="openCreateScenarioModalEmitter"
+                                                            (closeManageScenarioModal)="closeModal()">
+            </explore-extended-column-option-manage-scenario>
+        </div>
+
+        <ng-container *ngIf="promptDialog$ | async">
+            <explore-core-dialog
+                (emitDialogClosed)="closeDialog()"
+                [dialogContent$]="promptDialog$"
+            ></explore-core-dialog>
+        </ng-container>
+    </div>
+</aux-modal>

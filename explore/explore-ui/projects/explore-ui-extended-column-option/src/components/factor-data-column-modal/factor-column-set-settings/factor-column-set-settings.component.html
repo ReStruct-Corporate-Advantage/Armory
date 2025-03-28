@@ -1,0 +1,49 @@
+<div class="column-container">
+    <div class="column-set-settings" [style.height]="columnSelectorHeight">
+        <explore-extended-column-option-factor-column-selector
+            [selectedColumnConfig$]="selectedColumnConfig$"
+            [columnOptionUpdated$]="columnOptionUpdated$"
+            [config]="columnSelectorConfig"
+            [singleColumnOnly]="singleColumnOnly"
+            [requireLoadAndSaveOptions]="requireLoadAndSaveOptions"
+            [showColumnCounter]=true
+            [columnSet]="widgetInput"
+            [widgetType]="widgetType"
+            [sourceDataUpdated$]="sourceDataUpdated$"
+            [columnSetUpdated$]="columnSetUpdated$"
+            [columnOptionCopied$]="columnOptionCopied$"
+            [columnOptionsFetched$]="columnOptionsFetched$"
+            [breakdownOptions]="selectBreakdownOptions"
+            (breakdownChanged)="onBreakdownChanged($event)"
+            (targetSelectionChanged)="onTargetSelectionChanged($event)"
+            (targetItemRemoved)="onTargetItemRemoved($event)"
+            (sourceItemMoved)="onColumnsAddedToTargetArea($event)"
+            [showSelectDropdown]="true">
+        </explore-extended-column-option-factor-column-selector>
+    </div>
+
+    <ng-container *ngIf="!isColumnOptionsDisabled">
+        <div class="column-options column-options-width" [style.height]="columnSelectorHeight">
+            <ng-container *ngIf="(selectedColumnConfig$ | async) as columnConfig">
+                <div class="column-options-header">
+                    <div class="favorite-row">
+                        <label class="column-option-title">{{getColumnsOptionTitle(columnConfig)}}</label>
+                    </div>
+                </div>
+
+                <div class="column-options-div">
+                    <explore-column-options
+                        [columnOptionUpdated$]="columnOptionUpdated$"
+                        [column]="columnConfig"
+                        [restrictedColumnOptions]="restrictedColumnOptions"
+                        [columnOptionsToAdd]="columnOptionsToAdd"
+                        [columnOptionsToModify]="columnOptionsToModify"
+                        [widgetType]="widgetType"
+                        [shouldHideCopyColumnOptionButton]="true">
+                    </explore-column-options>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>
+

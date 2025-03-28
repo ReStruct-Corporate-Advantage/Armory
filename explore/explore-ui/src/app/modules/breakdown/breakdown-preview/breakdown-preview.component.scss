@@ -1,0 +1,14 @@
+.breakdown-options-container {
+
+    .breakdown-option {
+        margin-bottom: .75rem;
+    }
+
+    .breakdown-option:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .riskless-cash-tooltip {
+        display: flex;
+    }
+}

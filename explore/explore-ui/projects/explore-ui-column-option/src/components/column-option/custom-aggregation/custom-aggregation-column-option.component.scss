@@ -1,0 +1,34 @@
+.custom-aggregation-column-option-container {
+    width: 276px;
+    .min-max-label {
+        color: var(--primary-text__color);
+    }
+    .min-max-wrapper {
+        display: flex;
+    }
+    .min-value-class {
+        display: inline-flex !important;
+        padding-right: 16px !important;
+    }
+    .max-value-class {
+        display: inline-flex !important;
+    }
+    .section-separator {
+        margin: 0;
+    }
+}
+.custom-aggregation-label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .custom-label {
+    flex-grow: 1;
+  }
+  
+  .custom-label-nowrap {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }

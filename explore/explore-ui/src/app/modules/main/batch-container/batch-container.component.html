@@ -1,0 +1,3 @@
+<app-report-presenter *ngIf="batchReport" [report]="batchReport" [isBatchExport]="true" [runHardRefresh]="runHardRefresh"></app-report-presenter>
+<!-- Adding a Dummy aux-widget component to load css (in situations where it hasn't loaded yet because of lazy loading) -->
+<aux-widget class="dummy-aux-widget"></aux-widget>

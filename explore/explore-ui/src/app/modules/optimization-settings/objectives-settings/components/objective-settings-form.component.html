@@ -1,0 +1,89 @@
+<div class="objective-settings-form">
+    <div class="objective-control">
+        <aux-checkbox
+            [isChecked]="portfolioObjective.enabled"
+            (checkboxChanged)="onEnableObjective($event)"
+        >
+        </aux-checkbox>
+    </div>
+    <div class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+        <aux-text-input
+            [value]="portfolioObjective.weight"
+            (valueChanged)="onObjectiveWeightChange($event)"
+            [validator]="validator">
+        </aux-text-input>
+    </div>
+    <div class="aux-g16--xs-4 aux-g16--sm-4 aux-g16--md-4 aux-g16--lg-4 aux-g16--xl-4">
+        <aux-select
+            [data]="allAvailableObjectives"
+            (selectionChanged)="onObjectiveChange($event)"
+        ></aux-select>
+    </div>
+    <ng-container *ngIf="portfolioObjective.key === maximizeAlphaStressScenario">
+        <div>
+            <app-maximize-alpha-stress-scenario
+                [selectedScenario]="portfolioObjective['stressScenario']"
+                (updated)="onUpdateStressScenario($event)">
+            </app-maximize-alpha-stress-scenario>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="portfolioObjective.key === maximizeAlphaScore && this.objectiveMeasures.length == 0">
+        <div style="padding-right: 16px; margin-left: 0;">
+        <aux-button
+            icon="add"
+            type="secondary"
+            [label]=getAlphaScoreButtonTitle()
+            (click)="openObjectiveMeasuresModel()"></aux-button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="portfolioObjective.key === maximizeAlphaScore">
+        <div>
+            <aux-button type="secondary" [label]="getUploadAlphaTitle()"
+                        (click)="openUploadAlphaModal()"></aux-button>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="portfolioObjective.key === maximizeAlphaScore && this.objectiveMeasures.length != 0">
+        <p class = "margin-left-1">Column</p>
+        <p class = "margin-left-1">{{this.completeColumnTitle}}</p>
+        <aux-menu-nav class = "edit-icon" icon="edit" label="Edit" (click)="openObjectiveMeasuresModel()"></aux-menu-nav>
+    </ng-container>
+    <ng-container *ngIf="checkIfAlphaIsUploaded()">
+        <p class = "margin-left-1">{{'Alpha: User-Defined List'}}</p>
+    </ng-container>
+
+    <ng-container *ngIf="portfolioObjective.key === maximizeStressScenarioDateRange">
+        <div>
+            <aux-button type="secondary" [label]="'Edit Custom Date Range'"
+                        (click)="openCustomDateRangeModal()"></aux-button>
+        </div>
+    </ng-container>
+
+    <div class="objective-control">
+        <aux-button (click)="onRemoveObjective()"
+                  type="tertiary-subtle" icon="delete-small">
+        </aux-button>
+    </div>
+</div>
+
+<app-maximize-alpha-score-component *ngIf="showObjectiveMeasures"
+                                    [columnMeasures]="objectiveMeasures"
+                                    [showColumnMeasures]="showObjectiveMeasures"
+                                (objectiveMeasuresClosed)="onCloseOfObjectiveMeasuresModal($event)">
+</app-maximize-alpha-score-component>
+
+<ng-container *ngIf="showUploadList">
+    <app-upload-alpha-score-modal
+        [isOpen]="true"
+        [portfolioObjective]="portfolioObjective"
+        (uploadAlphaModalClosed)="onUploadAlphaModalClosed()">
+    </app-upload-alpha-score-modal>
+</ng-container>
+
+<ng-container *ngIf="customDateRangeModalOpen">
+    <app-maximize-stress-scenario-custom-date-range-modal
+        [isOpen]="true"
+        [portfolioObjective]="portfolioObjective"
+        (modalClosed)="onEditDateRangeScenariosModalClosed()">
+    </app-maximize-stress-scenario-custom-date-range-modal>
+</ng-container>

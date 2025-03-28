@@ -1,0 +1,37 @@
+<div>
+    <div class="top-label">Orientation</div>
+    <div class="padding-top-bottom__6">
+        <aux-radio-group isStacked="true" [data]="orientationOptions"
+                         (radioGroupChanged)="onOrientationChanged($event)">
+        </aux-radio-group>
+    </div>
+
+    <div class="label">Show</div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Total value" [isChecked]="isTotalChecked" [isDisabled]="isTotalCheckboxDisabled"
+                      (checkboxChanged)="onCheckboxGroupChanged($event.detail.value)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Baseline" [isChecked]="showBaseline"
+                      (checkboxChanged)="onShowBaselineValueChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <app-grid-lines-settings [widgetInput]="gridLines"></app-grid-lines-settings>
+    </div>
+
+    <div class="margin-top-bottom__12">
+        <div class="select-width__225 margin-right__16" *ngIf="!this.hideSorting">
+            <aux-select label="Sort order" [hasInitialOptionPlaceholder]="true" [data]="sortingOrder"
+                        (selectionChanged)="onSortOrderSelectionChanged($event)">
+            </aux-select>
+        </div>
+
+        <div class="select-width__225 inline-block margin-right__16" *ngIf="!this.hideSorting">
+            <aux-select label="Sort by" [hasInitialOptionPlaceholder]="isSortByDisabled" [data]="sortByOptions" [isDisabled]="isSortByDisabled"
+                        (selectionChanged)="onSortBySelectionChanged($event)">
+            </aux-select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+{
+    "configType": "expostTimeSeriesWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Ex-Post Time Series Widget displays specific ex-post performance or statistic measures, and tracks their change over time. This widget can be viewed in either graphical or tabular format.\n\nEx-post analysis offers the ability to view top-level performance in the portfolio, benchmark, and active space over longer time horizons. It also allows for the performance of statistical analysis of alpha, beta, and various other ratios and metrics based on that data.",
+    "title": "Ex-Post Time Series",
+    "image": ".\/assets\/images\/riskExposureWidget.png",
+    "showOnlySingleColumn": false,
+    "showInSelector": true,
+    "tokenToCheck": "enableExpost",
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "EXPOST_REPORT",
+                    "hideTopColumnGroup": true,
+                    "columnFilters": [
+                        {
+                            "type": "=",
+                            "key": "reportTypes",
+                            "value": [
+                                "EXPOST"
+                            ]
+                        }
+                    ],
+                    "default": [
+                        {
+                            "columnTag": "ExpostTE",
+                            "positionColumnType": "PORT",
+                            "columnKey": "ExpostTE"
+                        },
+                        {
+                            "columnTag": "CumRetAnn",
+                            "positionColumnType":"PORT",
+                            "columnKey": "CumRetAnn"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Settings",
+            "inputs": [
+                {
+                    "inputConfigType": "expostTimeSeriesSettings",
+                    "inputName": "expostTimeSeriesSettings",
+                    "inputTitle": "Expost time series settings",
+                    "default": {
+                        "expostSettings" : {
+                            "samplingPeriod": {
+                                "shortName": "Months",
+                                "numberOfPeriods": 1
+                            },
+                            "statisticPeriods": [
+                                {
+                                    "shortName": "Years",
+                                    "numberOfPeriods": 1
+                                }
+                            ]
+                        },
+                        "timePeriod": {
+                            "shortName": "Years",
+                            "numberOfPeriods": 1
+                        },
+                        "showAsChart": false
+                    },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "axis",
+            "categoryTitle": "Axis",
+            "inputNotValidForTables": true,
+            "inputs": [
+                {
+                    "inputConfigType": "primaryAxisSettings",
+                    "inputName": "primaryAxisSettings",
+                    "inputTitle": "Primary axis",
+                    "default": {},
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "secondaryAxisSettings",
+                    "inputName": "secondaryAxisSettings",
+                    "inputTitle": "Secondary axis",
+                    "default": {},
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        },
+        {
+          "$ref": "defaultChartSettings"
+        },
+        {
+            "visible": false,
+            "categoryType": "nestedSettings",
+            "inputs": [
+                {
+                    "inputConfigType": "secondaryAxis",
+                    "inputName": "secondaryAxisColumn",
+                    "inputTitle": "Secondary axis",
+                    "default": {
+                        "secondaryAxisColumn": null
+                    }
+                }
+            ]
+        }
+    ],
+    "restrictedColumnOptions": {
+        "sections": [
+            "aggregation",
+            "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "agGrid"
+}

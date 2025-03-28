@@ -1,0 +1,37 @@
+<div class="lt-rule-table">
+    <table class="table">
+        <tr class="table-header-row">
+            <th class="table-head col-width ">Enable</th>
+            <th class="table-head">Rule Name</th>
+            <th class="table-head">Type</th>
+            <th class="table-head col-width ">Action</th>
+        </tr>
+        <ng-container *ngIf="lookthroughFilterRules && lookthroughFilterRules.length > 0; else showNoRulesMessage">
+            <tr *ngFor="let ltFilterRule of lookthroughFilterRules; index as i"
+                [ngClass]="{'selected': ltFilterRule === selectedRule}"
+                draggable="true"
+                (click)="ltFilterSelected(ltFilterRule)"
+                (dragstart)="onTableRowDragStart($event, i)"
+                (drop)="onDropOnTableRow($event, i)"
+                (dragover)="allowDropOnTableRow($event)">
+                <td class="table-col col-width">
+                    <aux-checkbox [isChecked]="ltFilterRule.enabled"
+                                  (checkboxChanged)="enableDisableRule(ltFilterRule)">
+                    </aux-checkbox>
+                </td>
+                <td class="table-col">{{ltFilterRule.displayName}}</td>
+                <td class="table-col">{{ltFilterRule.ltType}}</td>
+                <td class="table-col col-width">
+                    <aux-button icon="delete-small" type="tertiary-subtle" (click)="deleteLtRule(ltFilterRule)"></aux-button>
+                </td>
+            </tr>
+        </ng-container>
+        <ng-template #showNoRulesMessage>
+            <tr>
+                <td colspan="4" class="no-rule-message">
+                    No rules added
+                </td>
+            </tr>
+        </ng-template>
+    </table>
+</div>

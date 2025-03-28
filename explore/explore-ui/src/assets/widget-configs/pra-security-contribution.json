@@ -1,0 +1,107 @@
+{
+  "configType": "praSecurityContributionGrid",
+  "isDataStoreWidget": true,
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "PRA Security Contribution",
+  "title": "Security contribution",
+  "image": "./assets/images/riskExposureWidget.png",
+  "chartingLib": "agGrid",
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "createNestedNoneBuckets": false,
+  "createNestedOtherBuckets": false,
+  "inputCategories": [
+    {
+      "type": "columns",
+      "title": "Columns",
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "default": [
+            {
+              "columnTag": "security_description",
+              "positionColumnType": "ALL",
+              "columnKey": "security_description_1",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": false
+                }
+              }
+            },
+            {
+              "columnTag": "cusip",
+              "positionColumnType": "ALL",
+              "columnKey": "cusip_0",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": false
+                }
+              }
+            },
+            {
+              "columnTag": "security_expsr_fcont",
+              "positionColumnType": "ALL",
+              "columnKey": "security_expsr_fcont_0",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": true,
+                  "showWhenFactorLevelOnly": true
+                }
+              }
+            },
+            {
+              "columnTag": "port_sec_wgt_fcont",
+              "positionColumnType": "PORT",
+              "columnKey": "port_sec_wgt_fcont_0",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": true
+                }
+              }
+            },
+            {
+              "columnTag": "bnch_sec_wgt_fcont",
+              "positionColumnType": "BENCH",
+              "columnKey": "bnch_sec_wgt_fcont_0",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": true,
+                  "showWhenPosTypeBenchExists": true
+                }
+              }
+            },
+            {
+              "columnTag": "act_sec_wgt_fcont",
+              "positionColumnType": "ACTIVE",
+              "columnKey": "act_sec_wgt_fcont_0",
+              "optionValues": {
+                "factorSecContribSettings": {
+                  "isFactorBased": true,
+                  "showWhenPosTypeActiveExists": true
+                }
+              }
+            }
+          ],
+          "hiddenColumn": {
+            "columnTag": "cusip",
+            "positionColumnType": "ALL",
+            "columnKey": "cusip_hidden"
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultExpandedState"
+    },
+    {
+      "$ref": "factorBlockInput"
+    }
+  ]
+}

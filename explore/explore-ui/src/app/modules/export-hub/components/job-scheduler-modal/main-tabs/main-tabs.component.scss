@@ -1,0 +1,20 @@
+@use '../../../../../../config';
+
+.tab-bar-section {
+  height: 32px;
+}
+.aux-card-area {
+  padding: 0 16px;
+  margin-top: -1px;
+  height: 100%;
+  border-top: 1px solid var(--tab__border-color);
+}
+
+.job-title {
+  height: 20px;
+  font-size: config.$font-size-extra-extra-extra-large;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+

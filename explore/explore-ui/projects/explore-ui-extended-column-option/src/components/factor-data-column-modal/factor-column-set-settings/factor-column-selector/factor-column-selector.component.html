@@ -1,0 +1,45 @@
+<aux-column-selector
+    #columnSelector
+    [targetData]="targetData"
+    [hasAggregator]="columnSelectorConfig.hasAggregator"
+    [hasDoubleClick]="columnSelectorConfig.hasDoubleClick"
+    [allowDuplicates]="columnSelectorConfig.allowDuplicates"
+    [hasSelectedOnly]="columnSelectorConfig.hasSelectedOnly"
+    [selectedOnlyLabel]="columnSelectorConfig.selectedOnlyLabel"
+    [hasSearch]="columnSelectorConfig.hasSearch"
+    [isDisabled]="columnSelectorConfig.isDisabled"
+    [hasReorder]="columnSelectorConfig.hasReorder"
+    [isShowSelectedOnly]="columnSelectorConfig.isShowSelectedOnly"
+    [customSearch]="columnSelectorConfig.customSearch"
+    [customSort]="columnSelectorConfig.customSort"
+    [hasRemoveAll]="columnSelectorConfig.hasRemoveAll"
+    [sourceControlLabel]="columnSelectorConfig.sourceControlLabel"
+    [hasSourceControl]="columnSelectorConfig.hasSourceControl"
+    [isSourceControlDisabled]="columnSelectorConfig.isSourceControlDisabled"
+    [multiSelection]="columnSelectorConfig.multiSelection"
+    [sourceDropdownProps]="selectDropdownProps"
+    [hasItemTooltip]="true"
+    [tooltipCallback]="onTooltip"
+    (targetSelectionChanged)="targetSelectionChangedHandler($event)"
+    (sourceItemMoved)="itemMovedToTargetAreaHandler($event)"
+    (itemMovedDoubleClicked)="itemMovedToTargetAreaHandler($event)"
+    (itemMovedDragAndDrop)="itemMovedToTargetAreaHandler($event)"
+    (reOrderDownClicked)="itemReOrderHandler()"
+    (reOrderUpClicked)="itemReOrderHandler()"
+    (itemReorderedDragAndDrop)="itemReOrderHandler(true)"
+    (removeAllItemsClicked)="removeItemClickedHandler($event, true)"
+    (removeItemClicked)="removeItemClickedHandler($event)"
+    [config]="auxConfig"
+>
+
+    <ng-container>
+        <div class="source-label-area label-area" slot="sourceLabel">
+            <span class="source-label">{{columnSelectorConfig.sourceLabel}}</span>
+        </div>
+        <div class="label-area" slot="targetLabel">
+            <div class="favorite-row">
+                <span class="favorite-title">{{columnSelectorConfig.targetLabel}}</span>
+            </div>
+        </div>
+    </ng-container>
+</aux-column-selector>

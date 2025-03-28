@@ -1,0 +1,42 @@
+<label>Redemption scenarios (Pro rata percentage)</label>
+<div class="container-spacing">
+    <ng-container *ngFor="let secOption of secLiquidityOptions">
+        <ng-container *ngIf="secOption.isRadioVisible">
+            <div class="radio-button-spacing">
+                <aux-radio [label]="secOption.label"
+                           [isChecked]="secOption.checked"
+                           (radioChanged)="onSecLiquidityOptionChanged(secOption.eventData)">
+                </aux-radio>
+            </div>
+            <ng-container *ngIf="secOption.eventData===SEC_LIQUIDITY_RATS">
+                <div class="sub-container text-box-width">
+                    <aux-text-input [value]="underlyingLiquiditySettings.rats"
+                                    [isDisabled]="true"
+                                    (valueChanged)="onRatsValueChanged($event)"
+                                    maxLength="10">
+                    </aux-text-input>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="secOption.eventData===SEC_LIQUIDITY_SCENARIO && isShowDefaultAlternateScenario">
+                <div>
+                    <div class="select-bar-width sub-container">
+                        <aux-select [hasInitialOptionPlaceholder]="false"
+                                    [data]="defaultScenarioOptions"
+                                    [isDisabled]="!secOption.checked"
+                                    (selectionChanged)="onScenarioChanged($event)">
+                        </aux-select>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="secOption.eventData===SEC_LIQUIDITY_PERCENT_NAV">
+                <div class="sub-container">
+                    <aux-numeric-stepper minValue="0"
+                                         [stepperValue]="underlyingLiquiditySettings.secPercentNAV"
+                                         [isDisabled]="!secOption.checked"
+                                         (valueChanged)="onPercentNavChanged($event)">
+                    </aux-numeric-stepper>
+                </div>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</div>

@@ -1,0 +1,223 @@
+{
+  "configType": "pgsTs",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "showGridTransitionControl": true,
+  "isEligibleForLightLookthrough": true,
+  "description": "The Time Series Chart Widget plots one or more data points sequentially, showing changes or trends over a customizable time period. The x-axis plots dates and the y-axis plots data points, allowing you to analyze a sequence of data points collected over a customizable interval of time.",
+  "title": "Time Series Chart",
+  "image": ".\/assets\/images\/time-series-chart.png",
+  "imageDescription": "This time series chart is a VaR analysis showing the active risk contribution and risk contribution of Microsoft Corp (Cusip 594918104) over a 15 day time period in an equity portfolio.",
+  "setUpRequirements": [
+    "1 (or more) column measures",
+    "Optional: Sector breakdown"
+  ],
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "MULTI_REPORT",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "reportTypes",
+              "value": [
+                "MULTI",
+                "RETATT",
+                "EXPOST"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": "FACTOR_ATTRIBUTES"
+            },
+            {
+              "type": "!=",
+              "key": "groups",
+              "value": [
+                "Factor-Based",
+                "Scenario",
+                "GP Breakdown",
+                "Liquidity"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "factor_attrib_dd",
+                "factor_attrib_resid",
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnTag",
+              "value": [
+                "pnl_benchmark",
+                "pnl_SectorDesc",
+                "pnl_SectorOrder",
+                "pnl_SectorPath",
+                "pnl_ccy",
+                "pnl_cusip",
+                "pnl_id",
+                "pnl_isin",
+                "pnl_sec_desc",
+                "pnl_sec_group",
+                "pnl_sec_type",
+                "pnl_sedol",
+                "pnl_strategy_path",
+                "pnl_ticker"
+              ]
+            }
+          ],
+          "default": [
+            {
+              "columnTag": "portfolio",
+              "positionColumnType": "ALL",
+              "columnKey": "portfolio"
+            },
+            {
+              "columnTag": "nav_group",
+              "positionColumnType": "PORT",
+              "columnKey": "nav_group_0"
+            },
+            {
+              "columnTag": "pct_nav_group",
+              "positionColumnType": "PORT",
+              "columnKey": "pct_nav_group_1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "settings",
+      "categoryTitle": "Settings",
+      "inputs": [
+        {
+          "inputConfigType": "timeSeriesTimePeriodSettings",
+          "inputName": "timeSeriesSettings",
+          "inputTitle": "Time period",
+          "default": {
+            "frequency": "DAILY",
+            "periods": 10,
+            "includeTotalValues": false,
+            "showDataMarker": true
+          },
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "axis",
+      "categoryTitle": "Axis",
+      "inputs": [
+        {
+          "inputConfigType": "primaryAxisSettings",
+          "inputName": "primaryAxisSettings",
+          "inputTitle": "Primary axis",
+          "default": {},
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "secondaryAxisSettings",
+          "inputName": "secondaryAxisSettings",
+          "inputTitle": "Secondary axis",
+          "default": {},
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Format",
+      "inputs": [
+        {
+          "inputConfigType": "timeSeriesFormatSettings",
+          "inputName": "timeSeriesSettings",
+          "isSharedInputName": true,
+          "otherNames": [
+            "date"
+          ],
+          "inputTitle": "Chart format",
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "comboChartColumnSettings",
+          "inputName": "comboChartColumnSettings",
+          "inputTitle": "Chart type and axis selection",
+          "isOpen": true,
+          "otherNames": [
+            "secondaryAxisColumn"
+          ],
+          "default": {
+            "columns": []
+          }
+        }
+      ]
+    },
+    {
+      "visible": false,
+      "categoryType": "chartSettings",
+      "inputs": [
+        {
+          "inputConfigType": "chartSettings",
+          "inputName": "chartSettings",
+          "default": {
+            "legendShow": true,
+            "labelShow": false
+          }
+        }
+      ]
+    },
+    {
+      "visible": false,
+      "categoryType": "nestedSettings",
+      "inputs": [
+        {
+          "inputConfigType": "gridLines",
+          "inputName": "showGridLines",
+          "inputTitle": "Grid lines",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "columnBreakdown",
+      "overrideDateColumnOption",
+      "highlight",
+      "chartType",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "customCalculationColumn": {
+    "$ref": "customCalculationColumn"
+  },
+  "styleAnalysis": {
+    "$ref": "styleAnalysis"
+  },
+  "chartingLib": "hc"
+}

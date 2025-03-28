@@ -1,0 +1,14 @@
+{
+    "children": [{
+        "children": [
+            {"children": [], "title": "BAMY (bamba) 2", "type": "favorite", "favoriteId": 15177172},
+            {"children": [], "title": "BAMY (bamba) 3", "type": "favorite", "favoriteId": 15177182},
+            {"children": [], "title": "BAMY (bamba) 4", "type": "favorite", "favoriteId": 15177192}
+        ],
+        "title": "new2",
+        "type": "folder"
+    }],
+    "title": "LAYOUT",
+    "type": "folder",
+    "favoriteId": 15177169
+}

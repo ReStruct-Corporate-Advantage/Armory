@@ -1,0 +1,40 @@
+<div class="add-button-div">
+    <div class="add-button">
+        <aux-button (click)="onAddFactorsClicked()" icon="add" label="Add Factors" type="tertiary"></aux-button>
+        <ng-container *ngIf="showToolTip">
+            <div class="factor-tooltip">
+                <aux-tooltip>
+                    <aux-icon slot="target" type="help-subtle" state="secondary"></aux-icon>
+                    <span slot="content" class="tooltip-content">To run a time series analysis on correlations and regression betas, the left-hand factor table and right-hand factor table must both be populated to control the factor pairs. If Factor A is entered on the left, with Factor B and Factor C entered on the right, then a time series of factor pairs A:B and A:C will be generated. The risk settings used are dictated by the factors selected on the left.</span>
+                </aux-tooltip>
+            </div>
+        </ng-container>
+        <div class="factor-tooltip">
+            <aux-popover trigger="hover"
+                         hasCloseIcon="false"
+                         header="Adding Custom Factors"
+                         overridePlacement="leftCenter">
+                <aux-icon slot="target" type="info-bold" state="primary"></aux-icon>
+                <div slot="content" class="popover-container">
+                    <ul>
+                        <li>Users can define factors based on linear combinations of other factors surrounded by brackets.</li>
+                        <li>The factors must be specified based on their tags and not their names, e.g. [0.5*USD_10yr-0.2*JPY_10yr].</li>
+                        <li>Additionally, STORM factors can be defined by using an '@' followed by the CUSIP, e.g. @260557103.</li>
+                    </ul>
+                </div>
+            </aux-popover>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isFactorDataColumnModalOpen">
+    <app-factor-data-widget-column-modal [isOpen]="isFactorDataColumnModalOpen"
+                                         [columnType]="columnType"
+                                         [inputs]="inputs"
+                                         [widgetConfigInput]="widgetConfigInput"
+                                         [restrictedColumnOptions]="restrictedColumnOptions"
+                                         [showCustomFactor]="true"
+                                         [showFactorViewLevelPerms]="showFactorViewLevelPerms"
+                                         (modalClosed)="onFactorDataColumnModalClosed($event)">
+    </app-factor-data-widget-column-modal>
+</ng-container>

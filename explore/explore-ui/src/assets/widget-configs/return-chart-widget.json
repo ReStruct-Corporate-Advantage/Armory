@@ -1,0 +1,115 @@
+{
+    "configType": "returnChartWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Return Analysis Chart Widget displays portfolio, benchmark, and active returns over a specified period. Returns can be shown on a daily standalone basis, or as a cumulative contribution over the period.",
+    "title": "Return Analysis Chart",
+    "image": ".\/assets\/images\/return-analysis-chart.png",
+    "imageDescription": "This return analysis chart shows the month to date portfolio and benchmark cumulative returns of a fixed income portfolio.",
+    "setUpRequirements": [
+      "Style selection (portfolio, benchmark, and/or active returns)"
+    ],
+    "showInSelector": true,
+    "tokenToCheck": "enablePerfAttr",
+    "userPermToCheck": "perfDataPerms",
+    "inputCategories": [
+        {
+            "categoryType": "filter",
+            "categoryTitle": "Filter",
+            "inputs": [
+                {
+                    "inputConfigType": "customFilter",
+                    "inputName": "filter",
+                    "otherNames": ["customFilter"],
+                    "inputTitle": "Advanced filtering",
+                    "default": {},
+                    "valueField": "columnTag",
+                    "disableNormalized": true,
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "normalizedFlag",
+                    "inputName": "normalizedWidgetFilter",
+                    "otherNames": ["normalizedFlag"],
+                    "inputTitle": "Test",
+                    "default": {
+                      "data": true
+                    }
+                }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Performance Settings",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "performanceSettings",
+                    "inputName": "performanceSettings",
+                    "default": {}
+                }
+            ]
+        },
+        {
+            "categoryType": "axis",
+            "categoryTitle": "Axis",
+            "inputs": [
+                {
+                    "inputConfigType": "timePeriodIntervalSettings",
+                    "inputName": "timePeriodIntervalSettings",
+                    "inputTitle": "X axis",
+                    "default": {},
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "primaryAxisSettings",
+                    "inputName": "primaryAxisSettings",
+                    "inputTitle": "Primary axis",
+                    "default": {},
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                    "inputConfigType": "returnChartStyleSettings",
+                    "inputName": "returnChartStyleSettings",
+                    "inputTitle": "Chart format",
+                    "default": {
+                        "showPortfolio": true,
+                        "showBenchmark": true,
+                        "showActive": true,
+                        "showPortfolioCumulative": true,
+                        "showBenchmarkCumulative": true,
+                        "showActiveCumulative": true,
+                        "showDataMarker": true
+                    },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+          "visible": false,
+          "categoryType": "chartSettings",
+          "inputs": [
+            {
+              "inputConfigType": "chartSettings",
+              "inputName": "chartSettings",
+              "default": {
+                "legendShow": true,
+                "labelShow": false
+              }
+            }
+          ]
+        }
+    ],
+    "showAdditionalPerformanceSettings": false,
+    "showAttributionSettings": false,
+    "chartingLib": "hc",
+    "settingsThatCanUpdateWidgetTitle": ["performanceSettings"]
+}

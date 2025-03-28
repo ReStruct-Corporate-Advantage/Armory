@@ -1,0 +1,7 @@
+<div class='favorite-info-container'>
+    <span class='favorite-type-title' *ngIf='!isWorkspaceFavorite'>
+        {{favoriteLabel}}:
+    </span>
+    <app-favorite-info-popover [favoriteConfig]='favoriteConfig' [favoriteConfigType]='favoriteConfigType' [loadFavoriteCallBack]='loadFavoriteCallBack'></app-favorite-info-popover>
+</div>
+

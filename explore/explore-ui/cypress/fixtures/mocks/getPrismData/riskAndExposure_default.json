@@ -1,0 +1,1123 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 0
+        },
+        "data": {
+          "data": [
+            null,
+            null,
+            0.9999999999999998,
+            null,
+            null
+          ],
+          "children": [
+            {
+              "title": "CASH",
+              "data": [
+                null,
+                null,
+                5.3416133145039364E-5,
+                null,
+                null
+              ],
+              "children": [
+                {
+                  "data": [
+                    "USD CASH(Committed)",
+                    "USD_CCASH",
+                    5.3416133145039364E-5,
+                    "CASH",
+                    "CASH"
+                  ],
+                  "rowId": 3
+                }
+              ],
+              "rowId": 2,
+              "sectorOrder": 0
+            },
+            {
+              "title": "EQUITY",
+              "data": [
+                null,
+                null,
+                0.9999465838668548,
+                null,
+                null
+              ],
+              "children": [
+                {
+                  "data": [
+                    "3M",
+                    "88579Y101",
+                    0.002918776699686809,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 5
+                },
+                {
+                  "data": [
+                    "ABBOTT LABORATORIES",
+                    "002824100",
+                    0.008591615411433516,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 6
+                },
+                {
+                  "data": [
+                    "ABBVIE INC",
+                    "00287Y109",
+                    0.011244418702873878,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 7
+                },
+                {
+                  "data": [
+                    "ACCENTURE PLC CLASS A",
+                    "G1151C101",
+                    0.008134648906401419,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 8
+                },
+                {
+                  "data": [
+                    "ADOBE INC",
+                    "00724F101",
+                    0.008004762455132364,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 9
+                },
+                {
+                  "data": [
+                    "ADVANCED MICRO DEVICES INC",
+                    "007903107",
+                    0.006250559840173464,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 10
+                },
+                {
+                  "data": [
+                    "ALPHABET INC CLASS A",
+                    "02079K305",
+                    0.02824994329437973,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 11
+                },
+                {
+                  "data": [
+                    "ALPHABET INC CLASS C",
+                    "SBYY88Y78",
+                    0.025288798176705617,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 12
+                },
+                {
+                  "data": [
+                    "ALTRIA GROUP INC",
+                    "02209S103",
+                    0.003695290493915978,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 13
+                },
+                {
+                  "data": [
+                    "AMAZON COM INC",
+                    "023135106",
+                    0.04399165941391979,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 14
+                },
+                {
+                  "data": [
+                    "AMERICAN EXPRESS",
+                    "025816109",
+                    0.004543248102040942,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 15
+                },
+                {
+                  "data": [
+                    "AMERICAN INTERNATIONAL GROUP INC",
+                    "026874784",
+                    0.0019252981830599285,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 16
+                },
+                {
+                  "data": [
+                    "AMERICAN TOWER REIT CORP",
+                    "03027X100",
+                    0.004647699324495263,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 17
+                },
+                {
+                  "data": [
+                    "AMGEN INC",
+                    "031162100",
+                    0.005774529428025087,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 18
+                },
+                {
+                  "data": [
+                    "APPLE INC",
+                    "037833100",
+                    0.09900421582661434,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 19
+                },
+                {
+                  "data": [
+                    "AT&T INC",
+                    "00206R102",
+                    0.00634487110508118,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 20
+                },
+                {
+                  "data": [
+                    "BANK OF AMERICA CORP",
+                    "060505104",
+                    0.011069840241347485,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 21
+                },
+                {
+                  "data": [
+                    "BANK OF NEW YORK MELLON CORP",
+                    "064058100",
+                    0.001619926912518722,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 22
+                },
+                {
+                  "data": [
+                    "BERKSHIRE HATHAWAY INC CLASS B",
+                    "084670702",
+                    0.024665797678886634,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 23
+                },
+                {
+                  "data": [
+                    "BLACKROCK INC",
+                    "09247X101",
+                    0.005081696516720309,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 24
+                },
+                {
+                  "data": [
+                    "BOEING",
+                    "097023105",
+                    0.005148278588832077,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 25
+                },
+                {
+                  "data": [
+                    "BOOKING HOLDINGS INC",
+                    "09857L108",
+                    0.0041797791112828464,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 26
+                },
+                {
+                  "data": [
+                    "BRISTOL MYERS SQUIBB",
+                    "110122108",
+                    0.006791980224774284,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 27
+                },
+                {
+                  "data": [
+                    "BROADCOM INC",
+                    "11135F101",
+                    0.010770093109523983,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 28
+                },
+                {
+                  "data": [
+                    "CAPITAL ONE FINANCIAL CORP",
+                    "14040H105",
+                    0.002031156543613562,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 29
+                },
+                {
+                  "data": [
+                    "CATERPILLAR INC",
+                    "149123101",
+                    0.005594762796046416,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 30
+                },
+                {
+                  "data": [
+                    "CHARLES SCHWAB CORP",
+                    "808513105",
+                    0.005130368280915787,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 31
+                },
+                {
+                  "data": [
+                    "CHARTER COMMUNICATIONS INC CLASS A",
+                    "16119P108",
+                    0.001943875090336761,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 32
+                },
+                {
+                  "data": [
+                    "CHEVRON CORP",
+                    "166764100",
+                    0.013198473975279972,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 33
+                },
+                {
+                  "data": [
+                    "CISCO SYSTEMS INC",
+                    "17275R102",
+                    0.008889694337903842,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 34
+                },
+                {
+                  "data": [
+                    "CITIGROUP INC",
+                    "172967424",
+                    0.0043966236615367695,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 35
+                },
+                {
+                  "data": [
+                    "COCA-COLA",
+                    "191216100",
+                    0.01029914220085946,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 36
+                },
+                {
+                  "data": [
+                    "COLGATE-PALMOLIVE",
+                    "194162103",
+                    0.0027032741642575237,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 37
+                },
+                {
+                  "data": [
+                    "COMCAST CORP CLASS A",
+                    "20030N101",
+                    0.007785241478421595,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 38
+                },
+                {
+                  "data": [
+                    "CONOCOPHILLIPS",
+                    "20825C104",
+                    0.006088159861513462,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 39
+                },
+                {
+                  "data": [
+                    "COSTCO WHOLESALE CORP",
+                    "22160K105",
+                    0.010170025438670436,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 40
+                },
+                {
+                  "data": [
+                    "CVS HEALTH CORP",
+                    "126650100",
+                    0.004970945965405585,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 41
+                },
+                {
+                  "data": [
+                    "DANAHER CORP",
+                    "235851102",
+                    0.007784954484948807,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 42
+                },
+                {
+                  "data": [
+                    "DOW INC",
+                    "260557103",
+                    0.001852086404447788,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 43
+                },
+                {
+                  "data": [
+                    "DUKE ENERGY CORP",
+                    "26441C204",
+                    0.0034494098667062194,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 44
+                },
+                {
+                  "data": [
+                    "ELI LILLY",
+                    "532457108",
+                    0.011448941926767427,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 45
+                },
+                {
+                  "data": [
+                    "EMERSON ELECTRIC",
+                    "291011104",
+                    0.0023745544320032262,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 46
+                },
+                {
+                  "data": [
+                    "EXELON CORP",
+                    "30161N101",
+                    0.0018273936028783977,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 47
+                },
+                {
+                  "data": [
+                    "EXXON MOBIL CORP",
+                    "30231G102",
+                    0.02009438889898127,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 48
+                },
+                {
+                  "data": [
+                    "FEDEX CORP",
+                    "31428X106",
+                    0.002254259407982368,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 49
+                },
+                {
+                  "data": [
+                    "FORD MOTOR CO",
+                    "345370860",
+                    0.00248284063676371,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 50
+                },
+                {
+                  "data": [
+                    "GENERAL DYNAMICS CORP",
+                    "369550108",
+                    0.0022869882608469883,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 51
+                },
+                {
+                  "data": [
+                    "GENERAL ELECTRIC",
+                    "369604301",
+                    0.004026292144833396,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 52
+                },
+                {
+                  "data": [
+                    "GENERAL MOTORS",
+                    "37045V100",
+                    0.0025881989372828662,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 53
+                },
+                {
+                  "data": [
+                    "GILEAD SCIENCES INC",
+                    "375558103",
+                    0.004481270658242317,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 54
+                },
+                {
+                  "data": [
+                    "GOLDMAN SACHS GROUP INC",
+                    "38141G104",
+                    0.005492361549583069,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 55
+                },
+                {
+                  "data": [
+                    "HOME DEPOT INC",
+                    "437076102",
+                    0.015270118991854743,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 56
+                },
+                {
+                  "data": [
+                    "HONEYWELL INTERNATIONAL INC",
+                    "438516106",
+                    0.006120575890692038,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 57
+                },
+                {
+                  "data": [
+                    "INTEL CORPORATION CORP",
+                    "458140100",
+                    0.005469475437738147,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 58
+                },
+                {
+                  "data": [
+                    "INTERNATIONAL BUSINESS MACHINES CO",
+                    "459200101",
+                    0.005413268668264963,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 59
+                },
+                {
+                  "data": [
+                    "JOHNSON & JOHNSON",
+                    "478160104",
+                    0.018999275211523142,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 60
+                },
+                {
+                  "data": [
+                    "JPMORGAN CHASE & CO",
+                    "46625H100",
+                    0.017890307512285444,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 61
+                },
+                {
+                  "data": [
+                    "KRAFT HEINZ",
+                    "500754106",
+                    0.001397732702472433,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 62
+                },
+                {
+                  "data": [
+                    "LINDE PLC",
+                    "SBZ12WP80",
+                    0.007206302227698275,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 63
+                },
+                {
+                  "data": [
+                    "LOCKHEED MARTIN CORP",
+                    "539830109",
+                    0.004681216865448164,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 64
+                },
+                {
+                  "data": [
+                    "LOWES COMPANIES INC",
+                    "548661107",
+                    0.006037010010442958,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 65
+                },
+                {
+                  "data": [
+                    "MASTERCARD INC CLASS A",
+                    "57636Q104",
+                    0.01397199946163533,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 66
+                },
+                {
+                  "data": [
+                    "MCDONALDS CORP",
+                    "580135101",
+                    0.008462779910120904,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 67
+                },
+                {
+                  "data": [
+                    "MEDTRONIC PLC",
+                    "SBTN1Y117",
+                    0.005110083670421047,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 68
+                },
+                {
+                  "data": [
+                    "MERCK & CO INC",
+                    "58933Y105",
+                    0.011515064351445491,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 69
+                },
+                {
+                  "data": [
+                    "META PLATFORMS INC CLASS A",
+                    "30303M102",
+                    0.01863404682368765,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 70
+                },
+                {
+                  "data": [
+                    "METLIFE INC",
+                    "59156R108",
+                    0.0020168522695667977,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 71
+                },
+                {
+                  "data": [
+                    "MICROSOFT CORP",
+                    "594918104",
+                    0.08658743614588721,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 72
+                },
+                {
+                  "data": [
+                    "MONDELEZ INTERNATIONAL INC CLASS A",
+                    "609207105",
+                    0.003996160790694687,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 73
+                },
+                {
+                  "data": [
+                    "MORGAN STANLEY",
+                    "617446448",
+                    0.005741334643363375,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 74
+                },
+                {
+                  "data": [
+                    "NETFLIX INC",
+                    "64110L106",
+                    0.007167430634239311,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 75
+                },
+                {
+                  "data": [
+                    "NEXTERA ENERGY INC",
+                    "65339F101",
+                    0.006594829936772029,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 76
+                },
+                {
+                  "data": [
+                    "NIKE INC CLASS B",
+                    "654106103",
+                    0.007136787199822761,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 77
+                },
+                {
+                  "data": [
+                    "NVIDIA CORP",
+                    "67066G104",
+                    0.023729427483611384,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 78
+                },
+                {
+                  "data": [
+                    "ORACLE CORP",
+                    "68389X105",
+                    0.006029897477465611,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 79
+                },
+                {
+                  "data": [
+                    "PAYPAL HOLDINGS INC",
+                    "70450Y103",
+                    0.004351942449867119,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 80
+                },
+                {
+                  "data": [
+                    "PEPSICO INC",
+                    "713448108",
+                    0.010279639022549119,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 81
+                },
+                {
+                  "data": [
+                    "PFIZER INC",
+                    "717081103",
+                    0.010926050343096745,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 82
+                },
+                {
+                  "data": [
+                    "PHILIP MORRIS INTERNATIONAL INC",
+                    "718172109",
+                    0.0070439894346526945,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 83
+                },
+                {
+                  "data": [
+                    "PROCTER & GAMBLE",
+                    "742718109",
+                    0.014789361560399079,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 84
+                },
+                {
+                  "data": [
+                    "QUALCOMM INC",
+                    "747525103",
+                    0.006685183764603928,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 85
+                },
+                {
+                  "data": [
+                    "RAYTHEON TECHNOLOGIES CORP",
+                    "75513E101",
+                    0.006257142668374412,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 86
+                },
+                {
+                  "data": [
+                    "SALESFORCE INC",
+                    "79466L302",
+                    0.007666406037319655,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 87
+                },
+                {
+                  "data": [
+                    "SIMON PROPERTY GROUP REIT INC",
+                    "828806109",
+                    0.0018915010243191325,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 88
+                },
+                {
+                  "data": [
+                    "SOUTHERN",
+                    "842587107",
+                    0.0032794141056577343,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 89
+                },
+                {
+                  "data": [
+                    "STARBUCKS CORP",
+                    "855244109",
+                    0.00550016718139952,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 90
+                },
+                {
+                  "data": [
+                    "T MOBILE US INC",
+                    "872590104",
+                    0.0038524149752971024,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 91
+                },
+                {
+                  "data": [
+                    "TARGET CORP",
+                    "87612E106",
+                    0.003657469547953894,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 92
+                },
+                {
+                  "data": [
+                    "TESLA INC",
+                    "88160R101",
+                    0.022183300466735747,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 93
+                },
+                {
+                  "data": [
+                    "TEXAS INSTRUMENT INC",
+                    "882508104",
+                    0.0073594117715877925,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 94
+                },
+                {
+                  "data": [
+                    "THERMO FISHER SCIENTIFIC INC",
+                    "883556102",
+                    0.01010743931243451,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 95
+                },
+                {
+                  "data": [
+                    "UNION PACIFIC CORP",
+                    "907818108",
+                    0.005759667668840047,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 96
+                },
+                {
+                  "data": [
+                    "UNITED PARCEL SERVICE INC CLASS B",
+                    "911312106",
+                    0.006128535657480718,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 97
+                },
+                {
+                  "data": [
+                    "UNITEDHEALTH GROUP INC",
+                    "91324P102",
+                    0.019311737373230484,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 98
+                },
+                {
+                  "data": [
+                    "US BANCORP",
+                    "902973304",
+                    0.002917293240439004,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 99
+                },
+                {
+                  "data": [
+                    "VERIZON COMMUNICATIONS INC",
+                    "92343V104",
+                    0.007711987663637367,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 100
+                },
+                {
+                  "data": [
+                    "VISA INC CLASS A",
+                    "92826C839",
+                    0.016476541321194214,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 101
+                },
+                {
+                  "data": [
+                    "WALGREEN BOOTS ALLIANCE INC",
+                    "931427108",
+                    0.001188242080914515,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 102
+                },
+                {
+                  "data": [
+                    "WALMART INC",
+                    "931142103",
+                    0.008898448410082586,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 103
+                },
+                {
+                  "data": [
+                    "WALT DISNEY",
+                    "254687106",
+                    0.009060107916325428,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 104
+                },
+                {
+                  "data": [
+                    "WELLS FARGO",
+                    "949746101",
+                    0.007900361796453795,
+                    "EQUITY",
+                    "EQUITY"
+                  ],
+                  "rowId": 105
+                }
+              ],
+              "rowId": 4,
+              "sectorOrder": 1
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "security_description_1": "Security Description",
+            "cusip_0": "CUSIP",
+            "pct_mv_1": "Market Value %",
+            "sec_group_hidden": "Security Group",
+            "sec_type_hidden": "Security Type"
+          },
+          "columnKeyToTagMap": {
+            "security_description_1": "security_description",
+            "cusip_0": "cusip",
+            "pct_mv_1": "pct_mv",
+            "sec_group_hidden": "sec_group",
+            "sec_type_hidden": "sec_type"
+          }
+        },
+        "columns": [
+          "security_description_1",
+          "cusip_0",
+          "pct_mv_1",
+          "sec_group_hidden",
+          "sec_type_hidden"
+        ]
+      },
+      "gaussian": "xOEPiCGXzxNBmRw/fxX/Ss9BwrzGuYV2cpgV/KS2eoU=",
+      "userinfo": {
+        "runningRequests": 0,
+        "serverId": "sharedSession",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1710784997666
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2799
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-03-18T18:03:17.401Z",
+      "detailedID": "668053a8-cfa0-499d-a514-889896fa8b10.2799.1710784997401",
+      "IDWithContextChain": "668053a8-cfa0-499d-a514-889896fa8b10",
+      "chain": [],
+      "bmsMsgSize": 2799,
+      "transactionId": "668053a8-cfa0-499d-a514-889896fa8b10",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPrismData",
+    "transactionId": "668053a8-cfa0-499d-a514-889896fa8b10",
+    "successCode": null
+  }
+]

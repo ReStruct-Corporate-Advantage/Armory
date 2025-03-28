@@ -1,0 +1,9 @@
+<div class="set-layout-cross-currency">
+    <aux-select
+        [data]="fxCrossCurrencyOptions"
+        [hasInitialOptionPlaceholder]="false"
+        label="FX Cross-Currency"
+        (selectionChanged)="onFxCurrencyChanged($event)"
+        size="medium">
+    </aux-select>
+</div>

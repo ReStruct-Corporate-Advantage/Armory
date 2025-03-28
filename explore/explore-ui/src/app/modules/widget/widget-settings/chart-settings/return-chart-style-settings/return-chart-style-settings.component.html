@@ -1,0 +1,26 @@
+<!--  Return Chart Style Checkboxes  -->
+<div class="margin-top-bottom__12" *ngFor="let option of stackedStyleOptions">
+    <aux-checkbox [label]="option.label"
+                  [isChecked]="option.checked"
+                  (checkboxChanged)="updateStyleOptions($event)">
+    </aux-checkbox>
+</div>
+
+<!--  DateFormat -->
+<div class="date-format-container">
+    <explore-column-option-date-format-dropdown [dateFormat]="widgetInput.dateFormat"
+                              (updatedDateFormat)='updateDateFormatValue($event)'>
+    </explore-column-option-date-format-dropdown>
+</div>
+
+<div class="label">Show</div>
+<div class="padding-top-bottom__6">
+    <aux-checkbox label="Data markers" [isChecked]="showDataMarker"
+                  (checkboxChanged)="onShowDataMarkerValueChanged($event)">
+    </aux-checkbox>
+</div>
+<div class="padding-top-bottom__6">
+    <aux-checkbox label="Baseline" [isChecked]="showBaseline"
+                  (checkboxChanged)="onShowBaselineValueChanged($event)">
+    </aux-checkbox>
+</div>

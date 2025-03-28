@@ -1,0 +1,30 @@
+.sub-container {
+    padding-left: 12px;
+
+    .select-bar-width {
+        width: 200px
+    }
+
+    .bottom-space-area {
+        padding-bottom: 16px;
+    }
+
+    .inline-container {
+        display: inline-flex;
+        align-items: center;
+
+        .inline-container-item {
+            margin-left: 1em;
+        }
+    }
+}
+
+
+.stress-stepper-container {
+    display: inline-block;
+    padding: 1rem;
+}
+
+.container-spacing {
+    padding: 16px 0 16px 16px;
+}

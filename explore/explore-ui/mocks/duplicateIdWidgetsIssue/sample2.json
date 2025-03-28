@@ -1,0 +1,79 @@
+{
+    "widgets": [
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1561363549219,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Top 10 Contributors",
+            "type": "returnGrid",
+            "id": 1561363549219,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Top 10 Detractors",
+            "type": "returnGrid",
+            "id": 1561363549221,
+            "inputs": null
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "8860dc90-45f6-48b2-a816-8910a18e76dd",
+            "observers": [
+                1561363549219
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "56dd1f18-4bad-4103-9a48-19f0058af343",
+            "observers": [
+                1561363549219
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "b7af7408-6d56-4597-81ce-4d14d65bf8ed",
+            "observers": [
+                1561363549221
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ],
+                        [
+                            "_ROOT_",
+                            "Unassigned"
+                        ]
+                    ]
+                }
+            }
+        }
+    ]
+}

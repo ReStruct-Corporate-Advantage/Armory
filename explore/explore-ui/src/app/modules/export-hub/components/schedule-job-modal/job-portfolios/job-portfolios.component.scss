@@ -1,0 +1,35 @@
+.title {
+    padding-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--secondary-text__color);
+    padding-bottom: 16px;
+
+    a {
+        color: var(--primary-navigation__item-color);
+        border-bottom: 1px dotted var(--primary-link__color)
+    }
+}
+
+.trigger-section {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    align-items: center;
+}
+
+.table-section {
+    height: 244px;
+}
+
+.relative-date-shortcuts-content{
+    display: flex;
+}
+
+.date-shortcut-list{
+    list-style-type: none;
+    column-count: 2;
+    padding: 0;
+}
+

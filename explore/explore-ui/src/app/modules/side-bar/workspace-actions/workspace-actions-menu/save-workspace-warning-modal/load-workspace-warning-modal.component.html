@@ -1,0 +1,30 @@
+<aux-modal [isOpen]="isOpen" type="action" [header]="'Confirmation'" [hasCustomFooter]="true">
+    <div slot="content" class="content-save-warning-workspace-text">
+        <div *ngIf="currentWorkspace.id; else noFavoriteId">
+            <span>You have left unsaved changes to {{currentWorkspace.title}}.<br/><br/>Please click Save Workspace to review changes, or Continue to proceed.</span>
+        </div>
+        <ng-template #noFavoriteId>
+            <span>This workspace has not been saved.<br/><br/>Click Save Workspace to review changes, or Continue to proceed without saving changes.</span>
+        </ng-template>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--three-buttons">
+        <div>
+            <aux-button [type]="'tertiary'"
+                        [label]="BUTTON_TEXT.CANCEL"
+                        (click)="closeModal()">
+            </aux-button>
+        </div>
+        <div>
+            <!--        save workspace modal-->
+            <aux-button class="custom-footer--primary-button"
+                        [label]="'Save Workspace'"
+                        (click)="openSaveWorkspaceModal()">
+            </aux-button>
+            <!--        continue new/load workspace-->
+            <aux-button [type]="'secondary'"
+                        [label]="BUTTON_TEXT.CONTINUE"
+                        (click)="onContinueClicked()">
+            </aux-button>
+        </div>
+    </div>
+</aux-modal>

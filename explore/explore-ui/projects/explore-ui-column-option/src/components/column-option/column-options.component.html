@@ -1,0 +1,24 @@
+<aux-accordion [activeTabIndex]="selectedSectionIndex" (tabChanged)="onAccordionChanged($event)" [isBorderLess]="true">
+    <aux-accordion-expansion-panel [uid]=i *ngFor="let section of sections; index as i" header="{{section.optionTitle}}" [isExpanded]="section.isExpanded">
+        <div slot="content">
+            <ng-container *ngFor='let option of sectionOptions.get(section.optionTitle)'>
+                <explore-column-option
+                    [columnOptionUpdated$]="columnOptionUpdated$"
+                    [optionType]="option.columnOptionConfigType"
+                    [option]="option"
+                    [column]="column"
+                    [restrictedColumnOptions]="restrictedColumnOptions"
+                    [widgetType]="widgetType">
+                </explore-column-option>
+
+                <div style="padding-top: 1rem;" *ngIf="option?.columnOptionConfigType != 'customColumnTitle' && !shouldHideCopyColumnOptionButton && option?.columnOptionConfigType != 'definition'">
+                    <aux-button class="copy-button"
+                                [label]="copyButtonLabel"
+                                [type]="'tertiary'"
+                                (click)="onCopyColumnOptionButton(option)">
+                    </aux-button>
+                </div>
+            </ng-container>
+        </div>
+    </aux-accordion-expansion-panel>
+</aux-accordion>

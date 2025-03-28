@@ -1,0 +1,48 @@
+.excel-header {
+    margin-top: 24px;
+}
+
+.excel-left-margin {
+    margin-left: 20px;
+}
+
+.excel-top-margin-10 {
+    margin-top: 10px;
+}
+
+.excel-top-margin-12 {
+    margin-top: 12px;
+}
+
+.excel-top-margin-16 {
+    margin-top: 16px;
+}
+
+.excel-top-margin-24 {
+    margin-top: 24px;
+}
+
+.excel-bottom-margin-10 {
+    margin-bottom: 10px;
+}
+
+.excel-export-options-horizontal-view {
+    display: flex;
+
+    .excel-export-options-section-2, .excel-export-options-section-3, .excel-export-options-section-4, .excel-export-options-section-4-column-2 {
+        margin-left: 15px;
+    }
+}
+
+.awc-timestamp-container {
+    height: 44px;
+
+    .export-options-append-filename-warning {
+        margin-top: 8px;
+        display: flex;
+
+        .filename-warning-icon {
+            margin-right: 8px;
+        }
+    }
+}

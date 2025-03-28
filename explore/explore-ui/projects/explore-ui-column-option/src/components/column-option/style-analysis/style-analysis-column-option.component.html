@@ -1,0 +1,131 @@
+<ng-container *ngIf="false">
+    <div class="show-measure-div">
+        <aux-checkbox label='Show underlying measues'
+                      [isChecked]="isShownMeasureSelected()"
+                      (checkboxChanged)="onShowMeasureCheckboxChange($event.detail.value.checked)">
+        </aux-checkbox>
+    </div>
+
+</ng-container>
+
+<div class="horizontol-display">
+        <div class="flex-container-1">
+            <aux-popover trigger="pressed" header="Style Analysis" [hasCloseIcon]="true">
+                <aux-link slot="target" label="More information on Style Analysis"></aux-link>
+                <div slot="content">
+                    <label><strong>Measure Limits:</strong> Refers to the min/max limits set on the underlying data
+                        item. Limits are in the units of the measure selected. The min/max limits are applied to the
+                        underlying measure if it is a Normal Type and applied to the inverse of the underlying measure
+                        if it is an Inverse Type. For example, P/E ratio is an inverse ratio and on default, -50 and 500
+                        are applied respectively as min/max limits. This means that -50 is the min limit of 1/PE ratio
+                        and 500 is the max limit of 1/PE ratio.
+                        <br>
+                        <br>
+                        <strong>Type:</strong> Refers to how the underlying data item should be treated. Normal is used
+                        where the preferred outcome corresponds to larger values in the underlying data. For example,
+                        Dividend Yield should use a type of Normal since the greater the dividend yield, the more
+                        attractive the equity is. Inverse is used where the preferred outcome corresponds to smaller
+                        values in the underlying data.
+                    </label>
+                    <br>
+                    <br>
+                    <aux-link label="Additional information about Style analysis"
+                              href="../../{{docUrl}}" [target]="'_blank'"></aux-link>
+                </div>
+            </aux-popover>
+        </div>
+
+    <div class="open-column-measure-div">
+        <div>
+            <aux-button
+                [label]="isMeasureAdded()? 'Edit' : 'Add'"
+                type="tertiary"
+                (click)="openColumnMeasuresModel()">
+            </aux-button>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="showActiveAdjustExposureCheckBox">
+    <div class="horizontol-display-checkbox">
+        <aux-checkbox label="Adjust active exposure" [isChecked]="optionValue.adjustActiveExposure" (checkboxChanged)="onAdjustActiveExposureChange($event)"></aux-checkbox>
+        <aux-tooltip>
+            <aux-button
+                slot="target"
+                icon="help"
+                type="tertiary-subtle"
+                [assistiveText]="'help'"
+            ></aux-button>
+            <span slot="content">The default behavior will divide the active z-score by the square root of the sum of the squares of portfolio weights to mute the sensitivity to changes that would be evidenced by a portfolio containing a smaller set of securities. By disabling this, only the active z-score will be shown</span>
+        </aux-tooltip>
+    </div >
+</ng-container>
+
+
+<div class="column-measure-table-div">
+    <ng-template #showNoMeasuresMsg><span style="color: var(--disabled-text__color)">No measures selected</span>
+    </ng-template>
+    <table *ngIf="isMeasureAdded(); else showNoMeasuresMsg"
+           class="column-measure-table">
+        <caption></caption>
+        <tr class="column-measure-head-row">
+            <th class="column-measure-table-cell column-measure-head">Measure</th>
+            <th class="column-measure-table-cell column-measure-head">Measure Limits</th>
+            <th class="column-measure-table-cell column-measure-head">Weights</th>
+            <th class="column-measure-table-cell column-measure-head"></th>
+        </tr>
+        <tr class="column-measure-rows"
+            *ngFor="let measureInfo of selectedStyleMeasureSummary">
+            <td class="column-measure-table-cell">{{measureInfo.title}}</td>
+            <td class="column-measure-table-cell">
+                <div class="column-min-max-table-cell">
+                    <aux-text-input
+                        [label]="'Max'"
+                        [isLeftLabel]="true"
+                        value="{{measureInfo.max}}"
+                        [maxLength]="7"
+                        [validator]="validator"
+                        (inputBlur)="onMaxChanged(measureInfo.alias, $event)">
+                    </aux-text-input>
+                </div>
+
+                <div>
+                    <aux-text-input
+                        [label]="'Min'"
+                        [isLeftLabel]="true"
+                        value="{{measureInfo.min}}"
+                        [maxLength]="7"
+                        [validator]="validator"
+                        (inputBlur)="onMinChanged(measureInfo.alias, $event)">
+                    </aux-text-input>
+                </div>
+            </td>
+            <td class="column-measure-table-cell input-weight-table-cell">
+                <aux-text-input [value]="measureInfo.weight"
+                                [size]="'small'"
+                                [type]="'number'"
+                                (inputBlur)="onWeightValueChanged(measureInfo.alias,$event)">
+                </aux-text-input>
+            </td>
+            <td class="column-measure-table-cell">
+                <aux-radio-group
+                    [isStacked]=" true"
+                    [data]="getNormalInverseOptions(measureInfo.alias)"
+                    (radioGroupChanged)="onNormalInverseOptionsChanged(measureInfo.alias, $event.detail.value)">
+                </aux-radio-group>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<explore-column-option-custom-calculation-measure *ngIf="showEditColumnMeasuresModal"
+                                                  [widgetType]="widgetType"
+                                                  [modalHeaderTitle]="'Custom Style'"
+                                                  [restrictedColumnOptions]="restrictedColumnOptions"
+                                                  [columnOptionsToAdd]="columnOptionsToAdd"
+                                                  [columnMeasures]="columnMeasures"
+                                                  [isOpen]="showEditColumnMeasuresModal"
+                                                  [isStringColumnNotSupported]="true"
+                                                  [isSingleSelect]="false"
+                                                  (modalClosed)="onCloseOfColumnMeasuresModal($event)">
+</explore-column-option-custom-calculation-measure>

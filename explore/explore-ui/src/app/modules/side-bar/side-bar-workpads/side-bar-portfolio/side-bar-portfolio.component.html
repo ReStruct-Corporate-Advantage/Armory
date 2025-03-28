@@ -1,0 +1,41 @@
+<div class="border-color portfolio-info" [style.border-style] = "borderStyle" [style.border-width] = "borderWidth" draggable="true"
+     (dragstart)="onPortfolioDrag($event)"
+     (drop)="onPortfolioDrop($event)"
+     (dragover)="allowDrop($event)"
+     (click)="selectPortfolio()"
+     (mouseenter)="showDelete=true"
+     (mouseleave)="showDelete=false"
+     [ngClass]="{'portfolio-info-isSelected': isSelected}"
+     (dragleave)="resetBorder($event)">
+    <span [ngStyle]="{'visibility': showDelete? 'visible': 'hidden', 'padding-right': '.25rem' }">
+        <aux-icon [type]="'gripper'" [state]="'primary'"></aux-icon>
+    </span>
+
+    <ng-container *ngIf="displayFullPortfolioName else portfolio_name">
+        <aux-popover [trigger]="'hover'">
+            <div slot="target">
+                <ng-container *ngTemplateOutlet="portfolio_name"></ng-container>
+            </div>
+            <div slot="content">{{ portfolioSidebarDisplayName }}</div>
+        </aux-popover>
+    </ng-container>
+
+    <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+    <aux-button (click)="confirmToDeletePortfolio($event)" [ngStyle]="{'visibility': showDelete? 'visible': 'hidden'}"
+                type="tertiary-subtle" icon="delete-small">
+    </aux-button>
+</div>
+<ng-template #portfolio_name>
+    <div class="loading-portfolio">
+        <ng-container *ngIf="isPortfolioLoading$ | async">
+            <aux-icon type="loading" state="tertiary-button" style="margin-right: 8px;"></aux-icon>
+        </ng-container>
+        <div
+            [ngClass]="{'what-if-portfolio-name': isWhatIfPortfolioStyle, 'portfolio-in-report-group': isParentReportGroup, 'portfolio-name aux-primary aux-p13': true, 'portfolio-ticker': !displayFullPortfolioName}">
+            {{portfolioSidebarDisplayName}}
+        </div>
+        <ng-container *ngIf="isPortfolioLoading$ | async">
+            {{portfolioPercentLoaded}}
+        </ng-container>
+    </div>
+</ng-template>

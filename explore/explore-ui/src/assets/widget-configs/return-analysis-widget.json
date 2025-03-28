@@ -1,0 +1,362 @@
+{
+    "configType": "returnsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Return Analysis Widget displays historical total returns and the performance attribution of a portfolio or benchmark based on a customizable time period, breakdown, and more.\n\nThis widget comes in with a pre-defined attribution methodology and set of columns based on the default methodology applied for the type of portfolio being loaded.",
+    "title": "Return Analysis",
+    "image": ".\/assets\/images\/return-analysis-chart.png",
+    "showOnlySingleColumn": false,
+    "chartTransition": [
+        "pie",
+        "bar"
+    ],
+    "includePerformanceBreakdown": true,
+    "restrictBreakdownToSingleLevel": false,
+    "showInSelector": true,
+    "canHaveMultipleOverrideDates": true,
+    "tokenToCheck": "enablePerfAttr",
+    "userPermToCheck": "perfDataPerms",
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "RETURN_REPORT",
+                    "columnFilters": [
+                        {
+                            "type": "=",
+                            "key": "reportTypes",
+                            "value": [
+                                "RETATT",
+                                "SINGLE"
+                            ]
+                        },
+                        {
+                            "type": "=",
+                            "key": "levelColumns",
+                            "value": "undefined"
+                        },
+                        {
+                            "type": "!=",
+                            "key": "praadaBreakdown",
+                            "value": true
+                        },
+                        {
+                            "type": "!=",
+                            "key": "columnTag",
+                            "value": [
+                                "strategy_id",
+                                "cusip",
+                                "sec_desc",
+                                "strategy_name",
+                                "sec_group",
+                                "sec_type",
+                                "ccy",
+                                "ticker",
+                                "sedol",
+                                "isin",
+                                "long_short",
+                                "pnl_long_short",
+                                "custom_calc",
+                                "custom_coverage"
+                            ]
+                        },
+                        {
+                          "type": "!=",
+                          "key": "isVisible",
+                          "value": false
+                        },
+                        {
+                            "type": "!=",
+                            "key": "columnReports",
+                            "value": [
+                                "factor_attrib_dd",
+                                "factor_attrib_resid",
+                                "prism_custom_cal",
+                                "explore_filter"
+                            ]
+                        },
+                        {
+                          "type": "!=",
+                          "key": "forTopdown",
+                          "value": true
+                        },
+                        {
+                          "type": "!=",
+                          "key": "groups",
+                          "value": [
+                            "Credit VaR"
+                          ]
+                        }
+                    ],
+                    "default": [
+                        {
+                            "columnTag": "pnl_sec_desc",
+                            "positionColumnType": "ALL",
+                            "columnKey": "pnl_sec_desc"
+                        },
+                        {
+                            "columnTag": "pnl_cusip",
+                            "positionColumnType": "ALL",
+                            "columnKey": "pnl_cusip_0"
+                        },
+                        {
+                            "columnTag": "wt_contr",
+                            "positionColumnType": "PORT",
+                            "columnKey": "wt_contr_1"
+                        },
+                        {
+                            "columnTag": "bench_wt_contr",
+                            "positionColumnType": "BENCH",
+                            "columnKey": "bench_wt_contr_2"
+                        },
+                        {
+                            "columnTag": "active_wt_contr",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "active_wt_contr_3"
+                        },
+                        {
+                            "columnTag": "pnl_contr",
+                            "positionColumnType": "PORT",
+                            "columnKey": "pnl_contr_4"
+                        },
+                        {
+                            "columnTag": "active_pnl_contr",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "active_pnl_contr_5"
+                        },
+                        {
+                            "columnTag": "active_excess_contr",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "active_excess_contr_6"
+                        },
+                        {
+                            "columnTag": "sector_alloc",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "sector_alloc_7"
+                        },
+                        {
+                            "columnTag": "security_sel",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "security_sel_8"
+                        }
+                    ],
+                    "hiddenColumns": [{
+                        "columnTag": "pnl_id",
+                        "positionColumnType": "ALL",
+                        "columnKey": "pnl_id"
+                    },{
+                        "columnTag": "pnl_cusip",
+                        "positionColumnType": "ALL",
+                        "columnKey": "cusip_hidden"
+                    },{
+                        "columnTag": "pnl_sec_desc",
+                        "positionColumnType": "ALL",
+                        "columnKey": "pnl_sec_desc_hidden"
+                      }]
+                }
+            ]
+        },
+        {
+            "type": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                 {
+                    "inputConfigType": "breakdownTree",
+                    "inputName": "breakdownTree",
+                    "inputTitle": "Sector Breakdown",
+                    "mandateSettingType": "PERF_BKD",
+                    "groupByColumnFilters": [
+                      {
+                        "type": "=",
+                        "key": "isGroupable",
+                        "value": true
+                      },
+                      {
+                        "type": "!=",
+                        "key": "praadaBreakdown",
+                        "value": true
+                      },
+                      {
+                        "type": "!=",
+                        "key": "columnTag",
+                        "value": ["portfolio_group", "strategy_id"]
+                      },
+                      {
+                        "type": "!=",
+                        "key": "columnType",
+                        "value": [
+                          "FACTOR_ATTRIBUTES",
+                          "GR_SECTOR"
+                        ]
+                      },
+                      {
+                        "type": "!=",
+                        "key": "uses",
+                        "value": [
+                          "BENCH",
+                          "ACTIVE"
+                        ]
+                      },
+                      {
+                        "type": "!=",
+                        "key": "groups",
+                        "value": [
+                          "Liquidity"
+                        ]
+                      },
+                      {
+                        "type": "=",
+                        "key": "columnReports",
+                        "value": ["prism_praada_sectors"]
+                      },
+                      {
+                        "type": "!=",
+                        "key": "forTopdown",
+                        "value": true
+                      }
+                    ],
+                    "customColumnFilters": {
+                        "$ref": "defaultCustomColumnFilters"
+                    },
+                    "valueField": "columnTag",
+                    "max": 5,
+                    "default": {
+                        "breakdown": {
+                            "breakdownTitle": "Security Group",
+                            "subSectors": [
+                                {
+                                    "breakdownRuleType": "String",
+                                    "useNoneBuckets": true,
+                                    "groupByColumn": {
+                                        "columnTag": "sec_group",
+                                        "columnName": "Security Group",
+                                        "positionColumnType": "ALL"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultReturnAnalysisFilter"
+        },
+        {
+            "categoryType": "Settings",
+            "noAccordion": true,
+            "categoryTitle": "Performance Settings",
+            "inputs": [
+                {
+                    "inputConfigType": "performanceSettings",
+                    "inputName": "performanceSettings",
+                    "mandateSettingType": "ATTRIBUTION_TYPE",
+                    "default": {
+                        "additionalSettings": {
+                            "asReported": false,
+                            "showSummary": false,
+                            "aggregateBMOnlyReturnSecurities": true,
+                            "removeBMOnlyReturnBucket": false,
+                            "collapseClosedPositions": false,
+                            "customPivotPoint": ""
+                        },
+                        "showAdditionalPerformanceSettings" : true,
+                        "showAttributionSettings": true,
+                        "columns": []
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultExpandedState"
+        },
+        {
+            "$ref": "defaultSortedColumns"
+        }
+    ],
+    "overrideColTitles": [
+        {
+            "colTag": "dur_cont",
+            "useType": "PORT",
+            "title": "Exposure Duration Contribution"
+        },
+        {
+            "colTag": "dur_cont",
+            "useType": "BENCH",
+            "title": "Exposure Benchmark Duration Contribution"
+        },
+        {
+            "colTag": "dur_cont",
+            "useType": "ACTIVE",
+            "title": "Exposure Active Duration Contribution"
+        },
+        {
+            "colTag": "conv_cont",
+            "useType": "PORT",
+            "title": "Exposure Convexity Contribution"
+        },
+        {
+            "colTag": "conv_cont",
+            "useType": "BENCH",
+            "title": "Exposure Benchmark Convexity Contribution"
+        },
+        {
+            "colTag": "conv_cont",
+            "useType": "ACTIVE",
+            "title": "Exposure Active Convexity Contribution"
+        },
+        {
+            "colTag": "infl_dur_cont",
+            "useType": "PORT",
+            "title": "Exposure Inflation Duration Contribution"
+        },
+        {
+            "colTag": "infl_dur_cont",
+            "useType": "BENCH",
+            "title": "Exposure Benchmark Inflation Duration Contribution"
+        },
+        {
+            "colTag": "infl_dur_cont",
+            "useType": "ACTIVE",
+            "title": "Exposure Active Inflation Duration Contribution"
+        },
+        {
+            "colTag": "coupon",
+            "useType": "PORT",
+            "title": "Portfolio Coupon"
+        }
+    ],
+    "restrictedColumnOptions": {
+        "sections": [
+            "columnBreakdown",
+            "aggregation",
+            "chartType",
+            "economyExposureSettings",
+            "ConstraintMissingDataHandling"
+        ],
+        "options": [
+            {
+                "section": "performanceSettings",
+                "options": [
+                    "TIME-PERIOD",
+                    "AS-REPORTED",
+                    "IS-NET-RETURN"
+                ]
+            }
+        ]
+    },
+    "showAdditionalPerformanceSettings": true,
+    "showAttributionSettings": true,
+    "chartingLib": "agGrid",
+    "settingsThatCanUpdateWidgetTitle": ["performanceSettings"],
+    "showTableSearch": true
+}

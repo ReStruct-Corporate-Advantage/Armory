@@ -1,0 +1,18 @@
+<div class="factor-columnset-container">
+    <div class="column-select">
+        <aux-select
+            [label]="'Quick column set'"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="quickColumnSet"
+            (selectionChanged)="setQuickColumnSet($event.detail.value.value)">
+        </aux-select>
+    </div>
+    <div class="column-select">
+        <aux-select
+            [label]="'Grouping type'"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="groupingSet"
+            (selectionChanged)="setGroupingType($event.detail.value.value)">
+        </aux-select>
+    </div>
+</div>

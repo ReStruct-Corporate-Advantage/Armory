@@ -1,0 +1,98 @@
+.custom-header {
+    padding: 16px 32px 20px;
+    display: inline-block;
+    border-bottom: 1px solid var(--dialog__border-color);
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-text__color);
+    }
+
+    .portfolio-label-container {
+        display: inline-block;
+        padding-left: 1rem;
+    }
+}
+
+.portfolio-settings-content {
+    height: 70vh;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .tab-group-container {
+        padding-top: 8px;
+
+        .tab-content {
+            margin-left: 32px;
+        }
+    }
+
+    .tab-content-container {
+        background-color: var(--widget__background-color--header-inactive);
+        padding: 2rem 2rem;
+        overflow-y: auto;
+        flex: 1;
+        border-top: 1px solid var(--tab__border-color);
+        margin-top: -1px;
+    }
+
+    .tab-content--fixed-height {
+        height: calc(70vh - 72px);
+    }
+
+    .tab-container {
+        margin: 2rem 2rem;
+        border: 1px solid var(--dialog__border-color);
+    }
+
+    .split-setting-tab {
+        padding-bottom: 2rem;
+    }
+}
+
+//Responsive modal Size wrt to Screen size
+
+// modal width of 12 column till 1279px
+@media (max-width: 1279px) {
+    .portfolio-setting-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 12) +
+            (16px * 9)
+        );
+    }
+}
+
+// modal width of 10 column from 1280px to 1919px
+@media (min-width: 1280px) and (max-width: 1919px) {
+    .portfolio-setting-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 10) +
+            (16px * 7)
+        );
+    }
+}
+
+// modal width of 8 column from 1920px to 2999px
+@media (min-width: 1920px) and (max-width: 2999px) {
+    .portfolio-setting-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 8) +
+            (16px * 5)
+        );
+    }
+}
+
+// modal width of 6 column above 3000px
+@media (min-width: 3000px) {
+    .portfolio-setting-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 6) +
+            (16px * 3)
+        );
+    }
+}

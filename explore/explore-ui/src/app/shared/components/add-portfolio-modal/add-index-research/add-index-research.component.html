@@ -1,0 +1,14 @@
+<div class="select-index__container">
+    <div class="select-index__column">
+        <div class="column-label">Select Indexes</div>
+        <aux-picklist #auxPickList class="picklist__list"
+                      hasSelectedOnly="false"
+                      (sourceSelectionChanged)="onTickerClicked($event)">
+        </aux-picklist>
+    </div>
+    <aux-button class="add-button" icon="arrow-right" [isDisabled]="!isTickerMarked" (click)="onGetIndexesFromSearchButtonClick()"></aux-button>
+
+    <div class="selected-list__column">
+        <app-selected-portfolio-list titleText="Indexes to add"></app-selected-portfolio-list>
+    </div>
+</div>

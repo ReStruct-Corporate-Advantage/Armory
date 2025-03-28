@@ -1,0 +1,60 @@
+<div class="aux-layout__wrapper-16" id="report-section-container">
+    <div class="aux-g16--xs-12 aux-g16--sm-12 aux-g16--md-12 aux-g16--lg-12 aux-g16--xl-12">
+        <div class="report-container-area">
+            <ng-container *ngIf="currentReport$ | async as currentReport">
+                <aux-tab-bar
+                    #auxTabBar
+                    [isEditable]="true"
+                    [data]="reportTabs"
+                    [activeUid]="currentReport.key.toString()"
+                    (tabBarAddIconClicked)="onAddTabClicked()"
+                    (tabBarItemAdded)="updateTabScrollPosition()"
+                    (tabBarItemSelected)="onTabSelected($event)"
+                    (tabBarItemRenamed)="onTabEdited($event)"
+                    (tabBarItemDeleted)="onRemoveTabClicked($event)"
+                    (tabBarItemDragged)="onTabDragAndDropped($event)">
+                </aux-tab-bar>
+                <div class="tab-bar-content--separator"></div>
+
+                <ng-container *ngIf="currentReport.widgets">
+                    <app-report-bar
+                        [title]="currentReport.title"
+                        [owner]="currentReport.owner"
+                        [isWhatIfPortfolio]="isWhatIfPortfolio"
+                        [showCompositionModel]="showCompositionModel"
+                        [deleteReport]="deleteReport"
+                        [removeReportFromReportPanel]="removeReportFromReportPanel"
+                        (updateAuxTabBar$)="initializeReportTabs()"
+                        (showComposition)="toggleShowComposition($event)"
+                        (openPasteModal)="openPasteWidgetModal = $event">
+                    </app-report-bar>
+                </ng-container>
+
+                <div class="flex-with-space-between">
+                    <div *ngIf="isWhatIfPortfolio && showCompositionModel" [ngClass]="!expandModellingFlag ? 'with-widgets-width': 'without-widgets-width'">
+                        <app-composition-modelling></app-composition-modelling>
+                    </div>
+                    <div [ngClass]="isWhatIfPortfolio && showCompositionModel ? 'with-composition-width': 'without-composition-width'" *ngIf="!expandModellingFlag">
+                    <ng-container *ngIf="currentReport.widgets; else showNewReportModal">
+                        <app-report-presenter
+                            [report]="currentReport"
+                            [isWhatIfPortfolio]="isWhatIfPortfolio"
+                            [showCompositionModel]="showCompositionModel"
+                            [openPasteWidgetModal]="openPasteWidgetModal"
+                            (closePasteModal)="openPasteWidgetModal = $event">
+                        </app-report-presenter>
+                    </ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isNewReportModalOpen">
+    <app-new-report [isOpen]="isNewReportModalOpen"
+                            (modalClosed)="closeNewReportModal()">
+
+    </app-new-report>
+</ng-container>
+

@@ -1,0 +1,18 @@
+<div class="climate-scenario__container">
+    <div class="climate-scenario__content">
+        <ng-container *ngIf="loadedData">
+              <ng-container *ngFor="let i of indices">
+                <aux-select *ngIf="!hide[i]"
+                            [class]="dropdownClass[i]"
+                            [data]="currentSelectOptions[i]"
+                            [label]="labels[i]"
+                            hasInitialOptionPlaceholder="false"
+                            (selectionChanged)="onSelectionChanged(i, $event)">
+                </aux-select>
+            </ng-container>
+            </ng-container>
+        <aux-button *ngIf="!isFirstScenario" class="button--left-padding button--bottom-padding" size="small"
+            type="tertiary-subtle" icon="delete-small" (click)="deleteRule()">
+        </aux-button>
+    </div>
+</div>

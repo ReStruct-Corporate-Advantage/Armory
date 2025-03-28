@@ -1,0 +1,482 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for chart formats (bar chart)",
+    "line": 1,
+    "id": "visual-comparison-tests-for-chart-formats-(bar-chart)",
+    "tags": [],
+    "uri": "bar-chart-format-settings.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-chart-formats-(bar-chart);validate-bar-chart-with-chart-type-settings",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate bar chart with chart type settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6161000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25778000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I select chart type \"Marker\" for column \"0\"",
+            "result": {
+              "status": "passed",
+              "duration": 686000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 99000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26578000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_marker\"",
+            "result": {
+              "status": "passed",
+              "duration": 3320000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-chart-formats-(bar-chart);validate-bar-chart-with-baseline-settings-(baseline-checkbox-is-checked-off-by-default)",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "Validate bar chart with baseline settings (baseline checkbox is checked OFF by default)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 4706000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25722000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 147000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I click baseline checkbox (CHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 141000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 87000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26759000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_baseline\"",
+            "result": {
+              "status": "passed",
+              "duration": 3396000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 323000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 161000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 24,
+            "name": "I click baseline checkbox (UNCHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 144000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 80000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 26,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_without_baseline\"",
+            "result": {
+              "status": "passed",
+              "duration": 2989000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-chart-formats-(bar-chart);validate-bar-chart-with-grid-lines-settings-(grid-lines-checkbox-is-checked-on-by-default)",
+        "keyword": "Scenario",
+        "line": 28,
+        "name": "Validate bar chart with grid lines settings (grid lines checkbox is checked ON by default)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 3785000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 29,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25738000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 146000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "I click grid lines checkbox (UNCHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 157000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 32,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 82000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 33,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26632000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_without_gridlines\"",
+            "result": {
+              "status": "passed",
+              "duration": 3383000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 36,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 193000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 165000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 38,
+            "name": "I click grid lines checkbox (CHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 154000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 39,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 84000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 40,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_gridlines\"",
+            "result": {
+              "status": "passed",
+              "duration": 3091000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-chart-formats-(bar-chart);validate-bar-chart-with-orientation-settings-(set-to-vertical-by-default)",
+        "keyword": "Scenario",
+        "line": 42,
+        "name": "Validate bar chart with orientation settings (set to vertical by default)",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 4599000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 43,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 26030000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 44,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 196000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 45,
+            "name": "I select Horizontal radio option",
+            "result": {
+              "status": "passed",
+              "duration": 209000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 46,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 95000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 47,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26644000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 48,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_horizontal_orientation\"",
+            "result": {
+              "status": "passed",
+              "duration": 3344000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 50,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 305000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 51,
+            "name": "I click format tab",
+            "result": {
+              "status": "passed",
+              "duration": 148000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 52,
+            "name": "I select Vertical radio option",
+            "result": {
+              "status": "passed",
+              "duration": 157000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 53,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 79000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 54,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_vertical_orientation\"",
+            "result": {
+              "status": "passed",
+              "duration": 2995000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

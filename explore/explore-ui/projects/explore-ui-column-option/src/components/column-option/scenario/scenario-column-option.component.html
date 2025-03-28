@@ -1,0 +1,31 @@
+<div class="scenario-component">
+    <ng-container *ngIf="(showSpinner$ | async);">
+        <div class="item-container">
+            <div class="loading-spinner">
+                <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                        size="large"
+                                        type="loading" loadingLabel="Loading scenarios">
+                </aux-progress-indicator>
+            </div>
+        </div>
+    </ng-container>
+
+    <div [hidden]="(showSpinner$ | async)">
+        <explore-core-named-scenario [scenarios]="optionValue.nameScenarios"
+                                     [allowNamedScenarioSingleSelection]="isRestrictedModeEnabled"
+                                     [lookBackDate]="optionValue.lookBackDate"
+                                     [fetchedScenarios]="optionValue.fetchedScenarios"
+                                     [showSpinner$]="showSpinner$">
+        </explore-core-named-scenario>
+
+        <explore-core-date-scenario *ngIf="isDateScenarioEnabled"
+                                    [scenarios]="optionValue.dateScenarios">
+        </explore-core-date-scenario>
+
+        <explore-core-other-scenario *ngIf="isAdvancedPraEnabled"
+                                     [scenarios]="optionValue.otherScenarios"
+                                     [namedScenarios]="optionValue.nameScenarios">
+        </explore-core-other-scenario>
+    </div>
+
+</div>

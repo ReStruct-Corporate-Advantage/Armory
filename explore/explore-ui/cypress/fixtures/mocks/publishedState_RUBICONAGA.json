@@ -1,0 +1,362 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "date": "2018-09-04",
+        "data": [
+          {
+            "portfolioCode": 112905,
+            "portfolioName": "X-67CR2-S",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 708112,
+            "portfolioName": "X-RELH-DT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 311583,
+            "portfolioName": "X-RELH-LRB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 320802,
+            "portfolioName": "X-84R-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 392229,
+            "portfolioName": "X-Z1-AFS",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 388902,
+            "portfolioName": "X-34RT-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 282419,
+            "portfolioName": "X-CLCRC-EE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 820277,
+            "portfolioName": "X-RELH-LR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 918583,
+            "portfolioName": "X-3A-SRT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 73531,
+            "portfolioName": "X-CLCRC-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 213314,
+            "portfolioName": "X-MFWT-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 159044,
+            "portfolioName": "X-34RC-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 79175,
+            "portfolioName": "X-67R-E-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 970824,
+            "portfolioName": "X-RELH-DTB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 963919,
+            "portfolioName": "X-41A-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 250460,
+            "portfolioName": "X-RELH-XR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36193,
+            "portfolioName": "X-34A-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 810597,
+            "portfolioName": "X-SUST",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 78705,
+            "portfolioName": "X-67R-E-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36216,
+            "portfolioName": "X-83R-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 175996,
+            "portfolioName": "X-RECU5-CC",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 175997,
+            "portfolioName": "X-RECU5-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 230021,
+            "portfolioName": "X-39A-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 590476,
+            "portfolioName": "X-RELH-APL",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36236,
+            "portfolioName": "X-2AR-E-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 960154,
+            "portfolioName": "X-40A-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 261283,
+            "portfolioName": "X-LUM-SD",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 859560,
+            "portfolioName": "X-CLCRC-GG",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 859564,
+            "portfolioName": "X-CLCRC-HH",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36268,
+            "portfolioName": "X-2AR-U",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 15023,
+            "portfolioName": "X-2AR-E",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 171186,
+            "portfolioName": "X-RELH-COR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36278,
+            "portfolioName": "X-SLC-U-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 888758,
+            "portfolioName": "X-CLCRC-JJ",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36282,
+            "portfolioName": "X-SLCRU-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 888763,
+            "portfolioName": "X-CLCRC-II",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 175804,
+            "portfolioName": "X-38A-G",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36285,
+            "portfolioName": "X-SLCRU-EE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 810942,
+            "portfolioName": "X-RELH-HR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 259006,
+            "portfolioName": "X-67CR-U2",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 843970,
+            "portfolioName": "X-LJS-SD",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36291,
+            "portfolioName": "X-49AR-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 236483,
+            "portfolioName": "X-50AR-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 119493,
+            "portfolioName": "X-RECU5-AT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 236486,
+            "portfolioName": "X-50AR-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 346567,
+            "portfolioName": "X-MLIC-SD",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 59079,
+            "portfolioName": "X-2AR2E-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 119497,
+            "portfolioName": "X-RECU5-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36298,
+            "portfolioName": "X-67R-G-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36299,
+            "portfolioName": "X-67RU-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 59083,
+            "portfolioName": "X-2AR2E-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 282833,
+            "portfolioName": "X-CLCRC-FF",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36308,
+            "portfolioName": "X-67CR-U",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 80342,
+            "portfolioName": "X-67RU-CC",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36310,
+            "portfolioName": "X-CLCR-CBB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36315,
+            "portfolioName": "X-SAAR-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36317,
+            "portfolioName": "X-SAR-U",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 268255,
+            "portfolioName": "X-RELH-CRE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 974821,
+            "portfolioName": "X-CLCRC-KK",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36336,
+            "portfolioName": "X-SLCRU-DD",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36337,
+            "portfolioName": "X-SLCR-U",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 86003,
+            "portfolioName": "X-83-RO-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 86004,
+            "portfolioName": "X-83-RO-BB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 36340,
+            "portfolioName": "X-CLCRC-AA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 972026,
+            "portfolioName": "X-3A-IMT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          }
+        ],
+        "CLASS_TYPE": "com.bfm.prism.data.PortfoliosPublishStateData"
+      },
+      "message": null,
+      "gaussian": "+obPsA0=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 684
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-09T00:00:40.104Z",
+      "detailedID": "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490:fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490.684.1707399040104",
+      "IDWithContextChain": "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490:fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490",
+      "chain": [
+        "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490",
+        "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2:481e88791f43490"
+      ],
+      "bmsMsgSize": 684,
+      "transactionId": "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPublishedState",
+    "transactionId": "fb3ad978-b6e0-4b02-bb42-948dbe8f31a2",
+    "successCode": null
+  }
+]

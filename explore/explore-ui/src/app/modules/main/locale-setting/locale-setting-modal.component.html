@@ -1,0 +1,17 @@
+<aux-modal [isOpen]='isOpen' type='action' header='Locale setting' [hasCustomFooter]="true">
+    <div slot='content'>
+        <div class="notify-div">
+            <aux-select
+                label='Locale'
+                [hasInitialOptionPlaceholder]='false'
+                [data]='localeOptions'
+                [type]="'filter-simple'"
+                (selectionChanged)='onLocaleSelectionChanged($event)'>
+            </aux-select>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" label="Apply" (click)="onDoneClicked()"></aux-button>
+        <aux-button label="Close" type="secondary" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

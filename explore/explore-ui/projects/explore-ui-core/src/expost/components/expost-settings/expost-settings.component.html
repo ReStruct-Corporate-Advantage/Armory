@@ -1,0 +1,43 @@
+<!-- Sampling Period -->
+<div class="expost-select-box">
+    <aux-select [hasInitialOptionPlaceholder]="false"
+                [label]="'Sampling period'"
+                (selectionChanged)="changeSamplingPeriod($event.detail.value.value)"
+                [data]="displayDataForSamplingPeriod">
+    </aux-select>
+</div>
+<!-- Statistic Periods - Multi Mode-->
+<div class="expost-settings expost-select-box" *ngIf="canHaveMultipleStatisticPeriods">
+    <aux-select type="multiple"
+                [label]="'Statistic periods'"
+                (selectionChanged)="chooseStatisticPeriods($event)"
+                [data]="displayDataForStatisticPeriod">
+    </aux-select>
+</div>
+<!-- Statistic Periods - Single Selection Mode-->
+<div class="expost-settings expost-select-box" *ngIf="!canHaveMultipleStatisticPeriods">
+    <aux-select [hasInitialOptionPlaceholder]="false"
+                [label]="'Statistic period'"
+                (selectionChanged)="chooseStatisticPeriods($event)"
+                [data]="displayDataForStatisticPeriod">
+    </aux-select>
+</div>
+<!-- Net returns-->
+<div class="expost-settings" *ngIf="showNetReturns">
+    <aux-radio-group
+        label="Return type:"
+        name="inline"
+        [data]="displayDataForNetReturns"
+        (radioGroupChanged)="updateNetReturns()">
+    </aux-radio-group>
+</div>
+<!-- Log Returns-->
+<div class="expost-settings" *ngIf="showLogReturns">
+    <aux-checkbox label="Use log returns" [isChecked]="this.expostSettings.isLogNormal" (checkboxChanged)="updateLogReturns($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+<!-- Category Breakdown-->
+<div class="expost-settings" *ngIf="showCategoryBreakdown">
+    <aux-checkbox label="Category breakdown" [isChecked]="this.expostSettings.categoryBreakdown" (checkboxChanged)="updateCategoryBreakdown($event.detail.value.checked)">
+    </aux-checkbox>
+</div>

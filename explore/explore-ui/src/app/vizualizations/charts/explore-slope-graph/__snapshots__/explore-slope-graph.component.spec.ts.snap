@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreSlopeGraphComponent should format the tooltip points 1`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <span style='font-weight: bold'>SNP500</span><br/>
+                    <span style='font-weight: bold'>Software:</span> 
+                <div>"
+`;

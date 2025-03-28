@@ -1,0 +1,65 @@
+<aux-modal [isOpen]="isOpen"
+           [hasCustomFooter]="true"
+           [type]="'action'"
+           [header]="'Schedule Overview'">
+    <div slot="content" class="modal-size-md scheduled-batch-overview-area">
+        <div class="scheduled-batch-overview-table-area">
+            <table class="scheduled-batch-overview-table">
+                <thead>
+                <tr class="scheduled-batch-overview-header-row aux-bold">
+                    <th class="add-to-queue" *ngIf="scheduledBatchDebug">Queue now</th>
+                    <th class="run-batch" *ngIf="scheduledBatchDebug">Run</th>
+                    <th class="favorite-name-section">Favorite name</th>
+                    <th class="time-section">Time</th>
+                    <th class="time-zone-section">Time zone</th>
+                    <th class="frequency-section">Run frequency</th>
+                    <th class="file-name-prefix-section">File name prefix</th>
+                    <th class="last-update-section">Last scheduler update</th>
+                    <th class="edit-section"></th>
+                    <th class="delete-section"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <ng-container *ngFor="let scheduledBatch of scheduledBatches;">
+                    <tr class="scheduled-batch-row" *ngFor="let batchSchedule of scheduledBatch.batchSchedules;">
+                        <td class="add-to-queue" *ngIf="scheduledBatchDebug"><aux-button type="tertiary" label="+ Queue" (click)="addBatchScheduleToQueue($event, scheduledBatch, batchSchedule)"></aux-button></td>
+                        <td class="run-batch" *ngIf="scheduledBatchDebug"><aux-button type="tertiary" label="Run" (click)="runBatchThroughSchedulerListener($event, scheduledBatch)"></aux-button></td>
+                        <td class="favorite-name-section">
+                            {{scheduledBatch.title}}
+                            <aux-tooltip class="favorite-name-tooltip">
+                                <aux-icon slot="target" type="help" state="primary"></aux-icon>
+                                <aux-value-pair slot="content" [label]="'Batch Report Author'" [value]="ownerDisplayName"
+                                                [labelPosition]="AuxValuePairLabelPositionEnum.TOP" [isPipeLess]="true"></aux-value-pair>
+                            </aux-tooltip>
+                        </td>
+                        <td class="time-section">{{batchSchedule.timeValue}}</td>
+                        <td class="time-zone-section">{{ batchSchedule.timeZone}}</td>
+                        <td class="frequency-section">
+                            {{batchSchedule.frequency.getBatchScheduleFrequency()}}
+                            <aux-tooltip class="frequency-tooltip">
+                                <aux-icon slot="target" type="help" state="primary"></aux-icon>
+                                <div slot="content" [innerHTML]="batchSchedule.frequency.getOverviewText()"></div>
+                            </aux-tooltip>
+                        </td>
+                        <td class="file-name-prefix-section">{{batchSchedule.fileNamePrefix}}</td>
+                        <td class="last-update-section">{{batchSchedule.dateLastUpdated}}</td>
+                        <td class="edit-section">
+                            <aux-button type="tertiary" label="Edit" (click)="onEditBatchSchedule($event, scheduledBatch)"></aux-button>
+                        </td>
+                        <td class="delete-section">
+                            <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+                            <aux-button class="scheduled-batch-row-delete-icon" (click)="onBatchScheduleRemoved($event, scheduledBatch, batchSchedule)"
+                                        type="tertiary-subtle" icon="delete-small">
+                            </aux-button>
+                        </td>
+                    </tr>
+                </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [type]="'secondary'" [label]="'Close'" (click)="closeModal()" class="scheduled-batch-overview-modal-button"></aux-button>
+    </div>
+</aux-modal>

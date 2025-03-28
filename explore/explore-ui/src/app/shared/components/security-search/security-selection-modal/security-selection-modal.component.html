@@ -1,0 +1,24 @@
+<aux-modal [isOpen]="isOpen" type="action" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <div slot="custom-header" class="security-selection-modal-size custom-header">
+        <div class="header-title aux-p20 aux-bold aux-primary">{{'Select securities'}}</div>
+    </div>
+    <div slot="content" class="security-selection-modal-size content-container">
+        <div class="pre-text">The following ISINs are mapped to multiple securities. Please select one CUSIP from the dropdown. </div>
+        <ng-container *ngFor="let key of ISINKeys">
+            <div class="select-box">
+                <aux-select label="{{'ISIN : ' + key}}"
+                            [data]="mapForSelectOptions.get(key)"
+                            [size]="'regular'"
+                            [hasInitialOptionPlaceholder]=false
+                            [isLeftLabel]="true"
+                            (selectionChanged)="onSelectionChanged($event?.detail?.value?.value)">
+                </aux-select>
+            </div>
+        </ng-container>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="DONE_TEXT" [type]="'primary'" (click)="closeModal(true)"></aux-button>
+        <aux-button [label]="CANCEL_TEXT" [type]="'secondary'" (click)="closeModal(false)"></aux-button>
+    </div>
+</aux-modal>
+

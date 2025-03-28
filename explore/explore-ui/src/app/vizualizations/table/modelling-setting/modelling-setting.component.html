@@ -1,0 +1,58 @@
+<div class="modelling-setting-container">
+    <aux-tab-bar tabType="modern" [customPadding]="32" (tabBarItemSelected)="onTabSelected($event)" [data]="modellingOptionsTabData" [activeUid]="selectedModellingOption">
+    </aux-tab-bar>
+    <div class="tab-bar-content--separator"></div>
+    <div role="tabpanel">
+        <ng-container *ngIf="selectedModellingOption === '0'">
+            <div class="tab-content-container">
+                <div class="available-columns-container">
+                    <aux-select
+                        label="Columns to show"
+                        [hasInitialOptionPlaceholder]="true"
+                        (selectionChanged)="onSelectedColumnsChanged($event)"
+                        [data]="availableColumnsForModeling"
+                        size="regular"
+                        type="filter-multiple">
+                    </aux-select>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedModellingOption === '1'">
+            <div class="tab-content-container">
+                <app-breakdown-preview [breakdown]="modellingBreakdown"
+                                       [breakdownBuilderSettings]="modellingBreakdownBuilderSetting"
+                                       [isOptimizationCashSettingChecked]="portfolio.compositionSetting?.isOptimizationCashSettingChecked"
+                                       (isOptimizationCashSettingChanged)="onOptimizationCashSettingChanged($event)"
+                                       [isOptimizationCashBreakdownSettingVisible]="isOptimizationCashBreakdownSettingVisible">
+                </app-breakdown-preview>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedModellingOption === '2'">
+            <div class="tab-content-container">
+                <app-custom-filter [filter]="portfolio.compositionSetting.compositionFilter"
+                                   [isNormalized]="portfolio.compositionSetting.isNormalized"
+                                   [fieldToUse]="'columnTag'"
+                                   [showApplyTo]="false"
+                                   [disableNormalizedCheckbox]="false"
+                                   [applyFilterTo]="portfolio.applyFilterTo"
+                                   (updateApplyFilter)="updateAppliedFilter($event)"
+                                   (updateNormalizedFlag)="updateNormalizedCheckbox($event)"
+                                   [showApplyToNewWidgets]="true"
+                                   [(isApplyFilterToNewWidgetsChecked)]="portfolio.compositionSetting.isApplyFilterToNewWidgetsChecked">
+                </app-custom-filter>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="selectedModellingOption === '3'">
+            <div class="tab-content-container">
+                <div class="available-columns-container">
+                    <aux-select
+                        label="{{title}}"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="setSelectedValue($event.detail.value)"
+                        [data]="selectOptions">
+                    </aux-select>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

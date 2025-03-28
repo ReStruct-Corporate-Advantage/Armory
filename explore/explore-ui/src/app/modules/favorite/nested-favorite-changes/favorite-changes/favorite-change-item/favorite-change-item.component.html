@@ -1,0 +1,30 @@
+<div>
+    <div class="updated-row" [ngClass]="{'nested-row--top-padding': level > 0}">
+        <div class="favorite-details-container">
+            <div class="favorite-details-content" [ngStyle]="{'margin-left': 'calc(' + level + ' * 1.5rem)'}">
+                <aux-checkbox class="checkbox--right-padding" [isChecked]="favoriteChange.isSelected" [isDisabled]="favoriteChange.isSaved" (checkboxChanged)="updateSelectedState()"></aux-checkbox>
+                <span>Updates were made to {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteChange.favoriteDisplayType].toLowerCase()}}:</span>
+                <ng-container *ngIf="isOwnerCurrentUser; else ownerOtherUser">
+                    <span class="aux-bold"> {{favoriteChange.value.title}}</span>
+                </ng-container>
+                <ng-template #ownerOtherUser>
+                    <div class="favorite-details">
+                        <aux-value-pair [label]="'Title:'" [value]="favoriteChange.value.title" [isBold]="true" [isPipeLess]="true" [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+                        <aux-value-pair [label]="'Owner:'" [value]="ownerDisplayName" [isBold]="true" [isPipeLess]="true" [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <ng-container *ngIf="favoriteChange.isSelected; else notSelected">
+            <app-save-detail class="save-detail" [favoriteChange]="favoriteChange" [isModalRootItem]="false"></app-save-detail>
+        </ng-container>
+        <ng-template #notSelected>
+            <div class="save-detail">
+                <span class="not-selected-text aux-bold">This change will not be saved</span>
+            </div>
+        </ng-template>
+    </div>
+    <ng-container *ngFor="let favoriteChange of favoriteChange.nestedChanges">
+        <app-favorite-change-item [favoriteChange]="favoriteChange" [level]="level+1"></app-favorite-change-item>
+    </ng-container>
+</div>

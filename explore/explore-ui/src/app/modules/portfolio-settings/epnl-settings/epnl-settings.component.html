@@ -1,0 +1,32 @@
+<div class="epnl-settings-container">
+    <div class="aux-layout__wrapper-32">
+        <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+            <div class="epnl-settings-property-container">
+                <div class="epnl-settings-property-label">
+                    Range
+                </div>
+                <explore-core-date-range-picker [fromDate]="epnlSettings?.fromDate"
+                                       [toDate]="epnlSettings?.toDate">
+                </explore-core-date-range-picker>
+            </div>
+            <div class="epnl-settings-property-container calendar-width">
+                <app-calendar-picker [label]="'Calendar'"
+                                     [calCode]="epnlSettings.calCode"
+                                     (calendarChanged)="onCalendarChanged($event)">
+                </app-calendar-picker>
+            </div>
+            <div class="epnl-settings-property-container">
+                <aux-checkbox [label]="'Show summary report only'"
+                              [isChecked]="epnlSettings?.enableBirtSummary"
+                              (checkboxChanged)="updateEnableBirtSummaryValue($event)">
+                </aux-checkbox>
+            </div>
+            <div class="epnl-settings-property-container">
+                <aux-checkbox [label]="'Show PRAADA data links'"
+                              [isChecked]="epnlSettings?.enableHideLinks"
+                              (checkboxChanged)="updateEnableHideLinksValue($event)">
+                </aux-checkbox>
+            </div>
+        </div>
+    </div>
+</div>

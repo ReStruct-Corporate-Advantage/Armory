@@ -1,0 +1,44 @@
+@use "sass:math";
+@function calculatePopoverRem($size) {
+    $remSize: math.div($size, 16px);
+    @return #{$remSize}rem;
+}
+
+.additional-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.scenario-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.scenario-padding {
+    padding: 0.5rem;
+}
+
+.scenario-border {
+    border-bottom: 1px solid var(--option-group__border-color);
+}
+
+.custom-popover-container {
+    width: calculatePopoverRem(300px);
+}
+
+.scenario-header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.scenario-end-border {
+    height: 2px;
+    margin: 0;
+    border: 0;
+    background-color: var(--option-group__border-color);
+}

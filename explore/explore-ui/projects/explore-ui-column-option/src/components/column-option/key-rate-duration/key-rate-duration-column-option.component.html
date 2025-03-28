@@ -1,0 +1,27 @@
+<div class="krd-checkbox">
+    <aux-checkbox label="Enable buckets" [isChecked]="optionValue.enableBuckets" (checkboxChanged)="onCheckboxChanged($event)">
+    </aux-checkbox>
+</div>
+<div class="krd-buckets-container">
+    <table style="border-spacing: 0;">
+        <thead>
+            <tr>
+                <th>KRD Column</th>
+                <th style="text-align: left; padding-left: 32px;">Bucket Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bucket of krdBuckets">
+                <td>
+                    <label>{{bucket.name}}</label> 
+                </td>
+                <td style="padding-left: 32px;">
+                    <aux-text-input value="{{bucket.bucketName}}" 
+                                    [isDisabled]="!optionValue.enableBuckets"
+                                    (valueChanged)="updateBucketName($event, bucket)">
+                    </aux-text-input>
+                </td>
+            </tr>
+        </tbody>
+    </table>     
+</div>

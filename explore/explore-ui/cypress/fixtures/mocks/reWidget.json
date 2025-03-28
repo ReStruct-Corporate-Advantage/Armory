@@ -1,0 +1,211 @@
+{
+  "configType": "riskExposure",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "Risk and Exposure Widget: View granular data.",
+  "title": "Risk and exposure",
+  "image": "./assets/images/riskExposureWidget.png",
+  "chartingLib": "agGrid",
+  "showInSelector": true,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "restrictedColumnOptions": {
+    "sections": [
+      "chartType"
+    ]
+  },
+  "showOnlySingleColumn": false,
+  "createNestedNoneBuckets": false,
+  "createNestedOtherBuckets": false,
+  "isEligibleForLightLookthrough": true,
+  "chartTransition": [
+    "pie",
+    "bar",
+    "ts"
+  ],
+  "canHaveMultipleOverrideDates": true,
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "SINGLE_REPORT",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "reportTypes",
+              "value": "SINGLE"
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": "FACTOR_ATTRIBUTES"
+            },
+            {
+              "type": "!=",
+              "key": "praadaBreakdown",
+              "value": true
+            },
+            {
+              "type": "!=",
+              "key": "uses",
+              "value": "Excess"
+            },
+            {
+              "type": "!=",
+              "key": "groups",
+              "value": [
+                "Factor-Based",
+                "Scenario",
+                "GP Breakdown",
+                "Liquidity"
+              ]
+            },
+            {
+              "type": "=",
+              "key": "levelColumns",
+              "value": "undefined"
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "prism_solvency",
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            }
+          ],
+          "default": [
+            {
+              "columnTag": "security_description",
+              "positionColumnType": "ALL",
+              "columnKey": "security_description_1"
+            },
+            {
+              "columnTag": "cusip",
+              "positionColumnType": "ALL",
+              "columnKey": "cusip_0"
+            },
+            {
+              "columnTag": "pct_mv",
+              "positionColumnType": "PORT",
+              "columnKey": "pct_mv_1"
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnTag": "cusip",
+              "positionColumnType": "ALL",
+              "columnKey": "cusip_hidden"
+            },
+            {
+              "columnTag": "sec_group",
+              "positionColumnType": "ALL",
+              "columnKey": "sec_group_hidden"
+            },
+            {
+              "columnTag": "sec_type",
+              "positionColumnType": "ALL",
+              "columnKey": "sec_type_hidden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "breakdown",
+      "categoryTitle": "Breakdown",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "$ref": "defaultBreakdown"
+        },
+        {
+          "inputConfigType": "isLightLookthroughEnabled",
+          "inputName": "isLightLookthroughEnabled",
+          "inputTitle": "Enable Fund Characteristics View",
+          "hideTitle": true,
+          "default": false
+        }
+      ]
+    },
+    {
+      "$ref": "defaultFilter"
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Display Settings",
+      "inputs": [
+        {
+          "inputConfigType": "riskAndExposureAdditionalSettings",
+          "inputName": "riskAndExposureAdditionalSettings",
+          "inputTitle": "Aggregation",
+          "default": {
+            "benchmarkPositionAggregationType": "NONE",
+            "closedPositionAggregationType": "NONE",
+            "portfolioPositionAggregationType": "NONE"
+          },
+          "isOpen": true,
+          "ignoreNestedDataObject": true
+        },
+        {
+          "inputConfigType": "overrideDateSortByOldest",
+          "inputName": "overrideDateSortByOldest",
+          "inputTitle": "Date override sort order",
+          "default": {
+            "sortByOldest": false
+          },
+          "isOpen": true,
+          "ignoreNestedDataObject": true
+        },
+        {
+          "inputConfigType": "sectorLevelDataOnly",
+          "inputName": "sectorLevelDataOnly",
+          "inputTitle": "Security level data",
+          "default": false,
+          "isOpen": true,
+          "ignoreNestedDataObject": true
+        }
+      ]
+    },
+    {
+      "$ref": "defaultExpandedState"
+    },
+    {
+      "$ref": "defaultSortedColumns"
+    },
+    {
+      "categoryType": "portfolioOverrideInput",
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "portfolioOverrideInput",
+          "inputName": "portfolioOverrideInput",
+          "oldProps": [
+            "customInputs"
+          ]
+        }
+      ]
+    }
+  ],
+  "customCalculationColumn": {
+    "$ref": "customCalculationColumn"
+  },
+  "settingsThatCanUpdateWidgetTitle": [
+    "portfolioOverrideInput"
+  ],
+  "showTableSearch": true
+}

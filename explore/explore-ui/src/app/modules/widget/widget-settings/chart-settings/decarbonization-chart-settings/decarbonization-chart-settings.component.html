@@ -1,0 +1,138 @@
+<div class="decarbonization-chart-settings">
+    <div class="section">
+        <aux-button class="float-right model-overview-link"
+            [label]="'Decarbonization Model Overview'"
+            [type]="'tertiary'"
+            [size]="'regular'"
+            [isFocusable]="true"
+            [shouldToggleStateOnClick]="true"
+            (click)="openDecarbonizationModelOverview()"
+        ></aux-button>
+        <div class="section-header">Emissions</div>
+        <div class="select-width__245 inline-block margin-right__16">
+            <aux-learn-link [label]="'Emissions Metric'">
+                <div slot="content">There are two emissions metrics available projected until 2050:
+                    <ul>
+                        <li><b>EVIC Intensity</b>, which is the ratio of absolute emissions to Enterprise Value including Cash (EVIC).</li>
+                        <li><b>Revenue Intensity</b>, which is the ratio of absolute emissions to revenue.</li>
+                        <li><b>Intensity $/GDP</b>, which is only available to Sovereign Issuers. Represents the GHG intensity of GDP in units of Kg GHG emissions produced per dollar of GDP.</li>
+                        <li><b>Intensity $/GDP PPP</b>, which is only available to Sovereign Issuers. Represents the GHG intensity of GDP in units of Kg GHG emissions produced per dollar of GDP adjusted by Purchasing Power Parity.</li>
+                        <li><b>Intensity Per Capita</b>, which is only available to Sovereign Issuers. Represents the GHG intensity per capita; average tons of GHG emissions per person.</li>
+                        <li><b>Intensity $/Sov Debt</b>, which is only available to Sovereign Issuers. Represents the GHG intensity of sovereign debt in units of Kg GHG emissions produced per dollar of gross sovereign debt.</li>
+                        <li><b>Financed emissions</b>, which are calculated by taking the absolute emissions and multiplying them by the market value divided by the enterprise value including cash.</li>
+                    </ul>
+                </div>
+            </aux-learn-link>
+            <aux-select [data]="emissionsMetric" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateColTagOnEmissionMetricChange($event)">
+            </aux-select>
+        </div>
+
+        <div class="select-width__175 inline-block margin-right__16">
+            <div>Emissions Scope</div>
+            <aux-select *ngIf="!isSovsMetricsSelected" [data]="emissionsScope" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateColTagOnEmissionScopeChange($event)">
+            </aux-select>
+            <div *ngIf="isSovsMetricsSelected">
+                Scope 1
+            </div>
+        </div>
+
+        <div class="select-width__175 inline-block">
+            <aux-learn-link [label]="'Emissions Data Start Year'">
+                <div slot="content">
+                    Determines the emissions year against which the emissions reductions are measured.
+                </div>
+            </aux-learn-link>
+            <aux-select [data]="startYearOptions" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateTimeframe($event)">
+            </aux-select>
+        </div>
+        <div class="select-width__500 margin-top__12">
+            <div>Aggregation Method</div>
+            <aux-select [data]="aggregationMethodOptions" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateAggregationMethod($event)">
+            </aux-select>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Climate Scenario and Issuer Emission Targets</div>
+        <div class="select-width__380 inline-block margin-right__16">
+            <aux-learn-link [label]="'Climate Scenario'">
+                <div slot="content">
+                    There are three scenarios available for quantifying decarbonization and temperature alignment for corporate issuers:
+                    <ul>
+                        <li><b>NGFS Nationally Determined Contributions (NDCs)</b>: Slow technology change with small regional policies updates to those currently implemented based on NDCs,<br>
+                            resulting in high physical risks with global temperature rise approximately 2.6°C by 2100.</li>
+                        <li><b>NGFS Current Policies</b>: No additional policies beyond those are currently implemented, along with slow technology change, resulting in high physical risks<br>
+                            with global temperature rise of 3.2°C by 2100.</li>
+                        <li><b>Blended Scenario</b>: This scenario blends 3 NGFS scenarios (NDCs, Current Policies, and Below 2 Degrees). The primary determining factor for this approach is<br>
+                             the cost of abatement. While this scenario mainly aligns with the Nationally Determined Contributions (NDC), it incorporates the Below 2 Degree decarbonization<br>
+                             rate for the power sector and automotives. In this scenario, these two sectors are expected to decarbonize at a faster rate due to the relative affordability of<br>
+                             their abatement processes. Conversely, for industry related emissions in emerging markets (excluding China), we apply the Current Policy decarbonization rate.<br>
+                            Slower decarbonization reflects the combination of higher costs of abatement and the constrained fiscal capacity of emerging market economies.
+                        </li>
+                    </ul>
+                </div>
+            </aux-learn-link>
+            <aux-select [data]="scenarioTypeOptions" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateScenarioType($event)">
+            </aux-select>
+        </div>
+
+        <div *ngIf="!isSovsMetricsSelected" class="select-width__245 inline-block">
+            <aux-learn-link [label]="'Issuer Emission Targets'">
+                <div slot="content">
+                    Temperature outcomes can be evaluated with emission reduction targets applied, not applied, and with credibility adjustment. This ability allows users to assess the<br>
+                    relative climate performance of an issuer. Issuer targets are sourced from Science Based Targets initiative (SBTi), Carbon Disclosure Project (CDP) and company<br>
+                    reports. Emissions commitments are assessed using the Credibility Framework described by GFANZ, to the extent feasible. The credibility weighting is applied when<br>
+                    projecting firm emissions. A lower credibility score results in a reduced weighting of the commitment when projecting corporate decarbonization.<br>
+                </div>
+            </aux-learn-link>
+            <aux-select [data]="targetTypeOptions" [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateTargetsTypes($event)">
+            </aux-select>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">Set Portfolio Targets</div>
+        <div>
+            Set up to two emissions reduction targets to compare to the forward-looking decarbonization analytics.
+        </div>
+        <div class="display-flex section" *ngFor="let target of portfolioTargets; let i = index;">
+            <div class="margin-right__16 padding-top__35">{{target.label}}</div>
+            <div class="margin-right__16 reduction-input">
+                <aux-text-input label="Reduction %"
+                                [value]="target.reductionPercent"
+                                suffixLabel="%"
+                                type="number"
+                                (valueChanged)="reductionTargetValueChanged($event, i)"
+                                >
+                </aux-text-input>
+            </div>
+            <div class="margin-right__16">
+                <span class="float-right">Target Year</span>
+                <aux-slider
+                    [minValue]="yearSliderMin"
+                    [maxValue]="yearSliderMax"
+                    [value]="target.targetYear"
+                    [rangeStartValue]="target.startYear"
+                    [step]="1"
+                    label="Start Year"
+                    size="regular"
+                    hasDetents="true"
+                    [type]="'range'"
+                    (sliderValueChanged)="onTargetYearChange($event, i)"
+                    (rangeStartValueChanged)="onStartYearChange($event, i)"
+                >
+                </aux-slider>
+            </div>
+            <aux-button *ngIf="target.showDeleteButton" class="padding-top__35" (click)="deletePortfolioTarget(i)" type="tertiary-subtle" icon="delete"></aux-button>
+        </div>
+    </div>
+    <div class="section" *ngIf="portfolioTargets.length < 2">
+        <aux-button label="+ Add Target" type="secondary" (click)="addPortfolioTarget()"></aux-button>
+    </div>
+</div>

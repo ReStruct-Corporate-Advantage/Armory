@@ -1,0 +1,11 @@
+<table *ngIf="summaryValueList?.length">
+    <tr *ngFor="let title of summaryLabelList; let i = index;">
+        <td>
+            <div class="table-cell">{{title}}</div>
+        </td>
+        <td>
+            <div class="table-cell">{{summaryValueList[i]}}</div>
+        </td>
+    </tr>
+</table>
+

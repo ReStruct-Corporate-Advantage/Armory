@@ -1,0 +1,44 @@
+<div class="scenario-search">
+    <aux-search-field
+            placeholder="Search scenarios"
+            [hasAdvancedSearch]="false"
+            [hasSelectAll]="false"
+            [size]="'small'"
+            (searchValueChanged)="onSearchValueChanged($event)">
+    </aux-search-field>
+</div>
+<div class="modify-scenarios">
+    <ng-container *ngIf="!disableCreateScenarioButton">
+        <aux-button class="create-button"
+                    [label]="'Create Scenario'"
+                    [type]="'tertiary'"
+                    [size]="'small'"
+                    (click)="onCreateScenarioClicked()">
+        </aux-button>
+    </ng-container>
+    <aux-button
+                [label]="addScenarioLabel"
+                [type]="'primary'"
+                [size]="'small'"
+                [isDisabled]="newSelectedScenariosCount <= 0"
+                (click)="onAddScenariosClicked()">
+    </aux-button>
+</div>
+
+<div class="set-grid-size">
+    <aux-grid class="scenarios-table"
+              [fontSize]="'normal'"
+              [paddingSize]="'normal'"
+              [gridOptions]="gridOptions"
+              [overrides]="{ isZebra: false}">
+    </aux-grid>
+</div>
+
+<div class="padding-top-16">
+    <explore-core-date-picker [label]="'User defined scenario lookback'"
+                              [dateObject]="lookBackDate"
+                              [isLeftLabel]="false"
+                              [closeCalendarOnBlur]="false"
+                              (dateChange)="onDateChange($event)">
+    </explore-core-date-picker>
+</div>

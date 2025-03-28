@@ -1,0 +1,39 @@
+
+{
+  "inputCategories": [
+    {
+      "$ref": "returnSpriteletColumns"
+    },
+    {
+      "$ref": "returnSpriteletInput"
+    },
+    {
+      "$ref": "showAsChartInputDefaultChart"
+    },
+    {
+      "visible": false,
+      "categoryType": "chartSettings",
+      "inputs": [
+        {
+          "inputConfigType": "chartSettings",
+          "inputName": "chartSettings",
+          "default": {
+            "legendShow": true,
+            "labelShow": false
+          }
+        }
+      ]
+    }
+  ],
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "chartingLib": "agGrid",
+  "tokenToCheck": "enablePerfAttr",
+  "userPermToCheck": "perfDataPerms"
+}

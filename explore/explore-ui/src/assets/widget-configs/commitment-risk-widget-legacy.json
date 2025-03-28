@@ -1,0 +1,42 @@
+{
+  "configType": "commitmentRiskWidget",
+  "size": {
+    "height": 8,
+    "width": 16
+  },
+  "description": "The Commitment Risk Widget allows users to see simulated projections from the Aladdin Commitment Risk model across a range of different percentiles. You can also see summary statistics that describe cash flow projections.",
+  "title": "Commitment Risk (Legacy)",
+  "image": ".\/assets\/images\/commitment-risk-legacy.png",
+  "showOnlySingleColumn": false,
+  "showInSelector": false,
+  "tokenToCheck": "enableCommitmentRisk",
+  "inputCategories": [
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Settings",
+      "inputs": [
+        {
+          "inputConfigType": "commitmentHorizon",
+          "inputName": "commitmentHorizon",
+          "inputTitle": "Time Horizon",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "$ref": "defaultColumnState"
+    },
+    {
+      "$ref": "defaultExpandedState"
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "highlight",
+      "aggregation",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "agGrid"
+}

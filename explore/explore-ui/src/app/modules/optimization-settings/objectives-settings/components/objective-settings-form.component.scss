@@ -1,0 +1,25 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.objective-settings-form {
+    display: flex;
+    flex-direction: row;
+    padding: aux-variables.$aux-spacing-02 aux-variables.$aux-spacing-04;
+    min-height: aux-variables.$aux-spacing-08;
+
+    .objective-control {
+        margin: aux-variables.$aux-spacing-02 0;
+    }
+
+    .margin-left-0 {
+        margin-left: 0rem;
+    }
+
+    .margin-left-1 {
+        margin-left: 1rem;
+    }
+
+    .edit-icon {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+}

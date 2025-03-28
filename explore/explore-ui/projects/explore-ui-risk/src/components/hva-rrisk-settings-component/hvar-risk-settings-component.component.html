@@ -1,0 +1,220 @@
+<div class="conf-level-div">
+    <div class="flex-container-1">
+        <div class="flex-container-1 conf-div">
+            <div class="conf-level">
+                <aux-text-input [label]="LABEL.CONFIDENCE_LEVEL" textAlign="right" suffixLabel="%"
+                                maxLength="7" type="currency"
+                                [value]="confidenceLevelPercentage"
+                                [validator]="validator"
+                                (inputBlur)="onConfidenceLevelPercentChanged($event)">
+                </aux-text-input>
+            </div>
+            <div style="padding: 30px 10px 0 10px;">
+                OR
+            </div>
+            <div class="conf-level">
+                <aux-text-input #hvarSigmaValue textAlign="right" suffixLabel="σ" label="&nbsp;" maxLength="8" type="currency"
+                                [value]="confidenceLevelSD"
+                                [validator]="validator"
+                                (inputBlur)="onConfidenceLevelSDChanged($event)">
+                </aux-text-input>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div class="tooltip-radio-container">
+                <div class="control-header">
+                    <span class="radio-header">Return Horizon</span>
+                    <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                        <aux-button
+                                type="tertiary"
+                                icon="help-subtle"
+                                assistiveText="Button"
+                                slot="target">
+                        </aux-button>
+                        <div slot="content" class="custom-popover-container">The <strong>Return Horizon</strong> works in conjunction with the <strong>Window Length</strong> to set the number of return periods used to calculate HVaR.<br/>
+                            If a horizon of 10 days is set over a 2,520 day window length, then 252 10-day return observations will be used to calculate the HVaR.<br/>
+                            For a return horizon of <strong>1 Rolling Week</strong>, the analysis date less one week is used as the first return observation. As the analysis date evolves, so will the return period, and the same holds true for the <strong>1 Rolling Month</strong> option.</div>
+                    </aux-popover>
+                </div>
+                <aux-radio-group [data]="returnHorizons" (radioGroupChanged)="onReturnHorizonChanged($event.detail.value.eventData)">
+
+                </aux-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1" *ngIf="returnHorizonSelection === 'days'">
+        <div class="flex-container-1 padding-top-24">
+            <div class="conf-level">
+                <aux-numeric-stepper [label]="'Number of days'" [stepperValue]="numberOfDays"
+                    (valueChanged)="onNumberOfDaysChanged('numberOfDays', $event)" [minValue]="0"></aux-numeric-stepper>
+            </div>
+            <div class="conf-level" style="margin-left: 10px;">
+                <aux-numeric-stepper [label]="'Non-linear'" [stepperValue]="linear"
+                                     (valueChanged)="onNumberOfDaysChanged('linear', $event)" [minValue]="0"></aux-numeric-stepper>
+            </div>
+            <div class="daily-overlapping-observations">
+                <aux-checkbox [label]="'Daily overlapping observations'"
+                              [isChecked]="dailyOverlappingObservation"
+                              (checkboxChanged)="onDailyOverlappingObservationsChanged($event)"></aux-checkbox>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div>
+                <aux-radio-group class="stacked-label" [label]="'Window Length'" [data]="numberOfObservationOptions" (radioGroupChanged)="onNumberOfObservationsOptionChanges($event.detail.value.eventData)">
+                </aux-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1 padding-top-24" *ngIf="!isNumberOfObservationsSelected">
+        <explore-core-date-picker
+            [dateObject]="dateValueObject"
+            (dateChange)="onStartDateChange($event)"
+            [isLeftLabel]="false">
+        </explore-core-date-picker>
+    </div>
+    <div class="flex-container-1 padding-top-24"  *ngIf="isNumberOfObservationsSelected">
+        <aux-numeric-stepper
+            [step]="1"
+            [minValue]="0"
+            [maxValue]="9999"
+            [stepperValue]="noOfObservations"
+            (valueChanged)="onNumberOfObservationChange($event)"></aux-numeric-stepper>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div style="font-weight: bold">Risk Horizon</div>
+            <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                <aux-button
+                    type="tertiary"
+                    icon="help-subtle"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="custom-popover-container">
+                    When using longer return horizons such as monthly, it can be difficult to source a significant number of return observations.
+                    To overcome this, shorter return horizons can be scaled to longer observations using a square root of time multiplier.
+                    For example, to scale weekly returns to monthly returns, a value of 20 can be passed into this setting,
+                    thereby scaling the results by the square root of the ratio of 20 (days in a monthly return period) over 5 (days in a weekly return period).
+                    Ultimately, the number of days to scale up to would be provided in this box. Similarly, if the return horizon is set to 1 day, then the square root of 20 would be applied to the end result, as determined by taking the square root of the ratio between 20 days in a month and a 1 day return horizon.
+                </div>
+            </aux-popover>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1">
+            <div class="conf-level">
+                <aux-select label="" [data]="riskHorizons" (selectionChanged)="onRiskHorizonChange($event)"></aux-select>
+            </div>
+            <div class="conf-level" *ngIf="isOtherRiskHorizonSelected">
+                <aux-numeric-stepper label="" [step]="1" [minValue]="1" [stepperValue]="otherRiskHorizonValue" (valueChanged)="onOtherRiskHorizonValueChange($event)"></aux-numeric-stepper>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div>
+                <aux-checkbox-group [label]="'General'" [data]="generalCheckBoxes" (checkboxGroupChanged)="onGeneralCheckboxChanged($event)"></aux-checkbox-group>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div style="font-weight: bold">Volatility Scaling and EVT Settings</div>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="aux-select-line-item">
+            <aux-select (selectionChanged)="onFactorScalingSelectionChanged($event)" [data]="factorScalingOptions" [hasInitialOptionPlaceholder]="false"></aux-select>
+        </div>
+        <div *ngIf="hvarRiskSettingsModel.doesValueExist(propertyList.FACTOR_SCALING)" class="factor-scaling-div">
+            <explore-risk-revert-risk-setting [riskSetting]="hvarRiskSettingsModel" [propertyName]="propertyList.FACTOR_SCALING" (resetHandler)="factorScalingReset()"></explore-risk-revert-risk-setting>
+        </div>
+    </div>
+
+
+    <div class="padding-top-24">
+        <aux-accordion [isBorderLess]="false" [isFreeMode]="true" [expandAll]="false">
+            <aux-accordion-expansion-panel header="Advanced Settings">
+                <div class="accordion-font" slot="content">
+                    <div>
+                        <div class="flex-container-1">
+                            <div class="flex-container-1 padding-top-24">
+                                <div style="font-weight: bold">Confidence Interval Scaling</div>
+                                <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                                    <aux-button
+                                        type="tertiary"
+                                        icon="help-subtle"
+                                        assistiveText="Button"
+                                        slot="target">
+                                    </aux-button>
+                                    <div slot="content" class="custom-popover-container">
+                                        Some regulations call for the use of a 99% or similarly high confidence interval HVaR. There may, however,
+                                        be relatively few incidences of a 99% loss event. To ensure that an appropriate amount of return observations are in scope for calculations,
+                                        a 95% confidence interval can be used with the end results scaled to a 99% confidence interval.
+                                    </div>
+                                </aux-popover>
+                            </div>
+                        </div>
+                        <div class="flex-container-1">
+                            <div class="control-header-with-tooltip conf-div">
+                                <aux-numeric-stepper size="regular" [step]="1" [defaultValue]="" [minValue]="confidenceLevelPercentage" [maxValue]="100"
+                                                     [stepperValue]="selectedConfidenceIntervalScaling" (valueChanged)="onConfidenceIntervalScalingChange($event)">
+
+                                </aux-numeric-stepper>
+                            </div>
+                        </div>
+                        <div class="flex-container-1">
+                            <div class="flex-container-1 conf-div padding-top-24">
+                                <div>
+                                    <aux-radio-group [label]="'Historical Return Decay'" [data]="historicalReturnDecay"
+                                                     (radioGroupChanged)="onHistoricalReturnDecayChanged($event.detail.value.eventData)">
+
+                                    </aux-radio-group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container-1" *ngIf="historicalReturnDecaySelection === 'HalfLife'">
+                            <div class="flex-container-1 conf-div padding-top-24">
+                                <div class="conf-level">
+                                    <label style="font-weight: bold;">Half Life</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-container-1" *ngIf="historicalReturnDecaySelection === 'HalfLife'">
+                            <div class="flex-container-1 conf-div">
+                                <div class="conf-level">
+                                    <aux-text-input #halflifeindays textAlign="right" maxLength="4" type="currency"
+                                                    [value]="halfLifeInDays"
+                                                    (inputBlur)="onHalfLifeChanged($event)"
+                                                    [validator]="validator"
+                                                    [label]="'Days'">
+                                    </aux-text-input>
+                                </div>
+                                <div style="padding: 30px 10px 0 10px;">
+                                    OR
+                                </div>
+                                <div>
+                                    <aux-text-input #decayfactor textAlign="right" suffixLabel="σ" label="Decay" maxLength="4"
+                                                    type="currency"
+                                                    [validator]="validator"
+                                                    [value]="decayFactor"
+                                                    (inputBlur)="onDecayChanged($event)">
+                                    </aux-text-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aux-accordion-expansion-panel>
+        </aux-accordion>
+    </div>
+</div>

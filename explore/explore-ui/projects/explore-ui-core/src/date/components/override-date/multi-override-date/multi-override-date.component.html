@@ -1,0 +1,73 @@
+<div [ngClass]="calledFromFactorDataWidget ? 'align-elements' : 'multi-override-date-frequency-selector'">
+    <aux-select label="Frequency"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="supportedMultiOverrideDateTypeOptions"
+                (selectionChanged)="onFrequencySelectionChanged($event)">
+    </aux-select>
+    <div class="multi-override-type-selection-radio-group" *ngIf="!calledFromFactorDataWidget">
+        <aux-radio-group [data]="overrideTypeOptions"
+                         (radioGroupChanged)="onOverrideTypeOptionChanged($event.detail.value)">
+        </aux-radio-group>
+    </div>
+</div>
+
+<div class="multi-override-date-custom-range padding-top-16" *ngIf="this.selectedOverrideType === overrideTypeOptionsEnum.BY_DATE; else loadWhenOverrideTypeIsFixed">
+    <div class="date-range-picker-label">Range</div>
+    <explore-core-date-range-picker [fromDate]="startDate"
+                                    [toDate]="endDate"
+                                    (dateRangeChange)="onDateChanged()">
+    </explore-core-date-range-picker>
+    <div class="multi-override-date-shortcuts padding-top-8">
+        <aux-learn-link [label]="'Relative date shortcuts'" [header]="'Relative date shortcuts'">
+            <div class="multi-override-date-shortcuts-content" slot="content">
+                <ul class="date-shortcut-list">
+                    <li *ngFor="let data of dateShortcuts">
+                        {{ data.key }} - {{ data.value }}
+                    </li>
+                </ul>
+            </div>
+        </aux-learn-link>
+    </div>
+</div>
+<ng-template #loadWhenOverrideTypeIsFixed>
+    <div *ngIf="!calledFromFactorDataWidget; else factorDataVersion">
+        <div class="multi-override-date-fixed-observations padding-top-16">
+            <span class="padding-right-12">Show last</span>
+            <aux-numeric-stepper [stepperValue]="multiOverrideDateSettings.numberOfObservations"
+                                 minValue="2"
+                                 [maxValue]="maxNumberOfPeriods"
+                                 [isLeftLabel]="!calledFromFactorDataWidget"
+                                 (valueChanged)="onNumberOfObservationsChanged($event)"
+                                 (inputBlur)="onNumberOfObservationsValueChange($event)">
+            </aux-numeric-stepper>
+            <span class="padding-left-12">{{selectedFrequency[this.multiOverrideDateSettings.multiOverrideDateTypeFrequency]}}</span>
+        </div>
+    </div>
+    <ng-template #factorDataVersion>
+        <div class="for-aux-stepper align-elements">
+            <aux-numeric-stepper [stepperValue]="multiOverrideDateSettings.numberOfObservations"
+                                 minValue="2"
+                                 [maxValue]="maxNumberOfPeriods"
+                                 [isLeftLabel]="!calledFromFactorDataWidget"
+                                 [label]="'# of periods'"
+                                 (valueChanged)="onNumberOfObservationsChanged($event)"
+                                 (inputBlur)="onNumberOfObservationsValueChange($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-template>
+    <aux-checkbox *ngIf="showAppendReportDateCheckbox()"
+                  class="padding-left-1-rem"
+                  label="Include report date"
+                  [isChecked]="multiOverrideDateSettings.appendReportDate"
+                  (checkboxChanged)="onAppendReportDate($event)">
+    </aux-checkbox>
+</ng-template>
+<ng-container *ngIf="showMaxNumberOfPeriodsOverriddenNotification">
+    <aux-notification-group
+        [openOnLoad]="true"
+        [type]="'toast'"
+        [politeness]="'polite'"
+        [config]="notificationToastConfig"
+        (notificationClosed)="onNotificationClosed()">
+    </aux-notification-group>
+</ng-container>

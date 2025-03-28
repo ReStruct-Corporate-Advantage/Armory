@@ -1,0 +1,63 @@
+.modelling-category-caption {
+    padding: 16px 16px 12px 16px;
+    font-weight: bold;
+    color: var(--primary-text__color);
+}
+
+.what-if-model-caption {
+    padding: 16px 16px 0 16px;
+    font-weight: bold;
+    color: var(--primary-text__color);
+}
+
+.custom-port-flex {
+    display: flex;
+}
+
+.custom-port-padding {
+    padding: 1rem;
+    width: 50%;
+}
+
+.flex-display-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-display-div {
+    display: flex;
+    flex: 1
+}
+
+.modelling-category-div-value-outer {
+    margin-bottom: 16px;
+    display: flex;
+
+    .modelling-category-div-value {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+
+        .modelling-label {
+            padding-bottom: 12px;
+            font-weight: bold;
+            text-align: center;
+            color: var(--primary-text__color);
+        }
+
+        .modelling-tool-tip {
+            flex: 1;
+            padding-bottom: 16px;
+            text-align: center;
+            color: var(--primary-text__color);
+        }
+
+        .modelling-select {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+
+.flex-take-remaining-space {
+    flex: 1;
+}

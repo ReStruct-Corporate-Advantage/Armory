@@ -1,0 +1,21 @@
+#!/usr/bin/env groovy
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\
+ *                                                                                     *
+ *  The file is closed for changes                                                     *
+ *                                                                                     *
+ *  It will trigger Jenkins to load the right pipeline for your project based on your  *
+ *  configuration in the Software Toolbox                                              *
+ *                                                                                     *
+ *                   _________ .___      /\ _________ ________                         *
+ *                   \_   ___ \|   |    / / \_   ___ \\______ \                        *
+ *                   /    \  \/|   |   / /  /    \  \/ |    |  \                       *
+ *                   \     \___|   |  / /   \     \____|    `   \                      *
+ *                    \______  /___| / /     \______  /_______  /                      *
+ *                           \/      \/             \/        \/                       *
+ *                                                                                     *
+ *  For more information please check: https://webster.bfm.com/Wiki/display/cicd/      *
+ *                                                                                     *
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+bootstrap.build()

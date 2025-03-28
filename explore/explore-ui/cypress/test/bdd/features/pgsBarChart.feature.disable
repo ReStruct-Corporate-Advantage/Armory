@@ -1,0 +1,20 @@
+Feature: Validate bar chart spawned from PGS widget
+
+    Background:
+        Given PGS widget is added for any portfolio with default settings
+
+    Scenario: Validate bar chart at selected level opens on cell right click
+        When Right click on cell corresponding to a column
+        Then Bar chart should be displayed for the selected column
+
+    Scenario: Validate bar chart at selected row level opens on cell right click
+        When Right click on cell corresponding to a row
+        Then Bar chart should be displayed for all columns
+
+    Scenario: Validate bar chart at individual level opens on cell right click
+        When Right click on cell corresponding to a column on portfolio cell
+        Then Bar chart should be displayed for all column for selected level
+
+    Scenario: Validate bar chart at selected level opens on cell right click
+        When Right click on cell corresponding to a column on portfolio cell and open at individual level
+        Then Bar chart should be displayed for all columns for all individual portfolios

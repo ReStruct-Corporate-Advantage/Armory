@@ -1,0 +1,6 @@
+{
+  "portfolioSettingsTabs": ["Split Positions", "Look-Through", "Portfolio Filter", "Risk Settings", "Performance Settings"],
+  "splitSettingsAllOptions": ["Select all", "FX CSWAP", "FX FWRD", "FX HEDGE", "FX SPOT", "SWAP CSWAP", "OPTION CUROTC", "SWAP TRSWAP", "CCY FUTURE", "SPENDABLE CASH"],
+  "splitSettingsCheckedOptions": ["Select all", "FX CSWAP", "FX FWRD", "FX HEDGE", "FX SPOT", "SWAP CSWAP", "OPTION CUROTC", "SWAP TRSWAP"],
+  "lookthroughProxies": ["Funds", "ETFs", "Index futures", "Synthetic instruments", "CDX", "Equity private", "Bond forward", "Equity forward", "Equity option"]
+}

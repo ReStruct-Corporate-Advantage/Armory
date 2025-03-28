@@ -1,0 +1,14 @@
+<div class="constraint-option-filter">
+    <div class="filter-name">
+        <aux-text-input label="Filter Name" [value]="filterName$ | async" [isDisabled]="true">
+        </aux-text-input>
+    </div>
+    <div>
+        <aux-button icon="edit" label="Edit Filter" (click)="onEdited()"></aux-button>
+    </div>
+</div>
+<ng-container *ngIf="openModal">
+    <app-constraint-option-filter-modal [isOpen]="openModal" [filter]="filter$ | async" (submitted)="onSubmitted($event)"
+        (cancelled)="onCancelled()">
+    </app-constraint-option-filter-modal>
+</ng-container>

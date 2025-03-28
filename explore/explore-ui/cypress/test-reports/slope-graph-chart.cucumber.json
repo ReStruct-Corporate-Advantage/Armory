@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for Slope Graph",
+    "line": 1,
+    "id": "visual-comparison-tests-for-slope-graph",
+    "tags": [],
+    "uri": "slope-graph-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-slope-graph;validate-slope-graph--is-loading",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate slope Graph  is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Slope Graph\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6043000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26579000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"Slope Graph\" should be displayed, aligning with the snapshot \"slopegraph_default\"",
+            "result": {
+              "status": "failed",
+              "duration": 4745000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/slope-graph-chart.feature/__diff_output__/slopegraph_default.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+<div class="editable-custom-sector-column-rule">
+    <div class="rule-text">
+        <aux-select  #auxSelectColumnType
+                     class="type-dropdown"
+                     [maxDropdownHeight]="234"
+                     [size]="'regular'"
+                     [isValid]="true"
+                     [data]="columnFilters"
+                     [type]="'simple'"
+                     [hasInitialOptionPlaceholder]="false"
+                     [shouldCloseOverlays]="true"
+                     (selectionChanged)="onColumnTypeChanged($event)">
+        </aux-select>
+        <explore-sector-attribute-rule-operator [columnSelected]="selectedColumn"
+                                                [selectedOperator]="rule ? rule.comparisonType: null"
+                                                [isLookThroughRule]="true"
+                                                (operatorChanged)="onOperatorChanged($event)">
+        </explore-sector-attribute-rule-operator>
+        <div class="column-value-field-container">
+            <explore-sector-attribute-rule-text-field
+                [value]="initialColumnValue"
+                *ngIf="isTextColumn && !isStaticValueColumn"
+                (valueChange)="onColumnValueChanged($event)"
+                class="column-value-field">
+            </explore-sector-attribute-rule-text-field>
+            <explore-sector-attribute-rule-static-column-field
+                [value]="initialColumnValue"
+                [columnSelected]="selectedColumn"
+                (valueChange)="onColumnValueChanged($event)"
+                *ngIf="!isTextColumn && isStaticValueColumn"
+                class="column-value-field">
+            </explore-sector-attribute-rule-static-column-field>
+        </div>
+    </div>
+</div>

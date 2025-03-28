@@ -1,0 +1,11 @@
+<aux-modal [type]="'action'" [header]="'Scenario Selection'" [hasGreyContentArea]="false" [isOpen]="isOpen" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g16--cw-6 modal-content">
+        <explore-extended-stress-scenario-column-option [column]="column"
+                                                        [option]="option">
+        </explore-extended-stress-scenario-column-option>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Done'" [type]="'primary'" (click)="onDoneClicked()"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="closeModal(false)"></aux-button>
+    </div>
+</aux-modal>

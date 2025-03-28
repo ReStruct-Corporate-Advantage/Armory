@@ -1,0 +1,76 @@
+<div style="display: inline-block">
+    <aux-radio-group
+        label="Chart type"
+        [isStacked]="false"
+        [data]="factorDataModes"
+        (radioGroupChanged)="onFactorDataModeChanged($event)">
+    </aux-radio-group>
+</div>
+
+<div class="factor-options">
+    <aux-select
+        [data]="factorSelectOptions"
+        [hasInitialOptionPlaceholder]="false"
+        (selectionChanged)="onFactorSelectedOptionChanged($event)"
+        size="medium">
+    </aux-select>
+</div>
+
+<ng-container *ngIf="isTimeSeriesMode; else showRiskMatrixSettings">
+    <div>
+        <aux-card class="mode-settings"
+                  [borderPadding]="'0'"
+                  [hasBorder]="true"
+                  [isVerticallyExpanded]="false">
+            <div slot="content">
+                    <div class="plot">Time Series Plot Settings</div>
+                    <div class="margin-bottom-16">
+                        <app-time-series-chart-settings [widgetConfigInput]="FACTOR_CHART_SETTINGS_STORE.timeSeriesWidgetConfigInput"
+                                                        [inputs]="inputs"
+                                                        [widgetType]="widgetType">
+                        </app-time-series-chart-settings>
+                    </div>
+            </div>
+        </aux-card>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="(columnOptionsFetched && isFactorDataLoaded); else showSpinner">
+    <div [ngClass]="showAdditionalFactorSet ? 'layout-column-sets' : 'width-full'">
+        <app-factor-data-add-factors [columnType]="COLUMN_TYPE.COLUMNS"
+                                     [showToolTip]="showAdditionalFactorSet">
+        </app-factor-data-add-factors>
+
+        <app-factor-data-summary-table [columnType]="COLUMN_TYPE.COLUMNS">
+        </app-factor-data-summary-table>
+    </div>
+
+    <ng-container *ngIf="showAdditionalFactorSet">
+        <div class="layout-column-sets right-column-set">
+            <app-factor-data-add-factors [columnType]="COLUMN_TYPE.FACTOR_COMPARISON_COLUMNS">
+            </app-factor-data-add-factors>
+
+            <app-factor-data-summary-table [columnType]="COLUMN_TYPE.FACTOR_COMPARISON_COLUMNS">
+            </app-factor-data-summary-table>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-template #showSpinner>
+    <div class="loading-spinner-factor-chart-settings">
+        <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                size="large"
+                                type="loading" [loadingLabel]="'Loading Factors'">
+        </aux-progress-indicator>
+    </div>
+</ng-template>
+
+<ng-template #showRiskMatrixSettings>
+    <app-factor-data-risk-matrix-settings
+        [widgetConfigInput]="FACTOR_CHART_SETTINGS_STORE.riskMatrixWidgetConfigInput"
+        [inputs]="inputs"
+        [widgetType]="widgetType">
+    </app-factor-data-risk-matrix-settings>
+</ng-template>
+
+

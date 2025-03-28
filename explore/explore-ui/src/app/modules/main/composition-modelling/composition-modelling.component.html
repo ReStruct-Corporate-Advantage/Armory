@@ -1,0 +1,16 @@
+<div class="composition-modelling-div">
+    <ng-container *ngIf="isWhatIfPortfolio && portfolio.modellingType == null; else showModellingTable">
+        <app-modelling-types [modelingCategories]="modelingCategories"
+                             (setModellingTypeAtParent)="setModellingType($event)"></app-modelling-types>
+    </ng-container>
+
+    <ng-template #showModellingTable>
+        <app-modelling-table [portfolio]="portfolio" [compositionPayload]="compositionPayload"
+                             [showCompositionTable]="showCompositionTable"
+                             [disableResetButton]="disableResetButton"
+                             [disableProRataOption]="disableProRataOption"
+                             (refreshComposition)="callForRefreshComposition($event)"
+                             (resetComposition)="resetComposition()">
+        </app-modelling-table>
+    </ng-template>
+</div>

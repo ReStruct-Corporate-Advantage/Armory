@@ -1,0 +1,11 @@
+<div class="top-label">Show</div>
+<div class="padding-top-bottom__6">
+    <app-grid-lines-settings [widgetInput]="gridLines"></app-grid-lines-settings>
+</div>
+
+<div class="label">Drilldown type</div>
+<div class="padding-top-bottom__6">
+    <aux-radio-group name="inline" [data]="drilldownOptions" [isStacked]="true"
+                     (radioGroupChanged)="onRadioGroupChanged($event.detail.value)">
+    </aux-radio-group>
+</div>

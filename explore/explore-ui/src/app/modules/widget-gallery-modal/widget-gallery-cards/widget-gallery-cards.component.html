@@ -1,0 +1,44 @@
+<div class="aux-layout__wrapper-32">
+    <aux-card-group >
+        <aux-card *ngFor="let widget of widgets" class="card-horizontal-wrapper card-width"
+                  [ngClass]="chartWidget(widget) ? 'card-horizontal-wrapper-chart' : 'card-horizontal-wrapper-table'"
+                  [stackedType]="'horizontal'"
+                  [isVerticallyExpanded]="false"
+                  [isRadio]="false"
+                  [checkbox]="false"
+                  [assistiveText]="'Card'"
+        >
+            <div [slot]="'content'" class="card__content">
+                <div class= "card__content--header-container">
+                    <span class="card__content--title">
+                        {{widget.title}}
+                    </span>
+
+                    <div *ngIf= "showToastNotificationForWidget[widget.configType] else showAddButton" class = "card__content--toast-notification">
+                        <aux-notification-group
+                            [type]="'widget-inline'"
+                            [politeness]="'polite'"
+                            [openOnLoad]="false"
+                            [config]= "showErrorToast ? errorNotificationToastConfig : successNotificationToastConfig"
+                            [isCompact] ="true"
+                        ></aux-notification-group>
+                    </div>
+                    <ng-template #showAddButton>
+                    <div *ngIf="!showToastNotificationForWidget[widget.configType]" class="card__content--add-button">
+                        <aux-button [type]="'secondary'" [icon]="'add'" [size]="'small'" (click)="createWidget(widget)"></aux-button>
+                    </div>
+                    </ng-template>
+                </div>
+
+                <ng-container *ngIf="chartWidget(widget)">
+                    <img src="{{widget.image}}" alt="{{widget.title}}" class="card__content--image">
+                </ng-container>
+
+                <p class="card__content--paragraph" [ngClass]="{'no-image': !chartWidget(widget)}">
+                    {{widget.description}}
+                </p>
+                <aux-link class="card__content--more-button" [label]="'More>'" (click)="moreViewOn(widget)"></aux-link>
+            </div>
+        </aux-card>
+    </aux-card-group>
+</div>

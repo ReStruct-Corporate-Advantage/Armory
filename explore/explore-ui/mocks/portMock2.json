@@ -1,0 +1,100 @@
+{
+    "code": -1901,
+    "ticker": "LCRED5-10",
+    "fullName": "BBG Barc Credit 5-10 Yr Index",
+    "currency": "USD",
+    "asOfDate": "10-AUG-2017",
+    "historicalPerfFromDate": "07/31/2015",
+    "cusip": "B00429355",
+    "type": "INDEX",
+    "portfolioGroup": false,
+    "portfolios": null,
+    "compositePortfolio": false,
+    "indexWeights": null,
+    "portfolioDefaults": {
+        "calendar": "GreenPkg"
+    },
+    "benchmarks": [
+        {
+            "order": 1,
+            "name": "LCRD5-10FW",
+            "type": "RISK",
+            "portfolio": null
+        }
+    ],
+    "timePeriods": [
+        {
+            "Value": "DTD",
+            "interval": "Day",
+            "maxPeriods": 10,
+            "type": "To Date"
+        },
+        {
+            "Value": "WTD",
+            "interval": "Week",
+            "maxPeriods": 1,
+            "type": "To Date"
+        },
+        {
+            "Value": "MTD",
+            "interval": "Month",
+            "maxPeriods": 25,
+            "type": "To Date"
+        },
+        {
+            "Value": "QTD",
+            "interval": "Quarter",
+            "maxPeriods": 8,
+            "type": "To Date"
+        },
+        {
+            "Value": "YTD",
+            "interval": "Year",
+            "maxPeriods": 2,
+            "type": "To Date"
+        },
+        {
+            "Value": "Days",
+            "interval": "Day",
+            "maxPeriods": 741,
+            "type": "Rolling"
+        },
+        {
+            "Value": "Weeks",
+            "interval": "Week",
+            "maxPeriods": 105,
+            "type": "Rolling"
+        },
+        {
+            "Value": "Months",
+            "interval": "Month",
+            "maxPeriods": 25,
+            "type": "Rolling"
+        },
+        {
+            "Value": "Quarters",
+            "interval": "Quarter",
+            "maxPeriods": 8,
+            "type": "Rolling"
+        },
+        {
+            "Value": "Years",
+            "interval": "Year",
+            "maxPeriods": 2,
+            "type": "Rolling"
+        },
+        {
+            "Value": "CUSTOM",
+            "interval": null,
+            "maxPeriods": 1,
+            "type": "Custom"
+        }
+    ],
+    "assetType": null,
+    "mandate": {
+        "value": "",
+        "label": "",
+        "mandateType": ""
+    },
+    "constituentsViewAllowed": true
+}

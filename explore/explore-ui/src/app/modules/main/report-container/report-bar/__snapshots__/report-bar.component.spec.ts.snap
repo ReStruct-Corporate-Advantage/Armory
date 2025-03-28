@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportBarComponent onInit Test should match snapshot 1`] = `
+<div
+  class="report-bar-area"
+>
+  <div
+    class="report-bar-text-area"
+  >
+    
+    <div
+      class="widget-selector"
+    >
+      <aux-button
+        icon="add"
+        label="Widget"
+        slot="target"
+      />
+    </div>
+    <aux-button
+      class="paste-widget-button"
+      label="Paste Widget"
+    />
+    
+  </div>
+  <div
+    class="widget-option"
+  >
+    
+    
+    <div
+      class="option-separator"
+    >
+      <app-export-menu
+        style="display: inline-block;"
+      />
+    </div>
+    <aux-button
+      class="widget-option-item"
+    />
+    <aux-inline-menu
+      class="report-bar-menu"
+      overrideplacement="bottomLeft"
+      trigger="pressed"
+    >
+      <aux-button
+        slot="target"
+      />
+    </aux-inline-menu>
+  </div>
+</div>
+`;

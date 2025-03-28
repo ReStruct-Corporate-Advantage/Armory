@@ -1,0 +1,24 @@
+
+.popover {
+    padding: 1rem;
+    &:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+    width: 300px;
+}
+
+.header {
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content {
+    padding: 13px 0 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

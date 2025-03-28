@@ -1,0 +1,30 @@
+<div>
+    <aux-radio-group
+        isStacked="false"
+        [data]="securitySelectionOptions"
+        (radioGroupChanged)="onOptionChanged($event)"></aux-radio-group>
+    <ng-container *ngIf="selectedSubSection === 0">
+        <div class = "top-padding-20">
+            <app-constraint-option-select [options]="selectOptions"
+                                          (updated)="onUpdated($event)"></app-constraint-option-select>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="selectedSubSection === 1">
+        <div class = "top-padding-20">
+            <app-constraint-option-filter [portFilter]="portFilter"
+                                          (portFilterUpdated)="updatePortFilter($event)"></app-constraint-option-filter>
+        </div>
+    </ng-container>
+    <div [ngClass]="{'disable-security-search' : selectedSubSection !== 2}">
+        <div
+            [ngClass]="{'search-with-grid': selectedSecurities?.size > 0, 'search-without-grid': selectedSecurities?.size === 0}">
+            <app-security-search #securitySearchComp
+                                 [selectedSecurities]="selectedSecurities"
+                                 [hideModellingColumn]="true"
+                                 tableSize="small"
+                                 [createFromScratch]="true"
+                                 (changeInSelectedSecurities)="updateSecurities()">
+            </app-security-search>
+        </div>
+    </div>
+</div>

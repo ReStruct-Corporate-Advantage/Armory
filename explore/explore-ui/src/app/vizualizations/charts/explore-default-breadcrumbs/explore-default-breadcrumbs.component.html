@@ -1,0 +1,23 @@
+<div class="multi-measure-breadcrumbs-area">
+    <span class="inline-item">
+        <ng-container *ngIf="measures.length > 1; else singleMeasure">
+            <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                <a slot="target">Column Measures</a>
+                <div class="aux-bold" slot="content">
+                    <ng-container *ngFor="let measure of measures">
+                        {{measure.columnTitle}}<br>
+                    </ng-container>
+                </div>
+            </aux-popover>
+        </ng-container>
+        <ng-template #singleMeasure>
+            {{measures[0]?.columnTitle}}
+        </ng-template>
+    </span>
+    <ng-container *ngIf="measures[0]">
+        &nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
+    </ng-container>
+    <ng-container *ngIf="breakdown?.children[0] as firstLevelBreakdown">
+        {{firstLevelBreakdown.getTitle()}}
+    </ng-container>
+</div>

@@ -1,0 +1,138 @@
+<div class="aux-layout__wrapper-32">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-popover trigger="pressed" header="Monte Carlo VaR settings" [hasCloseIcon]="true">
+                <aux-link slot="target" label="Learn more about Monte Carlo VaR Settings"></aux-link>
+                <div slot="content">
+                    <label>Here is some information on MCVaR settings and a way to get to more info.</label>
+                    <aux-link label="More Monte Carlo VaR" href="../../{{docUrl}}" [target]="'_blank'"></aux-link>
+                </div>
+            </aux-popover>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;">
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+        <div class="flex-container-1 padding-top-24">
+            <aux-select label="Distribution type" [data]="distributionTypeSelectOptionGroup" (selectionChanged)="onDistributionTypeSelectionChange($event)"></aux-select>
+        </div>
+    </div>
+    <div class="aux-g32--xs-8 aux-g32--sm-8 aux-g32--md-8 aux-g32--lg-8 aux-g32--xl-8">
+        <div class="aux-layout__wrapper-32" style="padding-left: 0!important;">
+            <div class="aux-g32--xs-6 aux-g32--sm-6 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6" style="margin: 0!important;">
+                <div class="flex-container-1 padding-top-24">
+                    <div class="aux-text-input__container">
+                        <div class="aux-text-input-wrapper__label">
+                            <div class="aux-text-input__label">Samples</div>
+                        </div>
+                        <div>
+                            <div class="aux-text-input__inner-section">
+                                <div class="aux-text-input aux__mouse-focus">
+                                    <div class="aux-clear-icon__container" data-aux-clear-icon-visible="undefined">
+                                        <input minlength="1" maxlength="6" type="number" step="1" [value]="samples"
+                                               class="aux-text-input__input" data-aux-size="regular"
+                                               style="text-align: left;" (keyup)="onSamplesValueChange($event)"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div aria-live="polite"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="aux-g32--xs-6 aux-g32--sm-6 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6">
+                <div class="flex-container-1 padding-top-24">
+                    <aux-numeric-stepper label="Seed" [minValue]="0" [stepperValue]="seed" (valueChanged)="onSeedValueChange($event)"></aux-numeric-stepper>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" *ngIf="shouldShowDegreesOfFreedom()" style="margin-left: 0;">
+    <div class="aux-g32--xs-4 aux-g32--sm-5 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6">
+        <div class="flex-container-1 padding-top-24">
+            <aux-numeric-stepper label="Degrees of freedom" [minValue]="4" [stepperValue]="degreesOfFreedom" (valueChanged)="onDegreesOfFreedomChanged($event)"></aux-numeric-stepper>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;" *ngIf="!isItColumnLevelRiskSettings">
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+        <div class="flex-container-1 padding-top-24">
+            <aux-select label="Pricing type" [data]="pricingTypeSelectOptionGroup" (selectionChanged)="onPricingTypeOptionChange($event)"></aux-select>
+        </div>
+    </div>
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-2">
+        <div class="flex-container-1" style="padding-top: 3.5rem;">
+            <aux-checkbox label="Include time return" [isChecked]="includeTimeReturn" (checkboxChanged)="onIncludeTimeReturnChange($event)"></aux-checkbox>
+        </div>
+    </div>
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+        <div class="flex-container-1 padding-top-24">
+            <aux-select label="Idiosyncratic correlation" [data]="idioCalculationSelectOptionGroup" (selectionChanged)="onIdioSyncraticCorrelationOptionChange($event)"></aux-select>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;" *ngIf="isItColumnLevelRiskSettings">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-select label="Pricing type" [data]="pricingTypeSelectOptionGroup" (selectionChanged)="onPricingTypeOptionChange($event)"></aux-select>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;" *ngIf="isItColumnLevelRiskSettings">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1" style="padding-top: 1.5rem;">
+            <aux-checkbox label="Include time return" [isChecked]="includeTimeReturn" (checkboxChanged)="onIncludeTimeReturnChange($event)"></aux-checkbox>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;" *ngIf="isItColumnLevelRiskSettings">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-select label="Idiosyncratic correlation" [data]="idioCalculationSelectOptionGroup" (selectionChanged)="onIdioSyncraticCorrelationOptionChange($event)"></aux-select>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;" *ngIf="widgetType !== 'pgsWidget'">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-checkbox label="Use importance sampling" [isChecked]="useImportanceSampling" (checkboxChanged)="onUseImportanceSamplingChange($event)"></aux-checkbox>
+        </div>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-value-pair label="Confidence Level" [data]="confidenceLevelValuePair" isPipeLess="true" labelPosition="left" isBold="true"></aux-value-pair>
+        </div>
+    </div>
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <label class="aux-secondary">
+            <small>As defined by the Confidence Level selection from the Risk settings section</small>
+        </label>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-value-pair label="Return horizon" [value]="returnHorizonValue" isPipeLess="true" labelPosition="left" isBold="true"></aux-value-pair>
+        </div>
+    </div>
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <label class="aux-secondary">
+            <small>As defined in Weighting scheme in Risk section > As defined by the Period associated with the Weighting Scheme from the Risk settings section</small>
+        </label>
+    </div>
+</div>
+<div class="aux-layout__wrapper-32" style="margin-left: 0;">
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <div class="flex-container-1 padding-top-24">
+            <aux-value-pair label="Risk horizon" [value]="riskHorizonValue" isPipeLess="true" labelPosition="left" isBold="true"></aux-value-pair>
+        </div>
+    </div>
+    <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+        <label class="aux-secondary">
+            <small>As defined by the Risk Horizon from the Risk settings section</small>
+        </label>
+    </div>
+</div>

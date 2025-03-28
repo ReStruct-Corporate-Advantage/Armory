@@ -1,0 +1,11 @@
+<div class="horizon year">
+    <aux-checkbox-group
+        [label]="'Time Horizons'"
+        [data]="horizonYearSelection"
+        size="regular"
+        isStacked="true"
+        [isValid]="isValid"
+        (checkboxGroupChanged)="onCheckboxGroupChanged($event)"
+        [errorMessage]="ERROR_MESSAGE"
+    ></aux-checkbox-group>
+</div>

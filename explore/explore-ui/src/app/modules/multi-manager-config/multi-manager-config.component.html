@@ -1,0 +1,100 @@
+<div class="multi-manager-top-div">
+    <div class="aux-layout__wrapper-32">
+        <div class="aux-g32--xs-10 aux-g32--sm-10 aux-g32--md-10 aux-g32--lg-10 aux-g32--xl-10">
+            <ng-container *ngIf="isArrangeByPortAttributesEnabled">
+                <aux-radio-group label="Arrange by"
+                                 [isHeaderBold]="true"
+                                 [data]="arrangeByOptions"
+                                 (radioGroupChanged)="onArrangeByChanged($event)"
+                ></aux-radio-group>
+            </ng-container>
+            <ng-container *ngIf="!isArrangeByPortAttributesEnabled">
+                <div style="color: var(--secondary-text__color)">{{ isArrangeByPortAttributesEnabled ? "Select to arrange by Portfolio Tree or Portfolio attributes then e" : "E" }}nter decision benchmarks at each decision point {{ isArrangeByPortAttributesEnabled ? "" : "of the portfolio tree"}} below.</div>
+            </ng-container>
+        </div>
+        <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2">
+            <div class="refresh-clear-all-inner-div">
+                <div class="refresh-div">
+                    <aux-button type="tertiary"
+                                label="Refresh"
+                                (click)="sendRequestForPortTree(widget, $event)">
+                    </aux-button>
+                </div>
+                <div style="padding-left: 8px">
+                    <aux-button type="tertiary"
+                                label=" Clear All"
+                                (click)="clearAll()">
+                    </aux-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="isArrangeByPortAttributesEnabled">
+        <div class="arrange-by-instruction">Select to arrange by Portfolio Tree or Portfolio attributes then enter decision benchmarks at each decision point below.</div>
+    </ng-container>
+    <ng-container *ngIf="selectedArrangeByOption === 'Portfolio tree'">
+        <div class="decision-selection">
+            <aux-radio-group label="Select decision levels"
+                             [isHeaderBold]="true"
+                             [data]="portTreeDecisionLevelOptions"
+                             (radioGroupChanged)="onPortTreeDecisionLevelChanged($event)"
+            ></aux-radio-group>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="selectedArrangeByOption === 'Portfolio attributes'">
+        <div class="top-down-selection-outer aux-layout__wrapper-32">
+            <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3 top-down-decision-selection">Select decision levels</div>
+            <ng-container *ngFor="let index of [].constructor(DECISION_LEVEL_CAP); let i = index">
+                <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                    <aux-select
+                        [label]="'Level ' + (i + 1) + ' decision attribute'"
+                        size="regular"
+                        [data]="topDownColOptionsMap[i]"
+                        [selected]="selectedTopdownColOptions[i]"
+                        [isDisabled]="i > 0 && decisionLevelsConfig?.topDownCols[i - 1] == null || isDecisionLevelDisabled"
+                        (selectionChanged)="onTopDownColChanged($event, i)">
+                    </aux-select>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="refreshRequired">
+        <div class="notification-div">
+            <aux-notification-group
+                type="widget"
+                politeness="polite"
+                [openOnLoad]="true"
+                [config]="[{'id': '1', 'message': 'Click refresh to view an updated decision benchmark screen.', 'notificationStyle': 'message'}]">
+            </aux-notification-group>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="!_refreshInProgress && !refreshRequired">
+        <ng-container *ngIf="widgetPayload && !noColSelectedInTopdownArrangeBy">
+            <div class="decision-bench-table">
+                <app-explore-table [widgetPayload]="widgetPayload"
+                                   [shouldSizeColumnsToFit]="true"
+                                   [widget]="widget"
+                                   [isActionColumnNeeded]="false"
+                                   [widgetSize]="'small'"
+                                   [isFutureRowExpanded]="true"
+                ></app-explore-table>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="noColSelectedInTopdownArrangeBy">
+            <div style="margin-top: 10%; text-align: center; font-size: larger; font-weight: bold;">
+                Select decision attribute levels above
+            </div>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="_refreshInProgress">
+        <div style="padding-top: 64px">
+           <app-loading-spinner size="large" loadingLabel="{{loadingLabel}}"></app-loading-spinner>
+        </div>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="promptDialog$ | async">
+    <explore-core-dialog (emitDialogClosed)="promptDialog$.next(null)"
+                         [dialogContent$]="promptDialog$"
+    ></explore-core-dialog>
+</ng-container>

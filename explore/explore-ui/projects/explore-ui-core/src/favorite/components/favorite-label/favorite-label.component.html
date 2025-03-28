@@ -1,0 +1,36 @@
+<span class="label-title">{{labelTitle}}</span>
+
+<ng-container *ngIf="isFavoriteType">
+    <ng-container *ngIf="!config.owner; else showPopover">
+        <aux-icon class="favorite-popover" type="template-loaded" state="disabled"></aux-icon>
+    </ng-container>
+
+    <ng-template #showPopover>
+        <aux-popover class="favorite-popover" trigger="hover" [padding]="20">
+            <aux-icon slot="target" type="template-loaded" state="primary"></aux-icon>
+            <div slot="content" class="popover-container">
+                <div class="favorite-table">
+                    <table class="aux-disabled">
+                        <tr>
+                            <th class="first-child">{{favDisplayName}}</th>
+                            <th>Owner</th>
+                        </tr>
+                        <tr>
+                            <td class="first-child"><span class="aux-primary">{{config.title}}</span></td>
+                            <td><span class="aux-primary">{{config.owner}}</span></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </aux-popover>
+    </ng-template>
+
+    <div class="favorite-buttons-area">
+        <explore-core-load-save-favorite-buttons
+            [favDisplayName]="favDisplayName"
+            (loadButtonClicked)="onLoadButtonClicked()"
+            (saveButtonClicked)="onSaveButtonClicked()">
+        </explore-core-load-save-favorite-buttons>
+    </div>
+</ng-container>
+

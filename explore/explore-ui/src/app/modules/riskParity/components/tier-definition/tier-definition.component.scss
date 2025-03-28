@@ -1,0 +1,61 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.tier-settings {
+    min-height: 58vh;
+    background-color: var(--secondary__background-color);
+    border: 0.0125rem solid var(--drawer__border-color);
+
+    .objective-type {
+        margin-top: aux-variables.$aux-spacing-03;
+        margin-bottom: aux-variables.$aux-spacing-02;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        line-height: aux-variables.$aux-spacing-04;
+    }
+
+    .layout__no-wrapper {
+        display: flex;
+        width: 100%;
+    }
+
+    .add-objective-check {
+        margin-top: 0.125rem;
+    }
+
+    .divider {
+        width: 100%;
+    }
+}
+
+.screening-filter-settings {
+    min-height: 58vh;
+    background-color: var(--secondary__background-color);
+    border: 0.0125rem solid var(--drawer__border-color);
+
+    .screening-filter {
+        margin-top: aux-variables.$aux-spacing-03;
+        margin-bottom: aux-variables.$aux-spacing-02;
+        display: flex;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        line-height: aux-variables.$aux-spacing-04;
+    }
+}
+
+.text-box {
+    display: flex;
+    padding-top: 15px;
+    padding-left: 30px;
+}
+
+.padding-left {
+    padding-left: 55px;
+}

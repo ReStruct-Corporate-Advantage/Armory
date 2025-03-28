@@ -1,0 +1,438 @@
+{
+  "requestColumnsPortfolioData": [
+    {
+      "columnTag": "cusip",
+      "positionColumnType": "ALL",
+      "columnKey": "cusip",
+      "identifierColumn": true
+    },
+    {
+      "columnTag": "security_description",
+      "positionColumnType": "ALL",
+      "columnKey": "sec_desc"
+    },
+    {
+      "columnTag": "pct_mv",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_mv"
+    },
+    {
+      "columnTag": "notional_mv",
+      "positionColumnType": "PORT",
+      "columnKey": "notional_mv"
+    },
+    {
+      "columnTag": "pct_notional_val",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_notional_val"
+    },
+    {
+      "columnTag": "market_val",
+      "positionColumnType": "PORT",
+      "columnKey": "market_val"
+    },
+    {
+      "columnTag": "quantity",
+      "positionColumnType": "PORT",
+      "columnKey": "quantity"
+    },
+    {
+      "columnTag": "cur_face",
+      "positionColumnType": "PORT",
+      "columnKey": "cur_face"
+    }
+  ],
+  "defaultSelectedColumns": [
+    {
+      "columnTag": "pct_notional_val",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_notional_val"
+    },
+    {
+      "columnTag": "pct_mv",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_mv"
+    }
+  ],
+  "defaultColumnDefinitions": [
+    {
+      "headerName": "Securities",
+      "field": "cusip",
+      "suppressSizeToFit": true,
+      "minWidth": 120,
+      "width": 120,
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "Description",
+      "field": "sec_desc",
+      "type": "auxTextColumn"
+    }
+  ],
+  "allColumnDefinitions": [
+    {
+      "headerName": "Market Value",
+      "groupId": "market_val",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "market_val_before",
+          "columnTag": "market_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "market_val_after",
+          "columnTag": "market_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Active Market Value",
+      "groupId": "market_val_active",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "market_val_active_before",
+          "columnTag": "market_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "market_val_active_after",
+          "columnTag": "market_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Market Value %",
+      "groupId": "pct_mv",
+      "suppressSizeToFit": false,
+      "width": 160,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "pct_mv_before",
+          "columnTag": "pct_mv",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "pct_mv_after",
+          "columnTag": "pct_mv",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Active Market Value %",
+      "groupId": "pct_mv_active",
+      "suppressSizeToFit": false,
+      "width": 160,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "pct_mv_active_before",
+          "columnTag": "pct_mv",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "pct_mv_active_after",
+          "columnTag": "pct_mv",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Notional Market Value",
+      "groupId": "notional_mv",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "notional_mv_before",
+          "columnTag": "notional_mv",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "notional_mv_after",
+          "columnTag": "notional_mv",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Active Notional Market Value",
+      "groupId": "notional_mv_active",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "notional_mv_active_before",
+          "columnTag": "notional_mv",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "notional_mv_active_after",
+          "columnTag": "notional_mv",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Notional Market Value %",
+      "groupId": "pct_notional_val",
+      "suppressSizeToFit": false,
+      "width": 160,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "pct_notional_val_before",
+          "columnTag": "pct_notional_val",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "pct_notional_val_after",
+          "columnTag": "pct_notional_val",
+          "aggFunc": "sum",
+          "width": 80,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Active Notional Market Value %",
+      "groupId": "pct_notional_val_active",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "pct_notional_val_active_before",
+          "columnTag": "pct_notional_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "pct_notional_val_active_after",
+          "columnTag": "pct_notional_val",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Quantity",
+      "groupId": "quantity",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "quantity_before",
+          "columnTag": "quantity",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "quantity_after",
+          "columnTag": "quantity",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "Trade Units",
+      "groupId": "cur_face",
+      "suppressSizeToFit": false,
+      "width": 200,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "cur_face_before",
+          "columnTag": "cur_face",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "cur_face_after",
+          "columnTag": "cur_face",
+          "aggFunc": "sum",
+          "width": 100,
+          "minWidth":80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    }
+  ],
+  "defaultTradeTableColumnDefinitions": [
+    {
+      "headerName": "Security",
+      "field": "lineItem",
+      "suppressSizeToFit": true,
+      "width": 120,
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "Description",
+      "field": "secDesc",
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "Transaction type",
+      "field": "tradeType",
+      "suppressSizeToFit": true,
+      "width": 80,
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "Transaction amount (% of portfolio NAV)",
+      "aggFunc": "sum",
+      "field": "tradeSize",
+      "type": "auxNumberColumn",
+      "suppressSizeToFit": true,
+      "width": 120,
+      "optionValues": {"decimalPlaces": 4, "scaling": 1,  "useThousandsSeparator": false}
+    },
+    {
+      "headerName": "Quantity",
+      "field": "changeInQuantity",
+      "type": "auxNumberColumn",
+      "suppressSizeToFit": true,
+      "width": 120,
+      "colTag": "quantity",
+      "optionValues": {"decimalPlaces": 4, "scaling": 1,  "useThousandsSeparator": false}
+    },
+    {
+      "headerName": "Notional Market Value",
+      "field": "changeInNotionalMarketValue",
+      "type": "auxNumberColumn",
+      "suppressSizeToFit": true,
+      "width": 120,
+      "colTag": "notional_mv",
+      "optionValues": {"decimalPlaces": 4, "scaling": 1,  "useThousandsSeparator": false}
+    },
+    {
+      "headerName": "Market Value",
+      "field": "changeInMarketValue",
+      "type": "auxNumberColumn",
+      "suppressSizeToFit": true,
+      "width": 120,
+      "colTag": "market_val",
+      "optionValues": {"decimalPlaces": 4, "scaling": 1,  "useThousandsSeparator": false}
+    }
+  ],
+  "defaultTradesTableOptions": {
+    "enableSorting": true,
+    "enableFilter": true,
+    "enableColResize": true,
+    "singleClickEdit": true,
+    "enableGroupEdit": true,
+    "suppressColumnVirtualisation": true,
+    "rowSelection": "multiple",
+    "toolPanelSuppressRowGroups": true,
+    "toolPanelSuppressValues": true,
+    "toolPanelSuppressPivots": true,
+    "toolPanelSuppressPivotMode": true,
+    "toolPanelSuppressSideButtons": true,
+    "toolPanelSuppressColumnFilter": true,
+    "toolPanelSuppressColumnSelectAll": true,
+    "toolPanelSuppressColumnExpandAll": true,
+    "excelStyles": [
+      {
+        "id": "textFormat",
+        "dataType": "string"
+      },
+      {
+        "id": "header",
+        "interior": {
+          "color": "#CCCCCC",
+          "pattern": "Solid"
+        }
+      }
+    ],
+    "overlayLoadingTemplate": "<span class='ag-overlay-loading-center'>Fetching data...</span>",
+    "overlayNoRowsTemplate": "<span style=\"padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;\">This is a custom \"no rows\" overlay</span>"
+  },
+  "defaultCompositionGridOptions": {
+    "enableSorting": true,
+    "enableFilter": true,
+    "enableColResize": true,
+    "singleClickEdit": true,
+    "enableGroupEdit": true,
+    "suppressColumnVirtualisation": true,
+    "suppressCellFocus": true,
+    "icons": {
+      "groupExpanded": "<i class=\"fa fa-angle-down\"/>",
+      "groupContracted": "<i class=\"fa fa-angle-right\"/>"
+    },
+    "overlayLoadingTemplate": "<span class=\"ag-overlay-loading-center\">Fetching data...</span>",
+    "overlayNoRowsTemplate": "<span style=\"padding: 10px; border: 2px solid #444; background: lightgoldenrodyellow;\">This is a custom \"no rows\" overlay</span>"
+  }
+}

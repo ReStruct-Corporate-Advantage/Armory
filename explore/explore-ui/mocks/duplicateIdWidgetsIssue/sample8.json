@@ -1,0 +1,46 @@
+{
+    "widgets": [
+        {
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                },
+                "sortedColumns": []
+            },
+            "widgetId": 1549943244866
+        },
+        {
+            "title": "Risk and Exposure",
+            "type": "agGrid",
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ]
+                    ]
+                },
+                "sortedColumns": []
+            }
+        },
+        {
+            "configType": "pgsWidget",
+            "title": "Portfolio Group Summary",
+            "type": "pgsGrid",
+            "id": 1549944010460,
+            "inputs": {
+                "expandedState": {
+                    "allExpanded": true
+                },
+                "sortedColumns": []
+            }
+        }
+    ],
+    "availableDataStores": []
+}

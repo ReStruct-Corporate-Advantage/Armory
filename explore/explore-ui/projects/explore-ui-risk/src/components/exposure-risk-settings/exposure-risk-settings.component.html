@@ -1,0 +1,21 @@
+<div class="container-2">
+    <div class="risk-model-aux-select">
+        <aux-select (selectionChanged)="onRiskModelSelectionChanged($event)"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="riskModelList"
+                    [label]="LABEL.RISK_MODEL">
+        </aux-select>
+    </div>
+    <div class="other-style">
+        <aux-text-input [value]="inputRiskModel"
+                        [isDisabled]="!otherRiskModel.isSelected"
+                        (valueChanged)="onOtherRiskModelChange($event)">
+        </aux-text-input>
+    </div>
+    <div *ngIf="this.exposureRiskSettings.doesValueExist(propertyList.RISK_MODEL)" style="padding-top: 24px">
+        <explore-risk-revert-risk-setting [riskSetting]="exposureRiskSettings" [propertyName]="propertyList.RISK_MODEL" (resetHandler)="riskModelReset()"></explore-risk-revert-risk-setting>
+    </div>
+</div>
+<div class="source-styl">
+    Source: {{this.exposureRiskSettings.getSourceDisplayName(propertyList.RISK_MODEL)}}
+</div>

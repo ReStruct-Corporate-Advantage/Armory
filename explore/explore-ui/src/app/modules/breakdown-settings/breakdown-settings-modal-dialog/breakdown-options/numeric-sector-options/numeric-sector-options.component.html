@@ -1,0 +1,93 @@
+<div class="numeric-sector-options">
+    <div class="sector-mode-setup-container">
+        <div class="sector-mode-selector">
+            <div class="aux-primary selector-label">
+                Create buckets using
+            </div>
+            <aux-segmented-control [data]="sectorModesSelectorData"
+                                   [activeControlIndex]="selectedSectorModeIndex"
+                                   (controlSelectionChanged)="onSectorModeChange($event)">
+            </aux-segmented-control>
+        </div>
+        <div class="bucket-value-container">
+            <aux-text-input *ngIf="sectorModeSelected === sectorModes.BREAKPOINT_MODE"
+                            [value]="breakpointValue"
+                            (valueChanged)="onBreakpointValueChange($event, sectorModeSelected)">
+            </aux-text-input>
+
+            <aux-text-input *ngIf="sectorModeSelected === sectorModes.BUCKET_MODE"
+                            type="number"
+                            textAlign="end"
+                            [placeholder]="0"
+                            [value]="sectorModel.bucketIntervals"
+                            [isPlaceholderItalic]="false"
+                            [validator]="validators"
+                            (valueChanged)="sectorModel.bucketIntervals = $event.detail.value">
+            </aux-text-input>
+
+            <div class="quantile-mode-section" *ngIf="sectorModeSelected === sectorModes.QUANTILE_MODE">
+                <div class="quantile-buckets-section">
+                    <aux-radio *ngIf="widgetType !== 'returnsWidget'"
+                               label="Number of quantiles"
+                               [eventData]="false"
+                               [isChecked]="!percentileBreakpointsSelected"
+                               (radioChanged)="onQuantileRadioChanged($event)"></aux-radio>
+                    <aux-numeric-stepper minValue=2
+                                         maxValue=100
+                                         label="{{widgetType === 'returnsWidget' ? 'Number of quantiles' : ''}}"
+                                         [stepperValue]="quantileStepperValue"
+                                         (valueChanged)="onQuantileStepperChange($event)">
+                    </aux-numeric-stepper>
+                </div>
+                <div class="quantile-breakpoints-section" *ngIf="widgetType !== 'returnsWidget'">
+                    <aux-radio label="Percentile breakpoints"
+                               [eventData]="true"
+                               [isChecked]="percentileBreakpointsSelected"
+                               (radioChanged)="onQuantileRadioChanged($event)"></aux-radio>
+                    <aux-text-input [value]="percentileBreakpoints"
+                                    (valueChanged)="onBreakpointValueChange($event, sectorModeSelected)">
+                    </aux-text-input>
+                </div>
+                <div class="base-quantile-on-section" *ngIf="widgetType === 'returnsWidget'">
+                    <div class="base-quantile-on-weight-section">
+                        <aux-select
+                            label="Base quantile on"
+                            [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="onWeightValueChange($event)"
+                            [data]="weightOptions">
+                        </aux-select>
+                    </div>
+                </div>
+                <div class="create-quantile-from-section" *ngIf="widgetType === 'returnsWidget'">
+                    <aux-radio-group isStacked="true"
+                                     label="Create quantile from"
+                                     [data]="createQuantileFromOptions"
+                                     (radioGroupChanged)="onCreateQuantileFromChange($event)">
+                    </aux-radio-group>
+                </div>
+                <div class="quantile-options-section">
+                    <aux-radio-group isStacked="true"
+                                     label="Quantile buckets sort order"
+                                     [data]="quantileSortOptions"
+                                     (radioGroupChanged)="onQuantileSortChange($event)">
+                    </aux-radio-group>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bucket-label-prefix">
+        <aux-text-input label="Bucket label prefix"
+                        [value]="sectorModel.bucketLabelPrefix"
+                        (valueChanged)="sectorModel.bucketLabelPrefix = $event.detail.value">
+        </aux-text-input>
+    </div>
+    <div class="decimal-points">
+        <aux-numeric-stepper label="Decimal points"
+                             minValue="0"
+                             maxValue="6"
+                             [stepperValue]="sectorModel.decimalDigitsToDisplay? sectorModel.decimalDigitsToDisplay: 0"
+                             (valueChanged)="sectorModel.decimalDigitsToDisplay = $event.detail.value">
+        </aux-numeric-stepper>
+    </div>
+
+</div>

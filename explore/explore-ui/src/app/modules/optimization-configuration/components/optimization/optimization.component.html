@@ -1,0 +1,161 @@
+<div class="optimization">
+    <div>
+        <div class="params-header margin-top-16">
+            <div class="favorite-row">
+                <label class="opto-params-title aux-primary aux-bold">Optimization Parameters</label>
+                <explore-core-load-new-favorite-buttons [newButtonLabel]="'Restore Default'" (loadClick)="onLoad()"
+                                                        (newClick)="onRestoreDefault()"></explore-core-load-new-favorite-buttons>
+            </div>
+            <ng-container *ngIf="exploreOptoApiRequestAccess">
+                <div class="download-ros-request-spinner-and-icon">
+                    <ng-container *ngIf="exportingInProgress">
+                        <aux-icon class="loading-icon" type="loading" state="primary"></aux-icon>
+                    </ng-container>
+                    <p class="download-ros-request">Download Optimization API Request</p>
+                    <aux-button class="download-ros-request" (click)="onDownloadROSRequest($event)"
+                                type="tertiary-subtle" icon="download">
+                    </aux-button>
+                </div>
+            </ng-container>
+            <div class="favorite-row">
+                <ng-container *ngIf="currentPort.optimizationSettings.id">
+                    <explore-favorite-info [favoriteConfig]='currentPort.optimizationSettings'
+                                           [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.OPTO_PARAMS"></explore-favorite-info>
+                </ng-container>
+                <aux-button [type]="AuxButtonTypeEnum.SECONDARY"
+                            [size]="AuxButtonSizeEnum.SMALL"
+                            label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.OPTO_PARAMS}}"
+                            (click)="onSave()"></aux-button>
+            </div>
+        </div>
+        <div>
+            <aux-accordion
+                *ngFor="let optimizationSummary of optimizationSummaries$ | async"
+                [isBorderLess]="true"
+                [isFreeMode]="true"
+                [expandAll]="true"
+            >
+                <aux-accordion-expansion-panel [header]="optimizationSummary.title">
+                    <div class="accordion-font" slot="content">
+                        <app-optimization-summary
+                            [optimizationId]="optimizationId"
+                            [optimizationSummary]="optimizationSummary"
+                            (edit)="onEdit(optimizationSummary.type, optimizationSummary.subType)"
+                        >
+                        </app-optimization-summary>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </aux-accordion>
+        </div>
+    </div>
+    <div class="footer">
+        <div [class.footer-notification]="showNotification">
+            <aux-notification-group #runNotification (notificationClosed)="onNotificationClosed()"></aux-notification-group>
+        </div>
+        <div class="footer-buttons-container">
+            <div class="footer-buttons">
+                <aux-popover [isOpen]="popoverOpen" (popoverOpened)="onPopOverOpened()">
+                    <aux-button class="footer-button-item" slot="target" type="tertiary" label="Optimization Settings" size="small"></aux-button>
+                    <div slot="content" class="popover-container container-spacing">
+                        <div>Timeout Limit:</div>
+                        <ng-container *ngFor="let timeoutOption of timeoutOptions">
+                            <div class="aux-layout__wrapper-16">
+                                <div class="radio-button-spacing aux-g16--xs-9 aux-g16--sm-9 aux-g16--md-9 aux-g16--lg-9 aux-g16--xl-9">
+                                    <aux-radio [label]="timeoutOption.label"
+                                               [isChecked]="timeoutOption.checked"
+                                               (radioChanged)="onTimeoutOptionChanged(timeoutOption.eventData)">
+                                    </aux-radio>
+                                </div>
+                                <div class="help-button-spacing aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                                    <aux-tooltip (tooltipOpened) = trackViaTelemetry(timeoutOption.label)>
+                                        <aux-button
+                                            slot="target"
+                                            icon="help"
+                                            type="tertiary"
+                                            [assistiveText]="'help'"
+                                        ></aux-button>
+                                        <span slot="content">{{ timeoutOption.eventData.helpText }}</span>
+                                    </aux-tooltip>
+                                </div>
+                            </div>
+                            <div class="timeout-stepper" *ngIf="timeoutOption.eventData.timeoutType=== 'TIMEOUT_LIMIT'">
+                                <aux-numeric-stepper label="Set solver timeout limit to:"
+                                                     maxValue="15" minValue="1" (valueChanged)="onValueChanged($event)"
+                                                     [isDisabled]="!timeoutOption.checked"
+                                                     [stepperValue]="mipTimeLimit">
+                                </aux-numeric-stepper>
+                                <p style="margin-top: 10%">Minutes</p>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="isEfficientEnabled()">
+                            <hr class="section-separator"/>
+                            <div>Frontier:</div>
+                            <div class="aux-layout__wrapper-16">
+                                <div class="timeout-stepper">
+                                    <aux-numeric-stepper label="Iterations"
+                                                         [defaultValue] = "getIterationsCount()"
+                                                         [minValue]=2
+                                                         [maxValue]=20
+                                                         [step]=1
+                                                         (valueChanged)="onIterationValueChanged($event)">
+                                    </aux-numeric-stepper>
+                                </div>
+                                <div class="tooltip-spacing aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                                    <aux-tooltip>
+                                        <aux-button
+                                            slot="target"
+                                            icon="help"
+                                            type="tertiary"
+                                            [assistiveText]="'help'"
+                                        ></aux-button>
+                                        <span slot="content">This setting controls the number of iterations in the efficient frontier analysis. By default,<br>
+                                        the analysis will create 10 iterations on the frontier. The minimum iteration is 2 and<br>the maximum is 20.</span>
+                                    </aux-tooltip>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <div class="footer-buttons-new">
+                            <aux-button class="risk-setting-button" slot="target" type="tertiary"
+                                        label="Advanced Risk Settings" size="small"
+                                        (click)="openAdvancedRiskSettingsModal()"></aux-button>
+                            <div class="timeout-buttons">
+                                <aux-button style="padding-right: 5px;" label="Done" size="small" type="primary"
+                                            (click)="onDoneClicked()"></aux-button>
+                                <aux-button label="Cancel" size="small" type="secondary"
+                                            (click)="onCancelClicked()"></aux-button>
+                            </div>
+                        </div>
+                    </div>
+                </aux-popover>
+            </div>
+            <div class="footer-buttons footer-buttons-right">
+                <ng-container *ngIf="latestOptoRunDetails?.optoRunSuccessful">
+                    <div style="padding-right: 10px; padding-top: 2.5px">
+                        <aux-button type="tertiary" label="Feasibility Report" size="small"
+                                    (click)="onClose(true)"></aux-button>
+                    </div>
+                </ng-container>
+                <div class="reset-button">
+                    <app-reset-composition [disableResetButton]="disableResetButton" (resetComposition)="onResetComposition()"></app-reset-composition>
+                </div>
+                <aux-button label="Run Optimization" size="small" (click)="onRun($event)"></aux-button>
+                <aux-button class="footer-button-item" label="Cancel Optimization" [isDisabled]="!this.isOptimizationInProgress" size="small" (click)="onCancelOptimization()"></aux-button>
+                <aux-button class="footer-button-item" type="secondary" label="Close" size="small" (click)="onClose()"> </aux-button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="launchOptimizationSettings">
+    <app-optimization-settings-modal [isOpen]="true" [type]="type" [subType]="subType" (modalClosed)="onModalClosed($event)">
+    </app-optimization-settings-modal>
+</ng-container>
+
+<ng-container *ngIf="isAdvancedRiskSettingsModalOpen">
+    <explore-risk-advanced-risk-settings-modal [isOpen]="isAdvancedRiskSettingsModalOpen"
+                                               (modalClosed)="closeAdvancedRiskSettingsModal()"
+                                               [isOptimizationSettingsModalOpen] = "true"
+                                               [advancedRiskSettingsInput]="currentPort.optimizationSettings.optimizationAdvancedRiskSettings"
+                                               (updateAdvancedRiskSettingsEvent)="updateAdvancedRiskSettings($event)">
+    </explore-risk-advanced-risk-settings-modal>
+</ng-container>

@@ -1,0 +1,26 @@
+<div class="format-stepper-container numeric-column-container">
+    <aux-numeric-stepper #decimalPlacesNumericStepper
+                         label='Format'
+                         minValue=0
+                         [stepperValue]="decimalPlaces"
+                         [maxValue]="maxDecimalPlaces"
+                         (valueChanged)="onValueChangedHandler($event)">
+    </aux-numeric-stepper>
+
+    <span class="decimal-place-bar"> Decimal places </span>
+</div>
+
+<div class="numeric-column-container">
+    <aux-checkbox label='Use thousands separator'
+                  [isChecked]='useThousandsSeparator'
+                  (checkboxChanged)="onCheckboxChange($event)">
+    </aux-checkbox>
+</div>
+
+<div *ngIf="stackedScalingOptionData.length > 0" class='numeric-column-container'>
+    <aux-radio-group [data]='stackedScalingOptionData'
+                     label="Scaling"
+                     isStacked="true"
+                     (radioGroupChanged)='onScalingOptionChanged($event)'>
+    </aux-radio-group>
+</div>

@@ -1,0 +1,14 @@
+<div class="excluded-funds-container" *ngIf="widgetPayload">
+    <div class="excluded-funds-additional-info">
+        <aux-button [type]="'tertiary'" [label]="'More about excluded funds'" (click)="isFundInfoDialogOpen = true"></aux-button>
+    </div>
+    <div class="excluded-funds-table">
+        <app-commitment-risk-excluded-funds-table #widgetRender
+                           [widget]="widget"
+                           [widgetPayload]="widgetPayload"
+                           [isBatchExport]="isBatchExport">
+        </app-commitment-risk-excluded-funds-table>
+    </div>
+</div>
+<app-commitment-risk-excluded-funds-modal [isOpen]='isFundInfoDialogOpen' (modalClosed)='isFundInfoDialogOpen = false' [isLaunchedFromTable]="true">
+</app-commitment-risk-excluded-funds-modal>

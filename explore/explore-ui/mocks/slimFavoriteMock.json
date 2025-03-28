@@ -1,0 +1,154 @@
+{
+    "workspaces": [{
+        "tool": "Explore",
+        "title": "demo",
+        "type": "WORKSPACE",
+        "id": 1576328,
+        "listOrder": 17,
+        "owner": "seakim",
+        "description": "",
+        "flagid": {"id": 1576328, "_global": false}
+    }, {
+        "tool": "Explore",
+        "title": "fromProd",
+        "type": "WORKSPACE",
+        "id": 1557322,
+        "listOrder": 9,
+        "owner": "seakim",
+        "description": "",
+        "flagid": {"id": 1557322, "_global": false}
+    }, {
+        "tool": "Prism",
+        "title": "sean-prism",
+        "type": "WORKSPACE",
+        "id": 1501543,
+        "listOrder": 2,
+        "owner": "seakim",
+        "flagid": {"id": 1501543, "_global": false}
+    }, {
+        "tool": "Explore",
+        "title": "BAMY (bamba)",
+        "type": "WORKSPACE",
+        "id": 1517717,
+        "listOrder": 4,
+        "owner": "seakim",
+        "description": "",
+        "flagid": {"id": 1517717, "_global": false}
+    }],
+  "layout": [
+    {
+      "tool": "Explore",
+      "title": "BAMY (bamba) 2",
+      "type": "LAYOUT",
+      "id": 15177172,
+      "listOrder": 17,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/07/2020\"",
+      "description": "",
+      "statusTag": "decommissioned",
+      "flagid": {
+        "id": 15177172,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Explore",
+      "title": "BAMY (bamba) 3",
+      "type": "LAYOUT",
+      "id": 15177182,
+      "listOrder": 17,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/07/2020\"",
+      "description": "",
+      "statusTag": "mature",
+      "flagid": {
+        "id": 15177182,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Explore",
+      "title": "BAMY (bamba) 4",
+      "type": "LAYOUT",
+      "id": 15177192,
+      "listOrder": 17,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/07/2020\"",
+      "description": "",
+      "statusTag": "under_review",
+      "flagid": {
+        "id": 15177192,
+        "_global": false
+      }
+    }
+  ],
+  "portfolios": [
+    {
+      "tool": "Explore",
+      "title": "fromProd",
+      "type": "WHATIF_RULES",
+      "id": 1557322,
+      "listOrder": 9,
+      "owner": "tushshar",
+      "description": "",
+      "flagid": {
+        "id": 1557322,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Explore",
+      "title": "demo",
+      "type": "WHATIF_POS",
+      "id": 1576328,
+      "listOrder": 17,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/04/2020\"",
+      "description": "",
+      "flagid": {
+        "id": 1576328,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Prism",
+      "title": "sean-prism",
+      "type": "ADHOC_PORT",
+      "id": 1501543,
+      "listOrder": 2,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/01/2020\"",
+      "flagid": {
+        "id": 1501543,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Explore",
+      "title": "BAMY (bamba)",
+      "type": "ADHOC_PG",
+      "id": 1517717,
+      "listOrder": 4,
+      "owner": "tushshar",
+      "description": "",
+      "flagid": {
+        "id": 1517717,
+        "_global": false
+      }
+    },
+    {
+      "tool": "Explore",
+      "title": "demo",
+      "type": "adhocPortfolio",
+      "id": 1346328,
+      "listOrder": 17,
+      "owner": "tushshar",
+      "data": "\"date\": \"01/07/2020\"",
+      "description": "",
+      "flagid": {
+        "id": 1576328,
+        "_global": false
+      }
+    }
+  ]
+}

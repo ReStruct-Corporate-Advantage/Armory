@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreDialogComponent onInit Test should subscribe to showDialog$ and update variables with callBack 1`] = `
+<aux-dialog>
+  <div
+    class="aux-g16--cw-6 content-padding aux-p14"
+  >
+     A favorite exists with the same name. If you wish to continue, the existing favorite will be overridden. 
+  </div>
+</aux-dialog>
+`;

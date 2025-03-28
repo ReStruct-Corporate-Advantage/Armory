@@ -1,0 +1,18 @@
+<aux-modal [type]="'action'" [header]="'Filter For One Sector'" [hasGreyContentArea]="true" [isOpen]="isOpen" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g32--cw-6 aux-layout__wrapper-32 content-padding">
+        <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12 filter-content">
+            <div class="custom-filter">
+                <app-custom-filter [filter]="newFilter" [fieldToUse]="CommonConstants.COLUMN_TAG" [disableNormalizedCheckbox]="true">
+                </app-custom-filter>
+            </div>
+            <div class="filter-name">
+                <aux-text-input label="Filter Name" [value]="filterName" (valueChanged)="onValueChanged($event)">
+                </aux-text-input>
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Done'" [type]="'primary'" (click)="onSubmitted()"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="onCancelled()"></aux-button>
+    </div>
+</aux-modal>

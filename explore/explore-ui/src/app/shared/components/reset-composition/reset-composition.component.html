@@ -1,0 +1,13 @@
+<div class='reset-button'>
+    <aux-button slot="target" label="Reset Composition" type="tertiary"
+                [size]="'small'"
+                icon="widget-refresh" (click)="onResetComposition()"
+                [isDisabled]="disableResetButton">
+    </aux-button>
+    <aux-popover trigger="hover" overridePlacement="topRight">
+        <aux-button type="tertiary-subtle" icon="info-bold" assistiveText="Hover button" slot="target"></aux-button>
+        <div slot="content" class="reset-tooltip">
+            The reset composition button reverts to the portfolio's previous weights prior to running an optimization and/or applying any manual weight changes in the composition panel. The composition changes will be reflected in the composition table and in Risk & Exposure widgets.
+        </div>
+    </aux-popover>
+</div>

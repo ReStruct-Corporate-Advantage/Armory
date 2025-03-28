@@ -1,0 +1,24 @@
+<div *ngIf="tooltip else withoutTooltip">
+    <aux-tooltip>
+      <aux-checkbox
+        slot="target"
+        [size]="size"
+        [isDisabled]="disabled"
+        [isChecked]="isChecked"
+        (checkboxChanged)="onCheckboxValueChange($event)"
+      >
+      </aux-checkbox>
+      <div slot="content">{{tooltip}}</div>
+    </aux-tooltip>
+  </div>
+
+  <ng-template #withoutTooltip>
+    <aux-checkbox
+      [label]="label"
+      [size]="size"
+      [isDisabled]="disabled"
+      [isChecked]="isChecked"
+      (checkboxChanged)="onCheckboxValueChange($event)"
+    >
+    </aux-checkbox>
+  </ng-template>

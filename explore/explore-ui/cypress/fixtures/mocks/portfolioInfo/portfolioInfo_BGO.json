@@ -1,0 +1,227 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "ticker": "BGO",
+        "cusip": "BRS170JE0",
+        "mandate": {
+          "value": "EQ_GLOB_ALL_CAP",
+          "mandateType": "EQ_MANDATE",
+          "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+          "label": ""
+        },
+        "isSectorModellingAllowed": true,
+        "code": 9598,
+        "displayName": "BGO-Mock",
+        "isConstituentsViewAllowed": true,
+        "fullName": "BlackRock Enhanced Global Dividend Trust (BOE)",
+        "multiFrequencyMaxPeriodsMap": {
+          "YEAR_END": 5,
+          "QUARTER_END": 21,
+          "WEEKLY": 279,
+          "DAILY": 1957,
+          "MONTH_END": 65
+        },
+        "type": "FUND",
+        "portfolioGroup": false,
+        "assetType": "EQ_MANDATE",
+        "portfolioDefaults": {
+          "calendar": "GP_GLOBAL_STD",
+          "defaultVarType": "DLY",
+          "defaultModelCode": "^WRLDA",
+          "liquidityDefaults": {
+            "sec_22e4_rats": 0.03
+          },
+          "defaultDecay": 0.982820599
+        },
+        "portDefaultRiskSettings": {
+          "AssetClassCovariance": "M",
+          "WeightingScheme": {
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme",
+            "name": "FMI"
+          },
+          "ModelMapping": "^WRLDA",
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings"
+        },
+        "orgDefaultRiskSettings": {
+          "AssetClassCovariance": "M",
+          "RiskHorizon": "4",
+          "DxsBlock": "ALL_DXS",
+          "WeightingScheme": {
+            "name": "DLY",
+            "defaultPeriod": 252,
+            "defaultDecay": 0.982820599,
+            "defaultOverlap": 5,
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme"
+          },
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings",
+          "ModelMapping": "P100",
+          "ScaleDxsExposures": true,
+          "ConfidenceLevelInStdDeviation": 1
+        },
+        "isSecurityModellingAllowed": true,
+        "compositePortfolio": false,
+        "currency": "USD",
+        "timePeriods": [
+          {
+            "Value": "DTD",
+            "type": "To Date",
+            "interval": "Day",
+            "maxPeriods": 11
+          },
+          {
+            "Value": "WTD",
+            "type": "To Date",
+            "interval": "Week",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "MTD",
+            "type": "To Date",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "QTD",
+            "type": "To Date",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "YTD",
+            "type": "To Date",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "Days",
+            "type": "Rolling",
+            "interval": "Day",
+            "maxPeriods": 1106
+          },
+          {
+            "Value": "Weeks",
+            "type": "Rolling",
+            "interval": "Week",
+            "maxPeriods": 158
+          },
+          {
+            "Value": "Months",
+            "type": "Rolling",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "Quarters",
+            "type": "Rolling",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "Years",
+            "type": "Rolling",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "CUSTOM",
+            "type": "Custom",
+            "interval": null,
+            "maxPeriods": 1
+          },
+          {
+            "Value": "BDay",
+            "type": "Other",
+            "interval": "Business Day",
+            "maxPeriods": 1106
+          },
+          {
+            "Value": "Prev. Mth",
+            "type": "Other",
+            "interval": "Previous Month",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "Prev. Qtr",
+            "type": "Other",
+            "interval": "Previous Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "FYTD",
+            "type": "Other",
+            "interval": "Fiscal Year",
+            "maxPeriods": 1
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "MSACWLDNET",
+            "type": "PERFORM",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 2
+          },
+          {
+            "name": "MSACWLDNET",
+            "type": "RISK",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 2
+          },
+          {
+            "name": "E_BGEI",
+            "type": "REPACCT",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          },
+          {
+            "name": "MSACWI55OC",
+            "type": "RISK",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 7
+          },
+          {
+            "name": "CBBGOOWB",
+            "type": "PERFORM",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          },
+          {
+            "name": "CBBGOOWB",
+            "type": "RISK",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          }
+        ],
+        "asOfDate": "11-JUN-2019",
+        "isPortfolioModellingAllowed": false,
+        "historicalPerfFromDate": "05/31/2016",
+        "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+      },
+      "message": null,
+      "gaussian": "9nbb53NSBHsxXyS8VLrmHw5atjO8nDcMynLr5BVc2hfU5uhHVKXvTAqYjZQ=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 540
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-13T05:33:44.044Z",
+      "detailedID": "84cdcd1a-c13d-477d-ae51-45ec16b18539:84cdcd1a-c13d-477d-ae51-45ec16b18539:4a47a8d014c241d.540.1681364024044",
+      "IDWithContextChain": "84cdcd1a-c13d-477d-ae51-45ec16b18539:84cdcd1a-c13d-477d-ae51-45ec16b18539:4a47a8d014c241d",
+      "chain": [
+        "84cdcd1a-c13d-477d-ae51-45ec16b18539:4a47a8d014c241d"
+      ],
+      "bmsMsgSize": 540,
+      "transactionId": "84cdcd1a-c13d-477d-ae51-45ec16b18539",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1640202*ts=1681364024046*btid=1612*guid=f48ee632-3adb-45d6-8069-fa21e1ca2ac0*exitguid=3*unresolvedexitid=787*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][787]}",
+    "return_val": "SUCCESS",
+    "command": "portfolioInfo",
+    "transactionId": "84cdcd1a-c13d-477d-ae51-45ec16b18539",
+    "successCode": null
+  }
+]

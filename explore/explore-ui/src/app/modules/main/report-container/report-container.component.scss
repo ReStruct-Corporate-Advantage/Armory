@@ -1,0 +1,30 @@
+.report-container-area {
+    margin: 8px 0;
+
+    .tab-bar-content--separator {
+        border-top: 1px solid var(--tab__border-color);
+        margin-top: -1px;
+    }
+
+    .flex-with-space-between {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .with-composition-width {
+        width: 50%;
+    }
+
+    .without-composition-width {
+        width: 100%;
+    }
+
+    .with-widgets-width {
+        width: 49%;
+    }
+
+    .without-widgets-width {
+        width: 100%;
+    }
+}

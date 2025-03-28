@@ -1,0 +1,34 @@
+<div class="column-container">
+    <div class="column-set-settings">
+        <explore-column-option-column-selector
+            [columnOptionUpdated$]="columnOptionUpdated$"
+            [config]="columnSelectorConfig"
+            [singleColumnOnly]="singleColumnOnly"
+            [requireLoadAndSaveOptions]="requireLoadAndSaveOptions"
+            [showColumnCounter]=true
+            [columnSet]="widgetInput"
+            [widgetType]="widgetType"
+            [sourceDataUpdated$]="sourceDataUpdated$"
+            [columnSetUpdated$]="columnSetUpdated$"
+            [columnOptionsFetched$]="columnOptionsFetched$"
+            (targetSelectionChanged)="onTargetSelectionChanged($event)"
+            (targetItemRemoved)="onTargetItemRemoved($event)"
+            (sourceItemMoved)="onColumnsAddedToTargetArea($event)">
+        </explore-column-option-column-selector>
+    </div>
+
+    <div class="column-options column-options-width">
+        <ng-container *ngIf="(selectedColumnConfig$ | async) as columnConfig">
+            <div class="column-options-div">
+                <explore-column-options
+                    [columnOptionUpdated$]="columnOptionUpdated$"
+                    [column]="columnConfig"
+                    [restrictedColumnOptions]="restrictedColumnOptions"
+                    [columnOptionsToAdd]="columnOptionsToAdd"
+                    [columnOptionsToModify]="columnOptionsToModify"
+                    [widgetType]="widgetType">
+                </explore-column-options>
+            </div>
+        </ng-container>
+    </div>
+</div>

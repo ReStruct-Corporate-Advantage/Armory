@@ -1,0 +1,67 @@
+{
+    "widgets": [
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1561363549219,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Top 11 Detractors",
+            "type": "returnGrid",
+            "id": 1561363549221,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Top 11 Detractors",
+            "type": "returnGrid",
+            "id": 1568444581859,
+            "inputs": null
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "b7af7408-6d56-4597-81ce-4d14d65bf8ed",
+            "observers": [
+                1561363549221
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ],
+                        [
+                            "_ROOT_",
+                            "Unassigned"
+                        ]
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "7992c88c-87d1-4272-b664-b0123bc158f0",
+            "observers": [
+                1568444581859
+            ],
+            "metaData": {
+                "expandedState": {
+                    "expandedPaths": [
+                        [
+                            "_ROOT_"
+                        ],
+                        [
+                            "_ROOT_",
+                            "Unassigned"
+                        ]
+                    ]
+                }
+            }
+        }
+    ]
+}

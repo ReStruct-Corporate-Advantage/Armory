@@ -1,0 +1,59 @@
+{
+  "historic_growth": {
+    "column": [
+      {
+        "columnTag": "eq_fin_th_ws_161",
+        "positionColumnType": "ALL",
+        "columnKey": "eq_fin_th_ws_161_0",
+        "columnTitle": "Dividend Growth - 1 Yr (%)",
+        "weight": 0.25,
+        "min": -100,
+        "max": 100,
+        "isNormal": true
+      },
+      {
+        "columnTag": "eq_fin_th_ws_158",
+        "positionColumnType": "ALL",
+        "columnKey": "eq_fin_th_ws_161_0",
+        "columnTitle": "EPS Growth - 1 Yr (%)",
+        "weight": 0.25,
+        "min": -100,
+        "max": 100,
+        "isNormal": true
+      },
+      {
+        "columnTag": "eq_fin_th_ws_163",
+        "positionColumnType": "ALL",
+        "columnKey": "eq_fin_th_ws_161_0",
+        "columnTitle": "Dividend Growth - 5 Yr (%)",
+        "weight": 0.25,
+        "min": -100,
+        "max": 100,
+        "isNormal": true
+      },
+      {
+        "columnTag": "eq_fin_th_ws_160",
+        "positionColumnType": "ALL",
+        "columnKey": "eq_fin_th_ws_161_0",
+        "columnTitle": "EPS Growth - 5 Yr (%)",
+        "weight": 0.25,
+        "min": -100,
+        "max": 100,
+        "isNormal": true
+      }
+    ]
+  },
+  "market_cap_style": {
+    "column": [
+      {
+      "columnTag": "market_cap_portcurr",
+      "positionColumnType": "ALL",
+      "columnKey": "market_cap_portcurr_0",
+      "columnTitle": "Market Capitalisation",
+      "weight": 1,
+      "min": 0,
+      "max": 459646113,
+      "isNormal": true
+    }]
+  }
+}

@@ -1,0 +1,24 @@
+<table>
+    <thead>
+    <tr>
+        <th *ngFor="let title of headerTitles">
+            <div class="table-cell">{{title}}</div>
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+        <ng-container *ngFor="let data of missingInfoMap | keyvalue">
+            <tr *ngFor="let range of data.value">
+                <td>
+                    <div class="table-cell">{{data.key}}</div>
+                </td>
+                <td>
+                    <div class="table-cell">
+                        {{range.startDate | date : 'MM/dd/yyyy'}} - {{range.endDate | date : 'MM/dd/yyyy'}}
+                    </div>
+                </td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>

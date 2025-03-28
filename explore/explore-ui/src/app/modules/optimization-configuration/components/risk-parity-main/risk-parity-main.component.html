@@ -1,0 +1,93 @@
+<div class="optimization">
+    <div class="params-header margin-top-16">
+        <div class="favorite-row">
+            <label class="opto-params-title aux-primary aux-bold">Risk Parity Parameters</label>
+            <explore-core-load-new-favorite-buttons [newButtonLabel]="'Restore Default'" (loadClick)="onLoad()"
+                                                    (newClick)="onRestoreDefault()"></explore-core-load-new-favorite-buttons>
+        </div>
+        <div class="favorite-row" >
+            <ng-container *ngIf="currentPort.riskParitySettings.id">
+                <explore-favorite-info [favoriteConfig]='currentPort.riskParitySettings'
+                [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.OPTO_PARAMS"></explore-favorite-info>
+            </ng-container>
+            <aux-button [type]="AuxButtonTypeEnum.SECONDARY"
+                        [size]="AuxButtonSizeEnum.SMALL"
+                        label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.OPTO_PARAMS}}"
+                        (click)="onSave()"></aux-button>
+        </div>
+    </div>
+    <div class="params-header margin-top-16">Objective Function Exposure</div>
+    <div class="display-flex">
+        <ng-container *ngFor="let riskParityOption of riskParityOptions">
+            <div class="aux-layout__wrapper-16">
+                <div
+                    class="radio-button-spacing aux-g16--xs-9 aux-g16--sm-9 aux-g16--md-9 aux-g16--lg-9 aux-g16--xl-9">
+                    <aux-radio
+                        [label]="riskParityOption.label"
+                        [isChecked]="riskParityOption.checked"
+                        (radioChanged)="onRiskParityOptionchanged(riskParityOption.eventData.riskParityType)">
+                    </aux-radio>
+                </div>
+            </div>
+        </ng-container>
+        <div class="help-button-spacing aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2 tooltip-spacing">
+            <aux-popover [trigger]="'pressed'" [hasCloseIcon]="true">
+                <aux-button
+                    type="tertiary"
+                    icon="help-subtle"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="popover-container"><span>{{riskParityOptionsDescription}}</span></div>
+            </aux-popover>
+        </div>
+    </div>
+    <div class="accordions-and-footer-buttons optimization">
+        <div>
+            <aux-accordion
+                *ngFor="let optimizationSummary of optimizationSummaries$ | async"
+                [isBorderLess]="true"
+                [isFreeMode]="true"
+                [expandAll]="true"
+            >
+                <aux-accordion-expansion-panel [header]="optimizationSummary.title">
+                    <div class="accordion-font" slot="content">
+                        <app-optimization-summary
+                            [riskParitySettings]="true"
+                            [optimizationSummary]="optimizationSummary"
+                            (edit)="onEdit(optimizationSummary.type)"
+                        >
+                        </app-optimization-summary>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </aux-accordion>
+        </div>
+        <div class="footer">
+            <div class="footer-buttons-container">
+                <div class="footer-buttons footer-buttons-right">
+                    <div class="reset-button">
+                        <app-reset-composition [disableResetButton]="disableResetButton" (resetComposition)="onResetComposition()"></app-reset-composition>
+                    </div>
+                    <aux-button label="Run Optimization" size="small" (click)="onRun()"></aux-button>
+                    <aux-button class="footer-button-item" type="secondary" label="Close" size="small"
+                                (click)="onClose()"></aux-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="launchOptimizationSettings">
+    <app-optimization-settings-modal [isOpen]="true" [type]="type" [isRiskParitySettingsModal]="true" [riskParityCase] = "currentPort.riskParitySettings.riskParityCase"
+                                     (modalClosed)="onModalClosed($event)">
+    </app-optimization-settings-modal>
+</ng-container>
+
+<!--  LOADING  -->
+<ng-container *ngIf="optimizationStatus.spinnerFlag">
+    <div class="loading-area">
+        <div class="loading-spinner">
+            <app-loading-spinner size="large" [loadingLabel]="'Running optimization'"></app-loading-spinner>
+        </div>
+    </div>
+</ng-container>

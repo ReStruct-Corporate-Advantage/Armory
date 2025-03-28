@@ -1,0 +1,23 @@
+<div class="custom-colors">
+    <aux-checkbox
+        class="enable-custom-color-checkbox"
+        label="Customize chart colors"
+        [isChecked]="widgetInput.isEnabled"
+        [isDisabled]="disableOption"
+        (checkboxChanged)="onCheckboxGroupChanged($event.detail.value.checked)">
+    </aux-checkbox>
+    <div class="color-pickers-container" *ngIf="widgetInput.isEnabled">
+        <div class="color-picker">Positive Values</div>
+        <explore-core-color-picker class="color-picker"
+                                   [icon]="colorPickerIcons.FILL"
+                                   [(color)]="widgetInput.positiveColor"
+                                   [isDisabled]="!widgetInput.isEnabled">
+        </explore-core-color-picker>
+        <div class="color-picker">Negative Values</div>
+        <explore-core-color-picker class="color-picker"
+                                   [icon]="colorPickerIcons.FILL"
+                                   [(color)]="widgetInput.negativeColor"
+                                   [isDisabled]="!widgetInput.isEnabled">
+        </explore-core-color-picker>
+    </div>
+</div>

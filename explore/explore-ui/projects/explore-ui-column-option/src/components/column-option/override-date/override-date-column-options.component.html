@@ -1,0 +1,56 @@
+<div class="override-date-column-options">
+    <div *ngIf="showExposureLabelInRnE">
+        <div class="exposure-label-style">
+            <label>NOTE: Only applicable to Exposure Date</label>
+        </div>
+    </div>
+    <ng-container *ngIf="canHaveVaryingDates && !isDateVaryDisabledForRiskColumn()">
+        <explore-date-vary-options *ngIf="!isRiskColumn; else fbaDateVary"
+                                   [optionValue]="optionValue"
+                                   (dateVaryOptionChanged)="updateCompareToCurrent()">
+        </explore-date-vary-options>
+
+        <ng-template #fbaDateVary>
+            <explore-fba-date-vary-options [optionValue]="optionValue"
+                                           [riskColumnFlags]="riskColumnFlags"
+                                           (dateVaryOptionChanged)="updateCompareToCurrent()">
+            </explore-fba-date-vary-options>
+        </ng-template>
+    </ng-container>
+
+    <div class="override-date-options" *ngIf="canHaveMultipleOverrideDates">
+        <aux-radio-group
+            [data]="overrideDateOptions"
+            (radioGroupChanged)="onOverrideDateOptionChanged($event.detail.value)">
+        </aux-radio-group>
+    </div>
+    <explore-core-override-date *ngIf="showOverrideDate()"
+                                [overrideDateSettings]="overrideDateSettings"
+                                [compareToCurrentDateSettings]="compareToCurrentDateSettings"
+                                [canHaveMultipleOverrideDates]="canHaveMultipleOverrideDates"
+                                [overrideDateSelectionSubject$]="overrideDateSelectionSubject$"
+                                (customDateChange)="onCustomDateChange($event)">
+    </explore-core-override-date>
+
+    <ng-container *ngIf="showMultiOverrideDate()">
+        <div class="multi-override-date-label padding-top-bottom-16">
+            <label> Display by </label>
+        </div>
+        <explore-core-multi-override-date [multiOverrideDateSettings]="multiOverrideDateSettings"
+                                          [showAppendReportDate]="true"
+                                          defaultMultiDateObservations= 10
+                                          (multiOverrideDateSettingsChanged)="onMultiOverrideDateSettingsChange()">
+        </explore-core-multi-override-date>
+    </ng-container>
+
+    <!-- Compare to current options to be shown only if compareToCurrentOption is present in the column-->
+    <explore-core-compare-to-current *ngIf="showCompareToCurrent()"
+                                     [overrideDateSettings]="overrideDateSettings"
+                                     [multiOverrideDateSettings]="multiOverrideDateSettings"
+                                     [overrideDateSelectionSubject$]="overrideDateSelectionSubject$"
+                                     [compareToCurrentDateSettings]="compareToCurrentDateSettings"
+                                     [isDecompositionDisableAttributePresent]="isDecompositionDisableAttributePresent"
+                                     [dateType]="optionValue.dateType"
+                                     (compareToCurrentChanged)="onCompareToCurrentChange($event)">
+    </explore-core-compare-to-current>
+</div>

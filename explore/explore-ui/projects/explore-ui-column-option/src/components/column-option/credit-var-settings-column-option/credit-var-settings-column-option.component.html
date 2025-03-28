@@ -1,0 +1,8 @@
+<div class="confidence-interval-layout">
+    <aux-select label="Confidence level"
+                hasInitialOptionPlaceholder="false"
+                size="medium"
+                [data]="confidenceLevelsData"
+                (selectionChanged)="onConfidenceLevelChanged($event.detail.value.value)">
+    </aux-select>
+</div>

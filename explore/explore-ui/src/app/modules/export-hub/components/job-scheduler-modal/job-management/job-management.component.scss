@@ -1,0 +1,14 @@
+.filter-section {
+  display: flex;
+  width: calc((((100vw - (16px * 13)) / 12) * 10) + 16px * (10 - 4));
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inactive-jobs-card-section {
+  padding-top: 32px;
+}
+
+.export-hub-job-tables {
+  height: 100%;
+}

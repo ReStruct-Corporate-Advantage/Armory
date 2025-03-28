@@ -1,0 +1,10 @@
+<ng-container *ngIf="availablePrecannedStressScenarios">
+    <div class="bottom-space-area">
+        <aux-select label="Asset Stress Scenario"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="preCannedStressScenarioOptions"
+                    [isDisabled]="isSectorStressSelected"
+                    (selectionChanged)="onPrecannedStressScenarioChanged($event)">
+        </aux-select>
+    </div>
+</ng-container>

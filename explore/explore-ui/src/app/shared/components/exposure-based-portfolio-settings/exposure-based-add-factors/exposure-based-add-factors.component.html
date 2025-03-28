@@ -1,0 +1,31 @@
+
+<div class="add-factors-button">
+    <div class="add-factors-container">
+        <aux-button (click)="onAddFactorsButtonClicked()" icon="add" label="Add Factors" type="secondary"></aux-button>
+        <aux-popover style="margin-left: 12px;"
+                     trigger="hover"
+                     hasCloseIcon="false"
+                     header="Adding Custom Factors"
+                     overridePlacement="leftCenter">
+            <aux-icon slot="target" type="info-bold" state="primary"></aux-icon>
+            <div slot="content" class="popover-container">
+                <ul>
+                    <li>Users can define factors based on linear combinations of other factors surrounded by brackets.</li>
+                    <li>The factors must be specified based on their tags and not their names, e.g. [0.5*USD_10yr-0.2*JPY_10yr].</li>
+                    <li>Currently, custom shocks based on STORM factors are not supported properly.</li>
+                </ul>
+            </div>
+        </aux-popover>
+    </div>
+    <ng-container *ngIf="isFactorDataColumnModalOpen">
+        <explore-extended-column-option-factor-data-column-modal [isOpen]="isFactorDataColumnModalOpen"
+                                                                 [columnType]="columnType"
+                                                                 [inputs]="inputs"
+                                                                 [widgetConfigInput]="widgetConfigInput"
+                                                                 [restrictedColumnOptions]="restrictedColumnOptions"
+                                                                 [isColumnOptionsDisabled]="true"
+                                                                 (modalClosed)="onFactorDataColumnModalClosed($event)"
+                                                                 [showCustomFactor]="true">
+        </explore-extended-column-option-factor-data-column-modal>
+    </ng-container>
+</div>

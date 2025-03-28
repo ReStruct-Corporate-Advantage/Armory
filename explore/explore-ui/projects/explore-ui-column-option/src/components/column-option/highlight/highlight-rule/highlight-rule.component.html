@@ -1,0 +1,91 @@
+<div class="highlight-rule-container">
+    <aux-checkbox class="rule-enabled-checkbox"
+                  [isChecked]="highlightSettings.isEnabled"
+                  (checkboxChanged)="updateRuleEnabled($event)"></aux-checkbox>
+    <div class="rule-inputs-container">
+        <aux-select id="comparisonTypeSelect"
+                    class="rule-input-item"
+                    style="width: 55%"
+                    label="If {{columnTitle}} is..."
+                    [data]="comparisonTypeOptions"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="updateComparisonType($event)"></aux-select>
+        <ng-container *ngIf="!isBetweenComparison; else betweenValues">
+            <aux-text-input id="compareValue"
+                            class="rule-input-item" placeholder="Value"
+                            style="width: 36%"
+                            [isDisabled]="!highlightSettings.isEnabled"
+                            [value]="highlightSettings.comparisonValues[0]"
+                            (valueChanged)="updateCompareValue(0, $event)"
+                            (inputBlur)="validateComparisonValue(0)">
+            </aux-text-input>
+        </ng-container>
+        <div class="color-picker-container rule-input-item">
+            <div class="rule-input-item"
+                 style="width: 12rem">
+                <aux-select id="updateColorTypeSelect"
+                            [data]="colorTypeOptions"
+                            [label]="'update'"
+                            [isLeftLabel]="'true'"
+                            (selectionChanged)="updateColorType($event)">
+                </aux-select>
+            </div>
+            <div class="color-picker-items">
+                <ng-container *ngIf="selectedColorType !== 'textOnly'">
+                    <explore-core-color-picker class="rule-input-item"
+                                               [(color)]="highlightSettings.backGroundColors[0]"
+                                               [icon]="colorPickerIcons.FILL"
+                                               [isDisabled]="!highlightSettings.isEnabled">
+                    </explore-core-color-picker>
+                    <ng-container *ngIf="isQuantileComparison">
+                        <div class="input__label">
+                            to
+                        </div>
+                        <explore-core-color-picker class="rule-input-item"
+                                                   [icon]="colorPickerIcons.FILL"
+                                                   [(color)]="highlightSettings.backGroundColors[1]"
+                                                   [isDisabled]="!highlightSettings.isEnabled">
+                        </explore-core-color-picker>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="selectedColorType !== 'cellOnly'">
+                    <explore-core-color-picker class="rule-input-item"
+                                               [ngClass]="{'extra-padding': isQuantileComparison && selectedColorType === 'cellAndText'}"
+                                               [(color)]="this.highlightSettings.foreGroundColors[0]"
+                                               [icon]="colorPickerIcons.TEXT"
+                                               [isDisabled]="!highlightSettings.isEnabled">
+                    </explore-core-color-picker>
+                    <ng-container *ngIf="isQuantileComparison">
+                        <div class="input__label">
+                            to
+                        </div>
+                        <explore-core-color-picker class="rule-input-item"
+                                                   [icon]="colorPickerIcons.TEXT"
+                                                   [(color)]="this.highlightSettings.foreGroundColors[1]"
+                                                   [isDisabled]="!highlightSettings.isEnabled">
+                        </explore-core-color-picker>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <aux-button class="delete-rule-button"
+                type="tertiary-subtle" icon="delete-small"
+                (click)="deleteRule()">
+    </aux-button>
+</div>
+
+<ng-template #betweenValues>
+    <div class="rule-input-item value-input--between"
+         style="width: 36%">
+         <aux-text-input label="Min" [isDisabled]="!highlightSettings.isEnabled"
+            [value]="highlightSettings.comparisonValues[0]"
+            (valueChanged)="updateCompareValue(0, $event)"
+            (inputBlur)="validateComparisonValue(0)"></aux-text-input>
+        <div class="input__label">and</div>
+        <aux-text-input label="Max" [isDisabled]="!highlightSettings.isEnabled"
+            [value]="highlightSettings.comparisonValues[1]"
+            (valueChanged)="updateCompareValue(1, $event)"
+            (inputBlur)="validateComparisonValue(1)"></aux-text-input>
+    </div>
+</ng-template>

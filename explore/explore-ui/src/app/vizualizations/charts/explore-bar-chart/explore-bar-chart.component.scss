@@ -1,0 +1,30 @@
+//// remove all drill down indication on x-axis
+.highcharts-drilldown-axis-label {
+    cursor: pointer;
+    font-family: inherit;
+    align-items: center;
+    color: var(--primary-link__color);
+    fill: var(--primary-link__color) !important;
+    text-decoration: none !important;
+
+    tspan:hover {
+        color: var(--primary__background-color_hover);
+        fill: var(--primary__background-color_hover);
+        text-decoration: underline;
+    }
+}
+
+// add black/white outline to each point in the line series
+.bar-chart-line-measure .highcharts-point {
+    stroke: var(--primary__color) !important;
+    stroke-width: 1px;
+}
+.positive-negative-line-measure .highcharts-point {
+    stroke: var(--primary__color) !important;
+    stroke-width: 1px;
+}
+
+// positive/negative charting, makes the line color black/white in each line series
+.highcharts-series.positive-negative-line-measure > path {
+    stroke: var(--primary-text__color) !important;
+}

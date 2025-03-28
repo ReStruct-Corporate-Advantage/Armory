@@ -1,0 +1,70 @@
+<div class="job-review-settings__padding-card job-review-settings__block">
+                        <div class="job-review-settings__opposite-ends job-review-settings__padding-top-bottom">
+                            <span class="aux-p16 job-review-settings__main-header">Review Job</span>
+                            <aux-button type="secondary" label="Run Test Job" (click)="runTestJob()"></aux-button>
+                        </div>
+                        <aux-card class="job-review-settings__padding-card">
+                            <div slot="content" class="job-review-settings__padding-inside-card">
+                                <div class="job-review-settings__data-sections job-review-settings__opposite-ends">
+                                    <span class="job-review-settings__header">Portfolios & Widgets</span>
+                                    <aux-button
+                                        icon="edit"
+                                        type="tertiary"
+                                        (click)="editButtonClickHandler(ScheduleJobSteps.PORTFOLIOS_AND_WIDGETS)"
+                                    ></aux-button>
+                                </div>
+                                <table class="job-review-settings__table" role="presentation">
+                                    <tr class="job-review-settings__data-sections">
+                                        <td class="job-review-settings__column-descriptor">Portfolios</td>
+                                        <td class="job-review-settings__row-text">{{ noOfPortfolios }}</td>
+                                    </tr>
+                                    <tr class="job-review-settings__data-sections">
+                                        <td class="job-review-settings__column-descriptor">Widgets</td>
+                                        <td class="job-review-settings__row-text">{{ noOfWidgets }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </aux-card>
+
+                        <aux-card class="job-review-settings__padding-card">
+                            <div slot="content" class="job-review-settings__padding-inside-card">
+                                <div class="job-review-settings__data-sections job-review-settings__opposite-ends">
+                                    <span class="job-review-settings__header">Schedule</span>
+                                    <aux-button
+                                        icon="edit"
+                                        type="tertiary"
+                                        (click)="editButtonClickHandler(ScheduleJobSteps.SCHEDULE)"
+                                    ></aux-button>
+                                </div>
+                                <table class="job-review-settings__table" role="presentation">
+                                    <ng-container *ngFor="let item of scheduleSettingsDisplay">
+                                        <tr class="job-review-settings__data-sections">
+                                            <td class="job-review-settings__column-descriptor">{{ item.displayName }}</td>
+                                            <td class="job-review-settings__row-text">{{ item.value }}</td>
+                                        </tr>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </aux-card>
+
+                        <aux-card class="job-review-settings__padding-card">
+                            <div slot="content" class="job-review-settings__padding-inside-card">
+                                <div class="job-review-settings__data-sections job-review-settings__opposite-ends">
+                                    <span class="job-review-settings__header">Settings</span>
+                                    <aux-button
+                                        icon="edit"
+                                        type="tertiary"
+                                        (click)="editButtonClickHandler(ScheduleJobSteps.SETTINGS)"
+                                    ></aux-button>
+                                </div>
+                                <table class="job-review-settings__table" role="presentation">
+                                    <ng-container *ngFor="let item of exportSettingsDisplay">
+                                        <tr class="job-review-settings__data-sections">
+                                            <td class="job-review-settings__column-descriptor">{{ item?.displayName }}</td>
+                                            <td class="job-review-settings__row-text">{{ item?.value }}</td>
+                                        </tr>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </aux-card>
+                    </div>

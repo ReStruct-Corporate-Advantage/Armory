@@ -1,0 +1,94 @@
+{
+    "ticker": "IP",
+    "portId": "IP_1562074400334",
+    "datePicker": {
+        "date": "03/09/2016",
+        "calCode": "GreenPkg",
+        "dateStringValue": "",
+        "dateString": false
+    },
+    "configType": "adhocPortfolio",
+    "adhocParams": {
+        "name": "Adhoc IP",
+        "fullName": "Adhoc International Paper",
+        "currency": "JPY",
+        "portMktNotional": 300000,
+        "date": {"date": "01/01/2020", "dateString": false}
+    },
+    "compositionSetting": {
+        "breakdownTree": {
+            "data": {
+                "breakdown": {
+                    "breakdownTitle": "Security Group",
+                    "subSectors": [
+                        {
+                            "breakdownRuleType": "String",
+                            "useNoneBuckets": true,
+                            "groupByColumn": {
+                                "columnTag": "sec_group",
+                                "columnName": "Security Group",
+                                "positionColumnType": "ALL"
+                            }
+                        }
+                    ]
+                }
+            },
+            "title": "TOTAL"
+        },
+        "tradingColumn": "pct_notional_val"
+    },
+    "isModified": true,
+    "currency": "USD",
+    "benchmark": {
+        "name": "LEH_AGG",
+        "type": "PERFORM"
+    },
+    "portfolioRiskSettings": {
+        "configType": "RISK_SETTINGS",
+        "economyRiskSettings": {
+            "riskHorizon": 5,
+            "weightingScheme": "WKL",
+            "confidenceLevelSD": 2.33,
+            "dateObject": {
+                "date": "05/18/2018",
+                "calCode": "GreenPkg",
+                "dateString": false
+            }
+        },
+        "exposureRiskSettings": {
+            "riskModel": "^^STORM,^PRT_FI"
+        },
+        "advancedRiskSettings": {
+        }
+    },
+    "performanceSettings": {
+        "attributionSettings": {
+            "cannedMethod": "FIXED_INCOME"
+        },
+        "timePeriod": {
+            "shortName": "MTD",
+            "timePeriodName": "Month To Date"
+        }
+    },
+    "expostSettings": {
+        "samplingPeriod": {
+            "numberOfPeriods": 1,
+            "timePeriodShortName": "Months"
+        },
+        "statisticPeriod": {
+            "numberOfPeriods": 1,
+            "timePeriodShortName": "Days"
+        },
+        "statisticPeriods": [
+            {
+                "numberOfPeriods": 1,
+                "shortName": "Years"
+            }
+        ],
+        "isNetReturns": false,
+        "isLogNormal": false
+    },
+    "factorAttributionSettings": {
+        "factorAttributionType": "EQ_MANDATE"
+    }
+}

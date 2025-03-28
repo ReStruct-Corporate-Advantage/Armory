@@ -1,0 +1,121 @@
+{
+    "configType": "slopeGraph",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Slope Graph Widget displays a comparison of values for a single metric across multiple portfolios and sectors that is useful for measuring rates of change. This graph is best used in tandem with the 'Compare' functionality.",
+    "title": "Slope Graph",
+    "image": ".\/assets\/images\/slope-graph.png",
+    "imageDescription": "This slope graph compares the market value of GICS sectors between the S&P 500 and what-if S&P 500 portfolios.",
+    "setUpRequirements": [
+      "1 column measure (Note: >1 column measure will create another slope graph in a different tab)",
+      "Sector breakdown",
+      "Note: Best used with portfolios leveraging 'Compare' functionality"
+    ],
+    "showInSelector": true,
+    "showGridTransitionControl": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+          "categoryType": "columns",
+          "categoryTitle": "Measures",
+          "noAccordion": true,
+          "inputs": [
+            {
+              "inputConfigType": "columns",
+              "inputName": "columns",
+              "valueField": "columnTag",
+              "mandateSettingType": "CHART_REPORT",
+              "columnFilters": [
+                {
+                  "type": "=",
+                  "key": "reportTypes",
+                  "value": "SINGLE"
+                },
+                {
+                  "type": "=",
+                  "key": "dataType",
+                  "value": [
+                    "TIME_SPAN",
+                    "INT",
+                    "DOUBLE"
+                  ]
+                },
+                {
+                  "type": "=",
+                  "key": "isSubtotalable",
+                  "value": true
+                },
+                {
+                  "type": "!=",
+                  "key": "columnType",
+                  "value": "FACTOR_ATTRIBUTES"
+                },
+                {
+                  "type": "!=",
+                  "key": "groups",
+                  "value": [
+                    "Factor-Based",
+                    "Scenario",
+                    "GP Breakdown",
+                    "Liquidity",
+                    "Risk Based Capital",
+                    "Credit VaR"
+                  ]
+                },
+                {
+                  "type": "!=",
+                  "key": "uses",
+                  "value": "Excess"
+                },
+                {
+                  "type": "!=",
+                  "key": "isVisible",
+                  "value": false
+                },
+                {
+                  "type": "!=",
+                  "key": "columnReports",
+                  "value": [
+                    "prism_custom_cal",
+                    "explore_filter"
+                  ]
+                }
+              ]
+              ,
+              "default": [
+                {
+                  "$ref": "marketValueColumn"
+                }
+              ]
+            }
+          ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "$ref": "defaultBreakdown"
+                }
+            ]
+        },
+        {
+            "$ref": "defaultFilter"
+        },
+        {
+            "$ref": "defaultChartSettings"
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "restrictedColumnOptions": {
+        "$ref": "defaultRestrictedColumnOptions"
+    },
+    "chartingLib": "hc"
+}

@@ -1,0 +1,15 @@
+<div class="book-type-selector">
+    <aux-select
+        label="{{displayTitle | sentenceCase}}"
+        [hasInitialOptionPlaceholder]="false"
+        (selectionChanged)="onDropdownSelectionChanged($event)"
+        [data]="selectOptions">
+    </aux-select>
+</div>
+<div class="enable-fx-conversion" *ngIf="showBookFxConversionOption()">
+    <aux-checkbox
+        label="Enable bookFX conversion"
+        [isChecked]="this.optionValue.bookFxConversion"
+        (checkboxChanged)="onBookFxConversionChanged($event)">
+    </aux-checkbox>
+</div>

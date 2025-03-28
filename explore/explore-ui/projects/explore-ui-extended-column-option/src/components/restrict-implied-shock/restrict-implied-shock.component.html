@@ -1,0 +1,42 @@
+<div class="flex-container" [ngClass]="{ 'set-flex-column': globalSetting }">
+    <ng-container *ngIf="!fromCellEditor; else cellEditor">
+        <div class='flex-item'>
+            <aux-select type="filter-multiple"
+                        label="Restrict implied shocks"
+                        [isLoading]="isLoading"
+                        [data]="selections"
+                        (selectionChanged)="onSelectionsChange($event.detail.value)">
+            </aux-select>
+        </div>
+        <!--    Shows free form text field to enter additional restricted implied shocks in a comma separated fashion-->
+        <ng-container *ngIf="showOtherTextField">
+            <div class="flex-item">
+                <aux-text-input
+                    label="Other restricted implied shocks"
+                    [value]="otherShocksValue"
+                    (valueChanged)="onOtherShockValueChanged($event.detail.value)">
+                </aux-text-input>
+            </div>
+        </ng-container>
+    </ng-container>
+
+</div>
+
+<ng-template #cellEditor>
+    <div class='flex-item-cell-editor'>
+        <aux-select type="filter-multiple"
+                    [isLoading]="isLoading"
+                    [data]="selections"
+                    (selectionChanged)="onSelectionsChange($event.detail.value)">
+        </aux-select>
+    </div>
+    <div class="flex-item-cell-editor">
+        <aux-text-input
+            label="Other restricted implied shocks"
+            [isDisabled]="!showOtherTextField"
+            [value]="otherShocksValue"
+            (valueChanged)="onOtherShockValueChanged($event.detail.value)">
+        </aux-text-input>
+    </div>
+</ng-template>
+

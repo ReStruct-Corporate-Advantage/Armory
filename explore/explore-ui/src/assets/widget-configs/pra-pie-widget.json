@@ -1,0 +1,86 @@
+{
+    "configType": "praPie",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "showInSelector": false,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": true,
+    "showGridTransitionControl": false,
+    "description": "",
+    "title": "Pie chart",
+    "image": ".\/assets\/images\/pieWidget.png",
+    "canHaveMultipleOverrideDates": false,
+    "exportType": "pdf",
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": [
+                        {
+                            "type": "=",
+                            "key": "columnReports",
+                            "value": [
+                                "prism_var_factors",
+                                "factor_attrib_dd",
+                                "factor_attrib_resid"
+                            ]
+                        },
+                        {
+                            "type": "!=",
+                            "key": "columnType",
+                            "value": [
+                                "FACTOR_ATTRIBUTES",
+                                "custom_calc"
+                            ]
+                        },
+                        {
+                          "type": "!=",
+                          "key": "isVisible",
+                          "value": false
+                        },
+                        {
+                            "type": "!=",
+                            "key": "columnReports",
+                            "value": [
+                                "prism_custom_cal",
+                                "explore_filter"
+                            ]
+                        }
+                    ],
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+          "$ref": "defaultChartSettings"
+        },
+        {
+          "$ref": "factorPathInput"
+        }
+    ],
+    "restrictedColumnOptions": {
+        "sections": [
+            "aggregation",
+            "chartType",
+            "customColumnTitle",
+            "highlight",
+            "columnBreakdown",
+            "riskFactorViewColumnSettings",
+            "formatAndScaling",
+            "scenarioRiskFactorViewColumnSettings",
+            "economyExposureSettings",
+            "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "hc"
+}

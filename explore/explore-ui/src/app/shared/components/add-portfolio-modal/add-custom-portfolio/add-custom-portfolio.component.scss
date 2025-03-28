@@ -1,0 +1,38 @@
+@use '../../../../../style-functions';
+
+.custom-portfolio-modal__container {
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+
+    .input__item {
+        margin-bottom: 1rem;
+    }
+
+    .security-picker {
+        flex: 1;
+    }
+
+    .portfolio-value {
+        width: 40%;
+        padding-bottom: 1%;
+    }
+}
+
+.benchmark_item{
+    margin-bottom: 1rem;
+    width:100%;
+    padding: 0 16px;
+}
+
+@media (max-width: 1279px) {
+    .custom-portfolio-modal-size {
+        width: style-functions.explore-col-to-vw-32(10) !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .custom-portfolio-modal-size {
+        width: style-functions.explore-col-to-vw-32(8) !important;
+    }
+}

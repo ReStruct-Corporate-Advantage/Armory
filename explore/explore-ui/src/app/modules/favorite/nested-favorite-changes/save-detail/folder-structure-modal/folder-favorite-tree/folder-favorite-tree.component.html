@@ -1,0 +1,31 @@
+<div class="favorite-tree-save-mode-area">
+    <div class="add-folder-btn">
+        <aux-button label="+ Create folder"
+                    type="tertiary"
+                    (click)="createFirstLevelFolder()">
+        </aux-button>
+    </div>
+
+    <aux-advanced-tree-list
+        #tree
+        class="tree"
+        containerHeight="auto"
+        [customStyle]="advanceTreeCustomStyle"
+        isDropTarget="true"
+        hasDragAndDrop="true"
+        hasSearch="false"
+        hasBorder="false"
+        [sourceData]="rootFolderNode.children"
+        (contextMenuClicked)="onContextMenuClicked($event)"
+        (blkDrop)="onNodeDragAndDrop($event)"
+        (sourceSelectionChanged)="onNodeSelected($event)"
+        [hasItemTooltip]="true"
+        [tooltipCallback]="TooltipUtils.getEnterpriseDescriptionTooltip"
+        [config]="TooltipUtils.getTooltipConfig(false)">
+        <ng-container *ngIf="showStatusBadge">
+            <ng-container *ngFor="let fav of rootFolderNode.children">
+                <app-shared-favorite-status-badge [fav]="fav"></app-shared-favorite-status-badge>
+            </ng-container>
+        </ng-container>
+    </aux-advanced-tree-list>
+</div>

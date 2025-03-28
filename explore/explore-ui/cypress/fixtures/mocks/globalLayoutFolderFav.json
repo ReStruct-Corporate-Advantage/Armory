@@ -1,0 +1,41 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "owner": "_GLOBAL",
+        "data": "%7b\"title\":\"CURATED LAYOUTS\",\"type\":\"folder\",\"favoriteId\":8853,\"children\":%5b%7b\"title\":\"BB\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Report 5\",\"type\":\"favorite\",\"favoriteId\":11069%7d%5d%7d,%7b\"title\":\"Equity\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"permissioningTest1\",\"type\":\"favorite\",\"favoriteId\":8851%7d%5d%7d,%7b\"title\":\"Fixed Income\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Portfolio Summary\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Global Layout\",\"type\":\"favorite\",\"favoriteId\":2214%7d,%7b\"title\":\"Global Layout 2\",\"type\":\"favorite\",\"favoriteId\":2221%7d%5d%7d%5d%7d,%7b\"title\":\"TEST\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"1test-permissioning\",\"type\":\"favorite\",\"favoriteId\":13270%7d,%7b\"title\":\"test-template1\",\"type\":\"favorite\",\"favoriteId\":13275%7d,%7b\"title\":\"test-template2\",\"type\":\"favorite\",\"favoriteId\":13276%7d,%7b\"title\":\"test-template3\",\"type\":\"favorite\",\"favoriteId\":13277%7d,%7b\"title\":\"test-template4\",\"type\":\"favorite\",\"favoriteId\":13278%7d%5d%7d%5d%7d",
+        "listOrder": 0,
+        "list_order": 0,
+        "id": 8853,
+        "type": "LAYOUT_FOLDER",
+        "title": "TEST",
+        "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+        "tool": "Explore_BETA",
+        "isSlim": false
+      },
+      "message": null,
+      "gaussian": "VgxkZywkzfXmyUyKbYA/G8xM//jH09kvXjhrhnIe17H94a86EGFUBa4e+g7TCcm6iX70gdlNfOgs1f9ZL6bY3CCwslytzYQlvEvypj2OHnTSW2A45l/tDLM=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 551
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:55.838Z",
+      "detailedID": "75c1145e-be4e-4588-b6b5-8d0cdeefd2bf.551.1681296955838",
+      "IDWithContextChain": "75c1145e-be4e-4588-b6b5-8d0cdeefd2bf",
+      "chain": [],
+      "bmsMsgSize": 551,
+      "transactionId": "75c1145e-be4e-4588-b6b5-8d0cdeefd2bf",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681296955852*btid=1419*guid=5fe91eb1-973a-48d1-9823-21255fe1a065*exitguid=3*unresolvedexitid=593*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][593]}",
+    "return_val": "SUCCESS",
+    "command": "getFavoriteForTypeAndUser",
+    "transactionId": "75c1145e-be4e-4588-b6b5-8d0cdeefd2bf",
+    "successCode": null
+  }
+]

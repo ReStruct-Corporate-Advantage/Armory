@@ -1,0 +1,12 @@
+<div class="compare-to-current-selector padding-top-16">
+    <aux-radio-group label="Calculate relative to Current"
+                     name="inline"
+                     isStacked="true"
+                     [data]="supportedCompareToCurrentTypeOptions"
+                     (radioGroupChanged)="onSelectionChanged($event.detail.value.eventData)"></aux-radio-group>
+</div>
+<div *ngIf="isDecompositionRequired && !isDecompositionDisableAttributePresent" class="decomposition-checkbox">
+    <aux-checkbox label="With decomposition" [isDisabled]="!isDecompositionEnabled" [isChecked]="isDecompositionChecked"
+        (checkboxChanged)="onSelectedDecompositon($event.detail.value.checked)">
+    </aux-checkbox>
+</div>

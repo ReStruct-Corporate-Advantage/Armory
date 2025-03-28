@@ -1,0 +1,77 @@
+<div class="scenario-padding scenario-border">
+    <div class='scenario-header'>
+        <div>Selected Scenarios</div>
+        <aux-button type="tertiary" label="Add/Manage Scenarios" (click)="openAddStressScenariosModal()"></aux-button>
+    </div>
+</div>
+
+<table class='scenario-table'>
+    <caption></caption>
+    <th [style.display]="'none'"></th>
+    <tr class='scenario-border' *ngFor="let scenario of optionValue.nameScenarios; let i = index">
+        <td class='scenario-padding'>
+            <aux-popover [trigger]="'pressed'" [hasCloseIcon]="true">
+                <div slot="target">{{ scenario.name ? scenario.name : scenario.code }}</div>
+                <div slot="content" class='custom-popover-container'>
+                    <div style="font-weight: bold">{{ scenario.name ? scenario.name : scenario.code }}</div>
+                    <br/>
+                    <div>Scenario owner: {{scenario.category}}</div>
+                    <br/>
+                    <div>Description: {{scenario.description}}</div>
+                </div>
+            </aux-popover>
+        </td>
+        <td class='scenario-padding'>{{scenario.category}}</td>
+        <td class='scenario-padding'>
+            <div class="additional-buttons">
+                <ng-container *ngIf="!isScenarioCreationDisabled">
+                    <aux-button type="tertiary" icon="edit" (click)="openEditStressScenarioModal(i)"></aux-button>
+                </ng-container>
+                <aux-button type="tertiary" icon="delete" (click)="deleteNamedScenario(i)"></aux-button>
+            </div>
+        </td>
+    </tr>
+    <tr class='scenario-border' *ngFor="let scenario of optionValue.dateScenarios; let i = index">
+        <td class='scenario-padding'>
+            <aux-popover [trigger]="'pressed'" [hasCloseIcon]="true">
+                <div slot="target">Date Range Scenario [{{scenario.name}}]</div>
+                <div slot="content" class='custom-popover-container'>
+                    <div style="font-weight: bold">Date Range Scenario [{{scenario.name}}]</div>
+                    <br/>
+                    <div>Description: {{scenario.code}}</div>
+                </div>
+            </aux-popover>
+        </td>
+        <td class='scenario-padding'></td>
+        <td class='scenario-padding'>
+            <div class="additional-buttons">
+                <aux-button type="tertiary" icon="edit" (click)="openEditStressScenarioModalForDateRange(i)"></aux-button>
+                <aux-button type="tertiary" icon="delete" (click)="deleteDateScenario(i)"></aux-button>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!--End horizontal line-->
+<hr class="scenario-end-border">
+
+<ng-container *ngIf="isOpenAddScenarios">
+    <explore-extended-column-option-add-stress-scenarios-modal [isOpen]="isOpenAddScenarios"
+                                                               [optionValue]='optionValue'
+                                                               [allowNamedScenarioSingleSelection]="allowNamedScenarioSingleSelection"
+                                                               [showSpinner$]="showSpinnerOnAddScenarioModal$"
+                                                               [isScenarioCreationDisabled]="isScenarioCreationDisabled"
+                                                               [disableCreateScenarioButton]="disableCreateScenarioButton"
+                                                               (openCreateScenarioModalEmitter)="onCreateOrEditScenarioModalFromManageScenarios($event)"
+                                                               (modalClosed)="closeAddStressScenariosModal()">
+    </explore-extended-column-option-add-stress-scenarios-modal>
+</ng-container>
+
+<ng-container *ngIf="isOpenEditScenarioModal">
+    <explore-extended-column-option-create-edit-scenario-modal [isOpen]="isOpenEditScenarioModal"
+                                                               [scenario]="selectedScenario"
+                                                               [column]="column"
+                                                               [isScenarioCreationDisabled]="isScenarioCreationDisabled"
+                                                               (modalClosed)="onCreateEditScenarioModalClosed($event)">
+    </explore-extended-column-option-create-edit-scenario-modal>
+</ng-container>

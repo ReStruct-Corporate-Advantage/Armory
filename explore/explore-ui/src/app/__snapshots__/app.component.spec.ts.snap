@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppComponent should match html template 1`] = `
+<aux-app-frame
+  type="parallel-drawer"
+>
+  <div
+    slot="toolbar"
+    style="width: 100%; position: absolute; z-index: 2;"
+  >
+    
+  </div>
+  <div
+    class="main-slot full-height"
+    id="main-container"
+    slot="main"
+  >
+    
+    
+    
+    <app-intro />
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <app-side-bar
+    slot="drawer"
+  />
+</aux-app-frame>
+`;

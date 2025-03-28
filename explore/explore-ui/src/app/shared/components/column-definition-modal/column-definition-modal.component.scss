@@ -1,0 +1,23 @@
+.custom-header {
+    display: flex;
+    padding: 1.25rem 2rem 1.1875rem;
+    align-items: center;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+    .custom-title {
+        margin-left: 16px;
+    }
+}
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0;
+    margin-left: 32px;
+    .dialog-item {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 16px;
+    }
+    .dialog-item:last-child {
+        padding: 0px;
+    }
+}

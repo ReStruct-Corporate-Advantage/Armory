@@ -1,0 +1,30 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": "4/11/2023",
+      "message": null,
+      "gaussian": "mw7Y+xmcP3bOz326NzTPEGcOueVj/pU7D+uYsgZj2dAZoif4d0Ln5SuaXGJdg8xS2/eFf0+2kNYj3gP2r3V74rlpvK/hCQ==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 539
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:54.783Z",
+      "detailedID": "d22d3641-bb7f-43f8-9441-e7370b3b9efb.539.1681296954783",
+      "IDWithContextChain": "d22d3641-bb7f-43f8-9441-e7370b3b9efb",
+      "chain": [],
+      "bmsMsgSize": 539,
+      "transactionId": "d22d3641-bb7f-43f8-9441-e7370b3b9efb",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636330*ts=1681296954787*btid=59525*snapenable=true*guid=3ef0ec4a-db24-46a4-ba0b-da7642a4e710*exitguid=2*unresolvedexitid=784*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][784]}",
+    "return_val": "SUCCESS",
+    "command": "getDate",
+    "transactionId": "d22d3641-bb7f-43f8-9441-e7370b3b9efb",
+    "successCode": null
+  }
+]

@@ -1,0 +1,72 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "splitColumnKeys": {
+                    "eq_fin_th_ws_147_23142975a187461": [
+                        {
+                            "header": "FY-0",
+                            "originalKey": "eq_fin_th_ws_147_23142975a187461|FY-0",
+                            "CLASS_TYPE": "com.bfm.prism.data.tree.SplitColumnIdentifier",
+                            "updatedKeySuffix": "FY-0",
+                            "updatedKey": "eq_fin_th_ws_147_23142975a187461|FY-0"
+                        }
+                    ]
+                },
+                "footerDetails": {
+                    "PUBLISH_TIME": 1723694612000
+                },
+                "data": {
+                    "data": [
+                        1.0000000000000002,
+                        19.935575
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "pct_notional_val_0": "Notional Market Value %",
+                        "eq_fin_th_ws_147_23142975a187461": "ROE (%)(Median-PORT)"
+                    },
+                    "columnKeyToTagMap": {
+                        "pct_notional_val_0": "pct_notional_val",
+                        "eq_fin_th_ws_147_23142975a187461": "eq_fin_th_ws_147"
+                    }
+                },
+                "columns": [
+                    "pct_notional_val_0",
+                    "eq_fin_th_ws_147_23142975a187461|FY-0"
+                ]
+            },
+            "gaussian": "5n1fKoQHkA7mXuu/OHnez22yOTPbOpo+EkKkr/pZHHPA/mTgiT16TwcGdqXviTehMGKFBNobPQ==",
+            "userinfo": {
+                "runningRequests": 0,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1723744859612
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 2706
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-08-15T18:00:59.226Z",
+            "detailedID": "d2cbd920-4261-4c9d-9936-8d9c38de9c74.2706.1723744859226",
+            "IDWithContextChain": "d2cbd920-4261-4c9d-9936-8d9c38de9c74",
+            "chain": [],
+            "bmsMsgSize": 2706,
+            "transactionId": "d2cbd920-4261-4c9d-9936-8d9c38de9c74",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getPrismData",
+        "transactionId": "d2cbd920-4261-4c9d-9936-8d9c38de9c74",
+        "successCode": null
+    }
+]

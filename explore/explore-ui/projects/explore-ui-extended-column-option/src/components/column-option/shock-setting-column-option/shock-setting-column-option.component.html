@@ -1,0 +1,16 @@
+<div class="flex-container">
+    <div class="shock-field">
+        <aux-text-input [value]="shock"
+                        textAlign="right"
+                        type="currency"
+                        [label]="shockUnit"
+                        [validator]="validator"
+                        (inputBlur)="onShockValueChanged($event)">
+        </aux-text-input>
+    </div>
+
+    <explore-extended-column-option-restrict-implied-shock [value]='optionValue.restrictImpliedShocks'
+                                                           (valueChange)='onRestrictImpliedShocksChanged($event)'>
+    </explore-extended-column-option-restrict-implied-shock>
+
+</div>

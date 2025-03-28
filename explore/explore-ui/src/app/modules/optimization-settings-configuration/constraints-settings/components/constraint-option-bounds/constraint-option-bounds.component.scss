@@ -1,0 +1,12 @@
+.constraint-option-bounds {
+    display: flex;
+    flex-direction: row;
+
+    .lower-bound {
+        padding-right: 1rem;
+    }
+}
+
+.full-width {
+    width: 100% !important;
+}

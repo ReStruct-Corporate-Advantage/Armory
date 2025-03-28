@@ -1,0 +1,104 @@
+.column-set-settings--container {
+    height: 100%;
+}
+
+.column-container {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 96px); // deduct for height of column search and filter bar
+
+    .column-set-settings {
+        width: 100%;
+        padding-right: 1rem;
+        min-width: 0;
+        height: 100%;
+    }
+
+    .column-options {
+        padding-left: 1rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        .column-options-div {
+            overflow: auto;
+            flex: 1;
+            background: var(--container__background-color);
+            border: 1px solid var(--accordion__border-color);
+        }
+    }
+}
+
+.column-search {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 16px;
+    max-width: 60%;
+
+    .search-box {
+        width: 50%;
+        padding-left: 1rem
+    }
+}
+
+.column-filter-bar {
+    display: flex;
+    padding-bottom: 16px;
+}
+
+.loading-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 2147483646;
+
+    .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2147483647;
+    }
+}
+
+.loading-area-dimension {
+    width: 100%;
+    height: 100%;
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.favorite-info-actions-container {
+    justify-content: space-between;
+}
+
+.favorite-details {
+    min-width: 0;
+}
+
+.save-button--right {
+    margin-left: auto
+}
+
+.column-option-title {
+    padding-right: 1rem;
+}
+
+@media (max-width: 1919px) {
+    // in 1919px or less we want the width to be 5 columns out of 12, so width / (100% + width) = 5/12 => width = 71.43%
+    .column-options-width {
+        width: 71.43%;
+    }
+}
+
+@media (min-width: 1920px) {
+    // in 1920px or more we want the width to be 4 columns out of 12, so width / (100% + width) = 4/12 => width = 50%
+    .column-options-width {
+        width: 50%;
+    }
+}

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteComponent onInit Test should display Aladdin report when showAladdinReport is true 1`] = `
+<aux-accordion-expansion-panel
+  class="alddin-favorite"
+>
+  <div
+    class="accordion-font"
+    slot="content"
+  >
+    <app-favorite-tree />
+  </div>
+</aux-accordion-expansion-panel>
+`;
+
+exports[`FavoriteComponent onInit Test should display My breakdowns, Team breakdowns, Enterprise breakdowns, and Portfolio-Specific breakdowns when favorite type is BREAKDOWN 1`] = `
+<div
+  class="favorite-accordion-area"
+>
+  <aux-accordion>
+    
+    <aux-accordion-expansion-panel
+      class="my-favorite"
+    >
+      <div
+        class="accordion-font"
+        slot="content"
+      >
+        <app-favorite-tree />
+      </div>
+    </aux-accordion-expansion-panel>
+    <aux-accordion-expansion-panel
+      class="team-favorite"
+    >
+      <div
+        class="accordion-font"
+        slot="content"
+      >
+        <app-favorite-user-search />
+        <app-favorite-tree />
+      </div>
+    </aux-accordion-expansion-panel>
+    <aux-accordion-expansion-panel
+      class="enterprise-tree"
+    >
+      <div
+        class="accordion-font"
+        slot="content"
+      >
+        <app-favorite-tree />
+      </div>
+    </aux-accordion-expansion-panel>
+    
+    
+    <aux-accordion-expansion-panel
+      class="enterprise-tree"
+    >
+      <div
+        class="accordion-font"
+        slot="content"
+      >
+        <app-favorite-tree />
+      </div>
+    </aux-accordion-expansion-panel>
+    
+    
+  </aux-accordion>
+</div>
+`;
+
+exports[`FavoriteComponent onInit Test should set all the variables and update DOM 1`] = `"Search workspace"`;
+
+exports[`FavoriteComponent onInit Test should set all the variables and update DOM 2`] = `"My workspace"`;
+
+exports[`FavoriteComponent onInit Test should set all the variables and update DOM 3`] = `"Team workspace"`;
+
+exports[`FavoriteComponent onInit Test should set all the variables and update DOM 4`] = `"Enterprise workspace"`;
+
+exports[`FavoriteComponent should create 1`] = `
+<div
+  class="favorite-area"
+>
+  
+  <div>
+    
+    <div
+      class="favorite-search-field-area"
+    >
+      <aux-search-field />
+    </div>
+  </div>
+  <div
+    class="favorite-accordion-area"
+  >
+    <aux-accordion>
+      
+      <aux-accordion-expansion-panel
+        class="my-favorite"
+      >
+        <div
+          class="accordion-font"
+          slot="content"
+        >
+          <app-favorite-tree />
+        </div>
+      </aux-accordion-expansion-panel>
+      <aux-accordion-expansion-panel
+        class="team-favorite"
+      >
+        <div
+          class="accordion-font"
+          slot="content"
+        >
+          <app-favorite-user-search />
+          <app-favorite-tree />
+        </div>
+      </aux-accordion-expansion-panel>
+      
+      
+    </aux-accordion>
+  </div>
+</div>
+`;

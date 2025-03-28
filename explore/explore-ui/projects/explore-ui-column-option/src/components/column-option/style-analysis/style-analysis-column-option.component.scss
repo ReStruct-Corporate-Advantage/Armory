@@ -1,0 +1,60 @@
+.horizontol-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.horizontol-display-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.open-column-measure-div {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 28px;
+}
+
+.show-measure-div {
+    margin-bottom: 15px;
+}
+
+.column-measure-table-div {
+    padding-right: 28px;
+
+    .column-measure-table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        border-left: 1px solid var(--grid__border-color);
+        border-right: 1px solid var(--grid__border-color);
+
+        .column-measure-head-row {
+            border-bottom: 1px solid var(--grid__border-color);
+            border-top: 1px solid var(--grid__border-color);
+            background: var(--grid__background-color-header);
+            color: var(--grid__text-header__color);
+
+            .column-measure-head {
+                border-right: 1px solid var(--grid__border-color);
+            }
+        }
+
+        .column-measure-rows {
+            border-bottom: 1px solid var(--grid__border-color);
+        }
+
+        .column-measure-table-cell {
+            padding: 12px;
+            border: 1px solid var(--grid__border-color);
+        }
+        .column-min-max-table-cell {
+            padding-bottom: 12px;
+        }
+        .input-weight-table-cell {
+            width: 3rem;
+        }
+    }
+}

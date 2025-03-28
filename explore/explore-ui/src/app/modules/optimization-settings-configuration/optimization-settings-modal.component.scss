@@ -1,0 +1,18 @@
+.optimization-settings {
+    display: flex;
+    flex-direction: column;
+    .tab-group-container {
+        padding-top: 8px;
+        .tab-content {
+            margin-left: 32px;
+        }
+    }
+
+    .tab-content-container {
+        flex: 1;
+        background-color: var(--widget__background-color--header-inactive);
+        padding: 24px 28px;
+        border-top: 1px solid var(--tab__border-color);
+        margin-top: -1px;
+    }
+}

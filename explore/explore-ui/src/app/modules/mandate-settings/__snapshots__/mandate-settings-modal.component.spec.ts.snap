@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MandateSettingsModalComponent ngOnInit Test should update the table with mandateSettingsUIMatrix 1`] = `
+<div
+  class="mandate-settings-body"
+  slot="content"
+>
+  <aux-button
+    class="add-mandate-btn"
+    icon="add"
+    label="Add Mandate"
+    type="tertiary"
+  />
+  <table
+    class="mandate-table-format"
+  >
+    <thead
+      class="aux-container-alternate"
+    >
+      <tr>
+        <th>
+          <div
+            class="column-title"
+          >
+            Mandate
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Attribution Setting
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Sector Breakdown
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Performance Breakdown
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Factor Breakdown
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Curated Report
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            Risk Exposure Column Set
+          </div>
+        </th>
+        <th>
+          <div
+            class="column-title"
+          >
+            
+          </div>
+        </th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="00"
+              title="Fixed Income"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="01"
+              title="Hybrid Credit Attribution"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="02"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="03"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="04"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="curated-report-section settings"
+          >
+            <aux-type-ahead />
+          </div>
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="06"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        
+        <td>
+          <div
+            class="clear-settings"
+          >
+            <aux-button
+              icon="delete-small"
+              type="tertiary-subtle"
+            />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="10"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="11"
+              title="Active Equity Attribution"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="12"
+              title="GICS Industry"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="13"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="14"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        <td>
+          <div
+            class="curated-report-section settings"
+          >
+            <aux-type-ahead />
+          </div>
+          
+          
+        </td>
+        <td>
+          <div
+            class="settings"
+          >
+            <aux-select
+              id="16"
+              title="undefined"
+              type="filter-simple"
+            />
+          </div>
+          
+          
+          
+        </td>
+        
+        <td>
+          <div
+            class="clear-settings"
+          >
+            <aux-button
+              icon="delete-small"
+              type="tertiary-subtle"
+            />
+          </div>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`MandateSettingsModalComponent should create 1`] = `
+<aux-modal
+  class="aux-g32--cw-12"
+>
+  <div
+    class="mandate-settings-body"
+    slot="content"
+  >
+    <aux-button
+      class="add-mandate-btn"
+      icon="add"
+      label="Add Mandate"
+      type="tertiary"
+    />
+    <table
+      class="mandate-table-format"
+    >
+      <thead
+        class="aux-container-alternate"
+      >
+        <tr>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
+  <div
+    class="custom-footer-container--two-buttons"
+    slot="custom-footer"
+  >
+    <aux-button
+      class="custom-footer--primary-button"
+    />
+    <aux-button />
+  </div>
+</aux-modal>
+`;
+
+exports[`MandateSettingsModalComponent should create 2`] = `
+<div
+  class="mandate-settings-body"
+  slot="content"
+>
+  <aux-button
+    class="add-mandate-btn"
+    icon="add"
+    label="Add Mandate"
+    type="tertiary"
+  />
+  <table
+    class="mandate-table-format"
+  >
+    <thead
+      class="aux-container-alternate"
+    >
+      <tr>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+</div>
+`;

@@ -1,0 +1,74 @@
+<app-multi-manager-column-breakdown
+    *ngIf = "isMultiManagerEnabled"
+    [decompositionModes]="multiManagerOptions"
+    [widgetType]="widgetType"
+    [multiManagerInputData]="multiManagerInputData"
+    (changedBreakdownType)="onSelectedBreakdownTypeChange($event)"
+    (changedDecompositionMode)="onSelectedDecompositionModeChange($event)"
+    (changedDecompositionType)="onSelectedDecompositionTypeChange($event)">
+</app-multi-manager-column-breakdown>
+
+
+<div class="breakdown-type-selector" *ngIf="supportsMultipleTypes">
+    <aux-select label="Type"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="breakdownTypeOptions"
+                (selectionChanged)="onBreakdownTypeChanged($event)">
+    </aux-select>
+</div>
+
+<ng-container *ngIf = "optionValue?.multiManagerData?.breakdownType !== favoriteConstants.MM_XSR_BREAKDOWN">
+    <div [ngClass]="{'padding-top-16' : supportsMultipleTypes}">
+        <ng-container *ngIf="this.favoriteType === favoriteConstants.BREAKDOWN">
+            <app-breakdown-preview
+                [breakdown]="optionValue.breakdown"
+                [breakdownBuilderSettings]="breakdownBuilderSettings"
+                (breakdownChanged)="updateBreakdownBuilderSettings()">
+            </app-breakdown-preview>
+        </ng-container>
+        <ng-container *ngIf="this.favoriteType === favoriteConstants.FACTOR_BREAKDOWN">
+            <app-breakdown-preview
+                [breakdown]="optionValue.breakdown"
+                [breakdownBuilderSettings]="breakdownBuilderSettings"
+                (breakdownChanged)="updateBreakdownBuilderSettings()">
+            </app-breakdown-preview>
+        </ng-container>
+    </div>
+    <div class="padding-top-16">
+        <aux-checkbox-group label="Optional Data" [data]="hideCheckboxData"
+                            [isStacked]="true"
+                            (checkboxGroupChanged)="onCheckboxGroupChanged($event)">
+        </aux-checkbox-group>
+    </div>
+    <div class="column-breakdown-levels padding-top-16">
+        <aux-numeric-stepper [label]="isPortGroupBreakdown ? 'Portfolio group level' : 'Breakdown level'"
+                             minValue="1"
+                             maxValue="10"
+                             [stepperValue]="isPortGroupBreakdown ? optionValue.portfolioGroupLevel : optionValue.breakdownLevel"
+                             (valueChanged)="isPortGroupBreakdown ? onPortfolioGroupLevelChanged($event.detail.value) : onBreakdownLevelChanged($event.detail.value)">
+        </aux-numeric-stepper>
+    </div>
+    <div class="column-breakdown-options">
+        <div class="padding-top-16" *ngIf="showNormalizeBreakdownOption">
+            <aux-checkbox
+                label="Normalize"
+                [isChecked]="optionValue.isColumnBreakdownNormalize"
+                (checkboxChanged)="onNormalizeBreakdownOptionChanged($event.detail.value.checked)">
+            </aux-checkbox>
+        </div>
+
+        <div class="padding-top-16" *ngIf="showFullPortfolioNameBreakdownOption">
+            <aux-checkbox label="Full portfolio name"
+                          [isChecked]="optionValue.isFullPortfolioName"
+                          (checkboxChanged)="onFullPortfolioNameBreakdownOptionChanged($event.detail.value.checked)">
+            </aux-checkbox>
+        </div>
+        <div class="padding-top-16" *ngIf="showGroupByPortBenchActiveBreakdownOption">
+            <aux-checkbox label="Group by Port/Bench/Active"
+                          [isChecked]="optionValue.isGroupByPortBenchActive"
+                          (checkboxChanged)="onGroupByPortBenchActiveBreakdownOptionChanged($event.detail.value.checked)">
+            </aux-checkbox>
+        </div>
+    </div>
+</ng-container>
+

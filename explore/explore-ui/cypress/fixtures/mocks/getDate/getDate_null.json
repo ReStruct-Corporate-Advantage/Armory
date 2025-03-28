@@ -1,0 +1,29 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": "2/20/2024",
+      "message": null,
+      "gaussian": "tWkuG4pf157qf1qfuSM7H9iBIRVq7rE73Uc4wxdy+0qdx6XJa1+iA/TbU0nbIzgznUPnva85gMAoyhIhOFdkt28q8qruWpPkBPyJ14YaBvab8VUn4Q==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 565
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-21T14:58:55.780Z",
+      "detailedID": "f6dd6d11-8eaf-47ce-8887-a99ac7a37629.565.1708527535780",
+      "IDWithContextChain": "f6dd6d11-8eaf-47ce-8887-a99ac7a37629",
+      "chain": [],
+      "bmsMsgSize": 565,
+      "transactionId": "f6dd6d11-8eaf-47ce-8887-a99ac7a37629",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getDate",
+    "transactionId": "f6dd6d11-8eaf-47ce-8887-a99ac7a37629",
+    "successCode": null
+  }
+]

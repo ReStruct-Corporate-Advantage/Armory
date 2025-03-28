@@ -1,0 +1,13 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.shock-field {
+    width: 100px;
+    margin: 0 aux-variables.$aux-spacing-04 aux-variables.$aux-spacing-04 0;
+}
+

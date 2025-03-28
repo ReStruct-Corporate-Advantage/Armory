@@ -1,0 +1,169 @@
+{
+  "configType": "praBar",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "FBA Bar Chart",
+  "title": "Bar chart",
+  "image": ".\/assets\/images\/barwidget.png",
+  "showInSelector": false,
+  "hideSorting": false,
+  "hideBreakdownInSorting": true,
+  "hideTotal": true,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "hideTopBottomSectorToggle": true,
+  "showGridTransitionControl": true,
+  "canHaveMultipleOverrideDates": true,
+  "exportType": "pdf",
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Measure",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "showFavorite": false,
+          "valueField": "columnTag",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "columnReports",
+              "value": [
+                "prism_var_factors",
+                "factor_attrib_dd",
+                "factor_attrib_resid"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": [
+                "FACTOR_ATTRIBUTES",
+                "custom_calc"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            }
+          ],
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "topBottomFilter",
+          "inputName": "topBottomFilter",
+          "inputTitle": "Top/Bottom filtering",
+          "oldProps": [
+            "topBottomFilter"
+          ],
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "axis",
+      "categoryTitle": "Axis",
+      "inputs": [
+        {
+          "inputConfigType": "primaryAxisSettings",
+          "inputName": "primaryAxisSettings",
+          "inputTitle": "Primary axis",
+          "default": {},
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "secondaryAxisSettings",
+          "inputName": "secondaryAxisSettings",
+          "inputTitle": "Secondary axis",
+          "default": {},
+          "isOpen": true
+        }
+      ]
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Format",
+      "inputs": [
+        {
+          "inputConfigType": "barSettings",
+          "inputName": "chart",
+          "inputTitle": "Chart format",
+          "oldProps": [
+            "chart"
+          ],
+          "default": {
+            "chartType": "column"
+          },
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "comboChartColumnSettings",
+          "inputName": "comboChartColumnSettings",
+          "inputTitle": "Chart type and axis selection",
+          "isOpen": true,
+          "otherNames": ["secondaryAxisColumn"],
+          "default": {
+            "columns": []
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultChartSettings"
+    },
+    {
+      "$ref": "defaultSortedColumns"
+    },
+    {
+      "$ref": "factorPathInput"
+    },
+    {
+      "visible": false,
+      "categoryType": "nestedSettings",
+      "inputs": [
+        {
+          "inputConfigType": "gridLines",
+          "inputName": "showGridLines",
+          "inputTitle": "Grid lines",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "aggregation",
+      "customColumnTitle",
+      "highlight",
+      "columnBreakdown",
+      "riskFactorViewColumnSettings",
+      "formatAndScaling",
+      "scenarioRiskFactorViewColumnSettings",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "hc"
+}

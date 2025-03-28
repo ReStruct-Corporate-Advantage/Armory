@@ -1,0 +1,72 @@
+.publish-state-indicator-green {
+    background-color: green;
+    border: none;
+    padding: 0 5px;
+    border-radius: 50%;
+    height: 10px;
+    width: 5px;
+    margin-left: 12px
+}
+
+.publish-state-indicator-red {
+    background-color: #e60f0b;
+    border: none;
+    padding: 0 5px;
+    border-radius: 50%;
+    height: 10px;
+    width: 5px;
+    margin-left: 12px
+}
+
+.publish-state-indicator {
+    border: none;
+    padding: 0 5px;
+    border-radius: 50%;
+    height: 10px;
+    width: 5px;
+    margin-left: 12px
+}
+
+.publish-state-popover-data-container {
+    min-width: 400px;
+    padding: 16px;
+
+    .publish-state-popover-header {
+        font-weight: bold;
+        padding-bottom: 16px;
+    }
+
+    .publish-state-popover-time-info {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 16px;
+    }
+
+    .scrollable-publish-state-table {
+        border: 1px solid var(--grid__border-color);
+        max-height: 270px;
+        overflow-y: auto;
+
+        .publish-state-table-head {
+            background: var(--grid__background-color-header);
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+        }
+
+        .publish-state-table-cell {
+            border-bottom: 1px solid var(--grid__border-color);
+            padding-left: 10px;
+        }
+    }
+
+    .publish-state-request-button {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 16px;
+    }
+
+    .unpublished {
+        color: var(--text__color--error);
+    }
+}

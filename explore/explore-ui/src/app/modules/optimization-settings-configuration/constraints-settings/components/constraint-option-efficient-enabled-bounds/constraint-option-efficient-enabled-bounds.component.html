@@ -1,0 +1,16 @@
+<div class="constraint-option-bounds">
+    <div class="ef-lower-bound max-width">
+        <app-constraint-option-efficient-frontier-number class="bound-value"
+                                                         [customStyle]="true"
+                                                         [parentConfig]="parentConfig"
+                                                         [options]="lowerBoundOption"
+                                                         (updated)="onUpdated($event)"></app-constraint-option-efficient-frontier-number>
+    </div>
+    <div class="max-width">
+        <app-constraint-option-efficient-frontier-number class="bound-value"
+                                                         [customStyle]="true"
+                                                         [parentConfig]="parentConfig"
+                                                         [options]="upperBoundOption"
+                                                         (updated)="onUpdated($event)"></app-constraint-option-efficient-frontier-number>
+    </div>
+</div>

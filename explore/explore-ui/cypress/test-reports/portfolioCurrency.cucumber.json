@@ -1,0 +1,52 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Change Portfolio Currency",
+    "line": 1,
+    "id": "change-portfolio-currency",
+    "tags": [],
+    "uri": "portfolioCurrency.feature",
+    "elements": [
+      {
+        "id": "change-portfolio-currency;change-portfolio-currency",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Change Portfolio Currency",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 5613000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "select another currency",
+            "result": {
+              "status": "passed",
+              "duration": 704000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "verify portfolio currency should be changed to selected currency",
+            "result": {
+              "status": "passed",
+              "duration": 23000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,164 @@
+<app-chart-settings *ngIf="isChartWidget"
+                    [widgetConfigInput]="widgetConfigInput"
+                    [inputs]="inputs"
+                    [widgetType]="widgetType">
+</app-chart-settings>
+
+<ng-container [ngSwitch]="widgetConfigInput.inputConfigType">
+    <app-factor-based-widget-quick-columnset *ngSwitchCase="'riskColumnSettings'" [inputs]="inputs">
+    </app-factor-based-widget-quick-columnset>
+
+    <ng-container *ngSwitchCase="WidgetInputType.COLUMNS">
+        <ng-container *ngIf="widgetType === 'praWidget' else columnSetSettings">
+            <app-factor-based-column-set-settings
+                [widgetConfigInput]="widgetConfigInput"
+                [inputs]="inputs"
+                [restrictedColumnOptions]="restrictedColumnOptions"
+                [isApplyButtonDisabled]="isApplyButtonDisabled"
+                [widgetType]="widgetType"
+                [parentInputs]="parentInputs">
+            </app-factor-based-column-set-settings>
+        </ng-container>
+        <ng-template #columnSetSettings>
+            <app-column-set-settings
+                [widgetConfigInput]="widgetConfigInput"
+                [inputs]="inputs"
+                [restrictedColumnOptions]="restrictedColumnOptions"
+                [isApplyButtonDisabled]="isApplyButtonDisabled"
+                [widgetType]="widgetType"
+                [parentInputs]="parentInputs"
+                [customCalcFavoriteType]="customCalcFavoriteType">
+            </app-column-set-settings>
+        </ng-template>
+    </ng-container>
+    <app-hide-unassigned-filter-settings *ngSwitchCase="'hideUnassignedFilter'"
+                                         [widgetConfigInput]="widgetConfigInput"
+                                         [inputs]="inputs">
+    </app-hide-unassigned-filter-settings>
+    <app-top-bottom-filter-settings *ngSwitchCase="WidgetInputType.TOP_BOTTOM_FILTER"
+                                    [widgetConfigInput]="widgetConfigInput"
+                                    [inputs]="inputs"
+                                    [widgetType]="widgetType">
+    </app-top-bottom-filter-settings>
+    <app-min-val-filter *ngSwitchCase="'minValFilter'"
+                        [widgetConfigInput]="widgetConfigInput"
+                        [inputs]="inputs">
+    </app-min-val-filter>
+    <!--  DECARBONIZATION CHART PROPERTIES  -->
+    <app-decarbonization-chart-settings *ngSwitchCase="'decarbonizationChartSettings'"
+                            [widgetConfigInput]="widgetConfigInput"
+                            [inputs]="inputs"
+                            [widgetType]="widgetType">
+    </app-decarbonization-chart-settings>
+   <app-risk-exposure-settings *ngSwitchCase="'riskAndExposureAdditionalSettings'"
+                                [widgetConfigInput]="widgetConfigInput"
+                                [inputs]="inputs">
+    </app-risk-exposure-settings>
+    <app-pivot-settings *ngSwitchCase="'pivotSettings'"
+                        [widgetConfigInput]="widgetConfigInput"
+                        [inputs]="inputs">
+    </app-pivot-settings>
+    <app-widget-custom-filter *ngSwitchCase="WidgetInputType.CUSTOM_FILTER"
+                              [widgetConfigInput]="widgetConfigInput"
+                              [inputs]="inputs">
+    </app-widget-custom-filter>
+
+    <!-- widget level risk settings -->
+    <ng-container *ngSwitchCase="'riskSettings'">
+        <explore-risk-settings *ngIf="widgetType !== 'praFactorData'"
+                               [riskSettings]="widgetInput">
+        </explore-risk-settings>
+
+        <!--        Factor Data Widget - Risk Settings tab-->
+        <app-factor-data-risk-settings *ngIf="widgetType === 'praFactorData'"
+                                       [widgetConfigInput]="widgetConfigInput"
+                                       [inputs]="inputs"
+                                       [widgetType]="widgetType">
+        </app-factor-data-risk-settings>
+    </ng-container>
+
+    <app-widget-level-breakdown-settings *ngSwitchCase="WidgetInputType.BREAKDOWN_TREE"
+                                         [widgetConfigInput]="widgetConfigInput"
+                                         [inputs]="inputs"
+                                         [widgetType]="widgetType"
+                                         title="{{widgetConfigInput.inputTitle}}">
+    </app-widget-level-breakdown-settings>
+    <explore-core-expost-settings *ngSwitchCase="'expostSettings'"
+                                  [expostSettings]="widgetInput"
+                                  [showCategoryBreakdown]="true"
+                                  [canHaveMultipleStatisticPeriods]="true">
+    </explore-core-expost-settings>
+    <app-expost-time-series-settings *ngSwitchCase="'expostTimeSeriesSettings'"
+                                     [expostTimeSeriesSettings]="widgetInput">
+    </app-expost-time-series-settings>
+    <app-expost-return-settings *ngSwitchCase="'expostReturnSettings'"
+                                [expostReturnSettings]="widgetInput">
+    </app-expost-return-settings>
+    <app-performance-settings *ngSwitchCase="'performanceSettings'"
+                              [performanceSettings]="widgetInput"
+                              [showAdditionalPerformanceSettings]="widgetConfigInput.default.showAdditionalPerformanceSettings"
+                              [showAdditionalPerformanceSettingsAttributes]="widgetConfigInput.default.showAdditionalPerformanceSettingsAttributes"
+                              [showAttributionSettings]="widgetConfigInput.default.showAttributionSettings"
+                              [columns]="widgetConfigInput.default.columns"
+                              [isApplyButtonDisabled]="isApplyButtonDisabled"
+                              [portfolio]="portfolio"
+                              [telemetryData]="telemetryData"
+                              sourceName="Widget"
+                              isColumnUpdateEnabled="true">
+    </app-performance-settings>
+    <app-light-lookthrough-settings *ngSwitchCase="'isLightLookthroughEnabled'"
+                                    [widgetConfigInput]="widgetConfigInput"
+                                    [inputs]="inputs">
+    </app-light-lookthrough-settings>
+    <app-suppress-root-node-settings *ngSwitchCase="'suppressRootNodeAggregation'"
+                                     [widgetConfigInput]="widgetConfigInput"
+                                     [inputs]="inputs">
+    </app-suppress-root-node-settings>
+    <app-commitment-horizon *ngSwitchCase="WidgetInputType.COMMITMENT_HORIZON"
+                            [widgetConfigInput]="widgetConfigInput"
+                            [inputs]="inputs">
+    </app-commitment-horizon>
+    <app-commitment-risk-grouping *ngSwitchCase="WidgetInputType.COMMITMENT_RISK_GROUPING" [widgetConfigInput]="widgetConfigInput" [inputs]="inputs">
+    </app-commitment-risk-grouping>
+    <app-commitment-risk-scenario *ngSwitchCase="WidgetInputType.COMMITMENT_RISK_SCENARIO" [widgetConfigInput]="widgetConfigInput" [inputs]="inputs">
+    </app-commitment-risk-scenario>
+    <app-margin-analytics-cassini-settings *ngSwitchCase="'marginAnalyticsCassiniSettings'"
+                                           [widgetConfigInput]="widgetConfigInput"
+                                           [inputs]="inputs">
+    </app-margin-analytics-cassini-settings>
+    <app-override-date-sort-by-oldest-settings *ngSwitchCase="'overrideDateSortByOldest'"
+                                               [widgetConfigInput]="widgetConfigInput"
+                                               [inputs]="inputs">
+    </app-override-date-sort-by-oldest-settings>
+    <app-top-bottom-sectoring *ngSwitchCase="'topBottomSectoring'"
+                              [widgetConfigInput]="widgetConfigInput"
+                              [inputs]="inputs">
+    </app-top-bottom-sectoring>
+
+    <!--    Factor Data Widget - Chart Settings tab-->
+    <app-factor-data-chart-settings *ngSwitchCase="'factorDataChartSettings'"
+                                    [widgetConfigInput]="widgetConfigInput"
+                                    [inputs]="inputs"
+                                    [widgetType]="widgetType"
+                                    [restrictedColumnOptions]="restrictedColumnOptions"
+                                    [isApplyButtonDisabled]="isApplyButtonDisabled"
+                                    [customCalcFavoriteType]="customCalcFavoriteType">
+    </app-factor-data-chart-settings>
+    <ng-container *ngSwitchCase="'timeSeriesTimePeriodSettings'">
+        <app-chart-settings *ngIf="widgetType === 'diversificationTsWidget'"
+                            [widgetConfigInput]="widgetConfigInput"
+                            [inputs]="inputs"
+                            [widgetType]="widgetType">
+        </app-chart-settings>
+    </ng-container>
+    <app-diversification-score-factor-settings  *ngSwitchCase="'diversificationScoreFactorSettings'"
+                                               [widgetConfigInput]="widgetConfigInput"
+                                               [inputs]="inputs"
+                                               [widgetType]="widgetType">
+    </app-diversification-score-factor-settings>
+    <app-show-sector-level-data-only-settings *ngSwitchCase="'sectorLevelDataOnly'"
+                                           [widgetConfigInput]="widgetConfigInput"
+                                           [inputs]="inputs"
+                                           [widgetType]="widgetType">
+    </app-show-sector-level-data-only-settings>
+</ng-container>

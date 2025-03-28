@@ -1,0 +1,47 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "date": "2024-02-20",
+        "data": [
+          {
+            "portfolioCode": -35734,
+            "portfolioName": "SNP100",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -284185,
+            "portfolioName": "SNP100PRO",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          }
+        ],
+        "CLASS_TYPE": "com.bfm.prism.data.PortfoliosPublishStateData"
+      },
+      "message": null,
+      "gaussian": "MrMR+QgEUydjtt5MmHR0HzpI8yf0IEP1sLbgSNAMTaaJQtq7O7tvN2EfqACZnBBOfqyfyZkR3qlVkR5fIdRpTCXEPDquRi8mnbYZzMxqsY8xjIhh6puhMRw=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 681
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-21T14:58:56.591Z",
+      "detailedID": "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2:4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2.681.1708527536591",
+      "IDWithContextChain": "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2:4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2",
+      "chain": [
+        "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2",
+        "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb:8ba34609b1234b2"
+      ],
+      "bmsMsgSize": 681,
+      "transactionId": "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPublishedState",
+    "transactionId": "4bf4842f-5e6d-4c75-adcd-98fcb4fc1feb",
+    "successCode": null
+  }
+]

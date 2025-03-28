@@ -1,0 +1,35 @@
+.favorite-accordion-area {
+    margin: 24px auto;
+    text-align: left;
+}
+
+.sticky-search {
+    position: sticky;
+    top: 0;
+    margin-top: -32px;
+    padding: 32px 0 24px;
+    z-index: 100;
+}
+
+.favorite-area-sticky-search {
+    margin-top: 0;
+}
+
+.favorite-sub-category-data {
+    display: flex;
+    padding-bottom: 8px;
+
+    .sub-category {
+        padding-bottom: 24px;
+    }
+    .portfolio-type-select {
+        width: 50%;
+        padding-right: 16px;
+    }
+    .sub-category-select {
+        width: 50%;
+    }
+    .sub-category-select-full {
+        width: 100%;
+    }
+}

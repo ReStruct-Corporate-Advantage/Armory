@@ -1,0 +1,28 @@
+<div class="optimization-summary">
+    <ng-container *ngIf="optimizationSummaryData$ | async as optimizationSummaryData; else showProgressIndicator">
+        <ng-container *ngIf="showData$ | async; else addOptimizationOptions">
+            <div class="options">
+                <div>
+                    <div *ngIf="showOptionsLabel$ | async">
+                        <label class="options-label">{{ optimizationSummary.additionalData.optionsLabel }}: </label>
+                        <label>{{ (optimizationSummaryData$ | async).additionalData.optionsValue }}</label>
+                    </div>
+                </div>
+                <div>
+                    <aux-menu-nav icon="edit" label="Edit" (click)="onEdit()"></aux-menu-nav>
+                </div>
+            </div>
+            <div class="grid">
+                <app-optimization-summary-grid [data]="optimizationSummaryData.data"
+                                               [columns]="optimizationSummary.columns">
+                </app-optimization-summary-grid>
+            </div>
+        </ng-container>
+        <ng-template #addOptimizationOptions>
+            <aux-button type="secondary" icon="add" label="Add" size="small" (click)="onEdit()"></aux-button>
+        </ng-template>
+    </ng-container>
+    <ng-template #showProgressIndicator>
+        <app-loading-spinner size="medium"></app-loading-spinner>
+    </ng-template>
+</div>

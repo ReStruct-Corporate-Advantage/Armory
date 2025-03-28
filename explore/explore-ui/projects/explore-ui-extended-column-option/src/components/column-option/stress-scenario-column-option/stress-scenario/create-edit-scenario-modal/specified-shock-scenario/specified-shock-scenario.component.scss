@@ -1,0 +1,49 @@
+.set-margin-top {
+    margin-top: 16px;
+}
+
+.set-margin-bottom {
+    margin-bottom: 16px;
+}
+
+.scenario-card-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.shock-table {
+    flex: 1;
+    min-height: 45vh;
+    margin-right: 16px;
+}
+
+.learn-about-section {
+    width: 30%;
+    min-width: 250px
+}
+
+
+
+.set-grid-size {
+    height: 40vh;
+}
+
+.component-hw-100 {
+    height: 100%;
+    width: 100%;
+}
+
+.explore-search {
+    display: flex;
+    flex-direction: column;
+}
+
+.explore-table {
+    flex: 1
+}
+
+.reset-button {
+    display: none;
+}
+

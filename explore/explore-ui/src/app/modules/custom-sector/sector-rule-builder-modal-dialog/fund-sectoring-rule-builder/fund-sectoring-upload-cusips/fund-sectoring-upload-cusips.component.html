@@ -1,0 +1,12 @@
+<div class="fund-sectoring-upload-cusips-container">
+    <div class="upload-list-button-container" *ngIf="hideUploadScreen">
+        <aux-button type="secondary" label="Upload list" (click)="hideUploadScreen = false"
+                    [isDisabled]="isLoading$ | async"></aux-button>
+    </div>
+    <div class="upload-screen-container" *ngIf="!hideUploadScreen">
+        <app-quick-import (dataUploaded)="onDataUploaded($event)"
+                          [importConfig]="importConfig"
+                          (hideUploadScreen)="hideUploadScreen = true">
+        </app-quick-import>
+    </div>
+</div>

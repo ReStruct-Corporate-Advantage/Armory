@@ -1,0 +1,60 @@
+<div class="breakdown-sector-selector-tree">
+    <aux-accordion
+        [isFreeMode]="true"
+        [isBorderLess]="true"
+        [collapseAll]="isDisabled"
+        size="standard"
+        [customStyle]="accordionCustomStyle">
+        <aux-accordion-expansion-panel
+            header="My Custom Sectors"
+            [isDisabled]="isDisabled"
+            [isExpanded]="isExpanded">
+            <div class="accordion-font accordion-custom" slot="content">
+                <app-breakdown-custom-sector-tree [searchTermSubject$]="searchTermSubject$"
+                                                  [owner$]="login$"
+                                                  [selectedNodeSubject$]="selectedNodeSubject$"
+                                                  [isDisabled]="isDisabled"
+                                                  [draggedNodeSubject$]="draggedNodeSubject$"
+                                                  [favType]="favType"
+                                                  [folderType]="folderType"
+                                                  [addSectorSubject$]="addSectorSubject$">
+                </app-breakdown-custom-sector-tree>
+            </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+            header="Team Custom Sectors"
+            [isDisabled]="isDisabled"
+            [isExpanded]="isExpanded">
+            <div class="accordion-font accordion-custom" slot="content">
+                <app-favorite-user-search [favType]="favType"
+                                          [selectedFavoriteUserSubject$]="selectedFavoriteUserSubject$">
+                </app-favorite-user-search>
+                <app-breakdown-custom-sector-tree [searchTermSubject$]="searchTermSubject$"
+                                                  [owner$]="selectedFavoriteUserSubject$"
+                                                  [selectedNodeSubject$]="selectedNodeSubject$"
+                                                  [isDisabled]="isDisabled"
+                                                  [draggedNodeSubject$]="draggedNodeSubject$"
+                                                  [addSectorSubject$]="addSectorSubject$"
+                                                  [favType]="favType"
+                                                  [folderType]="folderType">
+                </app-breakdown-custom-sector-tree>
+            </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+            header="System Custom Sectors"
+            [isDisabled]="isDisabled"
+            [isExpanded]="isExpanded">
+            <div class="accordion-font accordion-custom" slot="content">
+                <app-breakdown-custom-sector-tree [searchTermSubject$]="searchTermSubject$"
+                                                  [owner$]="admin$"
+                                                  [selectedNodeSubject$]="selectedNodeSubject$"
+                                                  [isDisabled]="isDisabled"
+                                                  [draggedNodeSubject$]="draggedNodeSubject$"
+                                                  [favType]="favType"
+                                                  [folderType]="folderType"
+                                                  [addSectorSubject$]="addSectorSubject$">
+                </app-breakdown-custom-sector-tree>
+            </div>
+        </aux-accordion-expansion-panel>
+    </aux-accordion>
+</div>

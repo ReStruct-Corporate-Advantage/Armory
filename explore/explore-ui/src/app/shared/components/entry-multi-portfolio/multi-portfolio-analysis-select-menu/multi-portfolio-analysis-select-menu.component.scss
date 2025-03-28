@@ -1,0 +1,106 @@
+@use '../../../../../style-functions';
+
+.compare-modal {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+    height: 100%;
+    min-width: style-functions.explore-col-to-vw-32(6);
+    .compare-table {
+        padding: 32px 32px;
+        border-collapse: collapse;
+        
+        .add-portfolio-top-container {
+            flex: 1;
+            padding: 0.5rem 0rem 0.5rem;
+            overflow: auto;
+        }
+
+        .add-group-top-container {
+            padding: 0.5rem 0rem 1rem;
+            overflow: auto;
+        }
+
+    .base-portfolio-container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .base-portfolio-label {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .report-container {
+        padding-top: 5px;
+        padding-bottom: 10px;
+
+        .report-label {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .report-group-container {
+        padding-top: 5px;
+        padding-bottom: 10px;
+
+        .report-group-label {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .aux-checkbox-group-container{
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    .no-overflow {
+        overflow: unset;
+    }
+
+    .inline-flex {
+        display: inline-flex;
+    }
+
+    .warning-text {
+        color: #e60f0b;
+        padding: 10px 0;
+    }
+}
+
+.aux-primary-text__color {
+    color: var(--primary-text__color);
+}
+.aux-disabled-text__color {
+    color: var(--disabled-text__color);
+}
+}
+
+.tab--left-spacer {
+    padding-left: 2rem;
+}
+
+.tab__content {
+    padding: 2rem 0;
+    background-color: var(--modal__background-color--grey);
+    height: 488px; // modal height
+}
+
+.type-portfolio {
+    height: 50vh;
+}
+
+.type-index-what-if {
+    height: 57vh;
+}
+
+@media (max-width: 1919px) {
+    .select-group-modal-portfolio-menu-size {
+        width: style-functions.explore-col-to-vw-32(6) !important;
+    }
+}
+
+@media (min-width: 1920px) {
+    .select-group-modal-portfolio-menu-size {
+        width: style-functions.explore-col-to-vw-32(4) !important;
+    }
+}

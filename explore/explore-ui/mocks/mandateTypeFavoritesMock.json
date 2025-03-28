@@ -1,0 +1,194 @@
+{
+    "BREAKDOWN": [
+        {
+            "tool": "Explore",
+            "title": "MSCI ESG Rating Breakdown",
+            "type": "BREAKDOWN",
+            "id": 1521634,
+            "listOrder": 6,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1521634,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "GICS Industry",
+            "type": "BREAKDOWN",
+            "id": 1275180,
+            "listOrder": 2,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1275180,
+                "_global": false
+            }
+        }
+    ],
+    "PERF_BKD": [
+        {
+            "tool": "Explore",
+            "title": "MSCI ESG Rating Breakdown",
+            "type": "BREAKDOWN",
+            "id": 1521634,
+            "listOrder": 6,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1521634,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "GICS Industry",
+            "type": "BREAKDOWN",
+            "id": 1275180,
+            "listOrder": 2,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1275180,
+                "_global": false
+            }
+        }
+    ],
+    "FAC_BKD": [
+        {
+            "tool": "Explore",
+            "title": "PRA - Global - Factor Breakdow",
+            "type": "FAC_BKD",
+            "id": 1306434,
+            "listOrder": 2,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1306434,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "BY_MODELS",
+            "type": "FAC_BKD",
+            "id": 1303592,
+            "listOrder": 1,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1303592,
+                "_global": false
+            }
+        }
+    ],
+    "WIDGETS_REPORT": [
+        {
+            "tool": "Explore",
+            "title": "Fixed Income Portfolio Summary",
+            "type": "LAYOUT",
+            "id": 1325071,
+            "listOrder": 77,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1325071,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "Fixed Income Risk Summary",
+            "type": "LAYOUT",
+            "id": 1325073,
+            "listOrder": 86,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1325073,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "P&L",
+            "type": "LAYOUT",
+            "id": "1325075-123456",
+            "listOrder": 68,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": "1325075-123456",
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "MA Risk Summary",
+            "type": "LAYOUT",
+            "id": 882944,
+            "listOrder": 53,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 882944,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "Equity Portfolio Summary",
+            "type": "LAYOUT",
+            "id": 1325090,
+            "listOrder": 87,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1325090,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "Equity Risk Summary",
+            "type": "LAYOUT",
+            "id": 1325091,
+            "listOrder": 91,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1325091,
+                "_global": false
+            }
+        }
+    ],
+    "COLUMN_SET": [
+        {
+            "tool": "Explore",
+            "title": "TC-ColumnSet-Admin",
+            "type": "REPORT",
+            "id": 1458422,
+            "listOrder": 9,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1458422,
+                "_global": false
+            }
+        },
+        {
+            "tool": "Explore",
+            "title": "Column Set 1 admin",
+            "type": "REPORT",
+            "id": 1459540,
+            "listOrder": 10,
+            "owner": "_ADMIN",
+            "description": " ",
+            "flagid": {
+                "id": 1459540,
+                "_global": false
+            }
+        }
+    ]
+}

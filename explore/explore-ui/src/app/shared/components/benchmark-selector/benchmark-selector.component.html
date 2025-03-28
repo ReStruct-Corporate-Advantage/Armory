@@ -1,0 +1,107 @@
+<div [ngClass]="{'vertical-benchmark-settings': isBenchmarkAdhoc, 'horizontal-benchmark-settings': !isBenchmarkAdhoc}">
+    <div *ngIf="showLabel" class="benchmark-label">{{ label }}</div>
+    <div class="bench-selector__container" style="display: flex;">
+        <aux-popover
+            header="{{benchmarkHeader}}"
+            [hasCloseIcon]="false"
+            [isOpen]="!disablePopover && benchInfoLoadingComplete && showBenchPopover && !showOtherPopover">
+
+            <div slot="target">
+                <aux-select
+                    id="benchmarkSelect"
+                    [isDisabled]="isDisabled"
+                    [size]="isBenchmarkAdhoc ? 'regular':'small'"
+                    [type]="'simple'"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="benchmarkOptions"
+                    [maxDropdownHeight]="400"
+                    (selectionChanged)="onBenchmarkClicked($event.detail?.value?.value)"
+                    (dropdownOpened)="onDropdownOpened()"
+                    (mouseenter)="openPopover(true)"
+                    (mouseout)="closePopovers()">
+                </aux-select>
+            </div>
+
+            <div slot="content" class="popover-container">
+                <ng-template [ngTemplateOutlet]="indexWeightTable"></ng-template>
+            </div>
+        </aux-popover>
+
+        <div class="other-bench-container" *ngIf="displayPortfolioSearch">
+            <ng-container *ngIf="whatIfLoaded && ((!searchMode && !whatIfSearchMode) || (searchMode && whatIfSearchMode))">
+                <div class="what-if-badge">
+                    <aux-badge type="custom" size="small">
+                        <div slot="custom">What-if</div>
+                    </aux-badge>
+                </div>
+            </ng-container>
+            <!-- Portfolio -->
+            <div class="portfolio-search-area">
+                <ng-container *ngIf="searchMode && !whatIfSearchMode; else showTitle">
+                    <blk-portfolio-search #portfolioSearch
+                        (emitPortfolioSearchItem)="setOtherBenchmark($event)"
+                        [searchString]="portfolio?.benchmark?.name"
+                        [portfolioSearchService]="portfolioSearchService"
+                        [searchSize]="isBenchmarkAdhoc ? 'regular':'small'"
+                        [isBenchmarkSearch]="true"
+                        (emitWhatIfProp)="updateWhatIfBench($event)"
+                        [isWhatIfLoaded]="isWhatIfSelected"
+                        (whatIfTypeSelected)="enableWhatIfSearch()"
+                        [searchType]="searchType">
+                    </blk-portfolio-search>
+                </ng-container>
+                <ng-container *ngIf="enableCancelButton">
+                    <aux-button class="portfolio-search-cancel-button" [type]="'tertiary'" [label]="'Cancel'"
+                        (click)="onPortfolioChangeClicked(true)"></aux-button>
+                </ng-container>
+                <ng-template #showTitle>
+                    <div class="portfolio-title portfolio-header-inline-item" (mouseenter)="openPopover()">
+                        <ng-container *ngIf="!searchMode || (searchMode && whatIfSearchMode)">
+                            <aux-popover trigger="hover" hasCloseIcon="true" [overridePlacement]="'leftTop'" [header]="otherBenchmarkHeader">
+                                <div slot="target">
+                                    <div class="aux-primary portfolio-title-text" (click)="onPortfolioChangeClicked()">
+                                        {{ currentPortfolioHeaderTitle }}
+                                    </div>
+                                </div>
+                                <div slot="content" class="popover-container">
+                                    <ng-template [ngTemplateOutlet]="indexWeightTable"></ng-template>
+                                </div>
+                            </aux-popover>
+                        </ng-container>
+                        <ng-container *ngIf="!searchMode || (searchMode && whatIfSearchMode)">
+                            <aux-button class="portfolio-header-inline-item portfolio-header--change-button" [type]="'tertiary'"
+                                [label]="'Change'" (click)="onPortfolioChangeClicked()"></aux-button>
+                        </ng-container>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #indexWeightTable>
+    <div style="display:flex">
+        <div class="square"></div>
+        <div>
+            <p class="popover-data"><span
+                class="aux-bold">Currency:</span> {{tooltipInfo?.currency}}</p>
+        </div>
+    </div>
+    <div *ngIf="tooltipInfo?.indexWeights">
+        <table class="popover-data table-format">
+            <caption class="aux-bold table-caption">Components</caption>
+            <tr *ngFor="let indexWeight of tooltipInfo.indexWeights">
+                <th class="aux-p10 td-string">{{indexWeight.portfolioPortName}}</th>
+                <th class="aux-p10 td-string">{{indexWeight.portfolioFullName}}</th>
+                <th class="aux-p10 td-number">{{indexWeight.weight | percent: '.2'}}</th>
+            </tr>
+        </table>
+    </div>
+</ng-template>
+
+<ng-container *ngIf="inAgGrid && showProgressForGridCell">
+    <div style="height: 20px">
+        <aux-progress-indicator [isSpinner]="true" type="loading" [isOverlay]="true">
+        </aux-progress-indicator>
+    </div>
+</ng-container>

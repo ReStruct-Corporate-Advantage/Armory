@@ -1,0 +1,62 @@
+{
+    "workspace": {
+        "message": "Successfully saved the favorite",
+        "data": {
+            "owner": "seakim",
+            "data": {
+                "configType": "workspace",
+                "workpads": [
+                    {
+                        "configType": "flat-workpad",
+                        "reports": [
+                            {
+                                "configType": "WIDGETS_REPORT",
+                                "widgets": [],
+                                "title": "Report"
+                            }
+                        ],
+                        "portfolios": [
+                            {
+                                "configType": "portfolio",
+                                "ticker": "IP",
+                                "benchmark": {
+                                    "type": "RISK",
+                                    "order": 1,
+                                    "name": "LEH_AGG"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "title": "Untitled Workspace"
+            },
+            "listOrder": 23,
+            "list_order": 23,
+            "description": "",
+            "id": 1719487,
+            "title": "Untitled Workspace",
+            "type": "WORKSPACE",
+            "tool": "Explore",
+            "isSlim": false
+        },
+        "status": "SUCCESS"
+    },
+    "workspaceFolder": {
+        "message": "Tree structure saved successfully",
+        "data": {
+            "owner": "seakim",
+            "data": "{\"title\":\"WORKSPACES\",\"type\":\"folder\",\"favoriteId\":1517716,\"children\":[{\"title\":\"new2\",\"type\":\"folder\",\"children\":[{\"title\":\"test1\",\"type\":\"folder\",\"children\":[{\"title\":\"Untitled Workspace\",\"type\":\"favorite\",\"favoriteId\":1842154}]}]},{\"title\":\"new3\",\"type\":\"folder\",\"children\":[{\"title\":\"test2\",\"type\":\"folder\"}]}]}",
+            "listOrder": 0,
+            "list_order": 0,
+            "id": 1517716,
+            "type": "WORKSPACE_FOLDER",
+            "title": "TEST",
+            "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+            "tool": "Explore",
+            "isSlim": false
+        },
+        "gaussian": "1X+gVTMkZccwcofj7B7FV6q0C7j+ro/TOcszB1IeR+T6Fas3N1iCCq5BQTK5MKMEKQ==",
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+        "status": "SUCCESS"
+    }
+}

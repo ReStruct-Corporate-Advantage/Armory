@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExportMenuComponent Export Menu Appearance Tests should default render as a link button 1`] = `
+<aux-inline-menu
+  trigger="pressed"
+>
+  <aux-button
+    icon="export"
+    slot="target"
+  />
+</aux-inline-menu>
+`;

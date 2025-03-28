@@ -1,0 +1,19 @@
+.excluded-funds-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.excluded-funds-additional-info {
+    padding: 1rem 0.75rem;
+}
+
+.excluded-funds-table {
+    width: 100%;
+    flex:1
+}
+
+.content-padding {
+    padding: 1.25rem 2rem 1.5rem;
+}

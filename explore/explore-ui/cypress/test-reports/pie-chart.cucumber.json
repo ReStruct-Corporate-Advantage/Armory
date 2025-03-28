@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for pie chart",
+    "line": 1,
+    "id": "visual-comparison-tests-for-pie-chart",
+    "tags": [],
+    "uri": "pie-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-pie-chart;validate-pie-chart-is-loading",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate pie chart is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Pie Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6184000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26544000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"Pie Chart\" should be displayed, aligning with the snapshot \"piechart_with_baseline\"",
+            "result": {
+              "status": "failed",
+              "duration": 4675000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/pie-chart.feature/__diff_output__/piechart_with_baseline.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+<div class="accordion-font" slot="content">
+    <table>
+        <tr>
+            <td>
+                <aux-select [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="setBenchmarkPositionAggregationType($event.detail.value.value)"
+                            [label]="'Aggregate bench securities'"
+                            [data]="benchmarkPositionAggregationTypes">
+                </aux-select>
+            </td>
+        </tr>
+        <tr>
+            <td class="padding-top-24">
+                <aux-select [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="setPortfolioPositionAggregationType($event.detail.value.value)"
+                            [label]="'Aggregate portfolio securities'"
+                            [data]="portfolioPositionAggregationTypes">
+                </aux-select>
+            </td>
+        </tr>
+        <tr>
+            <td class="padding-top-24">
+                <aux-select [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="setClosedPositionAggregationType($event.detail.value.value)"
+                            [label]="'Aggregate closed positions'"
+                            [data]="closedPositionAggregationTypes">
+                </aux-select>
+            </td>
+        </tr>
+    </table>
+</div>
+
+

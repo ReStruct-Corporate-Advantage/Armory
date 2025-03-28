@@ -1,0 +1,51 @@
+<aux-popover>
+    <button slot="target" [ngClass]="buttonColor" [disabled]="isFirstLoad" [attr.aria-label]="assistiveText"></button>
+    <div slot="content" class="popover-container">
+        <ng-template [ngTemplateOutlet]="publishStateTable"></ng-template>
+    </div>
+</aux-popover>
+
+<ng-template #publishStateTable>
+    <div class="publish-state-popover-data-container">
+        <div class="publish-state-popover-header">Quality Control Log</div>
+        <div id="qc-status-indicator" *ngIf="!hasBeenFetched">
+            <app-loading-spinner size="medium"></app-loading-spinner>
+        </div>
+        <ng-container *ngIf="hasBeenFetched">
+            <div class="publish-state-popover-time-info">
+                <div>
+                    <div>
+                        Last fetched {{durationSinceLastFetch}}
+                    </div>
+                    <div style="margin-top: 2px">
+                        Exposure as of {{portfolio.datePicker.date}}
+                    </div>
+                </div>
+                <div>
+                    <aux-menu-nav  icon="reload" label="Refresh QC Data" (click)="getPublishedStatus()"></aux-menu-nav>
+                </div>
+            </div>
+            <div class="scrollable-publish-state-table">
+                <table style="width: 100%; text-align: left; border-spacing: 0;">
+                    <tr>
+                        <th class="publish-state-table-cell publish-state-table-head">Portfolio Name</th>
+                        <th class="publish-state-table-cell publish-state-table-head">Publish State</th>
+                        <th class="publish-state-table-cell publish-state-table-head">Publish Time</th>
+                    </tr>
+                    <tr *ngFor="let result of publishedStateResults">
+                        <td class="publish-state-table-cell aux-p12" [ngClass]="{unpublished : result.isUnpublished()}">{{result.portfolioName}}</td>
+                        <td class="publish-state-table-cell aux-p12" [ngClass]="{unpublished : result.isUnpublished()}">{{result.publishState}}</td>
+                        <td class="publish-state-table-cell aux-p12" [ngClass]="{unpublished : result.isUnpublished()}">{{result.publishDate}}</td>
+                    </tr>
+                </table>
+            </div>
+        </ng-container>
+        <div style="display: flex; justify-content: flex-end; padding-top: 16px;" *ngIf="isQCDataObsolete">
+            <aux-button type="secondary"
+                        label="Refresh Widget Data"
+                        [size]="'small'"
+                        (click)="refreshWidgetData()">
+            </aux-button>
+        </div>
+    </div>
+</ng-template>

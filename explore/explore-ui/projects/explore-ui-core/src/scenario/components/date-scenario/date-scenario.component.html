@@ -1,0 +1,35 @@
+<div class="padding-top-16">Date range scenarios</div>
+
+<table class="scenario-table">
+    <tr *ngFor="let item of scenarios; let itemIndex = index;">
+        <ng-container *ngIf="!disableCheckbox">
+            <td>
+                <aux-checkbox label=""
+                              [isChecked]="item.enabled"
+                              (checkboxChanged)="onItemEnabledChanged(item, $event)">
+                </aux-checkbox>
+            </td>
+        </ng-container>
+        <td>
+            <explore-core-date-range-picker [fromDate]="item.fromDate"
+                                            [toDate]="item.toDate"
+                                            [minDate]="minDate"
+                                            [uniqueId]="'DateRow_' + itemIndex"
+                                            [includeRelativeDate]="false">
+            </explore-core-date-range-picker>
+        </td>
+        <ng-container *ngIf="!disableCheckbox">
+        <td>
+            <aux-button icon="clear" type="tertiary-subtle" (click)="deleteScenario(itemIndex)"></aux-button>
+        </td>
+        </ng-container>
+    </tr>
+</table>
+
+<ng-container *ngIf="!disableAddDateScenarioButton">
+    <aux-button label="Date Scenario"
+                icon="add"
+                type="secondary"
+                (click)="addScenario()">
+    </aux-button>
+</ng-container>

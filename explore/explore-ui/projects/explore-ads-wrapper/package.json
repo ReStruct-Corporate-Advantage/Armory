@@ -1,0 +1,14 @@
+{
+  "name": "@blk/explore-ads-wrapper",
+  "description": "Explore ADS Wrapper Library",
+  "version": "2025.3.0",
+  "peerDependencies": {
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12",
+    "@blk/aladdin-angular-components": "17.4.0",
+    "@blk/aladdin-web-components": "17.4.0"
+  },
+  "dependencies": {
+     "tslib": "^2.3.0"
+  }
+}

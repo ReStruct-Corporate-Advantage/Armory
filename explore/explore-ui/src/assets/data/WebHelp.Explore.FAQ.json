@@ -1,0 +1,32 @@
+{
+    "General Functionality":{
+        "msg":"A general question about functionality or configuration in Explore",
+        "hashtag":"Explore,*.*",
+        "method": "Email",
+        "suggestion": "Check help documentation to see if question is answered there."
+    },
+    "Performance & Attribution":{
+        "msg":"A question about performance & attribution capabilities in Explore",
+        "hashtag":"Performance Attribution",
+        "method":"Email",
+        "suggestion": "Check Performance Attribution white paper to see if question is answered there."
+    },
+    "Portfolio Risk":{
+        "msg":"A question about portfolio risk capabilities in Explore",
+        "hashtag":"Portfolio Risk",
+        "method":"Email",
+        "suggestion":"Check Portfolio Risk documentation to see if question is answered there."
+    },
+    "Portfolio Modeling":{
+        "msg":"A question about portfolio modeling capabilities in Explore",
+        "hashtag":"Portfolio Modeling",
+        "method":"Email",
+        "suggestion":"Check Explore user guide to see if question is answered there."
+    },
+    "Report Configuration":{
+        "msg":"A question about configuring a report in Explore",
+        "hashtag":"Report Configuration",
+        "method":"Email",
+        "suggestion":"Check Explore user guide to see if question is answered there."
+    }
+}

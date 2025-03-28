@@ -1,0 +1,160 @@
+{
+    "configType": "scatter",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": true,
+    "showGridTransitionControl": true,
+    "description": "The Scatter Plot Widget displays data points as individual dots on a two-dimensional system, with one variable plotted on the x-axis and another plotted on the y-axis. The size of each bubble represents the size of the corresponding column measure relative to the sector breakdown.\n\nScatter plots can be useful for identifying patterns or relationships in the data. If a multi-level breakdown is applied, you can click into a bubble to see subsector positioning.",
+    "title": "Scatter Plot",
+    "image": ".\/assets\/images\/scatter-plot.png",
+    "imageDescription": "This scatter plot compares the market value to notional market value for GICS sectors in a fixed income portfolio. The size of the bubble represents the quantity of securities held.",
+    "setUpRequirements": [
+      "X-axis measure",
+      "Y-axis measure",
+      "1 size measure",
+      "Sector breakdown"
+    ],
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "X-Axis Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "xAxis",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "$ref": "marketValueColumn"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Y-Axis Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "yAxis",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "columnTag": "notional_mv",
+                            "positionColumnType": "PORT",
+                            "columnKey": "notional_mv_1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Size Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "size",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "columnTag": "quantity",
+                            "positionColumnType": "PORT",
+                            "columnKey": "quantity"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "$ref": "defaultBreakdown"
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartFilter"
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                    "inputConfigType": "scatterSettings",
+                    "inputName": "scatterSettings",
+                    "inputTitle": "Chart format",
+                    "default": {
+                        "groupByFirstLevelData": false
+                    },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartSettings"
+        },
+        {
+            "visible": false,
+            "categoryType": "nestedSettings",
+            "inputs": [
+                {
+                  "inputConfigType": "gridLines",
+                  "inputName": "showGridLines",
+                  "inputTitle": "Grid lines",
+                  "default": true
+                }
+            ]
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "styleAnalysis": {
+      "$ref": "styleAnalysis"
+    },
+    "restrictedColumnOptions": {
+        "sections": [
+          "columnBreakdown",
+          "highlight",
+          "chartType",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ],
+        "options": [
+            {
+                "section": "singleSelectOptions",
+                "options": [
+                    "spawnsChildColumns"
+                ]
+            }
+        ]
+    },
+    "chartingLib": "hc",
+    "showCompareTabs": true
+}

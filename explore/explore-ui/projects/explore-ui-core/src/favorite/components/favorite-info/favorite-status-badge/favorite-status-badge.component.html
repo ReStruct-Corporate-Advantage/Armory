@@ -1,0 +1,4 @@
+<ng-container [ngSwitch]="favoriteStatus">
+    <aux-badge *ngSwitchCase="favoriteStatusConstants.DECOMMISSIONED" badgeStyle="warning" type="text" value="Decommissioned" size="small"></aux-badge>
+    <aux-badge *ngSwitchCase="favoriteStatusConstants.UNDER_REVIEW" badgeStyle="in_progress" type="text" value="Under Review" size="small"></aux-badge>
+</ng-container>

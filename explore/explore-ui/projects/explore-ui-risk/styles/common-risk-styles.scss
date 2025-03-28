@@ -1,0 +1,9 @@
+@use "sass:math";
+@function calculatePopoverRem($size) {
+  $remSize: math.div($size, 16px);
+  @return #{$remSize}rem;
+}
+
+.custom-popover-container {
+  width: calculatePopoverRem(300px);
+}

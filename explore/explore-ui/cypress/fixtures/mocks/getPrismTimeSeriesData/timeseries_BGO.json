@@ -1,0 +1,435 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 1716967243000
+        },
+        "data": {
+          "children": [
+            {
+              "title": "27-MAY-2024",
+              "data": [
+                null
+              ],
+              "rowId": 2
+            },
+            {
+              "data": [
+                0.9999999999999999
+              ],
+              "title": "28-MAY-2024",
+              "children": [
+                {
+                  "data": [
+                    0.994775668557091
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 4
+                },
+                {
+                  "data": [
+                    0.011507693740175438
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 5
+                },
+                {
+                  "data": [
+                    3.734781107393548E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 6
+                },
+                {
+                  "data": [
+                    -0.006283362297266517
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 7
+                }
+              ],
+              "rowId": 3
+            },
+            {
+              "data": [
+                0.9999999999999999
+              ],
+              "title": "29-MAY-2024",
+              "children": [
+                {
+                  "data": [
+                    0.994775668557091
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 9
+                },
+                {
+                  "data": [
+                    0.011507693740175438
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 10
+                },
+                {
+                  "data": [
+                    3.734781107393548E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 11
+                },
+                {
+                  "data": [
+                    -0.006283362297266517
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 12
+                }
+              ],
+              "rowId": 8
+            },
+            {
+              "data": [
+                1.0000000000000004
+              ],
+              "title": "30-MAY-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9948001591405722
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 14
+                },
+                {
+                  "data": [
+                    0.01115272180838321
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 15
+                },
+                {
+                  "data": [
+                    3.6195762284277305E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 16
+                },
+                {
+                  "data": [
+                    -0.005952880948954835
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 17
+                }
+              ],
+              "rowId": 13
+            },
+            {
+              "data": [
+                1.0
+              ],
+              "title": "31-MAY-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9946363330566393
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 19
+                },
+                {
+                  "data": [
+                    0.011380323017845324
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 20
+                },
+                {
+                  "data": [
+                    3.6934433921107E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 21
+                },
+                {
+                  "data": [
+                    -0.006016656074484648
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 22
+                }
+              ],
+              "rowId": 18
+            },
+            {
+              "data": [
+                0.9999999999999998
+              ],
+              "title": "03-JUN-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9939127259049393
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 24
+                },
+                {
+                  "data": [
+                    0.011530609285507358
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 25
+                },
+                {
+                  "data": [
+                    3.74221826619388E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 26
+                },
+                {
+                  "data": [
+                    -0.005443335190446824
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 27
+                }
+              ],
+              "rowId": 23
+            },
+            {
+              "data": [
+                0.9999999999999997
+              ],
+              "title": "04-JUN-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9938295755514996
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 29
+                },
+                {
+                  "data": [
+                    0.011688113978493278
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 30
+                },
+                {
+                  "data": [
+                    3.793335854563126E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 31
+                },
+                {
+                  "data": [
+                    -0.005517689529993165
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 32
+                }
+              ],
+              "rowId": 28
+            },
+            {
+              "data": [
+                1.0
+              ],
+              "title": "05-JUN-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9930659404997407
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 34
+                },
+                {
+                  "data": [
+                    0.011757270622526954
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 35
+                },
+                {
+                  "data": [
+                    3.815780397615744E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 36
+                },
+                {
+                  "data": [
+                    -0.0048232111222675685
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 37
+                }
+              ],
+              "rowId": 33
+            },
+            {
+              "data": [
+                0.9999999999999999
+              ],
+              "title": "06-JUN-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9936154579122257
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 39
+                },
+                {
+                  "data": [
+                    0.01082551846058807
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 40
+                },
+                {
+                  "data": [
+                    3.513383544714323E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 41
+                },
+                {
+                  "data": [
+                    -0.004440976372813905
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 42
+                }
+              ],
+              "rowId": 38
+            },
+            {
+              "data": [
+                0.9999999999999999
+              ],
+              "title": "07-JUN-2024",
+              "children": [
+                {
+                  "data": [
+                    0.9936154579122257
+                  ],
+                  "title": "EQUITY",
+                  "sectorOrder": 0,
+                  "rowId": 44
+                },
+                {
+                  "data": [
+                    0.01082551846058807
+                  ],
+                  "title": "FUND",
+                  "sectorOrder": 1,
+                  "rowId": 45
+                },
+                {
+                  "data": [
+                    3.513383544714323E-21
+                  ],
+                  "title": "LOAN",
+                  "sectorOrder": 2,
+                  "rowId": 46
+                },
+                {
+                  "data": [
+                    -0.004440976372813905
+                  ],
+                  "title": "OPTION",
+                  "sectorOrder": 3,
+                  "rowId": 47
+                }
+              ],
+              "rowId": 43
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToTagMap": {
+            "pct_notional_val_0": "pct_notional_val"
+          },
+          "orderedColumnKeys": [
+            "pct_notional_val_0"
+          ],
+          "columnKeyToDisplayNameMap": {
+            "pct_notional_val_0": "Notional Market Value %"
+          }
+        },
+        "columns": [
+          "pct_notional_val_0"
+        ]
+      },
+      "gaussian": "jKEHI21cGVAK0xrKdaSZ2oQlKsWsg9TgwdtjEI0JPlhpJjo2g5k=",
+      "userinfo": {
+        "runningRequests": 0,
+        "serverId": "sharedSession",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1718045442729
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2052
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-06-10T18:50:41.807Z",
+      "detailedID": "d6381b8a-06af-482d-a4bd-fe6ec740b7f3.2052.1718045441807",
+      "IDWithContextChain": "d6381b8a-06af-482d-a4bd-fe6ec740b7f3",
+      "chain": [],
+      "bmsMsgSize": 2052,
+      "transactionId": "d6381b8a-06af-482d-a4bd-fe6ec740b7f3",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPrismTimeSeriesData",
+    "transactionId": "d6381b8a-06af-482d-a4bd-fe6ec740b7f3",
+    "successCode": null
+  }
+]

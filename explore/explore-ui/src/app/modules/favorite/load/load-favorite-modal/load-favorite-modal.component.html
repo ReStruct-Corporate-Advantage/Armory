@@ -1,0 +1,44 @@
+<aux-modal [isOpen]="isOpen" class="load-favorite-modal-area" type="action" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <ng-container *ngIf="(openLoadFavoriteModal$ | async) as openLoadFavoriteModal">
+        <div slot="custom-header" class="custom-header">
+            <span class="header-title">Load {{openLoadFavoriteModal.headerDisplayName || openLoadFavoriteModal.displayName}}</span>
+        </div>
+
+        <div class="content" slot="content">
+            <div class="container aux-g16--cw-4">
+                <div class="load-favorite-contents">
+                    <ng-container *ngIf="optoSettings">
+                        <div class="asset-type-view">
+                            <span class="main-list-header aux-primary"> Aladdin Templates </span>
+                            <app-favorite-tree [favType]="OPTO_SETTINGS"
+                                               [favTreeType]="OPTO_SETTINGS_FOLDER"
+                                               [favoriteTreeOwner$]="global$"
+                                               [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                                               [loadFavoriteCallBack]="loadFavoriteCallBack"
+                                               [favDisplayName]="''"
+                                               [selectedFavoriteNode$]="selectedFavoriteNode$">
+                            </app-favorite-tree>
+                        </div>
+                    </ng-container>
+                    <app-favorite [favType]="openLoadFavoriteModal?.type"
+                                  [favTreeType]="openLoadFavoriteModal?.treeType"
+                                  [favDisplayName]="openLoadFavoriteModal?.displayName"
+                                  [loadEnterpriseTree]="!openLoadFavoriteModal?.ignoreEnterpriseTree"
+                                  [loadFavoriteCallBack]="openLoadFavoriteModal?.callback"
+                                  [subCategoryData]="openLoadFavoriteModal?.subCategoryData"
+                                  [sourceUniqueId]="openLoadFavoriteModal?.sourceUniqueId"
+                                  [invokingSourceId]="openLoadFavoriteModal?.source"
+                                  [showAladdinReport]="showAladdinFavorites"
+                                  [stickySearch]="true"
+                                  [isPartOfModal]="true"
+                                  (closeAction)="onModalClosed($event)">
+                    </app-favorite>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="CANCEL_TEXT" [type]="'secondary'" (click)="onModalClosed()"></aux-button>
+    </div>
+</aux-modal>

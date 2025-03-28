@@ -1,0 +1,39 @@
+
+{
+  "inputCategories": [
+    {
+      "$ref": "returnSpriteletColumns"
+    },
+    {
+      "$ref": "returnSpriteletInput"
+    },
+    {
+      "$ref": "showAsChartInputDefaultTable"
+    },
+    {
+        "$ref": "defaultExpandedState"
+    },
+    {
+        "visible": false,
+        "categoryType": "collapsedColumns",
+        "inputs": [
+          {
+            "inputConfigType": "collapsedColumns",
+            "inputName": "collapsedColumns",
+            "default": []
+          }
+        ]
+      }
+  ],
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "chartingLib": "agGrid",
+  "tokenToCheck": "enablePerfAttr",
+  "userPermToCheck": "perfDataPerms"
+}

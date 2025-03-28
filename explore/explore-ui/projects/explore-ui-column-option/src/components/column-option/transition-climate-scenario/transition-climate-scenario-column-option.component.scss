@@ -1,0 +1,25 @@
+.climate-scenarios-container {
+    padding-right: 1.5rem;
+
+    .climate-scenario__container {
+        width: 100%;
+        border-bottom: 1px solid var(--option-group__border-color);
+        margin-bottom: 1rem;
+
+        .climate-scenario__header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            .climate-scenario__header-label--bold {
+                display: flex;
+                font-weight: var(--font-weight-bold);
+                margin: auto 0;
+            }
+        }
+    }
+    .add-rule-button {
+        display: flex;
+        justify-content: space-between;
+    }
+}

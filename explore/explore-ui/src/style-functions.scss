@@ -1,0 +1,9 @@
+/**
+  Copy of col-to-vw-32 in aux base-app-styles.scss that can be used by our components.
+  Can be used within a media query for setting a different modal column width for certain screen widths.
+ */
+ @function explore-col-to-vw-32($col-span: 2) {
+    @return calc(
+      (((100vw - (16px * 13)) / 12) * #{$col-span}) + (16px * (#{$col-span} - 3))
+    );
+}

@@ -1,0 +1,43 @@
+.climate-scenario__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .climate-scenario__content {
+        display: flex;
+        align-items: flex-end;
+
+        .climate-scenario--left {
+            padding: 0 0.5rem 1rem 0;
+            width: calc(((100% - 3rem) / 24) * 12);
+        }
+
+        .climate-scenario--center {
+            padding: 0 0.5rem 1rem 0;
+            width: calc(((100% - 3rem) / 24) * 7);
+        }
+
+        .climate-scenario--right {
+            padding: 0 0.5rem 1rem 0;
+            width: calc(((100% - 3rem) / 24) * 5);
+        }
+
+        .value-input--between {
+            display: flex;
+            align-items: center;
+
+            .input__label {
+                height: 15px;
+                padding: 18px 12px 0;
+            }
+        }
+
+        .button--bottom-padding {
+            padding-bottom: 1.5rem;
+        }
+
+        .button--left-padding {
+            padding-left: 0.5rem;
+        }
+    }
+}

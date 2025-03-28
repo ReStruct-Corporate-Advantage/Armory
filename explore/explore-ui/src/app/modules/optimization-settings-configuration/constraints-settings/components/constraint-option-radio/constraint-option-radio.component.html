@@ -1,0 +1,4 @@
+<div *ngIf="data$ | async as data">
+    <aux-radio-group [data]="data" (radioGroupChanged)="onRadioGroupChanged($event)" [label]="label" [isStacked]="isStacked" >
+    </aux-radio-group>
+</div>

@@ -1,0 +1,62 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.multi-override-date-frequency-selector {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.multi-override-type-selection-radio-group {
+    align-self: flex-end;
+    padding-left: 16px;
+    padding-bottom: 8px;
+}
+
+.multi-override-date-shortcuts {
+    display: inline-block;
+}
+
+.multi-override-date-shortcuts-content{
+    display: flex;
+}
+
+.date-shortcut-list{
+    list-style-type: none;
+    column-count: 2;
+    padding: 0;
+}
+
+.multi-override-date-fixed-observations {
+    display: flex;
+    align-items: center;
+}
+
+.multi-override-date-custom-range {
+    display: inline-block;
+    .date-range-picker-label {
+        padding-bottom: 0.5rem;
+    }
+}
+
+.time-series-date-frequency-selector {
+    display: inline-block;
+    width: 225px;
+}
+
+.padding-left-1-rem {
+    padding-left: 1rem;
+}
+
+.align-elements {
+    display: inline-block;
+}
+
+.for-aux-stepper {
+    display: inline-block;
+    margin-left: 16px;
+}
+
+.period-numeric-stepper-label {
+    float: right;
+    margin-top: aux-variables.$aux-spacing-08;
+    padding-left: aux-variables.$aux-spacing-03;
+}

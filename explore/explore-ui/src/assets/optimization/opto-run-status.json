@@ -1,0 +1,10 @@
+{
+  "optoSolverStatus": {
+    "OPTIMAL": "The best possible solution (globally optimal) to the defined problem",
+    "FEASIBLE": "A feasible result indicates that the solution found is the best solution within a reasonable time limit, <br>but the optimizer was not able to prove it as the globally optimal solution. This is often the case when there are a large number of constraints involved <br>in the optimization case and it would be computationally heavy/time consuming for the optimizer to look for the globally optimal solution",
+    "RELAXED": "A relaxed solution means that one or multiple constraints of the original problem needed to be relaxed in order to find a solution",
+    "SOLVER_ERROR": "The process was completed successfully, but there was no feasible solution with your bounds / constraints. <br>SOLVER_ERROR may be caused by missing data, bad case setup, or in rare cases, problem within the solver itself. <br>These statuses usually indicate software or model issues that require attention from support teams",
+    "INFEASIBLE": "Infeasible results indicate that the optimizer could not find a solution within the given constraints. <br>The first step in rectifying this is to try to relax select constraints as the boundaries might be too tight for finding a solution",
+    "INFEASIBLE_OR_UNBOUND": "UNBOUND may happen when there is leverage and, as a result, the optimal return may be infinite. <br>In other rare cases, the optimal return is actually finite, but it is so big (i.e. over 10,000%) that the optimizer believes the case is unbound. <br>In these cases, it is recommended to apply a constraint on the returns parameter"
+  }
+}

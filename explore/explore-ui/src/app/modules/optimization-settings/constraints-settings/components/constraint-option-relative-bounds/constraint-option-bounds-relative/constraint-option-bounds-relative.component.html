@@ -1,0 +1,18 @@
+<div class="constraint-option-bounds-relative">
+    <div class="bounds-item">
+        <app-constraint-option-select class="operator-select" [customWidth]="true" [options]="lowerBoundSelectOptions" (updated)="onUpdated($event)">
+        </app-constraint-option-select>
+        <app-constraint-option-number class="bound-value"
+                                      [customStyle]="true"
+                                      [options]="lowerBoundOption"
+                                      (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+    <div class="bounds-item">
+        <app-constraint-option-select class="operator-select" [customWidth]="true" [options]="upperBoundSelectOptions" (updated)="onUpdated($event)">
+        </app-constraint-option-select>
+        <app-constraint-option-number class="bound-value"
+                                      [customStyle]="true"
+                                      [options]="upperBoundOption"
+                                      (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+</div>

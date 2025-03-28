@@ -1,0 +1,12 @@
+<div class="time-span-value-container">
+    <aux-numeric-stepper
+        class="time-span-numeric-value"
+        [stepperValue]="timeSpanUnitValue? timeSpanUnitValue: 0" minValue="0"
+        (valueChanged)="onUnitValueChanged($event)">
+    </aux-numeric-stepper>
+    <aux-select
+        class="time-span-units-container"
+        [data]="timeSpanUnits"
+        (selectionChanged)="onUnitChanged($event)">
+    </aux-select>
+</div>

@@ -1,0 +1,13 @@
+<ng-container *ngIf="fav.eventData.favoriteId">
+    <div style="status-badge-item" [slot]="CoreFavoriteConstants.FAVORITE_STATUS_DISPLAY_SLOTS.DECOMMISSIONED + fav.eventData.favoriteId ">
+        <app-favorite-status-badge [favoriteStatus]="CoreFavoriteConstants.FAVORITE_STATUS.DECOMMISSIONED"></app-favorite-status-badge>
+    </div>
+    <div style="status-badge-item" [slot]="CoreFavoriteConstants.FAVORITE_STATUS_DISPLAY_SLOTS.UNDER_REVIEW + fav.eventData.favoriteId ">
+        <app-favorite-status-badge [favoriteStatus]="CoreFavoriteConstants.FAVORITE_STATUS.UNDER_REVIEW"></app-favorite-status-badge>
+    </div>
+</ng-container>
+<ng-container *ngIf="fav.children">
+    <ng-container *ngFor="let child of fav.children">
+        <app-shared-favorite-status-badge [fav]="child"></app-shared-favorite-status-badge>
+    </ng-container>
+</ng-container>

@@ -1,0 +1,31 @@
+{
+  "inputCategories": [
+    {
+      "$ref": "returnSpriteletColumns"
+    },
+    {
+      "categoryType": "performanceSettings",
+      "categoryTitle": "Performance Settings",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "performanceSettings",
+          "inputName": "performanceSettings",
+          "mandateSettingType": "ATTRIBUTION_TYPE",
+          "default": {}
+        }
+      ]
+    }
+  ],
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "chartingLib": "agGrid",
+  "tokenToCheck": "enablePerfAttr",
+  "userPermToCheck": "perfDataPerms"
+}

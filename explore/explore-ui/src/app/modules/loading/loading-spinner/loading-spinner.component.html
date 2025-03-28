@@ -1,0 +1,37 @@
+<div class="gif-spinner">
+    <ng-container [ngSwitch]="size">
+        <ng-container *ngSwitchCase="'small'">
+            <ng-template [ngTemplateOutlet]="small"></ng-template>
+        </ng-container>
+        <ng-container *ngSwitchCase="'large'">
+            <ng-template [ngTemplateOutlet]="large"></ng-template>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <ng-template [ngTemplateOutlet]="medium"></ng-template>
+        </ng-container>
+    </ng-container>
+</div>
+
+<!-- Small Spinner -->
+<ng-template #small>
+    <img src="assets/loading-spinners/light-small.gif" alt="{{loadingLabel}}" *ngIf="isLightTheme">
+    <img src="assets/loading-spinners/dark-small.gif" alt="{{loadingLabel}}" *ngIf="!isLightTheme">
+</ng-template>
+
+<!-- Medium Spinner -->
+<ng-template #medium>
+    <img src="assets/loading-spinners/light-medium.gif" alt="{{loadingLabel}}" *ngIf="isLightTheme">
+    <img src="assets/loading-spinners/dark-medium.gif" alt="{{loadingLabel}}" *ngIf="!isLightTheme">
+    <div class="medium-loading-label">
+        {{loadingLabel}}
+    </div>
+</ng-template>
+
+<!-- Large Spinner -->
+<ng-template #large>
+    <img src="assets/loading-spinners/light-large.gif" alt="{{loadingLabel}}" *ngIf="isLightTheme">
+    <img src="assets/loading-spinners/dark-large.gif" alt="{{loadingLabel}}" *ngIf="!isLightTheme">
+    <div class="large-loading-label">
+        {{loadingLabel}}
+    </div>
+</ng-template>

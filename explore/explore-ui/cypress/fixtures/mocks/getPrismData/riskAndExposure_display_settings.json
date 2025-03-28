@@ -1,0 +1,1835 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "footerDetails": {
+                    "PUBLISH_TIME": 0
+                },
+                "data": {
+                    "data": [
+                        null,
+                        null,
+                        1.0,
+                        2.43775567201106E13,
+                        null,
+                        null
+                    ],
+                    "children": [
+                        {
+                            "title": "Corporates",
+                            "data": [
+                                null,
+                                null,
+                                1.0,
+                                2.43775567201106E13,
+                                null,
+                                null
+                            ],
+                            "children": [
+                                {
+                                    "title": "Industrial",
+                                    "data": [
+                                        null,
+                                        null,
+                                        0.8791581094458782,
+                                        2.14317266789621E13,
+                                        null,
+                                        null
+                                    ],
+                                    "children": [
+                                        {
+                                            "title": "Basic Industry",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.008952641178348979,
+                                                2.1824351812E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Chemicals",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.008952641178348979,
+                                                        2.1824351812E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "DOW INC",
+                                                                "260557103",
+                                                                0.0015073296586645495,
+                                                                3.674501425E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 6
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "LINDE PLC",
+                                                                "SBNZHB812",
+                                                                0.007445311519684429,
+                                                                1.8149850387E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 7
+                                                        }
+                                                    ],
+                                                    "rowId": 5,
+                                                    "sectorOrder": 0
+                                                }
+                                            ],
+                                            "rowId": 4,
+                                            "sectorOrder": 0
+                                        },
+                                        {
+                                            "title": "Capital Goods",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.036247242125485295,
+                                                8.836192008616E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Aerospace and Defense",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.016699711412249893,
+                                                        4.070981621616E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "BOEING",
+                                                                "097023105",
+                                                                0.004768941948677479,
+                                                                1.162551528488E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 10
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "GENERAL DYNAMICS CORP",
+                                                                "369550108",
+                                                                0.001957161531181684,
+                                                                4.77108162368E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 11
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "LOCKHEED MARTIN CORP",
+                                                                "539830109",
+                                                                0.004186594011359846,
+                                                                1.02058932976E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 12
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "RAYTHEON TECHNOLOGIES CORP",
+                                                                "75513E101",
+                                                                0.005787013921030884,
+                                                                1.410732601E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 13
+                                                        }
+                                                    ],
+                                                    "rowId": 9,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Construction Machinery",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.005009263463194436,
+                                                        1.221136042E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "CATERPILLAR INC",
+                                                                "149123101",
+                                                                0.005009263463194436,
+                                                                1.221136042E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 15
+                                                        }
+                                                    ],
+                                                    "rowId": 14,
+                                                    "sectorOrder": 1
+                                                },
+                                                {
+                                                    "title": "Diversified Manufacturing",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.014538267250040968,
+                                                        3.544074345E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "3M",
+                                                                "88579Y101",
+                                                                0.002272310804400774,
+                                                                5.539338552E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 17
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "EMERSON ELECTRIC",
+                                                                "291011104",
+                                                                0.002070312688816955,
+                                                                5.0469165E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 18
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "GENERAL ELECTRIC",
+                                                                "369604301",
+                                                                0.004665843804853794,
+                                                                1.13741872E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 19
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "HONEYWELL INTERNATIONAL INC",
+                                                                "438516106",
+                                                                0.005529799951969445,
+                                                                1.3480301198000002E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 20
+                                                        }
+                                                    ],
+                                                    "rowId": 16,
+                                                    "sectorOrder": 2
+                                                }
+                                            ],
+                                            "rowId": 8,
+                                            "sectorOrder": 1
+                                        },
+                                        {
+                                            "title": "Communications",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.06545348973507634,
+                                                1.595596158546E12,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Cable and Satellite",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.008356264491918935,
+                                                        2.0370531162E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "CHARTER COMMUNICATIONS INC CLASS A",
+                                                                "16119P108",
+                                                                0.0014357770773280845,
+                                                                3.500073714E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 23
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "COMCAST CORP CLASS A",
+                                                                "20030N101",
+                                                                0.006920487414590851,
+                                                                1.6870457448E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 24
+                                                        }
+                                                    ],
+                                                    "rowId": 22,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Media and Entertainment",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.03950365469380932,
+                                                        9.6300258295E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "META PLATFORMS INC CLASS A",
+                                                                "30303M102",
+                                                                0.025269892835560807,
+                                                                6.1601824591E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 26
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "NETFLIX INC",
+                                                                "64110L106",
+                                                                0.007584943219000379,
+                                                                1.8490238354E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 27
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "WALT DISNEY",
+                                                                "254687106",
+                                                                0.006648818639248136,
+                                                                1.620819535E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 28
+                                                        }
+                                                    ],
+                                                    "rowId": 25,
+                                                    "sectorOrder": 1
+                                                },
+                                                {
+                                                    "title": "Wireless",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.0067826025743424,
+                                                        1.65343278966E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "AMERICAN TOWER REIT CORP",
+                                                                "03027X100",
+                                                                0.0035966143201574398,
+                                                                8.767666959E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 30
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "T MOBILE US INC",
+                                                                "872590104",
+                                                                0.00318598825418496,
+                                                                7.7666609376E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 31
+                                                        }
+                                                    ],
+                                                    "rowId": 29,
+                                                    "sectorOrder": 2
+                                                },
+                                                {
+                                                    "title": "Wirelines",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.010810967975005673,
+                                                        2.6354498501E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "AT&T INC",
+                                                                "00206R102",
+                                                                0.00458367798229014,
+                                                                1.1173887E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 33
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "VERIZON COMMUNICATIONS INC",
+                                                                "92343V104",
+                                                                0.006227289992715533,
+                                                                1.5180611501E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 34
+                                                        }
+                                                    ],
+                                                    "rowId": 32,
+                                                    "sectorOrder": 3
+                                                }
+                                            ],
+                                            "rowId": 21,
+                                            "sectorOrder": 2
+                                        },
+                                        {
+                                            "title": "Consumer Cyclical",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.1405606171384617,
+                                                3.4265244169065996E12,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Automotive",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.031007055550256585,
+                                                        7.558762554E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "FORD MOTOR CO",
+                                                                "345370860",
+                                                                0.0022746800927040743,
+                                                                5.545114298E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 37
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "GENERAL MOTORS",
+                                                                "37045V100",
+                                                                0.002092806702728843,
+                                                                5.101751410000001E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 38
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "TESLA INC",
+                                                                "88160R101",
+                                                                0.026639568754823668,
+                                                                6.4940759832E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 39
+                                                        }
+                                                    ],
+                                                    "rowId": 36,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Retailers",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.09231294017870673,
+                                                        2.2503639352065996E12,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "AMAZON COM INC",
+                                                                "023135106",
+                                                                0.04662535602494306,
+                                                                1.1366122610934E12,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 41
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "COSTCO WHOLESALE CORP",
+                                                                "22160K105",
+                                                                0.009522195949543332,
+                                                                2.3212787185999997E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 42
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "HOME DEPOT INC",
+                                                                "437076102",
+                                                                0.012790070062796081,
+                                                                3.1179065841E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 43
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "LOWES COMPANIES INC",
+                                                                "548661107",
+                                                                0.005332025487721244,
+                                                                1.2998175376E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 44
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "NIKE INC CLASS B",
+                                                                "654106103",
+                                                                0.0056475700850866645,
+                                                                1.3767396008E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 45
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "TARGET CORP",
+                                                                "87612E106",
+                                                                0.0025465586733221376,
+                                                                6.20788785E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 46
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "WALGREEN BOOTS ALLIANCE INC",
+                                                                "931427108",
+                                                                9.279950628742652E-4,
+                                                                2.26222522812E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 47
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "WALMART INC",
+                                                                "931142103",
+                                                                0.008921168832419944,
+                                                                2.1747629922200003E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 48
+                                                        }
+                                                    ],
+                                                    "rowId": 40,
+                                                    "sectorOrder": 1
+                                                },
+                                                {
+                                                    "title": "Restaurants",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.013277530237186605,
+                                                        3.2367374646E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "MCDONALDS CORP",
+                                                                "580135101",
+                                                                0.008658081565897077,
+                                                                2.1106287445999997E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 50
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "STARBUCKS CORP",
+                                                                "855244109",
+                                                                0.004619448671289527,
+                                                                1.12610872E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 51
+                                                        }
+                                                    ],
+                                                    "rowId": 49,
+                                                    "sectorOrder": 2
+                                                },
+                                                {
+                                                    "title": "Consumer Cyclical Services",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.00396309117231178,
+                                                        9.661047984000002E10,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "BOOKING HOLDINGS INC",
+                                                                "09857L108",
+                                                                0.00396309117231178,
+                                                                9.661047984000002E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 53
+                                                        }
+                                                    ],
+                                                    "rowId": 52,
+                                                    "sectorOrder": 3
+                                                }
+                                            ],
+                                            "rowId": 35,
+                                            "sectorOrder": 3
+                                        },
+                                        {
+                                            "title": "Consumer Non-Cyclical",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.15286272605390924,
+                                                3.7264197747699E12,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Consumer Products",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.016976568216477212,
+                                                        4.1384725461000006E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "COLGATE-PALMOLIVE",
+                                                                "194162103",
+                                                                0.002608058397729022,
+                                                                6.357809152E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 56
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "PROCTER & GAMBLE",
+                                                                "742718109",
+                                                                0.01436850981874819,
+                                                                3.5026916309000006E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 57
+                                                        }
+                                                    ],
+                                                    "rowId": 55,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Food and Beverage",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.025477702245242984,
+                                                        6.210841315815E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "COCA-COLA",
+                                                                "191216100",
+                                                                0.009774383929437493,
+                                                                2.38275598644E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 59
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "KRAFT HEINZ",
+                                                                "500754106",
+                                                                0.0011632986563458742,
+                                                                2.8358378977499996E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 60
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "MONDELEZ INTERNATIONAL INC CLASS A",
+                                                                "609207105",
+                                                                0.004090996334662514,
+                                                                9.972849519E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 61
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "PEPSICO INC",
+                                                                "713448108",
+                                                                0.010449023324797102,
+                                                                2.5472165876999997E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 62
+                                                        }
+                                                    ],
+                                                    "rowId": 58,
+                                                    "sectorOrder": 1
+                                                },
+                                                {
+                                                    "title": "Healthcare",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.030005520749196785,
+                                                        7.3146128398E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "ABBOTT LABORATORIES",
+                                                                "002824100",
+                                                                0.0077404450797292175,
+                                                                1.8869313897E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 64
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "BRISTOL MYERS SQUIBB",
+                                                                "110122108",
+                                                                0.0055835733946918075,
+                                                                1.3611387713000002E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 65
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "CVS HEALTH CORP",
+                                                                "126650100",
+                                                                0.0036734381249998267,
+                                                                8.954944625E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 66
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "MEDTRONIC PLC",
+                                                                "SBTN1Y117",
+                                                                0.004748092244392689,
+                                                                1.15746888E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 67
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "THERMO FISHER SCIENTIFIC INC",
+                                                                "883556102",
+                                                                0.008259971905383242,
+                                                                2.0135793363E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 68
+                                                        }
+                                                    ],
+                                                    "rowId": 63,
+                                                    "sectorOrder": 2
+                                                },
+                                                {
+                                                    "title": "Pharmaceuticals",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.07100035292218357,
+                                                        1.7308151305084E12,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "ABBVIE INC",
+                                                                "00287Y109",
+                                                                0.009766808800144586,
+                                                                2.3809093549999997E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 70
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "AMGEN INC",
+                                                                "031162100",
+                                                                0.004925813857749695,
+                                                                1.2007930671E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 71
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "ELI LILLY",
+                                                                "532457108",
+                                                                0.014633462417261541,
+                                                                3.5672806008839996E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 72
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "GILEAD SCIENCES INC",
+                                                                "375558103",
+                                                                0.003917428919413329,
+                                                                9.549734568E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 73
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "JOHNSON & JOHNSON",
+                                                                "478160104",
+                                                                0.01744353830460786,
+                                                                4.2523084442E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 74
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "MERCK & CO INC",
+                                                                "58933Y105",
+                                                                0.01177038643266864,
+                                                                2.8693326288E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 75
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "PFIZER INC",
+                                                                "717081103",
+                                                                0.008542914190337906,
+                                                                2.0825537523E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 76
+                                                        }
+                                                    ],
+                                                    "rowId": 69,
+                                                    "sectorOrder": 3
+                                                },
+                                                {
+                                                    "title": "Tobacco",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.009402581920808678,
+                                                        2.2921197409E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "ALTRIA GROUP INC",
+                                                                "02209S103",
+                                                                0.0032409265336596684,
+                                                                7.90058704E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 78
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "PHILIP MORRIS INTERNATIONAL INC",
+                                                                "718172109",
+                                                                0.006161655387149009,
+                                                                1.5020610369E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 79
+                                                        }
+                                                    ],
+                                                    "rowId": 77,
+                                                    "sectorOrder": 4
+                                                }
+                                            ],
+                                            "rowId": 54,
+                                            "sectorOrder": 4
+                                        },
+                                        {
+                                            "title": "Energy",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.03333497957150126,
+                                                8.12625355268E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Independent",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.005028850048326082,
+                                                        1.2259107729E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "CONOCOPHILLIPS",
+                                                                "20825C104",
+                                                                0.005028850048326082,
+                                                                1.2259107729E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 82
+                                                        }
+                                                    ],
+                                                    "rowId": 81,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Integrated",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.028306129523175176,
+                                                        6.90034277978E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "CHEVRON CORP",
+                                                                "166764100",
+                                                                0.01100970909675243,
+                                                                2.6838980797799997E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 84
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "EXXON MOBIL CORP",
+                                                                "30231G102",
+                                                                0.017296420426422744,
+                                                                4.2164447E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 85
+                                                        }
+                                                    ],
+                                                    "rowId": 83,
+                                                    "sectorOrder": 1
+                                                }
+                                            ],
+                                            "rowId": 80,
+                                            "sectorOrder": 5
+                                        },
+                                        {
+                                            "title": "Technology",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.41516114232365464,
+                                                1.01206142949808E13,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "data": [
+                                                        "ADOBE INC",
+                                                        "00724F101",
+                                                        0.009022694092166678,
+                                                        2.19951237E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 87
+                                                },
+                                                {
+                                                    "data": [
+                                                        "ADVANCED MICRO DEVICES INC",
+                                                        "007903107",
+                                                        0.007102025055578028,
+                                                        1.7313001862E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 88
+                                                },
+                                                {
+                                                    "data": [
+                                                        "ALPHABET INC CLASS A",
+                                                        "02079K305",
+                                                        0.028840377568273803,
+                                                        7.0305794E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 89
+                                                },
+                                                {
+                                                    "data": [
+                                                        "ALPHABET INC CLASS C",
+                                                        "SBYY88Y78",
+                                                        0.02496538767964105,
+                                                        6.085951542E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 90
+                                                },
+                                                {
+                                                    "data": [
+                                                        "APPLE INC",
+                                                        "037833100",
+                                                        0.11236619214212919,
+                                                        2.7392132223676E12,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 91
+                                                },
+                                                {
+                                                    "data": [
+                                                        "BROADCOM INC",
+                                                        "11135F101",
+                                                        0.014052157484568693,
+                                                        3.4255726612E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 92
+                                                },
+                                                {
+                                                    "data": [
+                                                        "CISCO SYSTEMS INC",
+                                                        "17275R102",
+                                                        0.008436090424941773,
+                                                        2.0565127283E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 93
+                                                },
+                                                {
+                                                    "data": [
+                                                        "INTEL CORPORATION CORP",
+                                                        "458140100",
+                                                        0.005704474061802905,
+                                                        1.3906114E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 94
+                                                },
+                                                {
+                                                    "data": [
+                                                        "INTERNATIONAL BUSINESS MACHINES CO",
+                                                        "459200101",
+                                                        0.004892312698491751,
+                                                        1.192626303E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 95
+                                                },
+                                                {
+                                                    "data": [
+                                                        "MASTERCARD INC CLASS A",
+                                                        "57636Q104",
+                                                        0.012954950256498355,
+                                                        3.15810034684E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 96
+                                                },
+                                                {
+                                                    "data": [
+                                                        "MICROSOFT CORP",
+                                                        "594918104",
+                                                        0.10022749141157224,
+                                                        2.4433013568E12,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 97
+                                                },
+                                                {
+                                                    "data": [
+                                                        "NVIDIA CORP",
+                                                        "67066G104",
+                                                        0.04122159520814525,
+                                                        1.00488177528E12,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 98
+                                                },
+                                                {
+                                                    "data": [
+                                                        "ORACLE CORP",
+                                                        "68389X105",
+                                                        0.007371995572507263,
+                                                        1.797112402092E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 99
+                                                },
+                                                {
+                                                    "data": [
+                                                        "PAYPAL HOLDINGS INC",
+                                                        "70450Y103",
+                                                        0.0030408313274007098,
+                                                        7.412803816E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 100
+                                                },
+                                                {
+                                                    "data": [
+                                                        "QUALCOMM INC",
+                                                        "747525103",
+                                                        0.0053297310100325155,
+                                                        1.2992582E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 101
+                                                },
+                                                {
+                                                    "data": [
+                                                        "SALESFORCE INC",
+                                                        "79466L302",
+                                                        0.008327750463709267,
+                                                        2.0301020928E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 102
+                                                },
+                                                {
+                                                    "data": [
+                                                        "TEXAS INSTRUMENT INC",
+                                                        "882508104",
+                                                        0.0062829132545365735,
+                                                        1.5316207423E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 103
+                                                },
+                                                {
+                                                    "data": [
+                                                        "VISA INC CLASS A",
+                                                        "92826C839",
+                                                        0.015022172611658622,
+                                                        3.662038649E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 104
+                                                }
+                                            ],
+                                            "rowId": 86,
+                                            "sectorOrder": 6
+                                        },
+                                        {
+                                            "title": "Transportation",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.01240000210652073,
+                                                3.022817546812E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Railroads",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.005035364936664707,
+                                                        1.2274989435E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "UNION PACIFIC CORP",
+                                                                "907818108",
+                                                                0.005035364936664707,
+                                                                1.2274989435E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 107
+                                                        }
+                                                    ],
+                                                    "rowId": 106,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Transportation Services",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.007364637169856024,
+                                                        1.795318603312E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "FEDEX CORP",
+                                                                "31428X106",
+                                                                0.00222852995297855,
+                                                                5.4326115331200005E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 109
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "UNITED PARCEL SERVICE INC CLASS B",
+                                                                "911312106",
+                                                                0.0051361072168774734,
+                                                                1.25205745E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 110
+                                                        }
+                                                    ],
+                                                    "rowId": 108,
+                                                    "sectorOrder": 1
+                                                }
+                                            ],
+                                            "rowId": 105,
+                                            "sectorOrder": 7
+                                        },
+                                        {
+                                            "title": "Industrial Other",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.014185269212920168,
+                                                3.45802204828E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "data": [
+                                                        "ACCENTURE PLC CLASS A",
+                                                        "G1151C101",
+                                                        0.00770478905152345,
+                                                        1.8782393212000003E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 112
+                                                },
+                                                {
+                                                    "data": [
+                                                        "DANAHER CORP",
+                                                        "235851102",
+                                                        0.006480480161396719,
+                                                        1.57978272708E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 113
+                                                }
+                                            ],
+                                            "rowId": 111,
+                                            "sectorOrder": 8
+                                        }
+                                    ],
+                                    "rowId": 3,
+                                    "sectorOrder": 0
+                                },
+                                {
+                                    "title": "Utility",
+                                    "data": [
+                                        null,
+                                        null,
+                                        0.013901734430195288,
+                                        3.3889031958E11,
+                                        null,
+                                        null
+                                    ],
+                                    "children": [
+                                        {
+                                            "title": "Electric",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.013901734430195288,
+                                                3.3889031958E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "data": [
+                                                        "DUKE ENERGY CORP",
+                                                        "26441C204",
+                                                        0.0028717409412177706,
+                                                        7.000602768E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 116
+                                                },
+                                                {
+                                                    "data": [
+                                                        "EXELON CORP",
+                                                        "30161N101",
+                                                        0.0016551972288803248,
+                                                        4.034966433E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 117
+                                                },
+                                                {
+                                                    "data": [
+                                                        "NEXTERA ENERGY INC",
+                                                        "65339F101",
+                                                        0.0061663284022221735,
+                                                        1.5032002038E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 118
+                                                },
+                                                {
+                                                    "data": [
+                                                        "SOUTHERN",
+                                                        "842587107",
+                                                        0.003208467857875018,
+                                                        7.821460719E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 119
+                                                }
+                                            ],
+                                            "rowId": 115,
+                                            "sectorOrder": 0
+                                        }
+                                    ],
+                                    "rowId": 114,
+                                    "sectorOrder": 1
+                                },
+                                {
+                                    "title": "Financial Institutions",
+                                    "data": [
+                                        null,
+                                        null,
+                                        0.10694015612392646,
+                                        2.6069397215685E12,
+                                        null,
+                                        null
+                                    ],
+                                    "children": [
+                                        {
+                                            "title": "Banking",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.052198217403156014,
+                                                1.2724650054341E12,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "data": [
+                                                        "AMERICAN EXPRESS",
+                                                        "025816109",
+                                                        0.004075978735228606,
+                                                        9.936240280800002E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 122
+                                                },
+                                                {
+                                                    "data": [
+                                                        "BANK OF AMERICA CORP",
+                                                        "060505104",
+                                                        0.00798901030139892,
+                                                        1.947525517599E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 123
+                                                },
+                                                {
+                                                    "data": [
+                                                        "BANK OF NEW YORK MELLON CORP",
+                                                        "064058100",
+                                                        0.0012675739875402825,
+                                                        3.09003567782E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 124
+                                                },
+                                                {
+                                                    "data": [
+                                                        "CAPITAL ONE FINANCIAL CORP",
+                                                        "14040H105",
+                                                        0.0016636381482211153,
+                                                        4.055543332E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 125
+                                                },
+                                                {
+                                                    "data": [
+                                                        "CITIGROUP INC",
+                                                        "172967424",
+                                                        0.0036926511345469902,
+                                                        9.001781248E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 126
+                                                },
+                                                {
+                                                    "data": [
+                                                        "GOLDMAN SACHS GROUP INC",
+                                                        "38141G104",
+                                                        0.004259797586455123,
+                                                        1.0384345728E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 127
+                                                },
+                                                {
+                                                    "data": [
+                                                        "JPMORGAN CHASE & CO",
+                                                        "46625H100",
+                                                        0.016685569049438135,
+                                                        4.0675340591E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 128
+                                                },
+                                                {
+                                                    "data": [
+                                                        "MORGAN STANLEY",
+                                                        "617446448",
+                                                        0.004466885999816719,
+                                                        1.088917668228E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 129
+                                                },
+                                                {
+                                                    "data": [
+                                                        "US BANCORP",
+                                                        "902973304",
+                                                        0.0018494489268486235,
+                                                        4.50850461152E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 130
+                                                },
+                                                {
+                                                    "data": [
+                                                        "WELLS FARGO",
+                                                        "949746101",
+                                                        0.006247663533661507,
+                                                        1.5230277216E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 131
+                                                }
+                                            ],
+                                            "rowId": 121,
+                                            "sectorOrder": 0
+                                        },
+                                        {
+                                            "title": "Brokerage/Asset Managers/Exchanges",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.007434534811492697,
+                                                1.812357940548E11,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "data": [
+                                                        "BLACKROCK INC",
+                                                        "09247X101",
+                                                        0.004178609894319953,
+                                                        1.0186429971E11,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 133
+                                                },
+                                                {
+                                                    "data": [
+                                                        "CHARLES SCHWAB CORP",
+                                                        "808513105",
+                                                        0.0032559249171727448,
+                                                        7.937149434479999E10,
+                                                        "EQUITY",
+                                                        "EQUITY"
+                                                    ],
+                                                    "rowId": 134
+                                                }
+                                            ],
+                                            "rowId": 132,
+                                            "sectorOrder": 1
+                                        },
+                                        {
+                                            "title": "Insurance",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.04581756809115252,
+                                                1.1169203649196E12,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Health Insurance",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.018296345078424106,
+                                                        4.4602018992E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "UNITEDHEALTH GROUP INC",
+                                                                "91324P102",
+                                                                0.018296345078424106,
+                                                                4.4602018992E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 137
+                                                        }
+                                                    ],
+                                                    "rowId": 136,
+                                                    "sectorOrder": 0
+                                                },
+                                                {
+                                                    "title": "Life Insurance",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.0014265678196416982,
+                                                        3.47762379384E10,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "METLIFE INC",
+                                                                "59156R108",
+                                                                0.0014265678196416982,
+                                                                3.47762379384E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 139
+                                                        }
+                                                    ],
+                                                    "rowId": 138,
+                                                    "sectorOrder": 1
+                                                },
+                                                {
+                                                    "title": "Property and Casualty",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.026094655193086715,
+                                                        6.361239370612E11,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "AMERICAN INTERNATIONAL GROUP INC",
+                                                                "026874784",
+                                                                0.0016528042564971706,
+                                                                4.029132951E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 141
+                                                        },
+                                                        {
+                                                            "data": [
+                                                                "BERKSHIRE HATHAWAY INC CLASS B",
+                                                                "084670702",
+                                                                0.024441850936589543,
+                                                                5.958326075512E11,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 142
+                                                        }
+                                                    ],
+                                                    "rowId": 140,
+                                                    "sectorOrder": 2
+                                                }
+                                            ],
+                                            "rowId": 135,
+                                            "sectorOrder": 2
+                                        },
+                                        {
+                                            "title": "REITs",
+                                            "data": [
+                                                null,
+                                                null,
+                                                0.001489835818125223,
+                                                3.631855716E10,
+                                                null,
+                                                null
+                                            ],
+                                            "children": [
+                                                {
+                                                    "title": "Other REIT",
+                                                    "data": [
+                                                        null,
+                                                        null,
+                                                        0.001489835818125223,
+                                                        3.631855716E10,
+                                                        null,
+                                                        null
+                                                    ],
+                                                    "children": [
+                                                        {
+                                                            "data": [
+                                                                "SIMON PROPERTY GROUP REIT INC",
+                                                                "828806109",
+                                                                0.001489835818125223,
+                                                                3.631855716E10,
+                                                                "EQUITY",
+                                                                "EQUITY"
+                                                            ],
+                                                            "rowId": 145
+                                                        }
+                                                    ],
+                                                    "rowId": 144,
+                                                    "sectorOrder": 0
+                                                }
+                                            ],
+                                            "rowId": 143,
+                                            "sectorOrder": 3
+                                        }
+                                    ],
+                                    "rowId": 120,
+                                    "sectorOrder": 2
+                                }
+                            ],
+                            "rowId": 2,
+                            "sectorOrder": 0
+                        }
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "market_val_d5e531373a4b44d": "Market Value",
+                        "security_description_1": "Security Description",
+                        "cusip_0": "CUSIP",
+                        "pct_mv_1": "Market Value %",
+                        "sec_group_hidden": "Security Group",
+                        "sec_type_hidden": "Security Type"
+                    },
+                    "columnKeyToTagMap": {
+                        "market_val_d5e531373a4b44d": "market_val",
+                        "security_description_1": "security_description",
+                        "cusip_0": "cusip",
+                        "pct_mv_1": "pct_mv",
+                        "sec_group_hidden": "sec_group",
+                        "sec_type_hidden": "sec_type"
+                    }
+                },
+                "columns": [
+                    "security_description_1",
+                    "cusip_0",
+                    "pct_mv_1",
+                    "market_val_d5e531373a4b44d",
+                    "sec_group_hidden",
+                    "sec_type_hidden"
+                ]
+            },
+            "gaussian": "rYX+Y7oMtaC0j2m6XL76f2rtqwv8GilO6Jussx3V6e/IXlIzVJmhn32WaCko45uURjzwRfkaoxl2",
+            "userinfo": {
+                "runningRequests": 0,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1718836121424
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 3926
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-06-19T22:28:40.777Z",
+            "detailedID": "9701870c-4373-45a6-bcf9-87dccaa9a817.3926.1718836120777",
+            "IDWithContextChain": "9701870c-4373-45a6-bcf9-87dccaa9a817",
+            "chain": [],
+            "bmsMsgSize": 3926,
+            "transactionId": "9701870c-4373-45a6-bcf9-87dccaa9a817",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getPrismData",
+        "transactionId": "9701870c-4373-45a6-bcf9-87dccaa9a817",
+        "successCode": null
+    }
+]

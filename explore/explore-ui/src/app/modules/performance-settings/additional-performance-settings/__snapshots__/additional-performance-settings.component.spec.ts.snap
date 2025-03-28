@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdditionalPerformanceSettingsComponent shows/hides gross net returns option based on token value 1`] = `
+<aux-radio-group
+  label="Return type"
+/>
+`;

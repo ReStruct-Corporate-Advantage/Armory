@@ -1,0 +1,69 @@
+.flex {
+    display: flex
+}
+
+.equal-width {
+    width: 50%;
+}
+
+.spacing {
+    padding-right: 16px;
+}
+
+.every-monthly-dropdown{
+    width: 90px;
+}
+
+.days-select-dropdown {
+    width: 65px;
+}
+
+.padding-right {
+    padding-right: 8px;
+}
+
+.top-padding {
+    padding-top: 25%;
+}
+
+.bottom-padding {
+    padding-bottom: 16px;
+}
+
+.data-sections {
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+}
+
+.all-sides-padding {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    padding-top: 1rem;
+    padding-bottom: 16px;
+}
+
+.border-padding {
+    padding-top: 1rem;
+}
+
+.text-padding {
+    padding-top: 1.9rem;
+    padding-right: 16px;
+}
+
+.inline {
+    display: inline;
+}
+
+.top-padding-16 {
+    padding-top: 16px;
+}
+
+.padding-top-rem {
+    padding-top: 1.5rem;
+}
+
+.padding-top-half-rem {
+    padding-top: 0.5rem;
+}

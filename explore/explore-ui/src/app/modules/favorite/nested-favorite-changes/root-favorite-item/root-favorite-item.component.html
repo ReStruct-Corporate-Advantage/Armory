@@ -1,0 +1,49 @@
+<div class="root-favorite-card">
+    <div [ngClass]="{'top-level-favorite': isModalRootItem}">
+        <div *ngIf="isOtherOwnerFavorite" class="other-owner-container">
+            <aux-icon class="warn-icon" [type]="'info-bold'" [state]="'warning'"></aux-icon>
+            <div>
+                <span class="aux-bold">This {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteChange.favoriteDisplayType].toLowerCase()}} is owned by another user. Save As to create your own version.</span>
+                <ng-container *ngTemplateOutlet="favoriteDetails"></ng-container>
+            </div>
+        </div>
+        <div *ngIf="isAdminOrGlobalFavorite" class="other-owner-container">
+            <aux-icon class="warn-icon" [type]="'info-bold'" [state]="'informational'"></aux-icon>
+            <div>
+                <span class="aux-bold">This is an {{ownerDisplayText}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteChange.favoriteDisplayType]}}.  Save As to create your own version.</span>
+                <ng-container *ngTemplateOutlet="favoriteDetails"></ng-container>
+            </div>
+        </div>
+        <div class="save-options">
+            <ng-container *ngIf="!isModalRootItem; else rootSaveDetails">
+                <div class='save-selection-title' [ngClass]="{'save-options--not-selected': !favoriteChange.isSelected}">
+                    <aux-checkbox class="checkbox--right-padding" [isChecked]="favoriteChange.isSelected" [isDisabled]="favoriteChange.isSaved" (checkboxChanged)="toggleSaveRootSelected()"></aux-checkbox>
+                    <ng-container *ngIf="favoriteChange.isSelected">
+                        <ng-container *ngTemplateOutlet="rootSaveDetails"></ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="!favoriteChange.isSelected">
+                        <span>{{favoriteChange.saveTitle}}</span>
+                    </ng-container>
+                </div>
+                <ng-container *ngIf="!favoriteChange.isSelected">
+                    <div class="not-selected-text">
+                        <ng-container>
+                            <span class="aux-bold">By deselecting this option, you are opting out of reviewing and submitting changes made to underlying saved components within this workspace.</span>
+                        </ng-container>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-template #rootSaveDetails>
+                <app-save-detail class="root-save-detail" [favoriteChange]="favoriteChange" [isFixedSize]="true" [isModalRootItem]="isModalRootItem"></app-save-detail>
+            </ng-template>
+        </div>
+        <ng-template #favoriteDetails>
+            <div class="favorite-details">
+                <aux-value-pair [label]="'Title:'" [value]="favoriteChange.value.title" [isBold]="true" [isPipeLess]="true"
+                    [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+                <aux-value-pair [label]="'Owner:'" [value]="ownerDisplayName" [isBold]="true" [isPipeLess]="true"
+                    [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+            </div>
+        </ng-template>
+    </div>
+</div>

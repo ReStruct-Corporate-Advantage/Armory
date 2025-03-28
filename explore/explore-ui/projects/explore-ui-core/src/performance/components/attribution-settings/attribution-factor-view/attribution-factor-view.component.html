@@ -1,0 +1,24 @@
+<div *ngIf="!isSelectionAllowed" class="factor-container">
+    <div class="factor-container-width" style="height:40vh; width:40vw">
+        <ng-container *ngIf="showFactors">
+            <aux-advanced-tree-list
+                           [hasSearch]="false"
+                           [hasBorder]="false"
+                           [hasDragAndDrop]="true"
+                           [sourceData]="excessAdvTreeListData"
+                           [isDisabled]="!isCustom"
+                           (removeItemClicked)="deleteFactor($event.detail.value)">
+            </aux-advanced-tree-list>
+        </ng-container>
+    </div>
+</div>
+
+
+
+<ng-container *ngIf="isOpenModal">
+    <app-attribution-settings-modal-dialog [isOpen]="isOpenModal"
+                                           [nonExcessFactors]="nonExcessAdvTreeListData"
+                                           (modalClosed)="closeAddFactorsModal()"
+                                           (factorsUpdated)="updateFactorsList($event)">
+    </app-attribution-settings-modal-dialog>
+</ng-container>

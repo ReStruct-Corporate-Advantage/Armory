@@ -1,0 +1,25 @@
+<div class="time-span-sector-options">
+    <div class="buckets-field-container">
+        <aux-text-input label="Create buckets using breakpoints of"
+                        [value]="buckets"
+                        (valueChanged)="onBucketsUpdate($event)">
+        </aux-text-input>
+    </div>
+    <div class="default-bucket-selector-container">
+        <div class="aux-primary selector-label">
+            Apply default bucket
+        </div>
+        <div class="default-bucket-selection-buttons">
+            <ng-container *ngFor="let defaultBucket of defaultBuckets; index as bucketIndex">
+                <aux-button type="tertiary"
+                            size="small"
+                            [label]="bucketIndex+1"
+                            (click)="setDefaultBucket(defaultBucket)">
+                </aux-button>
+                <div *ngIf="bucketIndex !== 2"
+                     class="vertical-line-divider">
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

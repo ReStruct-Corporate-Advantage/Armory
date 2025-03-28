@@ -1,0 +1,95 @@
+{
+    "configType": "decarbonizationWidget",
+    "size": {
+        "height": 9,
+        "width": 12
+    },
+    "description": "The Decarbonization Chart shows the historical and forward-looking cumulative emissions rate % change compared to 1 or 2 portfolio emission reduction targets in a time series. This enables monitoring of the progress of the portfolio emissions reductions against the portfolio targets.",
+    "title": "Decarbonization",
+    "image": ".\/assets\/images\/decarb-widget.png",
+    "imageDescription": "This decarbonization chart shows the cumulative decarbonization rate for portfolio SNP500 compared to 2 portfolio targets in 2030 and 2050.",
+    "setUpRequirements": [
+        "After adding this chart, click on the settings gear icon to customize.",        
+        "Select from the following options:",        
+        "Emissions metric: Revenue Intensity, EVIC Intensity, Financed Emissions, Intensity $/GDP (Sovereign Issuers), Intensity $/GDP PPP (Sovereign Issuers), Intensity Per Capita (Sovereign Issuers), Intensity $/Sov Debt (Sovereign Issuers).",
+        "Emissions Scope: Scope 1 & 2, Scope 1, 2, 3.",
+        "Emissions Start Year: Select the year the data starts on the chart based on whether you want to view historical data, forward-looking data, or both.",
+        "Aggregation Method: Delta Notional MV, Weighted Average, Sum or None.",
+        "Climate Scenario: Nationally Determined Contributions (NDCs), NGFS Current Policies (CPS), Blended Scenario.",
+        "Issuer Emissions Targets: With targets, Without targets, With Credibility Framework.",
+        "Set Portfolio Targets (Up to 2): Reduction %, Start Year, Target Year."
+    ],
+    "tokenToCheck": "exploreClimateEnabled",
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": false,
+    "canHaveMultipleOverrideDates": true,
+    "isEligibleForLightLookthrough": true,
+    "inputCategories": [
+        {
+            "categoryType":"columns",
+            "categoryTitle":"Measures",
+            "visible":false,
+            "inputs":[
+                {
+                    
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "CHART_REPORT",
+                        "default": [
+                            {
+                                "columnTag": "ta_rev_int_s12",
+                                "positionColumnType":"PORT"
+                            }
+                    ]
+                
+            }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Settings",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "decarbonizationChartSettings",
+                    "inputName": "decarbonizationChartSettings",
+                    "inputTitle": "Settings",
+                    "default": {
+                        "columnTag": "ta_rev_int_s12",
+                        "positionColumnType": "PORT",
+                        "selectedScenario": "Nationally Determined Contributions",
+                        "emissionStartYear": "2018",
+                        "aggregationMethod": 1401,
+                        "emissionTargetType": "TA_METRIC_CODE_PRIORITY"
+                    },
+                    "isOpen": true
+                }
+                
+            ]
+        },
+        {
+            "visible": false,
+            "categoryType": "chartSettings",
+            "inputs": [
+                {
+                "inputConfigType": "chartSettings",
+                "inputName": "chartSettings",
+                "default": {
+                    "legendShow": true,
+                    "labelShow": false
+                }
+                }
+            ]
+        }
+    ],
+    "restrictedColumnOptions": {
+        "sections": [
+            "columnBreakdown",
+            "highlight"
+        ]
+    },
+    "chartingLib": "hc"
+}

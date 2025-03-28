@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreFactorBarChartComponent formatXaxisLabel 1`] = `"<span class="txt">EQUITY</span>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test toolTipFormatter for compare mode 1`] = `"<b>pct_mv_1</b><br><b>&nbsp;undefined</b>: 9568303.50379725<br>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test toolTipFormatter for compare mode with Date Override 1`] = `"<b>Market Value %</b><br><b>&nbsp;undefined</b>: 9568303.50379725<br>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test tooltip PointFormatter for Bar #1 1`] = `"<b>pct_mv_1</b><br><b>&nbsp;test-name</b><br><b>&nbsp;test-cat</b>: 1<br>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test tooltip PointFormatter for Bar #2 1`] = `"<b>test-cat</b><br><b>&nbsp;test-name</b>: 1<br>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test tooltip PointFormatter for Bar #3 1`] = `"<b>pct_mv_1</b><br><b>&nbsp;test-name</b>: 1<br>"`;
+
+exports[`ExploreFactorBarChartComponent formatter Test should test tooltip PointFormatter for Bar #4 1`] = `"<b>pct_mv_1</b><br><b>&nbsp;test-name-2</b><br><b>&nbsp;test-cat</b>: 1<br>"`;

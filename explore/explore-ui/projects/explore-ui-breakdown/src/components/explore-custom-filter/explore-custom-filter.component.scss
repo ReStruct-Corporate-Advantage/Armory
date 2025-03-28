@@ -1,0 +1,35 @@
+.custom-sector-rules-container {
+    overflow: auto;
+    border: 1px solid var(--card__border-color);
+    background-color: var(--secondary__background-color);
+    padding: 1rem;
+
+    .custom-options-container {
+        margin: 12px 0 0 6px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .apply-to-select-drop-down-width {
+        margin-left: 6px;
+        width: 10rem;
+    }
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.75rem;
+    width: 50%;
+    .favorite-actions {
+        margin-left: 1rem;
+    }
+}
+
+.filter-title {
+    padding-right: 1rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}

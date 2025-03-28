@@ -1,0 +1,86 @@
+.modal-content {
+    height: 75vh;
+}
+
+.saving-container {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-flow: column;
+}
+
+.workspace-container {
+    flex: 0 1 auto;
+}
+
+.workspace-detail {
+    padding-bottom: 1.5rem;
+}
+
+.saving-section-label {
+    display: block;
+    padding-bottom: 0.5rem;
+}
+
+.saving-instructions {
+    padding-bottom: 0.5rem
+}
+
+.workspace-nested-changes {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.save-toggle-container {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+}
+
+.save-toggle-text {
+    padding: 0 0.5rem;
+}
+
+.save-toggle-container--enabled {
+    // mimic aux-card
+    border: 1px solid var(--card__border-color);
+    border-bottom: 0;
+    background-color: var(--card__background-color);
+    box-sizing: border-box;
+}
+
+.details-card {
+    flex: 1;
+    background-color: var(--card__background-color);
+    border: 1px solid var(--card__border-color);
+}
+
+.details-container {
+    display: flex;
+    height: 100%
+}
+
+.workpad-list-container {
+    width: 15%;
+    border-right: 1px solid var(--card__border-color);
+}
+
+.workpad-item {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.workpad-item--selected {
+    background-color: var(--column-selector-list-item__background-color--select);
+}
+
+.workpad-change-details {
+    flex: 1;
+    overflow-x: hidden;
+}
+
+.no-changes-text {
+    padding: 1.5rem;
+}

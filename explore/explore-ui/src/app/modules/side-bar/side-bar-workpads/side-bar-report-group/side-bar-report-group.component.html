@@ -1,0 +1,56 @@
+<div class="report-group-container"
+     [ngClass]="{'report-group-container-selected': isSelected, 'report-group-target--active': isReportGroupDropTarget}"
+     [style.border-style]="reportGroupBorder?.borderStyle" [style.border-width]="reportGroupBorder?.borderWidth"
+     [style.border-color]="reportGroupBorder?.borderColor">
+    <div class="report-group-top-line"
+         (drop)="onWorkpadDrop($event, 'TOP')"
+         (dragover)="allowDropAboveBelowReportGroup($event, 'TOP')"
+         (dragleave)="clearDropTargetStyling()">
+    </div>
+    <div class="report-group-header-container aux-primary aux-bold aux-p13" draggable="true"
+         [ngClass]="{'report-group-header__border--drop': isHeaderDrop}"
+         (dragstart)="onReportGroupDrag($event)"
+         (drop)="onPortfolioDrop($event)"
+         (dragover)="allowAddToReportGroup($event, true)" (dragleave)="resetGroupHeaderBorder()">
+        <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+        <aux-button (click)="reportGroup.isOpen =! reportGroup.isOpen"
+                    type="tertiary-subtle" [icon]="reportGroup.isOpen? 'arrow-down': 'arrow-right'"
+                    [assistiveText]="reportGroup.isOpen? 'Report Group Expand': 'Report Group Collapse'">
+        </aux-button>
+        <div *ngIf="!editReportGroupName" class="report-group-name">
+            {{reportGroup.title}}
+        </div>
+        <div *ngIf="editReportGroupName" class="report-group-text-box">
+            <aux-text-input #reportGroupNameField (focusout)="setEditReportGroupName(!reportGroup?.title)"
+                            (valueChanged)="updateReportGroupName($event.detail.value)" [value]="reportGroup.title"
+                            maxLength="30">
+            </aux-text-input>
+        </div>
+        <aux-icon *ngIf="exportingInProgress" type="loading" state="primary"></aux-icon>
+        <app-side-bar-report-group-actions-menu [reportGroup]="reportGroup" (renameReportGroup)="setEditReportGroupName(true)"></app-side-bar-report-group-actions-menu>
+    </div>
+
+    <div *ngIf="reportGroup.isOpen" class="report-group-content-container"
+         (dragover)="allowAddToReportGroup($event, false)">
+        <div *ngIf="!(reportGroup.hasPortfolios())"
+             class="aux-secondary aux-p12 drag-drop-label"
+             (drop)="onPortfolioDrop($event)">
+            Drag portfolios here to add to group
+        </div>
+
+        <app-side-bar-portfolio (emitPortfolioDeleted)="deletePortfolio(portfolio)"
+                                (emitPortfolioSelected)="selectPortfolio(portfolio)"
+                                (emitPortfolioDrag)="setReportGroupDropTarget()"
+                                (emitPortfolioReordered)="resetReportGroupDropTarget()"
+                                *ngFor="let portfolio of reportGroup.portfolios"
+                                [portfolio]="portfolio"
+                                [parentWorkpad]="reportGroup">
+        </app-side-bar-portfolio>
+    </div>
+
+    <div class="report-group-bottom-line"
+         (drop)="onWorkpadDrop($event, 'BOTTOM')"
+         (dragover)="allowDropAboveBelowReportGroup($event, 'BOTTOM')"
+         (dragleave)="clearDropTargetStyling()">
+    </div>
+</div>

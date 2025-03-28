@@ -1,0 +1,51 @@
+<aux-modal [isOpen]="isOpen" [type]="'information'" [hasCustomHeader]="true">
+    <div slot="custom-header" class="custom-header">
+        <span class="header-title">{{ MODAL_HEADER }}</span>
+        <aux-icon id="closeModalBtn" class="btn"
+                  [type]="'delete'"
+                  [state]="'primary'"
+                  (click)="closeModal()">
+        </aux-icon>
+    </div>
+    <div [slot]="'content'" class="content-container aux-g32--cw-8">
+        <ng-container *ngIf="isGalleryView; else moreView">
+            <div class="content-container__inner">
+                <div class="tab-bar-container">
+                    <aux-segmented-control
+                        [data]="widgetTypeTabData"
+                        [activeControlIndex]="activeTabUID"
+                        [size]="'regular'"
+                        (controlSelectionChanged)="onTabSelected($event, pretext)"
+                    ></aux-segmented-control>
+                    <aux-select
+                        [label]="'Sort By'"
+                        [data]="sortingOptions"
+                        [hasInitialOptionPlaceholder]="false"
+                        [isLeftLabel]="true"
+                        (selectionChanged)="onSortingSelection($event, pretext)"
+                        [type]="'simple'">
+                    </aux-select>
+                </div>
+                <div class="content--scroll">
+                    <div #pretext class="pre-text" property="hasContentPadding">{{ tabContent[+activeTabUID].description }}</div>
+                    <app-widget-gallery-cards
+                        [widgets]="tabContent[+activeTabUID].widgets"
+                        (openMoreView)="moreViewOn($event)"
+                        (widgetCreate)="createWidget($event)">
+                    </app-widget-gallery-cards>
+                </div>
+                <div class="content-container__footer"></div>
+            </div>
+        </ng-container>
+        <ng-template #moreView>
+            <div class="content--scroll">
+                <app-widget-gallery-more
+                    [widgetMore]="widgetMore"
+                    (closeMoreView)="moreViewOff($event)"
+                    (widgetMoreCreate)="createWidget($event)">
+                </app-widget-gallery-more>
+            </div>
+        </ng-template>
+    </div>
+
+</aux-modal>

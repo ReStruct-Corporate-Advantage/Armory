@@ -1,0 +1,102 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Validate Side Bar functionality",
+    "line": 1,
+    "id": "validate-side-bar-functionality",
+    "tags": [],
+    "uri": "side-bar.feature",
+    "elements": [
+      {
+        "id": "validate-side-bar-functionality;validate-portfolio-can-be-added-from-side-bar",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate Portfolio can be added from side bar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Explore home page is launched",
+            "result": {
+              "status": "passed",
+              "duration": 6105000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "Add Portfolio Modal is opened from side bar",
+            "result": {
+              "status": "passed",
+              "duration": 1292000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "portfolio is added from modal",
+            "result": {
+              "status": "passed",
+              "duration": 2444000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "portfolio should get added to side bar",
+            "result": {
+              "status": "passed",
+              "duration": 940000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-side-bar-functionality;validate-report-group-can-be-added-to-side-bar",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Validate Report group can be added to side bar",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Explore home page is launched",
+            "result": {
+              "status": "passed",
+              "duration": 3392000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "create new group option is selected from side bar",
+            "result": {
+              "status": "passed",
+              "duration": 1351000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "new report group should get added to side bar",
+            "result": {
+              "status": "passed",
+              "duration": 298000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

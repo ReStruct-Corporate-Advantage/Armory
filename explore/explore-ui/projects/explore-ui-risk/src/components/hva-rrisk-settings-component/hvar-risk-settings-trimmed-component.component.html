@@ -1,0 +1,83 @@
+<div class="conf-level-div">
+    <div class="flex-container-1">
+        <div class="flex-container-1" conf-div>
+            <div class="tooltip-radio-container">
+                <div class="control-header">
+                    <span class="radio-header">Return Horizon</span>
+                    <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                        <aux-button
+                            type="tertiary"
+                            icon="help-subtle"
+                            assistiveText="Button"
+                            slot="target">
+                        </aux-button>
+                        <div slot="content" class="custom-popover-container">The <strong>Return Horizon</strong> works in conjunction with the <strong>Window Length</strong> to set the number of return periods used to calculate HVaR.<br/>
+                            If a horizon of 10 days is set over a 2,520 day window length, then 252 10-day return observations will be used to calculate the HVaR.<br/>
+                            For a return horizon of <strong>1 Rolling Week</strong>, the analysis date less one week is used as the first return observation. As the analysis date evolves, so will the return period, and the same holds true for the <strong>1 Rolling Month</strong> option.</div>
+                    </aux-popover>
+                </div>
+                <aux-radio-group [data]="returnHorizons" (radioGroupChanged)="onReturnHorizonChanged($event.detail.value.eventData)">
+
+                </aux-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1" *ngIf="returnHorizonSelection === 'days'">
+        <div class="flex-container-1 padding-top-24">
+            <div class="conf-level">
+                <aux-numeric-stepper [label]="'Number of days'" [stepperValue]="numberOfDays"
+                                     (valueChanged)="onNumberOfDaysChanged('numberOfDays', $event)" [minValue]="0"></aux-numeric-stepper>
+            </div>
+            <div class="conf-level" style="margin-left: 10px;">
+                <aux-numeric-stepper [label]="'Non-linear'" [stepperValue]="linear"
+                                     (valueChanged)="onNumberOfDaysChanged('linear', $event)" [minValue]="0"></aux-numeric-stepper>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div>
+                <aux-radio-group class="stacked-label" [label]="'Window Length'" [data]="numberOfObservationOptions" (radioGroupChanged)="onNumberOfObservationsOptionChanges($event.detail.value.eventData)">
+                </aux-radio-group>
+            </div>
+        </div>
+    </div>
+    <div class="flex-container-1 padding-top-24" *ngIf="!isNumberOfObservationsSelected">
+        <explore-core-date-picker
+            [dateObject]="dateValueObject"
+            (dateChange)="onStartDateChange($event)"
+            [isLeftLabel]="false">
+        </explore-core-date-picker>
+    </div>
+    <div class="flex-container-1 padding-top-24"  *ngIf="isNumberOfObservationsSelected">
+        <aux-numeric-stepper
+            [step]="1"
+            [minValue]="0"
+            [maxValue]="9999"
+            [stepperValue]="noOfObservations"
+            (valueChanged)="onNumberOfObservationChange($event)"></aux-numeric-stepper>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div>
+                <aux-checkbox-group [label]="'General'" [data]="generalCheckBoxes" (checkboxGroupChanged)="onGeneralCheckboxChanged($event)"></aux-checkbox-group>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="flex-container-1 padding-top-24">
+            <div style="font-weight: bold">Volatility Scaling and EVT Settings</div>
+        </div>
+    </div>
+
+    <div class="flex-container-1">
+        <div class="aux-select-line-item">
+            <aux-select (selectionChanged)="onFactorScalingSelectionChanged($event)" [data]="factorScalingOptions" [hasInitialOptionPlaceholder]="false"></aux-select>
+        </div>
+        <div *ngIf="hvarRiskSettingsModel.doesValueExist(propertyList.FACTOR_SCALING)" class="factor-scaling-div">
+            <explore-risk-revert-risk-setting [riskSetting]="hvarRiskSettingsModel" [propertyName]="propertyList.FACTOR_SCALING" (resetHandler)="factorScalingReset()"></explore-risk-revert-risk-setting>
+        </div>
+    </div>
+</div>

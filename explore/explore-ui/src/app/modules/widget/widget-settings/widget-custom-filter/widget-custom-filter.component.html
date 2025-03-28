@@ -1,0 +1,8 @@
+<div class="widget-custom-filter">
+    <app-custom-filter [filter]="filter"
+                       [isNormalized]="normalizedFlag"
+                       [fieldToUse]="widgetConfigInput.valueField"
+                       [disableNormalizedCheckbox]="widgetConfigInput.disableNormalized"
+                       (updateNormalizedFlag)="updateNormalizedCheckbox($event)">
+    </app-custom-filter>
+</div>

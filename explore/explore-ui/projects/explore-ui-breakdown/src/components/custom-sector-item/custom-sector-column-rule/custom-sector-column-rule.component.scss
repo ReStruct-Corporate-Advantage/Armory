@@ -1,0 +1,24 @@
+.custom-sector-column-rule {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.rule-text {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.rule-text-tooltip {
+    inline-size: 35vw;
+    overflow-wrap: break-word;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-link__color);
+}
+
+a:hover {
+    text-decoration: underline;
+}

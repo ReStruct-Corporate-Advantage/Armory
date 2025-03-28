@@ -1,0 +1,14 @@
+.report-presenter-area {
+    width: 100%;
+    margin-top: 0.5rem;
+
+    .gridster-grid {
+        background: none;
+    }
+
+    // internal gridster class
+    .scrollVertical {
+        overflow: hidden;
+    }
+}
+

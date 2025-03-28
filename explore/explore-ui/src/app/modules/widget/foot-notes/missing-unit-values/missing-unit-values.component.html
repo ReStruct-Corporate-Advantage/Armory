@@ -1,0 +1,5 @@
+<ng-container *ngIf="missingUnitValues && missingUnitValues.length > 0">
+    <p class="no-margin" *ngFor="let muv of missingUnitValues">
+        {{muv}}
+    </p>
+</ng-container>

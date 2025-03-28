@@ -1,0 +1,53 @@
+{
+    "message": null,
+    "data": [{
+        "value": "MPS_MANDATE",
+        "mandates": [{
+            "value": "Model-RESEARCH",
+            "mandateType": "MPS_MANDATE",
+            "label": "Model - Research"
+        }, {
+            "value": "Model-INDEX",
+            "mandateType": "MPS_MANDATE",
+            "label": "Model - Index"
+        }, {
+            "value": "MPS-RESEARCH",
+            "mandateType": "MPS_MANDATE",
+            "label": "MPS - Research"
+        }, {
+            "value": "MPS-BLKMAN",
+            "mandateType": "MPS_MANDATE",
+            "label": "MPS - BLK Managed"
+        }, {
+            "value": "MPS-3RD",
+            "mandateType": "MPS_MANDATE",
+            "label": "MPS - 3rd Party Managed"
+        }, {
+            "value": "Model-3RD",
+            "mandateType": "MPS_MANDATE",
+            "label": "Model - 3rd Party Managed"
+        }, {
+            "value": "MPS-INDEX",
+            "mandateType": "MPS_MANDATE",
+            "label": "MPS - Index"
+        }, {
+            "value": "Model-BLKMAN",
+            "mandateType": "MPS_MANDATE",
+            "label": "Model - BLK Managed"
+        }],
+        "label": "Model Portfolio Solutions"
+    }, {
+        "value": "ADV_MANDATE",
+        "mandates": [{
+            "value": "ADV-FMA-PMG",
+            "mandateType": "ADV_MANDATE",
+            "label": "Advisory-Portfolio Management Group"
+        }, {
+            "value": "ADV-FMA",
+            "mandateType": "ADV_MANDATE",
+            "label": "Advisory-Financial Markets Advisory Group"
+        }],
+        "label": "Advisory - AUM"
+    }],
+    "status": null
+}

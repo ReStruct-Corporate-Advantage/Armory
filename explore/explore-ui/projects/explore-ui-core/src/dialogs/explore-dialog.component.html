@@ -1,0 +1,13 @@
+<aux-dialog
+    [isOpen]="isOpen"
+    [type]="type"
+    [header]="header"
+    [primaryButtonLabel]="primaryButtonLabel"
+    [secondaryButtonLabel]="secondaryButtonLabel"
+    (secondaryButtonClicked)="closeDialog()"
+    (primaryButtonClicked)="closeDialog(true)"
+>
+    <div class="aux-g16--cw-6 content-padding aux-p14">
+        {{ message }}
+    </div>
+</aux-dialog>

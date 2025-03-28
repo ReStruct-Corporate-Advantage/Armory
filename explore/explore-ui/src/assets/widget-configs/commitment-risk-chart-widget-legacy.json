@@ -1,0 +1,141 @@
+{
+  "configType": "commitmentRiskChartWidget",
+  "size": {
+    "height": 8,
+    "width": 16
+  },
+  "description": "The Commitment Risk Widget allows users to see simulated projections from the Aladdin Commitment Risk model across a range of different percentiles. You can also see summary statistics that describe cash flow projections.",
+  "title": "Commitment Risk (Legacy)",
+  "image": ".\/assets\/images\/commitment-risk-legacy.png",
+  "imageDescription": "This commitment risk widget displays the simulated projections from the Aladdin Commitment Risk Model in the private fund, Demo Buyout II Prvt | BLKB3VU93, across percentiles.",
+  "setUpRequirements": [
+    "N/A "
+  ],
+  "showOnlySingleColumn": false,
+  "showInSelector": true,
+  "tokenToCheck": "enableCommitmentRisk",
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "hideTopColumnGroup": false,
+          "default": [
+            {
+              "columnKey": "market_val",
+              "columnTag": "market_val",
+              "positionColumnType": "PORT",
+              "optionValues": {
+                "title": "Value of Private Equity", "decimalPlaces": 0, "useThousandsSeparator": true, "scaling": 1
+              }
+            },
+            {
+              "columnKey": "contributions",
+              "columnTag": "contributions",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "title": "Capital Called", "decimalPlaces": 0, "useThousandsSeparator": true, "scaling": 1
+              }
+            },
+            {
+              "columnKey": "distributions",
+              "columnTag": "distributions",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "title": "Capital Distributed", "decimalPlaces": 0, "useThousandsSeparator": true, "scaling": 1
+              }
+            },
+            {
+              "columnKey": "commitment",
+              "columnTag": "commitment",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "title": "Cash Position", "decimalPlaces": 0, "useThousandsSeparator": true, "scaling": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "breakdown",
+      "categoryTitle": "Breakdown",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "breakdownTree",
+          "inputName": "breakdownTree",
+          "inputTitle": "Sector Breakdown",
+          "mandateSettingType": "BREAKDOWN",
+          "valueField": "columnTag",
+          "max": 5,
+          "default": {
+            "breakdown": {
+              "breakdownTitle": "Percentiles",
+              "subSectors": [
+                {
+                  "breakdownRuleType": "String",
+                  "useNoneBuckets": true,
+                  "groupByColumn": {
+                    "columnTag": "percentiles",
+                    "columnName": "Percentiles",
+                    "positionColumnType": "ALL"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Settings",
+      "inputs": [
+        {
+          "inputConfigType": "commitmentHorizon",
+          "inputName": "commitmentHorizon",
+          "inputTitle": "Time Horizon",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "visible": false,
+      "categoryType": "chartSettings",
+      "inputs": [
+        {
+          "inputConfigType": "chartSettings",
+          "inputName": "chartSettings",
+          "default": {
+            "legendShow": true,
+            "labelShow": false
+          },
+          "oldProps": ["chartSettings"]
+        }
+      ]
+    },
+    {
+      "$ref": "defaultColumnState"
+    },
+    {
+      "$ref": "defaultExpandedState"
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "highlight",
+      "aggregation",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "hc"
+}

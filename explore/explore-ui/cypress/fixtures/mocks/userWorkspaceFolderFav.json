@@ -1,0 +1,41 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "owner": "_ADMIN",
+        "data": "%7b\"title\":\"WORKSPACES\",\"type\":\"folder\",\"favoriteId\":1673941,\"children\":%5b%7b\"title\":\"Astra Reporting\",\"type\":\"folder\"%7d,%7b\"title\":\"2.11 Release\",\"type\":\"folder\"%7d,%7b\"title\":\"Automation\",\"type\":\"folder\"%7d,%7b\"title\":\"Automation\",\"type\":\"folder\"%7d,%7b\"title\":\"Automation\",\"type\":\"folder\"%7d,%7b\"title\":\"CacheWarm\",\"type\":\"folder\"%7d,%7b\"title\":\"TEST Folder\",\"type\":\"folder\"%7d,%7b\"title\":\"TestWS\",\"type\":\"folder\"%7d%5d%7d",
+        "listOrder": 0,
+        "list_order": 0,
+        "id": 1673941,
+        "type": "WORKSPACE_FOLDER",
+        "title": "TEST",
+        "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+        "tool": "Explore_BETA",
+        "isSlim": false
+      },
+      "message": null,
+      "gaussian": "yrXtCC4Q5IkjCBkkfEvm17KyCafuQNiPLtwaRppICuxpcPFxH2mM1SiOTrruFuHau+P4pk/aVMSr/9K26dYzlQ==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 554
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:08:28.030Z",
+      "detailedID": "14ad09ed-f26f-4993-8602-db012dad0444.554.1681294108030",
+      "IDWithContextChain": "14ad09ed-f26f-4993-8602-db012dad0444",
+      "chain": [],
+      "bmsMsgSize": 554,
+      "transactionId": "14ad09ed-f26f-4993-8602-db012dad0444",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681294108035*btid=1419*guid=aa7ced78-1e8e-4842-9d00-c4923388de41*exitguid=3*unresolvedexitid=593*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][593]}",
+    "return_val": "SUCCESS",
+    "command": "getFavoriteForTypeAndUser",
+    "transactionId": "14ad09ed-f26f-4993-8602-db012dad0444",
+    "successCode": null
+  }
+]

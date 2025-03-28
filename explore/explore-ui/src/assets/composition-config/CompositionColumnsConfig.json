@@ -1,0 +1,74 @@
+{
+  "availableColumns": [
+    {
+      "columnTag": "market_val",
+      "positionColumnType": "PORT",
+      "columnKey": "market_val",
+      "columnTitle": "Market Value"
+    },
+    {
+      "columnTag": "market_val",
+      "positionColumnType": "ACTIVE",
+      "columnKey": "market_val_active",
+      "columnTitle": "Active Market Value"
+    },
+    {
+      "columnTag": "pct_mv",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_mv",
+      "columnTitle": "Market Value %"
+    },
+    {
+      "columnTag": "pct_mv",
+      "positionColumnType": "ACTIVE",
+      "columnKey": "pct_mv_active",
+      "columnTitle": "Active Market Value %"
+    },
+    {
+      "columnTag": "notional_mv",
+      "positionColumnType": "PORT",
+      "columnKey": "notional_mv",
+      "columnTitle": "Notional Market Value"
+    },
+    {
+      "columnTag": "notional_mv",
+      "positionColumnType": "ACTIVE",
+      "columnKey": "notional_mv_active",
+      "columnTitle": "Active Notional Market Value"
+    },
+    {
+      "columnTag": "pct_notional_val",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_notional_val",
+      "columnTitle": "Notional Market Value %"
+    },
+    {
+      "columnTag": "pct_notional_val",
+      "positionColumnType": "ACTIVE",
+      "columnKey": "pct_notional_val_active",
+      "columnTitle": "Active Notional Market Value %"
+    },
+    {
+      "columnTag": "quantity",
+      "positionColumnType": "PORT",
+      "columnKey": "quantity",
+      "columnTitle": "Quantity"
+    },
+    {
+      "columnTag": "cur_face",
+      "positionColumnType": "PORT",
+      "columnKey": "cur_face",
+      "columnTitle": "Trade Units"
+    }
+  ],
+  "securitySearchKeyColTagMapping" : {
+    "description": "security_description",
+    "securityGroup": "sec_group",
+    "securityType": "sec_type"
+  },
+  "securitySearchColTagKeyMapping" : {
+    "security_description": "description",
+    "sec_group": "securityGroup",
+    "sec_type": "securityType"
+  }
+}

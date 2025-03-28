@@ -1,0 +1,9 @@
+.add-group-button {
+    border-top: 1px solid var(--dialog__border-color--partition);
+    padding: 1rem 2rem;
+    .description {
+        margin-bottom: .5rem;
+        color: var(--secondary-text__color);
+        line-height: normal;
+    }
+}

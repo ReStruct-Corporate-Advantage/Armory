@@ -1,0 +1,90 @@
+<div class="axis-settings">
+    <div class="secondary-axis-column" *ngIf="axisType === AxisType.SECONDARY && !!secondaryAxisColumn">
+        <app-secondary-axis-column-settings [widgetInput]="secondaryAxisColumn" [inputs]="inputs"></app-secondary-axis-column-settings>
+    </div>
+
+    <div class="axis-title-area">
+        <div class="axis-title">
+            <aux-text-input [label]="axisTitleInputLabel"
+                            [value]="widgetInput.axisTitle"
+                            (valueChanged)="onAxisTitleChanged($event)">
+            </aux-text-input>
+        </div>
+        <div class="hide-axis-title">
+            <aux-checkbox label="Hide axis title"
+                          [isChecked]="widgetInput.hideAxisTitle"
+                          (checkboxChanged)="onHideAxisTitleChanged($event)">
+            </aux-checkbox>
+        </div>
+    </div>
+
+    <div class="bounds-area">
+        <div class="bounds-label-area">
+            <div class="bounds-label">
+                <strong>Bounds</strong>
+            </div>
+            <div class="bounds-label-popover">
+                <aux-popover [trigger]="'hover'">
+                    <aux-button type="tertiary-subtle" icon="info-bold" assistiveText="Hover button" slot="target"></aux-button>
+                    <div slot="content" class="popover-container">
+                        If the data input below is outside of the bounds, the selection will auto-adjust.
+                    </div>
+                </aux-popover>
+            </div>
+        </div>
+        <div class="upper-lower-bounds-area">
+            <div class="bound-input">
+                <aux-input-mask [label]="'Minimum'"
+                                [placeholder]="'Auto'"
+                                [value]="widgetInput.yLowerBound"
+                                [type]="'number'"
+                                [size]="'regular'"
+                                [textAlign]="'left'"
+                                [maskOptions]="maskOptions"
+                                [allowNegativeNumbers]="true"
+                                (blurChanged)="onYLowerBoundBlur($event)">
+                </aux-input-mask>
+            </div>
+            <div *ngIf="!isNil(widgetInput.yLowerBound)" class="bound-undo">
+                <explore-core-undo-button [tooltip]="'Return to Auto'" [callback]="resetYLowerBound"></explore-core-undo-button>
+            </div>
+
+            <div class="bound-to">to</div>
+            <div class="bound-input">
+                <aux-input-mask [label]="'Maximum'"
+                                [placeholder]="'Auto'"
+                                [value]="widgetInput.yUpperBound"
+                                [type]="'number'"
+                                [size]="'regular'"
+                                [textAlign]="'left'"
+                                [maskOptions]="maskOptions"
+                                [allowNegativeNumbers]="true"
+                                (blurChanged)="onYUpperBoundBlur($event)">
+                </aux-input-mask>
+            </div>
+            <div *ngIf="!isNil(widgetInput.yUpperBound)" class="bound-undo">
+                <explore-core-undo-button [tooltip]="'Return to Auto'" [callback]="resetYUpperBound"></explore-core-undo-button>
+            </div>
+        </div>
+
+        <div class="interval-area">
+            <div class="interval-input">
+                <aux-input-mask [label]="'Interval'"
+                                [placeholder]="'Auto'"
+                                [value]="widgetInput.yInterval"
+                                [type]="'number'"
+                                [size]="'regular'"
+                                [textAlign]="'left'"
+                                [isValid]="true"
+                                [step]="1"
+                                (rawValueChanged)="onYIntervalChanged($event)">
+                </aux-input-mask>
+
+            </div>
+            <div *ngIf="!isNil(widgetInput.yInterval)" class="bound-undo">
+                <explore-core-undo-button [tooltip]="'Return to Auto'" [callback]="resetYInterval"></explore-core-undo-button>
+            </div>
+        </div>
+
+    </div>
+</div>

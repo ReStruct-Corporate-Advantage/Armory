@@ -1,0 +1,33 @@
+<div>
+    <label>Partial liquidation settings</label>
+</div>
+<div class="container-alignment">
+    <div class="liquidity-constraint-bar">
+        <div class="container-spacing liquidity-radio-bar">
+            <aux-radio-group label="Liquidation constraint"
+                             [data]="liquidationConstraintOptions"
+                             isStacked="true"
+                             (radioGroupChanged)="onLiquidationConstraintChanged($event)">
+            </aux-radio-group>
+        </div>
+
+        <div class="liquidity-stepper-bar">
+            <ng-container *ngFor="let stepper of liquidityConstraintGroup; index as stepperIndex">
+                <div>
+                    <aux-numeric-stepper minValue="0"
+                                         [stepperValue]="stepper.stepperValue"
+                                         (valueChanged)="onLiquidationConstraintValueChanged($event, stepperIndex)"
+                                         [id]="liquidationConstraintOptions[stepperIndex].label">
+                    </aux-numeric-stepper>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="select-options-bar container-spacing">
+        <aux-select label="Liquidation strategy"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="liquidationStrategyOptions"
+                    (selectionChanged)="onLiquidationStrategyChanged($event)"
+        ></aux-select>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="favorite-buttons-container">
+    <aux-button [label]="CoreFavoriteConstants.FAVORITE_ACTIONS.LOAD" [type]="AuxButtonTypeEnum.TERTIARY" [isDisabled]="isDisabled" (click)="onLoadClicked()"></aux-button>
+    <ng-container *ngIf="!showLoadOnly">
+        <div class="vertical-line-divider"></div>
+        <aux-button [label]="newButtonLabel" [type]="AuxButtonTypeEnum.TERTIARY" [isDisabled]="isDisabled" (click)="onNewClicked()"></aux-button>
+    </ng-container>
+</div>

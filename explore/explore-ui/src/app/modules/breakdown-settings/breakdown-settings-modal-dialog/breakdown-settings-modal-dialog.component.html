@@ -1,0 +1,95 @@
+<aux-modal
+    type="action"
+    [hasCustomHeader]="true"
+    [hasCustomFooter]="true"
+    [hasGreyContentArea]="true"
+    [isOpen]="isOpen"
+    *ngIf="isOpen">
+    <div slot="custom-header" class="modal-header aux-border--bottom">
+        <span class="aux-bold aux-p20 aux-primary">Edit Breakdown</span>
+        <aux-toggle class="show-preview" label="Show preview" (toggleChanged)="onShowPreviewToggle($event)">
+        </aux-toggle>
+    </div>
+    <div slot="content" class="aux-g32--cw-10 modal-content">
+        <div class="breakdown-settings-container" [ngStyle]="{'width':showPreview? '50%' : '100%' }">
+            <div class="aux-g32--cw-10 aux-layout__wrapper-32 breakdown-settings-content">
+                <div
+                    class="aux-g32--xs-8 aux-g32--sm-8 aux-g32--md-8 aux-g32--lg-8 aux-g32--xl-8 sector-selection-breakdown-tree-container">
+                    <div class="sector-selector">
+                        <app-breakdown-sector-selector
+                            [breakdownBuilderSettings]="breakdownBuilderSettings"
+                            [isDisabled]="!breakdownTreeComponent || breakdownTreeComponent?.singleLevelNodeInserted || breakdownTreeComponent?.placeholderBreakdownNodeInserted"
+                            [addSectorSubject$]="addSectorSubject$"
+                            (addNewCustomSector)="breakdownTreeComponent.createNewCustomSector()">
+                        </app-breakdown-sector-selector>
+                    </div>
+                    <div class="sector-selection-button">
+                        <aux-button icon="arrow-right" type="primary"
+                                    [isDisabled]="!breakdownSectorSelector || !breakdownSectorSelector.selectedSector || breakdownSectorSelector.selectedSector.sectorType === 'group'
+                            || (breakdownSectorSelector.selectedSector.children) || breakdownTreeComponent?.singleLevelNodeInserted || breakdownTreeComponent?.placeholderBreakdownNodeInserted"
+                                    (click)="addSectorSubject$.next(breakdownSectorSelector.selectedSector)"></aux-button>
+                    </div>
+                    <div class="breakdown-tree">
+                        <app-breakdown-tree [breakdown]="breakdown"
+                                            [breakdownBuilderSettings]="breakdownBuilderSettings"
+                                            [draggedNodeSubject$]="breakdownSectorSelector?.draggedNodeSubject$"
+                                            [addSectorSubject$]="addSectorSubject$"
+                                            [topDownEligibleCols]="topDownEligibleCols"
+                                            (breakdownUpdated)="onBreakdownUpdated()"
+                                            (nodeSelectionChanged)="onBreakdownTreeNodeSelectionChange($event)">
+                        </app-breakdown-tree>
+                    </div>
+                </div>
+                <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                    <app-breakdown-options [selectedNode]="breakdownTreeSelectedNode"
+                                           [breakdownBuilderSettings]="breakdownBuilderSettings"
+                                           [draggedSector$]="breakdownSectorSelector?.draggedNodeSubject$"
+                                           [selectedSector]="breakdownSectorSelector?.selectedSector"
+                                           [breakdownTree]="breakdownTreeComponent?.breakdownTreeData[0]"
+                                           [createNewCustomSector]="breakdownTreeComponent?.createNewCustomSector"
+                                           [refreshBreakdownTreeCallback]="breakdownTreeComponent?.refreshTree"
+                                           [sectorTitleChangeCallback]="breakdownTreeComponent?.onSectorTitleChange"
+                                           [widgetType]="widget?.configType">
+                    </app-breakdown-options>
+                </div>
+            </div>
+        </div>
+        <ng-container *ngIf="showPreview && previewWidget">
+            <div class="widget-preview">
+                <app-widget-preview [widget]="previewWidget"
+                                    [portfolio]="portfolio"
+                                    [report]="report"
+                                    (updateWidget)="updateWidgetPreview()">
+                </app-widget-preview>
+            </div>
+        </ng-container>
+    </div>
+    <div slot="custom-footer" class="modal-footer aux-border--top">
+        <ng-container *ngIf="original">
+            <div class="warning-padding aux-primary">
+                <strong>PLEASE NOTE:</strong>
+                Saving changes to this breakdown will affect all reports currently using the breakdown.
+            </div>
+        </ng-container>
+        <aux-button (click)="onDoneClick()"
+                    class="modal-action-button"
+                    [label]="doneButtonLabel"
+                    type="primary">
+        </aux-button>
+        <aux-button *ngIf="!original"
+                    (click)="onSaveToMyBreakdownClick()"
+                    [isDisabled]="breakdownTreeComponent?.placeholderBreakdownNodeInserted"
+                    class="modal-action-button"
+                    label="Save to My Breakdowns"
+                    type="secondary">
+        </aux-button>
+        <aux-button (click)="closeModal(false)"
+                    class="modal-action-button"
+                    label="Cancel"
+                    type="secondary">
+        </aux-button>
+    </div>
+</aux-modal>
+<ng-container *ngIf="isSaveSummaryOpen">
+    <app-single-layer-save-summary-modal [isOpen]="isSaveSummaryOpen" [saveSummary]="saveSummary" [favType]="breakdownBuilderSettings?.getBreakdownDisplayName()" (modalClosed)="closeSaveSummaryDialog($event)"></app-single-layer-save-summary-modal>
+</ng-container>

@@ -1,0 +1,222 @@
+@use '../config';
+
+:root {
+    --aux-overlay__backdrop-container__top: 43px;
+}
+
+.aux-app-frame__container--sticky {
+    height: calc(100vh - 44px) !important;
+}
+
+.portfolio-floating-toolbar-container {
+    display: flex;
+    border-bottom: 1px solid var(--dialog__border-color);
+    border-top: 1px solid var(--dialog__border-color);
+}
+
+.full-height {
+    height: 100%;
+}
+
+.workspace-panel-container {
+    border-bottom: 1px solid var(--dialog__border-color);
+    text-align: left;
+
+    .workspace-top-header {
+        display: flex;
+        padding: 0.5rem 1rem;
+        align-items: center;
+
+        .workspace-top-header-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 12px;
+        }
+
+        .workspace-top-header-author {
+            margin-top: 1px;
+            margin-right: 0.75rem;
+        }
+
+        .workspace-quick-save {
+            display: flex;
+
+            .in-progress-container {
+                margin-left: 6px;
+                padding: 0.25rem
+            }
+        }
+
+    }
+}
+
+.loading-area {
+    position: absolute;
+    top: 43px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 99998;
+
+    .loading-spinner {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2147483647;
+    }
+}
+
+.loading-area-dimension {
+    width: 100%;
+    height: calc(100% - 44px); // 44px to account for space taken up by the new header
+}
+
+.notification-container {
+    z-index: 100000;
+    position: absolute;
+}
+
+#user-meta-data-error,
+#definitions-error,
+#no-access {
+    z-index: 100;
+    position: fixed;
+    width: 400px;
+    height: 240px;
+    background: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .1), 0px 2px 2px rgba(0, 0, 0, .1);
+    font-weight: bold;
+    padding: 20px;
+    left: calc(50% - 200px);
+    box-sizing: border-box;
+    top: 30%;
+    transition: box-shadow .3s;
+    overflow: hidden;
+    text-align: center;
+
+    h1 {
+        font-family: Georgia, serif;
+        font-style: italic;
+        text-align: center;
+        color: #444;
+        font-size: 40px;
+        margin: 0 auto auto;
+        width: 80%;
+        border: solid #444;
+        border-width: 0px 0px 2px 0px;
+    }
+
+    span {
+        margin-top: 30px;
+        font-size: config.$font-size-large;
+        font-family: arial, serif;
+        color: #666;
+        display: block;
+
+        b {
+            color: black
+        }
+    }
+}
+
+.batch-buttons {
+    position: fixed;
+    z-index: 9999999;
+}
+
+.batch-container {
+    position: fixed;
+    height: 100vh;
+    overflow: auto;
+}
+
+.batch-container__width--drawer-closed {
+    width: calc(100vw - 32px - 48px); // full width - padding around widget grid - closed drawer width
+}
+
+.batch-container__width--drawer-open {
+    width: calc(100vw - 32px - 240px); // full width - padding around widget grid - open drawer width
+}
+
+.aux-app-frame__body.sc-aux-app-frame {
+    overflow-x: hidden;
+}
+
+.copilot-embedded-wrapper {
+    padding: 0 0.5rem;
+    position: fixed;
+    z-index: 1001;
+    min-width: 26.25rem;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    axf-copilot-chat,
+    .main-content-container {
+        background: transparent !important;
+    }
+}
+
+.aux-notification__container--show {
+   padding-top: 0.25rem !important;
+   padding-bottom: 0.25rem !important;
+}
+
+.job-execution-histories-modal{
+    z-index: 501 !important;
+    position: relative;
+}
+
+.job-scheduler-modal {
+    z-index: 500 !important;
+    position: relative;
+}
+
+.job-scheduler {
+    padding: 0px !important;
+    width: 397px;
+
+    .job-details {
+
+        .job-detail-card {
+            display: flex;
+            flex-direction: row;
+
+            .cancel-job-spinner{
+                padding-left: 121px;
+            }
+
+            .job-name {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .job-status-and-action {
+                display: flex;
+                margin-left: auto;
+                align-items: center;
+
+                .job-status {
+                    padding: 2px 12px 2px 0px;
+                }
+
+                .action-btn {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    .job-scheduler-btn {
+        padding-top: 16px;
+    }
+}
+
+.job-details-container {
+  max-height: 25.125rem;
+  overflow-y: auto;
+}
+
+.refresh-button-container {
+    display: flex;
+    justify-content: flex-end;
+}

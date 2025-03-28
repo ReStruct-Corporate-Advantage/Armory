@@ -1,0 +1,29 @@
+<div class="expost-time-period-settings">
+    <app-expost-time-period-settings [expostTimePeriod]="expostReturnSettings.timePeriod">
+    </app-expost-time-period-settings>
+</div>
+<div class="expost-time-period-settings expost-return-setting">
+    <aux-select [hasInitialOptionPlaceholder]="false"
+                [label]="'Statistic period'"
+                (selectionChanged)="changeStatisticPeriod($event)"
+                [data]="displayDataForReturnStatisticPeriod">
+    </aux-select>
+</div>
+<div class="expost-return-setting">
+    <aux-checkbox label="Show benchmark" [isChecked]="this.expostReturnSettings.showBench"
+                  (checkboxChanged)="updateShowBench($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+<div class="expost-return-setting">
+    <aux-checkbox label="Show active" [isChecked]="this.expostReturnSettings.showActive"
+                  (checkboxChanged)="updateShowActive($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+<div class="expost-return-setting" >
+    <aux-radio-group
+        label="Return type"
+        name="inline"
+        [data]="displayDataForNetReturns"
+        (radioGroupChanged)="updateNetReturns($event)">
+    </aux-radio-group>
+</div>

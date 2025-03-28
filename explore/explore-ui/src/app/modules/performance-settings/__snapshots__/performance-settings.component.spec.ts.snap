@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Performance Settings Component Should create with the extra sections 1`] = `
+<app-performance-settings
+  factorAttributionSettings={[Function FactorAttributionSettings]}
+  isTemplateExpanded={[Function Boolean]}
+  performanceSettings={[Function PerformanceSettings]}
+  portfolio={[Function Portfolio]}
+  showAdditionalPerformanceSettings={[Function Boolean]}
+  showAdvancedAttributionSettings={[Function Boolean]}
+  showAttributionSettings={[Function Boolean]}
+  showExpostSettings={[Function Boolean]}
+  sourceName={[Function String]}
+  timePeriod={[Function PerformanceTimePeriod]}
+>
+  <div
+    class="performance-settings"
+  >
+    <div
+      class="performance-settings-div"
+    >
+      <aux-accordion>
+        <aux-accordion-expansion-panel
+          header="Time period"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <explore-core-time-period-settings
+              sourcenamesupported="true"
+            />
+          </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+          header="Attribution settings"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <explore-core-attribution-settings />
+          </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+          header="Expost settings"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <explore-core-expost-settings />
+          </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+          header="Advanced Attribution Settings"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <explore-core-advanced-attribution-settings />
+          </div>
+        </aux-accordion-expansion-panel>
+        <aux-accordion-expansion-panel
+          header="Additional settings"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <app-additional-performance-settings />
+          </div>
+        </aux-accordion-expansion-panel>
+      </aux-accordion>
+    </div>
+  </div>
+</app-performance-settings>
+`;
+
+exports[`Performance Settings Component should create an instance 1`] = `
+<app-performance-settings
+  factorAttributionSettings={[Function FactorAttributionSettings]}
+  isTemplateExpanded={[Function Boolean]}
+  performanceSettings={[Function PerformanceSettings]}
+  portfolio={[Function Portfolio]}
+  showAdvancedAttributionSettings="false"
+  sourceName={[Function String]}
+  timePeriod={[Function PerformanceTimePeriod]}
+>
+  <div
+    class="performance-settings"
+  >
+    <div
+      class="performance-settings-div"
+    >
+      <aux-accordion>
+        <aux-accordion-expansion-panel
+          header="Time period"
+        >
+          <div
+            class="accordion-font"
+            slot="content"
+          >
+            <explore-core-time-period-settings
+              sourcenamesupported="true"
+            />
+          </div>
+        </aux-accordion-expansion-panel>
+      </aux-accordion>
+    </div>
+  </div>
+</app-performance-settings>
+`;

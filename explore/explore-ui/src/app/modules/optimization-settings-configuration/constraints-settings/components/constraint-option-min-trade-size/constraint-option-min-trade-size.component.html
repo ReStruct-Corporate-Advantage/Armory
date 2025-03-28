@@ -1,0 +1,41 @@
+<div class="spacing">
+    <aux-checkbox label="Use the security setup min trade size and min trade increment for new positions and existing positions, respectively."
+                  [isChecked]="isMixedIntegerEnabled"
+                  (checkboxChanged)="onCheckBoxChanged($event)">
+    </aux-checkbox>
+</div>
+<ng-container *ngIf="!isMixedIntegerEnabled">
+    <div class="spacing">
+        <app-constraint-option-number
+            [options]="[options[0]]"
+            [customStyle]="customStyle"
+            (updated)="onValueUpdated($event)">
+        </app-constraint-option-number>
+    </div>
+    <div>
+        <app-constraint-option-select
+            [options]="[options[1]]"
+            [isDisabled]="false"
+            [customWidth]="true"
+            (updated)="onValueUpdated($event)">
+        </app-constraint-option-select>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isMixedIntegerEnabled">
+    <div class="text-box spacing">
+        <aux-text-input [value]="minTradeSize"
+                        label="Default min trade size"
+                        type="number"
+                        (valueChanged)="onMinTradeSizeChanged($event)">
+        </aux-text-input>
+    </div>
+    <div class="text-box">
+        <aux-text-input [value]="tradeIncrement"
+                        label="Default trade increment"
+                        type="number"
+                        (valueChanged)="onTradeIncrementChanged($event)">
+        </aux-text-input>
+    </div>
+</ng-container>
+

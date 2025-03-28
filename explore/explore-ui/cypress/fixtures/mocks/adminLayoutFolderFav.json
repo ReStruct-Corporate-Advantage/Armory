@@ -1,0 +1,41 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "owner": "_ADMIN",
+        "data": "%7b\"title\":\"GLOBAL SHARED REPORTS\",\"type\":\"folder\",\"favoriteId\":1322061,\"children\":%5b%7b\"title\":\"Automation\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"DND: Look Through Report\",\"type\":\"favorite\",\"favoriteId\":1703398%7d,%7b\"title\":\"DND: Performance Report\",\"type\":\"favorite\",\"favoriteId\":1703454%7d,%7b\"title\":\"DND: Portfolio Filter Report\",\"type\":\"favorite\",\"favoriteId\":1703436%7d,%7b\"title\":\"DND: Risk Settings Report\",\"type\":\"favorite\",\"favoriteId\":1703441%7d,%7b\"title\":\"DND: Split Positions Report\",\"type\":\"favorite\",\"favoriteId\":1703426%7d%5d%7d,%7b\"title\":\"CURATED LAYOUTS\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Equity\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Portfolio Summary\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"EQ Portfolio Summary\",\"type\":\"favorite\",\"favoriteId\":1313269%7d%5d%7d,%7b\"title\":\"EQ Risk Summary\",\"type\":\"favorite\",\"favoriteId\":1313859%7d%5d%7d,%7b\"title\":\"Fixed Income\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Portfolio Summary\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"FI Portfolio Summary\",\"type\":\"favorite\",\"favoriteId\":1322351%7d%5d%7d,%7b\"title\":\"FI Risk Summary\",\"type\":\"favorite\",\"favoriteId\":1169890%7d,%7b\"title\":\"Fixed Income Risk Summary\",\"type\":\"favorite\",\"favoriteId\":1315505%7d%5d%7d,%7b\"title\":\"Multi Asset\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Portfolio Summary\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"MA Portfolio Summary\",\"type\":\"favorite\",\"favoriteId\":1347186%7d%5d%7d,%7b\"title\":\"MA Comparison\",\"type\":\"favorite\",\"favoriteId\":1185635%7d,%7b\"title\":\"MA Risk Summary\",\"type\":\"favorite\",\"favoriteId\":1313863%7d%5d%7d%5d%7d,%7b\"title\":\"Sprint 2.10 - Global layput\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Layout Fav - Testing Global\",\"type\":\"favorite\",\"favoriteId\":1322059%7d%5d%7d,%7b\"title\":\"sPRINT 2.15\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"Layout fav - SHARED\",\"type\":\"favorite\",\"favoriteId\":1428108%7d%5d%7d,%7b\"title\":\"Sprint2.14\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"ADMIN - SHARED - Report\",\"type\":\"favorite\",\"favoriteId\":1405825%7d%5d%7d%5d%7d",
+        "listOrder": 0,
+        "list_order": 0,
+        "id": 1322061,
+        "type": "LAYOUT_FOLDER",
+        "title": "TEST",
+        "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+        "tool": "Explore_BETA",
+        "isSlim": false
+      },
+      "message": null,
+      "gaussian": "LU5brtRiOZHQmIMBUfz23C6G+dFCJb3SJD/nCZDnEw==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 551
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:56.502Z",
+      "detailedID": "8887ee82-ddb7-4f13-9cb4-6e3f48ef57aa.551.1681296956502",
+      "IDWithContextChain": "8887ee82-ddb7-4f13-9cb4-6e3f48ef57aa",
+      "chain": [],
+      "bmsMsgSize": 551,
+      "transactionId": "8887ee82-ddb7-4f13-9cb4-6e3f48ef57aa",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681296956509*btid=1419*guid=74383878-4b24-4172-b8ea-17c75d83393d*exitguid=3*unresolvedexitid=593*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][593]}",
+    "return_val": "SUCCESS",
+    "command": "getFavoriteForTypeAndUser",
+    "transactionId": "8887ee82-ddb7-4f13-9cb4-6e3f48ef57aa",
+    "successCode": null
+  }
+]

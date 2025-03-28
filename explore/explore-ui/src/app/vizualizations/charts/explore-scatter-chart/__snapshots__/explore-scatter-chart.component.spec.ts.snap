@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreScatterChartComponent should format the tooltip points 1`] = `
+"
+                        <b>FUND</b><br/>
+                        <b>Market Value:</b> <br/>
+                        <b>Notional Market Value:</b> <br/>
+                    <b>Quantity:</b> <br/>"
+`;
+
+exports[`ExploreScatterChartComponent should format the tooltip points 2`] = `
+"
+                        <b>FUND</b><br/>
+                        <b>Month End Market Value:</b> <br/>
+                        <b>Prior Day Notional Market Value:</b> <br/>
+                    <b>Quarter End Quantity:</b> <br/>"
+`;
+
+exports[`ExploreScatterChartComponent should format the tooltip points 3`] = `
+"
+                        <b>FUND</b><br/>
+                        <b>Month End Market Value:</b> <br/>
+                        <b>Prior Day Notional Market Value:</b> <br/>
+                    "
+`;
+
+exports[`ExploreScatterChartComponent should format the tooltip points when splitKeys present in comparison mode 1`] = `
+"
+                        <b>FUND</b><br/>
+                        <b>Market Value:</b> <br/>
+                        <b>Notional Market Value:</b> <br/>
+                    <b>Quantity:</b> <br/>"
+`;

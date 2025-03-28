@@ -1,0 +1,28 @@
+.custom-header {
+    display: flex;
+    padding: 1.25rem 2rem 1.1875rem;
+    align-items: baseline;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+}
+.content-container {
+    margin: 0 2rem;
+}
+
+// modal width of 6 column from 960px to 1279px
+@media (min-width: 960px) and (max-width: 1279px) {
+    .export-options-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 6) +
+            (16px * 3));
+    }
+}
+
+// modal width of 4 column above 1280px
+@media (min-width: 1280px) {
+    .export-options-modal-size {
+        width: calc(
+            (((100vw - (16px * 13)) / 12) * 4) +
+            (16px * 1)
+        );
+    }
+}

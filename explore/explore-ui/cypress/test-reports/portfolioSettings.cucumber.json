@@ -1,0 +1,102 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Validate Portfolio Settings",
+    "line": 1,
+    "id": "validate-portfolio-settings",
+    "tags": [],
+    "uri": "portfolioSettings.feature",
+    "elements": [
+      {
+        "id": "validate-portfolio-settings;validate-portfolio-settings-tabs-are-displayed",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Validate Portfolio Settings tabs are displayed",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 5435000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 119000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "all the tabs in portfolio settings should be displayed",
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-portfolio-settings;validate-split-settings-options-are-displayed",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Validate Split Settings options are displayed",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2814000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 117000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "select the Split Settings tab",
+            "result": {
+              "status": "passed",
+              "duration": 109000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "all the split settings should be displayed correctly",
+            "result": {
+              "status": "passed",
+              "duration": 292000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

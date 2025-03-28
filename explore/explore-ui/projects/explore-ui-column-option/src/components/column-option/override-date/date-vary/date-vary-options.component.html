@@ -1,0 +1,9 @@
+<div class="date-vary">
+    <div class="vary-label">Vary:</div>
+    <aux-radio-group
+        [data]="dateVaryOptions"
+        [isStacked]="true"
+        (radioGroupChanged)="onDateVaryOptionChanged($event.detail.value)">
+    </aux-radio-group>
+</div>
+

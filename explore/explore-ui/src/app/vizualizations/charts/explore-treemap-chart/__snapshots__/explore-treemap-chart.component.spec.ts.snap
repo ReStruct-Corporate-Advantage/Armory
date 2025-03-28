@@ -1,0 +1,346 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreTreemapChartComponent creates chart config from measures 1 1`] = `
+{
+  "breadcrumbs": {
+    "separator": "&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+    "topNames": [
+      "Market Value",
+      "Security Group",
+    ],
+  },
+  "colorMeasure": {
+    "aggMethod": "sum",
+    "name": "pct_mv_4c8809b666ef486",
+    "title": "Market Value %",
+  },
+  "groupBy": [
+    "level-1",
+    "level-2",
+  ],
+  "measures": [
+    {
+      "aggMethod": "sum",
+      "name": "market_val_639c2c1e02164d1",
+      "title": "Market Value",
+    },
+  ],
+  "topLevelName": undefined,
+  "useAbsoluteValue": false,
+}
+`;
+
+exports[`ExploreTreemapChartComponent creates chart config from measures 2 1`] = `
+{
+  "breadcrumbs": {
+    "separator": "&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+    "topNames": [
+      "Market Value",
+      "Security Group",
+    ],
+  },
+  "colorMeasure": {
+    "aggMethod": "sum",
+    "name": "pct_mv_4c8809b666ef486",
+    "title": "Market Value %",
+  },
+  "groupBy": [],
+  "measures": [
+    {
+      "aggMethod": "sum",
+      "name": "market_val_639c2c1e02164d1",
+      "title": "Market Value",
+    },
+  ],
+  "topLevelName": "Market Value",
+  "useAbsoluteValue": false,
+}
+`;
+
+exports[`ExploreTreemapChartComponent creates chart config from measures 3 1`] = `
+{
+  "breadcrumbs": {
+    "separator": "&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;",
+    "topNames": [
+      "Market Value",
+      "Security Group",
+    ],
+  },
+  "colorMeasure": {
+    "aggMethod": "sum",
+    "name": "pct_mv_4c8809b666ef486",
+    "title": "Market Value %",
+  },
+  "groupBy": [],
+  "measures": [
+    {
+      "aggMethod": "sum",
+      "name": "market_val_639c2c1e02164d1",
+      "title": "Market Value",
+    },
+    {
+      "aggMethod": "sum",
+      "name": "pct_mv_4c8809b666ef486",
+      "title": "Market Value %",
+    },
+  ],
+  "topLevelName": "Market Value",
+  "useAbsoluteValue": false,
+}
+`;
+
+exports[`ExploreTreemapChartComponent formatter Test dataLabelFormatter Test should test dataLabelFormatter 1`] = `
+{
+  "autoResizeDelay": -1,
+  "chartConfig": {
+    "breakdowns": [
+      "country",
+      "sector",
+    ],
+    "groupBy": [
+      "country",
+    ],
+    "measures": [
+      {
+        "aggMethod": "sum",
+        "name": "pct_mv_1",
+        "title": "pct_mv_1",
+      },
+    ],
+  },
+  "chartOptions": {
+    "chart": {
+      "animation": false,
+      "events": {
+        "render": [Function],
+      },
+      "zoomType": "xy",
+    },
+    "colorAxis": {
+      "labels": {
+        "formatter": [Function],
+        "overflow": "allow",
+      },
+      "stops": [
+        [
+          0,
+          "#CDEAFE",
+        ],
+        [
+          1,
+          "#0998F6",
+        ],
+      ],
+    },
+    "colors": undefined,
+    "credits": {
+      "enabled": false,
+    },
+    "exporting": {
+      "enabled": false,
+    },
+    "hideLegendToggle": undefined,
+    "legend": {
+      "align": "center",
+      "enabled": true,
+      "itemMarginTop": 3.5,
+      "maxHeight": 100,
+    },
+    "plotOptions": {
+      "series": {
+        "dataLabels": {
+          "className": "datalabelTreemap",
+          "formatter": [Function],
+        },
+      },
+    },
+    "series": [
+      {
+        "allowDrillToNode": true,
+        "borderWidth": 1,
+        "colorByPoint": true,
+        "cursor": "pointer",
+        "data": [],
+        "layoutAlgorithm": "squarified",
+        "levelIsConstant": true,
+        "levels": [
+          {
+            "dataLabels": {
+              "enabled": true,
+              "formatter": [Function],
+              "point": {
+                "name": "Communication Services",
+                "value": 245,
+              },
+              "series": {
+                "chart": {
+                  "options": {
+                    "plotOptions": {
+                      "treemap": {
+                        "dataLabels": {
+                          "enabled": true,
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            "level": 1,
+          },
+        ],
+        "name": "Top",
+        "turboThreshold": 0,
+        "type": "treemap",
+      },
+    ],
+    "title": {
+      "text": "Market Value %",
+      "verticalAlign": "bottom",
+    },
+    "tooltip": {
+      "formatter": [Function],
+      "padding": 0,
+      "useHTML": true,
+    },
+    "xAxis": {
+      "gridLineWidth": 1,
+    },
+    "yAxis": {
+      "labels": {
+        "formatter": [Function],
+      },
+      "title": {
+        "text": "",
+      },
+    },
+  },
+  "data": SimpleCube {
+    "underlyingCube": Cube {
+      "_config": {
+        "aggregationFunctions": {
+          "average": [Function],
+          "avg": [Function],
+          "count": [Function],
+          "distinct": [Function],
+          "distinctCount": [Function],
+          "distinctOrCount": [Function],
+          "distinctOrEllipsis": [Function],
+          "fields": [Function],
+          "first": [Function],
+          "max": [Function],
+          "min": [Function],
+          "none": [Function],
+          "rows": [Function],
+          "sum": [Function],
+          "undefined": [Function],
+        },
+        "customColumnFunctions": {},
+        "filterFunctions": {},
+        "groupByFunctions": {},
+        "saveOnCollect": true,
+        "shouldLowerCaseStringFilters": false,
+        "sortingFunctions": {
+          "ASC": [Function],
+          "DESC": [Function],
+        },
+      },
+      "cube": HashMap {
+        "mapKeys": Map {
+          "67cbf865735ab20856e1e6649eab1c4073bc341e" => {
+            "fields": [],
+            "filterModel": undefined,
+            "groupByKeys": [],
+            "sortModel": [],
+          },
+        },
+        "mapValues": Map {
+          "67cbf865735ab20856e1e6649eab1c4073bc341e" => [],
+        },
+        "size": 1,
+      },
+    },
+  },
+  "defaultQueryKeyEntries": [
+    GroupByKey {
+      "field": "_ROOT_",
+      "type": "groupBy",
+    },
+  ],
+  "type": "treemap",
+  "updateSeriesBeforeChartingFn": [Function],
+}
+`;
+
+exports[`ExploreTreemapChartComponent formatter Test dataLabelFormatter Test should test dataLabelFormatter 2`] = `
+[
+  {
+    "animation": false,
+    "className": "highcharts-color-0",
+    "colorIndex": undefined,
+    "colorValue": undefined,
+    "data": [
+      {
+        "className": "highcharts-color-0",
+        "colorIndex": 0,
+        "name": "UK",
+        "x": 2020,
+        "y": 1000000,
+      },
+    ],
+    "name": "UK",
+    "type": "bubble",
+  },
+  {
+    "animation": false,
+    "className": "highcharts-color-1",
+    "colorIndex": undefined,
+    "colorValue": undefined,
+    "data": [
+      {
+        "className": "highcharts-color-1",
+        "colorIndex": 1,
+        "name": "UK",
+        "x": 2021,
+        "y": 900000,
+      },
+    ],
+    "name": "UK",
+    "type": "bubble",
+  },
+  {
+    "animation": false,
+    "className": "highcharts-color-2",
+    "colorIndex": undefined,
+    "colorValue": undefined,
+    "data": [
+      {
+        "className": "highcharts-color-2",
+        "colorIndex": 2,
+        "name": "Hungary",
+        "x": 2021,
+        "y": 300000,
+      },
+    ],
+    "name": "Hungary",
+    "type": "bubble",
+  },
+  {
+    "animation": false,
+    "className": "highcharts-color-3",
+    "colorIndex": undefined,
+    "colorValue": undefined,
+    "data": [
+      {
+        "className": "highcharts-color-3",
+        "colorIndex": 3,
+        "name": "Hungary",
+        "x": 2020,
+        "y": 200000,
+      },
+    ],
+    "name": "Hungary",
+    "type": "bubble",
+  },
+]
+`;

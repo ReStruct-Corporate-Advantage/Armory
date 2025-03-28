@@ -1,0 +1,42 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "owner": "_ADMIN",
+        "data": "%5b%7b\"MANDATE\":\"FI_MANDATE\",\"settings\":%7b\"ATTRIBUTION_TYPE\":\"FIXED_INCOME_DXS\",\"BREAKDOWN\":\"false;1369886\",\"PERF_BKD\":\"false;1369886\",\"SINGLE_REPORT\":null,\"CURATED_REPORTS\":%5b\"false;1322351\",\"false;1315505\"%5d%7d%7d,%7b\"MANDATE\":\"EQ_MANDATE\",\"settings\":%7b\"ATTRIBUTION_TYPE\":\"EQUITY\",\"BREAKDOWN\":null,\"PERF_BKD\":null,\"FAC_BKD\":\"false;1435982\",\"SINGLE_REPORT\":null,\"CURATED_REPORTS\":%5b\"false;1313269\"%5d%7d%7d,%7b\"MANDATE\":\"BAL_MANDATE\",\"settings\":%7b\"ATTRIBUTION_TYPE\":\"EQUITY_TD_xFX\",\"BREAKDOWN\":null,\"PERF_BKD\":null,\"FAC_BKD\":null,\"SINGLE_REPORT\":null,\"CURATED_REPORTS\":%5b\"false;1347186\"%5d%7d%7d%5d",
+        "listOrder": 0,
+        "list_order": 0,
+        "description": " ",
+        "id": 1369881,
+        "title": "MANDATE_MAP",
+        "type": "MANDATE_MAP",
+        "tool": "Explore_BETA",
+        "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+        "isSlim": false
+      },
+      "message": null,
+      "gaussian": "Q/GkWqvJQnqU3aqic9Ivv0Hcvr4=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 633
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T06:54:35.517Z",
+      "detailedID": "4fb9f34f-45c3-4f0d-86fe-d8205bd0e67b.633.1681282475517",
+      "IDWithContextChain": "4fb9f34f-45c3-4f0d-86fe-d8205bd0e67b",
+      "chain": [],
+      "bmsMsgSize": 633,
+      "transactionId": "4fb9f34f-45c3-4f0d-86fe-d8205bd0e67b",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636330*ts=1681282475521*btid=59185*guid=f4d8d2d0-310a-45bb-8667-7516b0340c97*exitguid=3*unresolvedexitid=593*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][593]}",
+    "return_val": "SUCCESS",
+    "command": "getFavoriteForTypeAndUser",
+    "transactionId": "4fb9f34f-45c3-4f0d-86fe-d8205bd0e67b",
+    "successCode": null
+  }
+]

@@ -1,0 +1,11 @@
+<explore-date-vary-options *ngIf="!isRiskColumn; else fbaDateVary"
+                           [optionValue]="optionValue"
+                           (dateVaryOptionChanged)="updateCompareToCurrent()">
+</explore-date-vary-options>
+
+<ng-template #fbaDateVary>
+    <explore-fba-date-vary-options [optionValue]="optionValue"
+                                   [riskColumnFlags]="riskColumnFlags"
+                                   (dateVaryOptionChanged)="updateCompareToCurrent()">
+    </explore-fba-date-vary-options>
+</ng-template>

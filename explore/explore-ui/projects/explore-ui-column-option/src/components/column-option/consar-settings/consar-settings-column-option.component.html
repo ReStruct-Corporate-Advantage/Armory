@@ -1,0 +1,32 @@
+<div class="consar-settings-column-options">
+    <ng-container *ngIf="showScenarioType()">
+        <aux-radio-group
+            label="Scenario type"
+            isStacked=true
+            [data]="scenarioTypes"
+            (radioGroupChanged)="onScenarioTypeOptionChanged($event)">
+        </aux-radio-group>
+    </ng-container>
+
+    <ng-container class="" *ngIf="showConfidenceLevel()">
+        <div class="numeric-stepper-container">
+            <aux-numeric-stepper [stepperValue]=optionValue.confidenceLevel
+                                 label="Ranked scenario number"
+                                 minValue=1
+                                 maxValue=1000
+                                 (valueChanged)="onConfidenceLevelChanged($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="showHistory()">
+        <div class="numeric-stepper-container" >
+            <aux-numeric-stepper [stepperValue]=optionValue.history
+                                 label="Observations"
+                                 minValue=1
+                                 maxValue=1000
+                                 (valueChanged)="onHistoryChanged($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+</div>

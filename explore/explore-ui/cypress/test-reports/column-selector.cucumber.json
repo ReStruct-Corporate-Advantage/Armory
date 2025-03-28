@@ -1,0 +1,142 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for column selector",
+    "line": 1,
+    "id": "visual-comparison-tests-for-column-selector",
+    "tags": [],
+    "uri": "column-selector.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-column-selector;validate-new-column-can-be-added-in-column-selector",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate new column can be added in column selector",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 6238000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I open widget settings modal from \"Risk and Exposure\"",
+            "result": {
+              "status": "passed",
+              "duration": 25756000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click Columns tab",
+            "result": {
+              "status": "passed",
+              "duration": 411000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I add column \"Market Value\"",
+            "result": {
+              "status": "passed",
+              "duration": 1539000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "\"Market Value\" column is present in selected columns",
+            "result": {
+              "status": "passed",
+              "duration": 83000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "\"Market Value\" column options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 341000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I select column option \"Column-level breakdown\"",
+            "result": {
+              "status": "passed",
+              "duration": 204000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "\"Column-level breakdown\" options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 37000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I select column \"CUSIP\"",
+            "result": {
+              "status": "passed",
+              "duration": 251000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "\"CUSIP\" column options are visible",
+            "result": {
+              "status": "passed",
+              "duration": 95000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "I clone \"Market Value\" column",
+            "result": {
+              "status": "passed",
+              "duration": 335000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 20,
+            "name": "\"Market Value\" column is cloned in selected columns",
+            "result": {
+              "status": "passed",
+              "duration": 47000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

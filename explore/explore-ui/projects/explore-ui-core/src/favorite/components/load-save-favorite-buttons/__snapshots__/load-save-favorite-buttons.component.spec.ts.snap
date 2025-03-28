@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadSaveFavoriteButtonsComponent should not show current favorite info when no title or owner passed in 1`] = `
+<div
+  class="load-save-favorite-container"
+>
+  <div
+    class="favorite-action-buttons"
+  >
+    <div
+      class="load-link"
+    >
+      <aux-button
+        type="tertiary"
+      />
+    </div>
+    <div
+      class="save-link aux-border--left"
+    >
+      <aux-button
+        type="tertiary"
+      />
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`LoadSaveFavoriteButtonsComponent should show current favorite info when title and owner passed in 1`] = `
+<div
+  class="load-save-favorite-container"
+>
+  <div
+    class="favorite-action-buttons"
+  >
+    <div
+      class="load-link"
+    >
+      <aux-button
+        type="tertiary"
+      />
+    </div>
+    <div
+      class="save-link aux-border--left"
+    >
+      <aux-button
+        type="tertiary"
+      />
+    </div>
+  </div>
+  <div
+    class="selected-favorite-container"
+  >
+    <div
+      class="favorite-title"
+    >
+      <aux-value-pair />
+    </div>
+    <aux-value-pair />
+  </div>
+  
+</div>
+`;

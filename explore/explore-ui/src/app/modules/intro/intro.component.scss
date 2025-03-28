@@ -1,0 +1,33 @@
+@use '../../../config';
+
+.intro-area {
+    text-align: center;
+
+    .intro-portfolio-search-area {
+        margin: 56px auto 16px;
+        width: 522px;
+    }
+
+    .intro-favorite-area {
+        margin: 0 auto 56px;
+        width: 522px;
+    }
+
+    .intro-card-container {
+        margin: 24px auto 0;
+
+        .intro-card-title {
+            height: 20px;
+            font-size: config.$font-size-extra-large;
+            font-weight: bold;
+            line-height: 20px;
+        }
+
+        .intro-card-description {
+            height: 15px;
+            font-size: config.$font-size-medium;
+            line-height: 15px;
+            margin: 8px auto 24px;
+        }
+    }
+}

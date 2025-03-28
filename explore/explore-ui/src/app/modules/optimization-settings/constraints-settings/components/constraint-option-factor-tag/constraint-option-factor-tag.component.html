@@ -1,0 +1,24 @@
+<div style="width: 300px; display: flex">
+    <div style="display: flex">
+        <aux-radio #factorRadio (radioChanged)="disableOtherField()"></aux-radio>
+        <app-constraint-option-text [isDisabled]="isDisabled" [options]="options" (updated)="onUpdated($event)">
+        </app-constraint-option-text>
+    </div>
+    <div class="add-factors-button" style="padding-top: 4px">
+        <div class="flex">
+            <aux-button  [isDisabled]="isDisabled" class="padding" (click)="onAddFactorsButtonClicked()" icon="add" label="Add Factors" type="secondary"></aux-button>
+        </div>
+        <ng-container *ngIf="isFactorsModalOpen">
+            <explore-extended-column-option-factor-data-column-modal [isOpen]="isFactorsModalOpen"
+                                                                     [columnType]="columnType"
+                                                                     [inputs]="inputs"
+                                                                     [widgetConfigInput]="widgetConfigInput"
+                                                                     [restrictedColumnOptions]="restrictedColumnOptions"
+                                                                     [isColumnOptionsDisabled]="true"
+                                                                     [singleColumnOnly]="true"
+                                                                     (modalClosed)="onFactorsModalClosed($event)"
+                                                                     [showCustomFactor]="true">
+            </explore-extended-column-option-factor-data-column-modal>
+        </ng-container>
+    </div>
+</div>

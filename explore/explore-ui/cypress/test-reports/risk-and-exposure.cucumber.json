@@ -1,0 +1,132 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Data Comparison tests for Risk and Exposure",
+    "line": 1,
+    "id": "data-comparison-tests-for-risk-and-exposure",
+    "tags": [],
+    "uri": "risk-and-exposure.feature",
+    "elements": [
+      {
+        "id": "data-comparison-tests-for-risk-and-exposure;validate-risk-and-exposure-table-with-default-settings",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate Risk and Exposure table with default settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 5661000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "Risk and Exposure widget should be displayed with the correct default data",
+            "result": {
+              "status": "passed",
+              "duration": 307000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "data-comparison-tests-for-risk-and-exposure;validate-risk-and-exposure-table-with-expand-/-collapse",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Validate Risk and Exposure table with expand / collapse",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Risk and Exposure\" with default settings is added to a report for portfolio \"SNP100\" with date \"20230202\"",
+            "result": {
+              "status": "passed",
+              "duration": 3025000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26570000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I expand \"CASH\" row",
+            "result": {
+              "status": "passed",
+              "duration": 422000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "Risk and Exposure widget should be displayed with CASH row expanded",
+            "result": {
+              "status": "passed",
+              "duration": 274000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I right click on \"SNP100\" cell to open context menu and click on \"Collapse All Levels\"",
+            "result": {
+              "status": "passed",
+              "duration": 618000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "Risk and Exposure widget should be displayed with All rows collapsed",
+            "result": {
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "I right click on \"SNP100\" cell to open context menu and click on \"Expand All Levels\"",
+            "result": {
+              "status": "passed",
+              "duration": 633000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "Risk and Exposure widget should be displayed with All rows expanded",
+            "result": {
+              "status": "passed",
+              "duration": 4238000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

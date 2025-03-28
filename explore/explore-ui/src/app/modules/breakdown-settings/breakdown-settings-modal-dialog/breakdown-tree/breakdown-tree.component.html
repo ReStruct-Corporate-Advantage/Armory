@@ -1,0 +1,52 @@
+<div class="breakdown-tree-container">
+    <div class="breakdown-details-notification" *ngIf="breakdown.title && breakdown.owner && !breakdown.isMandateDefaultBreakdown">
+        <explore-previous-favorite-version-banner [favoriteId]="breakdown.id" [owner]="breakdown.owner"
+                                                  [currentFavoriteVersion]="breakdown.currentFavoriteVersion"
+        ></explore-previous-favorite-version-banner>
+    </div>
+    <div class="breakdown-tree-header">
+        <div class="favorite-row">
+            <span class="favorite-title">Breakdown</span>
+            <aux-link (click)="onLoadBreakdownClick($event)" label="Load breakdown"></aux-link>
+        </div>
+        <div class="favorite-row" *ngIf="breakdown.title && breakdown.owner && !breakdown.isMandateDefaultBreakdown">
+            <explore-favorite-info [favoriteConfig]='breakdownChanged' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.BREAKDOWN" [loadFavoriteCallBack]="loadBreakdownVersion"></explore-favorite-info>
+            <app-favorite-menu *ngIf="coreFavoriteUtils.showFavStatusTagMenu(breakdown)" [favorite]="breakdown" [favoriteType]="breakdownFavoriteConstants.BREAKDOWN" [statusUpdateCallback]="breakdownBuilderSettings.statusUpdateCallback"></app-favorite-menu>
+        </div>
+    </div>
+    <div *ngIf="coreFavoriteUtils.showFavStatusTag(breakdown)" class="breakdown-tree-statustag">
+        <app-favorite-status-badge [favoriteStatus]="breakdown.statusTag"></app-favorite-status-badge>
+    </div>
+    <ng-container *ngIf="breakdown.isTopBottomSectoring">
+        <div class="breakdown-tree-header">
+            <aux-checkbox
+                label="Display at group node"
+                [isChecked]="breakdown.displayAtGroupNode"
+                (checkboxChanged)="updateDisplayAtGroupNode($event)">
+            </aux-checkbox>
+        </div>
+    </ng-container>
+    <div class="breakdown-tree">
+        <div class="breakdown-remove-all-container">
+            <aux-link (click)="onRemoveAllClick($event)" label="Remove all"></aux-link>
+        </div>
+        <div class="breakdown-tree-data">
+            <aux-advanced-tree-list
+                [sourceData]="breakdownTreeData"
+                hasDragAndDrop="true"
+                hasDoubleClick="true"
+                hasSearch="false"
+                hasBorder="false"
+                isDropTarget="true"
+                [config]="advanceTreeListConfig"
+                (blkDrop)="onDropNode($event)"
+                (blkDragenter)="onDragEnter($event)"
+                (blkDragstart)="onDragStart($event)"
+                (contextMenuClicked)="onContextMenuClick($event)"
+                (removeItemClicked)="onRemoveItemClick($event)"
+                (itemDoubleClicked)="onNodeDoubleClick($event)"
+                (sourceSelectionChanged)="onBreakdownNodeSelection($event)">
+            </aux-advanced-tree-list>
+        </div>
+    </div>
+</div>

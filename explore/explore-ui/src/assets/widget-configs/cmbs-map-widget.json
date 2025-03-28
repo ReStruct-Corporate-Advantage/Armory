@@ -1,0 +1,28 @@
+{
+    "configType": "cmbsMap",
+    "size": {
+        "height": 9,
+        "width": 12
+    },
+    "showInSelector": false,
+    "showGridTransitionControl": false,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "canHaveMultipleOverrideDates": false,
+    "exportType": "pdf",
+    "refreshNotSupported": true,
+    "inputCategories": [
+      {
+        "categoryType": "CMBSMapCusipInput",
+        "visible": false,
+        "inputs": [
+          {
+            "inputConfigType": "CMBSMapCusipInput",
+            "inputName": "CMBSMapCusipInput",
+            "default": {}
+          }
+        ]
+      }
+    ],
+    "chartingLib": "cmbsMap"
+}

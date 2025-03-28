@@ -1,0 +1,12 @@
+<div class="table-section-container">
+    <div class="table-section" >
+        <export-hub-table [gridOptions]="gridOptions" [rowData]="rowData"></export-hub-table>
+    </div>
+    <ng-container *ngIf="actionInProgress">
+        <div class="blur-background"></div>
+        <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                size="large"
+                                type="loading" [loadingLabel]="loadingLabel">
+        </aux-progress-indicator>
+    </ng-container>
+</div>

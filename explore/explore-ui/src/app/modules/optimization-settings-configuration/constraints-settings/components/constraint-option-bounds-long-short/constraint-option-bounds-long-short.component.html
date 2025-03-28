@@ -1,0 +1,14 @@
+<div class="constraint-option-bounds-long-short">
+    <div class="bounds-item">
+        <app-constraint-option-number [options]="longLowerBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+    <div class="bounds-item">
+        <app-constraint-option-number [options]="longUpperBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+    <div class="bounds-item">
+        <app-constraint-option-number [options]="shortLowerBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+    <div>
+        <app-constraint-option-number [options]="shortUpperBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.time-span-value-container {
+    display: flex;
+
+    .time-span-numeric-value {
+        margin-right: 1rem;
+    }
+
+    .time-span-units-container {
+        flex: 1;
+    }
+}

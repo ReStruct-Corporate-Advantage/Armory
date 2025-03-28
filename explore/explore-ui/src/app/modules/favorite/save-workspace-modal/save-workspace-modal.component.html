@@ -1,0 +1,86 @@
+<aux-modal [isOpen]=isOpen [header]="'Save Workspace'" [hasGreyContentArea]="true" [type]="'action'" [hasCustomFooter]="true">
+    <div slot="content" class="modal-content aux-g16--cw-10 aux-layout__wrapper-32">
+        <div class="aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12 saving-container">
+            <div class="workspace-container">
+                <div class="workspace-detail">
+                    <label class="aux-primary aux-bold aux-p14 saving-section-label">Workspace Name</label>
+                    <app-root-favorite-item [favoriteChange]="changedFavoritesTree"></app-root-favorite-item>
+                </div>
+            </div>
+            <div class="workspace-nested-changes">
+                <label class="aux-primary aux-bold aux-p14 saving-section-label">Details</label>
+                <span class="saving-instructions">Please review each update below to confirm or discard.</span>
+                <div class="save-toggle-container" [ngClass]="{'save-toggle-container--enabled': changedFavoritesTree.isSaveNested}">
+                    <aux-toggle [isChecked]="changedFavoritesTree.isSaveNested" (toggleChanged)="onSaveNestedChangesToggled()"></aux-toggle>
+                    <span class="save-toggle-text">By deselecting this option, you are opting out of reviewing and submitting changes made to underlying saved components within this workspace.</span>
+                </div>
+                <div class="details-card" *ngIf="changedFavoritesTree.isSaveNested">
+                    <div class="details-container" *ngIf="changedFavoritesTree.nestedChanges.length else noChanges">
+                        <div class="workpad-list-container">
+                            <ng-container *ngFor="let workpadChange of changedFavoritesTree.nestedChanges; let i = index">
+                                <div class="workpad-item" [ngClass]="{'workpad-item--selected': selectedWorkpadIndex === i}" (click)="onWorkpadChanged(i)">
+                                    <span class="aux-primary">{{getWorkpadName(workpadChange.value)}}</span>
+                                    <span class="aux-secondary">{{workpadChange.getChangesCount()}} updates</span>
+                                </div>
+                            </ng-container>
+                        </div>
+                        <div class="workpad-change-details">
+                            <app-workpad-change-detail [workpadChange]="selectedWorkpadChange"></app-workpad-change-detail>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button"
+                    [label]="CoreCommonConstants.BUTTON_TEXT.SUBMIT"
+                    [type]="AuxButtonTypeEnum.PRIMARY"
+                    [isDisabled]="submitButtonDisabled$ | async"
+                    (click)="validateSelectionAndSave()">
+        </aux-button>
+        <aux-button [label]="CoreCommonConstants.BUTTON_TEXT.CLOSE" [type]="AuxButtonTypeEnum.SECONDARY" (click)="cancelSaving()"></aux-button>
+    </div>
+</aux-modal>
+
+<ng-template #noChanges>
+    <div class="no-changes-text">
+        <span class="aux-bold">No updates to nested saved components.</span>
+    </div>
+</ng-template>
+
+<ng-container *ngIf="isConflictingFavorites">
+    <app-conflicting-favorites-warning [isOpen]="isConflictingFavorites"
+                                       [header]="FAVORITE_CONFLICTS_WARNING_HEADER"
+                                       [message]="FAVORITE_CONFLICTS_WARNING_MESSAGE"
+                                       [conflictingFavorites]="conflictingFavorites"
+                                       (modalClosed)="closeConflictingFavoritesDialog($event)">
+    </app-conflicting-favorites-warning>
+</ng-container>
+<ng-container *ngIf="isDuplicateFavoriteTitles || isDuplicateEnterpriseFavoriteTitles">
+    <app-conflicting-favorites-warning [isOpen]="isDuplicateFavoriteTitles || isDuplicateEnterpriseFavoriteTitles"
+                                       [header]="isDuplicateEnterpriseFavoriteTitles ? FAVORITE_ENTERPRISE_DUPLICATE_TITLE_WARNING_HEADER : FAVORITE_DUPLICATE_TITLE_WARNING_HEADER"
+                                       [message]="isDuplicateEnterpriseFavoriteTitles ? FAVORITE_ENTERPRISE_DUPLICATE_TITLE_WARNING_MESSAGE : FAVORITE_DUPLICATE_TITLE_WARNING_MESSAGE"
+                                       [conflictingFavorites]="isDuplicateEnterpriseFavoriteTitles ? duplicateEnterpriseTitleFavorites : duplicateTitleFavorites"
+                                       [continueSaving]="!isDuplicateEnterpriseFavoriteTitles"
+                                       (modalClosed)="closeDuplicateFavoriteTitlesDialog(isDuplicateEnterpriseFavoriteTitles ? false : $event)">
+    </app-conflicting-favorites-warning>
+</ng-container>
+
+
+<ng-container *ngIf="(isFolderWarningModalOpen$ | async) as isFolderWarningModalOpen">
+    <app-admin-folder-warning-modal [isOpen]="isFolderWarningModalOpen" [favoriteDisplayType]="changedFavoritesTree.favoriteDisplayType" (modalClosed)="closeAdminFolderDialog()" [favoriteChange]="changedFavoritesTree"></app-admin-folder-warning-modal>
+</ng-container>
+<ng-container *ngIf="isUserPermErrorDialogOpen">
+    <explore-core-dialog [dialogContent$]="userPermErrorDialog$.asObservable()" (emitDialogClosed)="onUserPermErrorDialogClosed()"></explore-core-dialog>
+</ng-container>
+
+<ng-container *ngIf="isAdminOverwriteWarning">
+    <app-admin-overwrite-warning-modal [isOpen]="isAdminOverwriteWarning" [favoriteDisplayType]="changedFavoritesTree.favoriteDisplayType" (modalClosed)="closeAdminOverwriteDialog($event)"></app-admin-overwrite-warning-modal>
+</ng-container>
+<ng-container *ngIf="isSingleLayerSaveSummaryModalOpen">
+    <app-single-layer-save-summary-modal [isOpen]="isSingleLayerSaveSummaryModalOpen" [favoritesTree]="changedFavoritesTree" [favType]="favType" (modalClosed)="closeSaveSummaryModal($event)"></app-single-layer-save-summary-modal>
+</ng-container>
+<ng-container *ngIf="isMultiLayerSaveSummaryModalOpen">
+    <app-multi-layer-save-summary-modal [isOpen]="isMultiLayerSaveSummaryModalOpen" [favoritesTree]="changedFavoritesTree" (modalClosed)="closeSaveSummaryModal($event)"></app-multi-layer-save-summary-modal>
+</ng-container>

@@ -1,0 +1,21 @@
+<ng-container *ngIf="showQuantitativeHeader">
+    <label>Days to unwind filter</label>
+</ng-container>
+<div class="sub-container">
+    <div class="stepper-bar">
+        <aux-numeric-stepper label='Min days'
+                             minValue="0"
+                             [maxValue]="minDaysMaxValue"
+                             [stepperValue]="underlyingLiquiditySettings.minDays"
+                             (valueChanged)="onMinDaysChanged($event)">
+        </aux-numeric-stepper>
+    </div>
+    <div class="stepper-bar">
+        <aux-numeric-stepper label='Max days'
+                             [minValue]="underlyingLiquiditySettings.minDays + 1"
+                             maxValue="500"
+                             [stepperValue]="underlyingLiquiditySettings.maxDays"
+                             (valueChanged)="onMaxDaysChanged($event)">
+        </aux-numeric-stepper>
+    </div>
+</div>

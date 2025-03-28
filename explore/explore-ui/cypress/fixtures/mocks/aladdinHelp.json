@@ -1,0 +1,21 @@
+{
+  "args": {},
+  "output": {
+    "errorMessage": "No error since it is mocked",
+    "isAuthorised": true,
+    "permType": null
+  },
+  "transactionContext": {
+    "detailedID": "6a4f65e1-9fa2-44ee-9f8f-fbc1ba677950:AHS.null",
+    "IDWithContextChain": "6a4f65e1-9fa2-44ee-9f8f-fbc1ba677950:AHS",
+    "chain": [
+      "AHS"
+    ],
+    "CLASS_TYPE": "com.bfm.util.TransactionContext",
+    "transactionId": "6a4f65e1-9fa2-44ee-9f8f-fbc1ba677950"
+  },
+  "return_val": "SUCCESS",
+  "command": "isUserEnabledToAladdinHelp",
+  "transactionId": "6a4f65e1-9fa2-44ee-9f8f-fbc1ba677950",
+  "successCode": null
+}

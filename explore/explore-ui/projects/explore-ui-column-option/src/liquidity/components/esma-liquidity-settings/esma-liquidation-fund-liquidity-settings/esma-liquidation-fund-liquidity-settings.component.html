@@ -1,0 +1,19 @@
+<div class="bottom-space-container">
+    <label>Liquidation options</label>
+</div>
+<div class="sub-container">
+    <div class="bottom-space-container">
+        <label>Include</label>
+    </div>
+
+    <ng-container *ngFor="let option of includeOptions">
+        <ng-container *ngIf="option.showCheckbox">
+            <div class="inline-container">
+                <aux-checkbox [label]="option.label"
+                              [isChecked]="option.checked"
+                              (checkboxChanged)="onIncludeOptionsChanged($event)">
+                </aux-checkbox>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

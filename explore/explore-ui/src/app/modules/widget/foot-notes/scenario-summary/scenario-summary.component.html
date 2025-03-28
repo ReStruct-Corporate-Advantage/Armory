@@ -1,0 +1,13 @@
+<aux-accordion [isFreeMode]="true" *ngFor="let scenario of scenarioDetails">
+    <aux-accordion-expansion-panel header="{{scenario?.title}}">
+        <div slot="content">
+            <div *ngFor="let property of scenario.properties">
+                <p *ngIf="property.value" class="no-margin">{{property.label}}: {{property.value}}</p>
+            </div>
+            <p class="no-margin">Stress Definition:</p>
+            <ul style="padding-left: 8px" *ngFor="let detail of scenario.details">
+                <li class="no-margin">{{detail}}</li>
+            </ul>
+        </div>
+    </aux-accordion-expansion-panel>
+</aux-accordion>

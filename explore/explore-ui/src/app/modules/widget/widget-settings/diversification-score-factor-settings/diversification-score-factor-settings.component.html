@@ -1,0 +1,9 @@
+<div>
+    <aux-numeric-stepper label="Number of risk factors"
+                         [stepperValue]="widgetInput.numberOfRiskFactors" [defaultValue]="5" [minValue]="1" [maxValue]="10" (valueChanged)="onNumberOfRiskFactorChanged($event)">
+
+    </aux-numeric-stepper>
+    <div class="padding-top-16">
+        <aux-select label="Additional analytics" [data]="availableAdditionalAnalytics" (selectionChanged)="onAdditionalAnalyticsChanged($event)" [type]="'multiple'"></aux-select>
+    </div>
+</div>

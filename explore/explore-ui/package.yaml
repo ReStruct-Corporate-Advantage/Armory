@@ -1,0 +1,13 @@
+---
+manifestVersion: 1.0
+files:
+    - src: 'explore-ui/dist/explore-ui/'
+      dest: '/app/'
+applications:
+    - name: 'explore'
+      location: '/app'
+    - name: 'explore-beta'
+      location: '/app'
+    - name: 'explore-gamma'
+      location: '/app'
+packageName: exploreuipackage

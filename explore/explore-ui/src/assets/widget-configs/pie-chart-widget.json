@@ -1,0 +1,97 @@
+{
+    "configType": "pie",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": true,
+    "showGridTransitionControl": true,
+    "isEligibleForLightLookthrough": true,
+    "description": "The Pie Chart Widget is a circular chart divided into slices, with the size of each slice representing a proportion or percentage of the whole or absolute value. Click into a slice of the pie chart to drill into subsector exposures.\n\nThe pie chart is also displayable as a sunburst chart, ideal for displaying hierarchical data when a multi-level breakdown is applied to the widget. Each level of the hierarchy is represented by one ring or circle, with the innermost circle as the top of the hierarchy.",
+    "title": "Pie Chart",
+    "image": ".\/assets\/images\/pie-chart.png",
+    "imageDescription": "This pie chart shows the notional market value % of GICS sectors in the S&P 500.",
+    "setUpRequirements": [
+      "1 column measure",
+      "Sector breakdown"
+    ],
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "mandateSettingType": "CHART_REPORT",
+                    "showFavorite": false,
+                    "valueField": "columnTag",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "$ref": "notionalMarketValuePercentColumn"
+                        }
+                    ],
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "$ref": "defaultBreakdown"
+                },
+                {
+                    "inputConfigType": "isLightLookthroughEnabled",
+                    "inputName": "isLightLookthroughEnabled",
+                    "inputTitle": "Enable Fund Characteristics View",
+                    "hideTitle": true,
+                    "default": {}
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartFilter"
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                    "inputConfigType": "pieChartDisplay",
+                    "inputName": "pieChartDisplay",
+                    "inputTitle": "Display options",
+                    "default": {
+                        "displayAs": "pie"
+                    },
+                    "isOpen": true,
+                    "otherNames": ["showDonutChart"]
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartSettings"
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "styleAnalysis": {
+      "$ref": "styleAnalysis"
+    },
+    "restrictedColumnOptions": {
+        "$ref": "defaultRestrictedColumnOptions"
+    },
+    "chartingLib": "hc",
+    "showCompareTabs": true
+}

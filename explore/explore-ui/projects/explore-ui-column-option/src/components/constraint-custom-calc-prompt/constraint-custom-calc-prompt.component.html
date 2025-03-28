@@ -1,0 +1,13 @@
+<aux-modal [type]="'action'" header="'Custom Calculation'" [isOpen]="isOpen" [hasCustomFooter]="true">
+    <div slot="content">
+        <div class="notify-div">
+            <div class="top-notify-statement">When using custom calculation in optimization</div>
+            <div class="first-notify-statement">1. Position-related attributes (market value, risk contribution, etc.) are evaluated pre-optimization and are not re-evaluated during optimization.</div>
+            <div class="second-notify-statement">2. Security level column measures are always used.</div>
+            <div>3. Weighted average is always used as the aggregation type.</div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="'Done'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

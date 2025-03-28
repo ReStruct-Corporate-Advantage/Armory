@@ -1,0 +1,22 @@
+<div class="scenario-component">
+    <ng-container *ngIf="(showSpinner$ | async);">
+        <div class="item-container">
+            <div class="loading-spinner">
+                <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                        size="large"
+                                        type="loading" loadingLabel="Loading scenarios">
+                </aux-progress-indicator>
+            </div>
+        </div>
+    </ng-container>
+
+    <div [hidden]="(showSpinner$ | async)">
+        <explore-extended-column-option-stress-scenarios [optionValue]="optionValue"
+                                                         [column]="column"
+                                                         [allowNamedScenarioSingleSelection]="isRestrictedModeEnabled"
+                                                         [isScenarioCreationDisabled]="isScenarioCreationDisabled"
+                                                         [disableCreateScenarioButton]="disableCreateScenarioButton"
+                                                         [showSpinnerOnScenarioColumnOption$]="showSpinner$">
+        </explore-extended-column-option-stress-scenarios>
+    </div>
+</div>

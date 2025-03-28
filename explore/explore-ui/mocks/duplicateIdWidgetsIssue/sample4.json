@@ -1,0 +1,41 @@
+{
+    "widgets": [
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure",
+            "id": 126,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        []
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure",
+            "id": 127,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        []
+                    ]
+                }
+            }
+        },
+        {
+            "configType": "riskExposure",
+            "title": "Risk And Exposure",
+            "id": 128,
+            "inputs": {
+                "expandedState": {
+                    "expandedPaths": [
+                        []
+                    ]
+                }
+            }
+        }
+    ],
+    "availableDataStores": []
+}

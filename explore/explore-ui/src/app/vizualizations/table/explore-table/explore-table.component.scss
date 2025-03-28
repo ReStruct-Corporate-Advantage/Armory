@@ -1,0 +1,40 @@
+.component-hw-100 {
+    height: 100%;
+    width: 100%;
+}
+
+.explore-search {
+    display: flex;
+    flex-direction: column;
+}
+
+.explore-table {
+    flex: 1
+}
+
+.ag-theme-apgux-xsmall .ag-root {
+    border: none;
+}
+
+.auto-column-align {
+    justify-content: left;
+}
+
+.ag-theme-apgux-xsmall .ag-icon-contracted::before {
+    content: '';
+}
+
+.widget-table-search{
+    border-top: 1px solid var(--widget__border-color);
+    padding: 0.5rem 1rem;
+}
+
+.aux-grid-custom-class {
+    height: 280px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.ag-theme-apgux-p2-f11 .ag-menu .ag-menu-option-text {
+    text-transform: none;
+}

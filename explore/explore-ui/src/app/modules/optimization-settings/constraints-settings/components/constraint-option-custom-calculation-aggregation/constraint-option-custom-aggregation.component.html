@@ -1,0 +1,11 @@
+<div class="aggregation-header">
+    <aux-text class="aggregation-header-text">Aggregation</aux-text>
+</div>
+<explore-custom-aggregation-column-option
+    #customAggregationColumnOptionComponent
+    [option]="optionMetaData"
+    [widgetType]="widgetType"
+    [restrictedColumnOptions]="restrictedColumnOptions"
+    [column]="columnConfig"
+    (aggregationOptionUpdated)="onCustomAggregationUpdate()">
+</explore-custom-aggregation-column-option>

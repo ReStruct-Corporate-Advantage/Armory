@@ -1,0 +1,114 @@
+{
+  "configType": "commitmentRiskExcludedFundsWidget",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "title": "Funds Excluded From Aladdin Commitment Risk Projections",
+  "showOnlySingleColumn": false,
+  "showInSelector": false,
+  "tokenToCheck": "enableCommitmentRisk2",
+  "inputCategories": [
+    {
+      "$ref": "defaultCommitmentRiskScenarioSettings"
+    },
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "commitmentRiskGrouping",
+          "inputName": "commitmentRiskGrouping",
+          "inputTitle": "Group By",
+          "hideTitle": true,
+          "default": {}
+        },
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "hideTopColumnGroup": false,
+          "default": [
+            {
+              "columnKey": "acrm_ex_sec_desc",
+              "columnTag": "acrm_ex_sec_desc",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_cusip",
+              "columnTag": "acrm_ex_cusip",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_reason",
+              "columnTag": "acrm_ex_reason",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_mv",
+              "columnTag": "acrm_ex_mv",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_contributions",
+              "columnTag": "acrm_ex_contributions",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_distributions",
+              "columnTag": "acrm_ex_distributions",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_risk_exp",
+              "columnTag": "acrm_ex_risk_exp",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_vint_year",
+              "columnTag": "acrm_ex_vint_year",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_ex_asset_type",
+              "columnTag": "acrm_ex_asset_type",
+              "positionColumnType": "ALL"
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnKey": "acrm_ex_supp_apacs",
+              "columnTag": "acrm_ex_supp_apacs",
+              "positionColumnType": "ALL"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "expandedState",
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "expandedState",
+          "inputName": "expandedState",
+          "default": {
+            "allExpanded": true
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultColumnState"
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "highlight",
+      "aggregation"
+    ]
+  },
+  "chartingLib": "agGrid"
+}

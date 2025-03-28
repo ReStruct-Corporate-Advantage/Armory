@@ -1,0 +1,27 @@
+<div class="more-view-text-area">
+    <div class="more__content--header">
+        <aux-button [type]="'tertiary'" [size]="'large'" [icon]="'back-arrow'" (click)="moreViewOff(false)"></aux-button>
+        <span class="aux-bold aux-p24 more__content--title">
+            {{widgetMore.title}}
+        </span>
+        <div class="more__content--add-button">
+            <aux-button [type]="'primary'" [size]="'large'" [label]="'Add Widget'" (click)="createWidget()"></aux-button>
+        </div>
+    </div>
+    <ng-container *ngIf="isChartWidget">
+        <img src="{{widgetMore.image}}" alt="{{widgetMore.imageDescription}}" class="more__content--image">
+        <p class="more__content--image-description">{{widgetMore.imageDescription}}</p>
+    </ng-container>
+
+    <p class="more__content--paragraph">
+        {{widgetMore.description}}
+    </p>
+    <ng-container *ngIf="isChartWidget">
+        <div class="more__content--set-up-requirements">
+            <span class="aux-bold"> Set Up Requirements </span>
+            <ul>
+                <li *ngFor="let requirement of widgetMore.setUpRequirements">{{requirement}}</li>
+            </ul>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,53 @@
+<div class="portfolio-search-container" *ngIf="!isStackedView; else stacked">
+    <div class="search-field-container">
+        <aux-search-field
+            #portSearchField
+            [type]="searchType"
+            [placeholder]="searchPlaceholder"
+            [hasAdvancedSearch]="false"
+            [hasSelectAll]="false"
+            [typeaheadProps]="typeaheadProps"
+            [selectProps]="selectProps"
+            (searchValueChanged)="onSearchValueChanged($event)"
+            (searchSelectionChanged)="onSearchSelectionChanged($event)"
+            (clickSearch)="onAddPortfolio()"
+            [size]="searchSize"
+            [isDisabled]="isDisabled"
+            (inputBlur)="onBlur()"
+            [searchValue]="searchString"
+            (selectionChanged)="onPortfolioTypeChange($event)"
+        >
+        </aux-search-field>
+    </div>
+
+    <div class="add-portfolio-btn" *ngIf="!isAddBtnHidden">
+        <aux-button
+            [label]="'Add Portfolio'"
+            (click)="onAddPortfolio()"
+            [isDisabled]="isAddBtnDisabled || isDisabled">
+        </aux-button>
+    </div>
+</div>
+
+<ng-template #stacked>
+    <div class="portfolio-search-container--stacked">
+        <div class="select-item">
+            <aux-select
+                [hasInitialOptionPlaceholder]="false"
+                [data]="selectProps.data"
+                [size]="searchSize"
+                (selectionChanged)="onPortfolioTypeChange($event)">
+            </aux-select>
+        </div>
+        <aux-search-field
+            [placeholder]="searchPlaceholder"
+            [size]="searchSize"
+            [typeaheadProps]="typeaheadProps"
+            [searchValue]="searchString"
+            (searchValueChanged)="onSearchValueChanged($event)"
+            (searchSelectionChanged)="onSearchSelectionChanged($event)"
+            (inputBlur)="onBlur()"
+            (clickSearch)="onAddPortfolio()">
+        </aux-search-field>
+    </div>
+</ng-template>

@@ -1,0 +1,29 @@
+<div class="permissioning-items">
+    <div class="permissioning-item permissioning-type">
+        <aux-select #permissioningTypeAuxSelect
+                    label="Type"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="permissioningTypes"
+                    (selectionChanged)="onPermissioningTypeChanged($event)">
+        </aux-select>
+    </div>
+
+    <div class="permissioning-item permissioning-value">
+        <aux-text-input label="Name"
+                        [value]="permissioningValue"
+                        (valueChanged)="onPermissioningValueChanged($event)">
+        </aux-text-input>
+    </div>
+    <div class="permissioning-item permissioning-help">
+        <div class="permissioning-help-item">
+            <aux-tooltip>
+                <aux-button slot="target"
+                            icon="help"
+                            type="tertiary"
+                            [assistiveText]="'help'">
+                </aux-button>
+                <span slot="content">{{permissioningHelp}}</span>
+            </aux-tooltip>
+        </div>
+    </div>
+</div>

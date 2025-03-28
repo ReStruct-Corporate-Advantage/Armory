@@ -1,0 +1,31 @@
+.add-portfolio-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .selected-portfolio-list {
+        flex: 1;
+        margin-top: 1rem;
+    }
+
+    .portfolio-search-container {
+        .portfolio-search-description {
+            padding-top: .5rem;
+            color: var(--secondary-text__color);
+            line-height: normal;
+        }
+    }
+
+    .port-upload-display {
+        display: flex;
+        margin-top: 16px;
+
+        .upload-file-text-color {
+            color: var(--secondary-text__color);
+        }
+
+        .uploader {
+            margin-left: 0.5rem
+        }
+    }
+}

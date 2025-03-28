@@ -1,0 +1,19 @@
+.favorite-info-container {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    .favorite-type-title {
+        padding-right: .5rem
+    }
+}
+.popover-container {
+    width: 12rem;
+    .popover-content {
+        margin-bottom: .8rem;
+        white-space: pre-wrap;
+    }
+}
+.favorite-modified-warning {
+    padding-right: .5rem;
+}
+

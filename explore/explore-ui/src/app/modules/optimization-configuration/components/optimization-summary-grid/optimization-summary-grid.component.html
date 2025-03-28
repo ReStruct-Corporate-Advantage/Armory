@@ -1,0 +1,28 @@
+<table
+    class="aux-simple-table aux-simple-table__container--vertical table-width"
+    aria-describedby="container-2-caption"
+    aria-label="Container Grey">
+    <thead>
+    <tr>
+        <ng-container *ngFor="let colDef of columns">
+            <th style="word-wrap: break-word">{{ colDef.headerName }}</th>
+        </ng-container>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let row of data">
+        <ng-container *ngFor="let colDef of columns">
+            <td class="summary-record">
+                <div class="summary-record-display">
+                    <div class="summary-record-field">{{ row[colDef.field] }}</div>
+                    <ng-container *ngIf="row['filter'] && colDef.field === 'name'">
+                        <div class="summary-record-icon">
+                            <aux-icon type="filter-subtle" state="boxed"></aux-icon>
+                        </div>
+                    </ng-container>
+                </div>
+            </td>
+        </ng-container>
+    </tr>
+    </tbody>
+</table>

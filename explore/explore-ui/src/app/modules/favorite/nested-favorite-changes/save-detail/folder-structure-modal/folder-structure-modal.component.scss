@@ -1,0 +1,36 @@
+.disabled_colored_label {
+    color: var(--disabled-text__color);
+}
+
+.favorite-content {
+    padding-bottom: 1.25rem;
+}
+
+.custom-header {
+    padding: 1.25rem 2rem 1.1875rem;
+    display: inline-block;
+    border-bottom: 1px solid var(--dialog__border-color);
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-text__color);
+    }
+}
+
+.favorite-contents {
+    margin: 32px;
+}
+
+.contents-height {
+    height: 650px;
+}
+
+.contents-height-with-permission {
+    height: 725px;
+}
+
+.favorite-informational-text {
+    height: 50px;
+}
+

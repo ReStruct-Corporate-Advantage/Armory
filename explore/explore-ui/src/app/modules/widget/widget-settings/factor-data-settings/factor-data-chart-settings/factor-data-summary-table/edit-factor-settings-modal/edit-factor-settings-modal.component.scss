@@ -1,0 +1,49 @@
+.widget-settings-modal-container {
+    padding: 2rem;
+    background-color: var(--modal__background-color--grey);
+    width: auto;
+    overflow-x: hidden
+}
+
+.custom-header {
+    display: flex;
+    padding: 1rem 2rem 1.25rem;
+    align-items: baseline;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: var(--primary-text__color);
+
+    .display-title {
+        width: 225px;
+    }
+
+    .title-padding {
+        padding-right: 1rem
+    }
+
+    .title-padding-left {
+        padding-left: 1rem
+    }
+
+    .table-label-padding {
+        padding-right: 0.75rem
+    }
+
+    .show-preview {
+        margin-left: auto;
+    }
+}
+
+.custom-title-style {
+    max-width: 236px;
+    float: left;
+}
+
+.layout-factor-column-option {
+    padding-top: 16px;
+    margin-top: 60px;
+}
+
+.margin-right-16 {
+    margin-right: 16px;
+}

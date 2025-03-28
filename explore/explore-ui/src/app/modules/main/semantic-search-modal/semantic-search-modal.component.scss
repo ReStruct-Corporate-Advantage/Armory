@@ -1,0 +1,42 @@
+
+.column-search-container {
+    padding: 45px;
+
+    .column-search-type {
+        display: flex;
+    }
+
+    .column-search-rows {
+        padding-left: 24px;
+    }
+
+    .column-search-box {
+        width: 600px;
+        padding: 24px;
+    }
+
+    .column-search-results {
+        width: 100%;
+        height: 550px;
+    }
+
+    .column-search-time {
+        display: flex;
+        margin-top: 10px;
+    }
+
+    .time-and-count {
+        display: inline-block;
+        padding-bottom: 10px;
+    }
+
+    .like-dislike {
+        margin-left: auto;
+        margin-right: 5px;
+    }
+
+    .like-icon {
+        display: inline-block;
+        padding-left: 25px;
+    }
+}

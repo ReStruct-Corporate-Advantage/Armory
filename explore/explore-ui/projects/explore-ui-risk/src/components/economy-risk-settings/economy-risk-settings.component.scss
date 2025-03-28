@@ -1,0 +1,71 @@
+.flex-container-1 {
+    display: flex;
+    align-items: center;
+}
+
+.source-styl {
+    margin-top: 3px;
+    color: var(--secondary-text__color);
+    min-width: 125px;
+}
+
+.flex-container-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weighting-scheme-aux-select {
+    min-width: 250px;
+    width: 58%;
+}
+
+.risk-horizon-aux-select {
+    min-width: 250px;
+    width: 58%;
+}
+
+.weighting-scheme-header {
+    min-width: 250px;
+    width: 58%;
+}
+
+.period-half-life-div {
+    padding-left: 30px;
+    width: 58%;
+}
+
+.period-flex-div-1 {
+    display: flex;
+    width: 62%;
+    min-width: 198px;
+}
+
+.period-flex-div-2 {
+    padding-top: 23px;
+}
+
+.or-div-padding {
+    padding: 30px 10px 0 10px;
+}
+
+.half-life-div-days {
+    width: 81px;
+}
+
+.half-life-div-decay {
+    width: 117px;
+}
+
+.conf-div {
+    width: 250px;
+
+    .conf-level {
+        width: 99px;
+    }
+}
+
+.label-padding {
+    margin-left: -15px;
+    padding-top: 24px;
+    padding-bottom: 5px;
+}

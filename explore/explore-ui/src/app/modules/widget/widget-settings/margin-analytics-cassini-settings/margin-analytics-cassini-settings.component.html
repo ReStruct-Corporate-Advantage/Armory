@@ -1,0 +1,12 @@
+<div class="margin-analytics-cassini-settings">
+    <aux-select label="Calculation style" class="calculation-style"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="calculationStyleOptions"
+                (selectionChanged)="onCalculationStyleChange($event)">
+    </aux-select>
+    <aux-select label="Grouping style" class="grouping-style"
+                [hasInitialOptionPlaceholder]="false"
+                [data]="groupingStyleOptions"
+                (selectionChanged)="onGroupingStyleChange($event)">
+    </aux-select>
+</div>

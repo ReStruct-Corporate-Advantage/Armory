@@ -1,0 +1,62 @@
+.job-review-settings {
+    &__data-sections {
+        display: flex;
+        flex-direction: row;
+        border-bottom: 1px solid var(--dialog__border-color--partition);
+        padding: 0.5rem;
+    }
+
+    &__padding-middle {
+        padding-right: 50%;
+    }
+
+    &__column-descriptor {
+        color: var(--secondary-text__color);
+        width: 50%;
+    }
+
+    &__row-text {
+        font-weight: bold;
+    }
+
+    &__padding-card {
+        padding-left: 32px;
+        padding-right: 32px;
+        padding-bottom: 16px;
+    }
+
+    &__opposite-ends {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__padding-top-bottom {
+        padding-top: 16px;
+    }
+
+    &__block {
+        display: block;
+    }
+
+    &__padding-top {
+        padding-top: 1rem;
+    }
+
+    &__table {
+        width: 100%;
+    }
+
+    &__padding-inside-card {
+        padding: 12px;
+    }
+
+    &__header {
+        font-weight: 700;
+        align-self: end;
+    }
+
+    &__main-header {
+        font-weight: bold;
+        padding-top: 7px;
+    }
+}

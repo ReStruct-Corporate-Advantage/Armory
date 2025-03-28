@@ -1,0 +1,53 @@
+<aux-modal class="aux-g32--cw-12" [isOpen]="isOpen" [type]="'action'" [header]="'Admin Screen'" [hasCustomFooter]="true">
+    <div slot="content" class="mandate-settings-body">
+        <aux-button class="add-mandate-btn" icon="add" label="Add Mandate" type="tertiary" (click)="addMandateSettingsItemsRow()"></aux-button>
+
+        <table class="mandate-table-format">
+            <thead class="aux-container-alternate">
+                <tr>
+                    <th *ngFor="let title of tableHeaders">
+                        <div class="column-title">{{title}}</div>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let mandateSettingsItemsRow of mandateSettingsUIMatrix; let i = index;">
+                    <td *ngFor="let mandateSettingsCellItem of mandateSettingsItemsRow; let j = index;">
+                        <ng-container *ngIf="mandateSettingsCellItem.key !== CURATED_REPORTS; else curatedReportCell">
+                            <div class="settings">
+                                <aux-select [selected]="mandateSettingsCellItem.value"
+                                            type="filter-simple"
+                                            (selectionChanged)="onSelectOptionChanged($event, i, j)"
+                                            [data]="(mandateSettingsSelectOptionsList[j] | cloneDeep)"
+                                            [title]="mandateMap.get(mandateSettingsCellItem.value)"
+                                            [id]="i.toString().concat(j.toString())">
+                                </aux-select>
+                            </div>
+                        </ng-container>
+                        <ng-template #curatedReportCell>
+                            <div class="curated-report-section settings">
+                                <aux-type-ahead [pillbox]="mandateSettingsCellItem.value"
+                                                [hasUniquePills]="true"
+                                                [clearOnSelection]="true"
+                                                [initialStateData]="mandateSettingsSelectOptionsList[j]"
+                                                [data]="mandateSettingsSelectOptionsList[j]"
+                                                (pillboxChanged)="onTypeaheadPillboxChanged($event, i)">
+                                </aux-type-ahead>
+                            </div>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <div class="clear-settings">
+                            <aux-button type="tertiary-subtle" icon="delete-small" (click)="removeMandateSettingsItemsRow(i)"></aux-button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Apply'" [type]="'primary'" (click)="saveMandateSettingsList()"></aux-button>
+        <aux-button [label]="'Close'" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

@@ -1,0 +1,11 @@
+<explore-custom-calculation-column-option
+    #customcalculationComponent
+    [widgetType]="widgetType"
+    [restrictedColumnOptions]="restrictedColumnOptions"
+    [column]="columnConfig"
+    (expressionUpdated)="onCustomCalcUpdate()">
+</explore-custom-calculation-column-option>
+
+<ng-container *ngIf="isOpen">
+    <explore-constraint-custom-calc-prompt [isOpen]="isOpen" (modalClosed)="closeNotifyModal()"></explore-constraint-custom-calc-prompt>
+</ng-container>

@@ -1,0 +1,20 @@
+<div class="picklist-container">
+    <div class="column-label">
+        {{titleText}}
+    </div>
+    <div class="port-picklist port-picklist__header">
+        <aux-link
+            label="Remove all"
+            [isDisabled]="selectedPortfolioTickers.size == 0"
+            (click)="removeAllPortfolios($event)">
+        </aux-link>
+    </div>
+    <div class="port-picklist port-picklist__content">
+        <div class="content-horizontal top-bottom-padding" *ngFor="let portfolio of selectedPortfolioTickers">
+            <div class="modal-list-div left">{{(portfolio.type || isCustomPortfolio(portfolio))? portfolio.fullName : portfolio.ticker}}</div>
+            <div class="modal-list-div right">
+                <aux-button class="icon-right" icon="clear" type="tertiary-subtle" (click)="removePort(portfolio)"></aux-button>
+            </div>
+        </div>
+    </div>
+</div>

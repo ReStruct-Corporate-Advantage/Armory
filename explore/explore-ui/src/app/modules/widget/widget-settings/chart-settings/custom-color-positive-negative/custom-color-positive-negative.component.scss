@@ -1,0 +1,10 @@
+.custom-colors {
+    .color-pickers-container {
+        display: flex;
+        flex-wrap: nowrap;
+        margin: 1rem 0;
+        .color-picker {
+            margin-left: 1rem;
+        }
+    }
+}

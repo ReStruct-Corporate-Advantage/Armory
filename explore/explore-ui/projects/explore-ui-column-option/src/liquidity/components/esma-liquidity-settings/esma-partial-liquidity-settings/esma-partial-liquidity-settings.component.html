@@ -1,0 +1,27 @@
+<div class="bottom-vacant-area">
+    <label>Liquidation constraints</label>
+</div>
+<div class="sub-container">
+    <div class="bottom-vacant-area">
+        <aux-numeric-stepper label=" Percent of NAV liquidated (%)"
+                             minValue="0"
+                             [stepperValue]="underlyingLiquiditySettings.percentNavLiquidated"
+                             (valueChanged)="onPercentNavLiquidatedChanged($event)">
+        </aux-numeric-stepper>
+    </div>
+
+    <div class="bottom-vacant-area select-bar-width">
+        <aux-select label="Liquidation strategy"
+                    [hasInitialOptionPlaceholder]="false"
+                    [size]="'small'"
+                    (selectionChanged)="onLiquidatedStrategyChanged($event)"
+                    [data]="liquidationStrategyOptions">
+        </aux-select>
+    </div>
+    <div class="bottom-vacant-area" *ngIf="!disableBucketOptions">
+        <aux-radio-group name="inline"
+                         [data]="liquidationBucketOptions"
+                         (radioGroupChanged)="onLiquidationBucketMethChanged($event)">
+        </aux-radio-group>
+    </div>
+</div>

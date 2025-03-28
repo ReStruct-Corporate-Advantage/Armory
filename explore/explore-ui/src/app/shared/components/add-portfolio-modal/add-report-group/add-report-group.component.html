@@ -1,0 +1,35 @@
+<aux-modal [isOpen]="isOpen" [type]="'action'" [header]="'Group Reports'" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g32--cw-4">
+        <div class="report-group-modal__container">
+            <div class="content-horizontal">{{ addReportGroupMessage }}</div>
+            <div class="report-group-picklist-header">
+                <div class="report-group-picklist-header left-div">Choose Group</div>
+                <div class="report-group-picklist-header right-div">
+                    <aux-button type="secondary" label="Add New Group" [type]="AuxButtonTypeEnum.TERTIARY" (click)="addReportGroup()"></aux-button>
+                </div>
+            </div>
+
+            <div class="report-group-modal__picklist">
+                <div class="addGroupCheckBoxDiv content-horizontal" *ngFor="let rptGrp of reportGroupList">
+                    <aux-checkbox [label]="rptGrp !== editingReportGroup ? rptGrp.title : ''"
+                                  [isChecked]="checkedReportGroupList.includes(rptGrp)"
+                                  (checkboxChanged)="onCheckboxChanged(rptGrp)"
+                                  (dblclick)="doubleClick(rptGrp)">
+                    </aux-checkbox>
+                    <aux-text-input #editTextInput class="report-group-input-text"
+                                    *ngIf="rptGrp === editingReportGroup"
+                                    (keyup.enter)="onInputSubmit()"
+                                    (inputBlur)="onInputSubmit()">
+                    </aux-text-input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Done'"
+                    [isDisabled]="!isAddButtonEnabled()"
+                    (click)="addReportGroupButtonClickedCallback(true)"></aux-button>
+        <aux-button [label]="'Cancel'"
+                    [type]="'secondary'" (click)="addReportGroupButtonClickedCallback(false)"></aux-button>
+    </div>
+</aux-modal>

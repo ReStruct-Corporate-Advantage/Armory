@@ -1,0 +1,44 @@
+<!-- Decimal Places  -->
+<div class="time-to-maturity-column-container">
+    <aux-numeric-stepper label='Decimal Places'
+                         minValue="0"
+                         maxValue="6"
+                         [stepperValue]="optionValue.decimalPlaces"
+                         (valueChanged)="onDecimalPlaceValueChange($event.detail.value)">
+    </aux-numeric-stepper>
+</div>
+
+<!-- Scaling -->
+<div class="time-to-maturity-column-container select-drop-box-width">
+    <aux-select label='Scaling'
+                [data]="scalingDropDownData"
+                [hasInitialOptionPlaceholder]="false"
+                (selectionChanged)="setScalingOptions($event.detail.value.value)">
+    </aux-select>
+</div>
+
+<!-- Custom Days -->
+<div *ngIf="optionValue.timeUnit === 'Custom'" class="custom-stepper-container time-to-maturity-column-container">
+    <span class="text-alignment"> For the first </span>
+    <aux-numeric-stepper minValue="0"
+                         [stepperValue]="optionValue.customScalingBandsDays"
+                         [maxValue]="9999"
+                         (valueChanged)="onCustomDaysValueChange($event.detail.value)"
+                         class="numeric-stepper-space-bar">
+    </aux-numeric-stepper>
+    <span class="text-alignment"> days, display maturity in days ...</span>
+</div>
+
+<div *ngIf="optionValue.timeUnit === 'Custom'" class="time-to-maturity-column-container"> then...</div>
+
+<!-- Custom Months -->
+<div *ngIf="optionValue.timeUnit === 'Custom'" class="custom-stepper-container time-to-maturity-column-container">
+    <span class="text-alignment">for the next</span>
+    <aux-numeric-stepper minValue="0"
+                         [stepperValue]="optionValue.customScalingBandsMonths"
+                         [maxValue]="9999"
+                         (valueChanged)="onCustomMonthsValueChange($event.detail.value)"
+                         class="numeric-stepper-space-bar">
+    </aux-numeric-stepper>
+    <span class="text-alignment"> months, display maturity in months, then in years.</span>
+</div>

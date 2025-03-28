@@ -1,0 +1,47 @@
+<div>
+    <aux-card class="mode-settings"
+              [borderPadding]="'0'"
+              [hasBorder]="true"
+              [isVerticallyExpanded]="false">
+        <div slot="content">
+            <div class="plot">Risk Matrix Settings</div>
+            <div class="set-matrix-type-layout">
+                <aux-radio-group
+                    [label]="'Matrix'"
+                    [data]="matrixTypes"
+                    [isReadOnly]="isMatrixTypesReadOnly"
+                    (radioGroupChanged)="onMatrixTypeChanged($event)">
+                </aux-radio-group>
+            </div>
+
+            <div class="align-elements">
+                <explore-core-date-picker [label]="'Comparison date'"
+                                          [dateObject]="comparisonDate"
+                                          (dateChange)="onComparisonDateChanged($event)"
+                                          includeRelativeDate="false"
+                                          [isLeftLabel]="true"
+                                          [size]="'regular'"
+                                          [closeCalendarOnBlur]="false">
+                </explore-core-date-picker>
+            </div>
+
+            <div *ngIf="widgetInput.comparisonDate" class="align-reset-date">
+                <explore-core-undo-button [tooltip]="'Reset Comparison date'" [callback]="resetComparisonDate">
+                </explore-core-undo-button>
+            </div>
+
+            <ng-container *ngIf="enableShowChangeInUpperTriangle && this.widgetInput.isTriangularMatrix && widgetInput.comparisonDate">
+                <div [ngClass]="!widgetInput.comparisonDate ? 'align-elements' : 'align-change-upper-triangle'">
+                    <aux-checkbox
+                        [label]="'Show change between analysis date and comparison date in the upper triangle'"
+                        [isChecked]="widgetInput.showChangeInUpperTriangle"
+                        (checkboxChanged)="onShowChangeInUpperTriangleToggled($event.detail.value.checked)">
+                    </aux-checkbox>
+                </div>
+            </ng-container>
+        </div>
+    </aux-card>
+</div>
+
+<app-factor-data-conditional-formatting [isTriangularMatrix$]="isTriangularMatrix$">
+</app-factor-data-conditional-formatting>

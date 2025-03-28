@@ -1,0 +1,30 @@
+.security-search {
+    min-height: 40vh;
+    margin: 0.75rem;
+}
+
+.search-without-grid {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search-with-grid {
+    padding-top: 20px;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.search-without-grid-portfolio {
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.disable-security-search {
+    pointer-events: none;
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.top-padding-20 {
+    padding-top: 20px;
+}

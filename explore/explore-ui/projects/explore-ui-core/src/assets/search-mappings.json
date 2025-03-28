@@ -1,0 +1,21 @@
+{
+  "P&L": ["PNL", "Profit and loss"],
+  "PNL": ["P&L", "Profit and loss"],
+  "P and L": ["PNL", "P&L", "Profit and loss"],
+  "Profit and loss": ["PNL", "P&L"],
+  "Profit & Loss": ["PNL", "P&L"],
+  "Profit&Loss": ["PNL", "P&L"],
+  "DTS": ["DXS"],
+  "DXS": ["DTS"],
+  "standalone": ["stand-alone"],
+  "stand-alone": ["standalone"],
+  "spread": ["OAS"],
+  "OAS": ["spread"],
+  "KRD": ["DURATION", "Key", "Key Rate"],
+  "DURATION": ["KRD", "Key", "Key Rate"],
+  "KEY RATE": ["KRD", "DURATION"],
+  "&": ["and"],
+  "and": ["&"],
+  "PCAV": ["Physical Climate Adj. Value"],
+  "TCAV": ["Transition Climate Adj. Value"]
+}

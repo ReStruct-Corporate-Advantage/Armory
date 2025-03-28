@@ -1,0 +1,17 @@
+<ng-container *ngIf="isNewStressScenarioEnabled; else showOldStressScenarioComponent">
+    <explore-extended-stress-scenario-column-option [column]="column"
+                                                    [option]="option"
+                                                    [widgetType]="widgetType"
+                                                    [columnOptionUpdated$]="columnOptionUpdated$"
+                                                    [restrictedColumnOptions]="restrictedColumnOptions">
+    </explore-extended-stress-scenario-column-option>
+</ng-container>
+
+<ng-template #showOldStressScenarioComponent>
+    <explore-scenario-column-option [column]="column"
+                                    [option]="option"
+                                    [widgetType]="widgetType"
+                                    [columnOptionUpdated$]="columnOptionUpdated$"
+                                    [restrictedColumnOptions]="restrictedColumnOptions">
+    </explore-scenario-column-option>
+</ng-template>

@@ -1,0 +1,11 @@
+{
+  "workpads": [{
+    "reports": [{"widgets": [], "title": "Report"}],
+    "portfolio": {
+      "isBench": false,
+      "portName": "PEP",
+      "splitPositionTypes": {"selectedPositionTypes": ["XC", "XF", "XH", "XS", "SW", "O"]},
+      "benchmark": {"type": "RISK", "order": 1, "name": "MSAC_APACN"}
+    }
+  }], "title": "Untitled Workspace", "id": 1719479, "owner": "seakim"
+}

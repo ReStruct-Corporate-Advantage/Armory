@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IntroComponent should create 1`] = `
+<div
+  class="intro-area aux-primary"
+>
+  <div
+    class="intro-portfolio-search-area"
+  >
+    <aux-card>
+      <div
+        class="intro-card-container"
+      >
+        <div
+          class="intro-card-title"
+        >
+          Add a Portfolio
+        </div>
+        <div
+          class="intro-card-description"
+        >
+          Add a portfolio to your workspace
+        </div>
+        <blk-portfolio-search />
+        
+        
+        
+      </div>
+    </aux-card>
+  </div>
+  <div
+    class="intro-favorite-area"
+  >
+    <aux-card>
+      <div
+        class="intro-card-container"
+      >
+        <div
+          class="intro-card-title"
+        >
+          Load a Workspace
+        </div>
+        <div
+          class="intro-card-description"
+        >
+          Browse available workspaces
+        </div>
+        <app-favorite />
+      </div>
+    </aux-card>
+  </div>
+</div>
+`;

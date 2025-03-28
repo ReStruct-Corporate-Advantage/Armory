@@ -1,0 +1,30 @@
+Feature: Visual Comparison tests for return analysis chart
+
+    Background:
+        Given "Return Analysis Chart" with default settings is added to a report for portfolio "SNP100" with date "20240205"
+
+    Scenario: Validate changes in return analysis chart with different time period settings
+        # USER STORY 1393960 - show portfolio data for daily interval
+        When I open widget settings modal from "Return Analysis Chart"
+        And I click performance settings tab
+        And I change frequency is to "Quarter"
+        And I change number of periods to "2"
+        And I click format tab
+        And I uncheck all other columns beside portfolio column
+        And I maximize widget
+        And I apply widget settings
+        Then "Return Analysis Chart - 2 Quarters to Date" should be displayed, aligning with the snapshot "returnsChart_port_dailyInterval"
+
+        # USER STORY 1393960 - show portfolio data for monthly interval
+        When I open widget settings modal from "Return Analysis Chart"
+        And I click axis tab
+        And I change time period interval to "Monthly"
+        And I apply widget settings
+        Then "Return Analysis Chart - 2 Quarters to Date" should be displayed, aligning with the snapshot "returnsChart_port_monthlyInterval"
+
+        # USER STORY 1393960 - show portfolio data for quarterly interval
+        When I open widget settings modal from "Return Analysis Chart"
+        And I click axis tab
+        And I change time period interval to "Quarterly"
+        And I apply widget settings
+        Then "Return Analysis Chart - 2 Quarters to Date" should be displayed, aligning with the snapshot "returnsChart_port_quarterlyInterval"

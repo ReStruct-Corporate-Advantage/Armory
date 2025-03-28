@@ -1,0 +1,76 @@
+<div class="save-details-container">
+    <aux-text-input #favoriteTitleTextInput
+                    class="favorite-title"
+                    [ngClass]="{'favorite-title--fixed-size': isFixedSize}"
+                    [value]="favoriteChange.saveTitle"
+                    (valueChanged)="updateFavoriteTitle($event)"
+                    [maxLength]="30">
+    </aux-text-input>
+    <aux-radio-group class="favorite-item" [data]="saveOptions" (radioGroupChanged)="changeSaveMethod($event)"></aux-radio-group>
+</div>
+<div class="save-favorite-type-container save-details-container">
+    <ng-container *ngIf="personalAccessOnly">
+        <span class="disabled_colored_label">Type:</span>
+        <span class="aux-bold">Personal</span>
+    </ng-container>
+    <ng-container *ngIf="!personalAccessOnly">
+        <div class="save-favorite-type">
+            <aux-select [label]="'Type'"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="updateFavoriteOwner($event)"
+                        [data]="userOption">
+            </aux-select>
+            <aux-button *ngIf="!isModalRootItem" class="padding--left" [label]="!(selectedUser === CoreFavoriteConstants.ADMIN) ? 'Select Folder' : 'Edit Details'" [type]="AuxButtonTypeEnum.SECONDARY" [size]="'small'"
+                (click)="openFolderStructureModal()">
+            </aux-button>
+        </div>
+    </ng-container>
+    <div *ngIf="(selectedUser === CoreFavoriteConstants.ADMIN) && isModalRootItem" class="save-favorite-permission-groups">
+            <app-favorite-permission-group [selectedPermissionGroups]="selectedPermissionGroups"
+                                        (permissionGroupsChanged)="onPermissionGroupsSelected($event)"></app-favorite-permission-group>
+    </div>
+    <ng-container *ngIf="isACEPermissionFeatureEnabled && isModalRootItem">
+        <app-favorite-permission #favoritePermission [favoriteChange]="favoriteChange">
+        </app-favorite-permission>
+    </ng-container>
+</div>
+<div *ngIf="(selectedUser === CoreFavoriteConstants.ADMIN) && isModalRootItem" class="save-description-container save-details-container">
+    <aux-text-input #favoriteDescriptionTextInput
+                    [label]="'Description'"
+                    [placeholder]="enterpriseDescriptionText"
+                    class="save-description"
+                    [value]="enterpriseDescription"
+                    (valueChanged)="updateFavoriteDescription($event)"
+                    [maxLength]="140">
+    </aux-text-input>
+</div>
+<div *ngIf="isModalRootItem" class="folder-perms-container save-details-container">
+    <aux-button class="padding--left" [label]="'Select Folder'" [type]="AuxButtonTypeEnum.SECONDARY" [size]="'small'"
+        (click)="openFolderStructureModal()">
+    </aux-button>
+    <div class="padding--left">
+        {{folderNameText}}
+    </div>
+    <ng-container *ngIf="isRequiredFlagShown && isRequiredPermsSelected">
+        <div class="complete-icon-container padding--left">
+            <aux-icon [type]="'checkmark'" [state]="'success'"></aux-icon>
+            <span>Complete</span>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isRequiredFlagShown && !isRequiredPermsSelected && !favoriteChange.showMissingUserPermError">
+        <span class="padding--left">No selection made</span>
+    </ng-container>
+    <ng-container *ngIf="isRequiredFlagShown && !isRequiredPermsSelected && favoriteChange.showMissingUserPermError">
+        <span class="padding--left required-text">A selection is required</span>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="isFolderStructureModalOpen">
+    <app-folder-structure-modal [isOpen]="isFolderStructureModalOpen"
+                                [favoriteChange]="favoriteChange"
+                                [selectedUser]="selectedUser"
+                                (modalClosed)="closeFolderStructureModal($event)"
+                                [favoriteDisplayType]="favoriteChange.favoriteDisplayType"
+                                [isModalRootItem]="isModalRootItem">
+    </app-folder-structure-modal>
+</ng-container>

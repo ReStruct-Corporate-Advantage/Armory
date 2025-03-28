@@ -1,0 +1,14 @@
+.fiscal-year-option-container {
+    .fiscal-year-description {
+        padding-bottom: 4px;
+    }
+    .fiscal-year-selector-container {
+        width: 100%;
+        .flex {
+            display: flex;
+        }
+        .year-select {
+            width: 350px;
+        }
+    }
+}

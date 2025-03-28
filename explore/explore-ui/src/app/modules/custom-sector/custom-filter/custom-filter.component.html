@@ -1,0 +1,18 @@
+<explore-custom-filter [filter]="filter"
+                       [fieldToUse]="fieldToUse"
+                       [isNormalized]="isNormalized"
+                       [disableNormalizedCheckbox]="disableNormalizedCheckbox"
+                       [applyFilterTo]="applyFilterTo"
+                       [showApplyTo]="showApplyTo"
+                       [requireLoadAndSaveOptions]="true"
+                       [loadCustomSector]="loadCustomSectorVersion"
+                       [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+                       (updateNormalizedFlag)="updateNormalizedFlag.emit($event)"
+                       (loadFilterClicked)="openLoadFavoriteModal()"
+                       (saveFilterClicked)="openSaveFavoriteModal()"
+                       (updateApplyFilter)="updateApplyFilter.emit($event)"
+                       [favoriteType]="FavoriteConstants.CUSTOM_SECTOR"
+                       [isApplyFilterToNewWidgetsChecked]="isApplyFilterToNewWidgetsChecked"
+                       (isApplyFilterToNewWidgetsCheckedChange)="onApplyFilterToNewWidgetsChanged($event)"
+                       [showApplyToNewWidgets]="showApplyToNewWidgets">
+</explore-custom-filter>

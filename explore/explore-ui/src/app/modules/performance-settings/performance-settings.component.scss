@@ -1,0 +1,9 @@
+.performance-settings {
+    border: .0125rem solid var(--drawer__border-color);
+
+    .performance-settings-div {
+        height: calc(70vh - 74px);
+        background-color: var(--secondary__background-color);
+        overflow: visible
+    }
+}

@@ -1,0 +1,13 @@
+<div class="time-series-time-period-settings-area">
+    <div class="padding-top-bottom__6">
+        <explore-core-multi-override-date [multiOverrideDateSettings]="multiOverrideDateSettings"
+                                          [showAppendReportDate]="true"
+                                          (multiOverrideDateSettingsChanged)="onMultiOverrideDateSettingsChange()">
+        </explore-core-multi-override-date>
+    </div>
+    <div class="select-width__225 margin-top-bottom__12">
+        <explore-column-option-date-format-dropdown [dateFormat]="dateFormat"
+                                                    (updatedDateFormat)='updateDateFormatValue($event)'>
+        </explore-column-option-date-format-dropdown>
+    </div>
+</div>

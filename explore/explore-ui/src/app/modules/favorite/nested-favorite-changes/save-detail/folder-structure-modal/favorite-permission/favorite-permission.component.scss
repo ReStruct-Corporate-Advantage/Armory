@@ -1,0 +1,27 @@
+.permissioning-items {
+    text-align: center;
+
+    .permissioning-item {
+        margin-bottom: 16px;
+        display: inline-block;
+    }
+
+    .permissioning-type {
+        width: 30%;
+        margin-right: 2%;
+    }
+
+    .permissioning-value {
+        width: 65%;
+    }
+
+    .permissioning-help {
+        width: 3%;
+        position: relative;
+        .permissioning-help-item {
+            position: absolute;
+            top: 36px;
+        }
+    }
+}
+

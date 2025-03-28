@@ -1,0 +1,14 @@
+<aux-radio [label]="label"
+           [isChecked]="isChecked"
+           (radioChanged)="onFocusIn()"
+           class="radio-button">
+</aux-radio>
+<div class="breakdown-setting">
+    <aux-select
+        [data]="columnOptions"
+        [hasInitialOptionPlaceholder]="false"
+        (selectionChanged)="onBreakdownOptionChange($event)"
+        (dropdownOpened)="onFocusIn()"
+        type="filter-simple">
+    </aux-select>
+</div>

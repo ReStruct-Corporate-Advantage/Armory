@@ -1,0 +1,80 @@
+<aux-modal [isOpen]="isOpen" type="action" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <div slot="custom-header" class="custom-header aux-border--bottom">
+        <span class="aux-bold aux-p20 title-padding">Save Scenario</span>
+    </div>
+
+    <div slot="content" class="widget-settings-modal-container">
+
+        <ng-container *ngIf="isLoading">
+            <div class="loading-spinner-scenarios">
+                <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                        size="large"
+                                        type="loading" [loadingLabel]="'Saving Scenario'">
+                </aux-progress-indicator>
+            </div>
+        </ng-container>
+
+        <div class="content" [style.visibility]="isLoading ? 'hidden' : 'unset'">
+            <ng-container *ngIf="scenario.isTeamScenario()">
+                <div class="margin-bottom-16 other-owner-container">
+                    <aux-icon class="warn-icon" [type]="'info-bold'" [state]="'warning'"></aux-icon>
+                    <span class="aux-bold">This stress scenario is owned by another user. Save As to create your own version.</span>
+                </div>
+            </ng-container>
+
+            <div class="margin-bottom-16 name-field">
+                <aux-text-input label="Name"
+                                [maxLength]="'10'"
+                                placeholder="Enter name"
+                                [value]="scenarioName"
+                                [validator]="validator"
+                                (valueChanged)="onScenarioNameChanged($event)">
+                </aux-text-input>
+            </div>
+
+            <div class="margin-bottom-16 select-field">
+                <aux-select label="Type"
+                            [hasInitialOptionPlaceholder]="false"
+                            [data]="selections"
+                            (selectionChanged)="onTypeChanged($event.detail.value)">
+                </aux-select>
+            </div>
+
+            <div class="margin-bottom-16 desc-field">
+                <aux-text-input label="Description (optional)"
+                                placeholder="Enter description here"
+                                [value]="scenarioDesc"
+                                (inputBlur)="onScenarioDescChanged($event)">
+                </aux-text-input>
+            </div>
+        </div>
+
+        <ng-container *ngIf="promptDialog$ | async">
+            <explore-core-dialog (emitDialogClosed)="closeDialog()"
+                                 [dialogContent$]="promptDialog$">
+            </explore-core-dialog>
+        </ng-container>
+    </div>
+
+
+    <div slot="custom-footer" class="custom-footer">
+        <aux-button class="btn"
+                    type="secondary"
+                    label="Close"
+                    (click)="closeModal(false)">
+        </aux-button>
+
+        <aux-button class="btn"
+                    label="Save as"
+                    [isDisabled]="isLoading"
+                    (click)="onSaveButtonClicked(true)">
+        </aux-button>
+
+        <aux-button class="btn"
+                    label="Save"
+                    [isDisabled]="isSaveButtonDisabledBasedOnCategory || isSaveButtonDisabled || isLoading"
+                    (click)="onSaveButtonClicked()">
+        </aux-button>
+    </div>
+
+</aux-modal>

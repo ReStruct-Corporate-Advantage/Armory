@@ -1,0 +1,14 @@
+<app-factor-data-summary-grid
+    class="factor-summary-element"
+    [columnType]="columnType"
+    [showGridLoadingOverlay$]="showGridLoadingOverlay$"
+    (editFactorSettingsModalOpened)="onEditFactorSettingsModalOpened($event)">
+</app-factor-data-summary-grid>
+
+<ng-container *ngIf="isEditFactorSettingsModalOpen">
+    <app-factor-data-edit-factor-settings-modal [isOpen]="isEditFactorSettingsModalOpen"
+                                                (modalClosed)="onEditFactorSettingsModalClosed($event)"
+                                                [options]="factorColumnOptions"
+                                                [column]="column">
+    </app-factor-data-edit-factor-settings-modal>
+</ng-container>

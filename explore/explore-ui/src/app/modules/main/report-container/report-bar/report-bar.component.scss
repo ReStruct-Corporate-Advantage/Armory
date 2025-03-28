@@ -1,0 +1,80 @@
+.report-bar-area {
+    background: var(--container__background-color);
+    padding: 8px 0 8px 1rem;
+    border: 1px solid var(--tab__border-color);
+    border-top: none;
+    width: auto;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .report-bar-text-area{
+        display: flex;
+        align-items: center;
+    }
+
+    .report-label {
+        margin-right: 20px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .widget-selector {
+        display: inline-block;
+    }
+
+    .widget-option {
+        display: flex;
+        float: right;
+        align-items: center;
+    }
+
+    .paste-widget-button {
+        padding-left: 16px;
+    }
+
+    .widget-option-item {
+        padding: 0 16px;
+    }
+
+    .option-separator {
+        border-right: 1px solid var(--option-group__border-color);
+    }
+
+    .toggle-composition {
+        display: inline-block;
+        margin-left: 16px;
+    }
+}
+
+.loading-icon {
+    display: inline-block;
+    padding-left: 16px;
+    padding-right: 5px;
+}
+
+.option-padding-left {
+    padding-right: 1rem;
+}
+
+.inline-data-style {
+    padding: 0 0.5rem;
+    display: inline-block;
+}
+
+.report-action-button {
+    padding-right: 1rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}
+
+.report-bar-menu {
+    margin-right: 1rem;
+}
+
+.favorite-status-tag {
+    margin-right: .5rem;
+}

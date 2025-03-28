@@ -1,0 +1,9 @@
+.show-sector-level-data {
+    display: flex;
+    align-items: center;
+
+    .show-sector-level-data-label {
+        font-weight: var(--font-weight-bold);
+        padding-right: 0.75rem;
+    }
+}

@@ -1,0 +1,60 @@
+.constraint-settings {
+    border-right: 1px solid var(--tab__border-color);
+    border-left: 1px solid var(--tab__border-color);
+    border-bottom: 1px solid var(--tab__border-color);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: 53vh;
+    display: flex;
+    flex-direction: column;
+
+    .constraints-table {
+        padding-bottom: 1rem;
+        flex: 40%;
+        overflow-y: auto;
+        height: 100%
+    }
+
+    .constraints-panel-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex-grow:1
+    }
+    .constraints-panel-column {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .constraints-panel-options {
+        display: flex;
+        flex-direction: column;
+        flex: 60%;
+        width: 50%;
+    }
+    .constraints-panel-row {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .constraints-title {
+        padding-bottom: 0.5rem;
+    }
+
+    .column-measures {
+        flex: 1;
+    }
+
+    .constraint-options {
+        border: 1px solid var(--tab__border-color);
+        flex-grow: 1;
+    }
+
+    .constraint-card {
+        padding-top: 27px;
+        height: 41rem;
+    }
+}

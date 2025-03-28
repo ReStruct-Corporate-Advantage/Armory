@@ -1,0 +1,124 @@
+.flex-container-1 {
+    display: flex;
+    align-items: center;
+}
+
+.source-styl {
+    margin-top: 3px;
+    color: var(--secondary-text__color);
+    min-width: 125px;
+}
+
+.flex-container-2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.weighting-scheme-aux-select {
+    min-width: 250px;
+    width: 58%;
+}
+
+.weighting-scheme-header {
+    min-width: 250px;
+    width: 58%;
+}
+
+.period-half-life-div {
+    width: 58%;
+}
+
+.period-flex-div-1 {
+    display: flex;
+    width: 62%;
+    min-width: 198px;
+}
+
+.period-flex-div-2 {
+    padding-top: 23px;
+}
+
+.or-div-padding {
+    padding: 30px 10px 0 10px;
+}
+
+.half-life-div-days {
+    width: 81px;
+}
+
+.half-life-div-decay {
+    width: 117px;
+}
+
+.conf-div {
+    width: 250px;
+
+    .conf-level {
+        width: 97px;
+    }
+}
+
+.set-item-layout {
+    padding-top: 16px;
+    width: 225px;
+}
+
+.padding-left-16 {
+    padding-left: 16px;
+}
+
+.set-overlap-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 16px !important;
+    box-sizing: border-box;
+}
+
+.set-scheme-width {
+    width: 266px;
+}
+
+.set-scheme-main-div {
+    display: inline-block;
+}
+
+.custom-padding-inputs {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.layout-overlap-div {
+    width: 120px;
+    padding-top: 16px;
+}
+
+.layout-overlap-source {
+    width: 220px;
+    padding-top: 0.5rem;
+}
+
+.layout-reset-risk-settings-button {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 16px;
+    align-items: center;
+    padding-top: 0.375rem;
+    float: right;
+    padding-right: 16px;
+}
+
+.width-auto {
+    width: auto;
+}
+
+.width-460px {
+    width: 460px;
+}
+
+.float-none {
+    float: none;
+}
+.float-right {
+    float: right;
+}

@@ -1,0 +1,12 @@
+
+.factor-column-summary {
+    margin: 0 16px 16px 16px;
+    display: flex;
+    height: 25vh;
+    min-height: 200px;
+    flex-flow: column nowrap;
+}
+
+.factor-summary-table {
+    flex: 1;
+}

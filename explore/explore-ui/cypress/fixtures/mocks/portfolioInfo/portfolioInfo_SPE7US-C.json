@@ -1,0 +1,197 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "ticker": "SPE7US-C",
+        "cusip": "BRWPM5X32",
+        "mandate": {
+          "value": "AI-PEFOFCUST",
+          "mandateType": "ALT_MANDATE",
+          "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+          "label": ""
+        },
+        "isSectorModellingAllowed": true,
+        "code": 871967,
+        "displayName": "SPE7US-C",
+        "isConstituentsViewAllowed": true,
+        "fullName": "Private Equity Partners VII US Cayman, Ltd.",
+        "multiFrequencyMaxPeriodsMap": {
+          "YEAR_END": 8,
+          "QUARTER_END": 34,
+          "WEEKLY": 446,
+          "DAILY": 3122,
+          "MONTH_END": 103
+        },
+        "type": "FUND",
+        "portfolioGroup": false,
+        "assetType": "BAL_MANDATE",
+        "portfolioDefaults": {
+          "defaultVarType": "MTC",
+          "calendar": "GreenPkg",
+          "defaultModelCode": "DEFAULT",
+          "defaultDecay": 1.0
+        },
+        "portDefaultRiskSettings": {
+          "WeightingScheme": {
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme",
+            "name": "MTC"
+          },
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings"
+        },
+        "orgDefaultRiskSettings": {
+          "AssetClassCovariance": "M",
+          "RiskHorizon": "4",
+          "DxsBlock": "ALL_DXS",
+          "WeightingScheme": {
+            "name": "DLY",
+            "defaultPeriod": 252,
+            "defaultDecay": 0.982820599,
+            "defaultOverlap": 5,
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme"
+          },
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings",
+          "ModelMapping": "^^PRT,@TS",
+          "ScaleDxsExposures": true,
+          "ConfidenceLevelInStdDeviation": 1.0
+        },
+        "isSecurityModellingAllowed": true,
+        "compositePortfolio": false,
+        "currency": "USD",
+        "timePeriods": [
+          {
+            "Value": "DTD",
+            "type": "To Date",
+            "interval": "Day",
+            "maxPeriods": 19
+          },
+          {
+            "Value": "WTD",
+            "type": "To Date",
+            "interval": "Week",
+            "maxPeriods": 2
+          },
+          {
+            "Value": "MTD",
+            "type": "To Date",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "QTD",
+            "type": "To Date",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "YTD",
+            "type": "To Date",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "Days",
+            "type": "Rolling",
+            "interval": "Day",
+            "maxPeriods": 1115
+          },
+          {
+            "Value": "Weeks",
+            "type": "Rolling",
+            "interval": "Week",
+            "maxPeriods": 159
+          },
+          {
+            "Value": "Months",
+            "type": "Rolling",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "Quarters",
+            "type": "Rolling",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "Years",
+            "type": "Rolling",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "CUSTOM",
+            "type": "Custom",
+            "interval": null,
+            "maxPeriods": 1
+          },
+          {
+            "Value": "BDay",
+            "type": "Other",
+            "interval": "Business Day",
+            "maxPeriods": 1115
+          },
+          {
+            "Value": "Prev. Mth",
+            "type": "Other",
+            "interval": "Previous Month",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "Prev. Qtr",
+            "type": "Other",
+            "interval": "Previous Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "FYTD",
+            "type": "Other",
+            "interval": "Fiscal Year",
+            "maxPeriods": 1
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "NO_BENCH",
+            "type": "PERFORM",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          },
+          {
+            "name": "NO_BENCH",
+            "type": "RISK",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          }
+        ],
+        "asOfDate": "19-AUG-2022",
+        "isPortfolioModellingAllowed": false,
+        "historicalPerfFromDate": "07/31/2019",
+        "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+      },
+      "message": null,
+      "gaussian": "/pGcnhT5yJ07ltM=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 616
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-05-29T15:00:21.239Z",
+      "detailedID": "78922bac-3ed2-4a51-9d57-01e0e912cfa4:78922bac-3ed2-4a51-9d57-01e0e912cfa4:bda0a3d8e91b4ad.616.1716994821239",
+      "IDWithContextChain": "78922bac-3ed2-4a51-9d57-01e0e912cfa4:78922bac-3ed2-4a51-9d57-01e0e912cfa4:bda0a3d8e91b4ad",
+      "chain": [
+        "78922bac-3ed2-4a51-9d57-01e0e912cfa4:bda0a3d8e91b4ad"
+      ],
+      "bmsMsgSize": 616,
+      "transactionId": "78922bac-3ed2-4a51-9d57-01e0e912cfa4",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "portfolioInfo",
+    "transactionId": "78922bac-3ed2-4a51-9d57-01e0e912cfa4",
+    "successCode": null
+  }
+]

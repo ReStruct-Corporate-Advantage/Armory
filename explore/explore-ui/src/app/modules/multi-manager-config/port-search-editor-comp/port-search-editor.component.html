@@ -1,0 +1,10 @@
+<div class="search-editor">
+    <div class="port-search-text">Select decision benchmark</div>
+    <blk-portfolio-search #container
+                          searchType="regular"
+                          [portfolioSearchService]="portfolioSearchService"
+                          (emitPortfolioSearchItem)="handlePortSearchItem($event)"
+                          isBenchmarkSearch="true"
+    >
+    </blk-portfolio-search>
+</div>

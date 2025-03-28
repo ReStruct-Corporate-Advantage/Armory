@@ -1,0 +1,27 @@
+.select-index__container {
+    display: flex;
+    height: 100%;
+
+    .select-index__column {
+        display: flex;
+        flex-direction: column;
+        width: 55%;
+
+        .column-label {
+            margin-bottom: 8px;
+        }
+
+        .picklist__list {
+            flex: 1;
+        }
+    }
+
+    .add-button {
+        align-self: center;
+        margin: 0 1rem;
+    }
+
+    .selected-list__column {
+        width: 45%;
+    }
+}

@@ -1,0 +1,126 @@
+<div [ngClass]="{'excel-export-options-horizontal-view' : horizontalView}">
+    <ng-container *ngIf="!showOnlyMiscellaneousOptions">
+        <div class="excel-export-options-section-1">
+            <div class="header-title aux-p15 aux-bold aux-primary">Data scope</div>
+            <div class="excel-top-margin-16">
+                <aux-radio-group
+                    isStacked="true"
+                    [data]="sizeRadioOptions"
+                    (radioGroupChanged)="onSizeChanged($event)">
+                </aux-radio-group>
+            </div>
+        </div>
+        <ng-container *ngIf="!isWidgetLayoutOptionsDisabled">
+            <div class="excel-export-options-section-2">
+                <div class="header-title aux-p15 aux-bold aux-primary" [ngClass]="{'excel-header' : !horizontalView}">Widget
+                    layout options
+                </div>
+                <div class="excel-top-margin-16">
+                    <aux-radio
+                        label="One widget per sheet"
+                        [isChecked]="this.isOneWidgetPerSheet"
+                        (radioChanged)="onOneWidgetRadioChanged()">
+                    </aux-radio>
+                </div>
+                <div class="excel-outline-style-options excel-top-margin-12 excel-left-margin">
+                    <aux-checkbox
+                        label="Freeze column headers"
+                        [isDisabled]="!this.isOneWidgetPerSheet"
+                        [isChecked]="this.exportConfig.freezeColumnHeaders"
+                        (checkboxChanged)="updateFreezeColumnHeadersValue($event)">
+                    </aux-checkbox>
+                </div>
+                <div class="excel-top-margin-12">
+                    <aux-radio
+                        label="All widgets on one sheet"
+                        [isChecked]="this.exportConfig.exportToSingleSheet"
+                        (radioChanged)="onOneWidgetRadioChanged()">
+                    </aux-radio>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="excel-export-options-section-3">
+            <div class="header-title aux-p15 aux-bold aux-primary" [ngClass]="{'excel-header' : !horizontalView}">Breakdown display
+            </div>
+            <div class="excel-top-margin-16">
+                <aux-radio-group
+                    isStacked="true"
+                    [data]="this.breakdownDisplayOptions"
+                    (radioGroupChanged)="onBreakdownDisplayChanged($event)">
+                </aux-radio-group>
+            </div>
+        </div>
+    </ng-container>
+    <div class="excel-export-options-section-4" [ngClass]="{'excel-export-options-horizontal-view' : horizontalView}">
+        <div class="excel-export-options-section-4-column-1">
+            <ng-container *ngIf="!showOnlyMiscellaneousOptions">
+                <div class="header-title aux-p15 aux-bold aux-primary" [ngClass]="{'excel-header' : !horizontalView}">
+                    Miscellaneous
+                </div>
+            </ng-container>
+            <div class="excel-top-margin-16">
+                <aux-checkbox
+                    label="Include outline"
+                    [isChecked]="this.isOutlineStyleChecked"
+                    (checkboxChanged)="onOutlineCheckboxChanged($event)">
+                </aux-checkbox>
+            </div>
+            <div class="excel-left-margin excel-top-margin-12">
+                <aux-radio-group
+                    isStacked="true"
+                    [data]="outlineStyleOptions"
+                    (radioGroupChanged)="onOutlineStyleChanged($event)">
+                </aux-radio-group>
+            </div>
+        </div>
+        <div class="excel-export-options-section-4-column-2" [ngClass]="{'excel-top-margin-24' : horizontalView}">
+            <div class="excel-top-margin-12" *ngIf="showWorkpadOptions">
+                <aux-checkbox
+                    label="One workbook per portfolio"
+                    [isChecked]="this.isOneWorkbookChecked"
+                    (checkboxChanged)="updateOneWorkbookPerWorkpad($event)">
+                </aux-checkbox>
+            </div>
+            <div class="excel-top-margin-12" *ngIf="isWidgetLayoutOptionsDisabled">
+                <aux-checkbox
+                    label="Freeze column headers"
+                    [isChecked]="this.exportConfig.freezeColumnHeaders"
+                    (checkboxChanged)="updateFreezeColumnHeadersValue($event)">
+                </aux-checkbox>
+            </div>
+            <div class="excel-top-margin-12">
+                <aux-checkbox
+                    label="Suppress row shading"
+                    [isChecked]="this.exportConfig.suppressRowShading"
+                    (checkboxChanged)="updateSuppressRowShading($event)">
+                </aux-checkbox>
+            </div>
+            <div class="excel-top-margin-12">
+                <aux-checkbox
+                    label="Use merged cell footer"
+                    [isChecked]="this.exportConfig.useMergedCellFooter"
+                    (checkboxChanged)="updateUseMergedCellFooterValue($event)">
+                </aux-checkbox>
+            </div>
+            <div class="excel-top-margin-12 excel-bottom-margin-10" [ngClass]="{'awc-timestamp-container' : isAWC}">
+                <aux-checkbox
+                    label="Append timestamp to file name"
+                    [isChecked]="this.exportConfig.appendTimestamp"
+                    (checkboxChanged)="onAppendTimestampChanged($event)">
+                </aux-checkbox>
+                <div class="export-options-append-filename-warning" *ngIf="isAWC && !this.exportConfig.appendTimestamp">
+                    <aux-icon class="filename-warning-icon" type="info" state="primary"></aux-icon>
+                    Explore will fail if a file of the same name is open while exporting
+                </div>
+            </div>
+            <div class="excel-top-margin-12 excel-bottom-margin-10" *ngIf="this.showTimePeriodSheetName">
+                <aux-checkbox
+                    label="Include time period in sheet name"
+                    [isChecked]="this.exportConfig.includeTimePeriod"
+                    (checkboxChanged)="updateIncludeTimePeriod($event)">
+                </aux-checkbox>
+            </div>
+        </div>
+    </div>
+</div>

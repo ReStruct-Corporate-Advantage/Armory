@@ -1,0 +1,5 @@
+<div *ngIf="alertCount > 0" style="display: inline-flex; justify-content: center">
+    <aux-icon [type]="'loading'" state="tertiary-button" set-focused-styling></aux-icon>
+    <span style="margin-left: 4px; margin-top: 2px; margin-right: 2px;">{{alertMessage}}</span>
+</div>
+<aux-notification-group type="toast" #toastNotification></aux-notification-group>

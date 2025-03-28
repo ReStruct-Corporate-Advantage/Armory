@@ -1,0 +1,91 @@
+parameters:
+  - name: rc
+    displayName: Is release candidate build
+    type: boolean
+    default: false
+  - name: clean
+    displayName: Clean Build, skip cache download
+    type: boolean
+    default: false
+  - name: fail_on_quality_gate
+    type: boolean
+    default: false
+  - name: cd_envs
+    displayName: Continuous Delivery Environments
+    type: object
+    default:
+      - DEV
+  # to run pipeline with intention to publish(release branches and RCs) or quality checks (feature branches/PRs)
+  - name: mode
+    type: string
+    default: 'quality'
+    values: [ 'quality', 'publish' ]
+  - name: manifest_files
+    displayName: List of manifest files for packaging
+    type: object
+    default: [ ]
+  #npm specific parameters
+  - name: npm_root
+    displayName: Package Json location
+    type: string
+    default: ./explore-ui
+  - name: commands
+    type: object
+    default: [ 'ci', 'run build.prod', 'run test.ci' ]
+  - name: pre_post_steps
+    type: object
+    default:
+      pre_npm_build: {}
+      post_npm_build: {}
+  - name: npm_version
+    type: string
+    default: v16
+  - name: npm_publish
+    type: string
+    default: publish
+  - name: npm_cache_key
+    type: string
+    default: '**/package-lock.json'
+  - name: access_token
+    displayName: Access Token
+    type: string
+    default: null
+  - name: build_env
+    type: object
+    default: { NPM_CONFIG_LEGACY_PEER_DEPS: true }
+    displayName: Additional environment for build commands
+
+stages:
+  - template: common/common-setup-template.yml@templates
+    parameters:
+      rc: ${{ parameters.rc }}
+      mode: ${{ parameters.mode }}
+      manifest_files: ${{ parameters.manifest_files }}
+      clean: ${{ parameters.clean }}
+      cd_envs: ${{ parameters.cd_envs }}
+      npm_root: ${{ parameters.npm_root }}
+      fast_checkout: true
+  - template: npm/npm-release-staging-template.yml@templates
+  - template: npm/npm-build-template.yml@templates
+    parameters:
+      parallel_build: true
+      npm_version: ${{ parameters.npm_version }}
+      build_env: ${{ parameters.build_env }}
+      use_npm_cache: false
+      use_node_modules_cache: false
+      use_cypress_cache: false
+      use_yarn_cache: false
+      parallel_stages:
+        - name: Test
+          pre_post_steps:
+            pre_npm_test: { }
+            post_npm_test:
+              - task: PublishCucumberReport@1
+                condition: succeededOrFailed()
+                inputs:
+                  jsonDir: $(System.DefaultWorkingDirectory)/explore-ui/cypress/test-reports
+                  outputPath: explore-ui/cypress/test-reports
+                  theme: bootstrap
+                  reportSuiteAsScenarios: true
+                  name: "Cucumber Tests"
+          commands: [ 'ci', 'run test.ci' ]

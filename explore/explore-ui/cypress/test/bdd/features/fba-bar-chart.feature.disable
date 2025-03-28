@@ -1,0 +1,23 @@
+Feature: Visual Comparison tests for bar chart
+
+    Background:
+        Given "Factor Based Analysis" with default settings is added to a report for portfolio "SNP100" with date "20230202"
+
+    Scenario: Validate FBA bar chart with combo settings (chart type and secondary axis settings)
+        When I right click on "SNP100" cell to open context menu, hover on "Open Chart", then click on "Bar chart"
+        # Remove the FBA widget so that it does not appear in the snapshot testing for the FBA bar chart.
+        And I delete "Factor Based Analysis" widget
+        And I maximize "Bar chart" widget
+        Then "Bar chart" should be displayed, aligning with the snapshot "fbaBarChart_SNP100"
+
+        When I open widget settings modal from "Bar chart"
+        And I click format tab
+        And I click secondary axis checkbox for column "2" (CHECK)
+        And I apply widget settings
+        Then "Bar chart" should be displayed, aligning with the snapshot "fbaBarChart_SNP100_with_secondary_axis"
+
+        When I open widget settings modal from "Bar chart"
+        And I click format tab
+        And I select chart type "Marker" for column "2"
+        And I apply widget settings
+        Then "Bar chart" should be displayed, aligning with the snapshot "fbaBarChart_SNP100_with_marker_and_secondary_axis"

@@ -1,0 +1,36 @@
+Feature: Visual Comparison tests for Date Picker
+
+    Background:
+        Given "Risk and Exposure" with default settings is added to a report for portfolio "SNP100" with date "20230202"   
+
+    Scenario: Validate date Picker selecting date from calendar
+        When I set the Explore portfolio date from calendar as "03/10/2023"  
+        And Reload Now Button Appears in the Explore
+        And I click on Reload Now Button
+        Then Verify The date is changed to "03/10/2023" and Calendar to "United States" in date picker    
+
+    Scenario: Validate date Picker in Explore with absolute dates
+        When I set the Explore portfolio date as "01/02/2023"
+        And Reload Now Button Appears in the Explore
+        And I click on Reload Now Button
+        Then Verify The date is changed to "01/02/2023" and Calendar to "United States" in date picker
+
+    Scenario: Validate date Picker in Explore with relative dates
+        When I set the Explore portfolio date as "T-1"   
+        And Reload Now Button Appears in the Explore
+        And I click on Reload Now Button
+        Then Verify The date is changed to "07/15/2024" and Calendar to "United States" in date picker
+
+    Scenario: Validate date Picker in Explore with relative dates
+        When I set the Explore portfolio date as "T-7"   
+        And Reload Now Button Appears in the Explore
+        And I click on Reload Now Button
+        Then Verify The date is changed to "07/05/2024" and Calendar to "United States" in date picker
+
+    Scenario: Validate date Picker in Explore different calander with Holidays
+        When I set the Explore portfolio date as "T-1" 
+        And Select calendar as "'US NYSE'"
+        And I set the Explore portfolio date as "T-8"
+        And Reload Now Button Appears in the Explore
+        And I click on Reload Now Button
+        Then Verify The date is changed to "07/03/2024" and Calendar to "US NYSE" in date picker

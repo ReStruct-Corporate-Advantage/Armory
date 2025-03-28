@@ -1,0 +1,20 @@
+<div>
+    <div class="horizon-label--container">
+        <span>{{HORIZON_LABEL}}</span>
+        <aux-popover [trigger]="'hover'">
+            <aux-button
+                [type]="AuxButtonTypeEnum.TERTIARY_SUBTLE"
+                [icon]="'info-bold'"
+                [slot]="'target'">
+            </aux-button>
+            <div [slot]="'content'">
+                <span>Time Horizon refers to the length of cashflow projection displayed.</span>
+            </div>
+        </aux-popover>
+    </div>
+    <aux-numeric-stepper [stepperValue]="widgetInput.horizon"
+                         [minValue]=1
+                         [maxValue]=20
+                         (valueChanged)="onNumericValueChange($event)">
+    </aux-numeric-stepper>
+</div>

@@ -1,0 +1,209 @@
+{
+  "configType": "pgsWidget",
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "description": "The Portfolio Group Summary Widget performs summary reporting on a group of portfolios. It displays portfolio groups broken out by portfolios, with metrics like portfolio risk and total returns shown at each level of the portfolio group tree.",
+  "title": "Portfolio Group Summary",
+  "image": ".\/assets\/images\/PGS.png",
+  "showOnlySingleColumn": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showInSelector": true,
+  "canHaveMultipleOverrideDates": true,
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "MULTI_REPORT",
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "reportTypes",
+              "value": [
+                "MULTI",
+                "RETATT",
+                "EXPOST"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnType",
+              "value": "FACTOR_ATTRIBUTES"
+            },
+            {
+              "type": "!=",
+              "key": "groups",
+              "value": [
+                "Factor-Based",
+                "Scenario",
+                "GP Breakdown",
+                "Liquidity"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            },
+            {
+              "type": "!=",
+              "key": "columnReports",
+              "value": [
+                "factor_attrib_dd",
+                "factor_attrib_resid",
+                "prism_custom_cal",
+                "explore_filter"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "columnTag",
+              "value": [
+                "pnl_benchmark",
+                "pnl_SectorDesc",
+                "pnl_SectorOrder",
+                "pnl_SectorPath",
+                "pnl_ccy",
+                "pnl_cusip",
+                "pnl_id",
+                "pnl_isin",
+                "pnl_sec_desc",
+                "pnl_sec_group",
+                "pnl_sec_type",
+                "pnl_sedol",
+                "pnl_strategy_path",
+                "pnl_ticker"
+              ]
+            }
+          ],
+          "default": [
+            {
+              "columnTag": "portfolio",
+              "positionColumnType": "ALL",
+              "columnKey": "portfolio"
+            },
+            {
+              "columnTag": "nav_group",
+              "positionColumnType": "PORT",
+              "columnKey": "nav_group_0"
+            },
+            {
+              "columnTag": "pct_nav_group",
+              "positionColumnType": "PORT",
+              "columnKey": "pct_nav_group_1"
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnTag": "portfolio",
+              "positionColumnType": "ALL",
+              "columnKey": "portfolio_hidden"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "customFilter",
+          "inputName": "filter",
+          "otherNames": [
+            "customFilter"
+          ],
+          "inputTitle": "Advanced filtering",
+          "default": {},
+          "valueField": "columnTag",
+          "disableNormalized": false,
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "normalizedFlag",
+          "inputName": "normalizedWidgetFilter",
+          "otherNames": [
+            "normalizedFlag"
+          ],
+          "inputTitle": "Test",
+          "default": {
+            "data": false
+          }
+        }
+      ]
+    },
+    {
+      "categoryType": "additionalSettings",
+      "categoryTitle": "Additional Settings",
+      "inputs": [
+        {
+          "inputConfigType": "suppressRootNodeAggregation",
+          "inputName": "suppressRootNodeAggregation",
+          "inputTitle": "Suppress root node",
+          "default": {
+            "suppressRootNodeAggregation": false
+          },
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "overrideDateSortByOldest",
+          "inputName": "overrideDateSortByOldest",
+          "inputTitle": "Date override sort order",
+          "default": {
+            "sortByOldest": false
+          },
+          "isOpen": true,
+          "ignoreNestedDataObject": true
+        }
+      ]
+    },
+    {
+      "categoryType": "expandedState",
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "expandedState",
+          "inputName": "expandedState",
+          "default": {
+            "allExpanded": true
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultSortedColumns"
+    }
+  ],
+  "customCalculationColumn": {
+    "$ref": "customCalculationColumn"
+  },
+  "pgsCustomCalculationColumn": {
+    "$ref": "pgsCustomCalculationColumn"
+  },
+  "customCoverageColumn": {
+    "$ref": "customCoverageColumn"
+  },
+  "styleAnalysis": {
+    "$ref": "styleAnalysis"
+  },
+  "restrictedColumnOptions": {
+    "sections": [
+      "aggregation",
+      "chartType",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "agGrid",
+  "chartTransition": [
+    "pgsBar"
+  ]
+}

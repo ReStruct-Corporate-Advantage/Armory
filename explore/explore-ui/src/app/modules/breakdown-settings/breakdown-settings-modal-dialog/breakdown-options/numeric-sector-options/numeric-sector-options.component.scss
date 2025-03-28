@@ -1,0 +1,81 @@
+.numeric-sector-options {
+    .sector-mode-setup-container {
+        .selector-label {
+            margin-bottom: .5rem;
+        }
+
+        .bucket-value-container {
+            margin-top: .5rem;
+
+            .quantile-mode-section {
+                .quantile-buckets-section, .quantile-breakpoints-section {
+                    display: flex;
+                    align-items: center;
+
+                    aux-radio {
+                        width: 40%;
+                    }
+
+                    margin-top: 16px;
+
+                    aux-numeric-stepper, aux-text-input {
+                        margin-left: auto;
+                        width: 100%
+                    }
+                }
+
+                .quantile-buckets-section {
+                    display: inline-block;
+                    padding-right: 20px;
+
+                    aux-radio {
+                        margin-right: 16px;
+                    }
+                }
+
+                .quantile-breakpoints-section {
+                    display: inline-block;
+                    aux-radio {
+                        margin-right: 16px;
+                    }
+                    margin-top: 0.5rem;
+                }
+
+
+                .base-quantile-on-section {
+                    margin-top: 16px;
+                }
+
+                .base-quantile-on-weight-section {
+                    font-weight: bold;
+                    display: inline-block;
+                }
+
+                .create-quantile-from-section {
+                    margin-top: 16px;
+                }
+
+                .quantile-options-section {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    .bucket-label-prefix {
+        display: inline-block;
+        padding-right: 20px;
+    }
+
+    .decimal-points {
+        display: inline-block;
+    }
+}
+
+.numeric-sector-options > * {
+    margin-bottom: 16px;
+}
+
+.numeric-sector-options > *:last-child {
+    margin-bottom: 0;
+}

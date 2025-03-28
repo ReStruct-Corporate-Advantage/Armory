@@ -1,0 +1,630 @@
+{
+  "splitColumnKeys": {
+    "market_val": [
+      {
+        "header": "Before",
+        "originalKey": "market_val",
+        "updatedKeySuffix": "before",
+        "updatedKey": "market_val_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "market_val",
+        "updatedKeySuffix": "after",
+        "updatedKey": "market_val_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "market_val",
+        "updatedKeySuffix": "change",
+        "updatedKey": "market_val_change"
+      }
+    ],
+    "quantity": [
+      {
+        "header": "Before",
+        "originalKey": "quantity",
+        "updatedKeySuffix": "before",
+        "updatedKey": "quantity_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "quantity",
+        "updatedKeySuffix": "after",
+        "updatedKey": "quantity_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "quantity",
+        "updatedKeySuffix": "change",
+        "updatedKey": "quantity_change"
+      }
+    ],
+    "notional_mv": [
+      {
+        "header": "Before",
+        "originalKey": "notional_mv",
+        "updatedKeySuffix": "before",
+        "updatedKey": "notional_mv_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "notional_mv",
+        "updatedKeySuffix": "after",
+        "updatedKey": "notional_mv_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "notional_mv",
+        "updatedKeySuffix": "change",
+        "updatedKey": "notional_mv_change"
+      }
+    ],
+    "pct_notional_val": [
+      {
+        "header": "Before",
+        "originalKey": "pct_notional_val",
+        "updatedKeySuffix": "before",
+        "updatedKey": "pct_notional_val_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "pct_notional_val",
+        "updatedKeySuffix": "after",
+        "updatedKey": "pct_notional_val_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "pct_notional_val",
+        "updatedKeySuffix": "change",
+        "updatedKey": "pct_notional_val_change"
+      }
+    ],
+    "pct_mv": [
+      {
+        "header": "Before",
+        "originalKey": "pct_mv",
+        "updatedKeySuffix": "before",
+        "updatedKey": "pct_mv_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "pct_mv",
+        "updatedKeySuffix": "after",
+        "updatedKey": "pct_mv_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "pct_mv",
+        "updatedKeySuffix": "change",
+        "updatedKey": "pct_mv_change"
+      }
+    ]
+  },
+  "footerDetails": {
+    "PUBLISH_TIME": 0
+  },
+  "data": {
+    "data": [
+      null,
+      null,
+      1,
+      1,
+      0,
+      117799477.40246001,
+      117799477.40246001,
+      0,
+      1,
+      1,
+      0,
+      117799477.40246001,
+      117799477.40246001,
+      0,
+      86666962.56,
+      86666962.56,
+      0
+    ],
+    "children": [
+      {
+        "title": "Treasuries",
+        "data": [
+          null,
+          null,
+          0.8342218890472584,
+          0.8342218890472584,
+          0,
+          98270902.56746,
+          98270902.56746,
+          0,
+          0.8342218890472584,
+          0.8342218890472584,
+          0,
+          98270902.56746,
+          98270902.56746,
+          0,
+          73107000,
+          73107000,
+          0
+        ],
+        "children": [
+          {
+            "data": [
+              "B07056136",
+              "AUSTRALIA  (COMMONWEALTH OF) RegS",
+              0.16461216156970027,
+              0.16461216156970027,
+              0,
+              19391226.607,
+              19391226.607,
+              0,
+              0.16461216156970027,
+              0.16461216156970027,
+              0,
+              19391226.607,
+              19391226.607,
+              0,
+              10580000,
+              10580000,
+              0
+            ],
+            "rowId": 3
+          },
+          {
+            "data": [
+              "BRS8TFN86",
+              "AUSTRALIA  (COMMONWEALTH OF) RegS",
+              0.18435561885010948,
+              0.18435561885010948,
+              0,
+              21716995.556750003,
+              21716995.556750003,
+              0,
+              0.18435561885010948,
+              0.18435561885010948,
+              0,
+              21716995.556750003,
+              21716995.556750003,
+              0,
+              15275000,
+              15275000,
+              0
+            ],
+            "rowId": 4
+          },
+          {
+            "data": [
+              "BRSAML5S1",
+              "AUSTRALIA (COMMONWEALTH OF) RegS",
+              0.11942391032463287,
+              0.11942391032463287,
+              0,
+              14068074.2256,
+              14068074.2256,
+              0,
+              0.11942391032463287,
+              0.11942391032463287,
+              0,
+              14068074.2256,
+              14068074.2256,
+              0,
+              9840000,
+              9840000,
+              0
+            ],
+            "rowId": 5
+          },
+          {
+            "data": [
+              "BRSE35UJ1",
+              "AUSTRALIA (COMMONWEALTH OF) RegS",
+              0.11980271573518277,
+              0.11980271573518277,
+              0,
+              14112697.305000002,
+              14112697.305000002,
+              0,
+              0.11980271573518277,
+              0.11980271573518277,
+              0,
+              14112697.305000002,
+              14112697.305000002,
+              0,
+              12110000,
+              12110000,
+              0
+            ],
+            "rowId": 6
+          },
+          {
+            "data": [
+              "BRSKPGB27",
+              "AUSTRALIA COMMONWEALTH OF (GOVERN RegS",
+              0.09168713757540362,
+              0.09168713757540362,
+              0,
+              10800696.89091,
+              10800696.89091,
+              0,
+              0.09168713757540362,
+              0.09168713757540362,
+              0,
+              10800696.89091,
+              10800696.89091,
+              0,
+              8347000,
+              8347000,
+              0
+            ],
+            "rowId": 7
+          },
+          {
+            "data": [
+              "BRSN40ZL1",
+              "AUSTRALIA  (COMMONWEALTH OF) RegS",
+              0.015166145621310636,
+              0.015166145621310636,
+              0,
+              1786564.0284,
+              1786564.0284,
+              0,
+              0.015166145621310636,
+              0.015166145621310636,
+              0,
+              1786564.0284,
+              1786564.0284,
+              0,
+              1640000,
+              1640000,
+              0
+            ],
+            "rowId": 8
+          },
+          {
+            "data": [
+              "BRSV61DD1",
+              "AUSTRALIA (COMMONWEALTH OF) RegS",
+              0.07068402332509938,
+              0.07068402332509938,
+              0,
+              8326541.008400001,
+              8326541.008400001,
+              0,
+              0.07068402332509938,
+              0.07068402332509938,
+              0,
+              8326541.008400001,
+              8326541.008400001,
+              0,
+              7445000,
+              7445000,
+              0
+            ],
+            "rowId": 9
+          },
+          {
+            "data": [
+              "BRTC6Q4Z8",
+              "AUSTRALIA (COMMONWEALTH OF) RegS",
+              0.0684901760458193,
+              0.0684901760458193,
+              0,
+              8068106.9454,
+              8068106.9454,
+              0,
+              0.0684901760458193,
+              0.0684901760458193,
+              0,
+              8068106.9454,
+              8068106.9454,
+              0,
+              7870000,
+              7870000,
+              0
+            ],
+            "rowId": 10
+          }
+        ],
+        "rowId": 2,
+        "sectorOrder": 0
+      },
+      {
+        "title": "Government Related",
+        "data": [
+          null,
+          null,
+          0.1649719735903868,
+          0.1649719735903868,
+          0,
+          19433612.275000002,
+          19433612.275000002,
+          0,
+          0.1649719735903868,
+          0.1649719735903868,
+          0,
+          19433612.275000002,
+          19433612.275000002,
+          0,
+          13465000,
+          13465000,
+          0
+        ],
+        "children": [
+          {
+            "title": "Local Authority",
+            "data": [
+              null,
+              null,
+              0.1649719735903868,
+              0.1649719735903868,
+              0,
+              19433612.275000002,
+              19433612.275000002,
+              0,
+              0.1649719735903868,
+              0.1649719735903868,
+              0,
+              19433612.275000002,
+              19433612.275000002,
+              0,
+              13465000,
+              13465000,
+              0
+            ],
+            "children": [
+              {
+                "data": [
+                  "B0A03ZUR5",
+                  "TREASURY CORP VICTORIA",
+                  0.0007378131203677563,
+                  0.0007378131203677563,
+                  0,
+                  86914.00000000001,
+                  86914.00000000001,
+                  0,
+                  0.0007378131203677563,
+                  0.0007378131203677563,
+                  0,
+                  86914.00000000001,
+                  86914.00000000001,
+                  0,
+                  200000,
+                  200000,
+                  0
+                ],
+                "rowId": 13
+              },
+              {
+                "data": [
+                  "B0A03ZUY0",
+                  "TREASURY CORP VICTORIA",
+                  0.0012423229985988366,
+                  0.0012423229985988366,
+                  0,
+                  146345,
+                  146345,
+                  0,
+                  0.0012423229985988366,
+                  0.0012423229985988366,
+                  0,
+                  146345,
+                  146345,
+                  0,
+                  100000,
+                  100000,
+                  0
+                ],
+                "rowId": 14
+              },
+              {
+                "data": [
+                  "BRS29RA89",
+                  "QUEENSLAND TREASURY CORP",
+                  0.020179186295357532,
+                  0.020179186295357532,
+                  0,
+                  2377097.6,
+                  2377097.6,
+                  0,
+                  0.020179186295357532,
+                  0.020179186295357532,
+                  0,
+                  2377097.6,
+                  2377097.6,
+                  0,
+                  1520000,
+                  1520000,
+                  0
+                ],
+                "rowId": 15
+              },
+              {
+                "data": [
+                  "BRS5SV448",
+                  "NEW SOUTH WALES TREASURY CORP",
+                  0.07570066265687674,
+                  0.07570066265687674,
+                  0,
+                  8917498.5,
+                  8917498.5,
+                  0,
+                  0.07570066265687674,
+                  0.07570066265687674,
+                  0,
+                  8917498.5,
+                  8917498.5,
+                  0,
+                  6100000,
+                  6100000,
+                  0
+                ],
+                "rowId": 16
+              },
+              {
+                "data": [
+                  "BRS61MQA7",
+                  "NEW SOUTH WALES TREASURY CORP",
+                  0.03829006799911157,
+                  0.03829006799911157,
+                  0,
+                  4510550,
+                  4510550,
+                  0,
+                  0.03829006799911157,
+                  0.03829006799911157,
+                  0,
+                  4510550,
+                  4510550,
+                  0,
+                  2950000,
+                  2950000,
+                  0
+                ],
+                "rowId": 17
+              },
+              {
+                "data": [
+                  "BRS8MCZ46",
+                  "NEW SOUTH WALES TREASURY CORP",
+                  0.028821920520074377,
+                  0.028821920520074377,
+                  0,
+                  3395207.175,
+                  3395207.175,
+                  0,
+                  0.028821920520074377,
+                  0.028821920520074377,
+                  0,
+                  3395207.175,
+                  3395207.175,
+                  0,
+                  2595000,
+                  2595000,
+                  0
+                ],
+                "rowId": 18
+              }
+            ],
+            "rowId": 12,
+            "sectorOrder": 0
+          }
+        ],
+        "rowId": 11,
+        "sectorOrder": 1
+      },
+      {
+        "title": "Cash Securities",
+        "data": [
+          null,
+          null,
+          0.0008061373623548596,
+          0.0008061373623548596,
+          0,
+          94962.56,
+          94962.56,
+          0,
+          0.0008061373623548596,
+          0.0008061373623548596,
+          0,
+          94962.56,
+          94962.56,
+          0,
+          94962.56,
+          94962.56,
+          0
+        ],
+        "children": [
+          {
+            "title": "Other",
+            "data": [
+              null,
+              null,
+              0.0008061373623548596,
+              0.0008061373623548596,
+              0,
+              94962.56,
+              94962.56,
+              0,
+              0.0008061373623548596,
+              0.0008061373623548596,
+              0,
+              94962.56,
+              94962.56,
+              0,
+              94962.56,
+              94962.56,
+              0
+            ],
+            "children": [
+              {
+                "data": [
+                  "AUD_CCASH",
+                  "AUD CASH(Alpha Committed)",
+                  0.0008061373623548596,
+                  0.0008061373623548596,
+                  0,
+                  94962.56,
+                  94962.56,
+                  0,
+                  0.0008061373623548596,
+                  0.0008061373623548596,
+                  0,
+                  94962.56,
+                  94962.56,
+                  0,
+                  94962.56,
+                  94962.56,
+                  0
+                ],
+                "rowId": 21
+              }
+            ],
+            "rowId": 20,
+            "sectorOrder": 0
+          }
+        ],
+        "rowId": 19,
+        "sectorOrder": 2
+      }
+    ],
+    "rowId": 1
+  },
+  "columnHeaderDetails": {
+    "columnKeyToDisplayNameMap": {
+      "sec_desc": "Description",
+      "cusip": "CUSIP",
+      "quantity": "Quantity",
+      "market_val": "Market Value",
+      "notional_mv": "Notional Market Value",
+      "pct_notional_val": "Notional Market Value %",
+      "pct_mv": "Market Value %"
+    },
+    "columnKeyToTagMap": {
+      "sec_desc": "sec_desc",
+      "cusip": "cusip",
+      "quantity": "quantity",
+      "market_val": "market_val",
+      "notional_mv": "notional_mv",
+      "pct_notional_val": "pct_notional_val",
+      "pct_mv": "pct_mv"
+    }
+  },
+  "columns": [
+    "cusip",
+    "sec_desc",
+    "pct_mv_before",
+    "pct_mv_after",
+    "pct_mv_change",
+    "notional_mv_before",
+    "notional_mv_after",
+    "notional_mv_change",
+    "pct_notional_val_before",
+    "pct_notional_val_after",
+    "pct_notional_val_change",
+    "market_val_before",
+    "market_val_after",
+    "market_val_change",
+    "quantity_before",
+    "quantity_after",
+    "quantity_change"
+  ]
+}

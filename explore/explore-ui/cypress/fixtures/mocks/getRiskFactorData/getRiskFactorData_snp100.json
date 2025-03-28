@@ -1,0 +1,2841 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 0
+        },
+        "data": {
+          "data": [
+            "Total",
+            "",
+            null,
+            null,
+            null,
+            0.20547948663203575,
+            0.20547948663203552,
+            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__5",
+            "Total",
+            ""
+          ],
+          "children": [
+            {
+              "title": "Equity",
+              "data": [
+                "Equity",
+                "",
+                null,
+                null,
+                99.99465838668547,
+                0.20547948663203575,
+                0.20547948663203552,
+                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ",
+                "Equity",
+                "_BRS_GOLD__5_EQ"
+              ],
+              "children": [
+                {
+                  "title": "Stock Return Based",
+                  "data": [
+                    "Stock Return Based",
+                    "",
+                    null,
+                    null,
+                    99.99465838668547,
+                    0.20547948663203575,
+                    0.20547948663203552,
+                    "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL",
+                    "Stock Return Based",
+                    "~ALL"
+                  ],
+                  "children": [
+                    {
+                      "title": "Communication Services",
+                      "data": [
+                        "Communication Services",
+                        "",
+                        null,
+                        null,
+                        11.603871715811172,
+                        0.03611309825148126,
+                        0.030428449541178702,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services",
+                        "Communication Services",
+                        "~decode.GICS.2#Communication Services"
+                      ],
+                      "children": [
+                        {
+                          "title": "Cable & Satellite",
+                          "data": [
+                            "Cable & Satellite",
+                            "",
+                            null,
+                            null,
+                            0.9729116568758356,
+                            0.003108412562811387,
+                            0.0021558902520484695,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Cable & Satellite",
+                            "Cable & Satellite",
+                            "~decode.GICS.8#Cable & Satellite"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "COMCAST CORP CLASS A",
+                                "Index Level",
+                                39.451053378474896,
+                                2966.826297805443,
+                                0.7785241478421595,
+                                0.0023097459152946914,
+                                0.0015686519975582876,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Cable & Satellite:@20030N101",
+                                "COMCAST CORP CLASS A",
+                                "@20030N101"
+                              ],
+                              "rowId": 6
+                            },
+                            {
+                              "data": [
+                                "CHARTER COMMUNICATIONS INC CLASS A",
+                                "Index Level",
+                                415.76795830248534,
+                                4955.981630883422,
+                                0.19438750903367608,
+                                9.63380924044084E-4,
+                                5.872382544901818E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Cable & Satellite:@16119P108",
+                                "CHARTER COMMUNICATIONS INC CLASS A",
+                                "@16119P108"
+                              ],
+                              "rowId": 7
+                            }
+                          ],
+                          "rowId": 5,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Integrated Telecommunication Services",
+                          "data": [
+                            "Integrated Telecommunication Services",
+                            "",
+                            null,
+                            null,
+                            1.4056858768718548,
+                            0.0031251589834588402,
+                            0.0017704302155700585,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Integrated Telecommunication Services",
+                            "Integrated Telecommunication Services",
+                            "~decode.GICS.8#Integrated Telecommunication Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "VERIZON COMMUNICATIONS INC",
+                                "Index Level",
+                                38.5604310272998,
+                                2285.985943854813,
+                                0.7711987663637367,
+                                0.001762949539825674,
+                                7.265517158475112E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Integrated Telecommunication Services:@92343V104",
+                                "VERIZON COMMUNICATIONS INC",
+                                "@92343V104"
+                              ],
+                              "rowId": 9
+                            },
+                            {
+                              "data": [
+                                "AT&T INC",
+                                "Index Level",
+                                19.095542962717442,
+                                2797.073189908388,
+                                0.6344871105081179,
+                                0.0017747068861446974,
+                                0.0010438784997225472,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Integrated Telecommunication Services:@00206R102",
+                                "AT&T INC",
+                                "@00206R102"
+                              ],
+                              "rowId": 10
+                            }
+                          ],
+                          "rowId": 8,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Interactive Media & Services",
+                          "data": [
+                            "Interactive Media & Services",
+                            "",
+                            null,
+                            null,
+                            7.2172788294773,
+                            0.02870143095837479,
+                            0.02096125945183542,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Interactive Media & Services",
+                            "Interactive Media & Services",
+                            "~decode.GICS.8#Interactive Media & Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "META PLATFORMS INC CLASS A",
+                                "Index Level",
+                                186.38021890051087,
+                                6357.147268759945,
+                                1.863404682368765,
+                                0.01184593798711509,
+                                0.006656186123885652,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Interactive Media & Services:@30303M102",
+                                "META PLATFORMS INC CLASS A",
+                                "@30303M102"
+                              ],
+                              "rowId": 12
+                            },
+                            {
+                              "data": [
+                                "ALPHABET INC CLASS C",
+                                "Index Level",
+                                108.08086253259287,
+                                3530.4612928840033,
+                                2.528879817670562,
+                                0.008928112310641475,
+                                0.006751987700430852,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Interactive Media & Services:@SBYY88Y78",
+                                "ALPHABET INC CLASS C",
+                                "@SBYY88Y78"
+                              ],
+                              "rowId": 13
+                            },
+                            {
+                              "data": [
+                                "ALPHABET INC CLASS A",
+                                "Index Level",
+                                106.81958398614995,
+                                3501.016855734952,
+                                2.8249943294379727,
+                                0.009890352764718,
+                                0.007553085627518915,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Interactive Media & Services:@02079K305",
+                                "ALPHABET INC CLASS A",
+                                "@02079K305"
+                              ],
+                              "rowId": 14
+                            }
+                          ],
+                          "rowId": 11,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Movies & Entertainment",
+                          "data": [
+                            "Movies & Entertainment",
+                            "",
+                            null,
+                            null,
+                            1.622753855056474,
+                            0.006774928800002686,
+                            0.005162667246329614,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Movies & Entertainment",
+                            "Movies & Entertainment",
+                            "~decode.GICS.8#Movies & Entertainment"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "WALT DISNEY",
+                                "Index Level",
+                                108.8933026496433,
+                                3857.219115841599,
+                                0.9060107916325428,
+                                0.003494682144643824,
+                                0.002492920005824294,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Movies & Entertainment:@254687106",
+                                "WALT DISNEY",
+                                "@254687106"
+                              ],
+                              "rowId": 16
+                            },
+                            {
+                              "data": [
+                                "NETFLIX INC",
+                                "Index Level",
+                                373.179348840081,
+                                5566.472079093768,
+                                0.7167430634239311,
+                                0.003989730250433446,
+                                0.0026697472405053197,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Movies & Entertainment:@64110L106",
+                                "NETFLIX INC",
+                                "@64110L106"
+                              ],
+                              "rowId": 17
+                            }
+                          ],
+                          "rowId": 15,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Wireless Telecommunication Services",
+                          "data": [
+                            "Wireless Telecommunication Services",
+                            "",
+                            null,
+                            null,
+                            0.3852414975297102,
+                            8.813901177081586E-4,
+                            3.7820237539513843E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Wireless Telecommunication Services",
+                            "Wireless Telecommunication Services",
+                            "~decode.GICS.8#Wireless Telecommunication Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "T MOBILE US INC",
+                                "Index Level",
+                                145.809420926942,
+                                2287.8898648248164,
+                                0.3852414975297102,
+                                8.813901177081586E-4,
+                                3.7820237539513843E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Communication Services:~decode.GICS.8#Wireless Telecommunication Services:@872590104",
+                                "T MOBILE US INC",
+                                "@872590104"
+                              ],
+                              "rowId": 19
+                            }
+                          ],
+                          "rowId": 18,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 4,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Consumer Discretionary",
+                      "data": [
+                        "Consumer Discretionary",
+                        "",
+                        null,
+                        null,
+                        11.783264185962585,
+                        0.041804059540475426,
+                        0.036694048262589596,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary",
+                        "Consumer Discretionary",
+                        "~decode.GICS.2#Consumer Discretionary"
+                      ],
+                      "children": [
+                        {
+                          "title": "Automobile Manufacturers",
+                          "data": [
+                            "Automobile Manufacturers",
+                            "",
+                            null,
+                            null,
+                            2.7254340040782323,
+                            0.019158524152458806,
+                            0.011591207577684675,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Automobile Manufacturers",
+                            "Automobile Manufacturers",
+                            "~decode.GICS.8#Automobile Manufacturers"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "FORD MOTOR CO",
+                                "Index Level",
+                                12.97096004670074,
+                                4667.897383321971,
+                                0.248284063676371,
+                                0.0011589645311554776,
+                                8.857706353654554E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Automobile Manufacturers:@345370860",
+                                "FORD MOTOR CO",
+                                "@345370860"
+                              ],
+                              "rowId": 22
+                            },
+                            {
+                              "data": [
+                                "GENERAL MOTORS",
+                                "Index Level",
+                                40.707840695638744,
+                                4111.575219177957,
+                                0.2588198937282866,
+                                0.0010641574612834954,
+                                7.832705655117251E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Automobile Manufacturers:@37045V100",
+                                "GENERAL MOTORS",
+                                "@37045V100"
+                              ],
+                              "rowId": 23
+                            },
+                            {
+                              "data": [
+                                "TESLA INC",
+                                "Index Level",
+                                193.90776887167834,
+                                8025.331757237099,
+                                2.2183300466735747,
+                                0.017802834571602692,
+                                0.009922166376807495,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Automobile Manufacturers:@88160R101",
+                                "TESLA INC",
+                                "@88160R101"
+                              ],
+                              "rowId": 24
+                            }
+                          ],
+                          "rowId": 21,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Broadline Retail",
+                          "data": [
+                            "Broadline Retail",
+                            "",
+                            null,
+                            null,
+                            4.3991659413919795,
+                            0.021872619573562135,
+                            0.01696074828664018,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Broadline Retail",
+                            "Broadline Retail",
+                            "~decode.GICS.8#Broadline Retail"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "AMAZON COM INC",
+                                "Index Level",
+                                114.24347403295101,
+                                4971.99238786642,
+                                4.3991659413919795,
+                                0.021872619573562135,
+                                0.01696074828664018,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Broadline Retail:@023135106",
+                                "AMAZON COM INC",
+                                "@023135106"
+                              ],
+                              "rowId": 26
+                            }
+                          ],
+                          "rowId": 25,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Footwear",
+                          "data": [
+                            "Footwear",
+                            "",
+                            null,
+                            null,
+                            0.713678719982276,
+                            0.0024852979586439026,
+                            0.001507105033179413,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Footwear",
+                            "Footwear",
+                            "~decode.GICS.8#Footwear"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "NIKE INC CLASS B",
+                                "Index Level",
+                                124.25147892169781,
+                                3482.3764378257265,
+                                0.713678719982276,
+                                0.0024852979586439026,
+                                0.001507105033179413,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Footwear:@654106103",
+                                "NIKE INC CLASS B",
+                                "@654106103"
+                              ],
+                              "rowId": 28
+                            }
+                          ],
+                          "rowId": 27,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Home Improvement Retail",
+                          "data": [
+                            "Home Improvement Retail",
+                            "",
+                            null,
+                            null,
+                            2.1307129002297702,
+                            0.005588390616490861,
+                            0.004078998680014223,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Home Improvement Retail",
+                            "Home Improvement Retail",
+                            "~decode.GICS.8#Home Improvement Retail"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "LOWES COMPANIES INC",
+                                "Index Level",
+                                217.88429976610564,
+                                2964.473383216343,
+                                0.6037010010442957,
+                                0.0017896555490168763,
+                                0.0012727157618742835,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Home Improvement Retail:@548661107",
+                                "LOWES COMPANIES INC",
+                                "@548661107"
+                              ],
+                              "rowId": 30
+                            },
+                            {
+                              "data": [
+                                "HOME DEPOT INC",
+                                "Index Level",
+                                327.602642552989,
+                                2564.7153586606796,
+                                1.5270118991854744,
+                                0.003916350870698599,
+                                0.0028062829181399397,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Home Improvement Retail:@437076102",
+                                "HOME DEPOT INC",
+                                "@437076102"
+                              ],
+                              "rowId": 31
+                            }
+                          ],
+                          "rowId": 29,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Hotels  Resorts & Cruise Lines",
+                          "data": [
+                            "Hotels  Resorts & Cruise Lines",
+                            "",
+                            null,
+                            null,
+                            0.41797791112828464,
+                            0.0014341630185063607,
+                            0.0011021230368971043,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Hotels  Resorts & Cruise Lines",
+                            "Hotels  Resorts & Cruise Lines",
+                            "~decode.GICS.8#Hotels  Resorts & Cruise Lines"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "BOOKING HOLDINGS INC",
+                                "Index Level",
+                                2377.0301858722687,
+                                3431.193324630476,
+                                0.41797791112828464,
+                                0.0014341630185063607,
+                                0.0011021230368971043,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Hotels  Resorts & Cruise Lines:@09857L108",
+                                "BOOKING HOLDINGS INC",
+                                "@09857L108"
+                              ],
+                              "rowId": 33
+                            }
+                          ],
+                          "rowId": 32,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Restaurants",
+                          "data": [
+                            "Restaurants",
+                            "",
+                            null,
+                            null,
+                            1.3962947091520423,
+                            0.0023680636975084426,
+                            0.0014538656481739953,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Restaurants",
+                            "Restaurants",
+                            "~decode.GICS.8#Restaurants"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "STARBUCKS CORP",
+                                "Index Level",
+                                103.95792441053335,
+                                2562.420961658872,
+                                0.550016718139952,
+                                0.0014093743678246324,
+                                8.530884774292167E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Restaurants:@855244109",
+                                "STARBUCKS CORP",
+                                "@855244109"
+                              ],
+                              "rowId": 35
+                            },
+                            {
+                              "data": [
+                                "MCDONALDS CORP",
+                                "Index Level",
+                                254.21832264656473,
+                                1772.2553430096946,
+                                0.8462779910120903,
+                                0.0014998206912426872,
+                                6.007771707447786E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Discretionary:~decode.GICS.8#Restaurants:@580135101",
+                                "MCDONALDS CORP",
+                                "@580135101"
+                              ],
+                              "rowId": 36
+                            }
+                          ],
+                          "rowId": 34,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 20,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Consumer Staples",
+                      "data": [
+                        "Consumer Staples",
+                        "",
+                        null,
+                        null,
+                        7.8118775847422395,
+                        0.011487803806339923,
+                        0.007835564854367216,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples",
+                        "Consumer Staples",
+                        "~decode.GICS.2#Consumer Staples"
+                      ],
+                      "children": [
+                        {
+                          "title": "Consumer Staples Merchandise Retail",
+                          "data": [
+                            "Consumer Staples Merchandise Retail",
+                            "",
+                            null,
+                            null,
+                            2.2725943396706914,
+                            0.005259099605019326,
+                            0.003980278950745136,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Consumer Staples Merchandise Retail",
+                            "Consumer Staples Merchandise Retail",
+                            "~decode.GICS.8#Consumer Staples Merchandise Retail"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "COSTCO WHOLESALE CORP",
+                                "Index Level",
+                                509.4917406883237,
+                                2858.9796309841963,
+                                1.0170025438670436,
+                                0.0029075895575749896,
+                                0.0021863990436202406,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Consumer Staples Merchandise Retail:@22160K105",
+                                "COSTCO WHOLESALE CORP",
+                                "@22160K105"
+                              ],
+                              "rowId": 39
+                            },
+                            {
+                              "data": [
+                                "WALMART INC",
+                                "Index Level",
+                                46.98618209402039,
+                                1933.125683682497,
+                                0.8898448410082584,
+                                0.0017201819166454326,
+                                8.925999636803469E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Consumer Staples Merchandise Retail:@931142103",
+                                "WALMART INC",
+                                "@931142103"
+                              ],
+                              "rowId": 40
+                            },
+                            {
+                              "data": [
+                                "TARGET CORP",
+                                "Index Level",
+                                166.71598970645476,
+                                3678.965516321861,
+                                0.36574695479538943,
+                                0.001345570434391968,
+                                9.012799434445486E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Consumer Staples Merchandise Retail:@87612E106",
+                                "TARGET CORP",
+                                "@87612E106"
+                              ],
+                              "rowId": 41
+                            }
+                          ],
+                          "rowId": 38,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Drug Retail",
+                          "data": [
+                            "Drug Retail",
+                            "",
+                            null,
+                            null,
+                            0.1188242080914515,
+                            3.008843554745249E-4,
+                            2.0580702315575058E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Drug Retail",
+                            "Drug Retail",
+                            "~decode.GICS.8#Drug Retail"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "WALGREEN BOOTS ALLIANCE INC",
+                                "Index Level",
+                                34.34548679672672,
+                                2532.1806078686686,
+                                0.1188242080914515,
+                                3.008843554745249E-4,
+                                2.0580702315575058E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Drug Retail:@931427108",
+                                "WALGREEN BOOTS ALLIANCE INC",
+                                "@931427108"
+                              ],
+                              "rowId": 43
+                            }
+                          ],
+                          "rowId": 42,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Household Products",
+                          "data": [
+                            "Household Products",
+                            "",
+                            null,
+                            null,
+                            1.74926357246566,
+                            0.0030764710612110136,
+                            0.0011663233677067907,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Household Products",
+                            "Household Products",
+                            "~decode.GICS.8#Household Products"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "COLGATE-PALMOLIVE",
+                                "Index Level",
+                                70.89132659829454,
+                                1656.5405681597888,
+                                0.27032741642575236,
+                                4.4780833199508367E-4,
+                                1.0057173144463133E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Household Products:@194162103",
+                                "COLGATE-PALMOLIVE",
+                                "@194162103"
+                              ],
+                              "rowId": 45
+                            },
+                            {
+                              "data": [
+                                "PROCTER & GAMBLE",
+                                "Index Level",
+                                136.45170448981233,
+                                1842.3822862677619,
+                                1.4789361560399077,
+                                0.002724765776408861,
+                                0.0010657516362621595,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Household Products:@742718109",
+                                "PROCTER & GAMBLE",
+                                "@742718109"
+                              ],
+                              "rowId": 46
+                            }
+                          ],
+                          "rowId": 44,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Packaged Foods & Meats",
+                          "data": [
+                            "Packaged Foods & Meats",
+                            "",
+                            null,
+                            null,
+                            0.5393893493167119,
+                            9.311102739974992E-4,
+                            3.8194848356737E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Packaged Foods & Meats",
+                            "Packaged Foods & Meats",
+                            "~decode.GICS.8#Packaged Foods & Meats"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "MONDELEZ INTERNATIONAL INC CLASS A",
+                                "Index Level",
+                                62.59742055951241,
+                                1752.481447053793,
+                                0.39961607906946867,
+                                7.003197645136255E-4,
+                                3.31848975091991E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Packaged Foods & Meats:@609207105",
+                                "MONDELEZ INTERNATIONAL INC CLASS A",
+                                "@609207105"
+                              ],
+                              "rowId": 48
+                            },
+                            {
+                              "data": [
+                                "KRAFT HEINZ",
+                                "Index Level",
+                                37.50846147960382,
+                                2153.40468664112,
+                                0.1397732702472433,
+                                3.0098841521756955E-4,
+                                5.009950847537901E-5,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Packaged Foods & Meats:@500754106",
+                                "KRAFT HEINZ",
+                                "@500754106"
+                              ],
+                              "rowId": 49
+                            }
+                          ],
+                          "rowId": 47,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Soft Drinks & Non-alcoholic Beverages",
+                          "data": [
+                            "Soft Drinks & Non-alcoholic Beverages",
+                            "",
+                            null,
+                            null,
+                            2.057878122340858,
+                            0.0031556270566267548,
+                            0.0012224084001408475,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Soft Drinks & Non-alcoholic Beverages",
+                            "Soft Drinks & Non-alcoholic Beverages",
+                            "~decode.GICS.8#Soft Drinks & Non-alcoholic Beverages"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "PEPSICO INC",
+                                "Index Level",
+                                162.5000745075305,
+                                1570.0839998261638,
+                                1.0279639022549119,
+                                0.0016139896753293032,
+                                4.354281059231334E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Soft Drinks & Non-alcoholic Beverages:@713448108",
+                                "PEPSICO INC",
+                                "@713448108"
+                              ],
+                              "rowId": 51
+                            },
+                            {
+                              "data": [
+                                "COCA-COLA",
+                                "Index Level",
+                                57.76384051978541,
+                                1662.0918287141706,
+                                1.029914220085946,
+                                0.0017118120094813786,
+                                7.869802942177139E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Soft Drinks & Non-alcoholic Beverages:@191216100",
+                                "COCA-COLA",
+                                "@191216100"
+                              ],
+                              "rowId": 52
+                            }
+                          ],
+                          "rowId": 50,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Tobacco",
+                          "data": [
+                            "Tobacco",
+                            "",
+                            null,
+                            null,
+                            1.0739279928568672,
+                            0.0018062342722843868,
+                            8.787986290513199E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Tobacco",
+                            "Tobacco",
+                            "~decode.GICS.8#Tobacco"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "ALTRIA GROUP INC",
+                                "Index Level",
+                                41.57679478414117,
+                                1900.8162178975272,
+                                0.3695290493915978,
+                                7.024068100678055E-4,
+                                1.7816036874328289E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Tobacco:@02209S103",
+                                "ALTRIA GROUP INC",
+                                "@02209S103"
+                              ],
+                              "rowId": 54
+                            },
+                            {
+                              "data": [
+                                "PHILIP MORRIS INTERNATIONAL INC",
+                                "Index Level",
+                                95.28141703614742,
+                                1949.2522027177972,
+                                0.7043989434652694,
+                                0.0013730511921417655,
+                                7.00638260308037E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Consumer Staples:~decode.GICS.8#Tobacco:@718172109",
+                                "PHILIP MORRIS INTERNATIONAL INC",
+                                "@718172109"
+                              ],
+                              "rowId": 55
+                            }
+                          ],
+                          "rowId": 53,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 37,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Energy",
+                      "data": [
+                        "Energy",
+                        "",
+                        null,
+                        null,
+                        3.9381022735774702,
+                        0.010748340236943254,
+                        0.003883547727686164,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy",
+                        "Energy",
+                        "~decode.GICS.2#Energy"
+                      ],
+                      "children": [
+                        {
+                          "title": "Integrated Oil & Gas",
+                          "data": [
+                            "Integrated Oil & Gas",
+                            "",
+                            null,
+                            null,
+                            3.3292862874261244,
+                            0.008786760637255355,
+                            0.003343817765715913,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy:~decode.GICS.8#Integrated Oil & Gas",
+                            "Integrated Oil & Gas",
+                            "~decode.GICS.8#Integrated Oil & Gas"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CHEVRON CORP",
+                                "Index Level",
+                                161.5682361654529,
+                                2772.2041247633365,
+                                1.3198473975279972,
+                                0.0036588863994852696,
+                                0.0010818538293744628,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy:~decode.GICS.8#Integrated Oil & Gas:@166764100",
+                                "CHEVRON CORP",
+                                "@166764100"
+                              ],
+                              "rowId": 58
+                            },
+                            {
+                              "data": [
+                                "EXXON MOBIL CORP",
+                                "Index Level",
+                                106.29822471126649,
+                                2717.9106408382568,
+                                2.009438889898127,
+                                0.005461475340968334,
+                                0.0022619639363414506,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy:~decode.GICS.8#Integrated Oil & Gas:@30231G102",
+                                "EXXON MOBIL CORP",
+                                "@30231G102"
+                              ],
+                              "rowId": 59
+                            }
+                          ],
+                          "rowId": 57,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Oil & Gas Exploration & Production",
+                          "data": [
+                            "Oil & Gas Exploration & Production",
+                            "",
+                            null,
+                            null,
+                            0.6088159861513461,
+                            0.002118592480866356,
+                            5.397299619702507E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy:~decode.GICS.8#Oil & Gas Exploration & Production",
+                            "Oil & Gas Exploration & Production",
+                            "~decode.GICS.8#Oil & Gas Exploration & Production"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CONOCOPHILLIPS",
+                                "Index Level",
+                                107.07171308023278,
+                                3479.856851754371,
+                                0.6088159861513461,
+                                0.002118592480866356,
+                                5.397299619702507E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Energy:~decode.GICS.8#Oil & Gas Exploration & Production:@20825C104",
+                                "CONOCOPHILLIPS",
+                                "@20825C104"
+                              ],
+                              "rowId": 61
+                            }
+                          ],
+                          "rowId": 60,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 56,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Financials",
+                      "data": [
+                        "Financials",
+                        "",
+                        null,
+                        null,
+                        13.72229503650283,
+                        0.030244432957833182,
+                        0.026235145327927735,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials",
+                        "Financials",
+                        "~decode.GICS.2#Financials"
+                      ],
+                      "children": [
+                        {
+                          "title": "Asset Management & Custody Banks",
+                          "data": [
+                            "Asset Management & Custody Banks",
+                            "",
+                            null,
+                            null,
+                            0.6701623429239031,
+                            0.001966609473160218,
+                            0.0015671648364517562,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Asset Management & Custody Banks",
+                            "Asset Management & Custody Banks",
+                            "~decode.GICS.8#Asset Management & Custody Banks"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "BANK OF NEW YORK MELLON CORP",
+                                "Index Level",
+                                48.08356463954295,
+                                2382.0072166112272,
+                                0.1619926912518722,
+                                3.8586775960023403E-4,
+                                2.6755373391737763E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Asset Management & Custody Banks:@064058100",
+                                "BANK OF NEW YORK MELLON CORP",
+                                "@064058100"
+                              ],
+                              "rowId": 64
+                            },
+                            {
+                              "data": [
+                                "BLACKROCK INC",
+                                "Index Level",
+                                744.4263940194919,
+                                3290.166468738323,
+                                0.5081696516720309,
+                                0.0016719627483617495,
+                                0.0012996111025343786,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Asset Management & Custody Banks:@09247X101",
+                                "BLACKROCK INC",
+                                "@09247X101"
+                              ],
+                              "rowId": 65
+                            }
+                          ],
+                          "rowId": 63,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Consumer Finance",
+                          "data": [
+                            "Consumer Finance",
+                            "",
+                            null,
+                            null,
+                            0.6574404645654504,
+                            0.0023724769341907565,
+                            0.0019081706384306532,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Consumer Finance",
+                            "Consumer Finance",
+                            "~decode.GICS.8#Consumer Finance"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "AMERICAN EXPRESS",
+                                "Index Level",
+                                172.7361659006151,
+                                3529.702396089724,
+                                0.4543248102040942,
+                                0.0016036313711804001,
+                                0.0012516251675104093,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Consumer Finance:@025816109",
+                                "AMERICAN EXPRESS",
+                                "@025816109"
+                              ],
+                              "rowId": 67
+                            },
+                            {
+                              "data": [
+                                "CAPITAL ONE FINANCIAL CORP",
+                                "Index Level",
+                                120.00554700615275,
+                                4454.452175953047,
+                                0.20311565436135617,
+                                9.0476896854007E-4,
+                                6.56545470920244E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Consumer Finance:@14040H105",
+                                "CAPITAL ONE FINANCIAL CORP",
+                                "@14040H105"
+                              ],
+                              "rowId": 68
+                            }
+                          ],
+                          "rowId": 66,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Diversified Banks",
+                          "data": [
+                            "Diversified Banks",
+                            "",
+                            null,
+                            null,
+                            4.41744264520625,
+                            0.011385126280867094,
+                            0.008328594700079746,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks",
+                            "Diversified Banks",
+                            "~decode.GICS.8#Diversified Banks"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "BANK OF AMERICA CORP",
+                                "Index Level",
+                                35.13012814997639,
+                                3068.9835264543776,
+                                1.1069840241347484,
+                                0.0033973157341177177,
+                                0.002224845405342792,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks:@060505104",
+                                "BANK OF AMERICA CORP",
+                                "@060505104"
+                              ],
+                              "rowId": 70
+                            },
+                            {
+                              "data": [
+                                "WELLS FARGO",
+                                "Index Level",
+                                45.28612986297523,
+                                2838.1322547294108,
+                                0.7900361796453795,
+                                0.0022422271638547504,
+                                0.0015293459252437446,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks:@949746101",
+                                "WELLS FARGO",
+                                "@949746101"
+                              ],
+                              "rowId": 71
+                            },
+                            {
+                              "data": [
+                                "JPMORGAN CHASE & CO",
+                                "Index Level",
+                                135.58822955537426,
+                                2540.584720491451,
+                                1.7890307512285444,
+                                0.004545184191060582,
+                                0.0030498765855214516,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks:@46625H100",
+                                "JPMORGAN CHASE & CO",
+                                "@46625H100"
+                              ],
+                              "rowId": 72
+                            },
+                            {
+                              "data": [
+                                "CITIGROUP INC",
+                                "Index Level",
+                                49.40533994307517,
+                                2910.353614791038,
+                                0.43966236615367693,
+                                0.0012795729566229348,
+                                0.0010018906255931464,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks:@172967424",
+                                "CITIGROUP INC",
+                                "@172967424"
+                              ],
+                              "rowId": 73
+                            },
+                            {
+                              "data": [
+                                "US BANCORP",
+                                "Index Level",
+                                46.011186290007,
+                                2760.695347347798,
+                                0.2917293240439004,
+                                8.053757875729139E-4,
+                                5.226361583786105E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Diversified Banks:@902973304",
+                                "US BANCORP",
+                                "@902973304"
+                              ],
+                              "rowId": 74
+                            }
+                          ],
+                          "rowId": 69,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Investment Banking & Brokerage",
+                          "data": [
+                            "Investment Banking & Brokerage",
+                            "",
+                            null,
+                            null,
+                            1.636406447386223,
+                            0.0037602982096065518,
+                            0.002761281036405083,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Investment Banking & Brokerage",
+                            "Investment Banking & Brokerage",
+                            "~decode.GICS.8#Investment Banking & Brokerage"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CHARLES SCHWAB CORP",
+                                "Index Level",
+                                74.49490453516346,
+                                3033.5636272795596,
+                                0.5130368280915786,
+                                0.001556329861153489,
+                                3.4890901215821405E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Investment Banking & Brokerage:@808513105",
+                                "CHARLES SCHWAB CORP",
+                                "@808513105"
+                              ],
+                              "rowId": 76
+                            },
+                            {
+                              "data": [
+                                "GOLDMAN SACHS GROUP INC",
+                                "Index Level",
+                                352.5380830932421,
+                                2842.1234123458485,
+                                0.5492361549583069,
+                                0.0015609969349138161,
+                                0.001227589483737978,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Investment Banking & Brokerage:@38141G104",
+                                "GOLDMAN SACHS GROUP INC",
+                                "@38141G104"
+                              ],
+                              "rowId": 77
+                            },
+                            {
+                              "data": [
+                                "MORGAN STANLEY",
+                                "Index Level",
+                                94.02432822892871,
+                                2608.1487485740695,
+                                0.5741334643363374,
+                                0.0014974254765233136,
+                                0.0011847825405088912,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Investment Banking & Brokerage:@617446448",
+                                "MORGAN STANLEY",
+                                "@617446448"
+                              ],
+                              "rowId": 78
+                            }
+                          ],
+                          "rowId": 75,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Life & Health Insurance",
+                          "data": [
+                            "Life & Health Insurance",
+                            "",
+                            null,
+                            null,
+                            0.20168522695667973,
+                            4.153542035069826E-4,
+                            2.270494958407033E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Life & Health Insurance",
+                            "Life & Health Insurance",
+                            "~decode.GICS.8#Life & Health Insurance"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "METLIFE INC",
+                                "Index Level",
+                                67.2145277787775,
+                                2059.4180831905805,
+                                0.20168522695667973,
+                                4.153542035069826E-4,
+                                2.270494958407033E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Life & Health Insurance:@59156R108",
+                                "METLIFE INC",
+                                "@59156R108"
+                              ],
+                              "rowId": 80
+                            }
+                          ],
+                          "rowId": 79,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Multi-Sector Holdings",
+                          "data": [
+                            "Multi-Sector Holdings",
+                            "",
+                            null,
+                            null,
+                            2.466579767888663,
+                            0.004721756293719208,
+                            0.0037019819782062517,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Multi-Sector Holdings",
+                            "Multi-Sector Holdings",
+                            "~decode.GICS.8#Multi-Sector Holdings"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "BERKSHIRE HATHAWAY INC CLASS B",
+                                "Index Level",
+                                314.6087301851068,
+                                1914.292963556141,
+                                2.466579767888663,
+                                0.004721756293719208,
+                                0.0037019819782062517,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Multi-Sector Holdings:@084670702",
+                                "BERKSHIRE HATHAWAY INC CLASS B",
+                                "@084670702"
+                              ],
+                              "rowId": 82
+                            }
+                          ],
+                          "rowId": 81,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Multi-line Insurance",
+                          "data": [
+                            "Multi-line Insurance",
+                            "",
+                            null,
+                            null,
+                            0.19252981830599283,
+                            4.5947232371196245E-4,
+                            2.2698457291465702E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Multi-line Insurance",
+                            "Multi-line Insurance",
+                            "~decode.GICS.8#Multi-line Insurance"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "AMERICAN INTERNATIONAL GROUP INC",
+                                "Index Level",
+                                58.15725755428722,
+                                2386.49954461449,
+                                0.19252981830599283,
+                                4.5947232371196245E-4,
+                                2.2698457291465702E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Multi-line Insurance:@026874784",
+                                "AMERICAN INTERNATIONAL GROUP INC",
+                                "@026874784"
+                              ],
+                              "rowId": 84
+                            }
+                          ],
+                          "rowId": 83,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Transaction & Payment Processing Services",
+                          "data": [
+                            "Transaction & Payment Processing Services",
+                            "",
+                            null,
+                            null,
+                            3.480048323269666,
+                            0.008820447940713955,
+                            0.00751391806959889,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Transaction & Payment Processing Services",
+                            "Transaction & Payment Processing Services",
+                            "~decode.GICS.8#Transaction & Payment Processing Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "MASTERCARD INC CLASS A",
+                                "Index Level",
+                                363.35990676590126,
+                                2654.2923902033517,
+                                1.397199946163533,
+                                0.0037085771846943976,
+                                0.002884084960373596,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Transaction & Payment Processing Services:@57636Q104",
+                                "MASTERCARD INC CLASS A",
+                                "@57636Q104"
+                              ],
+                              "rowId": 86
+                            },
+                            {
+                              "data": [
+                                "VISA INC CLASS A",
+                                "Index Level",
+                                223.39081085528022,
+                                2425.9785005493586,
+                                1.6476541321194214,
+                                0.003997173500863029,
+                                0.003263079174025273,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Transaction & Payment Processing Services:@92826C839",
+                                "VISA INC CLASS A",
+                                "@92826C839"
+                              ],
+                              "rowId": 87
+                            },
+                            {
+                              "data": [
+                                "PAYPAL HOLDINGS INC",
+                                "Index Level",
+                                87.81827429983713,
+                                4445.373621357513,
+                                0.43519424498671194,
+                                0.0019346010168305283,
+                                0.0013667539352000208,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Financials:~decode.GICS.8#Transaction & Payment Processing Services:@70450Y103",
+                                "PAYPAL HOLDINGS INC",
+                                "@70450Y103"
+                              ],
+                              "rowId": 88
+                            }
+                          ],
+                          "rowId": 85,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 62,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Health Care",
+                      "data": [
+                        "Health Care",
+                        "",
+                        null,
+                        null,
+                        13.705830706462232,
+                        0.01755381204389054,
+                        0.008481881653951041,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care",
+                        "Health Care",
+                        "~decode.GICS.2#Health Care"
+                      ],
+                      "children": [
+                        {
+                          "title": "Biotechnology",
+                          "data": [
+                            "Biotechnology",
+                            "",
+                            null,
+                            null,
+                            2.1500218789141283,
+                            0.0036006824765052736,
+                            7.255294699167214E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Biotechnology",
+                            "Biotechnology",
+                            "~decode.GICS.8#Biotechnology"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "GILEAD SCIENCES INC",
+                                "Index Level",
+                                76.80797165703316,
+                                2234.813809812171,
+                                0.44812706582423173,
+                                0.0010014805552546007,
+                                2.69367258197488E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Biotechnology:@375558103",
+                                "GILEAD SCIENCES INC",
+                                "@375558103"
+                              ],
+                              "rowId": 91
+                            },
+                            {
+                              "data": [
+                                "ABBVIE INC",
+                                "Index Level",
+                                137.45854403149133,
+                                2019.3192754752465,
+                                1.1244418702873877,
+                                0.002270607142822759,
+                                2.3207138100639224E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Biotechnology:@00287Y109",
+                                "ABBVIE INC",
+                                "@00287Y109"
+                              ],
+                              "rowId": 92
+                            },
+                            {
+                              "data": [
+                                "AMGEN INC",
+                                "Index Level",
+                                236.87533767645536,
+                                2266.7358652484763,
+                                0.5774529428025087,
+                                0.0013089332959437235,
+                                2.2409083071284113E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Biotechnology:@031162100",
+                                "AMGEN INC",
+                                "@031162100"
+                              ],
+                              "rowId": 93
+                            }
+                          ],
+                          "rowId": 90,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Health Care Equipment",
+                          "data": [
+                            "Health Care Equipment",
+                            "",
+                            null,
+                            null,
+                            1.3701699081854564,
+                            0.0023918496638344324,
+                            0.0015645551343286346,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Health Care Equipment",
+                            "Health Care Equipment",
+                            "~decode.GICS.8#Health Care Equipment"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "MEDTRONIC PLC",
+                                "Index Level",
+                                85.40995915428657,
+                                2217.462595501434,
+                                0.5110083670421047,
+                                0.0011331419399041348,
+                                6.383106308884125E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Health Care Equipment:@SBTN1Y117",
+                                "MEDTRONIC PLC",
+                                "@SBTN1Y117"
+                              ],
+                              "rowId": 95
+                            },
+                            {
+                              "data": [
+                                "ABBOTT LABORATORIES",
+                                "Index Level",
+                                108.81880161919462,
+                                1988.7803160734732,
+                                0.8591615411433516,
+                                0.0017086835613532474,
+                                9.262445034402221E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Health Care Equipment:@002824100",
+                                "ABBOTT LABORATORIES",
+                                "@002824100"
+                              ],
+                              "rowId": 96
+                            }
+                          ],
+                          "rowId": 94,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Health Care Services",
+                          "data": [
+                            "Health Care Services",
+                            "",
+                            null,
+                            null,
+                            0.49709459654055854,
+                            0.0011615279870276786,
+                            3.608102307656373E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Health Care Services",
+                            "Health Care Services",
+                            "~decode.GICS.8#Health Care Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CVS HEALTH CORP",
+                                "Index Level",
+                                82.93524186059662,
+                                2336.6337013339635,
+                                0.49709459654055854,
+                                0.0011615279870276786,
+                                3.608102307656373E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Health Care Services:@126650100",
+                                "CVS HEALTH CORP",
+                                "@126650100"
+                              ],
+                              "rowId": 98
+                            }
+                          ],
+                          "rowId": 97,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Life Sciences Tools & Services",
+                          "data": [
+                            "Life Sciences Tools & Services",
+                            "",
+                            null,
+                            null,
+                            1.7892393797383317,
+                            0.004879008966464096,
+                            0.003415592084820046,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Life Sciences Tools & Services",
+                            "Life Sciences Tools & Services",
+                            "~decode.GICS.8#Life Sciences Tools & Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "THERMO FISHER SCIENTIFIC INC",
+                                "Index Level",
+                                572.6959849750966,
+                                2719.6349014116317,
+                                1.010743931243451,
+                                0.0027488544717996877,
+                                0.0019130543342138042,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Life Sciences Tools & Services:@883556102",
+                                "THERMO FISHER SCIENTIFIC INC",
+                                "@883556102"
+                              ],
+                              "rowId": 100
+                            },
+                            {
+                              "data": [
+                                "DANAHER CORP",
+                                "Index Level",
+                                261.3397383301788,
+                                2870.7624881690813,
+                                0.7784954484948806,
+                                0.0022348755307494686,
+                                0.0015025377506062416,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Life Sciences Tools & Services:@235851102",
+                                "DANAHER CORP",
+                                "@235851102"
+                              ],
+                              "rowId": 101
+                            }
+                          ],
+                          "rowId": 99,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Managed Health Care",
+                          "data": [
+                            "Managed Health Care",
+                            "",
+                            null,
+                            null,
+                            1.9311737373230482,
+                            0.004201380811762691,
+                            8.979253094314531E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Managed Health Care",
+                            "Managed Health Care",
+                            "~decode.GICS.8#Managed Health Care"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "UNITEDHEALTH GROUP INC",
+                                "Index Level",
+                                464.56774768447264,
+                                2175.558175095399,
+                                1.9311737373230482,
+                                0.004201380811762691,
+                                8.979253094314531E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Managed Health Care:@91324P102",
+                                "UNITEDHEALTH GROUP INC",
+                                "@91324P102"
+                              ],
+                              "rowId": 103
+                            }
+                          ],
+                          "rowId": 102,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Pharmaceuticals",
+                          "data": [
+                            "Pharmaceuticals",
+                            "",
+                            null,
+                            null,
+                            5.968131205760709,
+                            0.0084567601757434,
+                            0.00151746942468855,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals",
+                            "Pharmaceuticals",
+                            "~decode.GICS.8#Pharmaceuticals"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "BRISTOL MYERS SQUIBB",
+                                "Index Level",
+                                69.02732366640618,
+                                1992.503129094497,
+                                0.6791980224774283,
+                                0.0013533041850610705,
+                                2.8011292039062407E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals:@110122108",
+                                "BRISTOL MYERS SQUIBB",
+                                "@110122108"
+                              ],
+                              "rowId": 105
+                            },
+                            {
+                              "data": [
+                                "MERCK & CO INC",
+                                "Index Level",
+                                100.04999444359304,
+                                1793.4978163448222,
+                                1.1515064351445492,
+                                0.0020652242769387597,
+                                1.1958773392664249E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals:@58933Y105",
+                                "MERCK & CO INC",
+                                "@58933Y105"
+                              ],
+                              "rowId": 106
+                            },
+                            {
+                              "data": [
+                                "JOHNSON & JOHNSON",
+                                "Index Level",
+                                159.76417184918088,
+                                1353.3225481067818,
+                                1.8999275211523141,
+                                0.0025712147541440515,
+                                2.1496496540541855E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals:@478160104",
+                                "JOHNSON & JOHNSON",
+                                "@478160104"
+                              ],
+                              "rowId": 107
+                            },
+                            {
+                              "data": [
+                                "ELI LILLY",
+                                "Index Level",
+                                331.85049440611147,
+                                2055.358493597836,
+                                1.1448941926767429,
+                                0.0023531680031889804,
+                                2.651991045525375E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals:@532457108",
+                                "ELI LILLY",
+                                "@532457108"
+                              ],
+                              "rowId": 108
+                            },
+                            {
+                              "data": [
+                                "PFIZER INC",
+                                "Index Level",
+                                41.23093671493524,
+                                2267.395051183746,
+                                1.0926050343096745,
+                                0.002477367247692203,
+                                6.376047004133274E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Health Care:~decode.GICS.8#Pharmaceuticals:@717081103",
+                                "PFIZER INC",
+                                "@717081103"
+                              ],
+                              "rowId": 109
+                            }
+                          ],
+                          "rowId": 104,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 89,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Industrials",
+                      "data": [
+                        "Industrials",
+                        "",
+                        null,
+                        null,
+                        5.355105108106666,
+                        0.010145795574466956,
+                        0.007696594457112428,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials",
+                        "Industrials",
+                        "~decode.GICS.2#Industrials"
+                      ],
+                      "children": [
+                        {
+                          "title": "Aerospace & Defense",
+                          "data": [
+                            "Aerospace & Defense",
+                            "",
+                            null,
+                            null,
+                            2.2399918528335037,
+                            0.004517306439743671,
+                            0.002551952596366239,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense",
+                            "Aerospace & Defense",
+                            "~decode.GICS.8#Aerospace & Defense"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "RTX CORP",
+                                "Index Level",
+                                93.52967398498492,
+                                2127.472866166815,
+                                0.6257142668374411,
+                                0.0013311901246701183,
+                                5.230165672395213E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense:@75513E101",
+                                "RTX CORP",
+                                "@75513E101"
+                              ],
+                              "rowId": 112
+                            },
+                            {
+                              "data": [
+                                "GENERAL DYNAMICS CORP",
+                                "Index Level",
+                                226.3032471872047,
+                                1902.9767752662044,
+                                0.22869882608469885,
+                                4.352085545698267E-4,
+                                1.5108806842918467E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense:@369550108",
+                                "GENERAL DYNAMICS CORP",
+                                "@369550108"
+                              ],
+                              "rowId": 113
+                            },
+                            {
+                              "data": [
+                                "GE AEROSPACE",
+                                "Index Level",
+                                84.01686776793784,
+                                4292.396448385706,
+                                0.40262921448333955,
+                                0.0017282442102646135,
+                                8.342045563134502E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense:@369604301",
+                                "GE AEROSPACE",
+                                "@369604301"
+                              ],
+                              "rowId": 114
+                            },
+                            {
+                              "data": [
+                                "BOEING",
+                                "Index Level",
+                                208.18554071655657,
+                                3670.8730234450704,
+                                0.5148278588832076,
+                                0.0018898676988923526,
+                                8.089644857074821E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense:@097023105",
+                                "BOEING",
+                                "@097023105"
+                              ],
+                              "rowId": 115
+                            },
+                            {
+                              "data": [
+                                "LOCKHEED MARTIN CORP",
+                                "Index Level",
+                                442.35551615818497,
+                                2445.2706184989233,
+                                0.4681216865448164,
+                                0.001144684205990202,
+                                2.3467891867660085E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Aerospace & Defense:@539830109",
+                                "LOCKHEED MARTIN CORP",
+                                "@539830109"
+                              ],
+                              "rowId": 116
+                            }
+                          ],
+                          "rowId": 111,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Air Freight & Logistics",
+                          "data": [
+                            "Air Freight & Logistics",
+                            "",
+                            null,
+                            null,
+                            0.8382795065463087,
+                            0.002357161392222034,
+                            0.0018264840027868987,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Air Freight & Logistics",
+                            "Air Freight & Logistics",
+                            "~decode.GICS.8#Air Freight & Logistics"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "FEDEX CORP",
+                                "Index Level",
+                                210.25632482844273,
+                                4006.3246844537475,
+                                0.22542594079823683,
+                                9.031295111361854E-4,
+                                5.598131042810607E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Air Freight & Logistics:@31428X106",
+                                "FEDEX CORP",
+                                "@31428X106"
+                              ],
+                              "rowId": 118
+                            },
+                            {
+                              "data": [
+                                "UNITED PARCEL SERVICE INC CLASS B",
+                                "Index Level",
+                                175.94300558459454,
+                                2560.2653588834655,
+                                0.6128535657480718,
+                                0.001569067754452999,
+                                0.001266670898505838,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Air Freight & Logistics:@911312106",
+                                "UNITED PARCEL SERVICE INC CLASS B",
+                                "@911312106"
+                              ],
+                              "rowId": 119
+                            }
+                          ],
+                          "rowId": 117,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Construction Machinery & Heavy Transportation Equipment",
+                          "data": [
+                            "Construction Machinery & Heavy Transportation Equipment",
+                            "",
+                            null,
+                            null,
+                            0.5594762796046416,
+                            0.0017401985372158665,
+                            8.258696335493173E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Construction Machinery & Heavy Transportation Equipment",
+                            "Construction Machinery & Heavy Transportation Equipment",
+                            "~decode.GICS.8#Construction Machinery & Heavy Transportation Equipment"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CATERPILLAR INC",
+                                "Index Level",
+                                238.17124450014026,
+                                3110.4062864749003,
+                                0.5594762796046416,
+                                0.0017401985372158665,
+                                8.258696335493173E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Construction Machinery & Heavy Transportation Equipment:@149123101",
+                                "CATERPILLAR INC",
+                                "@149123101"
+                              ],
+                              "rowId": 121
+                            }
+                          ],
+                          "rowId": 120,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Electrical Components & Equipment",
+                          "data": [
+                            "Electrical Components & Equipment",
+                            "",
+                            null,
+                            null,
+                            0.2374554432003226,
+                            5.424478332105748E-4,
+                            3.822155950030802E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Electrical Components & Equipment",
+                            "Electrical Components & Equipment",
+                            "~decode.GICS.8#Electrical Components & Equipment"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "EMERSON ELECTRIC",
+                                "Index Level",
+                                87.44102728945012,
+                                2284.4194510755183,
+                                0.2374554432003226,
+                                5.424478332105748E-4,
+                                3.822155950030802E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Electrical Components & Equipment:@291011104",
+                                "EMERSON ELECTRIC",
+                                "@291011104"
+                              ],
+                              "rowId": 123
+                            }
+                          ],
+                          "rowId": 122,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Industrial Conglomerates",
+                          "data": [
+                            "Industrial Conglomerates",
+                            "",
+                            null,
+                            null,
+                            0.9039352590378846,
+                            0.0019358714419535654,
+                            0.0012376905206482143,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Industrial Conglomerates",
+                            "Industrial Conglomerates",
+                            "~decode.GICS.8#Industrial Conglomerates"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "HONEYWELL INTERNATIONAL INC",
+                                "Index Level",
+                                203.63713581426754,
+                                2222.9192345159568,
+                                0.6120575890692037,
+                                0.0013605545873733966,
+                                8.08197299117691E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Industrial Conglomerates:@438516106",
+                                "HONEYWELL INTERNATIONAL INC",
+                                "@438516106"
+                              ],
+                              "rowId": 125
+                            },
+                            {
+                              "data": [
+                                "3M",
+                                "Index Level",
+                                110.51039742349647,
+                                2951.9875685043507,
+                                0.2918776699686809,
+                                8.616192532715617E-4,
+                                4.294932215305233E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Industrial Conglomerates:@88579Y101",
+                                "3M",
+                                "@88579Y101"
+                              ],
+                              "rowId": 126
+                            }
+                          ],
+                          "rowId": 124,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Rail Transportation",
+                          "data": [
+                            "Rail Transportation",
+                            "",
+                            null,
+                            null,
+                            0.5759667668840047,
+                            0.001405070236174236,
+                            8.723821087586782E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Rail Transportation",
+                            "Rail Transportation",
+                            "~decode.GICS.8#Rail Transportation"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "UNION PACIFIC CORP",
+                                "Index Level",
+                                207.9252500666728,
+                                2439.498799168054,
+                                0.5759667668840047,
+                                0.001405070236174236,
+                                8.723821087586782E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Industrials:~decode.GICS.8#Rail Transportation:@907818108",
+                                "UNION PACIFIC CORP",
+                                "@907818108"
+                              ],
+                              "rowId": 128
+                            }
+                          ],
+                          "rowId": 127,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 110,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Information Technology",
+                      "data": [
+                        "Information Technology",
+                        "",
+                        null,
+                        null,
+                        28.99944812622281,
+                        0.08285328873863498,
+                        0.07994894369506428,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology",
+                        "Information Technology",
+                        "~decode.GICS.2#Information Technology"
+                      ],
+                      "children": [
+                        {
+                          "title": "Application Software",
+                          "data": [
+                            "Application Software",
+                            "",
+                            null,
+                            null,
+                            1.5671168492452021,
+                            0.006410471675396626,
+                            0.005351690424666872,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Application Software",
+                            "Application Software",
+                            "~decode.GICS.8#Application Software"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "SALESFORCE INC",
+                                "Index Level",
+                                177.57038555813773,
+                                4760.984824023549,
+                                0.7666406037319655,
+                                0.003649964279848139,
+                                0.0027696073038100634,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Application Software:@79466L302",
+                                "SALESFORCE INC",
+                                "@79466L302"
+                              ],
+                              "rowId": 131
+                            },
+                            {
+                              "data": [
+                                "ADOBE INC",
+                                "Index Level",
+                                388.3148832189299,
+                                4189.960735037684,
+                                0.8004762455132365,
+                                0.0033539640380308463,
+                                0.002582083120856809,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Application Software:@00724F101",
+                                "ADOBE INC",
+                                "@00724F101"
+                              ],
+                              "rowId": 132
+                            }
+                          ],
+                          "rowId": 130,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Communications Equipment",
+                          "data": [
+                            "Communications Equipment",
+                            "",
+                            null,
+                            null,
+                            0.8889694337903843,
+                            0.0020139610553029145,
+                            0.0014494371585663936,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Communications Equipment",
+                            "Communications Equipment",
+                            "~decode.GICS.8#Communications Equipment"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "CISCO SYSTEMS INC",
+                                "Index Level",
+                                48.14500030595486,
+                                2265.5009033502934,
+                                0.8889694337903843,
+                                0.0020139610553029145,
+                                0.0014494371585663936,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Communications Equipment:@17275R102",
+                                "CISCO SYSTEMS INC",
+                                "@17275R102"
+                              ],
+                              "rowId": 134
+                            }
+                          ],
+                          "rowId": 133,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "IT Consulting & Other Services",
+                          "data": [
+                            "IT Consulting & Other Services",
+                            "",
+                            null,
+                            null,
+                            1.354791757466638,
+                            0.0035920493721488993,
+                            0.002907301721205737,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#IT Consulting & Other Services",
+                            "IT Consulting & Other Services",
+                            "~decode.GICS.8#IT Consulting & Other Services"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "ACCENTURE PLC CLASS A",
+                                "Index Level",
+                                291.80367708600807,
+                                3233.419924312911,
+                                0.8134648906401418,
+                                0.0026302735851248577,
+                                0.002271146857303914,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#IT Consulting & Other Services:@G1151C101",
+                                "ACCENTURE PLC CLASS A",
+                                "@G1151C101"
+                              ],
+                              "rowId": 136
+                            },
+                            {
+                              "data": [
+                                "INT BUSINESS MACHINES CO",
+                                "Index Level",
+                                127.93367181184267,
+                                2338.225820109119,
+                                0.5413268668264962,
+                                0.001265744457132484,
+                                6.361548639018232E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#IT Consulting & Other Services:@459200101",
+                                "INT BUSINESS MACHINES CO",
+                                "@459200101"
+                              ],
+                              "rowId": 137
+                            }
+                          ],
+                          "rowId": 135,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Semiconductors",
+                          "data": [
+                            "Semiconductors",
+                            "",
+                            null,
+                            null,
+                            6.02641514072387,
+                            0.024287478889620646,
+                            0.021549247837195185,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors",
+                            "Semiconductors",
+                            "~decode.GICS.8#Semiconductors"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "QUALCOMM INC",
+                                "Index Level",
+                                136.61737877989876,
+                                4040.084622039895,
+                                0.6685183764603928,
+                                0.0027008708122887104,
+                                0.002266642989416375,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@747525103",
+                                "QUALCOMM INC",
+                                "@747525103"
+                              ],
+                              "rowId": 139
+                            },
+                            {
+                              "data": [
+                                "BROADCOM INC",
+                                "Index Level",
+                                573.8274426045732,
+                                2874.476186684329,
+                                1.0770093109523984,
+                                0.003095837617169967,
+                                0.002380571160140932,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@11135F101",
+                                "BROADCOM INC",
+                                "@11135F101"
+                              ],
+                              "rowId": 140
+                            },
+                            {
+                              "data": [
+                                "ADVANCED MICRO DEVICES INC",
+                                "Index Level",
+                                84.9851373866766,
+                                5189.336324923387,
+                                0.6250559840173464,
+                                0.003243625722971948,
+                                0.002749268709487038,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@007903107",
+                                "ADVANCED MICRO DEVICES INC",
+                                "@007903107"
+                              ],
+                              "rowId": 141
+                            },
+                            {
+                              "data": [
+                                "TEXAS INSTRUMENT INC",
+                                "Index Level",
+                                176.52924407074778,
+                                2726.1454547742305,
+                                0.7359411771587792,
+                                0.0020062826950926027,
+                                0.0015592472981995132,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@882508104",
+                                "TEXAS INSTRUMENT INC",
+                                "@882508104"
+                              ],
+                              "rowId": 142
+                            },
+                            {
+                              "data": [
+                                "NVIDIA CORP",
+                                "Index Level",
+                                215.392328223708,
+                                5788.455665815155,
+                                2.3729427483611385,
+                                0.013735673896406017,
+                                0.011308322681014107,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@67066G104",
+                                "NVIDIA CORP",
+                                "@67066G104"
+                              ],
+                              "rowId": 143
+                            },
+                            {
+                              "data": [
+                                "INTEL CORPORATION CORP",
+                                "Index Level",
+                                30.46820161414007,
+                                3450.3747816466334,
+                                0.5469475437738146,
+                                0.001887174011920738,
+                                0.0012851949989372172,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Semiconductors:@458140100",
+                                "INTEL CORPORATION CORP",
+                                "@458140100"
+                              ],
+                              "rowId": 144
+                            }
+                          ],
+                          "rowId": 138,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Systems Software",
+                          "data": [
+                            "Systems Software",
+                            "",
+                            null,
+                            null,
+                            9.261733362335281,
+                            0.027412001503177668,
+                            0.023062041243444905,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Systems Software",
+                            "Systems Software",
+                            "~decode.GICS.8#Systems Software"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "MICROSOFT CORP",
+                                "Index Level",
+                                258.4649993166192,
+                                3085.693409031213,
+                                8.65874361458872,
+                                0.026718228102027515,
+                                0.021914819635267136,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Systems Software:@594918104",
+                                "MICROSOFT CORP",
+                                "@594918104"
+                              ],
+                              "rowId": 146
+                            },
+                            {
+                              "data": [
+                                "ORACLE CORP",
+                                "Index Level",
+                                88.70234719108888,
+                                2719.816588807891,
+                                0.6029897477465611,
+                                0.0016400215188021826,
+                                0.001147221608177768,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Systems Software:@68389X105",
+                                "ORACLE CORP",
+                                "@68389X105"
+                              ],
+                              "rowId": 147
+                            }
+                          ],
+                          "rowId": 145,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Technology Hardware  Storage & Peripherals",
+                          "data": [
+                            "Technology Hardware  Storage & Peripherals",
+                            "",
+                            null,
+                            null,
+                            9.900421582661433,
+                            0.029977548440838244,
+                            0.025629225309985185,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Technology Hardware  Storage & Peripherals",
+                            "Technology Hardware  Storage & Peripherals",
+                            "~decode.GICS.8#Technology Hardware  Storage & Peripherals"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "APPLE INC",
+                                "Index Level",
+                                151.23554938470343,
+                                3027.906255359651,
+                                9.900421582661433,
+                                0.029977548440838244,
+                                0.025629225309985185,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Information Technology:~decode.GICS.8#Technology Hardware  Storage & Peripherals:@037833100",
+                                "APPLE INC",
+                                "@037833100"
+                              ],
+                              "rowId": 149
+                            }
+                          ],
+                          "rowId": 148,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 129,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Materials",
+                      "data": [
+                        "Materials",
+                        "",
+                        null,
+                        null,
+                        0.9058388632146063,
+                        0.002054383464511306,
+                        0.001556028153001491,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Materials",
+                        "Materials",
+                        "~decode.GICS.2#Materials"
+                      ],
+                      "children": [
+                        {
+                          "title": "Commodity Chemicals",
+                          "data": [
+                            "Commodity Chemicals",
+                            "",
+                            null,
+                            null,
+                            0.18520864044477878,
+                            5.550151114412832E-4,
+                            3.891876515654287E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Materials:~decode.GICS.8#Commodity Chemicals",
+                            "Commodity Chemicals",
+                            "~decode.GICS.8#Commodity Chemicals"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "DOW INC",
+                                "Index Level",
+                                54.81772011780163,
+                                2996.702044291312,
+                                0.18520864044477878,
+                                5.550151114412832E-4,
+                                3.891876515654287E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Materials:~decode.GICS.8#Commodity Chemicals:@260557103",
+                                "DOW INC",
+                                "@260557103"
+                              ],
+                              "rowId": 152
+                            }
+                          ],
+                          "rowId": 151,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Industrial Gases",
+                          "data": [
+                            "Industrial Gases",
+                            "",
+                            null,
+                            null,
+                            0.7206302227698275,
+                            0.0016927146091428812,
+                            0.001166840501436062,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Materials:~decode.GICS.8#Industrial Gases",
+                            "Industrial Gases",
+                            "~decode.GICS.8#Industrial Gases"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "LINDE PLC",
+                                "Index Level",
+                                332.0499772577842,
+                                2348.936466523333,
+                                0.7206302227698275,
+                                0.0016927146091428812,
+                                0.001166840501436062,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Materials:~decode.GICS.8#Industrial Gases:@SBZ12WP80",
+                                "LINDE PLC",
+                                "@SBZ12WP80"
+                              ],
+                              "rowId": 154
+                            }
+                          ],
+                          "rowId": 153,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 150,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Real Estate",
+                      "data": [
+                        "Real Estate",
+                        "",
+                        null,
+                        null,
+                        0.6539200348814396,
+                        0.0018386860014934189,
+                        0.0013453487324843762,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Real Estate",
+                        "Real Estate",
+                        "~decode.GICS.2#Real Estate"
+                      ],
+                      "children": [
+                        {
+                          "title": "Retail REITs",
+                          "data": [
+                            "Retail REITs",
+                            "",
+                            null,
+                            null,
+                            0.18915010243191324,
+                            5.129479557837869E-4,
+                            3.6032610948207657E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Real Estate:~decode.GICS.8#Retail REITs",
+                            "Retail REITs",
+                            "~decode.GICS.8#Retail REITs"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "SIMON PROPERTY GROUP REIT INC",
+                                "Index Level",
+                                123.57315601656363,
+                                2711.8566111716927,
+                                0.18915010243191324,
+                                5.129479557837869E-4,
+                                3.6032610948207657E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Real Estate:~decode.GICS.8#Retail REITs:@828806109",
+                                "SIMON PROPERTY GROUP REIT INC",
+                                "@828806109"
+                              ],
+                              "rowId": 157
+                            }
+                          ],
+                          "rowId": 156,
+                          "sectorOrder": 0
+                        },
+                        {
+                          "title": "Telecom Tower REITs",
+                          "data": [
+                            "Telecom Tower REITs",
+                            "",
+                            null,
+                            null,
+                            0.4647699324495263,
+                            0.0015000527128473677,
+                            9.850226230022996E-4,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Real Estate:~decode.GICS.8#Telecom Tower REITs",
+                            "Telecom Tower REITs",
+                            "~decode.GICS.8#Telecom Tower REITs"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "AMERICAN TOWER REIT CORP",
+                                "Index Level",
+                                217.92715300872118,
+                                3227.516687539318,
+                                0.4647699324495263,
+                                0.0015000527128473677,
+                                9.850226230022996E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Real Estate:~decode.GICS.8#Telecom Tower REITs:@03027X100",
+                                "AMERICAN TOWER REIT CORP",
+                                "@03027X100"
+                              ],
+                              "rowId": 159
+                            }
+                          ],
+                          "rowId": 158,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 155,
+                      "sectorOrder": 0
+                    },
+                    {
+                      "title": "Utilities",
+                      "data": [
+                        "Utilities",
+                        "",
+                        null,
+                        null,
+                        1.515104751201438,
+                        0.0032010046567050067,
+                        0.0013739342266725692,
+                        "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities",
+                        "Utilities",
+                        "~decode.GICS.2#Utilities"
+                      ],
+                      "children": [
+                        {
+                          "title": "Electric Utilities",
+                          "data": [
+                            "Electric Utilities",
+                            "",
+                            null,
+                            null,
+                            1.515104751201438,
+                            0.0032010046567050067,
+                            0.0013739342266725692,
+                            "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities:~decode.GICS.8#Electric Utilities",
+                            "Electric Utilities",
+                            "~decode.GICS.8#Electric Utilities"
+                          ],
+                          "children": [
+                            {
+                              "data": [
+                                "SOUTHERN",
+                                "Index Level",
+                                65.08219207739485,
+                                2175.698048963969,
+                                0.3279414105657734,
+                                7.135014871424452E-4,
+                                2.905720625613584E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities:~decode.GICS.8#Electric Utilities:@842587107",
+                                "SOUTHERN",
+                                "@842587107"
+                              ],
+                              "rowId": 162
+                            },
+                            {
+                              "data": [
+                                "DUKE ENERGY CORP",
+                                "Index Level",
+                                95.90539881256677,
+                                1934.689878789843,
+                                0.34494098667062195,
+                                6.673538356914344E-4,
+                                3.183987570340341E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities:~decode.GICS.8#Electric Utilities:@26441C204",
+                                "DUKE ENERGY CORP",
+                                "@26441C204"
+                              ],
+                              "rowId": 163
+                            },
+                            {
+                              "data": [
+                                "EXELON CORP",
+                                "Index Level",
+                                39.87592080815139,
+                                2184.1712825888517,
+                                0.18273936028783977,
+                                3.991340629393572E-4,
+                                1.8262081399551976E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities:~decode.GICS.8#Electric Utilities:@30161N101",
+                                "EXELON CORP",
+                                "@30161N101"
+                              ],
+                              "rowId": 164
+                            },
+                            {
+                              "data": [
+                                "NEXTERA ENERGY INC",
+                                "Index Level",
+                                71.81984782931605,
+                                2945.7833642097,
+                                0.6594829936772029,
+                                0.0019426940317535148,
+                                5.823425930816569E-4,
+                                "VAR=71964a371ea9080a48a73d3947e4def2cf632112__BRS_GOLD__5_EQ:~ALL:~decode.GICS.2#Utilities:~decode.GICS.8#Electric Utilities:@65339F101",
+                                "NEXTERA ENERGY INC",
+                                "@65339F101"
+                              ],
+                              "rowId": 165
+                            }
+                          ],
+                          "rowId": 161,
+                          "sectorOrder": 0
+                        }
+                      ],
+                      "rowId": 160,
+                      "sectorOrder": 0
+                    }
+                  ],
+                  "rowId": 3,
+                  "sectorOrder": 0
+                }
+              ],
+              "rowId": 2,
+              "sectorOrder": 0
+            },
+            {
+              "title": "Time",
+              "data": [
+                "Time",
+                "",
+                null,
+                null,
+                6.779372198425699E-5,
+                null,
+                null,
+                "VAR=71964a371ea9080a48a73d3947e4def2cf632112_TIME",
+                "Time",
+                "TIME"
+              ],
+              "children": [
+                {
+                  "data": [
+                    "Time",
+                    "Time",
+                    266.96,
+                    49.793965937897966,
+                    6.779372198425699E-5,
+                    null,
+                    null,
+                    "VAR=71964a371ea9080a48a73d3947e4def2cf632112_TIME:ALL_TIME",
+                    "Time",
+                    "ALL_TIME"
+                  ],
+                  "rowId": 167
+                }
+              ],
+              "rowId": 166,
+              "sectorOrder": 0
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "rfv_factor_lvl_64": "Factor Level",
+            "rfv_ftitle_long_hidden": "Long Title",
+            "rfv_factor_type_2": "Factor Type",
+            "rfv_block_path": "Block Path",
+            "rfv_factor_vol_5": "Factor Vol",
+            "rfv_ftitle": " Title",
+            "rfv_factor_tag_hidden": "Factor Tag",
+            "rfv_contrib_port_4": "Risk Contribution",
+            "rfv_exp_port_35": "Factor Exposure",
+            "rfv_std_port_776": "Standalone Risk"
+          },
+          "columnKeyToTagMap": {
+            "rfv_factor_lvl_64": "rfv_factor_lvl",
+            "rfv_ftitle_long_hidden": "rfv_ftitle_long",
+            "rfv_factor_type_2": "rfv_factor_type",
+            "rfv_block_path": "rfv_block_path",
+            "rfv_factor_vol_5": "rfv_factor_vol",
+            "rfv_ftitle": "rfv_ftitle",
+            "rfv_factor_tag_hidden": "rfv_factor_tag",
+            "rfv_contrib_port_4": "rfv_contrib_port",
+            "rfv_exp_port_35": "rfv_exp_port",
+            "rfv_std_port_776": "rfv_std_port"
+          }
+        },
+        "columns": [
+          "rfv_ftitle",
+          "rfv_factor_type_2",
+          "rfv_factor_lvl_64",
+          "rfv_factor_vol_5",
+          "rfv_exp_port_35",
+          "rfv_std_port_776",
+          "rfv_contrib_port_4",
+          "rfv_block_path",
+          "rfv_ftitle_long_hidden",
+          "rfv_factor_tag_hidden"
+        ]
+      },
+      "gaussian": "36GLQSO/t1xj7HspedyX1A==",
+      "userinfo": {
+        "runningRequests": 0,
+        "serverId": "3cca5766-031e-4d78-bd96-fee668cd1da8",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1717607974077
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 4392
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-06-05T17:19:32.431Z",
+      "detailedID": "7fe1d5f0-7220-45ec-a3ad-b3171d45b794.4392.1717607972431",
+      "IDWithContextChain": "7fe1d5f0-7220-45ec-a3ad-b3171d45b794",
+      "chain": [],
+      "bmsMsgSize": 4392,
+      "transactionId": "7fe1d5f0-7220-45ec-a3ad-b3171d45b794",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getRiskFactorData",
+    "transactionId": "7fe1d5f0-7220-45ec-a3ad-b3171d45b794",
+    "successCode": null
+  }
+]

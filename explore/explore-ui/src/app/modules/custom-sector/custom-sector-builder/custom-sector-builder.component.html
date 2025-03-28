@@ -1,0 +1,43 @@
+<div class="custom-sector-builder">
+    <div class="custom-sector-details-container">
+        <div class="custom-sector-details-title">
+            <aux-text-input
+                (valueChanged)="onSectorNameChange($event.detail.value)"
+                [value]="customSector.title"
+                hasClearButton=true
+                label="Sector Name"
+                placeholder="Enter Custom Sector Name"
+                class="custom-sector-name-field">
+            </aux-text-input>
+            <aux-button label="Save Custom Sector" (click)="saveCustomSector()" [type]="AuxButtonTypeEnum.SECONDARY"></aux-button>
+        </div>
+        <div *ngIf="customSector.owner" class="custom-sector-details-author">
+            <explore-previous-favorite-version-banner [favoriteId]="customSector.id" [owner]="customSector.owner"
+                                                      [currentFavoriteVersion]="customSector.currentFavoriteVersion"
+            ></explore-previous-favorite-version-banner>
+            <div class="favorite-info-custom-sector-container">
+                <explore-favorite-info class="favorite-details" [favoriteConfig]='customSector' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.CUSTOM_SECTOR" [loadFavoriteCallBack]="loadCustomSectorVersion"></explore-favorite-info>
+                <app-favorite-menu *ngIf="coreFavoriteUtils.showFavStatusTagMenu(customSector)" [favorite]="customSector" [favoriteType]="favoriteType"></app-favorite-menu>
+            </div>
+            <div *ngIf="coreFavoriteUtils.showFavStatusTag(customSector)" style="margin-top: .5rem">
+                <app-favorite-status-badge [favoriteStatus]="customSector.statusTag"></app-favorite-status-badge>
+            </div>
+        </div>
+    </div>
+    <div class="custom-sector-definition">
+        <div class="custom-sector-definition-header">
+            <div class="aux-primary aux-p13 custom-sector-definition-label">
+                Bucket Definition
+            </div>
+            <aux-button (click)="clearCustomSectorRules()" label="Clear all" type="tertiary" size="small"></aux-button>
+        </div>
+        <div class="custom-sector-rules-container">
+            <explore-custom-sector-item [rule]="customSector.rule"
+                                    [parent]="customSector"
+                                    [groupIndex]="0"
+                                    [draggedSector$]="draggedSector$"
+                                    [sectorRuleBuilderConfig]="sectorRuleBuilderConfig">
+            </explore-custom-sector-item>
+        </div>
+    </div>
+</div>

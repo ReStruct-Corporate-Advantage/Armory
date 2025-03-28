@@ -1,0 +1,32 @@
+.breakdown-sector-selector-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .breakdown-sector-selector-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+    }
+
+    .breakdown-sector-selector-tree-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+        background-color: var(--container__background-color);
+        border: .0625rem solid var(--advanced-tree-list__border-color);
+        border-radius: 0.125rem;
+
+        .search-field-container {
+            padding: .75rem;
+            border-bottom: .0625rem solid var(--advanced-tree-list__border-color);
+        }
+
+        .breakdown-sector-selector-tree {
+            width: auto;
+            flex: 1;
+            overflow: auto;
+        }
+    }
+}

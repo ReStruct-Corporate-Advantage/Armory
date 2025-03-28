@@ -1,0 +1,189 @@
+{
+    "ticker": "IP",
+    "portId": "IP_1562074400333",
+    "datePicker": {
+        "date": "03/09/2016",
+        "calCode": "GreenPkg",
+        "dateStringValue": "",
+        "dateString": false
+    },
+    "isModified": true,
+    "currency": "USD",
+    "benchmark": {
+        "name": "LEH_AGG",
+        "type": "PERFORM"
+    },
+    "portfolioRiskSettings": {
+        "configType": "RISK_SETTINGS",
+        "economyRiskSettings": {
+            "riskHorizon": 5,
+            "weightingScheme": "WKL",
+            "confidenceLevelSD": 2.33,
+            "dateObject": {
+                "date": "05/18/2018",
+                "calCode": "GreenPkg",
+                "dateString": false
+            }
+        },
+        "exposureRiskSettings": {
+            "riskModel": "^^STORM,^PRT_FI"
+        },
+        "advancedRiskSettings": {
+        }
+    },
+    "performanceSettings": {
+        "attributionSettings": {
+            "cannedMethod": "FIXED_INCOME"
+        },
+        "timePeriod": {
+            "shortName": "MTD",
+            "timePeriodName": "Month To Date"
+        },
+        "expostSettings": {
+            "samplingPeriod": {
+                "numberOfPeriods": 1,
+                "timePeriodShortName": "Months"
+            },
+            "statisticPeriod": {
+                "numberOfPeriods": 1,
+                "timePeriodShortName": "Days"
+            },
+            "statisticPeriods": [
+                {
+                    "numberOfPeriods": 1,
+                    "shortName": "Years"
+                }
+            ],
+            "isNetReturns": false,
+            "isLogNormal": false
+        }
+    },
+    "compositionSetting": {
+        "breakdownTree": {
+            "data": {
+                "breakdown": {
+                    "breakdownTitle": "Security Group",
+                    "subSectors": [
+                        {
+                            "breakdownRuleType": "String",
+                            "useNoneBuckets": true,
+                            "groupByColumn": {
+                                "columnTag": "sec_group",
+                                "columnName": "Security Group",
+                                "positionColumnType": "ALL"
+                            }
+                        }
+                    ]
+                }
+            },
+            "title": "TOTAL"
+        },
+        "tradingColumn": "pct_notional_val",
+      "compositionFilter": {
+        "breakdown": {
+          "subSectors": [
+            {
+              "breakdownRuleType": "CustomSector",
+              "includeOtherBucket": true,
+              "rule": {
+                "colPositionColumnType": "ALL",
+                "colTag": "sec_group",
+                "colTitle": "Security Group",
+                "colType": "STRING",
+                "compType": "Does Not Equal",
+                "compValues": [
+                  "FUND"
+                ],
+                "customSectorType": "Attributes",
+                "includeNullValues": false,
+                "ruleType": "Rule"
+              },
+              "title": "Custom Sector"
+            }
+          ]
+        }
+      }
+    },
+    "holdingChanges": [
+        {
+            "lineItem": "F3030B3XZ",
+            "changeInWeight": 0,
+            "newWeight": 0.2716456692343467,
+            "changeType": "Security",
+            "newMV": 215355.3652518758,
+            "newNotional": 215355.3652518758,
+            "newQuantity": 213864.72809703945,
+            "newParValue": 0,
+            "newCurrentFace": 0,
+            "changeInMarketValue": -2.3283064365386963e-10,
+            "changeInNotional": -2.3283064365386963e-10,
+            "changeInQuantity": -121296.27190296055,
+            "changeInParValue": -211563.93002476,
+            "changeInCurrentFace": -211563.93002476,
+            "changeInDeltaAdjNMV": -215355.36525187604
+        },
+        {
+            "lineItem": "125354AA8",
+            "changeInWeight": 0,
+            "newWeight": 0.19041175907467117,
+            "changeType": "Security",
+            "newMV": 150954.71258333317,
+            "newNotional": 150954.71258333317,
+            "newQuantity": 144999.99999999983,
+            "newParValue": 0,
+            "newCurrentFace": 0,
+            "changeInMarketValue": -1.4551915228366852e-10,
+            "changeInNotional": -1.4551915228366852e-10,
+            "changeInQuantity": -1.7462298274040222e-10,
+            "changeInParValue": -145000,
+            "changeInCurrentFace": -145000,
+            "changeInDeltaAdjNMV": -150954.7125833333
+        }
+    ],
+    "optoFinalHoldings": [
+    {
+      "lineItem": "F3030B3XZ",
+      "changeInWeight": 0,
+      "newWeight": 0.2716456692343467,
+      "changeType": "Security",
+      "newMV": 215355.3652518758,
+      "newNotional": 215355.3652518758,
+      "newQuantity": 213864.72809703945,
+      "newParValue": 0,
+      "newCurrentFace": 0,
+      "changeInMarketValue": -2.3283064365386963e-10,
+      "changeInNotional": -2.3283064365386963e-10,
+      "changeInQuantity": -121296.27190296055,
+      "changeInParValue": -211563.93002476,
+      "changeInCurrentFace": -211563.93002476,
+      "changeInDeltaAdjNMV": -215355.36525187604
+    },
+    {
+      "lineItem": "125354AA8",
+      "changeInWeight": 0,
+      "newWeight": 0.19041175907467117,
+      "changeType": "Security",
+      "newMV": 150954.71258333317,
+      "newNotional": 150954.71258333317,
+      "newQuantity": 144999.99999999983,
+      "newParValue": 0,
+      "newCurrentFace": 0,
+      "changeInMarketValue": -1.4551915228366852e-10,
+      "changeInNotional": -1.4551915228366852e-10,
+      "changeInQuantity": -1.7462298274040222e-10,
+      "changeInParValue": -145000,
+      "changeInCurrentFace": -145000,
+      "changeInDeltaAdjNMV": -150954.7125833333
+    }
+  ],
+    "modellingType": 1,
+    "date": "03/09/2016",
+    "composition": {},
+    "skippedRulesForEachDate": [],
+    "passedRulesForEachDate": [],
+    "tradeActions": [],
+    "isWhatIfPortfolio": true,
+    "factorAttributionSettings": {
+        "factorAttributionType": "EQ_MANDATE"
+    }
+}

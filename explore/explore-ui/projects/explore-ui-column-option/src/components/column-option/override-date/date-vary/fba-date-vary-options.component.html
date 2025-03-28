@@ -1,0 +1,22 @@
+<div class="date-vary">
+    <div *ngIf="isDateTypeDisabled('ECONOMY')">
+        <label>NOTE: Only applicable to Exposure Date</label>
+    </div>
+    <div *ngIf="isDateTypeDisabled('EXPOSURE')">
+        <label>NOTE: Only applicable to Economy Date</label>
+    </div>
+    <div *ngIf="!isDateTypeDisabled('BOTH')">
+        <div class="vary-label">Vary:
+            <aux-tooltip>
+                <aux-icon slot="target" type="help-bold" state="primary"></aux-icon>
+                <div slot="content">Economy refers to the economic data points used to calculate factor returns and factor volatility; whereas, Exposures refers to the sensitivities, such as duration, that the securities in a portfolio have on a given date. Thus, varying the Economy will change columns like Factor Level and Factor Vol, while varying the Exposures will change columns like Factor Exposure. Certain columns, being a product of both of these inputs, are impacted by both Economy & Exposures. Columns of this type include Credit Beta, Standalone Risk, Risk Contribution, and Stress PnL</div>
+            </aux-tooltip>
+        </div>
+        <aux-radio-group
+            [data]="dateVaryOptions"
+            [isStacked]="true"
+            (radioGroupChanged)="onDateVaryOptionChanged($event.detail.value)">
+        </aux-radio-group>
+    </div>
+</div>
+

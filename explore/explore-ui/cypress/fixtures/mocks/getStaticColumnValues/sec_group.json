@@ -1,0 +1,182 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "data": [
+                {
+                    "value": "ABS",
+                    "displayName": "ABS",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "ABS"
+                },
+                {
+                    "value": "ARM",
+                    "displayName": "ARM",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "ARM"
+                },
+                {
+                    "value": "BND",
+                    "displayName": "BND",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "BND"
+                },
+                {
+                    "value": "CASH",
+                    "displayName": "CASH",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CASH"
+                },
+                {
+                    "value": "CDI",
+                    "displayName": "CDI",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CDI"
+                },
+                {
+                    "value": "CLC",
+                    "displayName": "CLC",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CLC"
+                },
+                {
+                    "value": "CMBS",
+                    "displayName": "CMBS",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CMBS"
+                },
+                {
+                    "value": "CMDTY",
+                    "displayName": "CMDTY",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CMDTY"
+                },
+                {
+                    "value": "CMO",
+                    "displayName": "CMO",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CMO"
+                },
+                {
+                    "value": "COMMIT",
+                    "displayName": "COMMIT",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "COMMIT"
+                },
+                {
+                    "value": "CRE",
+                    "displayName": "CRE",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "CRE"
+                },
+                {
+                    "value": "EQUITY",
+                    "displayName": "EQUITY",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "EQUITY"
+                },
+                {
+                    "value": "FUND",
+                    "displayName": "FUND",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "FUND"
+                },
+                {
+                    "value": "FUTURE",
+                    "displayName": "FUTURE",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "FUTURE"
+                },
+                {
+                    "value": "FX",
+                    "displayName": "FX",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "FX"
+                },
+                {
+                    "value": "IBND",
+                    "displayName": "IBND",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "IBND"
+                },
+                {
+                    "value": "INDEX",
+                    "displayName": "INDEX",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "INDEX"
+                },
+                {
+                    "value": "INS",
+                    "displayName": "INS",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "INS"
+                },
+                {
+                    "value": "LOAN",
+                    "displayName": "LOAN",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "LOAN"
+                },
+                {
+                    "value": "MBS",
+                    "displayName": "MBS",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "MBS"
+                },
+                {
+                    "value": "OPTION",
+                    "displayName": "OPTION",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "OPTION"
+                },
+                {
+                    "value": "PORT",
+                    "displayName": "PORT",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "PORT"
+                },
+                {
+                    "value": "RE",
+                    "displayName": "RE",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "RE"
+                },
+                {
+                    "value": "SWAP",
+                    "displayName": "SWAP",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "SWAP"
+                },
+                {
+                    "value": "SYNTH",
+                    "displayName": "SYNTH",
+                    "CLASS_TYPE": "com.bfm.prism.data.column.StaticStringValue",
+                    "desc": "SYNTH"
+                }
+            ],
+            "message": null,
+            "gaussian": "rGvd0tm0JKMAzq0Ojq6k5tfsVoHr/HfiyS7U53p1seUd7/kgzshaaJ8PFAq79cjwYD5PkIAnaxroBJkqQZeqD8eepIRpwoZtRGOQWA==",
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": null
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 531
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-01-15T09:43:20.036Z",
+            "detailedID": "d6c7bfcc-c588-4cb3-816e-947af4ccfea6:d6c7bfcc-c588-4cb3-816e-947af4ccfea6:92ef03f9c73d4c6.531.1705311800036",
+            "IDWithContextChain": "d6c7bfcc-c588-4cb3-816e-947af4ccfea6:d6c7bfcc-c588-4cb3-816e-947af4ccfea6:92ef03f9c73d4c6",
+            "chain": [
+                "d6c7bfcc-c588-4cb3-816e-947af4ccfea6:92ef03f9c73d4c6"
+            ],
+            "bmsMsgSize": 531,
+            "transactionId": "d6c7bfcc-c588-4cb3-816e-947af4ccfea6",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getStaticColumnValues",
+        "transactionId": "d6c7bfcc-c588-4cb3-816e-947af4ccfea6",
+        "successCode": null
+    }
+]

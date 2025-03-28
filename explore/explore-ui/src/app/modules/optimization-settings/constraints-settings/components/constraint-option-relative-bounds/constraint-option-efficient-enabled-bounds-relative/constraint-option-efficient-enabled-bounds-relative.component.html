@@ -1,0 +1,20 @@
+<div class="constraint-option-bounds-relative">
+    <div class="bounds-item">
+        <app-constraint-option-select class="operator-select" [customWidth]="true" [options]="lowerBoundSelectOptions" (updated)="onUpdated($event)">
+        </app-constraint-option-select>
+        <app-constraint-option-efficient-frontier-number class="bound-value"
+                                                         [customStyle]="true"
+                                                         [parentConfig]="parentConfig"
+                                                         [options]="lowerBoundOption"
+                                                         (updated)="onUpdated($event)"></app-constraint-option-efficient-frontier-number>
+    </div>
+    <div class="bounds-item">
+        <app-constraint-option-select class="operator-select" [customWidth]="true" [options]="upperBoundSelectOptions" (updated)="onUpdated($event)">
+        </app-constraint-option-select>
+        <app-constraint-option-efficient-frontier-number class="bound-value"
+                                                         [customStyle]="true"
+                                                         [parentConfig]="parentConfig"
+                                                         [options]="upperBoundOption"
+                                                         (updated)="onUpdated($event)"></app-constraint-option-efficient-frontier-number>
+    </div>
+</div>

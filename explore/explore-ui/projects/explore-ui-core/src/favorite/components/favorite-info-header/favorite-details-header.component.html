@@ -1,0 +1,30 @@
+<div class="favorite-popover-container">
+    <div class="favorite-details-container" #favoriteDetailsContainer>
+    <span #favoriteDetails>
+    <ng-container
+        *ngIf="ownerType === FavoriteOwnerEnum.TEAM || ownerType === FavoriteOwnerEnum.ADMIN || ownerType === FavoriteOwnerEnum.GLOBAL">
+        <aux-icon class="favorite-icon" [type]="'template-loaded'" [state]="'primary'"></aux-icon>
+    </ng-container>
+    <span class="aux-bold favorite-title">{{favoriteOwnerPrefix[ownerType]}} {{displayType}}: {{title}}</span>
+    <ng-container
+        *ngIf="ownerType === FavoriteOwnerEnum.TEAM || ownerType === FavoriteOwnerEnum.ADMIN || ownerType === FavoriteOwnerEnum.GLOBAL">
+        <span class="favorite-author">
+            <span class="favorite-author__label">Owner</span>{{ownerDisplayName}}</span>
+    </ng-container>
+</span>
+    </div>
+<!--    only show popover when favorite details overflowing-->
+    <ng-container *ngIf="favoriteDetails.offsetWidth > favoriteDetailsContainer.offsetWidth">
+        <aux-popover [trigger]="'hover'">
+            <div slot="target" class="popover-target"></div>
+            <div slot="content">
+                <aux-value-pair [label]="favoriteOwnerPrefix[ownerType] + ' ' + displayType" [value]="title" [labelPosition]="AuxValuePairLabelPositionEnum.TOP"
+                                [isPipeLess]="true"></aux-value-pair>
+                <ng-container
+                    *ngIf="ownerType === FavoriteOwnerEnum.TEAM || ownerType === FavoriteOwnerEnum.ADMIN || ownerType === FavoriteOwnerEnum.GLOBAL">
+                    <aux-value-pair [label]="'Owner'" [value]="ownerDisplayName" [labelPosition]="AuxValuePairLabelPositionEnum.TOP"></aux-value-pair>
+                </ng-container>
+            </div>
+        </aux-popover>
+    </ng-container>
+</div>

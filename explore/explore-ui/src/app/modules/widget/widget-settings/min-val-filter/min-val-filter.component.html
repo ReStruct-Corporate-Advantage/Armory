@@ -1,0 +1,38 @@
+<div class="min-val-container">
+    <div class="width-select-dropdown">
+        <aux-select label="Only show rows with"
+                    [data]="filterData"
+                    (selectionChanged)="onFilterSelectionChange($event)">
+        </aux-select>
+    </div>
+</div>
+<div class="column-bar">
+    <div class="unicode-container">&#8805;</div>
+    <div class="column-bar">
+        <aux-numeric-stepper [stepperValue]="widgetInput.value"
+                             minValue=0
+                             (valueChanged)="onNumericValueChange($event)">
+        </aux-numeric-stepper>
+    </div>
+
+    <ng-container *ngIf="isSelectedColumnSubtotalAble; else absoluteValueText">
+        <div class="column-bar text-bar">
+            <aux-radio label="of absolute value"
+                       [eventData]="true"
+                       [isChecked]="widgetInput.useAbsolute"
+                       (radioChanged)="toggleAbsoluteValue()"
+                       class="column-bar">
+            </aux-radio>
+            <aux-radio label="% of the total"
+                       [eventData]="true"
+                       [isChecked]="!widgetInput.useAbsolute"
+                       (radioChanged)="toggleAbsoluteValue()"
+                       class="column-bar text-bar">
+            </aux-radio>
+        </div>
+    </ng-container>
+
+    <ng-template #absoluteValueText>
+        <div class="column-bar text-bar"> of absolute value</div>
+    </ng-template>
+</div>

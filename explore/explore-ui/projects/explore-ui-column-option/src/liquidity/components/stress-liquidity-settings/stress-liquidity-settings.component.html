@@ -1,0 +1,48 @@
+<ng-container *ngIf="!isJitaColumn">
+    <!-- Incase of JITA columns this is expected to be shown in jita liquidity settings stress testing section -->
+    <explore-asset-stress-scenario-option class="bottom-space-area" [selectedAssetStressScenario]="underlyingLiquiditySettings.assetStressScenario" (assetStressScenarioSelected)="onAssetStressScenarioChanged($event)">
+
+    </explore-asset-stress-scenario-option>
+</ng-container>
+<ng-container *ngIf="isShowStressLabel">
+    <div>
+        <label>Global stress multipliers</label>
+    </div>
+</ng-container>
+<!-- stepper group for stress liquidity options   -->
+<ng-container *ngFor="let stressOptions of stressLiquidityGroup">
+    <ng-container *ngIf="stressOptions.showStepper">
+        <div class="stress-stepper-container">
+            <aux-numeric-stepper [label]='stressOptions.label'
+                                 minValue="0"
+                                 [stepperValue]="stressOptions.stepperValue"
+                                 (valueChanged)="onStressLiquidityValueChanged($event, stressOptions.label)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="isShowStressAnalysisVisible">
+    <div>
+        <label>Sector stress analysis</label>
+    </div>
+    <div class="container-spacing">
+        <aux-checkbox label='Enable stress analysis'
+                      [isChecked]="underlyingLiquiditySettings.stressAnalysisFlag"
+                      (checkboxChanged)="onStressAnalysisFlagToggle($event)">
+        </aux-checkbox>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="isTcostStressFlagVisible">
+    <div>
+        <label>Tcost stress</label>
+    </div>
+    <div class="container-spacing">
+        <aux-checkbox label='Enable tcost stress'
+                      [isChecked]="underlyingLiquiditySettings.tcostStressFlag"
+                      (checkboxChanged)="onTCostStressFlagToggle($event)">
+        </aux-checkbox>
+    </div>
+</ng-container>

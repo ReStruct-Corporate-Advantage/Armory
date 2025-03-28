@@ -1,0 +1,16 @@
+<aux-modal #information [isOpen]="isOpen" (modalClosed)="closeModal()" [hasCustomHeader]="true">
+    <div slot="custom-header" class="custom-header">
+        <div class="aux-p20 aux-bold aux-primary">{{priceChartInputs.label}}</div>
+    </div>
+    <div slot="content" class="aux-g32--cw-6 aux-layout__wrapper-32 content-padding">
+        <div class="price-chart-container">
+            <ar-stock-price-chart
+                [stockPriceChartData]="stockPriceChartData$ | async"
+                [stockPriceChartOptions]="stockPriceChartOptions"
+                [darkMode]="stockPriceChartDarkMode"
+                (stockPriceConfigurationChange)="onStockPriceChartOptionsChanged($event)"
+            >
+            </ar-stock-price-chart>
+        </div>
+    </div>
+</aux-modal>

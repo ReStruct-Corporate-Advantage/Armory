@@ -1,0 +1,11 @@
+.base-portfolio-container {
+    padding-top: 20px;
+    display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+    .base-portfolio-label {
+        padding-bottom: 0.5rem;
+        display: inline-flex;
+    }
+}

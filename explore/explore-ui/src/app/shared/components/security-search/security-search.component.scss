@@ -1,0 +1,101 @@
+.security-search__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .handle-overflow {
+        overflow: auto;
+    }
+
+    .modelling-panel-padding{
+        padding-bottom: 1rem;
+        justify-content: flex-end;
+    }
+
+    .add-left-padding-for-panel {
+        padding-left: 1rem;
+    }
+
+
+    .add-port-padding {
+        padding-top: 1.5rem;
+    }
+
+    .add-port-width-for-custom {
+        width: 30%;
+    }
+
+    .add-security-padding {
+        padding-right: 1.5rem;
+        width: 50%;
+    }
+
+    .add-left-padding {
+        padding-left: 1.5rem;
+    }
+
+    .action-button {
+        padding-top: 1.5rem;
+    }
+
+    .action-button-padding {
+        padding-right: 1rem;
+    }
+
+    .modelling-first-item {
+       display: flex;
+       flex-grow: 1;
+    }
+
+    .add-to-portfolio {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 1.5rem
+    }
+
+    .input__item {
+        margin-bottom: 1rem;
+        padding-top: 15px;
+    }
+
+    .grid__container {
+        flex: 1;
+    }
+
+    .remove-padding {
+        margin: 0px;
+    }
+
+    .grid-no-wrap {
+        display: flex;
+        flex-direction: row;
+        box-sizing: border-box;
+    }
+
+    .empty-div-with-border {
+        border: 1px solid var(--grid__border-color);
+        height: 100%;
+    }
+
+    .flex-display-wrap {
+        display: flex;
+        flex-wrap: wrap
+    }
+
+    .what-if-mode-display {
+        padding-top: 1.5rem;
+        padding-left: 8px;
+        width: 145px;
+    }
+
+    .add-securities
+    {
+        height: 150%;
+    }
+}
+
+.iShares-selector-modal {
+    height: 57vh;
+    width: 50vw;
+    padding: 32px;
+}

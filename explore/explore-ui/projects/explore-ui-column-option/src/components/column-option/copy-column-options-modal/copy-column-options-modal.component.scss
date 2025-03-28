@@ -1,0 +1,16 @@
+.copy-column-options-modal--content {
+    max-height: 60vh;
+    min-height: 30vh;
+    max-width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.column-to-copy {
+    padding: 1rem 0;
+}
+
+.copy-modal-note {
+    padding-bottom: 1rem;
+}
+

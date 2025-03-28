@@ -1,0 +1,57 @@
+.axis-title-area {
+    padding-top: 6px;
+    display: flex;
+    align-items: flex-end;
+
+    .axis-title {
+        display: block;
+        width: 245px;
+    }
+    .hide-axis-title {
+        display: block;
+        margin: 0 0 8px 16px;
+    }
+}
+
+.bounds-label-area {
+    display: flex;
+    align-items: flex-end;
+    margin: 12px 0 8px 0;
+
+    .bounds-label {
+        display: block;
+        margin-bottom: 4px;
+    }
+    .bounds-label-popover {
+        display: block;
+    }
+}
+
+.upper-lower-bounds-area {
+    display: flex;
+    align-items: flex-end;
+
+    .bound-input {
+        width: 100px;
+        display: block;
+    }
+    .bound-to {
+        display: block;
+        margin: 0 16px 8px 16px;
+    }
+}
+
+.interval-area {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 16px;
+
+    .interval-input {
+        width: 100px;
+    }
+}
+
+.bound-undo {
+    display: block;
+    margin-bottom: 3px;
+}

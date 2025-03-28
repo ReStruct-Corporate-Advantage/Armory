@@ -1,0 +1,11 @@
+<div class="records-table">
+    <aux-grid [gridOptions]="gridOptions"
+              [fontSize]="'small'"
+              [paddingSize]="'xsmall'"
+    ></aux-grid>
+    <div class="loading-background aux-container" *ngIf="isLoading$ | async">
+        <div class="loading-spinner aux-container">
+            <app-loading-spinner size="large" [loadingLabel]="'Loading data'"></app-loading-spinner>
+        </div>
+    </div>
+</div>

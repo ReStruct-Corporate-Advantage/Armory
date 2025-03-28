@@ -1,0 +1,44 @@
+<aux-modal [isOpen]="isOpen" type="action" header="Advanced Liquidity Settings" [hasCustomFooter]="true">
+    <div slot="content">
+        <div class="aux-g16--cw-6">
+            <div class="div1-padding">
+                <div class="aux-layout__wrapper-32">
+                        <div class="aux-g16--xs-12 aux-g16--sm-12 aux-g16--md-12 aux-g16--lg-12 aux-g16--xl-12">
+                        <div *ngIf="isShowModelSelectionSettings">
+                            <div class="model-selection-bar">
+                                <div class="model-selection-row-container aux-layout__wrapper-16 row-line">
+                                    <div class="aux-g16--xs-6 aux-g16--sm-6 aux-16--md-6 aux-g16--lg-6 aux-g32--xl-6">
+                                        <label class="header">Asset Class</label>
+                                    </div>
+                                    <div class="aux-g16--xs-6 aux-g16--sm-6 aux-16--md-6 aux-g16--lg-6 aux-g32--xl-6">
+                                        <label class="header">Model Selection</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="isShowModelSelectionSettings">
+                            <div *ngFor="let mapping of assetClassModelGrouping | keyvalue" class="aux-layout__wrapper-16 row-line">
+                                <div class="aux-g16--xs-6 aux-g16--sm-6 aux-16--md-6 aux-g16--lg-6 aux-g32--xl-6">
+                                    <label>{{mapping.key}}</label>
+                                </div>
+                                <div class="aux-g16--xs-6 aux-g16--sm-6 aux-16--md-6 aux-g16--lg-6 aux-g32--xl-6">
+                                    <aux-select [hasInitialOptionPlaceholder]="false"
+                                                [size]="'small'"
+                                                [id]="mapping.key"
+                                                (selectionChanged)="onModelSelectionChanged($event, mapping.key)"
+                                                [data]="mapping.value">
+                                    </aux-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="APPLY_TEXT" [type]="'primary'" (click)="closeModal(true)"></aux-button>
+        <aux-button [label]="CANCEL_TEXT" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

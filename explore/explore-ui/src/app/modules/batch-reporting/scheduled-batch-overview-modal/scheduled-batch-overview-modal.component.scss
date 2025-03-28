@@ -1,0 +1,58 @@
+.scheduled-batch-overview-area {
+    padding: 2rem 1rem;
+    height: 500px;
+    max-height: 500px;
+
+    .scheduled-batch-overview-table-area {
+        border: 1px solid var(--grid__border-color);
+        overflow-y: auto;
+        height: 100%;
+
+        .scheduled-batch-overview-table {
+            border-spacing: 0px;
+            width: 100%;
+            border-collapse: collapse;
+
+            .scheduled-batch-overview-header-row {
+                border-bottom: 1px solid var(--grid__border-color);
+                text-align: center;
+
+                th {
+                    background: var(--grid__background-color-header);
+                    position: -webkit-sticky;
+                    position: sticky;
+                    padding: 8px 6px 8px 6px;
+                    z-index: 1;
+                    top: 0;
+                }
+            }
+
+            .scheduled-batch-row {
+                border-bottom: 1px solid var(--dialog__border-color);
+                text-align: center;
+
+                td {
+                    padding: 6px;
+                }
+
+                .frequency-section, .favorite-name-section {
+                    position: relative;
+
+                    .frequency-tooltip, .favorite-name-tooltip {
+                        position: absolute;
+                        margin-left: 5px;
+                        margin-top: 2px;
+                    }
+                }
+
+                .folder-name-section, .file-name-prefix-section {
+                    white-space: pre;
+                }
+
+                .scheduled-batch-row-delete-icon {
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

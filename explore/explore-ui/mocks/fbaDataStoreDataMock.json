@@ -1,0 +1,148 @@
+{
+  "requestConfig": {
+    "columns": [
+      {
+        "originalColumnTitle": " Title",
+        "columnKey": "rfv_ftitle",
+        "columnTag": "rfv_ftitle",
+        "columnTitle": " Title",
+        "dataType": "STRING",
+        "formatter": {},
+        "isHidden": false,
+        "isSubtotalable": false
+      },
+      {
+        "originalColumnTitle": "Risk Contribution",
+        "columnKey": "rfv_contrib_port_5ae1aec7858a470",
+        "columnTag": "rfv_contrib_port",
+        "columnTitle": "Risk Contribution",
+        "dataType": "DOUBLE",
+        "formatter": {
+          "columnFormat": {
+            "scalingOptions": {},
+            "decimalPlaces": 2,
+            "isUseThousandsSeparator": true,
+            "isScalable": true,
+            "scalingFactor": 0.0001
+          },
+          "optionValue": {
+            "decimalPlaces": 2,
+            "scaling": 0.0001,
+            "useThousandsSeparator": true
+          }
+        },
+        "riskSettings": {},
+        "customColumnTitle": {},
+        "numericColumnFormatColumnOption": {
+          "decimalPlaces": 2,
+          "scaling": 0.0001,
+          "useThousandsSeparator": true
+        },
+        "highlight": {
+          "highlightSettings": [],
+          "highlightOnlyLeaf": true
+        },
+        "overrideDateColumnOption": {
+          "overrideDateTypes": [],
+          "showAttribution": false,
+          "dateType": "BOTH"
+        },
+        "isHidden": false,
+        "isSubtotalable": true
+      },
+      {
+        "originalColumnTitle": "Block Path",
+        "columnKey": "rfv_block_path",
+        "columnTag": "rfv_block_path",
+        "columnTitle": "Block Path",
+        "dataType": "STRING",
+        "formatter": {},
+        "isHidden": true,
+        "isSubtotalable": false
+      }
+    ],
+    "columnFilters": {},
+    "portfolio": "PEP"
+  },
+  "responseConfig": {
+    "columnHeaderDetails": {
+      "columnKeyToDisplayNameMap": {
+        "rfv_block_path": "Block Path",
+        "rfv_ftitle": " Title",
+        "rfv_contrib_port_5ae1aec7858a470": "Risk Contribution"
+      },
+      "columnKeyToTagMap": {
+        "rfv_block_path": "rfv_block_path",
+        "rfv_ftitle": "rfv_ftitle",
+        "rfv_contrib_port_17a6bcd72e08447": "rfv_contrib_port"
+      }
+    },
+    "columns": [
+      "rfv_ftitle",
+      "rfv_contrib_port_5ae1aec7858a470",
+      "rfv_block_path"
+    ],
+    "footerDetails": {
+      "scenarios": {
+        "MS_WORLD": {
+          "restriction": "",
+          "description": "1% probability movement of MSCI World Market Down",
+          "shocks": [
+            "MSCI World Net TR = -8.97 (pct)"
+          ],
+          "code": "MS_WORLD",
+          "spread_shocks": "Relative",
+          "dampening": "None (0.00)"
+        },
+        "GR_RES::P100": {
+          "restriction": "",
+          "description": "Syriza and the Troika negotiate additional financing, and the tail-risk of a near-term “Grexit” scenario is removed",
+          "floored_factors": "GRD 5Y",
+          "shocks": [
+            "Greece ASE/General = 40 (pct) target block ALL-BRS_GOLD__2_RATES-BRS_GOLD__2_FX-BRS_GOLD__5_SPREADS-EQVX-BRS_GOLD__2_INFLATION-COMD",
+            "MSCI World Net TR = 1 (pct) target block ALL-BRS_GOLD__2_RATES-BRS_GOLD__2_FX-BRS_GOLD__5_SPREADS-EQVX-BRS_GOLD__2_INFLATION-COMD",
+            "MXEU FINANCIALS(EUR) = 5 (pct) target block ALL-BRS_GOLD__2_RATES-BRS_GOLD__2_FX-BRS_GOLD__5_SPREADS-EQVX-BRS_GOLD__2_INFLATION-COMD",
+            "VSTOXX Implied Vol = -10 (pct) target block EQVX",
+            "Pan Euro Credit HY = -5 (bps) target block BRS_GOLD__5_SPREADS",
+            "EU Corp Spain = -10 (bps) target block EUR_CORP_IT,EUR_CORP_IT_HY,EUR_CORP_ES ,EUR_CORP_ES _HY,EUR_CORP_IE,EUR_CORP_IE_HY,EUR_CORP_PT,EUR_CORP_PT_HY",
+            "EU Corp Greece = -300 (bps) target block EUR_CORP_GR,EUR_CORP_GR_HY",
+            "ESP 5Y = -20 (bps) target block BRS_GOLD__1_EURSPRD-GRD",
+            "EUR/USD = 2 (pct) target block BRS_GOLD__2_FX",
+            "GRD 5Y = -954.354 (bps) target block GRD,USD_CDS_GR_2Y,USD_CDS_GR_5Y",
+            "Tsy 10Y = 5 (bps) target block BRS_GOLD__2_RATES-BRS_GOLD__1_EURSPRD",
+            "MSCI EUROPE(EUR) - MSCI World Net TR = 4 (pct) target block ALL-BRS_GOLD__2_RATES-BRS_GOLD__2_FX-BRS_GOLD__5_SPREADS-EQVX-BRS_GOLD__2_INFLATION-COMD"
+          ],
+          "code": "GR_RES",
+          "spread_shocks": "Absolute",
+          "dampening": "None (0.00)"
+        }
+      },
+      "dateOverride": {
+        "rfv_contrib_port_5ae1aec7858a470": [
+          [
+            "Prior Day",
+            "03/10/2016",
+            "03/10/2016"
+          ]
+        ]
+      },
+      "PUBLISH_TIME": 0,
+      "proxies": {
+        "BRS263R12": {
+          "sec_desc": "BLK ICS USD LIQ AGENCY DIS",
+          "cusip": "BRS263R12",
+          "proxy_cusip": "BRS2GTXW9",
+          "type": "Look-Thru",
+          "proxy_desc": "BlackRock ICS US Dollar Liquidity Fund"
+        },
+        "BRSUMDQT0": {
+          "type": "UNIT_PROXY",
+          "sec_desc": "PROJECT DASH A-17",
+          "cusip": "BRSUMDQT0",
+          "desc": "CHN "
+        }
+      },
+      "assetsCount": 3
+    }
+  }
+}

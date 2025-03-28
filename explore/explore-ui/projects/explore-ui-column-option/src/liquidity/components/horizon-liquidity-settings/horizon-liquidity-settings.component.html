@@ -1,0 +1,59 @@
+<div class="bottom-space">
+    <label>Horizon</label>
+</div>
+
+<div class="sub-container">
+    <ng-container *ngIf="isShowTimeHorizonOptions">
+        <div class="bottom-space">
+            <aux-radio-group label="Business days"
+                             [isStacked]="true"
+                             [data]="calendarDaysOptions"
+                             (radioGroupChanged)="onCalendarDayChanged($event)">
+            </aux-radio-group>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="underlyingLiquiditySettings.timeHorizons.length > 0">
+        <div class="time-horizon-bar">
+            <div class="time-horizon-row-container">
+                <span class="input-stepper-width">From</span>
+                <span class="input-stepper-width">To</span>
+                <span class="text-input-width">Name</span>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngFor="let timeHorizon of underlyingLiquiditySettings.timeHorizons; index as i">
+        <div class="time-horizon-bar">
+            <div class="time-horizon-row-container">
+                <aux-numeric-stepper minValue=0
+                                     class="input-stepper-width"
+                                     [stepperValue]="timeHorizon.minDays"
+                                     [isDisabled]="!isShowMinDaysTimeHorizonOption"
+                                     (valueChanged)="onMinDaysChanged($event, timeHorizon)">
+                </aux-numeric-stepper>
+
+                <aux-numeric-stepper [minValue]="timeHorizon.minDays + 1"
+                                     maxValue="500"
+                                     [stepperValue]="timeHorizon.maxDays"
+                                     [isDisabled]="!isShowTimeHorizonOptions"
+                                     class="input-stepper-width"
+                                     (valueChanged)="onMaxDaysChanged($event, timeHorizon)">
+                </aux-numeric-stepper>
+
+                <aux-text-input [value]="timeHorizon.title"
+                                (valueChanged)="onTimeHorizonTitleChanged($event, timeHorizon)"
+                                class="text-input-width">
+                </aux-text-input>
+
+                <aux-button class="button--left-padding"
+                          icon="delete-small" type="tertiary-subtle"
+                          (click)="deleteSelectedTimeHorizon(i)">
+                </aux-button>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="isShowTimeHorizonOptions">
+        <aux-button icon="add" label="Add" type="secondary" (click)="addTimeHorizon()"></aux-button>
+    </ng-container>
+</div>

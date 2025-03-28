@@ -1,0 +1,14 @@
+<div class="fiscal-year-option-container">
+    <ng-container>
+        <div class="aux-secondary">A 12-month accounting period used for financial and tax reporting.</div>
+        <div class="fiscal-year-selector-container">
+            <div class="flex">
+                <aux-select class="year-select"
+                            [type]="selectionMode"
+                            [data]="fiscalYearOptions"
+                            (selectionChanged)="updateFiscalYears($event)">
+                </aux-select>
+            </div>
+        </div>
+    </ng-container>
+</div>

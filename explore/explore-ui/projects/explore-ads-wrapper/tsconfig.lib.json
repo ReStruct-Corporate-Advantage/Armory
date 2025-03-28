@@ -1,0 +1,26 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "../../out-tsc/libs/@blk/explore-ads-wrapper",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+  
+}

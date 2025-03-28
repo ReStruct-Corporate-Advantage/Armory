@@ -1,0 +1,68 @@
+
+
+.factor-column-summary {
+    margin-bottom: 16px;
+    display: flex;
+    height: 25vh;
+    min-height: 200px;
+    flex-flow: column nowrap;
+}
+
+.mode-settings {
+    height: auto;
+    margin-left: 1px;
+}
+
+.conditional-header {
+    font-weight: bold;
+}
+
+.card-content-div {
+    padding-top: 6px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start; // default
+    align-items: flex-start;
+}
+
+.noise-dampening {
+    width: 200px;
+}
+
+.margin-right-16 {
+    margin-right: 16px;
+}
+
+.margin-bottom-16 {
+    margin-bottom: 16px;
+}
+
+.set-margin {
+    @extend .margin-right-16;
+    margin-bottom: 16px;
+}
+
+.shock-date-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+}
+
+.add-factors-button {
+    margin-bottom: 12px;
+}
+
+.shock-date-checkbox {
+    margin-right: 6px;
+}
+
+.add-factors-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.popover-container {
+    width: 468px;
+}
+

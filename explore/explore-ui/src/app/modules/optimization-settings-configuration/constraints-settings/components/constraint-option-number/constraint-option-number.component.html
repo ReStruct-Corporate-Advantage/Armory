@@ -1,0 +1,8 @@
+<div [ngClass]="{'text-box': !customStyle}">
+    <aux-text-input
+        [value]="value$ | async"
+        [label]="label"
+        [validator]="validator"
+        (valueChanged)="onValueChanged($event)">
+    </aux-text-input>
+</div>

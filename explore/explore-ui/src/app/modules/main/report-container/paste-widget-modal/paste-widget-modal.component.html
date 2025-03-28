@@ -1,0 +1,14 @@
+<aux-modal #information [isOpen]="isOpen" (modalClosed)="closeModal()" [hasCustomHeader]="true">
+    <div slot="custom-header" class="paste-modal-custom-header">
+        <div class="aux-p20 aux-bold aux-primary">Paste Widget</div>
+    </div>
+    <div slot="content" class="aux-g32--cw-4 content-padding paste-widget-modal">
+        <div class="paste-widget-area">
+            To paste a widget you've copied, press Ctrl+V with this window open.
+            <br/>
+            For Chrome users, please enable clipboard read access in the browser address bar to paste the widget without this open.
+            <textarea #pasteWidgetElement (paste)="pasteWidget($event)">
+            </textarea>
+        </div>
+    </div>
+</aux-modal>

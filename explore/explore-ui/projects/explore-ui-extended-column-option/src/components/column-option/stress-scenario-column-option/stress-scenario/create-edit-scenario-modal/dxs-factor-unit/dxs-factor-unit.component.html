@@ -1,0 +1,8 @@
+<aux-radio-group
+        [label]="'Shocks for DxS factors are'"
+        [isHeaderBold]="true"
+        [isStacked]="true"
+        [isReadOnly]="isDxsShockUnitReadOnly"
+        [data]="dxsShockUnitModes"
+        (radioGroupChanged)="onDxsFactorUnitChanged($event.detail.value.eventData)"
+></aux-radio-group>

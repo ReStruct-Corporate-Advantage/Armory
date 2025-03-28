@@ -1,0 +1,9 @@
+.axis-selection {
+    display: flex;
+    flex-direction: row;
+
+    .dropdown {
+        margin: 8px;
+        min-width: 250px;
+    }
+}

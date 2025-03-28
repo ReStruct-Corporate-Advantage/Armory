@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadNewFavoriteButtonsComponent should create 1`] = `
+<div
+  class="favorite-buttons-container"
+>
+  <aux-button />
+  <div
+    class="vertical-line-divider"
+  />
+  <aux-button />
+  
+  
+</div>
+`;
+
+exports[`LoadNewFavoriteButtonsComponent should show only Load button 1`] = `
+<div
+  class="favorite-buttons-container"
+>
+  <aux-button />
+  
+</div>
+`;

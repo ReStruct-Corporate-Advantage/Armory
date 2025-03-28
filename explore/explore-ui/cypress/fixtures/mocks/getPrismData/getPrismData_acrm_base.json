@@ -1,0 +1,98 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 0
+        },
+        "data": {
+          "data": [
+            null,
+            null,
+            null,
+            null
+          ],
+          "children": [
+            {
+              "data": [
+                "Clearlake Capital Partners V, L.P. Prvt",
+                "BRTEJLPT2",
+                "FUND",
+                "PRIVATE"
+              ],
+              "rowId": 2
+            },
+            {
+              "data": [
+                "NewView Capital Fund I, L.P. Prvt",
+                "BRTMXMM69",
+                "FUND",
+                "PRIVATE"
+              ],
+              "rowId": 3
+            },
+            {
+              "data": [
+                "Thoma Bravo Discover Fund II, L.P. Prvt",
+                "BRTEJLME8",
+                "FUND",
+                "PRIVATE"
+              ],
+              "rowId": 4
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "sec_desc": "Description",
+            "sec_group_hidden": "Security Group",
+            "cusip": "CUSIP",
+            "sec_type_hidden": "Security Type"
+          },
+          "columnKeyToTagMap": {
+            "sec_desc": "sec_desc",
+            "sec_group_hidden": "sec_group",
+            "cusip": "cusip",
+            "sec_type_hidden": "sec_type"
+          }
+        },
+        "columns": [
+          "sec_desc",
+          "cusip",
+          "sec_group_hidden",
+          "sec_type_hidden"
+        ]
+      },
+      "gaussian": "Wmt/eNPTHjzyLtGorlFu9nsaF0NsltvYkNuTqpbAtGm+S7zwhgInztbmq/UQ4xvR1iZJHXM+EPbw0U5gm7bJCw6zJXopUA==",
+      "userinfo": {
+        "runningRequests": 3,
+        "serverId": "sharedSession",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1717509192313
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2708
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-06-04T13:53:11.538Z",
+      "detailedID": "af8dd639-915f-42b5-9fa0-baf95d0b102c.2708.1717509191538",
+      "IDWithContextChain": "af8dd639-915f-42b5-9fa0-baf95d0b102c",
+      "chain": [],
+      "bmsMsgSize": 2708,
+      "transactionId": "af8dd639-915f-42b5-9fa0-baf95d0b102c",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPrismData",
+    "transactionId": "af8dd639-915f-42b5-9fa0-baf95d0b102c",
+    "successCode": null
+  }
+]

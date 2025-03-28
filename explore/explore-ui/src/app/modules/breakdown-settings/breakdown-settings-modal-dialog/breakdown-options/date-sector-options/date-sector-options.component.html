@@ -1,0 +1,10 @@
+<div class="date-sector-options">
+    <div class="aux-primary selector-label">
+        Group by
+    </div>
+    <aux-radio-group
+        [data]="groupBySelectionData"
+        [isStacked]="true"
+        (radioGroupChanged)="onGroupByChange($event)">
+    </aux-radio-group>
+</div>

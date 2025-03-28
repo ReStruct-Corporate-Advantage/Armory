@@ -1,0 +1,16 @@
+<div class="horizontal-display-form">
+    <div class="form-header">
+        <div class="form-header-col short"><aux-text>Show</aux-text></div>
+        <div *ngFor="let col of cols" class="form-header-col long"
+            [ngClass]="{'text-right': col.field === RELAXATION_COL_DEF.field, 'center': col.type === AuxGridColumnType.AUX_CHECKBOX_COLUMN, 'right': col.type === AuxGridColumnType.AUX_NUMBER_COLUMN}">
+            <aux-text>{{col.headerName}}</aux-text>
+        </div>
+        <div class="form-header-col short right"></div>
+    </div>
+    <div *ngFor="let row$ of rows; index as i" class="form-row" [class.form-row-selected]="i === selectedIndex">
+        <app-horizontal-display-form-row [cols]="cols" [row]="row$ | async" (enabled)="onEnabled(i, $event)"
+            (updated)="onUpdated(i, $event)" (deleted)="onDeleted(i)" (selected)="onSelected(i)"
+            (cloned)="onCloned(i)">
+        </app-horizontal-display-form-row>
+    </div>
+</div>

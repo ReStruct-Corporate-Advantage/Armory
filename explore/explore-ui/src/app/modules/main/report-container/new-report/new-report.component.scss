@@ -1,0 +1,57 @@
+@use '../../../../../config';
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab__content {
+    padding: 2rem 0;
+    background-color: var(--modal__background-color--grey);
+    overflow-y: auto;
+    margin-top: -1px;
+}
+
+.tab-bar-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 24px 8px 24px;
+}
+
+.favorite-report-area {
+    .favorite-report-title {
+        height: 18px;
+        font-size: config.$font-size-large;
+        font-weight: bold;
+        line-height: 18px;
+        margin: 0 0 12px;
+    }
+    .favorite-report-text {
+        font-size: config.$font-size-medium;
+        line-height: 18px;
+        margin: 0 0 12px;
+    }
+    width: 522px;
+    margin: 16px;
+}
+
+.new-report-area {
+    .input-text-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem; 
+
+        .create-report-button {
+            align-self: flex-end;
+        }
+    }
+    
+    width: 522px;
+    margin: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+}

@@ -1,0 +1,10 @@
+<div [ngClass] ="{'security-custom-col-def header security-constraint aux-g32--xs-10 aux-g32--sm-10 aux-g32--md-10 aux-g32--lg-10 aux-g32--xl-10': customColConfig?.field === 'riskContributionPercentage', 'upload-alpha': customColConfig.field === 'alpha'}">
+        <div [ngClass]="{'search-with-grid': selectedSecurities?.size > 0, 'search-without-grid': selectedSecurities?.size === 0}">
+            <app-security-search #securitySearchComp
+                                 [selectedSecurities]="selectedSecurities"
+                                 [createFromScratch]="true"
+                                 [customColDef]="customColConfig"
+                                 (changeInSelectedSecurities)="onSecuritiesUpdated()">
+            </app-security-search>
+        </div>
+</div>

@@ -1,0 +1,47 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "date": "2022-08-19",
+        "data": [
+          {
+            "portfolioCode": 871967,
+            "portfolioName": "SPE7US-C",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -5829,
+            "portfolioName": "NO_BENCH",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          }
+        ],
+        "CLASS_TYPE": "com.bfm.prism.data.PortfoliosPublishStateData"
+      },
+      "message": null,
+      "gaussian": "qkVgA+IJmckhDtqC/u69h7CGJSAUGIDjaGxYPywR",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 716
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-05-31T17:37:22.928Z",
+      "detailedID": "6cd7da2c-af2a-4bf9-bf7d-931706709787:6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f:6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f.716.1717177042928",
+      "IDWithContextChain": "6cd7da2c-af2a-4bf9-bf7d-931706709787:6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f:6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f",
+      "chain": [
+        "6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f",
+        "6cd7da2c-af2a-4bf9-bf7d-931706709787:8fe8d72e258e47f"
+      ],
+      "bmsMsgSize": 716,
+      "transactionId": "6cd7da2c-af2a-4bf9-bf7d-931706709787",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPublishedState",
+    "transactionId": "6cd7da2c-af2a-4bf9-bf7d-931706709787",
+    "successCode": null
+  }
+]

@@ -1,0 +1,11 @@
+<aux-learn-link class ="learn-link" [label]="favoriteConfig.title" [header]="favoriteConfig.title">
+    <div slot="content" class="popover-container" [style.width.px]="favoriteConfig.title.length * 8">
+        <span class="popover-content">Owner: {{ownerName}}</span>
+        <span class="popover-content">Type: {{ownerType}}</span>
+        <span *ngIf='enterpriseDescription' class="popover-content">Description: {{enterpriseDescription}}</span>
+        <span *ngIf='favoriteConfig.lastUpdatedBy' class="popover-content">Last modified by {{favoriteConfig.lastUpdatedBy}} on {{favoriteConfig.dateLastUpdated}}</span>
+        <span *ngIf="showVersionLogLink">
+            <app-favorite-version-log-link (viewClick)="onViewVersionLogClick()"></app-favorite-version-log-link>
+        </span>
+    </div>
+</aux-learn-link>

@@ -1,0 +1,51 @@
+.workspace-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 1rem 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    border-bottom: .0125rem solid var(--drawer__border-color);
+
+    .workspace-name-edit-and-save {
+        display: flex;
+        flex-direction: column;
+
+        .in-progress-container {
+            padding: 0.25rem
+        }
+
+        .workspace-name-label {
+            word-break: break-word;
+        }
+    }
+
+    .workspace-quick-save {
+        margin-top: 1rem;
+        display: flex;
+    }
+
+    .workspace-author {
+        margin-top: 0.5rem;
+    }
+
+    .workspace-status-badge {
+        margin-top: 0.5rem;
+    }
+
+    .workspace-name-edit {
+        margin-top: -.5rem;
+        display: flex;
+        align-content: stretch;
+    }
+
+}
+
+.popover-data {
+    margin: 1px 10px;
+    padding: 0 5px;
+    text-align: left;
+}
+
+.bench-selector__container {
+    align-items: center;
+}

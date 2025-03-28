@@ -1,0 +1,35 @@
+.risk-settings {
+    overflow: auto;
+    background-color: var(--secondary__background-color);
+    border: .0125rem solid var(--drawer__border-color);
+
+    .risk-settings-menu {
+        display: flex;
+        justify-content: flex-end;
+        padding-bottom: 16px;
+        align-items: center;
+    }
+
+    .risk-settings-menu-button {
+        padding-top: 0.375rem;
+        padding-right: 0.9375rem;
+    }
+
+    .risk-settings-menu-nav {
+        border-left: 1px solid var(--option-group__border-color);
+        padding: 0 0.9375rem;
+    }
+}
+
+.layout-factor-economy-settings {
+    overflow: auto;
+    height: calc(100%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.layout-padding-factor-economy-settings {
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+    padding-top: 32px;
+}

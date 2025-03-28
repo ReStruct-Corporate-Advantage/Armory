@@ -1,0 +1,27 @@
+{
+  "name": "@blk/explore-ui-core",
+  "description": "Explore UI Core Library",
+  "version": "2025.3.0",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12",
+    "@blk/aladdin-angular-components": "17.4.0",
+    "@blk/aladdin-web-components": "17.4.0",
+    "@blk/aladdin-frontend-telemetry": "17.4.0",
+    "@blk/aladdin-graph-everything": "1.1.7983",
+    "@blk/oa-protos-javascript": "2.0.0-rc.89",
+    "base64-arraybuffer": "^1.0.2",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.43",
+    "pako": "^2.1.0",
+    "sortablejs": "1.15.0"
+  },
+  "exports": {
+    "./styles/*": {
+      "sass": "./styles/*.scss"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "owner": "suresing",
+        "data": "%7b\"title\":\"REPORTS\",\"type\":\"folder\",\"favoriteId\":\"folder_ROOT\"%7d",
+        "listOrder": 0,
+        "list_order": 0,
+        "id": 1320426,
+        "type": "LAYOUT_FOLDER",
+        "title": "TEST",
+        "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+        "tool": "Explore_BETA",
+        "isSlim": false
+      },
+      "message": null,
+      "gaussian": "qJR4Aj5VPAnyxZOotXuAzJyUcrBqSmo3bL47Cp0/YVEh7MphlripMi87G27tAbu+/VX6sbxChAkZy5HUUwCvAgdRSECziy15/TqLLcEf0A==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 553
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:55.861Z",
+      "detailedID": "480cf96b-21e5-4362-8ca7-58f67c0ae444.553.1681296955861",
+      "IDWithContextChain": "480cf96b-21e5-4362-8ca7-58f67c0ae444",
+      "chain": [],
+      "bmsMsgSize": 553,
+      "transactionId": "480cf96b-21e5-4362-8ca7-58f67c0ae444",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636330*ts=1681296955863*btid=59185*guid=af092a78-76c6-4c33-9d22-808ebaf5525c*exitguid=3*unresolvedexitid=593*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][593]}",
+    "return_val": "SUCCESS",
+    "command": "getFavoriteForTypeAndUser",
+    "transactionId": "480cf96b-21e5-4362-8ca7-58f67c0ae444",
+    "successCode": null
+  }
+]

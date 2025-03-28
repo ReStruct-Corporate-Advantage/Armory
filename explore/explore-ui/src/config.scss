@@ -1,0 +1,49 @@
+/* Application-specific configs */
+
+// Explore variables
+$TINY_DEVICE: 400px;
+$EXTRA_SMALL_DEVICE: 480px;
+$SLIDER_RESIZE: 502px;
+$SMALL_DEVICE: 768px;
+$MEDIUM_INPUT_RESIZE: 950px;
+$MEDIUM_DEVICE: 991px;
+$LARGE_DEVICE: 1200px;
+
+$font-family: Roboto;
+$font-size-regular: 12px;
+
+/*Below can ideally be expressed as % of the regular font size above or in em. */
+$font-size-extra-small: 10px;
+$font-size-small: 11px;
+$font-size-medium: 13px;
+$font-size-large: 14px;
+$font-size-extra-large: 16px;
+$font-size-extra-extra-large: 18px;
+$font-size-extra-extra-extra-large: 20px;
+$font-size-title: 24px;
+
+$workspace-explorer-row: 36px;
+$workspace-explorer-top-row: -36px;
+$workspace-explorer-breadcrumb-row: 32px;
+
+$constraints-options-label: 20%;
+
+$clickable-item-default-opacity: 0.8;
+$clickable-item-hover-opacity: 1;
+
+
+$standard-app-blue-color: #007FB0;
+$standard-app-delete-color: #D82E29;
+$standard-app-border-color: #BBBBBB;
+$standard-app-border-color-secondary: #CCCCCC;
+$standard-app-background-color: #F9F9F9;
+
+
+$table-header-background: #F2F2F2;
+$table-cell-border-color: 1px solid #BBBBBB;
+$table-header-color: #000000;
+$action-link-color: $standard-app-blue-color;
+$action-link-default-opacity: 1;
+$action-link-hover-opacity: 0.8;
+
+$what-if-port-color: #DA621E;

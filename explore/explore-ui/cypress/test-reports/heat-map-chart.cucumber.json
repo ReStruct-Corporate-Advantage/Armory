@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for heat Map",
+    "line": 1,
+    "id": "visual-comparison-tests-for-heat-map",
+    "tags": [],
+    "uri": "heat-map-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-heat-map;validate-heat-map--is-loading",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate heat map  is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Heat Map\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6070000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26581000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"Heat Map - Notional Market Value %\" should be displayed, aligning with the snapshot \"heatmap_default\"",
+            "result": {
+              "status": "failed",
+              "duration": 4835000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/heat-map-chart.feature/__diff_output__/heatmap_default.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

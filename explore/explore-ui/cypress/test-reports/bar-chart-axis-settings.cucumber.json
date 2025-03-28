@@ -1,0 +1,372 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for axis settings",
+    "line": 1,
+    "id": "visual-comparison-tests-for-axis-settings",
+    "tags": [],
+    "uri": "bar-chart-axis-settings.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-axis-settings;validate-bar-chart-with-primary-y-axis-title-override-settings",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate bar chart with primary Y axis title override settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 6318000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25733000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 150000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "I click hide axis title checkbox on primary axis (CHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 149000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 85000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26617000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_without_primary_yaxis_title\"",
+            "result": {
+              "status": "passed",
+              "duration": 3431000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 319000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 156000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 16,
+            "name": "I click hide axis title checkbox on primary axis (UNCHECK)",
+            "result": {
+              "status": "passed",
+              "duration": 151000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 79000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 18,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_primary_yaxis_title\"",
+            "result": {
+              "status": "passed",
+              "duration": 3114000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 207000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 150000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 22,
+            "name": "I type in \"TITLE UPDATED\" on Primary axis override text input",
+            "result": {
+              "status": "passed",
+              "duration": 502000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 23,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 78000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_overridden_primary_yaxis_title\"",
+            "result": {
+              "status": "passed",
+              "duration": 3089000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "visual-comparison-tests-for-axis-settings;validate-bar-chart-with-primary-y-axis-bound-settings",
+        "keyword": "Scenario",
+        "line": 26,
+        "name": "Validate bar chart with primary Y axis bound settings",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Bar Chart\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 4018000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 27,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 25685000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 28,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 155000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 29,
+            "name": "I type in \"60\" on Maximum bound input mask",
+            "result": {
+              "status": "passed",
+              "duration": 201000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 101000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 31,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26660000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 32,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_overridden_max_bound\"",
+            "result": {
+              "status": "passed",
+              "duration": 3416000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 34,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 243000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 156000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 36,
+            "name": "I type in \"0\" on Minimum bound input mask",
+            "result": {
+              "status": "passed",
+              "duration": 189000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 37,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 86000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 38,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_overridden_min_bound\"",
+            "result": {
+              "status": "passed",
+              "duration": 3076000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 40,
+            "name": "I open widget settings modal from \"Bar Chart\"",
+            "result": {
+              "status": "passed",
+              "duration": 229000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 41,
+            "name": "I click axis tab",
+            "result": {
+              "status": "passed",
+              "duration": 156000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 42,
+            "name": "I type in \"30\" on Interval input mask",
+            "result": {
+              "status": "passed",
+              "duration": 207000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 43,
+            "name": "I apply widget settings",
+            "result": {
+              "status": "passed",
+              "duration": 84000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 44,
+            "name": "\"Bar Chart\" should be displayed, aligning with the snapshot \"barChart_with_overridden_interval\"",
+            "result": {
+              "status": "passed",
+              "duration": 3141000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

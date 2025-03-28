@@ -1,0 +1,34 @@
+<ng-container *ngIf="!!decompositionModeOptions?.[0]?.values?.length">
+    <div class="select">
+        <aux-select label="Decomposition Mode"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="decompositionModeOptions"
+                    (selectionChanged)="onDecompositionModeChanged($event)">
+
+        </aux-select>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!!decompositionTypeOptions?.[0]?.values?.length">
+    <div class="select">
+        <ng-container *ngIf="decompositionTypeOptions[0].values.length > 0">
+            <aux-select label="Decomposition Type"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="decompositionTypeOptions"
+                        (selectionChanged)="onDecompositionTypeChanged($event)">
+            </aux-select>
+        </ng-container>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="!!breakdownTypeOptions?.[0]?.values?.length">
+    <div class="select">
+        <ng-container *ngIf="breakdownTypeOptions[0].values.length > 0">
+            <aux-select label="Breakdown Type"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="breakdownTypeOptions"
+                        (selectionChanged)="onBreakdownTypeChanged($event)">
+            </aux-select>
+        </ng-container>
+    </div>
+</ng-container>

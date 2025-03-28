@@ -1,0 +1,66 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.custom-header {
+    display: flex;
+    padding: aux-variables.$aux-spacing-04 aux-variables.$aux-spacing-07 aux-variables.$aux-spacing-05;
+    align-items: baseline;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: var(--primary-text__color);
+
+    .title-padding {
+        padding-right: aux-variables.$aux-spacing-04
+    }
+}
+
+.widget-settings-modal-container {
+    background-color: var(--modal__background-color--grey);
+    max-height: 647px;
+    max-width: 800px;
+    overflow-y: auto;
+}
+
+.content{
+    padding: aux-variables.$aux-spacing-07;
+}
+
+.margin-bottom-16 {
+    margin-bottom: 16px;
+}
+
+.select-field {
+    width: 250px;
+}
+
+.name-field {
+    width: 283px;
+}
+
+.desc-field {
+    width: 436px;
+}
+
+
+.custom-footer {
+    margin: 16px 0;
+    .btn {
+        float: right;
+        margin-right: 16px;
+    }
+}
+
+.loading-spinner-scenarios {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+}
+
+.other-owner-container {
+    display: inline-flex;
+}
+
+.warn-icon {
+    padding-right: 0.5rem;
+}

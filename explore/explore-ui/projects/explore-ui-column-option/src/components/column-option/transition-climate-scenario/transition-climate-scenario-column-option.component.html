@@ -1,0 +1,16 @@
+<div class="climate-scenarios-container">
+    <ng-container *ngFor="let rule of climateScenariosColumnOption?.climateScenario; let i = index">
+        <div class="climate-scenario__container">
+            <div class="climate-scenario__header">
+                <div class="climate-scenario__header-label--bold">Scenario {{i + 1}}</div>
+            </div>
+            <explore-column-option-climate-column [climateScenario]="rule" [scenarioOptionType]="scenarioOptionType" [isFirstScenario]="i === 0" [timeframeOverrideKey]="timeframeOverrideKey"
+                                (deleteClimateScenario)="deleteRule(i)" (optionValueUpdated)="updateOptionValueAndEmit()">
+            </explore-column-option-climate-column>
+        </div>
+    </ng-container>
+    <div class="add-rule-button">
+        <aux-button *ngIf="!hideAddButton" icon="add" size="small" label="Add Scenario" type="secondary" [isDisabled]="isSingleScenarioSelection" (click)="addNewScenarioRule()"></aux-button>
+        <aux-button type="tertiary" label="Discover Transition Climate Scenarios" (click)="launchClimateTransitionRiskScenarios()"></aux-button>
+    </div>
+</div>

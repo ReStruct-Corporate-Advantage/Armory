@@ -1,0 +1,42 @@
+<div class="conf-level-div">
+    <ng-container *ngIf="isFullRevalEnabled">
+        <div style="margin-bottom: 16px">
+            <aux-checkbox
+                label="Full Re-Val"
+                [isChecked]="this.optionValue.fullReval"
+                (checkboxChanged)="onFullRevalChanged($event)">
+            </aux-checkbox>
+        </div>
+    </ng-container>
+
+    <div class="flex-container-1" style="padding-right: 5px">
+        <div>
+            <aux-checkbox
+                label="Floor P&L"
+                [isChecked]="this.optionValue.floorPnL"
+                [isDisabled]="!this.optionValue.fullReval"
+                (checkboxChanged)="onFloorPnLChanged($event)">
+            </aux-checkbox>
+        </div>
+
+        <div>
+            <aux-popover [trigger]="'hover'" header="Floor P&L" [hasCloseIcon]="true">
+                <aux-button
+                    type="tertiary_subtle"
+                    icon="info-bold"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="settings-popover-container">
+                    <label>
+                        P&L Flooring has two primary effects on the stress testing output:<br>
+                        <ul>
+                            <li>In cases where a security is predicted to lose more than 100% based on a parametric estimate of Stress P&L, that P&L is floored at -100%.</li>
+                            <li>All securities denominated in a currency other than the portfolio's base currency will receive a P&L adjustment accounting for the interaction between changes in the local value of the security and the FX return.</li>
+                        </ul>
+                    </label>
+                </div>
+            </aux-popover>
+        </div>
+    </div>
+</div>

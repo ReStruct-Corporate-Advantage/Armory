@@ -1,0 +1,16 @@
+.datalabelTreemap.highcharts-data-label {
+    color: #1B1D20;
+}
+.highcharts-data-label text,
+text.highcharts-data-label,
+.highcharts-drilldown-data-label text,
+text.highcharts-drilldown-data-label,
+.highcharts-drilldown-axis-label {
+    cursor: pointer;
+    font-weight: normal !important;
+    fill: var(--primary-text__color) !important;
+    stroke: var(--widget__background-color) !important;
+    paint-order: stroke !important;
+    stroke-width: 0.125rem !important;
+    stroke-linejoin: round !important;
+}

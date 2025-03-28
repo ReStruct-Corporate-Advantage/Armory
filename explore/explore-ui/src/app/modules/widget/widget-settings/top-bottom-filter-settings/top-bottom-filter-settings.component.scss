@@ -1,0 +1,28 @@
+.filter-settings {
+    display: flex;
+}
+.bottom-label {
+    padding-left: 0.75rem !important;
+    display: inline-flex !important;
+}
+.column-select--container {
+    display: inline-flex !important;
+    flex: 1;
+}
+.column-select {
+    width: 100%;
+    max-width: 800px;
+}
+.result-level {
+    padding-top: 1rem !important;
+}
+
+.display-top {
+    display: inline-flex;
+}
+
+.content-horizontal {
+    display: flex;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.75em;
+}

@@ -1,0 +1,692 @@
+{
+    "15060045387101": {
+        "sequenceTitle": "Home Screen Introduction",
+        "renderLink": "Home Screen Introduction",
+        "seqId": 15060045387101,
+        "visible": false,
+        "data": [
+            {
+                "intro": "<div><h3>Welcome to Explore!</h3><p>This guide will show you how to launch the tool and get started.</p></div>"
+            },
+            {
+                "element": "html>body>app>div>div>prism-main>div:nth-child(1)>intro>div>workspace-browser>div>form>div>div:nth-child(2)>select",
+                "intro": "<div><h3></h3><p>This dropdown provides three options for loading data in Explore: Portfolio, Enterprise Tree, and My Workspace.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "input[class='form-control portfolio-search-input ng-pristine ng-valid ng-empty ng-touched']",
+                "intro": "<div><h3>Portfolio</h3><p>With the Portfolio option selected, users can input a portfolio into the tool, and click Go to launch the default reports associated with that portfolio. The portfolio search will auto-fill based on either the Aladdin ticker of the portfolio or its full name.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "html>body>app>div>div>prism-main>div:nth-child(1)>intro>div>workspace-browser>div>form>div>div:nth-child(2)>div:nth-child(3)",
+                "intro": "<div><h3></h3><p>Click Go to launch the default reports associated with that portfolio.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "html>body>app>div>div>prism-main>div:nth-child(1)>intro>div>workspace-browser>div>form>div>div:nth-child(2)>select",
+                "intro": "<div><h3>Enterprise Tree</h3><p>By selecting Enterprise Tree, users can see a gold copy folder structure associated with their organization, allowing them to load curated reports built with relevant reports at different levels of the enterprise. Once you’ve selected the desired report, click Go to launch the views contained within.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "html>body>app>div>div>prism-main>div:nth-child(1)>intro>div>workspace-browser>div>form>div>div:nth-child(2)>select",
+                "intro": "<div><h3>My Workspace</h3><p>In My Workspace, users can load any of their previously saved workspaces to continue their analysis. Once you’ve selected your desired view, click Go to open the workspace.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            }
+        ],
+        "tool": "Explore",
+        "status": "O",
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json"
+    },
+    "15060045387102": {
+        "sequenceTitle": "Workspace Introduction",
+        "renderLink": "Workspace Introduction",
+        "seqId": 15060045387102,
+        "visible": false,
+        "data": [
+            {
+                "intro": "<div><h3></h3><p>We will now walk through an overview of the main screen.</p></div>"
+            },
+            {
+                "element": "div[class='explore-tabPill btn-group']>button[class='btn btn-default btn-tab portfolio-button']",
+                "intro": "<div><h3></h3><p>This is where you input the portfolio or portfolio groups on which you want to perform analysis. Multiple portfolios can be entered by inputting the names as a comma-delimited string.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "[class*='btn btn-default split-button']",
+                "intro": "<div><h3>Edit Portfolio</h3><p>Here, you can change fund-level settings, including the portfolio, benchmark, analysis date, currency, and portfolio risk/lookthrough configurations. You can also clone the fund for comparison analysis, or delete the portfolio from the view.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "[class*=' add-portfolio-button']",
+                "intro": "<div><h3>Add Portfolio</h3><p>To add a new portfolio to the workpad, you can click here.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "div[class='explore-tabPill btn-group']>button[class='btn btn-default btn-tab layout-button']",
+                "intro": "<div><h3></h3><p>This is the layout you are currently using to view analysis on your portfolios. A layout can contain any number of charts, graphs, and other customizable views into your portfolio's data. To add a new layout, you can click the 'Add Layout' button.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "[class*='btn primary-action-button add-tab-button add-layout-button ng-isolate-scope']",
+                "intro": "<div><h3>Add Layout</h3><p>From here, you can either add one of the standard views (highlight Add Layout) based on your portfolio type, or you can create a new layout (highlight Edit Layout) by adding any number of widgets to the screen. These widgets each provide a unique type of chart or graph that can be used to drill into the portfolios selected in your view.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "[class='widgetHolder']",
+                "intro": "<div><h3></h3><p>This is a widget. A widget contains portfolio data viewed in a specific way, depending on the type of widget. To change the configuration of the widget, click on the gear icon to open the Settings panel.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "element": "div[class='widgetHeader']>div>i[class='fa fa-cog widgetIcon ng-scope']",
+                "intro": "<div><h3>Widget Settings</h3><p>By clicking the gear icon, you can see the configuration options available for the specific widget you are viewing. The first panel contains a list of available columns, or data points, that can be retrieved in the widget. In other tabs in the settings panel, you can adjust display options, change the breakdown applied to the widget, and create a filter to include or exclude assets with specific characteristics.</p></div>",
+                "position": "auto",
+                "iframeId": false
+            },
+            {
+                "intro": "<div><h3>Portfolio Modeling</h3><p style=\"display: flex;\"><img src=\"./assets/images/PortfolioModelingTab.png\" /><span style=\"padding-left: 10px;\">Explore allows you to model changes in portfolio composition and perform analysis on the fund both before and after changes are made. Exposures can be changed at the fund, sector, or security level, with higher-level changes cascading pro-rata down to the sector and security levels. To model a change to your portfolio's exposure, you can double-click in the 'After' field at any level, and type in a new value. Changes to portfolio market value are offset by an equal and opposite amount of cash. Users can also add securities into the portfolio from the investable universe, and model cash inflows or outflows to the portfolio. More detail can be found in the Portfolio Modeling tab help menu.</span></p></div>",
+                "position": "left",
+                "iframeId": true
+            },
+            {
+                "element": "[class*='btn btn-transparent compare-button']",
+                "intro": "<div><h3></h3><p>The Compare button allows you to determine whether analyses on the modeled changes in your report are performed with both the Before and After states of the portfolio, or just the After state. When you make a selection, you can see that the widgets in your view automatically adjust to display data on the modeled changes in the manner specified. You are also able to determine how multiple portfolios are to be compared against each other. Additional portfolios for analysis can be added by clicking the Add Portfolio button.</li></ul></div></div>",
+                "position": "left",
+                "iframeId": false
+            },
+            {
+                "intro": "<div><h3>Workspace Manager</h3><p style=\"display: flex;\"><img src=\"./assets/images/WorkspaceManagerTab.png\" /><span style=\"padding-left: 10px;\">This is the workspace manager. Here you are able to add a new workpad to your report, which can display a different set of widgets on a different set of portfolios. You are also able to navigate between different workpads in your report from this screen by clicking on the names shown above (circle the workpad). Finally, you can save your entire workspace configuration from this panel for future access. If you wish to load a colleague's saved workspace, you are able to do so from this panel.</span></p></div>",
+                "position": "auto",
+                "iframeId": false
+            }
+        ],
+        "tool": "Explore",
+        "status": "O",
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json"
+    },
+    "1474927202043": {
+        "seqId": 1474927202043,
+        "sequenceTitle": "praAgGrid",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetHolder",
+                "intro": "<div><br><p>This widget displays portfolio risk and stress testing data</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .ag-header",
+                "staticClass": "ag-header",
+                "intro": "<div><br><p>To sort on a specific column in the report, click once to sort ascending, twice to sort descending, and three times to clear the sort. To apply a filter to the widget based on the values in a specific column, click the horizontal bar icon that appears when you hover your cursor in the right side of the column. Clicking the icon allows you to select the type of filter and the value.</p></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475018383862": {
+        "seqId": 1475018383862,
+        "sequenceTitle": "pie",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><p>This widget displays portfolio data in a pie chart format.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><div><ul><li>The values on the pie are displayed in % format. Hovering your cursor over a slice of the pie displays more details about that slice.</li><li>To filter out a sector from the pie chart, click the sector title in the legend. Sector exposures will be automatically renormalized relative to the new portfolio total exposure. </li> </ul></div></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 6
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475022178686": {
+        "seqId": 1475022178686,
+        "sequenceTitle": "bar",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><p>This widget provides a graphical view of data in a standard bar chart format.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div>To filter a column out of the report, click the column title in the legend</div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475022340976": {
+        "seqId": 1475022340976,
+        "sequenceTitle": "scatter",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><p>This widget allows you to compare two metrics using the X and Y axes, with a third metric determining the size of the bubbles in the plot.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><div><ul><li>Hovering your cursor over a bubble gives you more details about the sector-level exposures. To zoom in on a specific section of the widget, drag your cursor across an area of the graph. Once you have zoomed in, you can click the Reset Zoom button to zoom back out.</li><li>To filter out a sector from the pie chart, click the sector title in the legend. Sector exposures will be automatically renormalized relative to the new portfolio total exposure. </li> </ul></div></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475022848684": {
+        "seqId": 1475022848684,
+        "sequenceTitle": "ts",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><p>This widget displays portfolio information through time.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><div><ul><li>Hovering your cursor over a node on the graph gives you more details about the exposures on that date. To zoom in on a specific section of the widget, drag your cursor across an area of the graph. Once you have zoomed in, you can click the Reset Zoom button to zoom back out.</li><li>To filter out a column, click on the sector name in the legend. Other values in the report will automatically renormalize exposure relative to the portfolio total.</li></ul></div></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475023013996": {
+        "seqId": 1475023013996,
+        "sequenceTitle": "pgsGrid",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetHolder",
+                "intro": "<div><br><p>This widget displays information based on the portfolio group structure of the fund, with the lowest level data being displayed at the portfolio level.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .ag-header",
+                "staticClass": "ag-header",
+                "intro": "<div><br><p>To sort on a specific column in the report, click once to sort ascending, twice to sort descending, and three times to clear the sort. To apply a filter to the widget based on the values in a specific column, click the horizontal bar icon that appears when you hover your cursor in the right side of the column. Clicking the icon allows you to select the type of filter and the value.</p></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475023198219": {
+        "seqId": 1475023198219,
+        "sequenceTitle": "slopeGraph",
+        "visible": false,
+        "data": [
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><p>This widget can be used when a before/after comparison analysis is configured in the layout. It allows you to see the change between the before and after state of the portfolio graphically.</p></div>",
+                "position": "auto",
+                "stepNumber": 1
+            },
+            {
+                "element": "(widgetName) .widgetBody",
+                "staticClass": "widgetBody",
+                "intro": "<div><br><div><ul><li>To zoom in on a specific section of the widget, drag your cursor across an area of the graph. Once you have zoomed in, you can click the Reset Zoom button to zoom back out.</li><li>To filter out a column, click on the sector name in the legend. Other values in the report will automatically renormalize exposure relative to the portfolio total.</li></ul></div></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": "(widgetName) .widget-title",
+                "staticClass": "title-edit",
+                "intro": "<div><br><p>To change the name of the widget, click on the title to modify it.</p></div>",
+                "position": "bottom",
+                "stepNumber": 3
+            },
+            {
+                "element": "(widgetName) .fa.fa-cog.widgetIcon",
+                "staticClass": "fa fa-cog widgetIcon",
+                "intro": "<div><br><p>To configure report options, click the gear icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": "(widgetName) .fa-download.widgetIcon",
+                "staticClass": "fa-download widgetIcon",
+                "intro": "<div><br><p>To export the data in this widget, click the export icon.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1475104076184": {
+        "seqId": 1475104076184,
+        "sequenceTitle": "widget-settings-columns",
+        "visible": false,
+        "data": [
+            {
+                "element": ".panel-body .column-tree-search-input",
+                "intro": "<div><p>To find columns to add to your report, you can either type in the 'Search Columns' menu, or expand the categories below to view all columns included in the category. Once you have identified a column you wish to add to your report, click on it to add it to your bar chart.</p></div>",
+                "position": "auto",
+                "stepNumber": 2
+            },
+            {
+                "element": ".panel-body column-tag",
+                "intro": "<div><p>To remove a column you have added to your report, click the 'X' on the column in the column panel. Clicking on the column tag for any column will open up the column options panel, which allows you to set a custom title, change data format, apply a different method for aggregating data to the sector and portfolio level, or add an override date to the column, which will cause the column to pull in data from a different date than the defined workpad date.</p></div>",
+                "position": "auto",
+                "stepNumber": 3
+            },
+            {
+                "element": ".panel-body .btn-blue.apply-button",
+                "intro": "<div><p>When you are done making changes to the options controlled in the report, click Apply to model the changes to the widget.</p></div>",
+                "position": "auto",
+                "stepNumber": 4
+            },
+            {
+                "element": ".panel-body .btn-blue.ok-button",
+                "intro": "<div><p>To close the window and accept your changes, click OK.</p></div>",
+                "position": "auto",
+                "stepNumber": 5
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1476452758747": {
+        "seqId": 1476452758747,
+        "sequenceTitle": "composition-table",
+        "visible": false,
+        "data": [
+            {
+                "element": ".composition-window",
+                "intro": "<div><br><p>The Portfolio Composition panel allows you to modify the weightings of your portfolio on a NAV-neutral basis. Depending on the type of portfolio input, the composition panel will allow you to make one of three types of modifications. If a standalone portfolio is input, then the Portfolio Composition panel will allow you to modify sector (using the same custom breakdown structure available across other widgets) and individual security weights. If a portfolio group is input, then the Portfolio Composition panel will allow you to modify individual sleeve portfolio weights. If a composite index is input, then the Portfolio Composition panel will allow you to modify component index weights</p></div>",
+                "position": "right",
+                "stepNumber": 1
+            },
+            {
+                "element": ".composition-table .ag-pinned-left-cols-viewport",
+                "intro": "<div><br><p>Here you can see the sector schema applied to the portfolio, or the individual portfolios or component indices included in the portfolio. Breakdown options can be configured through the gear icon at the top right of the panel</p></div>",
+                "position": "right",
+                "stepNumber": 2
+            },
+            {
+                "element": ".composition-table .ag-header-group-cell-with-group",
+                "intro": "<div><br><p>Here you can make changes to the portfolio weightings. By clicking into one of the cells, you are able to edit the existing portfolio weight. Changes made at the sector level will cascade down pro-rata to subsectors and securities.</p></div>",
+                "position": "right",
+                "stepNumber": 3
+            },
+            {
+                "element": ".composition-window .widgetHeader #-save",
+                "intro": "<div><br><p>Here you can save the changes made on the Portfolio Composition panel in one of two ways. Any changes in weighting modeled in the panel can be saved as a rule, which will save down that specific set of weightings. These types of changes can be saved via the Rules tab in the Save menu. These rules can be saved so that they are portfolio-agnostic and can be applied to any fund (via the Rules toggle), or can be saved in relation to the portfolio on which they were modeled as a What-If portfolio (via the Portfolio With Rules toggle). You can also save the underlying positions of the modeled portfolio as a What-If portfolio via the Positions tab in the Save menu.</p></div>",
+                "position": "right",
+                "stepNumber": 5
+            },
+            {
+                "element": ".composition-window .widgetHeader #-browse",
+                "intro": "<div><br><p>Here you can browse and load an existing set of rules to apply to your portfolio.</p></div>",
+                "position": "right",
+                "stepNumber": 6
+            },
+            {
+                "element": ".composition-window .widgetHeader .fa-undo",
+                "intro": "<div><br><p>Here you can clear any changes modeled on your portfolio. This will revert the portfolio to its original composition.</p></div>",
+                "position": "right",
+                "stepNumber": 7
+            },
+            {
+                "element": ".composition-window .widgetHeader #-setting",
+                "intro": "<div><br><p>Here you can control whether modeled changes are made on a portfolio or active basis, adjust the sector breakdown applied to the panel, apply a filter to the panel, and view the rules or trades you have applied to your portfolio.</p></div>",
+                "position": "right",
+                "stepNumber": 8
+            }
+        ],
+        "fileName": "assets/data/WebHelp.Explore",
+        "fileType": "json",
+        "status": "O"
+    },
+    "1519234085126": {
+        "sequenceTitle": "Explore User Guide",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-userguide.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-userguide.pdf' title='Click to open in a new tab'>Explore User Guide</a>",
+        "seqId": 1519234085126,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816833361": {
+        "_comment": "DEVELOPER NOTE: This links to the most current version of the Explore Release notes. We should not have to update this ever. Any old release notes should be backfilled below this one (with timestamp > this id).",
+        "sequenceTitle": "Explore Release Note - Current",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore.pdf' title='Click to open in a new tab'>Explore Release Note - Current</a>",
+        "seqId": 1542816833361,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816906838": {
+        "sequenceTitle": "Explore Release Note - June 2020",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-jun2020.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-jun2020.pdf' title='Click to open in a new tab'>Explore Release Note - June 2020</a>",
+        "seqId": 1542816906838,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816906839": {
+        "sequenceTitle": "Explore Release Note - March 2020",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-mar2020.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-mar2020.pdf' title='Click to open in a new tab'>Explore Release Note - March 2020</a>",
+        "seqId": 1542816906839,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816906840": {
+        "sequenceTitle": "Explore Release Note - December 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-dec2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-dec2019.pdf' title='Click to open in a new tab'>Explore Release Note - December 2019</a>",
+        "seqId": 1542816906840,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816922446": {
+        "sequenceTitle": "Explore Release Note - October 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-oct2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-oct2019.pdf' title='Click to open in a new tab'>Explore Release Note - October 2019</a>",
+        "seqId": 1542816922446,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1542816934695": {
+        "sequenceTitle": "Explore Release Note - August 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-aug2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-aug2019.pdf' title='Click to open in a new tab'>Explore Release Note - August 2019</a>",
+        "seqId": 1542816934695,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1544721851014": {
+        "sequenceTitle": "Explore Release Note - June 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-jun2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-jun2019.pdf' title='Click to open in a new tab'>Explore Release Note - June 2019</a>",
+        "seqId": 1544721851014,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1549386155000": {
+        "sequenceTitle": "Explore Release Note - April 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-apr2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-apr2019.pdf' title='Click to open in a new tab'>Explore Release Note - April 2019</a>",
+        "seqId": 1549386155000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1555465916000": {
+        "sequenceTitle": "Explore Release Note - February 2019",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-feb2019.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-feb2019.pdf' title='Click to open in a new tab'>Explore Release Note - February 2019</a>",
+        "seqId": 1555465916000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1560979258000": {
+        "sequenceTitle": "Explore Release Note - December 2018",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-december2018.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-december2018.pdf' title='Click to open in a new tab'>Explore Release Note - December 2018</a>",
+        "seqId": 1560979258000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1566317171000": {
+        "sequenceTitle": "Explore Release Note - November 2018",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-nov2018.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-nov2018.pdf' title='Click to open in a new tab'>Explore Release Note - November 2018</a>",
+        "seqId": 1566317171000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1570806442000": {
+        "sequenceTitle": "Explore Release Note - August 2018",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-aug2018.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-aug2018.pdf' title='Click to open in a new tab'>Explore Release Note - August 2018</a>",
+        "seqId": 1570806442000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1574454886000": {
+        "sequenceTitle": "Explore Release Note - June 2018",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-update\\explore-jun2018.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-update\\explore-jun2018.pdf' title='Click to open in a new tab'>Explore Release Note - June 2018</a>",
+        "seqId": 1574454886000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1574454887000": {
+        "sequenceTitle": "Performance Attribution White Paper",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-overview\\analytical-returns-and-performance-attribution-in-aladdin.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-overview\\analytical-returns-and-performance-attribution-in-aladdin.pdf' title='Click to open in a new tab'>Performance Attribution White Paper</a>",
+        "seqId": 1574454887000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1583276686000": {
+        "sequenceTitle": "Equity Factor Attribution White Paper",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-overview\\equity-factor-attribution-model-whitepaper.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-overview\\equity-factor-attribution-model-whitepaper.pdf' title='Click to open in a new tab'>Equity Factor Attribution White Paper</a>",
+        "seqId": 1583276686000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    },
+    "1604610713000": {
+        "sequenceTitle": "Ex-Post Analytics",
+        "visible": true,
+        "docsLink": "\\acs\\literature\\aladdin-product-overview\\ex-post-analytics.pdf",
+        "renderLink": "<a target='_blank' href='\\acs\\literature\\aladdin-product-overview\\ex-post-analytics.pdf' title='Click to open in a new tab'>Ex-Post Analytics</a>",
+        "seqId": 1604610713000,
+        "data": false,
+        "tool": "Explore",
+        "status": "O"
+    }
+}

@@ -1,0 +1,20 @@
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TelemetryInterceptor} from './telemetry-interceptor';
+
+/**
+ * Module for tracking events with request id
+ */
+@NgModule({
+    declarations: [],
+    imports: [
+        CommonModule
+    ],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: TelemetryInterceptor,
+        multi: true
+    }]
+})
+export class TelemetryInterceptorModule { }

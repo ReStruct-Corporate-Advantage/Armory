@@ -1,0 +1,660 @@
+{
+  "configType": "clarity",
+  "size": {
+      "height": 9,
+      "width": 8
+  },
+  "showInSelector": true,
+  "description": "Clarity AI UN SDGs renders portfolio and benchmark level UN Sustainable Development Goal (SDG) scores and impacts at the aggregate and goal levels.\n\nThe widget uses Clarity AI visualizations and starter pack data. Top-level portfolio and benchmark UN SDG impact scores are in the center. The 16 available SDG goal scores are shown in clockwise order, with portfolio scores on the outside of the circle, and benchmark scores on the inside. You can click into each slice of the wheel to see a summary of each goal.",
+  "title": "Clarity AI UN SDGs",
+  "image": ".\/assets\/images\/clarity-ai-un-sdg.png",
+  "imageDescription": "This Clarity AI UN SDG widget scored BBG US Aggregate Index at an overall score of 45. The indexes' highest score is in Responsible Consumption and Producer, at 92 total SDG. Its lowest score is in Quality Education, at 16 total SDG.",
+  "setUpRequirements": [
+    "N/A"
+  ],
+  "tokenToCheck": "enableClarityAI",
+  "isEligibleForLightLookthrough": false,
+  "exportType": "none",
+  "createNestedNoneBuckets": false,
+  "createNestedOtherBuckets": false,
+  "inputCategories": [
+    {
+        "categoryType": "columns",
+        "categoryTitle": "Measure",
+        "inputs": [
+            {
+                "inputConfigType": "columns",
+                "inputName": "columns",
+                "mandateSettingType": "CHART_REPORT",
+                "showFavorite": false,
+                "valueField": "columnTag",
+                "columnFilters": {
+                    "$ref": "numericColumnFilters"
+                },
+                "default": [
+                    {
+                      "columnTag":"CLARITY_AI_24929",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24929_bb0b3977d9b042e"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24929",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24929_042c61c3332d4d9",
+                      "optionValues": {
+                        "colWeightType": "NOTIONAL",
+                        "decimalPlaces": 2,
+                        "excludeNullValues": true,
+                        "excludeOrCap": true,
+                        "scaling": 1,
+                        "subtotalType": 2300,
+                        "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24938",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24938_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24938",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24938_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24950",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24950_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24950",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24950_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24935",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24935_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24935",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24935_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24926",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24926_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24926",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24926_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24923",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24923_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24923",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24923_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24911",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24911_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24911",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24911_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24920",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24920_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24920",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24920_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24914",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24914_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24914",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24914_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24932",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24932_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24932",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24932_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24944",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24944_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24944",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24944_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24917",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24917_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24917",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24917_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24941",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24941_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24941",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24941_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24947",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24947_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24947",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24947_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24908",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24908_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24908",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24908_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24905",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24905_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_24905",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_24905_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_25601",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_25601_b1b1b01a57794a4",
+                      "optionValues": {
+                          "colWeightType": "NOTIONAL",
+                          "decimalPlaces": 2,
+                          "excludeNullValues": true,
+                          "excludeOrCap": true,
+                          "scaling": 1,
+                          "subtotalType": 2300,
+                          "weightType": "BENCH"
+                      }
+                    },
+                    {
+                      "columnTag":"CLARITY_AI_25601",
+                      "positionColumnType": "ALL",
+                      "columnKey": "CLARITY_AI_25601_b1b1b01a57794a5"
+                    },
+                    {
+                      "columnKey": "custom_calc_9b268e719d8f4fc",
+                      "columnTag": "custom_calc",
+                      "optionValues": {
+                        "colWeightType": "NOTIONAL",
+                        "columnBreakdown": {
+                          "breakdownHideOther": true,
+                          "breakdownHideTotal": true,
+                          "breakdownLevel": 1,
+                          "breakdownObject": {
+                            "$ref": "claritySDGBreakdownObject"
+                          },
+                          "isColumnBreakdownNormalize": false,
+                          "isFactorBreakdown": false,
+                          "isGroupByPortBenchActive": false,
+                          "isFullPortfolioName": false,
+                          "portfolioGroupLevel": 1
+                        },
+                        "customCalculation": {
+                          "measures": {
+                            "a" : {
+                              "columnKey": "nmv_del_adj_bed0bbc06826467",
+                              "columnTag": "nmv_del_adj",
+                              "optionValues": [
+                                {
+                                  "aggregationType": 12,
+                                  "configType": "aggregation"
+                                },
+                                {
+                                  "measureNode": "security",
+                                  "configType": "customCalculationNodeType"
+                                }
+                              ],
+                              "positionColumnType": "BENCH",
+                              "title": "Delta Adjusted Notional Value"
+                            },
+                            "b" : {
+                              "columnKey": "nmv_del_adj_6527d8cbf9484a7",
+                              "columnTag": "nmv_del_adj",
+                              "optionValues": [
+                                {
+                                  "aggregationType": 12,
+                                  "configType": "aggregation"
+                                },
+                                {
+                                  "measureNode": "total",
+                                  "configType": "customCalculationNodeType"
+                                }
+                              ],
+                              "positionColumnType": "BENCH",
+                              "title": "Delta Adjusted Notional Value"
+                            }
+                          },
+                          "expression": "Math.abs(a)/b"
+                        },
+                        "decimalPlaces": 2,
+                        "excludeNullValues": true,
+                        "scaling": 0.01,
+                        "subtotalType": 2,
+                        "title": "Benchmark",
+                        "useThousandsSeparator": false,
+                        "weightType": "BENCH"
+                      },
+                      "positionColumnType": "ALL",
+                      "title": "Portfolio"
+                    },
+                    {
+                      "columnKey": "custom_calc_1600159345457",
+                      "columnTag": "custom_calc",
+                      "optionValues": {
+                        "colWeightType": "NOTIONAL",
+                        "columnBreakdown": {
+                          "breakdownHideOther": true,
+                          "breakdownHideTotal": true,
+                          "breakdownLevel": 1,
+                          "breakdownObject": {
+                            "$ref": "claritySDGBreakdownObject"
+                          },
+                          "isColumnBreakdownNormalize": false,
+                          "isFactorBreakdown": false,
+                          "isGroupByPortBenchActive": false,
+                          "isFullPortfolioName": false,
+                          "portfolioGroupLevel": 1
+                        },
+                        "customCalculation": {
+                          "measures": {
+                            "a" : {
+                              "columnKey": "nmv_del_adj_2b9d23452207459",
+                              "columnTag": "nmv_del_adj",
+                              "optionValues": [
+                                {
+                                  "aggregationType": 12,
+                                  "configType": "aggregation"
+                                },
+                                {
+                                  "measureNode": "security",
+                                  "configType": "customCalculationNodeType"
+                                }
+                              ],
+                              "positionColumnType": "PORT",
+                              "title": "Delta Adjusted Notional Value"
+                            },
+                            "b" : {
+                              "columnKey": "nmv_del_adj_313fba247c43403",
+                              "columnTag": "nmv_del_adj",
+                              "optionValues": [
+                                {
+                                  "aggregationType": 12,
+                                  "configType": "aggregation"
+                                },
+                                {
+                                  "measureNode": "total",
+                                  "configType": "customCalculationNodeType"
+                                }
+                              ],
+                              "positionColumnType": "PORT",
+                              "title": "Delta Adjusted Notional Value"
+                            }
+                          },
+                          "expression": "Math.abs(a)/b"
+                        },
+                        "decimalPlaces": 2,
+                        "excludeNullValues": true,
+                        "scaling": 0.01,
+                        "subtotalType": 2,
+                        "title": "Portfolio",
+                        "useThousandsSeparator": false,
+                        "weightType": "PORT"
+                      },
+                      "positionColumnType": "ALL",
+                      "title": "Portfolio"
+                    }
+                ],
+                "isOpen": true
+            }
+        ]
+    },
+    {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+          {
+            "inputConfigType": "filter",
+            "inputName": "filter",
+            "default":{
+              "breakdown":{
+                "subSectors":[
+                  {
+                    "breakdownRuleType":"CustomSector",
+                    "includeOtherBucket":true,
+                    "rule":{
+                      "ruleType":"RuleGroup",
+                      "ruleGroup":"AND",
+                      "subRules":[{
+                        "ruleType":"RuleGroup",
+                        "ruleGroup":"OR",
+                        "subRules":[
+                          {
+                            "colPositionColumnType":"ALL",
+                            "colTag":"sec_group",
+                            "colTitle":"Security Group",
+                            "colType":"STRING",
+                            "compType":"Does Not Equal",
+                            "compValues":["CASH"],
+                            "customSectorType":"Attributes",
+                            "ruleType":"Rule"
+                          },
+                          {
+                            "ruleType":"RuleGroup",
+                            "ruleGroup":"AND",
+                            "subRules":[
+                              {
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_type",
+                              "colTitle":"Security Type",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["FXFWRD","FXHEDGE","FXSPOT"],
+                              "customSectorType":"Attributes","ruleType":"Rule"
+                              },
+                              {
+                                "colPositionColumnType":"ALL",
+                                "colTag":"sec_type",
+                                "colTitle":"Security Type",
+                                "colType":"STRING",
+                                "compType":"Does Not Equal",
+                                "compValues":["APS","BB","CASH","CCYFUTURE","CDSWAP","COLLATERAL","CSWAP","FEDF","FIN","FUTURE","FXCSWAP","FXCUROTC","FXFWRD","FXHEDGE","FXSPOT","GENERIC","INDEX","PFD","RRP","SAVR","SWAP","SWAPTION","TFN","TRSWAP"],
+                                "customSectorType":"Attributes",
+                                "ruleType":"Rule"
+                              }
+                            ]
+                          }]
+                        },
+                        {
+                          "ruleType":"RuleGroup",
+                          "ruleGroup":"OR",
+                          "subRules":[{
+                            "colPositionColumnType":"ALL",
+                            "colTag":"sec_desc2",
+                            "colTitle":"Additional Info",
+                            "colType":"STRING",
+                            "compType":"Does Not Equal",
+                            "compValues":["IRS"],
+                            "customSectorType":"Attributes",
+                            "ruleType":"Rule"
+                            },
+                            {
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_group",
+                              "colTitle":"Security Group",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["SWAP"],
+                              "customSectorType":"Attributes",
+                              "ruleType":"Rule"
+                            },
+                            {
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_type",
+                              "colTitle":"Security Type",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["SWAP"],
+                              "customSectorType":"Attributes",
+                              "ruleType":"Rule"
+                            }]
+                          },
+                          {
+                            "ruleType":"RuleGroup",
+                            "ruleGroup":"OR",
+                            "subRules":[{
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_group",
+                              "colTitle":"Security Group",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["SWAP"],
+                              "customSectorType":"Attributes",
+                              "ruleType":"Rule"
+                            },
+                            {
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_type",
+                              "colTitle":"Security Type",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["SWAP"],
+                              "customSectorType":"Attributes",
+                              "ruleType":"Rule"
+                            },
+                            {
+                              "colPositionColumnType":"ALL",
+                              "colTag":"sec_desc2",
+                              "colTitle":"Additional Info",
+                              "colType":"STRING",
+                              "compType":"Does Not Equal",
+                              "compValues":["IFS"],
+                              "customSectorType":"Attributes",
+                              "ruleType":"Rule"
+                            }]
+                          },
+                          {
+                            "colPositionColumnType":"ALL",
+                            "colTag":"sec_group",
+                            "colTitle":"Security Group",
+                            "colType":"STRING",
+                            "compType":"Does Not Equal",
+                            "compValues":["FX"],
+                            "customSectorType":"Attributes",
+                            "ruleType":"Rule"
+                          },
+                          {
+                            "colPositionColumnType":"ALL",
+                            "colTag":"futureClass",
+                            "colTitle":"Future Class",
+                            "colType":"STRING",
+                            "compType":"Does Not Equal",
+                            "compValues":["INTR"],
+                            "customSectorType":"Attributes",
+                            "ruleType":"Rule"
+                          },
+                          {
+                            "colPositionColumnType":"ALL",
+                            "colTag":"sec_type",
+                            "colTitle":"Security Type",
+                            "colType":"STRING",
+                            "compType":"Does Not Equal",
+                            "compValues":["GOVT"],
+                            "customSectorType":"Attributes",
+                            "ruleType":"Rule"
+                          }
+                        ]
+                      },
+                      "title":"ESG_sec_to_exclude"
+                    }
+                  ]
+              }
+            }
+          }
+      ]
+  }],
+  "chartingLib": "hc"
+}

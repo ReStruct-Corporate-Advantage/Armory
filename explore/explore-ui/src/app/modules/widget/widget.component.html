@@ -1,0 +1,318 @@
+<div class="widget-container aux-container">
+    <ng-container *ngIf="isBatchExport; else auxWidget">
+        <div class="aux-widget-container sc-aux-widget">
+            <div class="aux-widget__header-container sc-aux-widget">
+                <div class="aux-widget__header-label-container sc-aux-widget">
+                    <div class="aux-widget__header--label sc-aux-widget">
+                        <div class="aux-widget__header--label-inner sc-aux-widget">{{widgetTitle}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="aux-widget__content-container sc-aux-widget sc-aux-widget-s">
+                <div class="aux-widget__content-container--inner sc-aux-widget sc-aux-widget-s">
+                    <div class="widget-content">
+                        <ng-container *ngTemplateOutlet="widgetContent"></ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+<ng-template #auxWidget>
+    <aux-widget [header]=widgetTitle isHeaderEditable="true"
+                (moreMenuItemClicked)="onMoreMenuItemClicked($event.detail)"
+                (inputChange)="headerInputValueChanged($event.detail?.srcEvent?.currentTarget?.value)">
+        <ng-container *ngIf="showWidgetOptions">
+            <div slot="header-toolbar" class="widget-header">
+                <ng-container *ngIf="footnoteState">
+                    <div>
+                        <aux-button style="display: none"
+                                    size="small" type="tertiary-subtle" icon="info-subtle" data-name="Show Footnotes" eventData="showFootnotes">
+                        </aux-button>
+                        <aux-checkbox label='Show Footnotes' [isChecked]='isFootnoteChecked'
+                                      (checkboxChanged)="showFootnote()">
+                        </aux-checkbox>
+                    </div>
+                </ng-container>
+
+                <aux-button *ngIf="showTableSearch"
+                            size="small" [type]="(isTableSearchActive$ | async) ? 'tertiary' : 'tertiary-subtle'" icon="search" title="Search" data-name="Search" eventData="search"
+                            (click)="toggleTableSearch()">
+                </aux-button>
+                <aux-button size="small" type="tertiary-subtle" icon="widget-duplicate" title="Copy Widget" data-name="Copy Widget" eventData="duplicate"
+                            (click)="copyWidget()">
+                </aux-button>
+                <aux-icon *ngIf="exportingInProgress" style="padding: 0rem 0.25rem"
+                          type="loading" title="Export in progress" state="primary">
+                </aux-icon>
+                <!-- We have duplicated export-icons from export-menu-component as widget header only understands aux-icon or inline-menu -->
+                <aux-inline-menu
+                    *ngIf="!exportNotSupported"
+                    [data]="exportOptions"
+                    trigger="pressed"
+                    (inlineMenuItemClicked)="onExportItemClicked($event.detail.element.eventData)">
+                    <aux-button size="small" type="tertiary-subtle" icon="widget-export" slot="target" title="Export"
+                                data-name="Export" eventData="export">
+                    </aux-button>
+                </aux-inline-menu>
+
+                <aux-button *ngIf="showGridTransitionControl"
+                            size="small" type="tertiary-subtle" icon="widget-table" title="Open in tabular view" data-name="Open in tabular view" eventData="tabularView"
+                            (click)="launchTabularView()">
+                </aux-button>
+                <aux-button *ngIf="showAsChartControl && chartingLib ==='agGrid'"
+                            size="small" type="tertiary-subtle" icon="widget-visualization" title="Show as chart" data-name="Show as chart" eventData="chartingLibChanged"
+                            (click)="changeChartingLib()">
+                </aux-button>
+                <aux-button *ngIf="showAsChartControl && chartingLib ==='hc'"
+                            size="small" type="tertiary-subtle" icon="widget-table" title="Show as table" data-name="Show as table" eventData="chartingLibChanged"
+                            (click)="changeChartingLib()">
+                </aux-button>
+                <aux-icon *ngIf="showFilterIcon" style="padding: 0rem 0.25rem"
+                          type="widget-filter" title="Filter" data-name="Filter" eventData="filter" state="non-action">
+                </aux-icon>
+                <aux-button *ngIf="!refreshNotSupported"
+                            size="small" type="tertiary-subtle" icon="widget-refresh" title="Refresh" data-name="Refresh" eventData="refresh"
+                            (click)="onRefreshButtonClick($event)">
+                </aux-button>
+                <aux-button *ngIf="widget?.showSettings"
+                            size="small" type="tertiary-subtle" icon="widget-settings" title="Settings" data-name="Settings" eventData="settings"
+                            (click)="openWidgetSettingsModal()">
+                </aux-button>
+                <aux-button *ngIf="widget?.isMaximized"
+                            size="small" type="tertiary-subtle" icon="widget-minimize" title="Minimize" data-name="Minimize" eventData="minimize"
+                            (click)="minimizeWidget(true)">
+                </aux-button>
+                <aux-button *ngIf="!widget?.isMaximized"
+                            size="small" type="tertiary-subtle" icon="widget-maximize" title="Maximize" data-name="Maximize" eventData="maximize"
+                            (click)="maximizeWidget()">
+                </aux-button>
+                <aux-button size="small" type="tertiary-subtle" icon="widget-delete" title="Delete" data-name="Delete" eventData="delete"
+                            (click)="deleteWidget($event)">
+                </aux-button>
+            </div>
+        </ng-container>
+        <div slot="content" class="widget-content">
+            <ng-container *ngTemplateOutlet="widgetContent"></ng-container>
+        </div>
+    </aux-widget>
+</ng-template>
+
+<ng-template #widgetContent>
+    <div class="loading-background aux-container" *ngIf="(isLoading$ | async)">
+        <div class="widget-loading-area aux-container">
+            <app-loading-spinner size="large" [loadingLabel]="'Loading data'"></app-loading-spinner>
+        </div>
+    </div>
+
+    <div class="hidden-widget-background aux-container" *ngIf="widgetHiddenStatus$ | async">
+        <div class="hidden-widget-area aux-container"></div>
+    </div>
+
+    <div
+        *ngIf="widget && widgetPayload && widget.configType !== WidgetConfigType.COMMITMENT_RISK
+        && widget.configType !== WidgetConfigType.COMMITMENT_RISK_CHART
+        && widget.configType !== WidgetConfigType.COMMITMENT_RISK_LEGACY
+        && widget.configType !== WidgetConfigType.COMMITMENT_RISK_CHART_LEGACY
+        && widget.configType !== WidgetConfigType.COMMITMENT_RISK_EXCLUDED_FUNDS"
+        [ngStyle]="{'height': isFootnoteChecked ? '50%' : '100%'}">
+        <ng-container *ngIf="widgetPayload.cube && widgetPayload.requestConfig && widgetPayload.responseConfig">
+            <ng-container
+                *ngIf="((chartingLib === CHARTING_LIB.AG_GRID && widget.configType !== WidgetConfigType.PIVOT) ? chartingLib : widget.configType) as type">
+                <!-- XXX: pending portal-based solution -->
+                <ng-container [ngSwitch]="true">
+                    <div class="compare-tab-bar" *ngIf="showCompareTabs">
+                        <aux-tab-bar [data]="compareTabsData"
+                                     tabType="classic"
+                                     [shouldCalculateVisibleTabs]="true"
+                                     [numVisibleTabs]="5"
+                                     [activeUid]="activeCompareTab"
+                                     (tabBarItemSelected)="onComparePortTabSelected($event)">
+                        </aux-tab-bar>
+                    </div>
+                    <!-- HACK: ngSwitch is reversed due to Angular not supporting matching multiple values in ngSwitchCase -->
+                    <!--       this means expressions in ngSwitchCases are the actual decision point, NOT ngSwitch -->
+                    <explore-force-reload *ngSwitchCase="type === CHARTING_LIB.AG_GRID"
+                                          [trigger]="widgetPayload"
+                                          [content]="forceReload">
+                        <ng-template #forceReload>
+                            <app-explore-table #widgetRender
+                                               [widget]="widget"
+                                               [suppressRootNode]="suppressRootNode"
+                                               [widgetPayload]="widgetPayload"
+                                               (spriteletLaunched)="widgetSpriteletLaunched($event)"
+                                               [isBatchExport]="isBatchExport"
+                                               [isTableSearchActive$]="isTableSearchActive$">
+                            </app-explore-table>
+                        </ng-template>
+
+                    </explore-force-reload>
+                    <app-explore-pivot-table #widgetRender
+                                             *ngSwitchCase="type === WidgetConfigType.PIVOT"
+                                             [widget]="widget"
+                                             [widgetPayload]="widgetPayload"
+                                             (spriteletLaunched)="widgetSpriteletLaunched($event)"
+                                             [isBatchExport]="isBatchExport">
+                    </app-explore-pivot-table>
+                    <div *ngIf="type !== CHARTING_LIB.AG_GRID && type !== WidgetConfigType.PIVOT"
+                         class="explore-highchart"
+                         [ngClass]="showCompareTabs ? 'explore-chart-compare-mode' : 'explore-chart'">
+                        <ng-container
+                            *ngSwitchCase="type === WidgetConfigType.PIE || type === WidgetConfigType.FACTOR_GRAPHING_PIE_CHART">
+                            <!-- sunburst isn't a 'real' widget type, needs special handling -->
+                            <ng-container
+                                [ngSwitch]="(widget?.displayInputs?.get(ChartWidgetInputConfigType.PIE_CHART_DISPLAY) || {})['displayAs']">
+                                <app-explore-sunburst-chart #widgetRender
+                                                            *ngSwitchCase="'sunburst'"
+                                                            [widgetPayload]="widgetPayload" [widget]="widget"
+                                                            [isBatchExport]="isBatchExport">
+                                </app-explore-sunburst-chart>
+                                <app-explore-pie-chart #widgetRender
+                                                       *ngSwitchDefault
+                                                       [widgetPayload]="widgetPayload" [widget]="widget"
+                                                       [isBatchExport]="isBatchExport">
+                                </app-explore-pie-chart>
+                            </ng-container>
+                        </ng-container>
+                        <app-explore-bar-chart #widgetRender
+                                               *ngSwitchCase="type === WidgetConfigType.BAR"
+                                               [widgetPayload]="widgetPayload" [widget]="widget"
+                                               [isBatchExport]="isBatchExport">
+                        </app-explore-bar-chart>
+                        <app-explore-factor-bar-chart #widgetRender
+                                               *ngSwitchCase="type === WidgetConfigType.FACTOR_GRAPHING_BAR_CHART || type === WidgetConfigType.FACTOR_GRAPHING_STACK_BAR_CHART || type === WidgetConfigType.PGS_BAR"
+                                               [widgetPayload]="widgetPayload" [widget]="widget"
+                                               [isBatchExport]="isBatchExport">
+                        </app-explore-factor-bar-chart>
+                        <app-explore-clarity-ai-chart #widgetRender
+                                                      *ngSwitchCase="type === WidgetConfigType.CLARITY"
+                                                      [widgetPayload]="widgetPayload" [widget]="widget"
+                                                      [isBatchExport]="isBatchExport">
+                        </app-explore-clarity-ai-chart>
+                        <app-explore-time-series-chart #widgetRender
+                                                       *ngSwitchCase="type === WidgetConfigType.TIME_SERIES
+                                || type === WidgetConfigType.RETURNS_FX_ATTRIBUTION || type === WidgetConfigType.RETURNS_MANAGER_SELECTION || type === WidgetConfigType.FACTOR_GRAPHING_TIME_SERIES || type === WidgetConfigType.PGS_TS"
+                                                       [widgetPayload]="widgetPayload" [widget]="widget"
+                                                       [isBatchExport]="isBatchExport">
+                        </app-explore-time-series-chart>
+                        <app-explore-expost-time-series-chart #widgetRender
+                                                              *ngSwitchCase="type === WidgetConfigType.EXPOST_TIME_SERIES || type === WidgetConfigType.RETURNS_TIME_SERIES
+                                || type === WidgetConfigType.RETURNS_PERF_DETAIL"
+                                                              [widgetPayload]="widgetPayload" [widget]="widget"
+                                                              [isBatchExport]="isBatchExport">
+                        </app-explore-expost-time-series-chart>
+                        <app-explore-factor-data-time-series-chart #widgetRender
+                                                                   *ngSwitchCase="type === WidgetConfigType.FACTOR_DATA"
+                                                                   [widgetPayload]="widgetPayload" [widget]="widget"
+                                                                   [isBatchExport]="isBatchExport">
+                        </app-explore-factor-data-time-series-chart>
+                        <app-explore-heatmap-chart #widgetRender
+                                                   *ngSwitchCase="type === WidgetConfigType.HEATMAP"
+                                                   [widgetPayload]="widgetPayload" [widget]="widget"
+                                                   [isBatchExport]="isBatchExport">
+                        </app-explore-heatmap-chart>
+                        <app-explore-slope-graph #widgetRender
+                                                 *ngSwitchCase="type === WidgetConfigType.SLOPE_GRAPH"
+                                                 [widgetPayload]="widgetPayload" [widget]="widget"
+                                                 [isBatchExport]="isBatchExport">
+                        </app-explore-slope-graph>
+                        <app-explore-treemap-chart #widgetRender
+                                                   *ngSwitchCase="type === WidgetConfigType.TREEMAP"
+                                                   [widgetPayload]="widgetPayload" [widget]="widget"
+                                                   [isBatchExport]="isBatchExport">
+                        </app-explore-treemap-chart>
+                        <app-explore-scatter-chart #widgetRender
+                                                   *ngSwitchCase="type === WidgetConfigType.SCATTER"
+                                                   [widgetPayload]="widgetPayload" [widget]="widget"
+                                                   [isBatchExport]="isBatchExport">
+                        </app-explore-scatter-chart>
+                        <app-explore-returns-chart #widgetRender
+                                                   *ngSwitchCase="type === WidgetConfigType.RETURN_ANALYSIS_CHART"
+                                                   [widgetPayload]="widgetPayload" [widget]="widget"
+                                                   [isBatchExport]="isBatchExport">
+                        </app-explore-returns-chart>
+                        <app-explore-decarbonization-chart #widgetRender
+                                               *ngSwitchCase="type === WidgetConfigType.DECARBONIZATION_WIDGET"
+                                               [widgetPayload]="widgetPayload" [widget]="widget"
+                                               [isBatchExport]="isBatchExport">
+                        </app-explore-decarbonization-chart>
+                        <div *ngSwitchDefault style="width:100%; height:100%">
+                            <span>TODO: implement '{{widget.configType}}'</span>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <app-commitment-risk-container #widgetRender
+                                   *ngIf="(!(isLoading$ | async)) && (widget?.configType === WidgetConfigType.COMMITMENT_RISK || widget?.configType === WidgetConfigType.COMMITMENT_RISK_CHART)"
+                                   [widget]="widget"
+                                   [widgetPayload]="widgetPayload"
+                                   [portfolio]="portfolio"
+                                   [isBatchExport]="isBatchExport"
+                                   (notifyWidgetToRefresh$)="refreshWidget()"
+                                   (spriteletLaunched)="widgetSpriteletLaunched($event)">
+    </app-commitment-risk-container>
+    <app-commitment-risk-container-legacy #widgetRender
+                                   *ngIf="(!(isLoading$ | async)) && (widget?.configType === WidgetConfigType.COMMITMENT_RISK_LEGACY || widget?.configType === WidgetConfigType.COMMITMENT_RISK_CHART_LEGACY)"
+                                   [widget]="widget"
+                                   [widgetPayload]="widgetPayload"
+                                   [portfolio]="portfolio"
+                                   [isBatchExport]="isBatchExport"
+                                   (notifyWidgetToRefresh$)="refreshWidget()">
+    </app-commitment-risk-container-legacy>
+    <app-commitment-risk-excluded-funds #widgetRender
+                                   *ngIf="(!(isLoading$ | async)) && (widget?.configType === WidgetConfigType.COMMITMENT_RISK_EXCLUDED_FUNDS)"
+                                   [widget]="widget"
+                                   [widgetPayload]="widgetPayload"
+                                   [isBatchExport]="isBatchExport"
+                                   (spriteletLaunched)="widgetSpriteletLaunched($event)">
+    </app-commitment-risk-excluded-funds>
+
+    <ng-container *ngIf="isFootnoteChecked">
+        <div class="footer-note-area">
+            <app-foot-notes [widget]="widget"></app-foot-notes>
+        </div>
+    </ng-container>
+
+    <aux-notification-group #widgetNotify></aux-notification-group>
+
+    <div *ngIf="!hasPayload" class="reloadBackground">
+        <div class="reloadWidget">
+            <aux-button type="secondary" label="Reload Widget" (click)="onRefreshButtonClick($event)"></aux-button>
+        </div>
+    </div>
+</ng-template>
+
+<ng-container *ngIf="!isBatchExport && isWidgetSettingsModalOpen">
+    <app-widget-settings-modal [widget]="widget"
+                               [isOpen]="isWidgetSettingsModalOpen"
+                               (modalClosed)="closeWidgetSettingsModal()">
+    </app-widget-settings-modal>
+</ng-container>
+
+<ng-container *ngIf="showColumnDefinitionForColumn">
+    <app-column-definition-modal [isOpen]="showColumnDefinitionForColumn"
+                                 [column]="showColumnDefinitionForColumn"
+                                 (modalClosed)="setShowColumnDefinitionForColumn(null)">
+    </app-column-definition-modal>
+</ng-container>
+
+<ng-container *ngIf="priceChartInputs">
+    <app-price-popup-chart [isOpen]="priceChartInputs"
+                           [priceChartInputs]="priceChartInputs"
+                           (modalClosed)="setShowPriceChart(null)">
+    </app-price-popup-chart>
+</ng-container>
+
+<ng-container *ngIf="isWidgetApiRequestModalOpen">
+    <app-api-request-modal
+        [isOpen]="isWidgetApiRequestModalOpen"
+        [portfolio]="portfolio"
+        [widget]="widget"
+        (modalClosed)="closeWidgetApiRequestModal()"
+    ></app-api-request-modal>
+</ng-container>
+

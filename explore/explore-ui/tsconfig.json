@@ -1,0 +1,111 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "preserveSymlinks": true,
+    "baseUrl": ".",
+    "outDir": "dist/out-tsc",
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": false,
+    "importHelpers": true,
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "esModuleInterop": true,
+    "paths": {
+      "explore-angular-gridster2": [
+        "projects/angular-gridster2"
+      ],
+      "@blk/explore-ads-wrapper": [
+        "projects/explore-ads-wrapper/src/public-api"
+      ],
+      "@blk/explore-ui-core": [
+        "projects/explore-ui-core/src/public_api"
+      ],
+      "@blk/explore-ui-risk": [
+        "projects/explore-ui-risk/src/public_api"
+      ],
+      "@blk/explore-ui-column-option": [
+        "projects/explore-ui-column-option/src/public_api"
+      ],
+      "@blk/explore-ui-extended-column-option": [
+        "projects/explore-ui-extended-column-option/src/public_api"
+      ],
+      "@blk/explore-ui-portfolio-search": [
+        "projects/portfolio-search/src/public-api"
+      ],
+      "@blk/explore-efficient-frontier": [
+        "projects/explore-efficient-frontier/src/public_api"
+      ],
+      "@blk/explore-ui-breakdown": [
+        "projects/explore-ui-breakdown/src/public_api"
+      ],
+      "@blk/explore-ui-look-through-settings": [
+        "projects/explore-ui-look-through-settings/src/public_api"
+      ],
+      "@constants/*": [
+        "src/app/constants/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@enums/*": [
+        "src/app/enums/*"
+      ],
+      "@interfaces/*": [
+        "src/app/interfaces/*"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@services/*": [
+        "src/app/shared/services/*"
+      ],
+      "@stores/*": [
+        "src/app/stores/*"
+      ],
+      "@utils/*": [
+        "src/app/utils/*"
+      ],
+      "@mocks/*": [
+        "mocks/*"
+      ],
+      "@optimization-configuration/*": [
+        "src/app/modules/optimization-configuration/*"
+      ],
+      "@optimization-settings/*": [
+        "src/app/modules/optimization-settings/*"
+      ],
+      "@optimization-settings-configuration/*": [
+        "src/app/modules/optimization-settings-configuration/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "projects/**/index.ts"
+  ],
+  "exclude": [
+    "**/e2e/**.*",
+    "**/dist/**.*",
+    "**/out-tsc/**.*",
+    "**/node_modules/**.*",
+    "**/mocks/**.*",
+    "**/*test*.*",
+    "**/*.spec.ts",
+    "**/*.stories.ts",
+    "./*.ts"
+  ]
+}

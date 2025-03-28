@@ -1,0 +1,28 @@
+<label class="spread-title">Spread type</label>
+<div class="spread-container">
+    <aux-radio-group
+        label="" 
+        name="inline"
+        [data]="spreadTypeDisplayOptions"
+        (radioGroupChanged)="spreadTypeChange()">
+    </aux-radio-group>
+</div>
+<label class="spread-title">Spread limits</label>
+<div class="spread-container">
+    <aux-numeric-stepper
+        label="{{spreadLimitFloorTitle}}"
+        [stepperValue]="optionValue.floor"
+        (valueChanged)="onFloorValueChangedHandler($event)"
+        style="padding-right: 16px;">
+    </aux-numeric-stepper>
+    <aux-numeric-stepper
+        label="{{spreadLimitCapTitle}}"
+        [stepperValue]="optionValue.cap"
+        (valueChanged)="onCapValueChangedHandler($event)">
+    </aux-numeric-stepper>
+</div>
+<aux-checkbox
+    label="{{useDurationForEurGovBondTitle}}"
+    [isChecked]="optionValue.useDurationForEuroGovtBonds"
+    (checkboxChanged)="updateDxsColumnOptionsCheckbox($event)">
+</aux-checkbox>

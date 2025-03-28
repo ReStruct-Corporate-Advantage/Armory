@@ -1,0 +1,158 @@
+/* You can add global styles to this file, and also import other style files */
+// Import themes and base app styles
+@use '@blk/aladdin-web-components/dist/aladdincomponentslib/aladdincomponentslib';
+@use '@blk/aladdin-web-components/dist/collection/styles/base-app-styles';
+@use '@blk/aladdin-web-components/dist/collection/styles/simple-table';
+@use "ag-grid-community/styles";
+@use "@qbstr/highcharts-core/styles/highcharts";
+@use './config';
+
+@use './style-functions.scss';
+
+@use '../projects/explore-ui-core/styles/core-styles';
+@use "explore-highcharts";
+@use "./app/vizualizations/charts/explore-bar-chart/explore-bar-chart.component";
+@use "./app/vizualizations/charts/explore-time-series-chart/explore-time-series-chart.component";
+@use "./app/vizualizations/charts/explore-returns-chart/explore-returns-chart.component";
+
+// In DS v14.6.0, aux-widget was changed to update its height based on the content inside the widget.
+// This overrides the DS styling to the original styling where widget will take up the full height of the container.
+// https://dev.azure.com/1A4D/AUX%20Aladdin%20User%20Experience/_git/apgux/pullrequest/801008
+.aux-widget__content-container.sc-aux-widget{
+    height: calc(100% - 2rem);
+}
+.aux-widget__content-container--inner.sc-aux-widget {
+    height: 100%
+}
+
+.action-link,
+.action-delete-link {
+    cursor: pointer;
+    color: config.$action-link-color;
+    opacity: config.$action-link-default-opacity;
+    font-size: config.$font-size-regular;
+
+    &:hover {
+        opacity: config.$action-link-hover-opacity;
+    }
+}
+
+.aw-popover__container--bottom-left :after {
+    border-color: transparent transparent var(--container__background-color) transparent;
+    border-width: 8px;
+    border-bottom: 8px solid var(--primary-link__color);
+}
+
+.primary-text-color {
+    color: var(--primary-text__color)
+}
+
+// MODAL RELATED STYLES
+
+.modal-size-xs {
+    @extend .aux-g32--cw-4
+}
+
+.modal-size-sm {
+    @extend .aux-g32--cw-6
+}
+
+.modal-size-md {
+    @extend .aux-g32--cw-8
+}
+
+.modal-size-lg {
+    @extend .aux-g32--cw-10
+}
+
+.modal-size-xl {
+    @extend .aux-g32--cw-12
+}
+
+.ag-theme-apgux-buy-trade-text {
+    color: var(--badge__color--success) !important
+}
+
+.ag-theme-apgux-sell-trade-text {
+    color: var(--badge__color--alert) !important
+}
+
+.aux-layout__wrapper-without-margin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.aux-data-viz__container {
+    border: none !important;
+}
+
+highcharts-chart {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.pipe-separator {
+    color: var(--option-group__border-color);
+}
+
+.ag-theme-apgux-composition-cell-edited {
+    background-color: var(--grid__background-color-edited);
+}
+
+.ag-theme-apgux-composition-cell-un-editable {
+    opacity: 0.6
+}
+
+.gridster-item-resizable-handler.handle-n {
+    height: 2px !important
+}
+.gridster-item-resizable-handler.handle-s {
+    height: 2px !important
+}
+.gridster-item-resizable-handler.handle-e {
+    width: 2px !important
+}
+.gridster-item-resizable-handler.handle-w {
+    width: 2px !important
+}
+
+.ag-header-cell .ag-cell-label-container .ag-header-cell-icons, .ag-header-cell-menu-button  {
+    align-items: end !important;
+}
+
+// modal footer with primary and secondary buttons
+.custom-footer-container--one-button, .custom-footer-container--two-buttons {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    align-items: center;
+}
+
+// modal footer with primary, secondary, tertiary buttons
+.custom-footer-container--three-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
+}
+
+// modal footer primary button padding
+.custom-footer--primary-button {
+    padding: 0 1rem;
+}
+
+/////////
+// After migrating to new Aladdin Header with DS v15.3.2, the max height of modals was going off of the page due to the
+// new header pushing all the content on the screen down by 44px. This CSS styling override is a temporary fix and
+// should be removed after upgrading to DS v16+. https://dev.azure.com/1A4D/Explore/_workitems/edit/1869573/
+.aux-overlay__backdrop--center-position {
+    height: calc(100% - 44px); // 44px to account for space taken up by the new header
+}
+
+.aux-modal.sc-aux-modal {
+    max-height: calc(100% - 40px); // 20px of top and bottom gray overlay around modal
+}
+/////////

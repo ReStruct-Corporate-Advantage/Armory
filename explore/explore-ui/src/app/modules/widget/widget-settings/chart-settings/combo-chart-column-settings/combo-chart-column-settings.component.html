@@ -1,0 +1,62 @@
+<div class="combo-chart-column-settings">
+    <div class="col-settings-table-container">
+        <table class="col-settings-table"> <!-- //NOSONAR -->
+            <thead class="aux-container-alternate col-settings-table-header">
+            <tr>
+                <th class="col-title-header">Column Measure</th>
+                <th class="col-scale-header">Scale</th>
+                <th class="col-type-header">Chart Type</th>
+                <th>Line Style</th>
+                <th class="col-sec-axis-header">Secondary Axis</th>
+            </tr>
+            </thead>
+            <tbody class="col-settings-table-rows-container">
+            <ng-container *ngFor="let column of widgetInput.columns; index as i">
+                <tr class="col-settings-table-row">
+                    <td>{{column.colTitle}}</td>
+                    <td>{{column.colScale}}</td>
+                    <td>
+                        <aux-select [type]="'simple'"
+                                    [id]="'chartType' + i"
+                                    [isDisabled]="disableChartTypeSelection"
+                                    [data]="chartTypeSelectOptions.get(column)"
+                                    [hasInitialOptionPlaceholder]="false"
+                                    (selectionChanged)="onChartTypeChanged(column, $event.detail.value.value)"
+                                    [size]="'small'">
+                        </aux-select>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="!this.disableLineStyleSelection && column.chartType === ColumnSeriesChartType.LINE;else noLineStyle">
+                            <aux-select [type]="'simple'"
+                                        [id]="'lineStyle' + i"
+                                        [data]="lineStyleSelectOptions.get(column)"
+                                        [hasInitialOptionPlaceholder]="false"
+                                        (selectionChanged)="onLineStyleChanged(column, $event.detail.value.value)"
+                                        [size]="'small'">
+                            </aux-select>
+                        </ng-container>
+                        <ng-template #noLineStyle>
+                            <span>N/A</span>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <aux-checkbox [id]="'secondaryAxisCheckbox_' + i"
+                                      [isChecked]="column.secondaryAxis"
+                                      [isDisabled]="disableSecondaryAxisCheckbox()"
+                                      (checkboxChanged)="onSecondaryAxisChanged(column, $event.detail.value.checked)">
+                        </aux-checkbox>
+                    </td>
+                </tr>
+            </ng-container>
+            </tbody>
+        </table>
+    </div>
+    <div class="restore-default-button">
+        <aux-button label="Undo Changes"
+                    icon="undo"
+                    type="tertiary"
+                    [isDisabled]="!isChartSettingChanged"
+                    (click)="resetChanges()">
+        </aux-button>
+    </div>
+</div>

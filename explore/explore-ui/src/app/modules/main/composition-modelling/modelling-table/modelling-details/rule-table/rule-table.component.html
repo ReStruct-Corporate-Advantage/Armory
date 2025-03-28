@@ -1,0 +1,16 @@
+<table style="width: 100%; text-align: left; border-spacing: 0;">
+    <tr>
+        <th *ngIf="showNumbering" class="trade-table-cell trade-table-head"></th>
+        <th class="trade-table-cell trade-table-head">Rule</th>
+        <th class="trade-table-cell trade-table-head">Notional market value %</th>
+        <th class="trade-table-cell trade-table-head">Rule type</th>
+    </tr>
+    <ng-container *ngFor="let rule of tradeRules; index as i">
+        <tr>
+            <td *ngIf="showNumbering" class="trade-table-cell aux-p12"><strong>{{(i + 1) + '.'}}</strong></td>
+            <td class="trade-table-cell aux-p12">{{rule.lineItem}}</td>
+            <td class="trade-table-cell aux-p12">{{rule.newWeight}}</td>
+            <td class="trade-table-cell aux-p12">{{rule.ruleType}}</td>
+        </tr>
+    </ng-container>
+</table>

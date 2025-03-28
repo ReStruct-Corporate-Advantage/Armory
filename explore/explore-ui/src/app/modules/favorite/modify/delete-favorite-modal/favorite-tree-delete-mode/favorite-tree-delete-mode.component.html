@@ -1,0 +1,15 @@
+<div class="favorite-tree-area">
+    <aux-advanced-tree-list
+            containerHeight="auto"
+            style="max-height: 500px"
+            [customStyle]="advanceTreeCustomStyle"
+            [hasSearch]=false
+            [hasBorder]=false
+            [sourceData]="filteredFavoriteTreeData"
+            (sourceSelectionChanged)="onFavoriteSelected($event)"
+            [hasItemTooltip]="true"
+            [tooltipCallback]="TooltipUtils.getEnterpriseDescriptionTooltip"
+            [config]="TooltipUtils.getTooltipConfig(true)">
+        >
+    </aux-advanced-tree-list>
+</div>

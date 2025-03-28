@@ -1,0 +1,16 @@
+<div class="rbc-regime-settings-container">
+    <div class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6">
+        <aux-select [label]="'RBC regime'"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onRegimeSelected($event.detail.value)"
+                    [data]="regimeOptions">
+        </aux-select>
+    </div>
+    <div *ngIf="showRiskFactorOptions" class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6">
+        <aux-select type="{{isSingleSelectRiskFactor ? 'simple' : 'multiple'}}"
+                    [label]="'Decompose RBC risk factors'"
+                    (selectionChanged)="onRiskFactorChanged($event)"
+                    [data]="riskFactors">
+        </aux-select>
+    </div>
+</div>

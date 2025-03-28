@@ -1,0 +1,7 @@
+<div class="override-date-sort-by">
+    <label class="override-date-sort-by-label">Sort dates by</label>
+    <aux-radio-group
+        [data]="overrideDateSortOptions"
+        (radioGroupChanged)="onOverrideDateSortOptionChanged($event.detail.value)">
+    </aux-radio-group>
+</div>

@@ -1,0 +1,145 @@
+<ng-container *ngIf="!editFactorSettings">
+    <div class="layout-reset-risk-settings-button">
+        <aux-button label="Undo Changes"
+                    icon="undo"
+                    type="tertiary"
+                    [isDisabled]="isDisabledResetButton()"
+                    (click)="resetRiskSettings()">
+        </aux-button>
+    </div>
+</ng-container>
+<ng-container *ngIf="!hideEconomyDate">
+    <div class="flex-container-1">
+        <div>
+            <explore-core-date-picker
+                [label]="LABEL.ECONOMY_DATE"
+                [dateObject]="dateValueObject"
+                (dateChange)="onEconomyDateChange($event)"
+                [isLeftLabel]="false">
+            </explore-core-date-picker>
+        </div>
+        <div *ngIf="economyRiskSettings.doesValueExist(propertyList.DATE_OBJECT)" style="padding-top: 22px">
+            <explore-risk-revert-risk-setting [riskSetting]="economyRiskSettings" [propertyName]="propertyList.DATE_OBJECT" (resetHandler)="economyDateReset()"></explore-risk-revert-risk-setting>
+        </div>
+    </div>
+</ng-container>
+<div class="set-scheme-main-div">
+    <div class="flex-container-1 set-scheme-layout weighting-scheme-header {{classNameWeighingSchemeLabel}}">
+        {{LABEL.WEIGHTING_SCHEME}}
+    </div>
+    <div class="flex-container-2 set-scheme-layout custom-padding-inputs">
+        <div class="weighting-scheme-aux-select">
+            <aux-select (selectionChanged)="onWeightingSchemeSelectionChanged($event)"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="weightingSchemeList">
+            </aux-select>
+        </div>
+        <div *ngIf="economyRiskSettings.doesValueExist(propertyList.WEIGHTING_SCHEME)">
+            <explore-risk-revert-risk-setting [riskSetting]="economyRiskSettings" [propertyName]="propertyList.WEIGHTING_SCHEME" (resetHandler)="weightingSchemeReset()"></explore-risk-revert-risk-setting>
+        </div>
+    </div>
+    <div class="source-styl">
+        Source: {{economyRiskSettings.getSourceDisplayName(propertyList.WEIGHTING_SCHEME)}}
+    </div>
+</div>
+<div [className]="classNamePeriodHalfLifeDiv">
+    <div class="set-item-layout" style="display: inline-block;">
+        <div style="font-weight: bold">{{LABEL.PERIOD}}</div>
+        <div class="flex-container-1 custom-padding-inputs">
+            <div class="period-flex-div-1">
+                <div>
+                    <aux-select (selectionChanged)="onPeriodListSelectionChanged($event)"
+                                [hasInitialOptionPlaceholder]="false"
+                                [data]="periodList"
+                                [isDisabled]="!economyRiskSettings.isPeriodModifiable"
+                                label="Duration">
+                    </aux-select>
+                </div>
+                <div class="or-div-padding">
+                    OR
+                </div>
+                <div>
+                    <aux-numeric-stepper (valueChanged)="onPeriodChanged($event)"
+                                         [stepperValue]="economyRiskSettings.period"
+                                         [isDisabled]="!economyRiskSettings.isPeriodModifiable"
+                                         [label]="economyRiskSettings.halfLifeLabel.charAt(0).toUpperCase()+
+                                     economyRiskSettings.halfLifeLabel.substr(1)">
+                    </aux-numeric-stepper>
+                </div>
+            </div>
+            <div
+                *ngIf="economyRiskSettings.doesValueExist(propertyList.PERIOD) && economyRiskSettings.isPeriodModifiable"
+                class="period-flex-div-2">
+                <explore-risk-revert-risk-setting [riskSetting]="economyRiskSettings" [propertyName]="propertyList.PERIOD" (resetHandler)="periodReset()"></explore-risk-revert-risk-setting>
+            </div>
+        </div>
+        <div class="source-styl">
+            Source: {{economyRiskSettings.getSourceDisplayName(propertyList.PERIOD)}}
+        </div>
+    </div>
+    <div class="set-item-layout {{classNameHalfLifeDiv}}">
+        <div style="font-weight: bold">{{LABEL.HALF_LIFE}}</div>
+        <div class="flex-container-1 custom-padding-inputs">
+            <div class="flex-container-1">
+                <div class="half-life-div-days">
+                    <aux-text-input #halflifeindays textAlign="right" maxLength="4" type="currency"
+                                    [value]="economyRiskSettings.halfLifeInDays"
+                                    (inputBlur)="onHalfLifeChanged($event)"
+                                    [isDisabled]="!economyRiskSettings.isHalfLifeModifiable"
+                                    [validator]="validator"
+                                    [label]="economyRiskSettings.halfLifeLabel.charAt(0).toUpperCase()+
+                                economyRiskSettings.halfLifeLabel.substr(1)">
+                    </aux-text-input>
+                </div>
+                <div class="or-div-padding">
+                    OR
+                </div>
+                <div class="half-life-div-decay">
+                    <aux-text-input #decayfactor textAlign="right" suffixLabel="σ" label="Decay" maxLength="10"
+                                    type="currency"
+                                    [isDisabled]="!economyRiskSettings.isHalfLifeModifiable"
+                                    [validator]="validator"
+                                    [value]="economyRiskSettings.decayFactor"
+                                    (inputBlur)="onDecayChanged($event)">
+                    </aux-text-input>
+                </div>
+            </div>
+            <div
+                *ngIf="economyRiskSettings.doesValueExist(propertyList.DECAY_FACTOR) && economyRiskSettings.isHalfLifeModifiable"
+                class="period-flex-div-2">
+                <explore-risk-revert-risk-setting [riskSetting]="economyRiskSettings" [propertyName]="propertyList.DECAY_FACTOR" (resetHandler)="decayFactorReset()"></explore-risk-revert-risk-setting>
+            </div>
+        </div>
+        <div class="source-styl">
+            Source: {{economyRiskSettings.getSourceDisplayName(propertyList.DECAY_FACTOR)}}
+        </div>
+    </div>
+</div>
+<div class="layout-overlap-div">
+    <div class="set-overlap-layout">
+        <div>
+            {{LABEL.OVERLAP}}
+        </div>
+
+        <aux-tooltip class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+            <aux-icon slot="target" type="help-subtle" state="primary" [assistiveText]="'help'"></aux-icon>
+            <span slot="content"> An averaging technique to mitigate the impact of error introduced by asynchronous market closing times. Defines the size of the overlapping time intervals. For example, a five day overlap is equivalent to taking the average return over five business days as the daily return, and then rolling the five day window forward for each subsequent observation.</span>
+        </aux-tooltip>
+    </div>
+    <div class="flex-container-1" style="padding-top: 0.5rem;">
+        <div class="flex-container-1 conf-div">
+            <aux-numeric-stepper (valueChanged)="onOverlapChanged($event)"
+                                 [stepperValue]="economyRiskSettings.overlap"
+                                 [isDisabled]="!isOverlapEnabled">
+            </aux-numeric-stepper>
+            <div *ngIf="economyRiskSettings.doesValueExist(propertyList.OVERLAP) && economyRiskSettings.overlap">
+                <explore-risk-revert-risk-setting [riskSetting]="economyRiskSettings" [propertyName]="propertyList.OVERLAP" (resetHandler)="overlapReset()"></explore-risk-revert-risk-setting>
+            </div>
+        </div>
+    </div>
+    <div class="source-styl layout-overlap-source">
+        Source: {{economyRiskSettings.getSourceDisplayName(propertyList.OVERLAP)}}
+    </div>
+</div>
+
+

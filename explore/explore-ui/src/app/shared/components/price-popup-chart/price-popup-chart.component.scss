@@ -1,0 +1,11 @@
+.price-chart-container {
+    height: 20rem;
+    width: 100%;
+}
+
+.custom-header {
+    display: flex;
+    padding: 1.25rem 2rem 1.1875rem;
+    align-items: baseline;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+}

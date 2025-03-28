@@ -1,0 +1,11 @@
+.highcharts-data-label {
+    width: 30px;
+    text-overflow: ellipsis;
+    font-weight: var(--font-weight-regular);
+    color: #ffffff;
+}
+
+.highcharts-point {
+    stroke: var(--primary__color) !important;
+    stroke-width: 1px;
+}

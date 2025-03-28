@@ -1,0 +1,23 @@
+<div class="text-box">
+    <aux-text-input [ngStyle]="{'width': customStyle ? '15rem': '23%'}"
+        [value]="value$ | async"
+        [label]="label"
+        [validator]="validator"
+        (valueChanged)="onValueChanged($event)">
+    </aux-text-input>
+
+    <aux-tooltip [ngStyle]="{'padding-top': customStyle ? '25px': '4%'}">
+        <aux-button
+            slot="target"
+            icon="help"
+            type="tertiary"
+            [assistiveText]="'help'"
+        ></aux-button>
+            <span slot="content">{{efHelpMessageText}}<br>
+                <ul>
+                    <li>{{efHelpMessageTextOption1}}</li>
+                    <li>{{efHelpMessageTextOption2}}</li>
+                </ul>
+            </span>
+    </aux-tooltip>
+</div>

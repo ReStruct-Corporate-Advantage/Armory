@@ -1,0 +1,128 @@
+.optimization {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    .footer {
+        padding: 0.5rem;
+    }
+
+    .download-ros-request {
+        display: inline-block;
+        padding-right: 0.5rem
+    }
+
+    .download-ros-request-spinner-and-icon {
+        float: right;
+    }
+
+    .loading-icon {
+        display: inline-block;
+        padding-right: 0.5rem;
+    }
+
+    .footer-notification {
+        padding: 0 0.5rem 0.5rem;
+    }
+
+    .footer-buttons-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-buttons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer-buttons-right {
+        padding-right: 0.5rem;
+    }
+
+    .footer-button-item {
+        padding-left: 0.5rem;
+    }
+
+    .reset-button {
+        padding-top: 2.5px;
+    }
+}
+
+.timeout-stepper {
+    padding: 2% 0 2% 5%;
+    margin-left: 7%;
+    display: flex
+}
+
+.timeout-buttons {
+    padding-right: 5%;
+    float: right;
+}
+
+.footer-buttons-new {
+    padding-bottom: 5%;
+}
+
+.advanced-risk-setting-button {
+    padding-left: 5%;
+    float: left;
+}
+
+.container-spacing {
+    padding: 16px 0 0 0;
+
+    .radio-button-spacing {
+        padding-bottom: 12px;
+        padding-top: 5px;
+    }
+
+    .help-button-spacing {
+        padding-left: 7%;
+    }
+}
+.params-header {
+    padding: 0 1rem;
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.75rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}
+
+.opto-params-title {
+    padding-right: 1rem;
+}
+
+a {
+    color: var(--input-box__background-color);
+    background-color: var(--primary-link__color);
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    border-radius: 100%;
+    font-size: 10px;
+    text-align: center;
+}
+
+.section-separator {
+    margin: 0;
+    color: var(--option-group__border-color);
+}
+
+.tooltip-spacing {
+    padding-top: 2%;
+    padding-left: 0%
+}
+
+.section-separator {
+    margin: 0;
+    color: var(--option-group__border-color);
+}

@@ -1,0 +1,33 @@
+
+.portfolio-search-container {
+    .search-field-container {
+        width: 100%;
+        display: inline-block;
+        position: relative;
+    }
+
+    .add-portfolio-btn {
+        margin: 24px auto 0;
+    }
+
+    .what-if-portfolio-title-text {
+        padding: 0.5rem;
+    }
+
+    .port-type-select-change {
+        width: 30%;
+        padding-right: 0.5rem;
+        padding-top: 0.25rem;
+    }
+
+    .load-what-if-button {
+        padding: 0.5rem;
+    }
+}
+
+.portfolio-search-container--stacked {
+    .select-item {
+        margin-bottom: 16px;
+    }
+}
+

@@ -1,0 +1,71 @@
+<div class="report-bar-area">
+    <div class="report-bar-text-area">
+        <ng-container *ngIf="currentReport$ | async as report">
+            <explore-previous-favorite-version-banner [favoriteId]="report.id" [owner]="report.owner"
+                                             [currentFavoriteVersion]="report.currentFavoriteVersion"
+                                             [previousVersionMessage]="REPORT_PREV_VERSION_MESSAGE"
+            ></explore-previous-favorite-version-banner>
+            <div *ngIf="report.id">
+                <explore-favorite-info [favoriteConfig]='report' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.REPORT" [loadFavoriteCallBack]="loadFavoriteReport"></explore-favorite-info>
+            </div>
+            <div class="report-label" *ngIf="!report.id">
+                {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.REPORT}}: {{title}}
+            </div>
+            <div class="favorite-status-tag" *ngIf="coreFavoriteUtils.showFavStatusTag(currentReport)">
+                <app-favorite-status-badge [favoriteStatus]="currentReport.statusTag"></app-favorite-status-badge>
+            </div>
+        </ng-container>
+        <div class="widget-selector">
+            <aux-button slot="target" icon="add" [type]="AuxButtonTypeEnum.SECONDARY" label="Widget"
+                        [size]="AuxButtonSizeEnum.SMALL" (click)="openWidgetGalleryModal()"></aux-button>
+        </div>
+        <aux-button label="Paste Widget" class="paste-widget-button" [type]="AuxButtonTypeEnum.TERTIARY"
+                    (click)="callOpenPasteWidgetModal($event)"></aux-button>
+
+        <ng-container *ngIf="isWhatIfPortfolio">
+            <aux-toggle class="toggle-composition"
+                        label="Show model composition"
+                        [isChecked]="showCompositionModel"
+                        (toggleChanged)="onToggleChanged($event)">
+            </aux-toggle>
+        </ng-container>
+    </div>
+
+    <div class="widget-option">
+        <div class="comparison-mode" *ngIf="isComparisonApplicable">
+            <aux-button class="widget-option-item option-separator"
+                        [type]="AuxButtonTypeEnum.TERTIARY"
+                        [label]="isCompareModeOn ? 'Edit Multi-Portfolio Analysis' : 'Enable Multi-Portfolio Analysis'"
+                        (click)="openCompareModal()">
+            </aux-button>
+        </div>
+        <aux-icon class="loading-icon" *ngIf="exportingInProgress" type="loading" state="primary"></aux-icon>
+        <div class="option-separator" [ngClass]="exportingInProgress ? 'option-padding-left':'inline-data-style'">
+            <app-export-menu style="display: inline-block" [exportLevel]="exportLevel"></app-export-menu>
+        </div>
+
+        <aux-button
+            [label]="(isReportLoading$ | async) ? REPORT_ACTION_TYPE.CANCEL_RELOAD : REPORT_ACTION_TYPE.RELOAD_REPORT"
+            class="widget-option-item" [type]="AuxButtonTypeEnum.TERTIARY"
+            (click)="setReportAction($event)">
+        </aux-button>
+
+        <aux-inline-menu class="report-bar-menu" (inlineMenuItemClicked)="onReportBarMenuClicked($event)" [data]="reportBarMenuOptions" overridePlacement="bottomLeft"
+                         trigger="pressed">
+            <aux-button [type]="AuxButtonTypeEnum.SECONDARY" slot="target" [icon]="reportGroupMenuIconType" [size]="AuxButtonSizeEnum.SMALL"></aux-button>
+        </aux-inline-menu>
+
+    </div>
+</div>
+
+<ng-container *ngIf="isWidgetGalleryModalOpen">
+    <app-widget-gallery-modal [isOpen]="isWidgetGalleryModalOpen"
+                             (modalClosed)="closeWidgetGalleryModal()">
+    </app-widget-gallery-modal>
+</ng-container>
+
+<ng-container *ngIf="isCompareModalOpen">
+    <app-compare-modal [isOpen]="isCompareModalOpen"
+                       (modalClosed)="closeCompareModal($event)">
+    </app-compare-modal>
+</ng-container>

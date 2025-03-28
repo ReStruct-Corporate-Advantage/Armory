@@ -1,0 +1,181 @@
+{
+    "configType": "bar",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Bar Chart Widget is a visual comparison of column measures.\n\nOptions include: \n•  Regular bar chart\n•  Grouped bar chart (>1 column measure)\n•  Stacked bar chart (stacked breakdown)",
+    "title": "Bar Chart",
+    "image": ".\/assets\/images\/bar-chart.png",
+    "imageDescription": "This bar chart, which represents the S&P500 index, shows the market value % of countries in the S&P500.",
+    "setUpRequirements": [
+      "1 (or more) column measures (Note: >1 column measure creates a grouped bar graph/clustered bar chart)",
+      "Optional: Sector breakdown (X-axis)",
+      "Optional: Stacked breakdown (Note: A stacked breakdown creates a stacked bar chart)"
+    ],
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showOnlySingleColumn": false,
+    "showGridTransitionControl": true,
+    "canHaveMultipleOverrideDates": true,
+    "isEligibleForLightLookthrough": true,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Measures",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "CHART_REPORT",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "$ref": "notionalMarketValuePercentColumn"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "$ref": "defaultBreakdown"
+                },
+                {
+                    "inputConfigType": "breakdownTree",
+                    "inputName": "stackedBreakdownTree",
+                    "inputTitle": "Stacked Breakdown",
+                    "groupByColumnFilters": {
+                        "$ref": "defaultGroupByColumnFilters"
+                    },
+                    "customColumnFilters": {
+                        "$ref": "defaultCustomColumnFilters"
+                    },
+                    "valueField": "columnTag",
+                    "max": 5,
+                    "default": {
+                        "breakdown": {}
+                    }
+                },
+                {
+                    "inputConfigType": "isLightLookthroughEnabled",
+                    "inputName": "isLightLookthroughEnabled",
+                    "inputTitle": "Enable Fund Characteristics View",
+                    "hideTitle": true,
+                    "default": {}
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartFilter"
+        },
+        {
+            "categoryType": "axis",
+            "categoryTitle": "Axis",
+            "inputs": [
+                {
+                    "inputConfigType": "primaryAxisSettings",
+                    "inputName": "primaryAxisSettings",
+                    "inputTitle": "Primary axis",
+                    "default": {},
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "secondaryAxisSettings",
+                    "inputName": "secondaryAxisSettings",
+                    "inputTitle": "Secondary axis",
+                    "default": {},
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                    "inputConfigType": "barSettings",
+                    "inputName": "chart",
+                    "inputTitle": "Chart format",
+                    "default": {
+                        "chartType": "column"
+                    },
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "customColorPositiveNegative",
+                    "inputName": "customColorPositiveNegative",
+                    "inputTitle": "Chart colors",
+                    "isOpen": true,
+                    "default": {
+                        "positiveColor": "#008000",
+                        "negativeColor": "#FF0000",
+                        "isEnabled": false
+                    }
+                },
+                {
+                    "inputConfigType": "overrideDateSortByOldest",
+                    "inputName": "overrideDateSortByOldest",
+                    "inputTitle": "Date override sort order",
+                    "default": {
+                        "sortByOldest": false
+                    },
+                    "isOpen": true,
+                    "ignoreNestedDataObject": true
+                },
+              {
+                "inputConfigType": "comboChartColumnSettings",
+                "inputName": "comboChartColumnSettings",
+                "inputTitle": "Chart type and axis selection",
+                "isOpen": true,
+                "otherNames": ["secondaryAxisColumn"],
+                "default": {
+                 "columns": []
+                }
+              }
+            ]
+        },
+        {
+            "$ref": "defaultChartSettings"
+        },
+        {
+            "$ref": "defaultSortedColumns"
+        },
+        {
+            "visible": false,
+            "categoryType": "nestedSettings",
+            "inputs": [
+                {
+                  "inputConfigType": "gridLines",
+                  "inputName": "showGridLines",
+                  "inputTitle": "Grid lines",
+                  "default": true
+                }
+            ]
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "styleAnalysis": {
+      "$ref": "styleAnalysis"
+    },
+    "restrictedColumnOptions": {
+        "sections": [
+            "columnBreakdown",
+            "highlight",
+            "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "hc"
+}

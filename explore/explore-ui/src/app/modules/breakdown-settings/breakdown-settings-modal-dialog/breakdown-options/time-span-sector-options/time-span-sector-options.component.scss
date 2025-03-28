@@ -1,0 +1,21 @@
+.time-span-sector-options {
+    .buckets-field-container {
+        margin-bottom: 1rem;
+    }
+
+    .default-bucket-selector-container {
+        .selector-label {
+            margin-bottom: .5rem;
+        }
+
+        .default-bucket-selection-buttons {
+            display: flex;
+
+            .vertical-line-divider {
+                margin: 0 .25rem;
+                width: 1px;
+                background-color: var(--dialog__border-color);
+            }
+        }
+    }
+}

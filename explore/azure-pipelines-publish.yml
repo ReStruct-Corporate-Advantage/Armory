@@ -1,0 +1,104 @@
+parameters:
+  - name: rc
+    displayName: Is release candidate build
+    type: boolean
+    default: true
+  - name: pl
+    displayName: Publish library
+    type: boolean
+    default: false
+  - name: last_stop
+    type: string
+    default: 'restart'
+    values: ['publish', 'packaging', 'delivery', 'activation', 'restart']
+  - name: manifest_files
+    displayName: List of manifest files for packaging
+    type: object
+    default: [./explore-ui/package.yaml]
+  - name: clean
+    displayName: Clean Build, skip cache download
+    type: boolean
+    default: true
+  - name: build_user_preferred_for_cd
+    type: boolean
+    default: true
+  - name: cd_envs
+    displayName: Continuous Delivery Environments
+    type: object
+    default:
+      - DEV,TST
+  #npm specific parameters
+  - name: npm_root
+    displayName: Package Json location
+    type: string
+    default: ./explore-ui
+  - name: commands
+    type: object
+    default: [ 'ci', 'run build.prod' ]
+  - name: npm_version
+    type: string
+    default: v16
+  - name: npm_publish
+    type: string
+    default: publish
+  - name: npm_cache_key
+    type: string
+    default: '**/package-lock.json'
+
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - release/*
+    exclude:
+      - release/gama*
+
+resources:
+  repositories:
+    - repository: templates
+      name: Pipeline Templates/ci_templates
+      type: git
+      ref: master
+    - repository: eiira-ci-templates
+      name: iShares Trading Analytics/eiira-ci-templates
+      type: git
+
+pool: default
+
+variables:
+  - name: pat
+    value: $(System.AccessToken)
+
+stages:
+  - template: azure-pipelines-base.yml
+    parameters:
+      rc: ${{ parameters.rc }}
+      manifest_files: ${{ parameters.manifest_files }}
+      mode: publish
+      clean: ${{ parameters.clean }}
+      build_user_preferred_for_cd: ${{ parameters.build_user_preferred_for_cd }}
+      cd_envs: ${{ parameters.cd_envs }}
+      # npm specific parameters
+      npm_root: ${{ parameters.npm_root }}
+      npm_version: ${{ parameters.npm_version }}
+      ${{ if eq(parameters.pl, true) }}:
+       commands: [ 'ci', 'run build.lib' ]
+      ${{ if eq(parameters.pl, false) }}:
+       commands: [ 'ci', 'run build.prod' ]
+      access_token: $(pat)
+  - template: npm/npm-publish-template.yml@templates
+    parameters:
+      parallel_build: true
+      parallel_depends_on: ['TestNPM']
+      publish: ${{ parameters.npm_publish }}
+  - template: packaging/packaging-template.yml@templates
+    parameters:
+      npm: true
+      last_stop: ${{ parameters.last_stop }}
+  - template: attestation/attestation-template.yml@templates
+    parameters:
+      npm: true
+      veracodeApplications:
+        - veracodeApplicationName: "Explore"
+          manifestYamlPath: ./explore-ui/package.yaml

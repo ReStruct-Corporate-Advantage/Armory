@@ -1,0 +1,13 @@
+.sector-rule-builder {
+    margin: 0;
+    max-height: 77vh;
+    min-height: 77vh;
+
+    .rule-content-container {
+        height: calc(77vh - 4rem);
+        background-color: var(--modal__background-color--grey);
+        padding: 2rem;
+        overflow: auto;
+    }
+
+}

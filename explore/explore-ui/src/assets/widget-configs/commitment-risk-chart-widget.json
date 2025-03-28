@@ -1,0 +1,49 @@
+{
+  "configType": "commitmentRiskChartWidget2",
+  "size": {
+    "height": 10,
+    "width": 16
+  },
+  "description": "The Commitment Risk Widget allows users to analyze projected portfolio and fund-level cash flow risks under baseline and stress scenarios.",
+  "title": "Commitment Risk",
+  "image": ".\/assets\/images\/commitment-risk.png",
+  "imageDescription": "This Commitment Risk Widget displays the simulated projections from the Aladdin Commitment Risk Model in the private portfolio, SPC-ALTS, across percentiles.",
+  "setUpRequirements": [
+    "N/A "
+  ],
+  "showOnlySingleColumn": false,
+  "showInSelector": true,
+  "tokenToCheck": "enableCommitmentRisk2",
+  "inputCategories": [
+    {
+      "$ref": "defaultCommitmentRiskScenarioSettings"
+    },
+    {
+      "$ref": "defaultCommitmentRiskCharts"
+    },
+    {
+      "$ref": "defaultCommitmentRiskChartColumns"
+    },
+    {
+      "$ref": "defaultCommitmentRiskChartDisplaySettings"
+    },
+    {
+      "$ref": "defaultCommitmentRiskStaticsTable"
+    },
+    {
+      "$ref": "defaultColumnState"
+    },
+    {
+      "$ref": "defaultExpandedState"
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "highlight",
+      "aggregation",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "hc"
+}

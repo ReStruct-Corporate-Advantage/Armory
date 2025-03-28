@@ -1,0 +1,57 @@
+.highlight-rule-container {
+    display: flex;
+    margin: 1rem 0;
+
+    .rule-enabled-checkbox {
+        padding-top: 2rem;
+    }
+
+    .rule-inputs-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+
+        .rule-input-item {
+            margin: 0 0.5rem;
+        }
+
+        .color-picker-container {
+            margin-left: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+            row-gap: 1rem;
+
+            .color-picker-items {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+
+            .extra-padding {
+                padding-left: 1rem;
+            }
+
+            .input__label {
+                padding: 0 0.5rem;
+            }
+        }
+
+        .value-input--between {
+            display: flex;
+            align-items: center;
+
+            .input__label {
+                height: 15px;
+                padding: 18px 12px 0;
+            }
+        }
+    }
+
+    .delete-rule-button {
+        padding-top: 2rem;
+        max-height: 1.5rem;
+    }
+ }

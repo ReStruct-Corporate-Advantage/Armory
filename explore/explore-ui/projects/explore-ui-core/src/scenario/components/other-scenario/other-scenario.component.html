@@ -1,0 +1,43 @@
+<ng-container>
+    <div class="padding-top-16">Load scenarios by name</div>
+
+    <table *ngIf="scenarios.length > 0" class="scenario-table"> <!-- replace with div and style -->
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Purpose</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let item of scenarios; let itemIndex = index;">
+            <td>
+                <aux-checkbox label=""
+                              [isChecked]="item.enabled"
+                              (checkboxChanged)="onItemEnabledChanged(item, $event)">
+                </aux-checkbox>
+            </td>
+            <td>
+                <aux-text-input [value]="item.name"
+                                [isTextUpperCase]="true"
+                                [id]="'NameOS_'+ itemIndex"
+                                (valueChanged)="onNameChanged(item, $event)">
+                </aux-text-input>
+            </td>
+            <td>
+                <aux-text-input [value]="item.purpose"
+                                [isTextUpperCase]="true"
+                                [id]="'PurposeOS_'+ itemIndex"
+                                (valueChanged)="onPurposeChanged(item, $event)">
+                </aux-text-input>
+            </td>
+            <td>
+                <aux-button icon="clear" type="tertiary-subtle" (click)="deleteScenario(itemIndex)"></aux-button>
+            </td>
+        </tr>
+    </table>
+
+    <aux-button label="Other Scenario"
+                icon="add"
+                type="secondary"
+                (click)="addScenario()">
+    </aux-button>
+</ng-container>

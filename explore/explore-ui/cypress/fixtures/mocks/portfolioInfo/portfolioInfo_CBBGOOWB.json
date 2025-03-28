@@ -1,0 +1,2068 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "ticker": "CBBGOOWB",
+        "cusip": "BRTYM0J67",
+        "mandate": {
+          "value": "",
+          "mandateType": "",
+          "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+          "label": ""
+        },
+        "isSectorModellingAllowed": true,
+        "code": -1244721,
+        "displayName": "CBBGOOWB-Mock",
+        "indexWeights": [
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHYZ9",
+              "ticker": "MS_IE",
+              "code": -25797,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_IE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Ireland",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_IEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00194515702071057,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRTYLZGQ0",
+              "ticker": "CBBGOOC",
+              "isSectorModellingAllowed": true,
+              "code": -1244708,
+              "displayName": "CBBGOOC",
+              "fullName": "MSCI ACWI Call Overwrite Cash",
+              "isConstituentsViewAllowed": true,
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "isSecurityModellingAllowed": true,
+              "compositePortfolio": false,
+              "currency": "USD",
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00673246427627438,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHL83",
+              "ticker": "MS_CA",
+              "code": -25687,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CA",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Canada",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "CAD",
+              "benchmarks": [
+                {
+                  "name": "MS_CAPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0293946511425572,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS26QUC3",
+              "ticker": "MS_US",
+              "code": -21711,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_US",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - US Gross TR Index",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "USD",
+              "benchmarks": [
+                {
+                  "name": "MS_USPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                },
+                {
+                  "name": "MS_CHFUS",
+                  "type": "FWRD",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.604235952860931,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHYW6",
+              "ticker": "MS_NO",
+              "code": -25795,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_NO",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Norway",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "NOK",
+              "benchmarks": [
+                {
+                  "name": "MS_NOPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00167245386405987,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHYK2",
+              "ticker": "MS_DE",
+              "code": -25785,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_DE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Germany",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_DEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                },
+                {
+                  "name": "MSCIGRMUR",
+                  "type": "FWRD",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0214304169795965,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHZ39",
+              "ticker": "MS_EG",
+              "code": -25801,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_EG",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Egypt",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EGP",
+              "benchmarks": [
+                {
+                  "name": "MS_EGPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0000836606327417085,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHV09",
+              "ticker": "MS_TW",
+              "code": -25733,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_TW",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Taiwan",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "TWD",
+              "benchmarks": [
+                {
+                  "name": "MS_TWPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                },
+                {
+                  "name": "MS_TW_NET",
+                  "type": "FWRD",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0169652313292,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVP4",
+              "ticker": "MS_BE",
+              "code": -25749,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_BE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Belgium Gross TR Index",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_BEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00249747725367708,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHT44",
+              "ticker": "MS_FI",
+              "code": -25713,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_FI",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Finland",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_FIPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00247325730819128,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHSW3",
+              "ticker": "MS_HK",
+              "code": -25705,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_HK",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Hong Kong",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "HKD",
+              "benchmarks": [
+                {
+                  "name": "MS_HKPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00714264199305776,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHLU4",
+              "ticker": "MS_SG",
+              "code": -25697,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_SG",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Singapore",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "SGD",
+              "benchmarks": [
+                {
+                  "name": "MS_SGPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0038672676566672,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVZ2",
+              "ticker": "MS_PE",
+              "code": -25759,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_PE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Peru",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "PEN",
+              "benchmarks": [
+                {
+                  "name": "MS_PEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000288275758679759,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVV1",
+              "ticker": "MS_CZ",
+              "code": -25755,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CZ",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Czech Republic",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "CZK",
+              "benchmarks": [
+                {
+                  "name": "MS_CZPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000190248302601887,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHX31",
+              "ticker": "MS_CO",
+              "code": -25777,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CO",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Colombia",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "COP",
+              "benchmarks": [
+                {
+                  "name": "MS_COPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0000971942674653621,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRSAUEPG2",
+              "ticker": "MS_KW",
+              "code": -121431,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_KW",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Kuwait Index",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "KWD",
+              "benchmarks": [
+                {
+                  "name": "MS_KWPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00100281892084013,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHUW0",
+              "ticker": "MS_MY",
+              "code": -25729,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_MY",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Malaysia",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "MYR",
+              "benchmarks": [
+                {
+                  "name": "MS_MYPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00162706280910401,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHKY7",
+              "ticker": "MS_HU",
+              "code": -25685,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_HU",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Hungary",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "HUF",
+              "benchmarks": [
+                {
+                  "name": "MS_HUPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000193203625648897,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVR0",
+              "ticker": "MS_ES",
+              "code": -25751,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_ES",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Spain",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_ESPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00642256785418934,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRSAUENW9",
+              "ticker": "MS_AE",
+              "code": -121413,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_AE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - UAE",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "AED",
+              "benchmarks": [
+                {
+                  "name": "MS_AEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0014201981545362,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVX7",
+              "ticker": "MS_DK",
+              "code": -25757,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_DK",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Denmark Gross TR Index",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "DKK",
+              "benchmarks": [
+                {
+                  "name": "MS_DKPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00748928746480081,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHV41",
+              "ticker": "MS_PL",
+              "code": -25737,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_PL",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Poland",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "PLN",
+              "benchmarks": [
+                {
+                  "name": "MS_PLPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000738689888343434,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHT02",
+              "ticker": "MS_NL",
+              "code": -25709,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_NL",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Netherlands",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_NLPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0114497268722838,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHK43",
+              "ticker": "MS_TR",
+              "code": -25673,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_TR",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Turkey",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "TRY",
+              "benchmarks": [
+                {
+                  "name": "MS_TRPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000751801961189458,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHJM5",
+              "ticker": "MS_IL",
+              "code": -25665,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_IL",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Israel",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "ILS",
+              "benchmarks": [
+                {
+                  "name": "MS_ILPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0017653592084988,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHKP6",
+              "ticker": "MS_AU",
+              "code": -25679,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_AU",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Australia",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "AUD",
+              "benchmarks": [
+                {
+                  "name": "MS_AUPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0194085275287909,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHX56",
+              "ticker": "MS_TH",
+              "code": -25779,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_TH",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Thailand",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "THB",
+              "benchmarks": [
+                {
+                  "name": "MS_THPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00238085830041557,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHZ13",
+              "ticker": "MS_PH",
+              "code": -25799,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_PH",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Philippines",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "PHP",
+              "benchmarks": [
+                {
+                  "name": "MS_PHPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000791853646443164,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRTYLYMD5",
+              "ticker": "CBBGOOP",
+              "isSectorModellingAllowed": true,
+              "code": -1244699,
+              "displayName": "CBBGOOP",
+              "fullName": "MSCI ACWI Call Overwrite Option",
+              "isConstituentsViewAllowed": true,
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "isSecurityModellingAllowed": true,
+              "compositePortfolio": false,
+              "currency": "USD",
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": -0.0000561627586096068,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHT69",
+              "ticker": "MS_GB",
+              "code": -25715,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_GB",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - United Kingdom",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "GBP",
+              "benchmarks": [
+                {
+                  "name": "MS_GBPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0373767064759512,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVT6",
+              "ticker": "MS_ID",
+              "code": -25753,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_ID",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Indonesia",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "IDR",
+              "benchmarks": [
+                {
+                  "name": "MS_IDPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00208409342399586,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHV25",
+              "ticker": "MS_FR",
+              "code": -25735,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_FR",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - France",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_FRPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                },
+                {
+                  "name": "MS_FR_USD",
+                  "type": "FWRD",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0311515135952222,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHJP8",
+              "ticker": "MS_NZ",
+              "code": -25667,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_NZ",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - New Zealand",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "NZD",
+              "benchmarks": [
+                {
+                  "name": "MS_NZPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000578941004421468,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHWP3",
+              "ticker": "MS_ZA",
+              "code": -25763,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_ZA",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - South Africa",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "ZAR",
+              "benchmarks": [
+                {
+                  "name": "MS_ZAPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00371643014765316,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHX15",
+              "ticker": "MS_BR",
+              "code": -25775,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_BR",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Brazil",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "BRL",
+              "benchmarks": [
+                {
+                  "name": "MS_BRPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                },
+                {
+                  "name": "MS_BR_EUR",
+                  "type": "FWRD",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00535464116981959,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRSAUENJ8",
+              "ticker": "MS_QA",
+              "code": -121403,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_QA",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Qatar",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "QAR",
+              "benchmarks": [
+                {
+                  "name": "MS_QAPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00100747247441668,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHYM8",
+              "ticker": "MS_SE",
+              "code": -25787,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_SE",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Sweden",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "SEK",
+              "benchmarks": [
+                {
+                  "name": "MS_SEPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0084043644135026,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHVA7",
+              "ticker": "MS_AT",
+              "code": -25743,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_AT",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Austria",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_ATPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000462284857714364,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHT28",
+              "ticker": "MS_PT",
+              "code": -25711,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_PT",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Portugal",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_PTPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000552132515815213,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHLE0",
+              "ticker": "MS_CH",
+              "code": -25693,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CH",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Switzerland",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "CHF",
+              "benchmarks": [
+                {
+                  "name": "MS_CHPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0251169123545449,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHWR9",
+              "ticker": "MS_IN",
+              "code": -25765,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_IN",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - India",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "INR",
+              "benchmarks": [
+                {
+                  "name": "MS_INPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0146237246528489,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHV82",
+              "ticker": "MS_JP",
+              "code": -25741,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_JP",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Japan Gross TR Index - in JPY",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "JPY",
+              "benchmarks": [
+                {
+                  "name": "MS_JPPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.05649340390371,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHUS9",
+              "ticker": "MS_KR",
+              "code": -25725,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_KR",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - South Korea",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "KRW",
+              "benchmarks": [
+                {
+                  "name": "MS_KRPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0132274497814592,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHK27",
+              "ticker": "MS_CL",
+              "code": -25671,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CL",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Chile",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "CLP",
+              "benchmarks": [
+                {
+                  "name": "MS_CLPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000590054341399907,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHYU0",
+              "ticker": "MS_CN",
+              "code": -25793,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_CN",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - China",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "HKD",
+              "benchmarks": [
+                {
+                  "name": "MS_CNPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.0355478400578361,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHSY9",
+              "ticker": "MS_GR",
+              "code": -25707,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_GR",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Greece",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_GRPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.000415592048536778,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHWZ1",
+              "ticker": "MS_IT",
+              "code": -25773,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_IT",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Developed - Italy",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "EUR",
+              "benchmarks": [
+                {
+                  "name": "MS_ITPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00611823278929029,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          },
+          {
+            "portfolio": {
+              "mandate": {
+                "value": "",
+                "mandateType": "",
+                "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                "label": ""
+              },
+              "cusip": "BRS2NHKM3",
+              "ticker": "MS_MX",
+              "code": -25677,
+              "isSectorModellingAllowed": true,
+              "displayName": "MS_MX",
+              "isConstituentsViewAllowed": true,
+              "fullName": "MSCI Emerging - Mexico",
+              "type": "INDEX",
+              "portfolioGroup": false,
+              "portfolioDefaults": {
+                "calendar": "GreenPkg"
+              },
+              "compositePortfolio": false,
+              "isSecurityModellingAllowed": true,
+              "currency": "MXN",
+              "benchmarks": [
+                {
+                  "name": "MS_MXPRO",
+                  "type": "RISK",
+                  "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                  "order": 1
+                }
+              ],
+              "isPortfolioModellingAllowed": false,
+              "asOfDate": "11-APR-2023",
+              "historicalPerfFromDate": "03/31/2020",
+              "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "weight": 0.00277606586897446,
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.IndexWeightBean"
+          }
+        ],
+        "isConstituentsViewAllowed": true,
+        "fullName": "MSCI ACWI Call Overwrite Index",
+        "multiFrequencyMaxPeriodsMap": {
+          "YEAR_END": 9,
+          "QUARTER_END": 37,
+          "WEEKLY": 479,
+          "DAILY": 3357,
+          "MONTH_END": 111
+        },
+        "type": "INDEX",
+        "portfolioGroup": false,
+        "assetType": "BAL_MANDATE",
+        "portfolioDefaults": {
+          "defaultVarType": "DLY",
+          "calendar": "INDEX_ALL_Calendar",
+          "defaultModelCode": "DEFAULT",
+          "defaultDecay": 0.982820599
+        },
+        "portDefaultRiskSettings": {
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings"
+        },
+        "orgDefaultRiskSettings": {
+          "AssetClassCovariance": "M",
+          "RiskHorizon": "4",
+          "DxsBlock": "ALL_DXS",
+          "WeightingScheme": {
+            "name": "DLY",
+            "defaultPeriod": 252,
+            "defaultDecay": 0.982820599,
+            "defaultOverlap": 5,
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme"
+          },
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings",
+          "ModelMapping": "P100",
+          "ScaleDxsExposures": true,
+          "ConfidenceLevelInStdDeviation": 1
+        },
+        "isSecurityModellingAllowed": true,
+        "compositePortfolio": true,
+        "currency": "USD",
+        "timePeriods": [
+          {
+            "Value": "DTD",
+            "type": "To Date",
+            "interval": "Day",
+            "maxPeriods": 11
+          },
+          {
+            "Value": "WTD",
+            "type": "To Date",
+            "interval": "Week",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "MTD",
+            "type": "To Date",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "QTD",
+            "type": "To Date",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "YTD",
+            "type": "To Date",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "Days",
+            "type": "Rolling",
+            "interval": "Day",
+            "maxPeriods": 1106
+          },
+          {
+            "Value": "Weeks",
+            "type": "Rolling",
+            "interval": "Week",
+            "maxPeriods": 158
+          },
+          {
+            "Value": "Months",
+            "type": "Rolling",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "Quarters",
+            "type": "Rolling",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "Years",
+            "type": "Rolling",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "CUSTOM",
+            "type": "Custom",
+            "interval": null,
+            "maxPeriods": 1
+          },
+          {
+            "Value": "BDay",
+            "type": "Other",
+            "interval": "Business Day",
+            "maxPeriods": 1106
+          },
+          {
+            "Value": "Prev. Mth",
+            "type": "Other",
+            "interval": "Previous Month",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "Prev. Qtr",
+            "type": "Other",
+            "interval": "Previous Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "FYTD",
+            "type": "Other",
+            "interval": "Fiscal Year",
+            "maxPeriods": 1
+          }
+        ],
+        "asOfDate": "11-APR-2023",
+        "isPortfolioModellingAllowed": true,
+        "historicalPerfFromDate": "03/31/2020",
+        "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+      },
+      "message": null,
+      "gaussian": "J6jaJ+QkdbpNDMPxS8Pitwc8Q+M0DrWNC6fQUL9dBfdXEQOFiva/jpL9GA==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 578
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:55.788Z",
+      "detailedID": "25c31d24-7a38-46ea-8ff6-6475bf61c5d9:25c31d24-7a38-46ea-8ff6-6475bf61c5d9:66f26ca8628e491.578.1681296955788",
+      "IDWithContextChain": "25c31d24-7a38-46ea-8ff6-6475bf61c5d9:25c31d24-7a38-46ea-8ff6-6475bf61c5d9:66f26ca8628e491",
+      "chain": [
+        "25c31d24-7a38-46ea-8ff6-6475bf61c5d9:66f26ca8628e491"
+      ],
+      "bmsMsgSize": 578,
+      "transactionId": "25c31d24-7a38-46ea-8ff6-6475bf61c5d9",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636330*ts=1681296955797*btid=59408*guid=e38e4369-d1e9-4e4f-bea5-fbaea2100c0f*exitguid=3*unresolvedexitid=787*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][787]}",
+    "return_val": "SUCCESS",
+    "command": "portfolioInfo",
+    "transactionId": "25c31d24-7a38-46ea-8ff6-6475bf61c5d9",
+    "successCode": null
+  }
+]

@@ -1,0 +1,95 @@
+<div class="lt-settings-div1">
+    <aux-toggle class="toggle"
+                [label]="LT_WITH_SMALL_L"
+                [isChecked]="lookThroughEnabled"
+                (toggleChanged)="onLookThroughEnabled($event)"
+    ></aux-toggle>
+    <aux-radio-group #radioGroup
+                     label=" for"
+                     [isHeaderBold]="false"
+                     [data]="lookthroughEnableRadioLabels"
+                     [isReadOnly]="!lookThroughEnabled"
+                     (radioGroupChanged)="onLookthroughEnableGroupChanged($event)"
+    ></aux-radio-group>
+</div>
+
+<div style="display: flex">
+    <div>Available Sources</div>
+    <div style="padding-right: 22%">
+        <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+            <aux-button
+                type="tertiary_subtle"
+                icon="info-bold"
+                assistiveText="Button"
+                slot="target">
+            </aux-button>
+            <div slot="content" class="custom-popover-container"><strong>Underlying Fund:</strong> the underlying fund that
+                has
+                been mapped to the asset will be used as the source of look through securities<br>
+                <strong>Fund Position:</strong> the fund is also setup as a portfolio and, as a result, it can be used itself
+                as
+                the source of look through securities<br>
+                <strong>Underlying Fund Benchmark:</strong> the benchmark of the underlying fund mapped to the asset will be
+                used
+                as the source of look through securities<br>
+                <strong>Look Through Proxy:</strong> an alternative source for look through securities, configured through
+                security attributes, will be used
+            </div>
+        </aux-popover>
+    </div>
+    <div>Source Order</div>
+</div>
+
+<div class="lt-settings-div1">
+    <div class="lt-settings-div2">
+        <div style="width: 100%">
+            <explore-core-advanced-tree-list #auxPickList
+                                             [sourceData]="availableProxiesAdv"
+                                             [hasSearch]="false"
+                                             [allowMultipleSelection]="true"
+                                             [sourceLabel]="'Available sources'"
+                                             [targetLabel]="'Source order'"
+                                             [targetData]="selectedProxiesAdv"
+                                             [isDisabled]="!enabledElements"
+                                             [hasReorder]="true"
+                                             (targetDataOrderUpdated)="onReorder($event)"
+                                             (columnsUpdated)="updateColumnsList($event)">
+            </explore-core-advanced-tree-list>
+        </div>
+    </div>
+    <div>
+        <aux-checkbox-group
+            [label]="'Security type/proxies'"
+            [data]="availableSecurities"
+            [isStacked]="true"
+            [hasSelectAll]="false"
+            [isDisabled]="!enabledElements"
+            (checkboxGroupChanged)="onSecurityTypeGroupChanged($event)">
+        </aux-checkbox-group>
+    </div>
+</div>
+<div class="lt-settings-div1">
+    <div class="lt-settings-div5">
+        <div>Inherit portfolio and strategy name</div>
+        <div style="padding-right: 5px">
+            <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                <aux-button
+                    type="tertiary_subtle"
+                    icon="info-bold"
+                    assistiveText="Button"
+                    slot="target">
+                </aux-button>
+                <div slot="content" class="custom-popover-container">Cascades the portfolio and strategy name from the
+                    held asset<br>on which look-through is performed onto the positions.
+                </div>
+            </aux-popover>
+        </div>
+        <div>
+            <aux-toggle id="ltInheritance"
+                        [isDisabled]="!enabledElements"
+                        [isChecked]="lookthroughSettings.isLookThroughInheritanceEnabled"
+                        (toggleChanged)="onLookthroughInheritanceChanged($event)"
+            ></aux-toggle>
+        </div>
+    </div>
+</div>

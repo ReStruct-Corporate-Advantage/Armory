@@ -1,0 +1,79 @@
+<div class="tier-settings screening-filter-settings">
+    <div class="header screening-filter aux-g32--xs-10 aux-g32--sm-10 aux-g32--md-10 aux-g32--lg-10 aux-g32--xl-10">
+        <ng-container *ngFor="let tierDefinitionTypeOption of tierDefinitionTypeOptions">
+            <div class="aux-layout__wrapper-16">
+                <div
+                    class="radio-button-spacing aux-g16--xs-9 aux-g16--sm-9 aux-g16--md-9 aux-g16--lg-9 aux-g16--xl-9 riskParityOptions">
+                    <aux-radio
+                        [label]="tierDefinitionTypeOption.label"
+                        [isChecked]="tierDefinitionTypeOption.checked"
+                        (radioChanged)="onTierDefinitionTypeOptionChanged(tierDefinitionTypeOption.eventData)">
+                    </aux-radio>
+                </div>
+                <div
+                    class="help-button-spacing aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                    <aux-tooltip>
+                        <aux-button
+                            [size]="AuxButtonSizeEnum.XSMALL"
+                            slot="target"
+                            icon="help"
+                            type="tertiary"
+                            [assistiveText]="'help'"
+                        ></aux-button>
+                        <span slot="content">{{ tierDefinitionTypeOption.eventData.helpText }}</span>
+                    </aux-tooltip>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div class="text-box">
+        <aux-numeric-stepper label="Tier 1"
+                             [stepperValue]="tiers.tierOne"
+                             (valueChanged)="updateTierOne($event)">
+        </aux-numeric-stepper>
+        <div class="padding-left">
+            <aux-numeric-stepper label="Tier 2"
+                                 [stepperValue]="tiers.tierTwo"
+                                 (valueChanged)="updateTierTwo($event)">>
+            </aux-numeric-stepper>
+        </div>
+    </div>
+    <div class="text-box">
+        <aux-text-input
+            label="Tier 2 Risk Contribution Ratio"
+            [value]="tiers.riskBudgetTierRatio"
+            (valueChanged)="onRiskBudgetTierRatioChanged($event)"
+            [validator]="validator">
+        </aux-text-input>
+        <aux-tooltip>
+            <aux-button
+                [size]="AuxButtonSizeEnum.XSMALL"
+                slot="target"
+                icon="help"
+                type="tertiary"
+                [assistiveText]="'help'"
+            ></aux-button>
+            <span slot="content">This defines the active risk contribution ratio between Tier 1 and Tier 2. For example, if the Tier 1 risk contribution is 1 bp per asset, the Tier 2 risk contribution will be 0.5 bps per asset for a set ratio of 0.5</span>
+        </aux-tooltip>
+    </div>
+    <ng-container *ngIf="isFixedAssetRatioVisible">
+        <div class="text-box">
+            <aux-text-input
+                label="Tier 3 Risk Contribution Ratio"
+                [value]="tiers.riskBudgetFixedAssetRatio"
+                (valueChanged)="onRiskBudgetFixedAssetRatioChanged($event)"
+                [validator]="validator">
+            </aux-text-input>
+            <aux-tooltip>
+                <aux-button
+                    [size]="AuxButtonSizeEnum.XSMALL"
+                    slot="target"
+                    icon="help"
+                    type="tertiary"
+                    [assistiveText]="'help'"
+                ></aux-button>
+                <span slot="content">This defines the active risk contribution ratio between Tier 1 and Tier 3. For example, if the Tier 1 risk contribution is 1 bp per asset, the Tier 2 risk contribution will be 0.1 bps per asset for a set ratio of 0.1.</span>
+            </aux-tooltip>
+        </div>
+    </ng-container>
+</div>

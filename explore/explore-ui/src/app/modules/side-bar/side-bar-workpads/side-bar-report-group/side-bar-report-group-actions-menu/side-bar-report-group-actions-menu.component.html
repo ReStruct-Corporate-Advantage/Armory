@@ -1,0 +1,33 @@
+<aux-inline-menu (inlineMenuItemClicked)="onReportGroupMenuClicked($event)"
+                 [data]="reportGroupMenuOptions"
+                 overridePlacement="bottomRight"
+                 trigger="pressed">
+    <aux-icon slot="target" state="primary" type="action"></aux-icon>
+</aux-inline-menu>
+<ng-container *ngIf="isAddPortfolioModalOpen">
+    <app-add-portfolio-modal [isOpen]="isAddPortfolioModalOpen"
+                             [portfolioType]="portfolioType"
+                             [reportGroup]="reportGroup"
+                             (modalClosed)="isAddPortfolioModalOpen=false">
+    </app-add-portfolio-modal>
+</ng-container>
+<ng-container *ngIf="isCreateMultiPortfolioAnalysisModalComponentOpen">
+    <app-create-multi-portfolio-analysis-modal 
+                    [isOpen]="isCreateMultiPortfolioAnalysisModalComponentOpen"
+                    [title]="'Multi-Portfolio Analysis'"
+                    [reportGroup]="reportGroup"
+                    [applyText]="applyText"
+                    [cancelText]="cancelText"
+                    (applyClick)="handleAddPortfolioModalOpenChange($event)"
+                    (cancelClick)="isCreateMultiPortfolioAnalysisModalComponentOpen=false">
+    </app-create-multi-portfolio-analysis-modal>
+</ng-container>
+<ng-container *ngIf="isMultiPortfolioAnalysisSelectMenuComponentOpen">
+    <app-multi-portfolio-analysis-select-menu 
+                             [isOpen]="isMultiPortfolioAnalysisSelectMenuComponentOpen"
+                             [selectedReportGroup]="selectedReportGroup"
+                             [portfolioType]="portfolioType"
+                             [reportGroup]="reportGroup"
+                             (modalClosed)="isMultiPortfolioAnalysisSelectMenuComponentOpen=false">
+    </app-multi-portfolio-analysis-select-menu>
+</ng-container>

@@ -1,0 +1,73 @@
+parameters:
+  - name: clean
+    displayName: Clean Build, skip cache download
+    type: boolean
+    default: true
+  - name: fail_on_quality_gate
+    type: boolean
+    default: false
+  #npm specific parameters
+  - name: npm_root
+    displayName: Package Json location
+    type: string
+    default: ./explore-ui
+  - name: commands
+    type: object
+    default: [ 'ci', 'run build.all' ]
+  - name: npm_version
+    type: string
+    default: v16
+  - name: pre_post_steps
+    type: object
+    default:
+      pre_npm_build: {}
+      post_npm_build:
+        - task: PublishCucumberReport@1
+          condition: succeededOrFailed()
+          inputs:
+            jsonDir: $(System.DefaultWorkingDirectory)/explore-ui/cypress/test-reports
+            outputPath: explore-ui/cypress/test-reports
+            theme: bootstrap
+            reportSuiteAsScenarios: true
+            name: "Cucumber Tests"
+
+trigger:
+  batch: true
+  branches:
+    include:
+      - feature/*
+      - Feature/*
+      - hotfix/*
+      - Hotfix/*
+      - bugfix/*
+      - Bugfix/*
+
+
+resources:
+  repositories:
+    - repository: templates
+      name: Pipeline Templates/ci_templates
+      type: git
+      ref: dextga1/parallel-npm
+    - repository: eiira-ci-templates
+      name: iShares Trading Analytics/eiira-ci-templates
+      type: git
+
+pool: default
+
+variables:
+  - name: pat
+    value: $(System.AccessToken)
+
+stages:
+  - template: azure-pipelines-base-e2e.yml
+    parameters:
+      mode: quality
+      clean: ${{ parameters.clean }}
+      # npm specific parameters
+      npm_root: ${{ parameters.npm_root }}
+      npm_version: ${{ parameters.npm_version }}
+      commands: ${{ parameters.commands }}
+      pre_post_steps: ${{ parameters.pre_post_steps }}
+      fail_on_quality_gate: ${{ parameters.fail_on_quality_gate }}
+      access_token: $(pat)

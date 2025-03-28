@@ -1,0 +1,83 @@
+/**
+ * Constants for Tokens
+ */
+export class TokenConstants {
+    static readonly ENABLE_ADVANCED_PRA = 'enableAdvancedPraMode';
+    static readonly ENABLE_INDEXED_RESEARCH = 'enableIndexResearch';
+    static readonly ENABLE_OPTIMIZATION = 'enableOptimization';
+    static readonly ENABLE_PFM_CONNECTION = 'enablePFMConnection';
+    static readonly EXPLORE_EXCEL_FORMAT = 'exploreExcelFormat';
+    static readonly ENABLE_ADHOC_PORT = 'enableAdhocPort';
+    static readonly EXPLORE_PRICE_CHART = 'explorePopupChart';
+    static readonly ENABLE_PERF_ATTR = 'enablePerfAttr';
+    static readonly PERF_DATA_ACCESS = 'perfDataPerms';
+    static readonly PRICE_POPUP_ACCESS = 'pricePopupAccess';
+    static readonly ENABLE_EPNL = 'enableEpnl';
+    static readonly EXPLORE_FUND_SECTORING = 'exploreFundSectoring';
+    static readonly ENABLE_PUBLISH_STATE = 'enablePublishState';
+    static readonly ENABLE_LOAD_ALL = 'enableLoadAll';
+    static readonly LOAD_ALL_REQUEST_LIMIT = 'loadAllRequestLimit';
+    static readonly EXPLORE_PERF_CUSTOM_SECTORING = 'explorePerfCustomSectoring';
+    static readonly EXPLORE_ENABLE_FILE_DOWNLOADER = 'enableFileDownloader';
+    static readonly EXPLORE_ENABLE_RISK_DATA_LOOKTHROUGH = 'enableRiskDataLookthrough';
+    static readonly EXPLORE_NOTIFY_MAX_USER_THREAD_MESSAGE = 'maxUserThread';
+    static readonly EXPLORE_ENABLE_EQUITY_HEDGE_FUND_CASH = 'enableEquityHedgeFundCash';
+    static readonly EXPLORE_LOGO_FEATURE_PDF = 'exploreLogoFeaturePdf';
+    static readonly EXPLORE_CLIMATE_ENABLED = 'exploreClimateEnabled';
+    static readonly EXPLORE_CLIMATE_DECOMP_ENABLED = 'ExploreClimateDecompEnabled';
+    static readonly EXPLORE_CLIMATE_LINKOUT_ENABLED = 'exploreClimateLinkoutEnabled';
+    static readonly EXPLORE_TELEMETRY_ENABLED = 'exploreTelemetryEnabled';
+    static readonly ENABLE_SCHEDULED_BATCH = 'enableScheduledBatch';
+    static readonly ENABLE_TEMPLATE_PERMISSIONING = 'enableTemplatePermissioning';
+    static readonly EXPLORE_API_REQUEST = 'exploreApiRequest';
+    static readonly EXPLORE_OPTO_API_REQUEST_ACCESS = 'exploreOptoApiRequestAccess';
+    static readonly EXPLORE_RISK_BUDGETING_VISIBLE = 'exploreRiskBudgetingVisible';
+    static readonly EXPLORE_RISK_BUDGET_TIER_VISIBLE = 'exploreRiskBudgetTierVisible';
+    static readonly ENABLE_CLARITY_AI = 'enableClarityAI';
+    static readonly CLARITY_PREMIUM_ACCESS = 'clarityPremiumAccess';
+    static readonly CLARITY_AI_LINK_OUT_ACCESS = 'clarityAILinkOutAccess';
+    static readonly ENABLE_COMMITMENT_RISK_LEGACY = 'enableCommitmentRisk';
+    static readonly ENABLE_COMMITMENT_RISK = 'enableCommitmentRisk2';
+    static readonly EXPLORE_ENABLE_MODEL_SELECTION = 'enableModelSelection';
+    static readonly EXPLORE_FILE_DOWNLOADER_IN_EBC = 'exploreFileDownloaderInEbc';
+    static readonly EXPLORE_BATCH_DELAY = 'ExploreBatchDelay';
+    static readonly EXPLORE_PRAADA_NET_GROSS_RETURNS = 'explorePRAADAGrossNetReturns';
+    static readonly EXPLORE_ENABLE_HVAR = 'exploreEnableHvar';
+    static readonly EXPLORE_ENABLE_RAS_HVAR_COLS = 'exploreEnableRASHvarColumns';
+    static readonly EXPLORE_ENABLE_RAS_MCVAR_COLS = 'exploreEnableRASMCVarColumns';
+    static readonly EXPLORE_ENABLE_IRR = 'exploreEnableIRR';
+    static readonly EXPLORE_HVAR_START_DATE = 'exploreHvarStrtDt';
+    static readonly EXPLORE_RAS_HVAR_SEC_SCALING_ENABLED = 'exploreHVarSecScalingEnabled';
+    static readonly EXPLORE_ENABLE_POSITION_MODES = 'exploreEnablePositionModes';
+    static readonly ENABLE_CASSINI_MARGIN_ANALYTICS = 'enableCassiniMarginAnalytics';
+    static readonly EXPLORE_MARGIN_ANALYTICS_GROUPING_STYLES = 'exploreMarginAnalyticsGroupingModels';
+    static readonly EXPLORE_MAX_NUMBER_OF_DATA_POINTS = 'exploreMaxNumberOfDataPoints';
+    static readonly EXPLORE_MAX_NUMBER_OF_TIME_SERIES_COMPARISON_DATA_POINTS = 'exploreMaxTimeSeriesComparisonDataPoints';
+    static readonly EXPLORE_ENABLE_ADVANCED_ATTRIBUTION_SETTINGS = 'exploreEnableAdvancedAttributionSettings';
+    static readonly EXPLORE_RISK_CUTOFF_DATE = 'exploreRiskCutoffDate';
+    static readonly EXPLORE_ENABLE_NEW_STRESS_SCENARIOS = 'exploreEnableNewStressScenarios';
+    static readonly EXPLORE_ENABLE_COMBINED_LRO = 'exploreEnableCombinedLRO';
+    static readonly EXPLORE_ENCODE_REQUEST = 'exploreEncodeRequest';
+    static readonly EXPLORE_COL_SEARCH_THRESHOLD = 'ExploreColSearchThreshold';
+    static readonly EXPLORE_RECENT_COL_COUNT = 'ExploreRecentColumnsCount';
+    static readonly EXPLORE_BROWSER_CACHE_ENABLED = 'ExploreBrowserCacheEnabled';
+    static readonly EXPLORE_ENABLE_UI_REQUEST_QUEUE = 'exploreEnableUIRequestQueue';
+    static readonly EXPLORE_ACRM_SCENARIO_DOC_URL = 'exploreACRMScenarioDocUrl';
+    static readonly EXPLORE_EMBEDDED_COPILOT_ENABLED = 'ExploreEmbeddedCopilotEnabled';
+    static readonly EXPLORE_ENTERPRISE_WITH_SELECT_FOLDER_ENABLED = 'ExploreAdminWSFolderEnabled';
+    static readonly EXPLORE_ENABLE_FAVORITE_USERS = 'ExploreEnableFavoriteUsers';
+    static readonly EXPLORE_ENABLE_ENTERPRISE_TAGS = 'ExploreEnableEnterpriseTags';
+    static readonly EXPLORE_ENTERPRISE_PERM_TAGS_REQUIRED = 'ExploreEntPermTagsRequired';
+    static readonly EXPLORE_ENABLE_EXPOSURE_BASED_PORT = 'ExploreEnableExposureBasedPort';
+    // User preference disabled to fix OOM issue in cypress testing
+    static readonly USER_PREFERENCE_DISABLED = 'userPreferenceDisabled';
+    static readonly EXPLORE_ENABLE_MULTI_MANAGER = 'ExploreEnableMultiManager';
+    static readonly EXPLORE_ENABLE_MULTI_MANAGER_UI = 'ExploreEnableMultiManagerUI';
+    static readonly EXPLORE_ENABLE_ENTERPRISE_VERSIONS = 'ExploreEnableFavoriteVersions';
+    static readonly EXPLORE_SUPPRESS_ATTRIB_SETTINGS = 'ExploreSuppressAttribSettings';
+    static readonly EXPLORE_EXPORT_HUB_ENABLED = 'ExploreExportHubEnabled';
+    static readonly EXPLORE_SCHEDULE_BATCH_EXPORT_DIRECTORY = 'ExploreScheduleBatchExportDir';
+    static readonly EXPLORE_ENABLE_STATUS_TAGS = 'ExploreEnableStatusTags';
+    static readonly EXPLORE_LOCALE_SETTING_ENABLED = 'ExploreLocaleSettingEnabled';
+
+}

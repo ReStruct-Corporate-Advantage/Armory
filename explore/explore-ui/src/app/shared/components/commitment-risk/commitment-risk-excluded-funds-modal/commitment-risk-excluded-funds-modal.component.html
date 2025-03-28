@@ -1,0 +1,26 @@
+<aux-modal #information [isOpen]='isOpen' (modalClosed)='closeModal()'
+           [header]="'Funds Excluded From Aladdin Commitment Risk Projection'">
+    <div slot='content' class='aux-g32--cw-4 content-padding'>
+        <div style='padding-bottom: .5rem'>
+            <ng-container *ngIf="isLaunchedFromTable">
+                <span>The table provides a summary of funds excluded from the Aladdin Commitment Risk Model projections.</span>
+                <br/>
+            </ng-container>
+            There are two reasons why a fund is not covered:
+            <ul style='margin-block-start: 0;margin-block-end: 0'>
+                <li>The fund does not have capital account and risk information, as indicated by the following columns:
+                    "Contribution"; "Distribution"; "Portfolio
+                    Stand-Alone Risk"; and "Vintage Year." You can view these columns on the Risk & Exposure widget.
+                </li>
+                <li>
+                    The fund's private asset class is not supported by the model, as indicated by the "APACS Asset Type"
+                    column.
+                </li>
+            </ul>
+            A fund must have all of these attributes to be included within the model projections.
+        </div>
+        <aux-link label='Learn more about the Aladdin Commitment Risk Model methodology' [href]='warningFAQs'
+                  [target]='AuxTargetAtrEnum.BLANK'>
+        </aux-link>
+    </div>
+</aux-modal>

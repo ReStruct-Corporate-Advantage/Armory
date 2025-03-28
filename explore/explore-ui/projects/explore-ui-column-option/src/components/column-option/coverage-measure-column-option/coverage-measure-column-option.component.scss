@@ -1,0 +1,10 @@
+.measure-title--container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.no-measure--text {
+    color: var(--disabled-text__color)
+}

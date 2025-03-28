@@ -1,0 +1,35 @@
+<aux-modal [isOpen]=isOpen [hasGreyContentArea]="false" [type]="'information'" [header]="modalHeader + ' Usage'" (modalClosed)="closeModal()">
+    <div slot="content" class="modal-size-md view-usage--modal-content">
+        <div>
+            <span>{{modalHeader}} usage can show all the users from the past two years.</span>
+        </div>
+        <div class="view-usage">
+            <div class="view-usage--section">
+                <div class="show-label">Show</div>
+                <aux-select class="user-select" [data]="usersList" [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="onUsersSelectionChanged($event)">
+                </aux-select>
+                <div class="users-between-label">users between</div>
+                <explore-core-date-range-picker [fromDate]="startDate" [toDate]="endDate" [minDate]="minDate"
+                                                (dateRangeChange)="onDateRangeChange()">
+                </explore-core-date-range-picker>
+                <aux-button class="run-submit" [type]="AuxButtonTypeEnum.PRIMARY" [label]="'Run'" [isDisabled]="isLoading" (click)="loadFavoriteUsers()"></aux-button>
+            </div>
+            <div class="view-usage--section">
+                <div class="option-separator" *ngIf="topUsersFavoriteDetails?.length > 0">
+                    <aux-inline-menu [data]="exportOption" [trigger]="'pressed'" (inlineMenuItemClicked)="onMenuItemClicked($event)">
+                        <aux-button slot="target" [type]=AuxButtonTypeEnum.TERTIARY icon="export" (click)="onExportClick()"></aux-button>
+                    </aux-inline-menu>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="isLoading">
+            <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" [progress]="30" [size]="AuxProgressIndicatorSizeEnum.REGULAR"
+                                    [type]="'loading'" [loadingLabel]="'Loading Top Users'">
+            </aux-progress-indicator>
+        </div>
+        <div *ngIf="isDataLoaded" class="grid--height">
+            <aux-grid [fontSize]="'normal'" [paddingSize]="'normal'" [gridOptions]="gridOptions"></aux-grid>
+        </div>
+    </div>
+</aux-modal>

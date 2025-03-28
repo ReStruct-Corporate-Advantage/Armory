@@ -1,0 +1,17 @@
+.optimization-summary {
+    padding-right: 1rem;
+
+    .options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .options-label {
+        color: var(--secondary-text__color);
+    }
+
+    .grid {
+        padding-top: 0.5rem;
+    }
+}

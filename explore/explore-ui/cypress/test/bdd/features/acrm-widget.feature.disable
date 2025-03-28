@@ -1,0 +1,39 @@
+Feature: Visual Comparison tests for ACRM chart
+
+    Background:
+        Given "Commitment Risk" with default settings is added to a report for portfolio "SPE7US-C" with date "20220819"
+
+    Scenario: Validate ACRM base chart is loading with default settings
+        When I maximize widget
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_base_case"
+
+    Scenario: Validate ACRM base vs stress scenario Chart with custom legend settings control
+        When I open widget settings modal from "Commitment Risk"
+        And I click "Stock Market Crash" from Scenario selection dropdown
+        And I apply widget settings
+        And I maximize widget
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_stock_market_crash_scenario_10-90" without toggle
+
+        When I click "25-75th" percentile radio button
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_stock_market_crash_scenario_25-75" without toggle
+
+        When I click Base scenario checkbox (UNCHECK)
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_stock_market_crash_scenario_25-75_without_base" without toggle
+
+        When I click Base scenario checkbox (CHECK)
+        And I click Stress scenario checkbox (UNCHECK)
+        And I click "10-90th" percentile radio button
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_stock_market_crash_scenario_10-90_without_stress" without toggle
+
+        And I click Stress scenario checkbox (CHECK)
+        Then "Commitment Risk" should be displayed, aligning with the snapshot "acrmChart_with_stock_market_crash_scenario_10-90" without toggle
+
+    Scenario: Validate ACRM tables for both base and stress scenario
+        When I maximize widget
+        And I click "Statistics" ACRM widget tab
+        Then Commitment Risk table widget should be displayed for base case
+
+        When I open widget settings modal from "Commitment Risk"
+        And I click "Stock Market Crash" from Scenario selection dropdown
+        And I apply widget settings
+        Then Commitment Risk table widget should be displayed for base vs scenario case

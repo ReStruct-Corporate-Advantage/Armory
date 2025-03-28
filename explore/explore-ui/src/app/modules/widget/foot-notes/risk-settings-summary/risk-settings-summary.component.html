@@ -1,0 +1,108 @@
+<ng-container *ngIf="(hvarRiskSettingsSummaryDetail || mcvarRiskSettingsSummaryDetail); else riskSettingsTable">
+    <aux-accordion isFreeMode="false" activeTabIndex="0">
+        <aux-accordion-expansion-panel header="Risk Settings">
+            <div slot="content">
+                <ng-container *ngTemplateOutlet="riskSettingsTable"></ng-container>
+            </div>
+        </aux-accordion-expansion-panel>
+        <ng-container *ngIf="hvarRiskSettingsSummaryDetail">
+            <aux-accordion-expansion-panel header="HVaR Risk Settings">
+                <div slot="content">
+                    <table>
+                        <caption></caption>
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="table-cell">HVaR Risk Settings</div>
+                            </th>
+                            <th>
+                                <div class="table-cell">Value</div>
+                            </th>
+                            <th>
+                                <div class="table-cell">Source</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let entry of hvarRiskSettingsSummaryDetail | keyvalue: asIsOrder">
+                            <td>
+                                <div class="table-cell">{{entry.key}}</div>
+                            </td>
+                            <td>
+                                <div class="table-cell">{{entry.value.value}}</div>
+                            </td>
+                            <td>
+                                <div class="table-cell" *ngIf="entry.value.source">{{entry.value.source}}</div>
+                                <div class="table-cell" *ngIf="!entry.value.source">Default</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aux-accordion-expansion-panel>
+        </ng-container>
+        <ng-container *ngIf="mcvarRiskSettingsSummaryDetail">
+            <aux-accordion-expansion-panel header="MCVaR Risk Settings">
+                <div slot="content">
+                    <table>
+                        <caption></caption>
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="table-cell">MCVaR Risk Settings</div>
+                            </th>
+                            <th>
+                                <div class="table-cell">Value</div>
+                            </th>
+                            <th>
+                                <div class="table-cell">Source</div>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let entry of mcvarRiskSettingsSummaryDetail | keyvalue">
+                            <td>
+                                <div class="table-cell">{{entry.key}}</div>
+                            </td>
+                            <td>
+                                <div class="table-cell">{{entry.value.value}}</div>
+                            </td>
+                            <td>
+                                <div class="table-cell" *ngIf="entry.value.source">{{entry.value.source}}</div>
+                                <div class="table-cell" *ngIf="!entry.value.source">Default</div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </aux-accordion-expansion-panel>
+        </ng-container>
+    </aux-accordion>
+</ng-container>
+
+<ng-template #riskSettingsTable>
+    <table>
+        <caption></caption>
+        <thead>
+        <tr>
+            <th *ngFor="let title of tableHeaders">
+                <div class="table-cell">{{title}}</div>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let title of riskSettingsLabelList; let i = index;">
+            <td>
+                <div class="table-cell">{{title}}</div>
+            </td>
+            <td>
+                <div class="table-cell">{{riskSettingsSummaryDetails.valueList[i]}}</div>
+            </td>
+            <td>
+                <div class="table-cell">{{riskSettingsSummaryDetails.sourceList[i]}}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</ng-template>

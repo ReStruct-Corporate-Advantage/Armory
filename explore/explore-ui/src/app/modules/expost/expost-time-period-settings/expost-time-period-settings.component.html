@@ -1,0 +1,7 @@
+    <aux-select [hasInitialOptionPlaceholder]="false"
+                [label]="'Time period'"
+                [isDisabled] = !isTimePeriodMenuReady
+                (selectionChanged)="changeTimePeriod($event.detail.value.value)"
+                [data]="displayDataForExpostTimeSeriesPeriods">
+    </aux-select>
+

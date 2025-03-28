@@ -1,0 +1,56 @@
+<div class="performance-settings">
+    <div class="performance-settings-div">
+        <aux-accordion [isBorderLess]="false" [isFreeMode]="true" [expandAll]="true">
+            <aux-accordion-expansion-panel header="Time period">
+                <div class="accordion-font" slot="content">
+                    <explore-core-time-period-settings [timePeriod]="timePeriod"
+                                                       [defaultTimePeriod]="performanceSettings.parentPerformanceSettings.timePeriod"
+                                                       sourceNameSupported="true"
+                                                       (resetTimePeriod)="resetTimePeriod()"
+                                                       (timePeriodChange)="onTimePeriodChange($event)">
+                    </explore-core-time-period-settings>
+                </div>
+            </aux-accordion-expansion-panel>
+
+            <aux-accordion-expansion-panel header="Attribution settings"
+                                           *ngIf="showAttributionSettings">
+                <div class="accordion-font" slot="content">
+                    <explore-core-attribution-settings [attributionSettings]="performanceSettings.attributionSettings"
+                                              [columns]="columns"
+                                              [isColumnUpdateEnabled]="isColumnUpdateEnabled"
+                                              [isApplyButtonDisabled]="isApplyButtonDisabled"
+                                              [telemetryData]="telemetryData">
+                    </explore-core-attribution-settings>
+                </div>
+            </aux-accordion-expansion-panel>
+
+            <aux-accordion-expansion-panel header="Expost settings"
+                                           *ngIf="showExpostSettings">
+                <div class="accordion-font" slot="content">
+                    <explore-core-expost-settings [expostSettings]="expostSettings"
+                                         [showLogReturns]="true"
+                                         [showNetReturns]="true"
+                                         [canHaveMultipleStatisticPeriods]=false>
+                    </explore-core-expost-settings>
+                </div>
+            </aux-accordion-expansion-panel>
+
+            <aux-accordion-expansion-panel header="Advanced Attribution Settings"
+                                           *ngIf="showAdvancedAttributionSettings">
+                <div class="accordion-font" slot="content">
+                    <explore-core-advanced-attribution-settings [factorAttributionSettings]="factorAttributionSettings">
+                    </explore-core-advanced-attribution-settings>
+                </div>
+            </aux-accordion-expansion-panel>
+
+            <aux-accordion-expansion-panel header="Additional settings" *ngIf="showAdditionalPerformanceSettings">
+                <div class="accordion-font" slot="content">
+                    <app-additional-performance-settings
+                        [showAdditionalSettingsAttributes]="showAdditionalPerformanceSettingsAttributes"
+                        [additionalSettings]="performanceSettings.additionalSettings">
+                    </app-additional-performance-settings>
+                </div>
+            </aux-accordion-expansion-panel>
+        </aux-accordion>
+    </div>
+</div>

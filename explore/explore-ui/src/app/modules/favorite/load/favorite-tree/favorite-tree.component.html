@@ -1,0 +1,17 @@
+<div class="favorite-tree-area" *ngIf="filteredFavoriteTreeData.length">
+    <aux-advanced-tree-list
+        containerHeight="auto"
+        style="max-height: 500px"
+        [customStyle]="advanceTreeCustomStyle"
+        [hasSearch]=false
+        [hasBorder]=false
+        [sourceData]="filteredFavoriteTreeData"
+        (sourceSelectionChanged)="onFavoriteSelected($event)"
+        [hasItemTooltip]="true"
+        [tooltipCallback]="TooltipUtils.getEnterpriseDescriptionTooltip"
+        [config]="TooltipUtils.getTooltipConfig(false)">
+        <ng-container *ngFor="let fav of filteredFavoriteTreeData">
+            <app-shared-favorite-status-badge [fav]="fav"></app-shared-favorite-status-badge>
+        </ng-container>
+    </aux-advanced-tree-list>
+</div>

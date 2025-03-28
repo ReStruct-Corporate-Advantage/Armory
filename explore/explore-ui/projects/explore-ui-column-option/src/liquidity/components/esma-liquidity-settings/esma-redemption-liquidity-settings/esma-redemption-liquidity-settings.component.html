@@ -1,0 +1,44 @@
+<div class="bottom-space-container">
+    <label>Redemption settings</label>
+</div>
+<div class="sub-container">
+    <div class="bottom-space select-width-bar">
+        <aux-select label="Liability type"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="liabilityTypeOptions"
+                    (selectionChanged)="onLiabilityTypeChanged($event)">
+        </aux-select>
+    </div>
+
+    <ng-container *ngIf="underlyingLiquiditySettings.liabilityType === 'investorData'">
+        <div class="bottom-space select-width-bar">
+            <aux-select label="Investor data"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="investorOptions"
+                        (selectionChanged)="onRedemptionScenarioChanged($event)">
+            </aux-select>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="underlyingLiquiditySettings.liabilityType === 'redemptionScenarios'">
+        <div class="bottom-space select-width-bar">
+            <aux-select label="Redemption scenario"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="redemptionOptions"
+                        (selectionChanged)="onRedemptionScenarioChanged($event)">
+            </aux-select>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="isIncludeAdditionalCollateral">
+        <div class="bottom-space">
+            <label>Include</label>
+        </div>
+        <div class="bottom-space">
+            <aux-checkbox label="Additional collateral"
+                          [isChecked]="underlyingLiquiditySettings.includeAdditionalCollateralFlag"
+                          (checkboxChanged)="onAdditionalCollateralFlagToggle($event)">
+            </aux-checkbox>
+        </div>
+    </ng-container>
+</div>

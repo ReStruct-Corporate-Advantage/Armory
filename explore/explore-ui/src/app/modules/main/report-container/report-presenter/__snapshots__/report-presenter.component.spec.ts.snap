@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportPresenterComponent onInit Test should create 2 widgets 1`] = `
+<div
+  class="report-presenter-area"
+  style="height: 0px;"
+>
+  <gridster
+    class="gridster gridster-grid"
+  >
+    <gridster-item
+      class="gridster-item"
+    >
+      <app-widget
+        id="123"
+      />
+    </gridster-item>
+    <gridster-item
+      class="gridster-item"
+    >
+      <app-widget
+        id="456"
+      />
+    </gridster-item>
+    
+  </gridster>
+  
+  
+</div>
+`;
+
+exports[`ReportPresenterComponent onInit Test should create empty component with no report present 1`] = `
+<div
+  class="report-presenter-area"
+  style="height: 0px;"
+>
+  
+</div>
+`;

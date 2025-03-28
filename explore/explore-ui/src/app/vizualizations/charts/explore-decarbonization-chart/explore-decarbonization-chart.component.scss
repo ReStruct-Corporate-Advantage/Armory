@@ -1,0 +1,23 @@
+//// remove all drill down indication on x-axis
+.highcharts-drilldown-axis-label {
+    cursor: pointer;
+    font-family: inherit;
+    align-items: center;
+    color: var(--primary-link__color);
+    fill: var(--primary-link__color) !important;
+    text-decoration: none !important;
+
+    tspan:hover {
+        color: var(--primary__background-color_hover);
+        fill: var(--primary__background-color_hover);
+        text-decoration: underline;
+    }
+}
+
+.custom-stroke-dash > path {
+    stroke-dasharray: 5, 5;
+}
+
+.vertical-plot-line-color {
+    stroke: #C0C4CA !important;
+}

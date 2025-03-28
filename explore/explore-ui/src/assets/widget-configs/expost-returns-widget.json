@@ -1,0 +1,64 @@
+{
+    "configType": "expostReturnsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Ex-Post Returns Widget displays a time-series of monthly returns.\n\nEx-post analysis offers the ability to view top-level performance in the portfolio, benchmark, and active space over longer time horizons. It also allows for the performance of statistical analysis of alpha, beta, and various other ratios and metrics based on that data.",
+    "title": "Ex-Post Returns",
+    "image": ".\/assets\/images\/riskExposureWidget.png",
+    "showOnlySingleColumn": false,
+    "showInSelector": true,
+    "tokenToCheck": "enableExpost",
+    "inputCategories": [
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Settings",
+            "inputs": [
+                {
+                    "inputConfigType": "expostReturnSettings",
+                    "inputName": "expostReturnSettings",
+                    "inputTitle": "Expost return settings",
+                    "default": {
+                        "expostSettings" : {
+                            "samplingPeriod": {
+                                "shortName": "Months",
+                                "numberOfPeriods": 1
+                            },
+                            "statisticPeriods": [
+                                {
+                                    "shortName": "Months",
+                                    "numberOfPeriods": 1
+                                }
+                            ]
+                        },
+                        "timePeriod": {
+                            "shortName": "Years",
+                            "numberOfPeriods": 1
+                        },
+                        "showBench": false,
+                        "showActive": false
+                    },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+          "$ref": "defaultColumnState"
+        },
+        {
+            "categoryType": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        }
+    ],
+    "chartingLib": "agGrid"
+}

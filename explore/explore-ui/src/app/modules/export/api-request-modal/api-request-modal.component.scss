@@ -1,0 +1,26 @@
+.api-request-modal--content {
+    max-height: 60vh;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.api-request-type {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--card__border-color);
+}
+
+.unsupported-notification {
+    padding-bottom: 1rem;
+}
+
+.api-request-body {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.api-request-body--text {
+    white-space: pre-wrap;
+    font-family: Roboto Mono, monospace;
+    margin: 1rem 0;
+}

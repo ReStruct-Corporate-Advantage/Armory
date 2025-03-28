@@ -1,0 +1,41 @@
+<div class="breakdown-options-container">
+    <div class="breakdown-option">
+        <aux-radio
+            *ngIf="breakdownBuilderSettings && breakdownBuilderSettings.includeNoBreakdownOption !== false"
+            [label]="breakdownOptions.NONE.label"
+            [isChecked]="selectedBreakdownType === breakdownOptions.NONE.value"
+            (radioChanged)="onBreakdownUpdate(undefined, breakdownOptions.NONE.value)">
+        </aux-radio>
+    </div>
+    <div class="breakdown-option">
+        <app-single-level-breakdown
+            [isChecked]="selectedBreakdownType === breakdownOptions.SINGLE.value"
+            (breakdownChanged)="onBreakdownUpdate($event, breakdownOptions.SINGLE.value)"
+            [breakdown]="breakdown"
+            [breakdownBuilderSettings]="breakdownBuilderSettings">
+        </app-single-level-breakdown>
+    </div>
+    <div class="breakdown-option">
+        <app-multi-level-breakdown
+            (breakdownChanged)="onBreakdownUpdate($event, breakdownOptions.MULTI.value)"
+            [isChecked]="selectedBreakdownType === breakdownOptions.MULTI.value"
+            [breakdown]="breakdown"
+            [breakdownBuilderSettings]="breakdownBuilderSettings">
+        </app-multi-level-breakdown>
+    </div>
+    <div class="breakdown-option riskless-cash-tooltip" *ngIf="isOptimizationCashBreakdownSettingVisible">
+        <aux-checkbox label="Include Riskless Cash (Optimization) bucket"
+                      [isChecked]="isOptimizationCashSettingChecked"
+                      (checkboxChanged)="onOptimizationCashSettingChanged($event)">
+        </aux-checkbox>
+        <aux-tooltip>
+            <aux-button
+                slot="target"
+                icon="help"
+                type="tertiary-subtle"
+                [assistiveText]="'help'"
+            ></aux-button>
+            <span slot="content">Enabling riskless cash bucketing will split the cash items that are risk free (base currency cash) and that carry currency/FX risk. This should only be used for optimization reporting.</span>
+        </aux-tooltip>
+    </div>
+</div>

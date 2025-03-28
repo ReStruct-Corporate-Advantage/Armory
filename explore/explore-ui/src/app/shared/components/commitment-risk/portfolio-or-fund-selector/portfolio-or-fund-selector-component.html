@@ -1,0 +1,78 @@
+<div class="security-panel">
+    <div class="label-value-pair" *ngIf="!showPortfolioAndFundSelection">
+        <aux-value-pair
+            [label]="fundTypeSelected"
+            [removeSpacing]= "true"
+            [labelPosition]="'left'"
+            [size]= "'standard'"
+            [isPipeLess]= "true"
+            [value] = getSelectedPortfolioOrFundDisplay()>
+        </aux-value-pair>
+        <aux-button class="edit-icon" *ngIf="!showPortfolioAndFundSelection"
+            [type]= "'tertiary'"
+            [size]="'regular'"
+            [icon]="'edit'"
+            [isFocusable]="true"
+            (click)="openPortfolioAndFundSelection()">
+        </aux-button>
+    </div>
+
+    <div *ngIf="showPortfolioAndFundSelection" class="fund-selector" >
+        <aux-select
+            [data]="fundTypeOptions"
+            [hasInitialOptionPlaceholder]="false"
+            (selectionChanged)="onFundTypeSelection($event)"
+            [size]="'small'"
+            type="simple">
+        </aux-select>
+
+        <div class="portfolio-name" *ngIf="!showPrivateFundSelection"> {{portfolio.portName}} </div>
+
+        <div class="private-fund-loading" *ngIf="showPrivateFundSelection && (loadingPrivateFunds$ | async)">
+            <span>Private fund list loading.</span>
+            <aux-icon [type]="'loading'" state="primary"></aux-icon>
+        </div>
+
+        <div class='private-fund-selector-div' *ngIf="showPrivateFundSelection && !(loadingPrivateFunds$ | async)">
+            <aux-select class = "private-fund-selector"
+                        [data]="securityOptions"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="onSecuritySelection($event)"
+                        [size]="'small'"
+                        [type]="'filter-simple'">
+            </aux-select>
+            <div class='excluded-funds-warning' *ngIf='hasExcludedFund'>
+                <aux-popover
+                    #excludedFundsPopover
+                    [trigger]="'pressed'"
+                    [overridePlacement]="'center'">
+                    <aux-button [icon]="'alert-subtle'" slot='target' [type]="'tertiary-subtle'"></aux-button>
+                    <div slot='content' class='excluded-funds-popover-container'>
+                        <span>Funds will not be available for selection in the list</span>
+                        <span>when they are not supported.</span>
+                        <aux-button type='tertiary' class='excluded-fund-info-button' (click)='openExcludedFundsInfoModal()' label='More about excluded funds'></aux-button>
+                    </div>
+                </aux-popover>
+            </div>
+        </div>
+
+        <div class = "fund-selector-buttons" *ngIf="!showPrivateFundSelection || (showPrivateFundSelection && !(loadingPrivateFunds$ | async))">
+            <aux-button class="space-btw-buttons"
+                [slot]="'primary-button'"
+                [size]="'small'"
+                [label]="APPLY_TEXT"
+                [type]="'secondary'"
+                [isDisabled]="showPrivateFundSelection && !fundCusip"
+                (click)="closeOptions(true)">
+            </aux-button>
+            <aux-button
+                [slot]="'secondary-button'"
+                [size]="'small'"
+                [label]="CANCEL_TEXT"
+                [type]="'tertiary'"
+                (click)="closeOptions(false)">
+            </aux-button>
+        </div>
+    </div>
+</div>
+<app-commitment-risk-excluded-funds-modal [isOpen]='isFundInfoDialogOpen' (modalClosed)='isFundInfoDialogOpen = false'></app-commitment-risk-excluded-funds-modal>

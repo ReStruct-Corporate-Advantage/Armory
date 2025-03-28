@@ -1,0 +1,45 @@
+.horizontal-display-form {
+    .form-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        border-bottom: 1px solid var(--tab__border-color);
+        padding-bottom: 0.5rem;
+
+        .form-header-col {
+            display: flex;
+            margin: 0 0.5rem;
+        }
+
+        .short {
+            flex: 1;
+        }
+
+        .long {
+            flex: 4;
+        }
+
+        .right {
+            justify-content: flex-end;
+        }
+
+        .center {
+            justify-content: center;
+        }
+
+        .text-right {
+            justify-content: right;
+        }
+    }
+
+    .form-row {
+        &:hover {
+            background-color: var(--column-selector-list-item__background-color--hover);
+        }
+    }
+
+    .form-row-selected {
+        background-color: var(--column-selector-list-item__background-color--select);
+    }
+}

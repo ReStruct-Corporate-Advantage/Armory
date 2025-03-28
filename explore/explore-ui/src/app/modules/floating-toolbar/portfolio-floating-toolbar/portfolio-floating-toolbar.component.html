@@ -1,0 +1,19 @@
+<div class="portfolio-floating-toolbar-section">
+    <div class="floating-toolbar-container">
+        <label class="floating-toolbar-info-label aux-secondary">{{portfolio.isIndexResearchPortfolio ? 'Index Research':
+            'Portfolio'}}: </label>
+        <span class="display-title aux-primary">{{portfolio.getPortfolioHeaderTitle()}}</span>
+    </div>
+    <div class="floating-toolbar-container border-separator">
+        <label class="floating-toolbar-info-label aux-secondary">Date: </label>
+        <span class="floating-toolbar-info-element aux-primary">{{getDisplayDate()}}</span>
+    </div>
+    <div class="floating-toolbar-container border-separator">
+        <label class="floating-toolbar-info-label aux-secondary">Currency: </label>
+        <span class="floating-toolbar-info-element aux-primary">{{getCurrency()}}</span>
+    </div>
+    <div class="floating-toolbar-container border-separator">
+        <label class="floating-toolbar-info-label aux-secondary">Benchmark: </label>
+        <span class="floating-toolbar-info-element aux-primary">{{getBenchmarkDisplayName()}}</span>
+    </div>
+</div>

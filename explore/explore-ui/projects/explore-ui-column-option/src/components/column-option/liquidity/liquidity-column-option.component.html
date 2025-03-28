@@ -1,0 +1,141 @@
+<ng-container *ngIf="isShowFundSettings">
+    <explore-column-option-esma-liquidation-fund-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.esmaLiquidationFundLiquiditySettings"
+        [optionAttributes]="optionAttributes"
+        [liquidityColumnOption]="optionValue">
+    </explore-column-option-esma-liquidation-fund-liquidity-settings>
+</ng-container>
+<!-- portfolio side tab -->
+<ng-container *ngIf="isShowPortfolioSide">
+    <div class="tab-group-container">
+        <aux-tab-bar tabType="modern" (tabBarItemSelected)="onPortfolioSideChanged($event)" [data]="portfolioSideOptionsTabData" [activeUid]="selectedOptionTabUid">
+        </aux-tab-bar>
+    </div>
+</ng-container>
+
+<div class="aux-layout__wrapper-32" *ngIf="isShowAdvancedSettings">
+    <div class='aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12'>
+        <div class="div-2">
+            <div>
+                <div class="risk-settings-menu-nav">
+                    <aux-menu-nav label="Advanced Settings"
+                                  icon="settings"
+                                  (optionClicked)="openAdvancedLiquiditySettingsModal()">
+                    </aux-menu-nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="(isJITAColumn || isPortfolioSideAssets) && isShowGeneralLiquiditySettings">
+    <explore-column-option-general-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.generalLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-general-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowEsmaLiquidationSettings && !isHolidayLookup">
+    <explore-column-option-esma-liquidation-header-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.esmaLiquidationHeaderLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-esma-liquidation-header-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideLiabilities && isShowEsmaRedemptionSettings">
+    <explore-column-option-esma-redemption-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.esmaRedemptionLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-esma-redemption-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="(isJITAColumn || isPortfolioSideAssets) && isShowStressLiquiditySettings">
+    <explore-column-option-stress-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.stressLiquiditySettings"
+        [optionAttributes]="optionAttributes" [isJitaColumn]="isJITAColumn">
+    </explore-column-option-stress-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowPartialLiquiditySettings && !isShowEsmaLiquidationSettings">
+    <explore-column-option-partial-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.partialLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-partial-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowPartialLiquiditySettings && isShowEsmaLiquidationSettings">
+    <explore-column-option-esma-partial-liquidity-settings
+        [liquidityStrategy$]="liquidityStrategy$"
+        [underlyingLiquiditySettings]="optionValue.partialLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-esma-partial-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowSecLiquiditySettings">
+    <explore-column-option-sec-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.secLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-sec-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowQuantitativeTieringLiquiditySettings">
+    <explore-column-option-quantitative-tiering-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.quantitativeTieringLiquiditySettings"
+        [optionAttributes]="optionAttributes"
+        (updateTitle)="updateColumnTitle()">
+    </explore-column-option-quantitative-tiering-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowUnitLiquiditySettings && !isShowEsmaLiquidationSettings">
+    <explore-column-option-unit-liquidity-settings
+        [liquiditySettings]="optionValue"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-unit-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowUnitLiquiditySettings && isShowEsmaLiquidationSettings">
+    <explore-column-option-esma-unit-liquidity-settings
+        [liquiditySettings]="optionValue"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-esma-unit-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isPortfolioSideAssets && isShowEsmaLiquidationSettings">
+    <explore-column-option-esma-liquidation-footer-liquidity-settings
+        [liquidityStrategy$]="liquidityStrategy$"
+        [underlyingLiquiditySettings]="optionValue.esmaLiquidationFooterLiquiditySettings"
+        [optionAttributes]="optionAttributes"
+        [liquidationStrategy]="optionValue.partialLiquiditySettings.liquidationStrategy">
+    </explore-column-option-esma-liquidation-footer-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isShowHorizonSettings">
+    <explore-column-option-horizon-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.horizonLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-horizon-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isJITAColumn">
+    <jita-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.jitaLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </jita-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isShowPrecannedStressScenarioSettings">
+    <explore-column-option-precanned-stress-scenarios-liquidity-settings
+        [underlyingLiquiditySettings]="optionValue.precannedStressScenarioLiquiditySettings"
+        [optionAttributes]="optionAttributes">
+    </explore-column-option-precanned-stress-scenarios-liquidity-settings>
+</ng-container>
+
+<ng-container *ngIf="isAdvancedLiquiditySettingsModalOpen">
+    <explore-column-option-advanced-liquidity-settings-modal [isOpen]="isAdvancedLiquiditySettingsModalOpen"
+                                               (modalClosed)="closeAdvancedLiquiditySettingsModal()"
+                                               [underlyingLiquiditySettings]="optionValue.advancedLiquiditySettings"
+                                               [optionAttributes]="optionAttributes"
+                                               [assetClassModelMapping]="assetClassModelMapping"
+                                               (updateAdvancedLiquiditySettingsEvent)="updateAdvancedLiquiditySettings($event)">
+    </explore-column-option-advanced-liquidity-settings-modal>
+</ng-container>

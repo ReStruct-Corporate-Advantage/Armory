@@ -1,0 +1,156 @@
+{
+    "configType": "heatmap",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Heat Map Widget is a two-dimensional representation of a column measure using colors to convey values, with one breakdown along the X-axis and another along the Y-axis. Values are automatically shaded from either smallest to largest, or most negative to most positive.",
+    "title": "Heat Map",
+    "image": ".\/assets\/images\/heat-map.png",
+    "imageDescription": "This heat map shows the market value % relative to GICS sector for countries in a fixed income portfolio.",
+    "setUpRequirements": [
+      "1 column measure",
+      "X-axis breakdown and/or Y-axis breakdown"
+    ],
+    "showInSelector": true,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": true,
+    "showOnlySingleColumn": true,
+    "showGridTransitionControl": true,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Measure",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "CHART_REPORT",
+                    "columnFilters": {
+                        "$ref": "numericColumnFilters"
+                    },
+                    "default": [
+                        {
+                            "$ref": "notionalMarketValuePercentColumn"
+                        }
+                    ],
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "categoryType": "breakdown",
+            "categoryTitle": "Breakdown",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "breakdownTree",
+                    "inputName": "breakdownTree",
+                    "inputTitle": "Breakdown-X",
+                    "groupByColumnFilters": {
+                        "$ref": "defaultGroupByColumnFilters"
+                    },
+                    "customColumnFilters": {
+                        "$ref": "defaultCustomColumnFilters"
+                    },
+                    "valueField": "columnTag",
+                    "max": 5,
+                    "default": {
+                        "breakdown": {
+                        }
+                    }
+                },
+                {
+                    "inputConfigType": "breakdownTree",
+                    "inputName": "columnBreakdownTree",
+                    "inputTitle": "Breakdown-Y",
+                    "groupByColumnFilters": {
+                        "$ref": "defaultGroupByColumnFilters"
+                    },
+                    "customColumnFilters": {
+                        "$ref": "defaultCustomColumnFilters"
+                    },
+                    "valueField": "columnTag",
+                    "max": 5,
+                    "portDefaultsRequired": true,
+                    "default": {
+                        "breakdown": {
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartFilter"
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Format",
+            "inputs": [
+                {
+                    "inputConfigType": "heatmapSettings",
+                    "inputName": "heatmapSettings",
+                    "inputTitle": "Chart format",
+                    "isOpen": true
+                },
+                {
+                  "inputConfigType": "colorScale",
+                  "inputName": "colorScale",
+                  "inputTitle": "Color scale",
+                  "default": {
+                    "format": "3-Color Scale",
+                    "midpoint": "median",
+                    "colors":"redToGreen"
+                  },
+                  "isOpen": true
+                },
+                {
+                    "inputConfigType": "sortedColumnsX",
+                    "inputName": "sortedColumnsX",
+                    "inputTitle": "Sort X-axis",
+                    "default": {
+                        "sortedColumns": []
+                    },
+                    "isOpen": true
+                },
+                {
+                    "inputConfigType": "sortedColumnsY",
+                    "inputName": "sortedColumnsY",
+                    "inputTitle": "Sort Y-axis",
+                    "default": {
+                      "sortedColumns": []
+                  },
+                    "isOpen": true
+                }
+            ]
+        },
+        {
+            "$ref": "defaultChartSettings"
+        },
+        {
+            "visible": false,
+            "categoryType": "nestedSettings",
+            "inputs": [
+                {
+                  "inputConfigType": "gridLines",
+                  "inputName": "showGridLines",
+                  "inputTitle": "Grid lines",
+                  "default": true
+                }
+            ]
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+    "restrictedColumnOptions": {
+        "$ref": "defaultRestrictedColumnOptions"
+    },
+    "chartingLib": "hc",
+    "settingsThatCanUpdateWidgetTitle": ["columns"],
+
+    "showCompareTabs": true
+}

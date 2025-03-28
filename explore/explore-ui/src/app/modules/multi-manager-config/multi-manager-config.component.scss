@@ -1,0 +1,56 @@
+.multi-manager-top-div {
+    overflow: auto;
+    height: calc(70vh - 138px);
+    background-color: var(--secondary__background-color);
+    border: .0125rem solid var(--drawer__border-color);
+    padding-top: 32px;
+    padding-bottom: 32px;
+
+    .refresh-clear-all-inner-div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        .refresh-div {
+            border-right: 1px solid var(--option-group__border-color);
+            padding-right: 8px;
+        }
+    }
+
+    .arrange-by-instruction {
+        padding-left: 32px;
+        padding-right: 32px;
+        color: var(--secondary-text__color);
+    }
+
+    .decision-selection {
+        padding-top: 20px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .top-down-selection-outer {
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .top-down-decision-selection {
+            font-weight: bold;
+            padding-top: 20px;
+            font-size: small;
+        }
+    }
+
+    .notification-div {
+        margin-bottom: 10px;
+        padding-top: 8px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .decision-bench-table {
+        height: calc(92% - 32px);
+        padding-top: 8px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}

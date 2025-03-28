@@ -1,0 +1,66 @@
+<div class="aux-layout__wrapper-16 rule-container">
+    <div class="aux-g16--xs-5 aux-g16--sm-5 aux-g16--md-5 aux-g16--lg-5 aux-g16--xl-5">
+        <explore-column-option-column-selector
+            [showColumnCounter]=false
+            [sourceDataUpdated$]="sourceDataUpdated$"
+            [config]="{hasSelectedOnly: false, hasSearch: true, hasDoubleClick: false, hasAggregator: false}"
+            (sourceSelectionChanged)="onColumnSelection($event)">
+        </explore-column-option-column-selector>
+    </div>
+    <div class="aux-g16--xs-7 aux-g16--sm-7 aux-g16--md-7 aux-g16--lg-7 aux-g16--xl-7 flex-column">
+        <div class="custom-filter-column">
+            <div class="aux-g16--xs-5 aux-g16--sm-5 aux-g16--md-5 aux-g16--lg-5 aux-g16--xl-5">
+                {{selectedColumn ? selectedColumn.title : ''}}
+            </div>
+        </div>
+        <div class="operator-column-value-container">
+            <div class="aux-g16--xs-5 aux-g16--sm-5 aux-g16--md-5 aux-g16--lg-5 aux-g16--xl-5">
+                <explore-sector-attribute-rule-operator [columnSelected]="selectedColumn"
+                                                    [selectedOperator]="columnSectorRule ? columnSectorRule.comparisonType: null"
+                                                    [isLookThroughRule]="sectorRuleBuilderConfig? sectorRuleBuilderConfig.islookThroughRule: false"
+                                                    (operatorChanged)="onOperatorChange($event)">
+                </explore-sector-attribute-rule-operator>
+            </div>
+            <div class="aux-g16--xs-7 aux-g16--sm-7 aux-g16--md-7 aux-g16--lg-7 aux-g16--xl-7">
+                <div class="column-value-field-container">
+                    <explore-sector-attribute-rule-text-field
+                        [value]="initialColumnValue"
+                        *ngIf="!isDateColumn && !isNumericColumn && !isStaticValueColumn && !isTimeSpanColumn"
+                        (valueChange)="onColumnValueUpdate($event)"
+                        class="column-value-field">
+                    </explore-sector-attribute-rule-text-field>
+                    <explore-sector-attribute-rule-numeric-field
+                        [value]="initialColumnValue[0]"
+                        (valueChange)="onColumnValueUpdate($event)"
+                        *ngIf="!isDateColumn && isNumericColumn && !isStaticValueColumn && !isTimeSpanColumn"
+                        class="column-value-field">
+                    </explore-sector-attribute-rule-numeric-field>
+                    <explore-sector-attribute-rule-static-column-field
+                        [value]="initialColumnValue"
+                        [columnSelected]="selectedColumn"
+                        (valueChange)="onColumnValueUpdate($event)"
+                        *ngIf="!isDateColumn && !isNumericColumn && isStaticValueColumn && !isTimeSpanColumn"
+                        class="column-value-field">
+                    </explore-sector-attribute-rule-static-column-field>
+                    <explore-sector-attribute-rule-time-span-field
+                        [value]="initialColumnValue[0]"
+                        (valueChange)="onColumnValueUpdate($event)"
+                        *ngIf="!isDateColumn && !isNumericColumn && !isStaticValueColumn && isTimeSpanColumn"
+                        class="column-value-field">
+                    </explore-sector-attribute-rule-time-span-field>
+                    <explore-sector-attribute-rule-date-field
+                        [value]="initialColumnValue[0]"
+                        (valueChange)="onColumnValueUpdate($event)"
+                        *ngIf="isDateColumn && !isNumericColumn && !isStaticValueColumn && !isTimeSpanColumn">
+                    </explore-sector-attribute-rule-date-field>
+                </div>
+                <ng-container *ngIf="!isDateColumn && isNumericColumn && !isOperatorDoesNotEqual && !isStaticValueColumn && !isTimeSpanColumn">
+                    <aux-checkbox class="include-null-values" label="Include null values"
+                                  [isChecked]="includeNullValues"
+                                  (checkboxChanged)="onChangeOfIncludeNullValues($event.detail.value.checked)">
+                    </aux-checkbox>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

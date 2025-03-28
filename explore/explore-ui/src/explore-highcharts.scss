@@ -1,0 +1,56 @@
+@use "@qbstr/highcharts-core/styles/highcharts-legacy";
+@use '@blk/aladdin-web-components/dist/collection/styles/base-app-styles';
+@use "acrm-chart";
+
+// For heatmap, we want the label text color to be black irrespective of the light or dark background.
+.highcharts-heatmap-series {
+    .highcharts-label {
+        text {
+            fill: #333 !important;
+        }
+    }
+}
+
+.highcharts-data-label text, text.highcharts-data-label {
+    stroke: none !important;
+}
+
+.highcharts-tooltip {
+    text {
+        stroke: none !important;
+    }
+}
+
+.highcharts-legend-item-hidden * {
+    fill: #ccc !important;
+    stroke: #ccc !important;
+    transition: fill .25s;
+}
+
+.highcharts-legend-item-hidden text {
+    fill: #ccc !important;
+}
+
+@for $i from 0 through 12 {
+    .custom-class-chart-qualitative-#{$i} {
+        fill: var(--chart__qualitative-#{$i}) !important;
+        stroke: var(--chart__qualitative-#{$i}) !important;
+    }
+}
+
+.highcharts-legend-nav-active {
+    fill: highcharts-legacy.$highlight-color-100;
+    cursor: pointer;
+}
+
+.highcharts-legend-nav-inactive {
+    fill: highcharts-legacy.$neutral-color-20;
+}
+
+.highcharts-title {
+    @extend .aux-p12;
+}
+
+circle.highcharts-legend-nav-active, circle.highcharts-legend-nav-inactive {
+    fill-opacity: 0;
+}

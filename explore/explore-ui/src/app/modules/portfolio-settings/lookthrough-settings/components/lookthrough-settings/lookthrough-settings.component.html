@@ -1,0 +1,115 @@
+<div class="lookthrough-settings">
+    <explore-look-through-settings [availableProxyTypes]="availableProxyTypes"
+                                   [availableSecurityTypes]="availableSecurityTypes"
+                                   [(lookthroughSettings)]="portfolio.lookthroughSettings"
+                                   (lookthroughChangeTypeEmitter)="onLookThroughSettingsTypeChanged($event)">
+    </explore-look-through-settings>
+    <div class="results-hdr">Look-Through Summary</div>
+    <div class="lt-settings-div6">
+        <div *ngIf="refreshLookthroughData" style="margin-bottom: 10px">
+            <aux-notification-group
+                    [mode]="LT_REFRESH_PUSH"
+                    [type]="LT_REFRESH_TYPE"
+                    [politeness]="LT_REFRESH_POLITENESS"
+                    [openOnLoad]="true"
+                    [config]="LT_REFRESH_MSG">
+            </aux-notification-group>
+        </div>
+        <div class="rules-header-container">
+            <div class="favorite-row">
+                <span class="filter-title"
+                      [ngClass]="portfolio.lookthroughSettings.isAnyLookthroughEnabled() ? 'aux-primary' : 'aux-disabled'">Rule list</span>
+                <explore-core-load-new-favorite-buttons
+                    [isDisabled]="!portfolio.lookthroughSettings.isAnyLookthroughEnabled()"
+                    (loadClick)="onLoadRuleList()"
+                    (newClick)="onCreateNew()"></explore-core-load-new-favorite-buttons>
+            </div>
+            <div class="favorite-row">
+                <ng-container *ngIf="portfolio.lookthroughSettings.ltFilterRulesFav.id">
+                    <explore-previous-favorite-version-banner [favoriteId]="portfolio.lookthroughSettings.ltFilterRulesFav.id" [owner]="portfolio.lookthroughSettings.ltFilterRulesFav.owner"
+                                                              [currentFavoriteVersion]="portfolio.lookthroughSettings.ltFilterRulesFav.currentFavoriteVersion"
+                    ></explore-previous-favorite-version-banner>
+                    <explore-favorite-info [favoriteConfig]='portfolio.lookthroughSettings.ltFilterRulesFav'
+                                       [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.LOOK_THROUGH_RULE" [loadFavoriteCallBack]="loadRuleListVersion">
+                    </explore-favorite-info>
+                </ng-container>
+                <div class="edit-rules-buttons">
+                    <aux-button [label]="CoreFavoriteConstants.FAVORITE_ACTIONS.EDIT_COPY"
+                                [type]="AuxButtonTypeEnum.TERTIARY"
+                                [isDisabled]="!this.portfolio.lookthroughSettings.containsRules()"
+                                (click)="onEditCopy()"></aux-button>
+                    <div class="vertical-line-divider"></div>
+                    <aux-button [label]="CoreFavoriteConstants.FAVORITE_ACTIONS.EDIT_ORIGINAL"
+                                [type]="AuxButtonTypeEnum.TERTIARY"
+                                [isDisabled]="!this.isUserLtRuleOwner()" (click)="onEditOriginal()"></aux-button>
+                    <ng-container *ngIf="coreFavoriteUtils.showFavStatusTagMenu(portfolio.lookthroughSettings.ltFilterRulesFav)">
+                        <div class="vertical-line-divider"></div>
+                        <app-favorite-menu [favorite]="portfolio.lookthroughSettings.ltFilterRulesFav" [favoriteType]="FavoriteConstants.LT_FILTER_RULES">
+                        </app-favorite-menu>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="favorite-row" *ngIf="coreFavoriteUtils.showFavStatusTag(portfolio.lookthroughSettings.ltFilterRulesFav)">
+                <app-favorite-status-badge [favoriteStatus]="portfolio.lookthroughSettings.ltFilterRulesFav.statusTag">
+                </app-favorite-status-badge>
+            </div>
+            <div class="favorite-row">
+                <ng-container *ngIf="portfolio.lookthroughSettings && portfolio.lookthroughSettings.containsRules()">
+                    <div class="customized-badge aux-bold">
+                        Customized
+                        <aux-icon type="checkmark" state="primary"></aux-icon>
+                    </div>
+                </ng-container>
+                <ng-container>
+                    <div class="look-through-table-options">
+                        <aux-button class="look-through-refresh-button" size="small" type="tertiary-subtle" icon="widget-refresh"
+                                    title="Refresh"  [isDisabled]="!portfolio.lookthroughSettings.isAnyLookthroughEnabled()"
+                                    (click)="extractLookthroughInfo()">
+                        </aux-button>
+                        <aux-inline-menu class="look-through-refresh-button"
+                                         type="tertiary-subtle"
+                            [data]="exportOptions"
+                            [isActive]="portfolio.lookthroughSettings.isAnyLookthroughEnabled()"
+                            trigger="pressed"
+                            (inlineMenuItemClicked)="onExportItemClicked($event.detail.element.eventData)">
+                            <aux-button [isDisabled]="!portfolio.lookthroughSettings.isAnyLookthroughEnabled()" size="small" type="tertiary-subtle" icon="widget-export" slot="target" title="Export"
+                                        data-name="Export" eventData="export">
+                            </aux-button>
+                        </aux-inline-menu>
+                        <aux-icon *ngIf="exportingInProgress" class="look-through-refresh-button"
+                                  type="loading" title="Export in progress" state="primary">
+                        </aux-icon>
+                        <aux-button class="look-through-search-button" size="small" type="tertiary-subtle" icon="search"
+                                    title="Search"  [isDisabled]="!portfolio.lookthroughSettings.isAnyLookthroughEnabled()"
+                                    [type]="(isTableSearchActive$ | async) ? 'tertiary' : 'tertiary-subtle'
+                                    "(click)="toggleTableSearch()">
+                        </aux-button>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div *ngIf="showLookthroughView">
+            <app-explore-table [isTableSearchActive$]="isTableSearchActive$"
+                               [widget]="widget"
+                               [widgetPayload]="widgetPayload"
+                               [widgetViewCss]="'aux-grid-custom-class explore-search'"
+                               [widgetSize]="'small'">
+            </app-explore-table>
+        </div>
+        <div *ngIf="refreshInProgress">
+            <app-loading-spinner size="large" loadingLabel="Loading {{LT_WITH_SMALL_L}} securities"></app-loading-spinner>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="showRuleBuilder">
+    <app-lookthrough-rule-builder-modal [showRuleBuilder]="showRuleBuilder"
+                                        [portfolio]="portfolio"
+                                        [widget]="widget"
+                                        [widgetPayload]="widgetPayload"
+                                        [ltFilterRulesFav]="copyLtFilterRulesFav"
+                                        [setLookthroughViewFlags]="setLookthroughViewFlags"
+                                        [extractLookthroughInfo]="extractLookthroughInfo"
+                                        [onExportItemClicked]="onExportItemClicked"
+                                        (rulebuilderClosed)="onCloseRulebuilderModal($event)">
+    </app-lookthrough-rule-builder-modal>
+</ng-container>

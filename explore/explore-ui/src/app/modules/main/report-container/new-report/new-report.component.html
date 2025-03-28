@@ -1,0 +1,57 @@
+<aux-modal [isOpen]="isOpen" [type]="'action'" [header]="'Add Report'" [hasCustomFooter]="true">
+    <div [slot]="'content'" class="content-container">
+        <div class="tab-bar-container">
+            <aux-segmented-control [data]="tabsLabelData"
+                                   [activeControlIndex]="activeTabUID"
+                                   [size]="'regular'"
+                                   (controlSelectionChanged)="onTabSelected($event)">
+            </aux-segmented-control>
+        </div>
+
+        <div *ngIf="activeTabUID === '0'">
+            <div class="new-report-area">
+                <div class="favorite-report-text aux-primary"> Name your new report and add widgets in the next step. </div>
+                    <div class="input-text-container">
+                        <aux-text-input
+                            [label]="'Title'"
+                            [value]="reportName"
+                            (valueChanged)="onReportNameChanged($event)">
+                        </aux-text-input>
+                        <div class="create-report-button">
+                            <aux-button label="Next"
+                            [isDisabled]="!reportName"
+                            (click)="createReport()">
+                            </aux-button>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <div *ngIf="activeTabUID === '1'">
+            <div class="favorite-report-area">
+                <div class="favorite-report-text aux-primary"> Use a previously created report template. </div>
+
+                <app-favorite
+                              [showAladdinReport]="true"
+                              [favType]="favType"
+                              [favTreeType]="favTreeType"
+                              [favDisplayName]="favDisplayName"
+                              [loadEnterpriseTree]="true"
+                              [loadFavoriteCallBack]="loadFavoriteCallBack"
+                              [isPartOfModal]="true"
+                              (closeAction)="handleFavoriteSelectedAction($event)">
+                </app-favorite>
+            </div>
+        </div>
+    </div>
+
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="onCancelButtonClicked()"></aux-button>
+    </div>
+</aux-modal>
+
+<ng-container *ngIf="isWidgetGalleryModalOpen">
+    <app-widget-gallery-modal [isOpen]="isWidgetGalleryModalOpen"
+                             (modalClosed)="closeWidgetGalleryModal()"
+    ></app-widget-gallery-modal>
+</ng-container>

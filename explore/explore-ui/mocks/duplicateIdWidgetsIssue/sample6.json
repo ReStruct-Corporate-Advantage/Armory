@@ -1,0 +1,302 @@
+{
+    "widgets": [
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023332,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "MTD Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023334,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023336,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "QTD Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023339,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "MTD Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023340,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "QTD Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023340,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023341,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "YTD Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023342,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "YTD Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023343,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023343,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "3m Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023343,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "3m Industry Return Analysis",
+            "type": "returnGrid",
+            "row": 29,
+            "col": 12,
+            "id": 1568708023344,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023345,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "6m Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023345,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "6m Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023345,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023346,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "12m Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023346,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "12m Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023347,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023347,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Custom Return Analysis - Top & Bottom 10",
+            "type": "returnGrid",
+            "id": 1568708023348,
+            "inputs": null
+        },
+        {
+            "configType": "returnsWidget",
+            "title": "Custom Industry Return Analysis",
+            "type": "returnGrid",
+            "id": 1568708023350,
+            "inputs": null
+        }
+    ],
+    "availableDataStores": [
+        {
+            "configType": "ReturnsDataStore",
+            "name": "44ca43f7-04e7-46d4-9cd8-0dc80f9e2f40",
+            "observers": [
+                1568708023332
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "0d3fe10d-858c-4317-b697-5176e8defc82",
+            "observers": [
+                1568708023334
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "a4aab26c-d1ff-406b-ab4f-acca1d6a1e81",
+            "observers": [
+                1568708023336
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "0bc3da01-353a-42c4-8088-5ed106e3be98",
+            "observers": [
+                1568708023339
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "fc245607-79f9-4a68-a773-fa1b7972c0e8",
+            "observers": [
+                1568708023340
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "16cee66c-fa6c-4e13-8896-b983db53f38e",
+            "observers": [
+                1568708023340
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "6211dc91-0ef0-4f7c-8b7c-8743adf83893",
+            "observers": [
+                1568708023341
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "a75e2e7e-bc4a-4841-866a-06898c2fd3dc",
+            "observers": [
+                1568708023342
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "f279704e-62e5-48f4-9d3f-006b0d2fb0a2",
+            "observers": [
+                1568708023343
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "3154236b-1350-4500-b1bf-c24b1407dc2c",
+            "observers": [
+                1568708023343
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "49e4d590-5e16-455e-b5c2-8446ec72f4bd",
+            "observers": [
+                1568708023343
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "638765ca-1f5a-4f0a-889d-da10cf7d3bc2",
+            "observers": [
+                1568708023344
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "c37bc30a-d3ce-41e9-a559-ebe30b23ad16",
+            "observers": [
+                1568708023345
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "4f9e0dc6-433d-443c-a941-2e009dbed1f5",
+            "observers": [
+                1568708023345
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "09ee9d6f-726b-4f52-9594-fbd904c4b980",
+            "observers": [
+                1568708023345
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "a5250787-ae51-41f5-b341-987eddf01377",
+            "observers": [
+                1568708023346
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "8cdec5a9-bb98-4eb6-8f06-73181062c265",
+            "observers": [
+                1568708023346
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "c1f050f4-3488-4aaa-a77f-fd0ed13da498",
+            "observers": [
+                1568708023347
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "1e6e413a-c0c3-4919-ac32-b8329e9fc4ef",
+            "observers": [
+                1568708023347
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "4105c0ac-9837-491b-bcbd-3290ecb3f4d3",
+            "observers": [
+                1568708023348
+            ]
+        },
+        {
+            "configType": "ReturnsDataStore",
+            "name": "863e93a0-f6db-4547-8ff3-b373f56dac75",
+            "observers": [
+                1568708023350
+            ]
+        }
+    ]
+}

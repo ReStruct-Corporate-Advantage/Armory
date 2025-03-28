@@ -1,0 +1,36 @@
+.nested-row--top-padding {
+    padding-top: 0.5rem;
+}
+
+.updated-row {
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+}
+
+.favorite-details-container {
+    flex: 1.5;
+}
+
+.favorite-details-content {
+    display: flex;
+    white-space: pre;
+}
+
+.save-detail {
+    flex: 1;
+}
+
+.not-selected-text {
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.favorite-details {
+    padding-left: 1.5rem;
+}
+
+.checkbox--right-padding {
+    padding-right: 0.5rem;
+}

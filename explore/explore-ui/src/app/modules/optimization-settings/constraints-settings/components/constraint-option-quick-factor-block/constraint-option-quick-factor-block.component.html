@@ -1,0 +1,9 @@
+<div style="display: flex">
+    <div>
+        <aux-radio #factorRadio (radioChanged)="disableOtherField()"></aux-radio>
+    </div>
+    <div>
+        <app-constraint-option-select [isDisabled]="isDisabled" [options]="selectOptions" (updated)="onUpdated($event)">
+        </app-constraint-option-select>
+    </div>
+</div>

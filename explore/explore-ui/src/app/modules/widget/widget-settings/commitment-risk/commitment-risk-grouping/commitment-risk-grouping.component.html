@@ -1,0 +1,10 @@
+<div class="group-by-card">
+    <div class="group-by-select">
+        <aux-select
+            [label]="GROUPING_LABEL"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="groupingSelectOptions"
+            (selectionChanged)="updateGrouping($event)">
+        </aux-select>
+    </div>
+</div>

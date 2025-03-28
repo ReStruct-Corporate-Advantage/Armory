@@ -1,0 +1,26 @@
+//// remove all drill down indication on x-axis
+.highcharts-drilldown-axis-label {
+    cursor: pointer;
+    font-family: inherit;
+    align-items: center;
+    color: var(--primary-link__color);
+    fill: var(--primary-link__color) !important;
+    text-decoration: none !important;
+
+    tspan:hover {
+        color: var(--primary__background-color_hover);
+        fill: var(--primary__background-color_hover);
+        text-decoration: underline;
+    }
+}
+
+// removes the lines connecting the points in a line chart to mimic a "Marker" series
+.lineChart .highcharts-graph {
+    stroke-width: 0;
+}
+
+// add black/white outline to each point in the marker series
+.lineChart .highcharts-point {
+    stroke: var(--primary__color) !important;
+    stroke-width: 1px;
+}

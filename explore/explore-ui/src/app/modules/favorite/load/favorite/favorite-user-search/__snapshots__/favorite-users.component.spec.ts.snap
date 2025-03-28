@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteUserSearchComponent should create 1`] = `
+<div
+  class="favorite-user-search-area"
+>
+  <aux-type-ahead
+    debouncetime="200"
+    highlightmode="dynamic"
+    placeholder="Search users"
+  />
+</div>
+`;

@@ -1,0 +1,11 @@
+.nested-custom-sector-rule {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.rule-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,8 @@
+<aux-modal [isOpen]="isOpen" [hasGreyContentArea]="true" [type]="'action'" [header]="'Job Scheduler'" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g16--cw-10 aux-layout__wrapper-16 content-padding modal-size-lg job-scheduler-container">
+        <app-main-tabs></app-main-tabs>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="'Close'" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

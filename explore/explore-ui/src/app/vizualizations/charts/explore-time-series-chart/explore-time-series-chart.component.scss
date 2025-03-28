@@ -1,0 +1,11 @@
+// override highcharts styles for marker chart
+.hidden-line .highcharts-series {
+    stroke: transparent !important;
+    fill: transparent !important;
+}
+
+.hidden-line-graph .highcharts-graph {
+    stroke: transparent !important;
+    fill: transparent !important;
+    stroke-width: 0px;
+}

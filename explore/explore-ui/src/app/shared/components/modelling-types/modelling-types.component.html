@@ -1,0 +1,22 @@
+<div class="what-if-model-caption">{{modellingTypeHeader}}</div>
+<div [ngClass]="{'custom-port-flex': useCustomPortStyling}">
+    <ng-container *ngFor="let modelingCategory of modelingCategories | keyvalue: maintainNaturalOrder; let last = last">
+        <div [ngClass]="{'custom-port-padding': useCustomPortStyling}" class="flex-display-column">
+            <div class="modelling-category-caption">{{modelingCategory.key}}</div>
+            <div [ngClass]="{'aux-layout__wrapper-16': !useCustomPortStyling}" class="flex-display-div">
+                <ng-container  *ngFor="let option of modelingCategory.value">
+                    <div [ngClass]="{'modelling-category-div-value-outer aux-container-alternate': true, 'aux-g16--xs-12 aux-g16--sm-6 aux-g16--md-6 aux-g16--xl-4': !useCustomPortStyling, 'flex-take-remaining-space': useCustomPortStyling}">
+                        <div class="modelling-category-div-value" [ngClass]="{'flex-take-remaining-space': useCustomPortStyling}">
+                            <div class="modelling-label">{{modellingLabel[option] ? modellingLabel[option] : ''}}</div>
+                            <div class="modelling-tool-tip">{{modellingDescription[option]}}</div>
+                            <div class="modelling-select">
+                                <aux-button label="Select" type="secondary" (click)="setModellingType(option)"></aux-button>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div *ngIf="!last" class="category-delimiter"></div>
+    </ng-container>
+</div>

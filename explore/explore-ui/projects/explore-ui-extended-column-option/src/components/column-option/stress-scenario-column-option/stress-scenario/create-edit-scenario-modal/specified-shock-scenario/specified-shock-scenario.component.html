@@ -1,0 +1,49 @@
+
+<div class="set-margin-bottom">
+    <explore-extended-column-option-dxs-factor-unit [shockScenario]="scenario.specifiedShockScenario">
+    </explore-extended-column-option-dxs-factor-unit>
+</div>
+
+<aux-card [borderPadding]="16">
+    <div class="aux-bold">Shocks</div>
+    <div class="scenario-card-content">
+        <ng-container *ngIf="!isLoading; else errorLoadingFactors">
+            <div class="shock-table set-margin-top">
+                <div class="component-hw-100 explore-search">
+                    <aux-grid class="explore-table" [fontSize]="'normal'"
+                              [paddingSize]="'normal'"
+                              [gridOptions]="gridOptions"
+                              [overrides]="{ isZebra: false}">
+                    </aux-grid>
+                </div>
+            </div>
+            <div class="learn-about-section set-margin-top">
+                <aux-accordion isFreeMode="false" activeTabIndex="0">
+                    <aux-accordion-expansion-panel header="Learn about Inflation">
+                        <div class="accordion-font" slot="content">
+                            Factor levels are expressed as a spread of real minus nominal rates. This means that, when inflation is positive, the inflation factor level spread is negative. So, when applying a negative shock to inflation factors, it indicates that inflation is increasing. Moreover, these inflation spreads are anti-correlated with nominal rates, meaning that as nominal rates increase, the overall inflation spread that represents the levels of these factors become more negative.
+                        </div>
+                    </aux-accordion-expansion-panel>
+                    <aux-accordion-expansion-panel header="Learn about DxS spreads">
+                        <div class="accordion-font" slot="content">
+                            Shocks can be expressed as spread based (A-B) or as relative percentage of spread based ((A-B)/B). By toggling this radio button, the interpretation of the shock value updates accordingly. So, for the spread option, a value of 50 would increase spreads by 50 bps, while, for the relative percentage of spread option, a value of 50 would increase spreads by 50%. If the starting point for the spread level is 50 bps, then the former would produce a final level of 100 bps, while the latter would produce a final level of 75 bps.
+                        </div>
+                    </aux-accordion-expansion-panel>
+                    <aux-accordion-expansion-panel header="Learn about FX">
+                        <div class="accordion-font" slot="content">
+                            FX are given as indirect quotes based in USD. An increasing FX rate implies the dollar strengthening since it would cost more foreign currency to buy each unit of USD. Let's consider an example in which the GBP/USD rate is shocked from 0.7 to 0.8. To achieve this, the stress shock applied would be -12.5%, derived from 100 * (0.7 / 0.8 - 1). This shock thus refers to the value of the GBP itself, meaning that the value of GBP relative to USD is decreasing by 12.5%, indicating that this is a scenario in which USD is getting stronger.
+                        </div>
+                    </aux-accordion-expansion-panel>
+                </aux-accordion>
+            </div>
+        </ng-container>
+    </div>
+</aux-card>
+
+<ng-template #errorLoadingFactors>
+    <div class="shock-table set-margin-top" [style.margin-right]="0">
+        <aux-notification notificationStyle="error"
+                          [message]="errorMessage">
+        </aux-notification>
+    </div>
+</ng-template>

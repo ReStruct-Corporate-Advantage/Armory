@@ -1,0 +1,168 @@
+{
+  "scheduledJobs": [
+    {
+      "id": 1,
+      "name": "Job Name",
+      "status": "in_progress",
+      "runStart": "01/01/2000 08:00:00",
+      "exportType": "CSV",
+      "widgets": 20,
+      "portfolios": 40
+    },
+    {
+      "id": 2,
+      "name": "Job Name",
+      "status": "in_progress",
+      "runStart": "01/01/2000 08:00:00",
+      "exportType": "XLS",
+      "widgets": 20,
+      "portfolios": 40
+    },
+    {
+      "id": 3,
+      "name": "Job Name",
+      "status": "success",
+      "runStart": "01/01/2000 08:00:00",
+      "exportType": "CSV",
+      "widgets": 20,
+      "portfolios": 40
+    },
+    {
+      "id": 4,
+      "name": "Job Name",
+      "status": "success",
+      "runStart": "01/01/2000 08:00:00",
+      "exportType": "CSV",
+      "widgets": 20,
+      "portfolios": 40
+    }
+  ],
+  "portfolioTableData": [
+    {
+      "portfolio": {
+        "configType": "portfolio",
+        "ticker": "PEP",
+        "portId": "PEP5c6c61fb5810408",
+        "cusip": "BRS2LPG42",
+        "currency": "USD",
+        "benchmark": {
+          "type": "RISK",
+          "order": 1,
+          "name": "MSAC_APACN"
+        },
+        "datePicker": {
+          "calCode": "GP_HK_STD",
+          "dateString": true,
+          "dateStringValue": "T-4"
+        },
+        "expostSettings": {
+          "samplingPeriod": {
+            "numberOfPeriods": 1,
+            "shortName": "Months",
+            "timePeriodName": "1 Month"
+          },
+          "statisticPeriods": [
+            {
+              "numberOfPeriods": 1,
+              "shortName": "Years",
+              "timePeriodName": "1 Year"
+            }
+          ],
+          "isNetReturns": false,
+          "isLogNormal": false,
+          "categoryBreakdown": true
+        },
+        "portfolioRiskSettings": {
+          "advancedRiskSettings": {
+            "riskMatrix": 1
+          },
+          "configType": "riskSettings"
+        },
+        "lookthroughSettings": {
+          "isLookThroughEnabled": false,
+          "isBenchLookThroughEnabled": false,
+          "ltSecurityTypes": "FUND,ETF,FUTURE_INDEX",
+          "ltProxies": "RISK_PROXY",
+          "ltFilterRulesFav": {
+            "lastUpdatedBy": "tushshar",
+            "dateLastUpdated": "11/05/2024 00:38 IST"
+          }
+        },
+        "splitPositionTypes": "XC,XF,XH,XS,SW,O,ST",
+        "positionModeSettings": {
+          "positionMode": "AS_OF_W"
+        },
+        "factorAttributionSettings": {
+          "factorAttributionType": "EQ_MANDATE"
+        },
+        "decisionLevelsConfig": {}
+      },
+      "runAs": 1,
+      "actionButton": {
+        "type": "delete",
+        "state": "non-action"
+      }
+    },
+    {
+      "portfolio": {
+        "configType": "portfolio",
+        "ticker": "LEH_AGG",
+        "portId": "LEH_AGGb1dd63642e364d1",
+        "cusip": "B00091676",
+        "currency": "USD",
+        "benchmark": {
+          "type": "RISK",
+          "order": 1,
+          "name": "LAGGFWD"
+        },
+        "datePicker": {
+          "calCode": "INDEX_ALL_Calendar",
+          "dateString": false,
+          "date": "09/04/2018"
+        },
+        "expostSettings": {
+          "samplingPeriod": {
+            "numberOfPeriods": 1,
+            "shortName": "Months",
+            "timePeriodName": "1 Month"
+          },
+          "statisticPeriods": [
+            {
+              "numberOfPeriods": 1,
+              "shortName": "Years",
+              "timePeriodName": "1 Year"
+            }
+          ],
+          "isNetReturns": false,
+          "isLogNormal": false,
+          "categoryBreakdown": true
+        },
+        "portfolioRiskSettings": {
+          "advancedRiskSettings": {
+            "riskMatrix": 1
+          },
+          "configType": "riskSettings"
+        },
+        "lookthroughSettings": {
+          "isLookThroughEnabled": false,
+          "isBenchLookThroughEnabled": false,
+          "ltSecurityTypes": "FUND,ETF,FUTURE_INDEX",
+          "ltProxies": "RISK_PROXY",
+          "ltFilterRulesFav": {
+            "lastUpdatedBy": "tushshar",
+            "dateLastUpdated": "11/05/2024 01:38 IST"
+          }
+        },
+        "splitPositionTypes": "XC,XF,XH,XS,SW,O,ST",
+        "positionModeSettings": {
+          "positionMode": "AS_OF_W"
+        },
+        "factorAttributionSettings": {
+          "factorAttributionType": "BAL_MANDATE"
+        },
+        "decisionLevelsConfig": {}
+      },
+      "runAs": 1
+    }
+  ]
+}

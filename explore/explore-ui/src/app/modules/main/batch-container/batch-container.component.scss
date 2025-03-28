@@ -1,0 +1,16 @@
+:host ::ng-deep .explore-table .ag-theme-apgux-xsmall .ag-root {
+    .ag-body-viewport {
+        overflow-y: hidden;  // remove vertical scrollbar from all table widgets in PDF export
+    }
+
+    .ag-body-horizontal-scroll {
+        display: none  // hide horizontal scroll container from all table widgets in PDF export
+    }
+}
+
+.dummy-aux-widget {
+    visibility: hidden;
+    position: absolute;
+    height: 0px;
+    width: 0px;
+}

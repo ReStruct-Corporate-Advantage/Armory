@@ -1,0 +1,76 @@
+<aux-modal [isOpen]="isOpen"
+           [hasCustomFooter]="true"
+           [hasGreyContentArea]="true"
+           [type]="'action'"
+           [header]="'Batch Report Settings'">
+
+    <div slot="content" class="modal-size-xl batch-settings-container">
+        <app-batch-settings (createNewBatchReportHandler)="createNewBatchReport()" [enableScheduledBatch]="enableScheduledBatch">
+        </app-batch-settings>
+    </div>
+
+    <div slot="custom-footer" class="batch-settings-modal-footer">
+        <div class="batch-settings-file-options">
+            <div class="batch-settings-file-name">
+                <div class="text-input-width">
+                    Export file name
+                    <aux-tooltip class="help-tooltip">
+                        <aux-icon slot="target" type="help" state="primary"></aux-icon>
+                        <div slot="content">
+                                The following fields can be used as dynamic variable names. <br>
+                                These can be added to the export name (brackets should be included and upper case text is required) : <br>
+                                [PORTFOLIO], [DATE], [REPORT], [BENCH], [CURRENCY]
+                        </div>
+                    </aux-tooltip>
+                </div>
+                <aux-text-input placeholder="[PORTFOLIO] [DATE] [REPORT]"
+                                [value] = "batchReportConfig?.fileName"
+                                class="batch-settings-file-options-text-input"
+                                size="small"
+                                (valueChanged)="onFileNameChanged($event)">
+                </aux-text-input>
+            </div>
+            <div class="batch-settings-download-directory" *ngIf="isDirectoryVisible()">
+                <div class="text-input-width">
+                    Export download directory
+                    <aux-tooltip class="help-tooltip">
+                        <aux-icon slot="target" type="help" state="primary"></aux-icon>
+                        <div slot="content">
+                            Specify the download directory to download Excel files.<br>
+                            <br>
+                            In order to download the files:<br>
+                            - ensure Genie is started<br>
+                            - configure Batch Row(s)<br>
+                            - click the "Run" button<br>
+                            <br>
+                            If the directory is left blank, Excel files will be downloaded into the browser's default directory.<br>
+                            (PDF files will always be downloaded into the browser's default directory)
+                        </div>
+                    </aux-tooltip>
+                </div>
+                <aux-text-input slot="target"
+                                class="batch-settings-file-options-text-input"
+                                size="small"
+                                [value]="batchReportConfig?.downloadDirectory"
+                                (valueChanged)="onDownloadDirectoryChanged($event)">
+                </aux-text-input>
+            </div>
+            <div class="batch-settings-merge-in-one-file text-input-width">
+                <aux-checkbox label="Merge in one file"
+                              class="batch-settings-file-options-checkbox"
+                              [isChecked]="batchReportConfig.mergeInOneFile"
+                              (checkboxChanged)="onMergeInOneFileChanged($event)"></aux-checkbox>
+            </div>
+        </div>
+        <aux-button type="secondary" label="Launch file downloader" (click)="launchFileDownloader()" class="batch-settings-modal-button" *ngIf="isFileDownloaderVisible()"></aux-button>
+        <aux-button type="secondary" label="Schedule" (click)="openBatchSchedulerModal()" class="batch-settings-modal-button" [isDisabled]="!batchReportConfig.id" *ngIf="enableScheduledBatch"></aux-button>
+        <aux-button label="Run" (click)="runBatchRequest($event)" class="batch-settings-modal-button" [isDisabled]="getDisableBatchRun() || batchSettingsComponent?.isPortfolioDownloadInProgress()" *ngIf="!downloadInProgress"></aux-button>
+        <aux-button label="Cancel" (click)="cancelBatch($event)" class="batch-settings-modal-button" *ngIf="downloadInProgress"></aux-button>
+        <aux-button type="secondary" label="Close" (click)="closeModal()" class="batch-settings-modal-button"></aux-button>
+    </div>
+</aux-modal>
+
+<ng-container *ngIf="isBatchSchedulerModalOpen">
+    <app-batch-scheduler-modal [isOpen]="isBatchSchedulerModalOpen"
+                               (modalClosed)="closeBatchSchedulerModal()"></app-batch-scheduler-modal>
+</ng-container>

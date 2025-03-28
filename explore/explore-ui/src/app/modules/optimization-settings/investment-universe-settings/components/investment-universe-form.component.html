@@ -1,0 +1,71 @@
+<ng-container [formGroup]="parent">
+    <div
+        [ngClass]="{'aux-layout__wrapper-32': true, 'security-margin': investmentUniverseSetting.type === 'Security', 'container': investmentUniverseSetting.type === 'Portfolio'}">
+        <div class="add-universe-check">
+            <aux-checkbox
+                [data]="universeCheckData"
+                [isChecked]="investmentUniverseSetting.enabled"
+                (checkboxChanged)="onEnableUniverseItem($event)">
+            </aux-checkbox>
+        </div>
+        <div
+            class="aux-layout__wrapper-32 aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12 content-container">
+            <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2">
+                <aux-select
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="selectData"
+                    (selectionChanged)="onUniverseTypeChange($event)">
+                </aux-select>
+            </div>
+            <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                <ng-container *ngIf="investmentUniverseSetting.type === 'Portfolio'; else securitySearch">
+                    <blk-portfolio-search #portSearchComp
+                                          (emitPortfolioSearchItem)="onPortfolioSelected($event)"
+                                          (emitSearchValueChange)="onPortfolioSelectedTypeahead($event)"
+                                          [portfolioSearchService]="portfolioSearchService"
+                                          [searchPlaceholder]="'Search'"
+                                          searchType="regular"
+                                          [clearOnAdd]="false"
+                                          [isAddBtnHidden]="true"
+                                          (emitPortfolioForTracking)="trackPortfolioTelemetry($event)">
+                    </blk-portfolio-search>
+                </ng-container>
+            </div>
+            <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                <ng-container *ngIf="investmentUniverseSetting.type === 'Portfolio'">
+                    <app-constraint-option-filter [portFilter]="investmentUniverseSetting['filter']"
+                                                  (portFilterUpdated)="onFilterUpdate($event)"></app-constraint-option-filter>
+                </ng-container>
+            </div>
+            <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                <aux-text-input
+                    [value]="investmentUniverseSetting.label"
+                    (valueChanged)="onUniverseItemTextChange($event)">
+                </aux-text-input>
+            </div>
+        </div>
+        <div class="remove-universe">
+            <aux-button (click)="removeItem.emit(index)"
+                      type="tertiary-subtle" icon="delete-small">
+            </aux-button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #securitySearch>
+    <aux-text *ngIf="investmentUniverseSetting.securities.length > 0">
+        {{investmentUniverseSetting.securities.length}} Securities
+    </aux-text>
+    <aux-button
+        label="Add/Upload Securities"
+        (click)="launchSecuritySearchModal()">
+    </aux-button>
+</ng-template>
+
+<ng-container *ngIf="isSecuritySearchModalOpened">
+    <app-security-search-modal
+        [isOpen]="true"
+        [investmentUniverseSetting]="investmentUniverseSetting"
+        (securityModalClosed)="onSecuritySearchModalClosed()">
+    </app-security-search-modal>
+</ng-container>

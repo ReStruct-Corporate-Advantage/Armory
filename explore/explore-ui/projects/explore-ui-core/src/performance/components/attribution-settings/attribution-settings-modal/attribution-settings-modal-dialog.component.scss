@@ -1,0 +1,30 @@
+.widget-settings-modal-container {
+    padding: 2rem;
+    height: 50vh;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-header {
+    display: flex;
+    padding: 1rem 2rem 1.25rem;
+    align-items: baseline;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: var(--primary-text__color);
+
+    .title-padding {
+        padding-right: 1rem
+    }
+}
+
+.factor-list {
+    flex: 1;
+    width: 100%;
+}
+
+.text-info {
+    color: dimgrey;
+    margin-bottom: 16px;
+}

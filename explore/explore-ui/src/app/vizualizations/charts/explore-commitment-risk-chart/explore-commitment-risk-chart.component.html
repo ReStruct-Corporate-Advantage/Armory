@@ -1,0 +1,25 @@
+<div class="chart--container">
+    <highcharts-chart
+        *ngIf="qbstrOptions"
+        #widgetRender
+        class="legacy-styles"
+        [ngClass]="widgetSpecificData.scenario ? 'chart-size_custom_legend' : 'chart-size_full'"
+        [options]="qbstrOptions"
+        [Highcharts]="hc">
+    </highcharts-chart>
+    <highcharts-chart
+        *ngIf="qbstrOptions2"
+        #widgetRender
+        class="legacy-styles"
+        [ngClass]="widgetSpecificData.scenario ? 'chart-size_custom_legend' : 'chart-size_full'"
+        [options]="qbstrOptions2"
+        [Highcharts]="hc">
+    </highcharts-chart>
+
+    <ng-container *ngIf="widgetSpecificData.scenario">
+        <app-commitment-risk-chart-scenario-legend [scenarioName]="widgetSpecificData.scenario"
+                                                   [legendSettings]="legendSettings"
+                                                   (scenarioLegendUpdated)="updateChartFromLegendChange()">
+        </app-commitment-risk-chart-scenario-legend>
+    </ng-container>
+</div>

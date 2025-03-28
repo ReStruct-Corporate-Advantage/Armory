@@ -1,0 +1,67 @@
+<div class="breakdown-sector-selector-container">
+    <div class="breakdown-sector-selector-header">
+        <span>Sectors</span>
+        <aux-link label="New custom sector" (click)="onNewCustomSectorClick($event)"
+                  [isDisabled]="isDisabled"></aux-link>
+    </div>
+    <div class="breakdown-sector-selector-tree-container">
+        <div class="search-field-container">
+            <aux-search-field
+                (searchValueChanged)="sectorSearchValueChanged($event)"
+                [isDisabled]="isDisabled"
+            ></aux-search-field>
+        </div>
+        <div class="breakdown-sector-selector-tree">
+            <aux-accordion
+                [isFreeMode]="true"
+                [isBorderLess]="true"
+                [collapseAll]="isDisabled"
+                size="standard"
+                [customStyle]="accordionCustomStyle">
+                <aux-accordion-expansion-panel
+                    header="Individual Measures"
+                    [isDisabled]="isDisabled"
+                    [isExpanded]="isExpanded">
+                    <div class="accordion-font accordion-custom" slot="content">
+                        <app-breakdown-sector-tree [searchTermSubject$]="searchTermSubject$"
+                                                   [sectorTreeData]="individualMeasuresSelections"
+                                                   [selectedNodeSubject$]="selectedNodeSubject$"
+                                                   [isDisabled]="isDisabled"
+                                                   [draggedNodeSubject$]="draggedNodeSubject$"
+                                                   [addSectorSubject$]="addSectorSubject$">
+                        </app-breakdown-sector-tree>
+                    </div>
+                </aux-accordion-expansion-panel>
+                <aux-accordion-expansion-panel
+                    *ngIf="showCommonHierarchiesSelections"
+                    header="Common Hierarchies"
+                    [isDisabled]="isDisabled"
+                    [isExpanded]="isExpanded">
+                    <div class="accordion-font accordion-custom" slot="content">
+                        <app-breakdown-sector-tree [searchTermSubject$]="searchTermSubject$"
+                                                   [sectorTreeData]="commonHierarchiesSelections"
+                                                   [selectedNodeSubject$]="selectedNodeSubject$"
+                                                   [isDisabled]="isDisabled"
+                                                   [draggedNodeSubject$]="draggedNodeSubject$"
+                                                   [addSectorSubject$]="addSectorSubject$">
+                        </app-breakdown-sector-tree>
+                    </div>
+                </aux-accordion-expansion-panel>
+                <aux-accordion-expansion-panel
+                    header="Custom Sectors"
+                    [isDisabled]="isDisabled"
+                    [isExpanded]="isExpanded">
+                    <div class="accordion-font accordion-custom" slot="content">
+                        <app-breakdown-custom-sector-selector [searchTermSubject$]="searchTermSubject$"
+                                                              [selectedNodeSubject$]="selectedNodeSubject$"
+                                                              [isDisabled]="isDisabled"
+                                                              [draggedNodeSubject$]="draggedNodeSubject$"
+                                                              [addSectorSubject$]="addSectorSubject$"
+                                                              [breakdownBuilderSettings]="breakdownBuilderSettings">
+                        </app-breakdown-custom-sector-selector>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </aux-accordion>
+        </div>
+    </div>
+</div>

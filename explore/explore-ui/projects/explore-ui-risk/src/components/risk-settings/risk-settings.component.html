@@ -1,0 +1,109 @@
+<ng-container *ngIf="!calledFromFactorDataWidget; else showFactorDataWidgetEconomyRiskSettings">
+    <div class="risk-settings" #riskSettingsContainer>
+        <div class="risk-settings-div">
+            <aux-accordion [isBorderLess]="false" [isFreeMode]="true" [expandAll]="true">
+                <aux-accordion-expansion-panel header="Risk">
+                    <div class="accordion-font" slot="content">
+                        <div class="aux-layout__wrapper-32">
+                            <div class='aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12'>
+                                <div class="risk-settings-menu">
+                                    <div class="risk-settings-menu-button">
+                                        <aux-button label="Undo Changes"
+                                                    icon="undo"
+                                                    type="tertiary"
+                                                    [isDisabled]="!isRiskSettingChanged"
+                                                    (click)="resetRiskSettings()">
+                                        </aux-button>
+                                    </div>
+                                    <div class="risk-settings-menu-nav">
+                                        <aux-menu-nav label="Advanced Settings"
+                                                      icon="settings"
+                                                      (optionClicked)="openAdvancedRiskSettingsModal()">
+                                        </aux-menu-nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="aux-g32--xs-6 aux-g32--sm-6 aux-g32--md-6 aux-g32--lg-6 aux-g32--xl-6">
+                                <div class="div-1" [ngStyle]="{'margin-top': isScreenSmall? '0': '-40px'}">
+                                    <div *ngIf="dependsOnExposure">
+                                        <explore-risk-exposure-risk-settings #exposureRiskSettingsComponent
+                                                                             [exposureRiskSettings]="riskSettings.exposureRiskSettings"
+                                                                             (updateRiskSettingFlag)="updateRiskSettingFlag()">
+                                        </explore-risk-exposure-risk-settings>
+                                    </div>
+                                    <div *ngIf="dependsOnEconomy">
+                                        <explore-risk-economy-risk-settings #economyRiskSettingsComponent
+                                                                            [economyRiskSettings]="riskSettings.economyRiskSettings"
+                                                                            (updateRiskSettingFlag)="updateRiskSettingFlag()">
+                                        </explore-risk-economy-risk-settings>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aux-accordion-expansion-panel>
+                <aux-accordion-expansion-panel header="Historical VaR" *ngIf="showHVARSettings">
+                    <div class="accordion-font" slot="content">
+                        <div class="aux-layout__wrapper-32">
+                            <div class='aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12'>
+                                <explore-risk-hvar-risk-settings-component
+                                    [hvarRiskSettingsModel]="riskSettings.hvarRiskSettings"
+                                    (updateRiskSettingFlag)="updateRiskSettingFlag()">
+                                </explore-risk-hvar-risk-settings-component>
+                            </div>
+                        </div>
+                    </div>
+                </aux-accordion-expansion-panel>
+                <aux-accordion-expansion-panel header="Historical VaR" *ngIf="showTrimmedHVARSettings">
+                    <div class="accordion-font" slot="content">
+                        <div class="aux-layout__wrapper-32">
+                            <div class='aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12'>
+                                <explore-risk-hvar-risk-settings-trimmed-component
+                                    [hvarRiskSettingsModel]="riskSettings.hvarRiskSettings"
+                                    (updateRiskSettingFlag)="updateRiskSettingFlag()">
+                                </explore-risk-hvar-risk-settings-trimmed-component>
+                            </div>
+                        </div>
+                    </div>
+                </aux-accordion-expansion-panel>
+                <aux-accordion-expansion-panel header="Monte Carlo VaR" *ngIf="showMCVARSettings">
+                    <div class="accordion-font" slot="content">
+                        <explore-risk-mcvar-risk-settings
+                            [riskSettingsModel]="riskSettings"
+                            [isRiskSettingChanged$]="isRiskSettingChanged$"
+                            [widgetType]="widgetType"
+                            (updateRiskSettingFlag)="updateRiskSettingFlag()">
+                        </explore-risk-mcvar-risk-settings>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </aux-accordion>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isAdvancedRiskSettingsModalOpen">
+    <explore-risk-advanced-risk-settings-modal [isOpen]="isAdvancedRiskSettingsModalOpen"
+                                      (modalClosed)="closeAdvancedRiskSettingsModal()"
+                                      [advancedRiskSettingsInput]="riskSettings.advancedRiskSettings"
+                                      [isSourceVisible]="true"
+                                      (updateAdvancedRiskSettingsEvent)="updateAdvancedRiskSettings($event)"
+                                      (updateRiskSettingFlag)="updateRiskSettingFlag()"
+                                       [positionModeSettingsInput]="positionModeSettings"
+                                       [showPositionModes]="showPositionModes"
+                                       [showFilterScalingOptions]="showFilterScalingOptions"
+                                       (updatePositionModeSettingsEvent)="updatePositionModeSettings($event)">
+    </explore-risk-advanced-risk-settings-modal>
+</ng-container>
+
+<ng-template #showFactorDataWidgetEconomyRiskSettings>
+    <div class="layout-factor-economy-settings {{classNamePaddingFactorSettings}}" #riskSettingsContainer>
+        <explore-risk-factor-data-widget-economy-risk-settings #economyRiskSettingsComponent
+                                                               [economyRiskSettings]="riskSettings.economyRiskSettings"
+                                                               (updateRiskSettingFlag)="updateRiskSettingFlag()"
+                                                               [hideEconomyDate]="hideEconomyDate"
+                                                               [isColumnOption]="isColumnOption"
+                                                               [isRiskSettingChanged$]="isRiskSettingChanged$"
+                                                               (resetRiskSettings$)="resetRiskSettings()">
+        </explore-risk-factor-data-widget-economy-risk-settings>
+    </div>
+</ng-template>

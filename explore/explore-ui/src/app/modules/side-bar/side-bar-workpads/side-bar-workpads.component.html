@@ -1,0 +1,16 @@
+<div class="side-bar-workpads-container">
+    <ng-container *ngFor="let workpad of workspace?.workpads">
+        <app-side-bar-report-group *ngIf="isReportGroup(workpad)"
+                                   [reportGroup]="asReportGroup(workpad)">
+        </app-side-bar-report-group>
+
+        <ng-container *ngIf="isFlatWorkpad(workpad)">
+            <app-side-bar-portfolio (emitPortfolioDeleted)="deleteWorkpad(workpad)"
+                                    (emitPortfolioSelected)="flatWorkpadSelected(workpad)"
+                                    *ngFor="let portfolio of workpad.getAllPortfolios()"
+                                    [portfolio]="portfolio"
+                                    [parentWorkpad]="workpad">
+            </app-side-bar-portfolio>
+        </ng-container>
+    </ng-container>
+</div>

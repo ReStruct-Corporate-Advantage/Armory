@@ -1,0 +1,28 @@
+<div class="commitment-risk-legend">
+    <div class="scenario-selection--container scenario-selection--padding">
+        <span class="aux-bold aux-p13 scenario-selection--title">Scenario:</span>
+        <div class="scenario-option">
+            <aux-checkbox id="baseScenarioCheckbox"
+                          [isChecked]="legendSettings?.showBaseScenario"
+                          (checkboxChanged)="toggleBaseScenario()">
+            </aux-checkbox>
+            <div class="legend-icon--container">
+                <div class="circle-with-line--blue"></div>
+            </div>
+            <span>Base</span>
+        </div>
+        <div class="scenario-option scenario-option--padding">
+            <aux-checkbox id="stressScenarioCheckbox"
+                          [isChecked]="legendSettings?.showStressScenario"
+                          (checkboxChanged)="toggleStressScenario()">
+            </aux-checkbox>
+            <div class="legend-icon--container">
+                <div class="circle-with-line--yellow"></div>
+            </div>
+            <span>{{scenarioName}}</span>
+        </div>
+    </div>
+    <div>
+        <aux-radio-group [label]="'Percentile:'" [data]="percentileRanges" (radioGroupChanged)="onPercentileRangeChanged($event)"></aux-radio-group>
+    </div>
+</div>

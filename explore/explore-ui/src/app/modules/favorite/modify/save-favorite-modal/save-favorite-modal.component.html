@@ -1,0 +1,85 @@
+<aux-modal [isOpen]="isOpen" class="save-favorite-modal-area" type="action" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <div slot="custom-header" class="custom-header">
+        <span class="header-title">Save {{favDisplayName}}</span>
+    </div>
+    <div slot="content">
+        <div class="container aux-g16--cw-4" *ngIf="(selectedUser$ | async) as selectedUser">
+            <div class="save-favorite-contents contents-height">
+                <div class="save-favorite-item">
+                    <aux-text-input placeholder="{{favDisplayName | favoriteTitle: 'Title'}}"
+                                    [label]="'Title'"
+                                    [value]="favoriteTitle"
+                                    (formValueChanged)="updateFavoriteTitle($event)"
+                                    [maxLength]="30">
+                    </aux-text-input>
+                </div>
+
+                <ng-container *ngIf="!defaultToPersonal">
+                    <div class="save-favorite-item">
+                        <aux-select [label]="'Type'"
+                                    [hasInitialOptionPlaceholder]="false"
+                                    (selectionChanged)="updateFavoriteOwner($event)"
+                                    [data]="favoriteOwnerOption">
+                        </aux-select>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="selectedUser === CoreFavoriteConstants.ADMIN">
+                    <div class="save-favorite-item">
+                        <app-favorite-permission-group [selectedPermissionGroups]="selectedPermissionsGroups"
+                                                       (permissionGroupsChanged)="onPermissionsGroupSelected($event)"></app-favorite-permission-group>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="isDescriptionSupported(selectedUser)">
+                    <div class="save-favorite-item">
+                        <aux-text-input #favoriteDescriptionTextInput
+                                        [label]="'Description'"
+                                        [placeholder]="'140 characters max'"
+                                        [value]="configToSave.enterpriseDescription"
+                                        (valueChanged)="updateFavoriteDescription($event)"
+                                        [maxLength]="140">
+                        </aux-text-input>
+                    </div>
+                </ng-container>
+
+                <ng-container *ngIf="favType">
+                    <app-favorite-tree-save-mode [configToSave]="configToSave"
+                                                 [favType]="favType"
+                                                 [favTreeType]="favTreeType"
+                                                 [favDisplayName]="favDisplayName"
+                                                 [favoriteTreeOwner$]="selectedUser$"
+                                                 [updateFavoriteTreeStructure$]="updateFavoriteTreeStructure$"
+                                                 [selectedFavoriteNode$]="selectedFavoriteNode$"
+                                                 (folderTreeLoaded)="onFolderTreeLoaded($event)">
+                    </app-favorite-tree-save-mode>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div slot="custom-footer" class="custom-footer">
+        <aux-button class="btn"
+                    [type]="'secondary'"
+                    [label]="BUTTON_TEXT.CLOSE"
+                    (click)="cancelModal()">
+        </aux-button>
+
+        <aux-button *ngIf="showSaveAsButton"
+                    class="btn"
+                    [label]="BUTTON_TEXT.SAVE_AS"
+                    [isDisabled]="isSaveAsButtonDisabled"
+                    (click)="onSaveButtonClicked(true)">
+        </aux-button>
+
+        <aux-button *ngIf="showSaveButton"
+                    class="btn"
+                    [label]="BUTTON_TEXT.SAVE"
+                    [isDisabled]="isSaveButtonDisabled"
+                    (click)="onSaveButtonClicked()">
+        </aux-button>
+    </div>
+</aux-modal>
+<ng-container *ngIf="isSaveSummaryOpen">
+    <app-single-layer-save-summary-modal [isOpen]='true' [saveSummary]="saveSummary" [favType]="favDisplayName" (modalClosed)="closeSaveSummaryDialog($event)"></app-single-layer-save-summary-modal>
+</ng-container>

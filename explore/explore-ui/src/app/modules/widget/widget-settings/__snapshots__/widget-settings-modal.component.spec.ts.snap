@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WidgetSettingsModalComponent widget preview tests should hide preview when toggled off 1`] = `
+<div
+  class="modal-size-xl widget-settings-modal-container"
+  slot="content"
+>
+  <div
+    class="setting-tab-container"
+  >
+    <aux-tab-bar
+      class="setting-tab-bar"
+      tabtype="modern"
+    />
+    <div
+      class="tab-content--fixed-height"
+    >
+      <div
+        class="tab-content--overflow"
+      >
+        <div
+          class="widget-settings-container"
+        >
+          <div
+            class="widget-setting-header"
+          >
+            
+          </div>
+          
+          <app-widget-setting
+            class="widget-setting"
+          />
+          
+          
+          
+          
+          
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+`;
+
+exports[`WidgetSettingsModalComponent widget preview tests should show preview widget when toggled on 1`] = `
+<div
+  class="modal-size-xl widget-settings-modal-container"
+  slot="content"
+>
+  <div
+    class="setting-tab-container"
+  >
+    <aux-tab-bar
+      class="setting-tab-bar"
+      tabtype="modern"
+    />
+    <div
+      class="tab-content--fixed-height"
+    >
+      <div
+        class="tab-content--overflow"
+      >
+        <div
+          class="widget-settings-container"
+        >
+          <div
+            class="widget-setting-header"
+          >
+            
+          </div>
+          
+          <app-widget-setting
+            class="widget-setting"
+          />
+          
+          
+          
+          
+          
+          
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div>
+    </div>
+  </div>
+  
+</div>
+`;

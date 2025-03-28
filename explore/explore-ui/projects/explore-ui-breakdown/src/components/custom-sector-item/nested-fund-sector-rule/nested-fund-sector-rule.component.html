@@ -1,0 +1,13 @@
+<div (dblclick)="editRule()" class="custom-sector-column-rule">
+    <div #ruleTextCont class="rule-text">
+        {{ruleText}}
+    </div>
+    <ng-container *ngIf="checkOverflow(ruleTextCont)">
+        <aux-popover [trigger]="'pressed'" [hasCloseIcon]="true">
+            <a slot="target">...more</a>
+            <div slot="content" class="rule-text-tooltip">{{ ruleText }}</div>
+        </aux-popover>
+    </ng-container>
+</div>
+<ng-template exploreSectorRuleBuilderModal>
+</ng-template>

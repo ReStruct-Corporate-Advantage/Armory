@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteDetailsHeaderComponent should create 1`] = `
+<div
+  class="favorite-details-container"
+>
+  <span>
+    
+    <span
+      class="aux-bold favorite-title"
+    >
+      
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`FavoriteDetailsHeaderComponent should display icon and author for Enterprise breakdowns 1`] = `
+<div
+  class="favorite-details-container"
+>
+  <span>
+    <aux-icon
+      class="favorite-icon"
+    />
+    
+    
+    <span
+      class="aux-bold favorite-title"
+    >
+      Enterprise Breakdown: Favorite Breakdown
+    </span>
+    <span
+      class="favorite-author"
+    >
+      <span
+        class="favorite-author__label"
+      >
+        Owner
+      </span>
+      Enterprise
+    </span>
+    
+    
+  </span>
+</div>
+`;
+
+exports[`FavoriteDetailsHeaderComponent should display icon and author for Team breakdowns 1`] = `
+<div
+  class="favorite-details-container"
+>
+  <span>
+    <aux-icon
+      class="favorite-icon"
+    />
+    
+    
+    <span
+      class="aux-bold favorite-title"
+    >
+      Team Breakdown: Favorite Breakdown
+    </span>
+    <span
+      class="favorite-author"
+    >
+      <span
+        class="favorite-author__label"
+      >
+        Owner
+      </span>
+      teammate01
+    </span>
+    
+    
+  </span>
+</div>
+`;
+
+exports[`FavoriteDetailsHeaderComponent should not display icon or author for personal breakdowns 1`] = `
+<div
+  class="favorite-details-container"
+>
+  <span>
+    
+    <span
+      class="aux-bold favorite-title"
+    >
+      My Breakdown: Favorite Breakdown
+    </span>
+    
+  </span>
+</div>
+`;

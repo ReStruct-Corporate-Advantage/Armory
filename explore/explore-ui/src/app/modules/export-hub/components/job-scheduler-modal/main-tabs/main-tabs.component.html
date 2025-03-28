@@ -1,0 +1,19 @@
+<div class="tab-bar-section">
+    <aux-tab-bar
+        [activeUid]="selectedTab"
+        class="tab-bar"
+        tabType="classic"
+        [data]="allMainTabs"
+        (tabBarItemSelected)="tabBarItemSelected($event)">
+    </aux-tab-bar>
+</div>
+<ng-container *ngIf="selectedTab === JOB_MANAGEMENT">
+    <div class="aux-card-area">
+        <app-job-management></app-job-management>
+    </div>
+</ng-container>
+<ng-container *ngIf="selectedTab === PREVIOUSLY_USED_WIDGETS">
+    <div class="aux-card-area">
+        <p>Previously used widgets Components</p>
+    </div>
+</ng-container>

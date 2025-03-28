@@ -1,0 +1,169 @@
+<div class="left-right-margins">
+    <aux-tab-bar tabType="modern" (tabBarItemSelected)="onTabSelected($event)" [data]="modellingDetailsTabData" [activeUid]="selectedView">
+    </aux-tab-bar>
+    <div class="tab-bar-content--separator"></div>
+</div>
+
+<ng-container *ngIf="selectedView == RULES_VIEW">
+    <ng-container *ngIf="tradeRules && tradeRules.length > 0; else noModellingChanges">
+        <div class="trade-table-div">
+            <div class="trade-table">
+                <app-rule-table [tradeRules]="savableRules" [showNumbering]="true"></app-rule-table>
+            </div>
+            <div class="margin-top-16">
+                <aux-button label="Rule Monitor" type="secondary" (click)="isMonitorOpen = true"></aux-button>
+                <ng-container *ngIf="portfolio.skippedRulesForEachDate.length > 0">
+                    <span style="padding-left: 10px; color: var(--primary-text__color);">{{portfolio.skippedRulesForEachDate.length}} rules has been skipped.</span>
+                </ng-container>
+            </div>
+        </div>
+        <ng-container *ngIf="isMonitorOpen">
+            <app-rule-monitor [portfolio]="portfolio" [isMonitorOpen]="isMonitorOpen" (closeRuleMonitor)="isMonitorOpen = false">
+            </app-rule-monitor>
+        </ng-container>
+    </ng-container>
+    <ng-template #noModellingChanges>
+        <div class="margin-top-16 primary-text-color left-right-margins"> There are no modeling changes on this portfolio.</div>
+    </ng-template>
+    <ng-container *ngIf="portfolio.modellingType !== ModellingType.PORTFOLIO">
+        <div style="max-width: 522px; margin: 48px auto">
+            <label style="font-weight: bold; font-size: 14px; color: var(--primary-text__color);">Browse rules</label>
+            <ng-container *ngIf="tradeRules && tradeRules.length > 0">
+                <aux-button type="tertiary" label="Save Rules" size="large" (click)="openSaveCompositionRuleModal()"></aux-button>
+            </ng-container>
+            <div class="margin-top-16">
+                <app-favorite #compositionRuleTree
+                              [favType]="favType"
+                              [favTreeType]="favTreeType"
+                              [favDisplayName]="favDisplayName"
+                              [loadFavoriteCallBack]="loadSelectedRule">
+                </app-favorite>
+            </div>
+            <ng-container *ngIf="displayedCompositionRule.tradeRules && displayedCompositionRule.tradeRules.length > 0">
+                <ng-container *ngIf="showCompositionRule; else showProgressIndicator">
+                    <div class="trade-table-div">
+                        <h2><span class="primary-text-color">{{displayedCompositionRule.title}}</span></h2>
+                        <div class="trade-table">
+                            <app-rule-table [tradeRules]="displayedCompositionRule.tradeRules"></app-rule-table>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #showProgressIndicator>
+                    <app-loading-spinner size="medium"></app-loading-spinner>
+                </ng-template>
+                <div class="margin-top-16">
+                    <aux-button type="primary" [label]="'Apply this Rule on ' + portfolio.getDisplayTitle()" (click)="applySelectedRule()">
+                    </aux-button>
+                </div>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="selectedView == OPTIMIZATION_SUMMARY_VIEW">
+    <div class="margin-top-16 padding-bottom left-right-margins"><span class="primary-text-color">Investment Universe</span></div>
+    <div class="margin-top-16 left-right-margins"><span class="primary-text-color">Portfolio Asset Count: {{latestOptoRunDetails.portfolioAssetCount}}</span></div>
+    <div class="margin-top-16 left-right-margins"><span class="primary-text-color">Benchmark Asset Count: {{latestOptoRunDetails.benchmarkAssetCount}}</span></div>
+    <div class="margin-top-16 left-right-margins"><span class="primary-text-color">Universe Asset Count: {{latestOptoRunDetails.universeAssetCount}}</span></div>
+    <div class="margin-top-16 padding-bottom left-right-margins"><span class="primary-text-color">Objectives</span></div>
+    <div class="left-right-margins grid">
+        <app-optimization-summary-grid
+            [data] = objectiveSummaryData
+            [columns] = objectiveSummaryColDefs>
+        </app-optimization-summary-grid></div>
+</ng-container>
+
+<ng-container *ngIf="selectedView == EFFICIENT_FRONTIER_VIEW">
+    <div class="left-right-margins grid">
+        <explore-efficient-frontier [basePortfolioName]="portfolio.title"
+                                    [isStressScenarioPortfolioObjective]="isStressScenarioPortfolioObjective()"
+                                    [optoObjectiveType]="getObjectiveType()"
+                                    [latestOptimizationRunDetails]="latestOptimizationRunDetails"
+                                    [showXAxis]="false"
+                                    [selectedYAxis]="getYAxisColumn()"
+                                    [xAxisColumns]="getXAxisColumn()"
+                                    (selectedYAxisValueChanged)="onSelectedYAxisValueChange($event)">
+        </explore-efficient-frontier>
+        <app-efficient-frontier-table [portfolio]="portfolio" (onCloseClicked)="onCloseClicked()" ></app-efficient-frontier-table>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="selectedView == TRADES_VIEW">
+    <div class="margin-top-16 left-right-margins">
+        <span class="primary-text-color">Total trades: {{tradeStats.totalTrades}}</span>
+        <span class="primary-text-color left-right-margins">Turnover: {{tradeStats.turnover * 100}}%</span>
+        <ng-container *ngIf="showExportMenu">
+            <span>
+                    <ng-container *ngIf="exportingInProgress">
+                        <aux-icon style="display: inline-block; float: right" type="loading" state="primary"></aux-icon>
+                    </ng-container>
+                    <app-export-menu style="display: inline-block; float: right" [exportLevel]="exportLevel" [tableData] = "tableData" [outlineData] = "tradeStats" [shouldIncludeBLOOption]="true"></app-export-menu>
+            </span>
+        </ng-container>
+    </div>
+    <div class="trades-heading margin-top-16 left-right-margins">
+        <div><span class="primary-text-color">Total buy trades: </span><span class="ag-theme-apgux-buy-trade-text">{{tradeStats.totalBuy}}</span></div>
+        <div><span class="primary-text-color">Total buy amount: </span><span class="ag-theme-apgux-buy-trade-text">{{tradeStats.totalBuyAmount}}%</span></div>
+        <div><span class="primary-text-color">Total sell trades: </span><span class="ag-theme-apgux-sell-trade-text">{{tradeStats.totalSell}}</span></div>
+        <div><span class="primary-text-color">Total sell amount: </span><span class="ag-theme-apgux-sell-trade-text">{{tradeStats.totalSellAmount}}%</span></div>
+    </div>
+    <div *ngIf="latestOptoRunDetails">
+        <div class="margin-top-16 left-right-margins"><span class="primary-text-color">Transaction Cost</span></div>
+        <div class="trades-heading margin-top-16 left-right-margins">
+            <div><span class="primary-text-color">Tcost of Trades: {{tradeStats.tcostOfTrades}}%</span></div>
+            <div><span class="primary-text-color">Spread Tcost of Trades: {{tradeStats.spreadTcostOfTrades}}%</span>
+            </div>
+            <div><span class="primary-text-color">Market Tcost of Trades: {{tradeStats.marketImpactTcostOfTrades}}
+                %</span>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="tradePayload != null">
+        <div class="trades-table margin-top-16 left-right-margins">
+            <app-explore-table [widgetPayload]="tradePayload"
+                               [defaultLevelExpanded]="[[tradePayload.requestConfig.portfolio]]"
+                               [shouldSizeColumnsToFit]="true">
+            </app-explore-table>
+        </div>
+    </ng-container>
+</ng-container>
+<ng-container *ngIf="selectedView == FEASIBILITY_REPORT_VIEW">
+    <ng-container *ngIf="relaxedConstraints?.length > 0 || otherConstraintColumns?.length > 0;else noRelaxedConstraints">
+    <div>
+        <aux-accordion
+            *ngFor="let optimizationSummary of relaxedConstraints; let i = index;"
+            [isBorderLess]="true"
+            [isFreeMode]="true"
+            [expandAll]="true">
+            <aux-accordion-expansion-panel [header]="optimizationSummary">
+                <div class="accordion-font grid" slot="content">
+                    <app-optimization-summary-grid [data]="feasibilityReportData[i]"
+                    [columns]="feasibilityReportColumns[i]">
+                    </app-optimization-summary-grid>
+                </div>
+            </aux-accordion-expansion-panel>
+        </aux-accordion>
+    </div>
+    <div *ngIf="otherConstraintColumns?.length > 0">
+        <aux-accordion
+            [isBorderLess]="true"
+            [isFreeMode]="true"
+            [expandAll]="true">
+            <aux-accordion-expansion-panel [header]="'Other Constraints'">
+                <div class="accordion-font grid" slot="content">
+                    <app-optimization-summary-grid style="padding-top: 0.5rem"
+                        *ngFor="let otherConstraint of otherConstraintColumns; let i = index;"
+                        [data]="otherConstraintsData[i]"
+                        [columns]="otherConstraintColumns[i]">
+                    </app-optimization-summary-grid>
+                </div>
+            </aux-accordion-expansion-panel>
+        </aux-accordion>
+    </div>
+    </ng-container>
+    <ng-template #noRelaxedConstraints>
+        <div style="padding: 2rem">
+            No constraints were relaxed in running this optimization case.
+        </div>
+    </ng-template>
+</ng-container>

@@ -1,0 +1,24 @@
+.epnl-settings-container {
+    overflow: auto;
+    height: calc(70vh - 138px);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: var(--secondary__background-color);
+    border: .0125rem solid var(--drawer__border-color);
+
+    .epnl-settings-property-container {
+        padding-top: 1.5rem;
+
+        .epnl-settings-property-label {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .epnl-settings-property-container:first-of-type {
+        padding-top: 0rem;
+    }
+
+    .calendar-width {
+        max-width: 300px;
+    }
+}

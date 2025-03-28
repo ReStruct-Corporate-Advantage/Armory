@@ -1,0 +1,9 @@
+<!--Asset type -->
+<div class="asset-type">
+    <aux-radio-group
+        label="Factor Attribution Type"
+        name="inline"
+        [data]="displayFactorAttributionTypes"
+        (radioGroupChanged)="onFactorAttributionTypeChanged($event.detail.value.eventData)">
+    </aux-radio-group>
+</div>

@@ -1,0 +1,339 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "data": [
+                {
+                    "options": [
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Type",
+                                    "defaultValue": {
+                                        "value": "2",
+                                        "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                        "label": "Sum"
+                                    },
+                                    "key": "aggregationType",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                                    "values": [
+                                        {
+                                            "value": 1400,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Market Value/Market Value, null value excluded"
+                                        },
+                                        {
+                                            "value": 2100,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Unique Value"
+                                        },
+                                        {
+                                            "value": 59,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Absolute Notional MV by MV Subtotaller"
+                                        },
+                                        {
+                                            "value": 0,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "None"
+                                        },
+                                        {
+                                            "value": 44,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Wt Avg Hmean"
+                                        },
+                                        {
+                                            "value": 58,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Absolute Notional MV by Portfolio MV Subtotaller"
+                                        },
+                                        {
+                                            "value": 1401,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Delta Notional MV/Delta Notional MV, null value excluded"
+                                        },
+                                        {
+                                            "value": 56,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Market Value Percent Subtotaller"
+                                        },
+                                        {
+                                            "value": 2,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Sum"
+                                        },
+                                        {
+                                            "value": 43,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Median"
+                                        },
+                                        {
+                                            "value": 3,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Spread Duration * Notional/Spread Duration * Notional"
+                                        },
+                                        {
+                                            "value": 4,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Market Value/Market Value"
+                                        },
+                                        {
+                                            "value": 5,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Par Value/Par Value"
+                                        },
+                                        {
+                                            "value": 55,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Absolute MV by MV Subtotaller"
+                                        },
+                                        {
+                                            "value": 205,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Par Value/Par Value, with Title Traded"
+                                        },
+                                        {
+                                            "value": 57,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Absolute MV by Absolute MV Subtotaller"
+                                        },
+                                        {
+                                            "value": 12,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Absolute Sum"
+                                        },
+                                        {
+                                            "value": 14,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Market Value/Market Value, negative, null and 0 values excluded"
+                                        },
+                                        {
+                                            "value": 42,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Min"
+                                        },
+                                        {
+                                            "value": 212,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Sum (only if all port ccy are same as main port ccy)"
+                                        },
+                                        {
+                                            "value": 11,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Notional Market Value/ Market Value, null values excluded"
+                                        },
+                                        {
+                                            "value": 115,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Par Val/Par Val Absolute Weight"
+                                        },
+                                        {
+                                            "value": 211,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Sum (only if all sec ccy are same as main port ccy)"
+                                        },
+                                        {
+                                            "value": 10,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Average"
+                                        },
+                                        {
+                                            "value": 1,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Notional Market Value/Market Value"
+                                        },
+                                        {
+                                            "value": 15,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Par Val/Par Val Ignore Zero"
+                                        },
+                                        {
+                                            "value": 41,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Max"
+                                        },
+                                        {
+                                            "value": 700,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Notional MV Sign Security Subtotaller"
+                                        },
+                                        {
+                                            "value": 2300,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Wt Avg"
+                                        },
+                                        {
+                                            "value": 16,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Harmonic Mean"
+                                        },
+                                        {
+                                            "value": 213,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "Sum (only positive)"
+                                        }
+                                    ],
+                                    "dataType": "S"
+                                }
+                            ],
+                            "columnOptionConfigType": "aggregation",
+                            "columnOptionTitle": "Aggregation",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.AggregationColumnOption",
+                            "columnOptionKey": "aggregation"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Title",
+                                    "key": "title",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "S"
+                                }
+                            ],
+                            "columnOptionConfigType": "customColumnTitle",
+                            "columnOptionTitle": "Display options",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.CustomColumnTitleOption",
+                            "columnOptionKey": "customColumnTitle"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Scaling",
+                                    "key": "scaling",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                                    "dataType": "S"
+                                },
+                                {
+                                    "title": "Decimal Places",
+                                    "key": "decimalPlaces",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "N"
+                                },
+                                {
+                                    "title": "Use Thousands Separator",
+                                    "key": "useThousandsSeparator",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "B"
+                                }
+                            ],
+                            "columnOptionConfigType": "numericColumnFormatColumnOption",
+                            "columnOptionTitle": "Display options",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.NumericFormattingOptions",
+                            "columnOptionKey": "formatAndScaling"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Compare Type",
+                                    "key": "compareType",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "S"
+                                },
+                                {
+                                    "title": "Compare Value",
+                                    "key": "compareValue",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "S"
+                                },
+                                {
+                                    "title": "Highlight Color",
+                                    "key": "highlightColor",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "S"
+                                }
+                            ],
+                            "columnOptionConfigType": "highlight",
+                            "columnOptionTitle": "Conditional formatting",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.HighlightColumnOptions",
+                            "columnOptionKey": "highlight"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Column Breakdown",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                                    "key": "columnBreakdown",
+                                    "dataType": "S",
+                                    "values": [
+                                        {
+                                            "value": true,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "hasSectorBreakdown"
+                                        },
+                                        {
+                                            "value": false,
+                                            "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeValue",
+                                            "label": "hasFactorBreakdown"
+                                        }
+                                    ]
+                                }
+                            ],
+                            "columnOptionConfigType": "columnBreakdown",
+                            "columnOptionTitle": "Column-level breakdown",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.ColumnBreakdownOptions",
+                            "columnOptionKey": "columnBreakdown"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Date",
+                                    "key": "overrideDate",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                                    "dataType": "S"
+                                },
+                                {
+                                    "title": "Compare To Current",
+                                    "key": "compareToCurrent",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttributeWithValues",
+                                    "dataType": "S"
+                                }
+                            ],
+                            "columnOptionConfigType": "overrideDateColumnOption",
+                            "columnOptionTitle": "Date override",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.CompareToCurrentColumnOption",
+                            "columnOptionKey": "overrideDateColumnOption"
+                        },
+                        {
+                            "columnOptionAttributes": [
+                                {
+                                    "title": "Definition",
+                                    "key": "definition",
+                                    "CLASS_TYPE": "com.bfm.prism.data.column.options.attributes.ColumnOptionAttribute",
+                                    "dataType": "S"
+                                }
+                            ],
+                            "columnOptionConfigType": "definition",
+                            "columnOptionTitle": "Definition",
+                            "CLASS_TYPE": "com.bfm.prism.data.column.options.general.DefinitionColumnOption",
+                            "columnOptionKey": "definition"
+                        }
+                    ],
+                    "colTag": "pct_mv",
+                    "columnOptionType": "ColumnOption",
+                    "uses": "PORT"
+                }
+            ],
+            "message": null,
+            "gaussian": "hj+GdDI3ZopJd/MErkWc8+CA9JuxKEIransaGiBlASuYh57yQjxN2wDQfQB0lfsKpVIZmWTr",
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": null
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 616
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-07-09T15:43:53.033Z",
+            "detailedID": "24776cfe-200c-4b1e-bd87-6d9be6e5771b.616.1720539833033",
+            "IDWithContextChain": "24776cfe-200c-4b1e-bd87-6d9be6e5771b",
+            "chain": [],
+            "bmsMsgSize": 616,
+            "transactionId": "24776cfe-200c-4b1e-bd87-6d9be6e5771b",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "bulkColumnOptions",
+        "transactionId": "24776cfe-200c-4b1e-bd87-6d9be6e5771b",
+        "successCode": null
+    }
+]

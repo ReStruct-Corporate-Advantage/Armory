@@ -1,0 +1,135 @@
+<div class="favorite-area">
+    <ng-container *ngIf="subCategoryData?.length && !isSecuritySearch">
+        <div class="favorite-sub-category-data">
+            <div *ngIf="!hidePortfolioTypeSelect" class="portfolio-type-select sub-category">
+                <aux-select
+                    [data]="selectProps.data"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onPortfolioTypeChange($event)">
+                </aux-select>
+            </div>
+            <div [ngClass]="!hidePortfolioTypeSelect? 'sub-category-select sub-category': 'sub-category-select-full sub-category'">
+                <aux-select
+                    [data]="subCategoryData"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onSubCategoryChanged($event)">
+                </aux-select>
+            </div>
+        </div>
+    </ng-container>
+
+    <div [ngStyle]="isSecuritySearch && {'display': 'flex'}">
+        <ng-container *ngIf="isSecuritySearch">
+            <div style="padding-bottom: 24px; width: 162px">
+                <aux-select
+                    [data]="subCategoryData"
+                    [hasInitialOptionPlaceholder]="false"
+                    (selectionChanged)="onSubCategoryChanged($event)">
+                </aux-select>
+            </div>
+        </ng-container>
+        <div class="favorite-search-field-area"
+             [ngClass]="{'sticky-search aux-container': stickySearch && !isSecuritySearch}"
+             [ngStyle]="isSecuritySearch && {'padding-left': '8px'}">
+            <aux-search-field
+                placeholder="{{favDisplayName | favoriteTitle: 'Search'}}"
+                [hasAdvancedSearch]="false"
+                [hasSelectAll]="false"
+                (searchValueChanged)="onSearchValueChanged($event)">
+            </aux-search-field>
+        </div>
+    </div>
+
+    <div class="favorite-accordion-area" [ngClass]="{'favorite-area-sticky-search': stickySearch}">
+        <aux-accordion [isFreeMode]="true">
+
+        <ng-container *ngIf="showAladdinReport">
+            <aux-accordion-expansion-panel class="alddin-favorite"
+                                            [isExpanded]="isExpanded"
+                                            header="{{favDisplayName | favoriteTitle: 'Aladdin'}}">
+                <div class="accordion-font" slot="content">
+        
+                    <app-favorite-tree [favType]="favType"
+                           [favTreeType]="favTreeType"
+                           [favoriteTreeOwner$]="global$"
+                           [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                           [loadFavoriteCallBack]="loadFavoriteCallBack"
+                           [favDisplayName]="''"
+                           [selectedFavoriteNode$]="selectedFavoriteNode$">
+                    </app-favorite-tree>
+                </div>
+
+            </aux-accordion-expansion-panel>
+        </ng-container>
+
+
+            <aux-accordion-expansion-panel class="my-favorite"
+                                           [isExpanded]="isExpanded"
+                                           header="{{favDisplayName | favoriteTitle: 'My'}}">
+                <div class="accordion-font" slot="content">
+                    <app-favorite-tree #myFavorite
+                                       [favType]="favType"
+                                       [favTreeType]="favTreeType"
+                                       [favDisplayName]="favDisplayName"
+                                       [favoriteTreeOwner$]="login$"
+                                       [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                                       [selectedFavoriteNode$]="selectedFavoriteNode$"
+                                       [loadFavoriteCallBack]="loadFavoriteCallBack">
+                    </app-favorite-tree>
+                </div>
+            </aux-accordion-expansion-panel>
+        
+
+            <aux-accordion-expansion-panel class="team-favorite"
+                                           [isExpanded]="(isExpanded && (selectedFavoriteUserSubject$ | async))"
+                                           header="{{favDisplayName | favoriteTitle: 'Team'}}">
+                <div class="accordion-font" slot="content">
+                    <app-favorite-user-search [favType]="favType"
+                                        [selectedFavoriteUserSubject$]="selectedFavoriteUserSubject$">
+                    </app-favorite-user-search>
+                    <app-favorite-tree [favType]="favType"
+                                       [favTreeType]="favTreeType"
+                                       [favDisplayName]="favDisplayName"
+                                       [favoriteTreeOwner$]="selectedFavoriteUserSubject$"
+                                       [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                                       [selectedFavoriteNode$]="selectedFavoriteNode$"
+                                       [loadFavoriteCallBack]="loadFavoriteCallBack">
+                    </app-favorite-tree>
+                </div>
+            </aux-accordion-expansion-panel>
+
+            <ng-container *ngIf="loadEnterpriseTree">
+                <aux-accordion-expansion-panel class="enterprise-tree"
+                                               [isExpanded]="isExpanded"
+                                               header="{{favDisplayName | favoriteTitle: 'Enterprise'}}">
+                    <div class="accordion-font" slot="content">
+                        <app-favorite-tree [favType]="favType"
+                                           [favTreeType]="favTreeType"
+                                           [favDisplayName]="favDisplayName"
+                                           [favoriteTreeOwner$]="admin$"
+                                           [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                                           [selectedFavoriteNode$]="selectedFavoriteNode$"
+                                           [loadFavoriteCallBack]="loadFavoriteCallBack">
+                        </app-favorite-tree>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </ng-container>
+            <ng-container *ngIf="loadEnterpriseTree && favType === BreakdownFavoriteConstants.BREAKDOWN">
+                <aux-accordion-expansion-panel class="enterprise-tree"
+                                               [isExpanded]="isExpanded"
+                                               header="{{favDisplayName | favoriteTitle: 'Portfolio-specific'}}">
+                    <div class="accordion-font" slot="content">
+                        <app-favorite-tree [favType]="FavoriteConstants.BREAKDOWN_PRESET"
+                                           [favTreeType]="favTreeType"
+                                           [favDisplayName]="favDisplayName"
+                                           [favoriteTreeOwner$]="portfolioSpecific$"
+                                           [favoriteSearchTermSubject$]="favoriteSearchTermSubject$"
+                                           [selectedFavoriteNode$]="selectedFavoriteNode$"
+                                           [loadFavoriteCallBack]="loadFavoriteCallBack">
+                        </app-favorite-tree>
+                    </div>
+                </aux-accordion-expansion-panel>
+            </ng-container>
+        </aux-accordion>
+    </div>
+</div>

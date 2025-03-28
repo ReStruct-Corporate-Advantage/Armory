@@ -1,0 +1,82 @@
+<aux-modal [isOpen]="isOpen" type="action" [hasCustomHeader]="true" [header]="modalHeader" [hasGreyContentArea]="true" [hasCustomFooter]="true">
+    <div slot="content" class="modal-size-lg widget-settings-modal-container">
+        <ng-container *ngIf="(showSpinner$ | async);">
+            <div class="loading-spinner-scenarios modal-size-lg">
+                <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" progress="30"
+                                        size="large"
+                                        type="loading" [loadingLabel]="'Loading Scenario'">
+                </aux-progress-indicator>
+            </div>
+        </ng-container>
+
+        <div [hidden]="(showSpinner$ | async)">
+            <div class="scenario-type">
+                <aux-select label="Scenario Type"
+                            [hasInitialOptionPlaceholder]="false"
+                            [data]="scenarioTypesData"
+                            (selectionChanged)="onScenarioTypeChanged($event.detail.value.value)">
+                </aux-select>
+            </div>
+
+
+            <ng-container [ngSwitch]="scenarioType">
+                <explore-extended-column-option-implied-shock-scenario *ngSwitchCase="ScenarioType.IMPLIED_SHOCK"
+                                                                       [scenario]="scenario"
+                                                                       [showSpinner$]="showSpinner$"
+                                                                       [isApplyButtonDisabled]="isApplyButtonDisabled"
+                                                                       [validateScenario]="validateScenario"
+                                                                       [viewAsSpecifiedClicked]="viewAsSpecifiedClicked"
+                                                                       (scenarioValidatedEmitter)="validateScenarioHandler($event)">
+                </explore-extended-column-option-implied-shock-scenario>
+                <explore-extended-column-option-date-range-scenario *ngSwitchCase="ScenarioType.DATE_RANGE"
+                                                                    [scenario]="scenario"
+                                                                    [showSpinner$]="showSpinner$"
+                                                                    [validateScenario]="validateScenario"
+                                                                    (scenarioValidatedEmitter)="validateScenarioHandler($event)">
+                </explore-extended-column-option-date-range-scenario>
+                <explore-extended-column-option-specified-shock-scenario *ngSwitchCase="ScenarioType.SPECIFIED_SHOCK"
+                                                                         [scenario]="scenario"
+                                                                         [column]="column"
+                                                                         [showSpinner$]="showSpinner$"
+                                                                         [validateScenario]="validateScenario"
+                                                                         (scenarioValidatedEmitter)="validateScenarioHandler($event)">
+                </explore-extended-column-option-specified-shock-scenario>
+            </ng-container>
+
+        </div>
+
+        <ng-container *ngIf="openSaveScenarioModal">
+            <explore-extended-column-option-save-scenario-modal [isOpen]="openSaveScenarioModal"
+                                                                [scenario]="updatedScenario"
+                                                                (modalClosed)="closeSaveScenarioModal($event)">
+            </explore-extended-column-option-save-scenario-modal>
+        </ng-container>
+
+
+    </div>
+
+    <div slot="custom-footer" class="custom-footer-container--three-buttons">
+        <div>
+            <aux-button *ngIf="scenarioType !== ScenarioType.SPECIFIED_SHOCK && !isScenarioCreationDisabled"
+                        [label]="'View as Specified Shocks'"
+                        [type]="'tertiary'"
+                        [isDisabled]="(isApplyButtonDisabled.value != 0 || (showSpinner$ | async))"
+                        (click)="onViewAsSpecifiedScenarioClicked()">
+            </aux-button>
+        </div>
+        <div>
+            <aux-button class="custom-footer--primary-button"
+                        [label]="'Save and Add'"
+                        [isDisabled]="(isApplyButtonDisabled.value != 0 || (showSpinner$ | async))"
+                        (click)="onSaveAndAddClicked()">
+            </aux-button>
+            <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="closeModal(false)"></aux-button>
+        </div>
+    </div>
+</aux-modal>
+
+<ng-container *ngIf="promptDialog$ | async">
+    <explore-core-dialog (emitDialogClosed)="closeDialog()"
+                         [dialogContent$]="promptDialog$"
+    ></explore-core-dialog>
+</ng-container>

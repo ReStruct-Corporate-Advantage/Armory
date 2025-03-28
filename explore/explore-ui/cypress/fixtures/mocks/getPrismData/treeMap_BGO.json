@@ -1,0 +1,108 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "footerDetails": {
+                    "PUBLISH_TIME": 0
+                },
+                "data": {
+                    "data": [
+                        null,
+                        null
+                    ],
+                    "children": [
+                        {
+                            "data": [
+                                0.0,
+                                2.384185791015625E-7
+                            ],
+                            "title": "CASH",
+                            "sectorOrder": 0,
+                            "rowId": 2
+                        },
+                        {
+                            "data": [
+                                6.741266832824285E8,
+                                6.741266832824285E8
+                            ],
+                            "title": "EQUITY",
+                            "sectorOrder": 0,
+                            "rowId": 3
+                        },
+                        {
+                            "data": [
+                                7798384.76,
+                                7798384.76
+                            ],
+                            "title": "FUND",
+                            "sectorOrder": 0,
+                            "rowId": 4
+                        },
+                        {
+                            "data": [
+                                2.53093806E-12,
+                                2.53093806E-12
+                            ],
+                            "title": "LOAN",
+                            "sectorOrder": 0,
+                            "rowId": 5
+                        },
+                        {
+                            "data": [
+                                -4258027.532440639,
+                                -4258027.532440639
+                            ],
+                            "title": "OPTION",
+                            "sectorOrder": 0,
+                            "rowId": 6
+                        }
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "market_val_0": "Market Value",
+                        "notional_mv_1": "Notional Market Value"
+                    },
+                    "columnKeyToTagMap": {
+                        "market_val_0": "market_val",
+                        "notional_mv_1": "notional_mv"
+                    }
+                },
+                "columns": [
+                    "market_val_0",
+                    "notional_mv_1"
+                ]
+            },
+            "gaussian": "LmYoiNjEVZIrMPxD181StrV/W0kH5N4M5D9Ut0LM",
+            "userinfo": {
+                "runningRequests": 3,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1717081285239
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 2069
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-05-30T15:01:24.645Z",
+            "detailedID": "617664a0-686c-476e-b00a-ccb18c75a8a7.2069.1717081284645",
+            "IDWithContextChain": "617664a0-686c-476e-b00a-ccb18c75a8a7",
+            "chain": [],
+            "bmsMsgSize": 2069,
+            "transactionId": "617664a0-686c-476e-b00a-ccb18c75a8a7",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getPrismData",
+        "transactionId": "617664a0-686c-476e-b00a-ccb18c75a8a7",
+        "successCode": null
+    }
+]

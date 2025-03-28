@@ -1,0 +1,11 @@
+{
+    "tool": "Explore",
+    "title": "MANDATE_MAP",
+    "type": "MANDATE_MAP",
+    "id": 1421773,
+    "listOrder": 0,
+    "owner": "_ADMIN",
+    "description": " ",
+    "data": "%5b%7b\"MANDATE\":\"FI_MANDATE\",\"BREAKDOWN\":\"false;1210587\",\"REPORTS\":%5b\"false;1325071\",\"false;1325073\",\"false;1325075\"%5d,\"ATTRIBUTION_SETTING\":\"FIXED_INCOME_DXS\",\"PERF_BKD\":\"false;1210587\"%7d,%7b\"MANDATE\":\"EQ_MANDATE\",\"BREAKDOWN\":\"false;1275180\",\"REPORTS\":%5b\"false;1325090\",\"false;1325091\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY\",\"FAC_BKD\":\"false;1435981\"%7d,%7b\"MANDATE\":\"BAL_MANDATE\",\"REPORTS\":%5b\"false;1325094\",\"false;1325095\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY_TD_xFX\"%7d,%7b\"MANDATE\":\"EQASXJAP\",\"BREAKDOWN\":\"false;1275180\",\"REPORTS\":%5b\"false;1445064\",\"false;1445063\",\"false;1445062\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY\",\"FAC_BKD\":\"false;1435981\"%7d,%7b\"MANDATE\":\"BAL-FID\",\"REPORTS\":%5b\"false;1456150\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY_TD_xFX\"%7d%5d",
+    "flagid": {"id": 1421773, "_global": false}
+}

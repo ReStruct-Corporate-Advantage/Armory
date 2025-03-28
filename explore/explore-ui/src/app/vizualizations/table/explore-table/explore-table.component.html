@@ -1,0 +1,16 @@
+<div class="{{ widgetViewCss }}">
+    <aux-grid #widgetRender
+              class="explore-table"
+              [gridOptions]="config"
+              [fontSize]="widgetSize"
+              [paddingSize]="widgetSize"
+    ></aux-grid>
+    <ng-container *ngIf="(isTableSearchActive$ | async)">
+        <div class="widget-table-search">
+            <app-table-search [gridApi]="gridApiHandle" [columnSet]="widgetColumns"
+                              [data]="(this.widget.dataStore.getData$() | async)"
+                              [rowsLoaded$]="rowsLoaded$.asObservable()"
+                              [isTableSearchActive$]="isTableSearchActive$"></app-table-search>
+        </div>
+    </ng-container>
+</div>

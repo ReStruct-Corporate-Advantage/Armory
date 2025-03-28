@@ -1,0 +1,41 @@
+.portfolio-info {
+    display: flex;
+    align-items: center;
+    padding: .75rem 1rem .75rem .25rem;
+    background-color: inherit;
+
+    .loading-portfolio {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .portfolio-name {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .portfolio-in-report-group {
+        padding-left: 1.5rem;
+    }
+
+    .what-if-portfolio-name {
+        padding-left: 3rem;
+    }
+
+    .portfolio-ticker {
+        -webkit-line-clamp: 1;
+    }
+}
+
+.portfolio-info-isSelected {
+    background-color: var(--column-selector-list-item__background-color--select);
+}
+
+.border-color {
+    border-color: var(--primary-action__color);
+}
+

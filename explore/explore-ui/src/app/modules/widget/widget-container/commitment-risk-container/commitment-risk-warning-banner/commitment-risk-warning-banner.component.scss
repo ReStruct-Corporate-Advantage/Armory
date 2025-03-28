@@ -1,0 +1,12 @@
+.warning-message-container {
+    // create border on top
+    border-top: 1px solid var(--widget__border-color);
+    padding: 12px 12px 16px 12px;
+    .warning-message-sticker {
+        display: flex;
+        padding-bottom: 12px;
+        .warning-message-text {
+            margin-left: 0.5rem;
+        }
+    }
+}

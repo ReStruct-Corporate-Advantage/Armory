@@ -1,0 +1,62 @@
+<!-- As Reported Checkbox-->
+<div class="setting-padding--below" *ngIf="showAsReported">
+    <aux-checkbox label="As reported" [isDisabled]="!isAsReportedEnabled"
+                  [isChecked]="additionalSettings.asReported"
+                  (checkboxChanged)="setAsReported($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+
+<!--  Show Summary Checkbox -->
+<div class="setting-padding--below" *ngIf="showShowSummary">
+    <aux-checkbox label="Show summary" [isDisabled]="!isShowSummaryEnabled"
+                  [isChecked]="additionalSettings.showSummary"
+                  (checkboxChanged)="setShowSummary($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+
+<!-- Aggregate BM securities Checkbox-->
+<div class="setting-padding--below" *ngIf="showAggBMOnlyRetSec">
+    <aux-checkbox label="Aggregate benchmark securities"
+                  [isChecked]="additionalSettings.aggregateBMOnlyReturnSecurities"
+                  (checkboxChanged)="setAggregateBMOnlyReturnSecurities($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+
+<!-- Remove BM only buckets Checkbox-->
+<div class="setting-padding--below" *ngIf="showRemBMOnlyRetBucket">
+    <aux-checkbox label="Remove benchmark only buckets"
+                  [isChecked]="additionalSettings.removeBMOnlyReturnBucket"
+                  (checkboxChanged)="setRemoveBMOnlyReturnBucket($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+
+<!-- Collapse Closed Positions Checkbox-->
+<div class="setting-padding--below" *ngIf="showCollapseClosedPositions">
+    <aux-checkbox label="Collapse closed positions" [isChecked]="additionalSettings.collapseClosedPositions"
+                  (checkboxChanged)="setCollapseClosedPositions($event.detail.value.checked)">
+    </aux-checkbox>
+</div>
+
+<!--Custom Pivot-->
+<div class="custom-pivot-width setting-padding--below" *ngIf="showCustomPivotPoint">
+    <aux-select [data]="availableCustomPivotPointsData"
+                label='Key rate for duration return'
+                (selectionChanged)="setCustomPivot($event.detail.value.value)">
+    </aux-select>
+</div>
+
+<!--Gross vs Net Returns-->
+<ng-container *ngIf="isNetGrossReturnsEnabled">
+    <div class="setting-padding--below">
+        <aux-radio-group
+            label="Return type"
+            [data]="returnTypeDisplayOptions"
+            (radioGroupChanged)="updateNetReturn()">
+        </aux-radio-group>
+    </div>
+</ng-container>
+
+<div class="setting-padding--below">
+    <app-override-date-sort-by-oldest
+        [(sortByOldest)]="additionalSettings.overrideDateSortByOldest"></app-override-date-sort-by-oldest>
+</div>

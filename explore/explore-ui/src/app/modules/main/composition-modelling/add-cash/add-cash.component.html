@@ -1,0 +1,37 @@
+<div class="add-cash__container">
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4 bottom-padding">
+        <aux-select
+            [label]="'Currency'"
+            [isLeftLabel]="false"
+            [size]="'regular'"
+            [hasInitialOptionPlaceholder]="false"
+            [data]="currencyOptions"
+            [type]="'filter-simple'"
+            (selectionChanged)="onCurrencyChange($event.detail?.value?.value)">
+        </aux-select>
+    </div>
+    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4 top-padding">
+        <aux-text-input type="currency" placeholder="0.00"
+                        [value]="newCashValue"
+                        (valueChanged)="updateNewCashValue($event)"
+                        (inputBlur)="parseCashValue()">
+        </aux-text-input>
+    </div>
+    <ng-container *ngIf="this.portfolio?.isPortfolioGroup">
+        <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4 bottom-padding">
+            <app-add-to-portfolio
+                [portfolio]='this.portfolio'
+                (addToPortfolioChanged)='onAddToPortfolioChanged($event)'>
+            </app-add-to-portfolio>
+        </div>
+    </ng-container>
+    <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2 add-cash_button top-padding">
+        <aux-button type="secondary" label="Add as Cash" (click)="injectCash()"></aux-button>
+    </div>
+    <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2 add-cash_button top-padding">
+        <aux-button type="secondary" label="Pro Rata" (click)="injectProRataCash()" [isDisabled]="disableProRataOption || (this.portfolio?.isPortfolioGroup && this.addToPortfolio !== this.portfolio?.portName)"></aux-button>
+        <div class="help-icon" [hidden]="!disableProRataOption">
+            <a [title]="helpText">?</a>
+        </div>
+    </div>
+</div>

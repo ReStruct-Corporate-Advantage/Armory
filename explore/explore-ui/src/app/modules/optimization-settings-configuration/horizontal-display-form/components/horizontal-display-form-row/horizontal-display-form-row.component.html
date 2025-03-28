@@ -1,0 +1,46 @@
+<ng-container *ngIf="!row.constraintType">
+    <aux-context-menu #rightContext
+                      [specificActions]="constraintContextOptions.options"
+                      [overridePlacement]="'bottomCenter'"
+                      (contextMenuItemClicked)="constraintContextOptions.onClick()">
+        <div class="horizontal-display-form-row" (click)="onSelected()" slot="target">
+            <div class="form-row-item short">
+                <ng-container *ngIf="row.constraint !== ALLOW_SHORT_POSITION_TEXT">
+                    <aux-checkbox [isChecked]="row.enabled" (checkboxChanged)="onEnabled($event)">
+                    </aux-checkbox>
+                </ng-container>
+            </div>
+            <ng-container [ngTemplateOutlet]="rowTemplate">
+            </ng-container>
+            <div class="form-row-item short right">
+                <ng-container *ngIf="row.constraint !== ALLOW_SHORT_POSITION_TEXT">
+                    <aux-button (click)="onDeleted()" type="tertiary-subtle" icon="delete-small">
+                    </aux-button>
+                </ng-container>
+            </div>
+        </div>
+    </aux-context-menu>
+</ng-container>
+<ng-container *ngIf="row.constraintType">
+    <div class="horizontal-display-form-row" slot="target">
+        <div class="form-row-item short"></div>
+        <ng-container [ngTemplateOutlet]="rowTemplate">
+        </ng-container>
+        <div class="form-row-item short right">
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #rowTemplate >
+    <div *ngFor="let value of values; trackBy: getValueId" [ngSwitch]="value.type" class="form-row-item long"
+         [ngClass]="{'center': value.type === AuxGridColumnType.AUX_CHECKBOX_COLUMN, 'right': value.type === AuxGridColumnType.AUX_NUMBER_COLUMN, 'text-right': value.field === RELAXATION_COL_DEF.field}">
+        <ng-container *ngSwitchCase="AuxGridColumnType.AUX_CHECKBOX_COLUMN">
+            <aux-checkbox *ngIf="!value.disabled" [isChecked]="value.value"
+                          (checkboxChanged)="onUpdated($event, value.field)">
+            </aux-checkbox>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+            <aux-text>{{value.value}}</aux-text>
+        </ng-container>
+    </div>
+</ng-template>

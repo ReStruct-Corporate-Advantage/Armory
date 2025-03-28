@@ -1,0 +1,57 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "footerDetails": {
+                    "PUBLISH_TIME": 0
+                },
+                "data": {
+                    "data": [
+                        1.0
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "pct_notional_val_0": "Notional Market Value %"
+                    },
+                    "columnKeyToTagMap": {
+                        "pct_notional_val_0": "pct_notional_val"
+                    }
+                },
+                "columns": [
+                    "pct_notional_val_0"
+                ]
+            },
+            "gaussian": "Z+GZeq8Wo3oMt+B6VsYYSbnSbSTjw9gP76m8eA==",
+            "userinfo": {
+                "runningRequests": 1,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1717080979050
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 1601
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-05-30T14:56:18.954Z",
+            "detailedID": "b0068af8-d59a-466a-8f3d-aa05baef3137.1601.1717080978954",
+            "IDWithContextChain": "b0068af8-d59a-466a-8f3d-aa05baef3137",
+            "chain": [],
+            "bmsMsgSize": 1601,
+            "transactionId": "b0068af8-d59a-466a-8f3d-aa05baef3137",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getPrismData",
+        "transactionId": "b0068af8-d59a-466a-8f3d-aa05baef3137",
+        "successCode": null
+    }
+]

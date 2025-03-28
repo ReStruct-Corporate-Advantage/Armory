@@ -1,0 +1,125 @@
+.open-column-measure-div {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 12px;
+    height: 18px;
+    margin-bottom: 8px;
+}
+
+.column-options-header {
+    padding-bottom: 4px;
+    font-weight: bold;
+}
+
+.favorite-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+}
+
+.favorite-details {
+    min-width: 0;
+}
+
+.column-option-title {
+    padding-right: 1rem;
+}
+
+.column-measure-table-div {
+    padding-right: 28px;
+
+    .column-measure-table {
+        width: 100%;
+        text-align: left;
+        border-collapse: collapse;
+        border-left: 1px solid var(--grid__border-color);
+        border-right: 1px solid var(--grid__border-color);
+
+        .column-measure-head-row {
+            border-bottom: 1px solid var(--grid__border-color);
+            border-top: 1px solid var(--grid__border-color);
+            background: var(--grid__background-color-header);
+            color: var(--grid__text-header__color);
+
+            .column-measure-head {
+                border-right: 1px solid var(--grid__border-color);
+            }
+        }
+
+        .column-measure-rows {
+            border-bottom: 1px solid var(--grid__border-color);
+        }
+
+        .column-measure-table-cell {
+            padding: 5px 0 6px 8px;
+        }
+    }
+}
+
+.clear-formula-div {
+    display: flex;
+    justify-content: space-between;
+    height: 18px;
+    padding-right: 12px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+
+    .question-mark-tooltip {
+        margin-left: 4px;
+    }
+}
+
+.tool-tip-text{
+    max-width: 470px;
+}
+
+.function-container {
+    display: flex;
+    border-left: 1px solid var(--grid__border-color);
+    border-right: 1px solid var(--grid__border-color);
+    background: var(--modal__background-color--grey);
+    margin-right: 28px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.arithmetic-container {
+    border-top: 1px solid var(--grid__border-color);
+    flex-wrap: wrap;
+}
+
+.math-container {
+    flex-wrap: wrap;
+    padding-bottom: 8px;
+}
+
+.tool-tip-button {
+    height: 24px;
+}
+
+.math-function-div {
+    border-right: 1px solid var(--grid__border-color);
+    margin-top: 8px;
+    height: 16px;
+}
+
+.text-area-div {
+    margin-right: 28px;
+    height: 250px;
+}
+
+.notify-div {
+    padding: 2rem;
+
+    .top-notify-statement {
+        padding-bottom: 2rem;
+    }
+
+    .first-notify-statement {
+        padding-bottom: 1rem;
+    }
+
+    .second-notify-statement {
+        padding-bottom: 1rem;
+    }
+}

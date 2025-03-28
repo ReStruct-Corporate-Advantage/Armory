@@ -1,0 +1,54 @@
+<!--Display these options when ColumnSector Node is selected-->
+<div class="breakdown-options-column-sector"
+     *ngIf="selectedNode && selectedNode.type !== BreakdownTreeNode.TYPE_ROOT && selectedNode.type !== BreakdownTreeNode.TYPE_PLACEHOLDER
+     && selectedNodeDataType !== breakdownNodeDataType.CUSTOM && selectedNodeDataType !== breakdownNodeDataType.SCHEMA">
+    <div class="breakdown-options-header">
+        <div class="aux-primary">
+            Bucket definition
+        </div>
+        <hr>
+    </div>
+    <div class="breakdown-options-column-sector-extended"
+         *ngIf="selectedNodeDataType !== breakdownNodeDataType.STRING">
+        <ng-container [ngSwitch]="selectedNodeDataType">
+            <app-date-sector-options *ngSwitchCase="breakdownNodeDataType.DATE"
+                                     [sectorModel]="selectedNode.sectorModel">
+
+            </app-date-sector-options>
+            <app-numeric-sector-options *ngSwitchCase="breakdownNodeDataType.NUMERIC"
+                                        [sectorModel]="selectedNode.sectorModel"
+                                        [hideQuantiles]="hideQuantiles"
+                                        [widgetType]="widgetType">
+            </app-numeric-sector-options>
+            <app-time-span-sector-options *ngSwitchCase="breakdownNodeDataType.TIME_SPAN"
+                                          [sectorModel]="selectedNode.sectorModel">
+            </app-time-span-sector-options>
+        </ng-container>
+    </div>
+    <div class="include-none-buckets">
+        <aux-checkbox label="Include none buckets"
+                      [isChecked]="selectedNode.sectorModel['useNoneBuckets'] === true"
+                      (checkboxChanged)="onIncludeNoneBucketsChange($event)">
+        </aux-checkbox>
+    </div>
+</div>
+
+<ng-container *ngIf="selectedNodeDataType === breakdownNodeDataType.SCHEMA">
+    <aux-text-input [value]="selectedNode.sectorModel['userSpecifiedSchema']"
+                    (valueChanged)="onSchemaValueChanged($event)"
+                    hasClearButton=true
+                    label="Schema Name"
+                    placeholder="Enter Custom Schema">
+    </aux-text-input>
+</ng-container>
+
+<ng-container
+    *ngIf="selectedNode && selectedNode.type !== BreakdownTreeNode.TYPE_ROOT && selectedNode.type !== BreakdownTreeNode.TYPE_PLACEHOLDER && selectedNodeDataType === breakdownNodeDataType.CUSTOM">
+    <app-custom-sector-builder
+        [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+        [customSector]="customSector"
+        [inputName]="breakdownBuilderSettings.inputName"
+        [titleChangeCallBack]="sectorTitleChangeCallback"
+        [draggedSector$]="draggedSector$">
+    </app-custom-sector-builder>
+</ng-container>

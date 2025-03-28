@@ -1,0 +1,283 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "date": "2023-04-11",
+        "data": [
+          {
+            "portfolioCode": -21711,
+            "portfolioName": "MS_US",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25801,
+            "portfolioName": "MS_EG",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25799,
+            "portfolioName": "MS_PH",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25797,
+            "portfolioName": "MS_IE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25795,
+            "portfolioName": "MS_NO",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25793,
+            "portfolioName": "MS_CN",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25787,
+            "portfolioName": "MS_SE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25785,
+            "portfolioName": "MS_DE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25779,
+            "portfolioName": "MS_TH",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25777,
+            "portfolioName": "MS_CO",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25775,
+            "portfolioName": "MS_BR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25773,
+            "portfolioName": "MS_IT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25765,
+            "portfolioName": "MS_IN",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25763,
+            "portfolioName": "MS_ZA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25759,
+            "portfolioName": "MS_PE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25757,
+            "portfolioName": "MS_DK",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25755,
+            "portfolioName": "MS_CZ",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25753,
+            "portfolioName": "MS_ID",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25751,
+            "portfolioName": "MS_ES",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25749,
+            "portfolioName": "MS_BE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25743,
+            "portfolioName": "MS_AT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25741,
+            "portfolioName": "MS_JP",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25737,
+            "portfolioName": "MS_PL",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25735,
+            "portfolioName": "MS_FR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25733,
+            "portfolioName": "MS_TW",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": 9598,
+            "portfolioName": "BGO",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25729,
+            "portfolioName": "MS_MY",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25725,
+            "portfolioName": "MS_KR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25715,
+            "portfolioName": "MS_GB",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25713,
+            "portfolioName": "MS_FI",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25711,
+            "portfolioName": "MS_PT",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25709,
+            "portfolioName": "MS_NL",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25707,
+            "portfolioName": "MS_GR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25705,
+            "portfolioName": "MS_HK",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25697,
+            "portfolioName": "MS_SG",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25693,
+            "portfolioName": "MS_CH",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -121431,
+            "portfolioName": "MS_KW",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25687,
+            "portfolioName": "MS_CA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25685,
+            "portfolioName": "MS_HU",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25679,
+            "portfolioName": "MS_AU",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25677,
+            "portfolioName": "MS_MX",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25673,
+            "portfolioName": "MS_TR",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25671,
+            "portfolioName": "MS_CL",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -121413,
+            "portfolioName": "MS_AE",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25667,
+            "portfolioName": "MS_NZ",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -25665,
+            "portfolioName": "MS_IL",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -121403,
+            "portfolioName": "MS_QA",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -1244708,
+            "portfolioName": "CBBGOOC",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          },
+          {
+            "portfolioCode": -1244699,
+            "portfolioName": "CBBGOOP",
+            "CLASS_TYPE": "com.bfm.prism.data.PortfolioPublishState"
+          }
+        ],
+        "CLASS_TYPE": "com.bfm.prism.data.PortfoliosPublishStateData"
+      },
+      "message": null,
+      "gaussian": "7Xx+nvLv4yQ=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 640
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T10:55:55.101Z",
+      "detailedID": "47993e84-4f99-46e9-836e-e75320f1e1cc:47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5:47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5.640.1681296955101",
+      "IDWithContextChain": "47993e84-4f99-46e9-836e-e75320f1e1cc:47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5:47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5",
+      "chain": [
+        "47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5",
+        "47993e84-4f99-46e9-836e-e75320f1e1cc:bed9180f9b794d5"
+      ],
+      "bmsMsgSize": 640,
+      "transactionId": "47993e84-4f99-46e9-836e-e75320f1e1cc",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681296955108*btid=1611*guid=54397551-2f98-41fb-a5a9-f7df2cf36c67*exitguid=4*unresolvedexitid=783*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][783]}",
+    "return_val": "SUCCESS",
+    "command": "getPublishedState",
+    "transactionId": "47993e84-4f99-46e9-836e-e75320f1e1cc",
+    "successCode": null
+  }
+]

@@ -1,0 +1,37 @@
+.more-view-text-area {
+    padding: 0.5rem 2rem;
+}
+
+.more__content--header {
+    padding-top: 0.5rem;
+}
+
+.more__content--title {
+    margin-right: 12px;
+}
+
+.more__content--add-button {
+    float: right;
+}
+
+.more__content--image {
+    border: 0.2px solid var(--card__border-color);
+    max-width: 100%;
+    margin-top: 30px;
+}
+
+.more__content--image-description {
+    color: var(--secondary-text__color);
+    font-style: italic;
+    font-size: small;
+}
+
+.more__content--paragraph {
+    margin-top: 30px;
+    white-space: pre-line;
+}
+
+.more__content--set-up-requirements {
+    margin-top: 20px;
+    padding-bottom: 1rem;
+}

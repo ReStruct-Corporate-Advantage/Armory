@@ -1,0 +1,13 @@
+<ng-container *ngIf="isPermissionGroupEnabled">
+    <aux-select [label]="'Admin Permission Group'"
+                [hasInitialOptionPlaceholder]="false"
+                [size]="'regular'"
+                [type]="'filter-multiple'"
+                [data]="permGroupOptions"
+                [isRequired]="isPermissionGroupRequired"
+                [isValid]="isValidSelection"
+                [validationType]="'error'"
+                [errorMessage]="'You must select at least one permission group that you belong to'"
+                (selectionChanged)="onPermissionsGroupsChanged($event)">
+    </aux-select>
+</ng-container>

@@ -1,0 +1,95 @@
+{
+  "gridOptions": {
+    "suppressColumnVirtualisation": true,
+    "rowSelection": "multiple",
+    "suppressCellFocus": true,
+    "suppressRowClickSelection": true,
+    "suppressContextMenu": true,
+    "floatingFilter": false,
+    "treeData": true,
+    "groupDefaultExpanded": -1
+  },
+  "columnDefinitions": [
+    {
+      "headerName": "Cusips",
+      "field": "cusip",
+      "type": "auxTextColumn",
+      "filter": "auxTextFilter"
+    },
+    {
+      "headerName": "Description",
+      "field": "description",
+      "type": "auxTextColumn",
+      "filter": "auxTextFilter"
+    },
+    {
+      "headerName": "Assigned Sectors",
+      "field": "assignedCustomSectors",
+      "type": "auxTextColumn",
+      "filter": "auxTextFilter"
+    }
+  ],
+  "defaultColDef": {
+    "filter": true,
+    "sortable": false,
+    "resizable": true,
+    "floatingFilter": false
+  },
+  "groupColumnDefinition": {
+    "headerName": "Portfolios",
+    "cellRendererParams": {
+      "checkbox": true,
+      "suppressCount": true
+    }
+  },
+  "portfolioColumn": {
+    "title": "Portfolio Name",
+    "columnTag": "portfolio_name",
+    "uses": "ALL",
+    "dataType": "STRING"
+  },
+  "cusipColumn": {
+    "title": "CUSIP",
+    "columnTag": "cusip",
+    "uses": "ALL",
+    "dataType": "STRING"
+  },
+  "fundsRequestParams": {
+    "columns": [
+      {
+        "columnTag": "sec_desc",
+        "columnKey": "sec_desc",
+        "positionColumnType": "ALL",
+        "title": "Description"
+      },
+      {
+        "columnTag": "cusip",
+        "columnKey": "cusip_0",
+        "positionColumnType": "ALL",
+        "title": "CUSIP"
+      }
+    ],
+    "filter": {
+      "breakdown": {
+        "subSectors": [
+          {
+            "breakdownRuleType": "CustomSector",
+            "includeOtherBucket": false,
+            "rule": {
+              "colTag": "sec_group",
+              "compType": "Equals",
+              "colType": "STRING",
+              "ruleType": "Rule",
+              "colTitle": "Security Group",
+              "colPositionColumnType": "ALL",
+              "compValues": [
+                "FUND"
+              ]
+            },
+            "title": "Custom Sector"
+          }
+        ]
+      }
+    }
+  }
+}

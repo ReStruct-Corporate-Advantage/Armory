@@ -1,0 +1,70 @@
+<aux-modal [isOpen]=isOpen [hasGreyContentArea]="true" [hasCustomFooter]="true" [header]="favDisplayName + ' Version Log'" [type]="'action'">
+    <div slot="content" class="modal-size-md version-log-modal--content">
+        <ng-container *ngIf="!showDetailedSummary; else detailedSummary">
+            <div class="version-log--explanation">
+                <span>The below log is a chronological record of all saved versions of this Enterprise
+                    component, providing transparency into notable changes made by its owner over time. Users can access prior versions by
+                    selecting from the list below.
+                </span>
+            </div>
+            <div class="version-log--content">
+                <ng-container *ngIf="isLoading">
+                    <aux-progress-indicator [hasLabel]="true" [isSpinner]="true" [hasCounter]="true" [progress]="30" [size]="AuxProgressIndicatorSizeEnum.REGULAR"
+                                            [type]="'loading'" [loadingLabel]="'Loading Favorite Versions'">
+                    </aux-progress-indicator>
+                </ng-container>
+                <ng-container *ngIf="favoriteVersions.length > 0">
+                    <div class="version-log-label">
+                        <span>Version Log</span>
+                    </div>
+                    <div class="column-measure-table-div">
+                        <table class="column-measure-table">
+                            <caption></caption>
+                            <tr class="column-measure-head-row">
+                                <th class="column-measure-table-cell column-measure-head">Modified on</th>
+                                <th class="column-measure-table-cell column-measure-head">Modified by</th>
+                                <th class="column-measure-table-cell column-measure-head">Version</th>
+                                <th class="column-measure-table-cell column-measure-head">Summary of Changes</th>
+                            </tr>
+                            <tr class="column-measure-rows" (click)="selectRow(versionData)" [ngClass]="(selectedRow === versionData) ? 'cell-clicked' : ''" *ngFor="let versionData of favoriteVersions">
+                                <td class="column-measure-table-cell" >{{versionData.modifiedOn}}</td>
+                                <td class="column-measure-table-cell">{{versionData.modifiedBy}}</td>
+                                <td class="column-measure-table-cell">{{versionData.version}}</td>
+                                <td class="column-measure-table-cell" style="display: flex;justify-content: space-between;">
+                                    <div>{{versionData.saveSummaryOnChanges.changeSummary}}</div>
+                                    <div>
+                                        <span *ngIf="versionData.saveSummaryOnChanges.changeSummaryDetails">
+                                            <aux-button [label]="'...more>'" [type]="'tertiary'" (click)="showSaveSummary(versionData)"></aux-button>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="!isLoading && favoriteVersions.length === 0">
+                    <span>Failed to retrieve favorite versions</span>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [type]="'primary'" [label]="'Open'" (click)="loadSelectedFavoriteVersion()" [isDisabled]="!selectedRow"></aux-button>
+        <aux-button [type]="'secondary'" [label]="'Close'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>
+
+<ng-template #detailedSummary>
+    <div>
+        <div style="display: flex;">
+            <aux-icon class="btn" [type]="'back-arrow'" [state]="'primary'" (click)="hideSummary()"></aux-icon>
+            <span class="aux-bold version-number aux-p16">Version {{selectedRow.version}}</span>
+        </div>
+        <div style="display:flex;flex-direction:column">
+            <span class="aux-bold summary-label aux-p12">Summary of Changes</span>
+            <span class="summary-details-label aux-p12">{{selectedRow.saveSummaryOnChanges.changeSummary}}</span>
+            <span class="aux-bold summary-label aux-p12">Details of Changes</span>
+            <span class="summary-details-label aux-p12">{{selectedRow.saveSummaryOnChanges.changeSummaryDetails}}</span>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,38 @@
+.view-usage--modal-content {
+    padding: 1rem 2rem;
+}
+.view-usage {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.view-usage--section {
+    display: flex;
+    align-items: center;
+}
+
+.show-label {
+    margin-right: 1rem;
+}
+
+.users-between-label {
+    margin: 0 1rem;
+}
+
+.user-select {
+    width: 160px;
+}
+
+.run-submit {
+    margin-left: 1rem;
+}
+
+.option-separator {
+    margin-top: 1rem;
+}
+
+.grid--height {
+    // display 10 rows max
+    height: 356px;
+}

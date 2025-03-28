@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for tree Map",
+    "line": 1,
+    "id": "visual-comparison-tests-for-tree-map",
+    "tags": [],
+    "uri": "tree-map-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-tree-map;validate-tree-map--is-loading",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate tree map  is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Tree Map\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 7105000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26577000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"Tree Map - Market Value\" should be displayed, aligning with the snapshot \"treemap_default\"",
+            "result": {
+              "status": "failed",
+              "duration": 4811000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/tree-map-chart.feature/__diff_output__/treemap_default.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

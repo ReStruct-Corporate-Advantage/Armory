@@ -1,0 +1,18 @@
+.popover-container {
+    min-width: 12rem;
+    display: flex;
+    flex-direction: column;
+
+    .popover-content {
+        margin-bottom: .8rem;
+        white-space: pre-wrap;
+    }
+}
+.favorite-title {
+    margin-right: .5rem; 
+}
+
+.learn-link {
+    margin-right: .5rem;
+    font-weight: bold;  
+}

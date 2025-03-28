@@ -1,0 +1,84 @@
+{
+    "ticker": "PEP",
+    "cusip": "BRS2LPG42",
+    "isSectorModellingAllowed": true,
+    "code": 9214,
+    "displayName": "PEP",
+    "isConstituentsViewAllowed": true,
+    "fullName": "BGF Pacific Equity Fund",
+    "type": "FUND",
+    "assetType": "EQ_MANDATE",
+    "portfolioGroup": false,
+    "isSecurityModellingAllowed": true,
+    "compositePortfolio": false,
+    "currency": "USD",
+    "benchmarks": [
+        {
+            "name": "MSAC_APACN",
+            "type": "PERFORM",
+            "order": 1
+        },
+        {
+            "name": "MSAC_APACN",
+            "type": "RISK",
+            "order": 1
+        },
+        {
+            "name": "BR_PAC",
+            "type": "REPACCT",
+            "order": 1
+        }
+    ],
+    "datePicker": {
+        "calCode": "US_NYSE",
+        "dateString": false,
+        "dateStringValue": "T-1ME",
+        "date": "01/10/2020"
+    },
+    "asOfDate": "10-JAN-2020",
+    "isPortfolioModellingAllowed": false,
+    "historicalPerfFromDate": "10/31/2018",
+    "portfolioDefaults": {
+        "defaultVarType": "DLY",
+        "calendar": "GP_HK_STD",
+        "defaultModelCode": "DEFAULT",
+        "defaultDecay": 0.982820599
+    },
+    "portDefaultRiskSettings": {
+        "WeightingScheme": {
+            "name": "FMI"
+        },
+        "ModelMapping": "^APWDA",
+        "DxsBlock": "test"
+    },
+    "orgDefaultRiskSettings": {
+        "RiskHorizon": "4",
+        "WeightingScheme": {
+            "name": "DLY",
+            "defaultPeriod": 252,
+            "defaultDecay": 0.982820599
+        },
+        "ModelMapping": "P100",
+        "ConfidenceLevelInStdDeviation": 1,
+        "AssetClassCovariance": "abc"
+    },
+    "indexWeights": [
+        {
+            "portfolio": {
+                "ticker": "MS_AU",
+                "fullName": "MSCI Developed - Australia"
+            },
+            "weight": 0.5
+        },
+        {
+            "portfolio": {
+                "ticker": "MS_TH",
+                "fullName": "MSCI Emerging - Thailand"
+            },
+            "weight": 0.5
+        }
+    ],
+  "factorAttributionSettings": {
+      "factorAttributionType": "EQ_MANDATE"
+  }
+}

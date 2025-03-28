@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.spec.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "../../out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node",
+      "jest"
+    ],
+    "paths": {
+      "@blk/explore-ui-core": [
+        "../../dist/libs/@blk/explore-ui-core"
+      ]
+    }
+  },
+  "include": [
+    "**/*.spec.ts",
+    "**/*.d.ts"
+  ]
+}

@@ -1,0 +1,43 @@
+.job-settings-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds margin between all elements */
+}
+
+.inline-elements {
+    display: flex;
+    gap: 1rem; /* Adds margin between the select and input */
+}
+
+aux-text-input {
+    max-width: 20rem;
+}
+
+.inline-elements aux-select,
+.inline-elements aux-text-input {
+    flex: 1;
+    max-width: 20rem; /* Limits the width of the input and select */
+}
+
+.layout-and-breakdown-options {
+    display: flex;
+
+    .layout-and-breakdown-options-section, .layout-options-column-2, .layout-options-column-3 {
+        margin-left: 2rem;
+    }
+
+    .layout-options-column-2, .layout-options-column-3 {
+        margin-top: 34px;
+    }
+}
+
+.left-margin {
+    margin-left: 1rem; /* Adjust the value as needed */
+}
+
+.top-margin {
+    margin-top: 15px; /* Adjust the value as needed */
+}
+
+
+

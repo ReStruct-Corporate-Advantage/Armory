@@ -1,0 +1,7 @@
+<div class="show-sector-level-data">
+    <label class="show-sector-level-data-label">Show security level data</label>
+    <aux-radio-group
+        [data]="showSecurityLevelDataOptions"
+        (radioGroupChanged)="onShowSecurityLevelDataOptionChanged($event.detail.value)">
+    </aux-radio-group>
+</div>

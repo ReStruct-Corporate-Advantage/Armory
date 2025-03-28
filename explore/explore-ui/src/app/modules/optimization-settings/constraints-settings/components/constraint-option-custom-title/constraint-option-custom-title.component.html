@@ -1,0 +1,24 @@
+<div class="column-options-header">
+    <div class="favorite-row">
+        <label class="column-option-title">{{CUSTOM_CALC_PASCAL}} options</label>
+        <explore-core-load-new-favorite-buttons [showLoadOnly]="true" (loadClick)="openLoadCustomCalcModal()"></explore-core-load-new-favorite-buttons>
+    </div>
+    <div class="favorite-row">
+        <ng-container *ngIf="columnConfig?.id">
+            <explore-core-favorite-details-header class="favorite-details" [title]="columnConfig?.title" [owner]="columnConfig?.owner"
+                                                  [displayType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.CUSTOM_CALC"></explore-core-favorite-details-header>
+        </ng-container>
+        <aux-button [type]="AuxButtonTypeEnum.SECONDARY"
+                    [size]="AuxButtonSizeEnum.SMALL"
+                    label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.CUSTOM_CALC_SAVE}}"
+                    (click)="openSaveCustomCalcModal()"></aux-button>
+    </div>
+    <div class="favorite-row">
+        <explore-custom-title-column-option #customTitleColumnOptionComponent [option]="optionMetaData"
+                                            [column]="columnConfig"
+                                            (titleUpdated) = "updateTitle()"
+                                            colType="Constraint"
+                                            [columnOptionUpdated$]="columnOptionUpdated$">
+        </explore-custom-title-column-option>
+    </div>
+</div>

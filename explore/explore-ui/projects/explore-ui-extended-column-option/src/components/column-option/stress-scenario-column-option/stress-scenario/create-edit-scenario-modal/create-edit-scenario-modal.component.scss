@@ -1,0 +1,19 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.widget-settings-modal-container {
+    padding: aux-variables.$aux-spacing-07;
+    height: 63vh;
+    overflow-y: auto;
+}
+
+.loading-spinner-scenarios {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.scenario-type {
+    width: 200px;
+    margin-bottom: 16px;
+}

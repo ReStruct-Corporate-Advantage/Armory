@@ -1,0 +1,48 @@
+<div class="breakdown-header">
+    <aux-radio [label]="label"
+               [isChecked]="isChecked"
+               (radioChanged)="onFocusIn()"
+               class="radio-button">
+    </aux-radio>
+    <explore-core-load-new-favorite-buttons (loadClick)="onLoadBreakdownClick()" (newClick)="onCreateNew()"></explore-core-load-new-favorite-buttons>
+</div>
+<div class="breakdown-details">
+    <div class="breakdown-favorite-info aux-p13">
+        <ng-container *ngIf="multiLevelBreakdown.title && multiLevelBreakdown.owner && !multiLevelBreakdown.isMandateDefaultBreakdown">
+            <explore-previous-favorite-version-banner [favoriteId]="multiLevelBreakdown.id" [owner]="multiLevelBreakdown.owner"
+                                                      [currentFavoriteVersion]="multiLevelBreakdown.currentFavoriteVersion"
+            ></explore-previous-favorite-version-banner>
+            <explore-favorite-info class="favorite-details" [favoriteConfig]='multiLevelBreakdown' [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.BREAKDOWN" [loadFavoriteCallBack]="loadBreakdownVersion"></explore-favorite-info>
+        </ng-container>
+        <div class="edit-breakdown-buttons">
+            <aux-button [label]="CoreFavoriteConstants.FAVORITE_ACTIONS.EDIT_COPY" [type]="AuxButtonTypeEnum.TERTIARY"
+                        [isDisabled]="multiLevelBreakdown.isPlaceholderBreakdown()"
+                        (click)="onEditCopy()"></aux-button>
+            <div class="vertical-line-divider"></div>
+            <aux-button [label]="CoreFavoriteConstants.FAVORITE_ACTIONS.EDIT_ORIGINAL" [type]="AuxButtonTypeEnum.TERTIARY"
+                        [isDisabled]="!isEditOriginalEnabled" (click)="onEditOriginal()"></aux-button>
+        </div>
+        <ng-container *ngIf="coreFavoriteUtils.showFavStatusTagMenu(multiLevelBreakdown)">
+            <div class="vertical-line-divider"></div>
+            <app-favorite-menu [favorite]="multiLevelBreakdown" [favoriteType]="breakdownBuilderSettings.favoriteType"> </app-favorite-menu>
+        </ng-container>
+    </div>
+    <div class="breakdown-status-badge" *ngIf="coreFavoriteUtils.showFavStatusTag(multiLevelBreakdown)">
+        <app-favorite-status-badge [favoriteStatus]="multiLevelBreakdown?.statusTag"></app-favorite-status-badge>
+    </div>
+    <div class="breakdown-tree-preview-container">
+        <!--        This is just overlay over breakdown tree preview to consistently show cursor as non-allowed-->
+        <div class="breakdown-tree-preview-overlay">
+        </div>
+        <div class="breakdown-not-defined-msg" *ngIf="multiLevelBreakdown.isEmpty() && !multiLevelBreakdown.isPlaceholderBreakdown()">
+            No breakdown configured
+        </div>
+        <div class="breakdown-msg" *ngIf="multiLevelBreakdown.isPlaceholderBreakdown()">
+            <span class="aux-primary">{{multiLevelBreakdown.title}}</span>
+        </div>
+        <div class="breakdown-tree-preview" *ngIf="!multiLevelBreakdown.isEmpty() && !multiLevelBreakdown.isPlaceholderBreakdown()">
+            <aux-tree-list [data]="breakdownTreeData">
+            </aux-tree-list>
+        </div>
+    </div>
+</div>

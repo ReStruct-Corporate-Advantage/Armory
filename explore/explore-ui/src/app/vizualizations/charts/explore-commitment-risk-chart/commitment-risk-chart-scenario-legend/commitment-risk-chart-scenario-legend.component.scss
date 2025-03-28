@@ -1,0 +1,72 @@
+.commitment-risk-legend {
+    display: flex;
+    justify-content: center;
+}
+
+.scenario-selection--container {
+    display: flex;
+}
+
+.scenario-selection--padding {
+    padding-right: 3rem;
+}
+
+.scenario-selection--title{
+    padding-right: 1rem;
+}
+
+.scenario-option {
+    display: flex;
+}
+
+.scenario-option--padding {
+    padding-left: 0.5rem;
+}
+
+.legend-icon--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 16px;
+    margin-right: 4px
+}
+
+.circle-with-line--blue {
+    width: 12px;
+    height: 12px;
+    background-color: #3BADF8;
+    border-radius: 50%;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 1px;
+        background-color: #00384A;
+    }
+}
+
+.circle-with-line--yellow {
+    width: 12px;
+    height: 12px;
+    background-color: #f8e71c;
+    border-radius: 50%;
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 24px;
+        height: 1px;
+        background-color: transparent;
+        border-top: 1px dashed #956E00;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="time-series-format-settings-area">
+    <div class="label">Show</div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Data markers" [isChecked]="showDataMarker"
+                      (checkboxChanged)="onShowDataMarkerChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Total line" [isChecked]="showTotalLine" [isDisabled]="!totalSelectionEnabled"
+                      (checkboxChanged)="onShowTotalValueChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <aux-checkbox label="Baseline" [isChecked]="showBaseline" [isDisabled]="!totalSelectionEnabled"
+                      (checkboxChanged)="onShowBaselineValueChanged($event)">
+        </aux-checkbox>
+    </div>
+    <div class="padding-top-bottom__6">
+        <app-grid-lines-settings [widgetInput]="gridLines"></app-grid-lines-settings>
+    </div>
+</div>

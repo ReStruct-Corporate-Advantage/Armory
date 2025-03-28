@@ -1,0 +1,30 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": [],
+      "message": null,
+      "gaussian": "pdGkvMFqs5JT33wFCb21Dg==",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 604
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2023-04-12T07:00:40.870Z",
+      "detailedID": "c002bb20-f6d4-48bc-93da-44a45e600051.604.1681282840870",
+      "IDWithContextChain": "c002bb20-f6d4-48bc-93da-44a45e600051",
+      "chain": [],
+      "bmsMsgSize": 604,
+      "transactionId": "c002bb20-f6d4-48bc-93da-44a45e600051",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "extTransactionId": "appId=78*ctrlguid=1676011520*acctguid=8a535990-e8e4-4605-a468-66ecf9b17857*nodeid=1636331*ts=1681282840878*btid=1713*guid=d52f6c7d-aaaa-40fe-8506-906ded312e7f*exitguid=3*unresolvedexitid=595*cidfrom=640*etypeorder=CUSTOM*esubtype=Custom.Activity*cidto={[UNRESOLVED][595]}",
+    "return_val": "SUCCESS",
+    "command": "getAllFavoritesForUserAndType",
+    "transactionId": "c002bb20-f6d4-48bc-93da-44a45e600051",
+    "successCode": null
+  }
+]

@@ -1,0 +1,13 @@
+<aux-dialog [header]="header" [type]="continueSaving? 'alert-with-options' : 'alert'" [isOpen]="isOpen"
+            [primaryButtonLabel]="continueSaving? CoreCommonConstants.BUTTON_TEXT.CONTINUE : CoreCommonConstants.BUTTON_TEXT.OK" (secondaryButtonClicked)="closeModal(false)"
+            (primaryButtonClicked)="closeModal(true)">
+    <div class="aux-g16--cw-4 conflicts-container">
+        <span>{{message}}</span>
+        <div class="conflicts-list">
+            <ul *ngFor="let conflictingFavorite of conflictingFavorites">
+                <li>{{FAVORITE_DISPLAY_NAMES[conflictingFavorite.displayType]}}:
+                    <strong>{{conflictingFavorite.title}}</strong></li>
+            </ul>
+        </div>
+    </div>
+</aux-dialog>

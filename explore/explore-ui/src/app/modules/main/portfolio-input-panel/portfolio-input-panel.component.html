@@ -1,0 +1,60 @@
+<div class="portfolio-input-panel-design" id="portfolio-input-container">
+    <div class="portfolio-input-panel-container aux-container aux-primary">
+
+        <div class="input-item-container">
+            <div class="input-item">
+                <app-date-picker-with-calendar
+                    [label]="'Date'"
+                    [dateObject]="datePicker"
+                    [isDisabled]="isDateDisabled"
+                    [portfolio]="portfolio"
+                    (dateChange)="onDateChange($event)">
+                </app-date-picker-with-calendar>
+            </div>
+            <div class="input-item currency-input">
+                <aux-select
+                    id="currencyDropdown"
+                    #currencyDropdown
+                    [label]="'Currency'"
+                    [isLeftLabel]="true"
+                    [size]="'small'"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="currencyOptions"
+                    [type]="'filter-simple'"
+                    (selectionChanged)="onCurrencyChange($event.detail?.value?.value)"
+                    (dropdownClosed)="onDropdownClosed()">
+                </aux-select>
+            </div>
+            <div class="input-item">
+                <app-benchmark-selector [portfolio]="portfolio" [allowOther]="true"></app-benchmark-selector>
+            </div>
+        </div>
+
+        <div class="input-item-container">
+            <div class="settings-button">
+                <app-user-session-info></app-user-session-info>
+            </div>
+            <div class="settings-button">
+                <div [ngClass]="{'settings-button-disable': isPortfolioSettingsDisabled$ | async}">
+                    <span><aux-menu-nav
+                        label="Settings"
+                        icon="settings"
+                        (click)="openPortfolioSettingsModal()"
+                    ></aux-menu-nav></span>
+                </div>
+            </div>
+            <ng-container *ngIf="isPublishStateEnabled">
+                <div class="publish-state">
+                    <app-publish-state [portfolio]="portfolio"></app-publish-state>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<ng-container *ngIf="isPortfolioSettingsModalOpen">
+    <app-portfolio-settings-modal [isOpen]="isPortfolioSettingsModalOpen"
+                                  (modalClosed)="closePortfolioSettingsModal()"
+                                  [portfolio]="portfolio">
+    </app-portfolio-settings-modal>
+</ng-container>
+

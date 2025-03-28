@@ -1,0 +1,24 @@
+<ng-container *ngIf="showExploreDefaultBreadcrumbs$ | async">
+    <app-explore-default-breadcrumbs [breakdown]="breakdown"
+                                     [measures]="breadcrumbsMeasures">
+    </app-explore-default-breadcrumbs>
+</ng-container>
+
+<div [ngClass]="[(showExploreDefaultBreadcrumbs$ | async) ? 'chart-height-calculated' : 'component-hw-100']">
+    <highcharts-chart
+        *ngIf="qbstrOptions"
+        class="component-hw-100 legacy-styles"
+        #widgetRender
+        [callbackFunction]="setChartObject"
+        [options]="qbstrOptions"
+        [Highcharts]="hc"
+    ></highcharts-chart>
+    <highcharts-chart
+        *ngIf="qbstrOptions2"
+        class="component-hw-100 legacy-styles"
+        #widgetRender
+        [callbackFunction]="setChartObject"
+        [options]="qbstrOptions2"
+        [Highcharts]="hc"
+    ></highcharts-chart>
+</div>

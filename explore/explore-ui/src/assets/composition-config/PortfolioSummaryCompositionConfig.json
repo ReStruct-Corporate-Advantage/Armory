@@ -1,0 +1,95 @@
+{
+  "defaultPortfolioSummaryColumns": [
+    {
+      "columnTag": "portfolio_name",
+      "positionColumnType": "ALL",
+      "columnKey": "portfolio_name",
+      "columnTitle": "Portfolio Name",
+      "identifierColumn": true
+    },
+    {
+      "columnTag": "port_full_name",
+      "positionColumnType": "ALL",
+      "columnKey": "port_full_name",
+      "columnTitle": "Portfolio Full Name"
+    },
+    {
+      "columnTag": "nav_group",
+      "positionColumnType": "PORT",
+      "columnKey": "nav_group",
+      "columnTitle": "NAV Contribution"
+    },
+    {
+      "columnTag": "pct_nav_group",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_nav_group",
+      "columnTitle": "NAV Contribution %"
+    }
+  ],
+  "defaultSummaryColDefinitions": [
+    {
+      "headerName": "Portfolio",
+      "field": "portfolio_name",
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "Portfolio Full Name",
+      "field": "port_full_name",
+      "type": "auxTextColumn"
+    },
+    {
+      "headerName": "NAV Contribution %",
+      "groupId": "pct_nav_group",
+      "cellClass": [
+        "center-align-cell"
+      ],
+      "suppressSizeToFit": false,
+      "width": 300,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "pct_nav_group_before",
+          "aggFunc": "sum",
+          "width": 150,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "pct_nav_group_after",
+          "aggFunc": "sum",
+          "width": 150,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    },
+    {
+      "headerName": "NAV Contribution",
+      "groupId": "nav_group",
+      "cellClass": [
+        "center-align-cell"
+      ],
+      "suppressSizeToFit": false,
+      "width": 300,
+      "children": [
+        {
+          "headerName": "Original",
+          "field": "nav_group_before",
+          "aggFunc": "sum",
+          "width": 150,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        },
+        {
+          "headerName": "Modified",
+          "field": "nav_group_after",
+          "aggFunc": "sum",
+          "width": 150,
+          "minWidth": 80,
+          "type": "auxNumberColumn"
+        }
+      ]
+    }
+  ]
+}

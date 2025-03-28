@@ -1,0 +1,6 @@
+<aux-inline-menu
+    [data]="EXPORT_OPTION"
+    trigger="pressed"
+    (inlineMenuItemClicked)="onMenuItemClicked($event)">
+    <aux-button slot="target" [type]="AuxButtonTypeEnum.TERTIARY" icon="export" (click)="onExportClick()"></aux-button>
+</aux-inline-menu>

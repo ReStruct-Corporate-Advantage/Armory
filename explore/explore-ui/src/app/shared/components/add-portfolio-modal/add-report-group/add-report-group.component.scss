@@ -1,0 +1,53 @@
+.addGroupCheckBoxDiv {
+    padding: 0.5em 0;
+    align-items: center;
+}
+
+.content-horizontal {
+    display: flex;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.75em;
+}
+
+.report-group-modal__container {
+    height: 30rem;
+    padding: 10px 30px 30px;
+    background-color: var(--modal__background-color--grey)
+}
+
+.report-group-modal__picklist {
+    height: 20rem;
+    padding: 10px; border: 1px solid var(--picklist__border-color);
+    background-color: var(--container__background-color);
+}
+
+.report-group-picklist-header {
+    display: flex;
+
+    .left-div {
+        width: 50%;
+        text-align: left;
+    }
+
+    .right-div {
+        width: 50%;
+        display: block;
+        text-align: right;
+    }
+}
+
+.report-group-input-text {
+    width: 50%;
+}
+
+@media (max-width: 1279px) {
+    .report-group-modal-size {
+        width: explore-col-to-vw-32(4) !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .report-group-modal-size {
+        width: explore-col-to-vw-32(6) !important;
+    }
+}

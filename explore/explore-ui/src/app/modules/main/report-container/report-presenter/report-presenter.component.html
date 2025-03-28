@@ -1,0 +1,27 @@
+<aux-notification-group #reloadNotifier (buttonClicked)="onReloadButtonClicked($event)"></aux-notification-group>
+
+<div class="report-presenter-area" [ngStyle]="{'height.px': gridster?.mobile ? null : gridsterContainerHeight}">
+    <ng-container *ngIf="report?.widgets">
+        <gridster class='gridster gridster-grid' [options]="gridsterOptions" (maxReportSizeReached)="notifyMaxReportSizeReached()">
+            <gridster-item class="gridster-item" #gridItem [item]="widget.dimensions" *ngFor="let widget of report.widgets">
+                <app-widget #widgetComponent
+                            [widget]="widget"
+                            [portfolio]="portfolio"
+                            [report]="report"
+                            [gridsterItem]="gridItem"
+                            [widgetHiddenStatus$]="widgetHiddenStatus$"
+                            (minimizeAllWidgets)="minimizeAllWidgets()"
+                            [isBatchExport]="isBatchExport"
+                            [runHardRefresh]="runHardRefresh"
+                            id={{widget.id}}>
+                </app-widget>
+            </gridster-item>
+        </gridster>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="openPasteWidgetModal">
+    <app-paste-widget-modal [isOpen]="openPasteWidgetModal"
+                            (modalClosed)="closePasteWidgetModal()">
+    </app-paste-widget-modal>
+</ng-container>

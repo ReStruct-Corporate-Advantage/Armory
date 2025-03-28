@@ -1,0 +1,51 @@
+{
+  "breakdown": {
+    "breakdownTitle": "Barclays Four Pillar",
+    "subSectors": [
+      {
+        "breakdownRuleType": "String",
+        "useNoneBuckets": false,
+        "groupByColumn": {
+          "columnName": "Barclays Four Pillar Sectors (gp_BARCSECT4P) - Level 1",
+          "columnTag": "grsector`gp_BARCSECT4P`1",
+          "dataType": "STRING"
+        },
+        "subSectors": [
+          {
+            "breakdownRuleType": "String",
+            "useNoneBuckets": false,
+            "groupByColumn": {
+              "columnName": "Barclays Four Pillar Sectors (gp_BARCSECT4P) - Level 2",
+              "columnTag": "grsector`gp_BARCSECT4P`2",
+              "dataType": "STRING"
+            },
+            "subSectors": [
+              {
+                "breakdownRuleType": "String",
+                "useNoneBuckets": false,
+                "groupByColumn": {
+                  "columnName": "Barclays Four Pillar Sectors (gp_BARCSECT4P) - Level 3",
+                  "columnTag": "grsector`gp_BARCSECT4P`3",
+                  "dataType": "STRING"
+                },
+                "subSectors": [
+                  {
+                    "breakdownRuleType": "String",
+                    "useNoneBuckets": false,
+                    "groupByColumn": {
+                      "columnName": "Barclays Four Pillar Sectors (gp_BARCSECT4P) - Level 4",
+                      "columnTag": "grsector`gp_BARCSECT4P`4",
+                      "dataType": "STRING"
+                    },
+                    "subSectors": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "title": "Barclays Four Pillar"
+}

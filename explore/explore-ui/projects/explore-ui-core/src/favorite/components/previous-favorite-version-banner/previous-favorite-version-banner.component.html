@@ -1,0 +1,4 @@
+<ng-container *ngIf="isPreviousVersion">
+    <aux-notification [message]="previousVersionMessage" [showCloseIcon]="false"
+                      [notificationStyle]="AuxNotificationStyleEnum.MESSAGE" [isCompact]="true"></aux-notification>
+</ng-container>

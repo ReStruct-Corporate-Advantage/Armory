@@ -1,0 +1,12 @@
+<aux-modal [type]="'action'" [header]="'Add/Edit Security'" [hasGreyContentArea]="false" [isOpen]="isOpen" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g16--cw-6 security-search">
+        <app-security-search #securitySearchComp
+            [selectedSecurities]="selectedSecurities"
+            [createFromScratch]="true"
+        ></app-security-search>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Done'" [type]="'primary'" (click)="onClosed(true)"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="onClosed(false)"></aux-button>
+    </div>
+</aux-modal>

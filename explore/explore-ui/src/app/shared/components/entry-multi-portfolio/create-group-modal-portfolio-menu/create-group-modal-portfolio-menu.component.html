@@ -1,0 +1,28 @@
+<aux-modal class="create-group-modal" [isOpen]="isOpen" type="action" [header]="'Create Group for Multi-Portfolio Analysis'" [hasCustomFooter]="true">
+    <div slot="content" class="compare-modal" [ngClass]="{'type-portfolio' : portfolioType === portfolioTypeEnum.PORTFOLIO, 'type-index-what-if aux-g16--cw-8' : portfolioType === portfolioTypeEnum.INDEX_RESEARCH || portfolioType === portfolioTypeEnum.WHAT_IF}">
+        <div class="compare-table">
+            <div class="add-group-top-container">
+                <aux-text-input class="custom-column-title"
+                    label="Group Name"
+                    placeholder="Input Text"
+                    [groupName]="groupName"
+                    (valueChanged)="onColumnTitleValueChanged($event)"
+                    >
+                </aux-text-input>
+            </div>
+            <div class="add-portfolio-top-container" [ngSwitch]="portfolioType">
+                <app-add-portfolio *ngSwitchCase="portfolioTypeEnum.PORTFOLIO" (searchInputChanged)="onSearchInputChanged($event)" (portfolioRemoved)="onPortfolioRemoved($event)" (allPortfoliosRemoved)="onAllPortfolioRemoved()"></app-add-portfolio>
+            </div>
+            <app-base-portfolio-selector
+                [anchorOptions]="anchorOptions"
+                (selectionChanged)="setSelectedAnchorValue($event)">
+            </app-base-portfolio-selector>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Done'"
+                    [isDisabled]="this.selectedPortfolioTickers.size <= 1"
+                    (click)="addReportGroup()"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

@@ -1,0 +1,30 @@
+.widget-settings-modal-container {
+    background-color: var(--modal__background-color--grey);
+    padding: 2rem;
+    height: 50vh;
+}
+
+.tab-content--fixed-height {
+    overflow-y: auto;
+}
+
+.custom-header {
+    display: flex;
+    padding: 1rem 2rem 1.25rem;
+    align-items: baseline;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    color: var(--primary-text__color);
+
+    .title-padding {
+        padding-right: 1rem
+    }
+}
+
+.loading-spinner-factor-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2147483647;
+}

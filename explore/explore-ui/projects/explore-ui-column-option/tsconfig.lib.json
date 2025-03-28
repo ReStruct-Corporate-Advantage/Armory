@@ -1,0 +1,38 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "../../out-tsc/libs/@blk/explore-ui-column-option",
+    "declarationMap": true,
+    "target": "es2022",
+    "useDefineForClassFields": false,
+    "declaration": true,
+    "inlineSources": true,
+    "paths": {
+      "@blk/explore-ads-wrapper": [
+        "../../dist/libs/@blk/explore-ads-wrapper"
+      ],
+      "@blk/explore-ui-core": [
+        "../../dist/libs/@blk/explore-ui-core"
+      ],
+      "@blk/explore-ui-risk": [
+        "../../dist/libs/@blk/explore-ui-risk"
+      ],
+      "@blk/explore-ui-portfolio-search": [
+        "../../dist/libs/@blk/explore-ui-portfolio-search"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "compilationMode": "partial",
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
+  },
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
+}

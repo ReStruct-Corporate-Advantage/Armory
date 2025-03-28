@@ -1,0 +1,23 @@
+@use '@blk/aladdin-web-components/dist/collection/styles/aux-variables';
+
+.add-universe-check {
+    margin-top: aux-variables.$aux-spacing-02;
+    width: aux-variables.$aux-spacing-04;
+}
+
+.remove-universe {
+    margin-top: aux-variables.$aux-spacing-02;
+    width: aux-variables.$aux-spacing-01;
+}
+
+.container {
+    margin-bottom: aux-variables.$aux-spacing-03;
+}
+
+.content-container {
+    margin: aux-variables.$aux-spacing-01;
+}
+
+.security-margin {
+    margin-bottom: aux-variables.$aux-spacing-07;
+}

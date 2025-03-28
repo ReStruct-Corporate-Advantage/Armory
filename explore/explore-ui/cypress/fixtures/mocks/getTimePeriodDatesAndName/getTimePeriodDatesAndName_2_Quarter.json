@@ -1,0 +1,34 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "fullName": "2 Quarters to Date",
+        "endDate": "20-FEB-2024",
+        "startDate": "30-SEP-2023",
+        "isStartDateSetToPerformDate": "false"
+      },
+      "message": null,
+      "gaussian": "F4y9iMSZGaAKc95++rNHU/dOAIaQoraUjL8HxndNyrE1pdyQpd/KF2pzDFZZ",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 677
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-21T19:14:26.225Z",
+      "detailedID": "aeb79b1e-5e86-452f-89ea-b1174fe82c1a.677.1708542866225",
+      "IDWithContextChain": "aeb79b1e-5e86-452f-89ea-b1174fe82c1a",
+      "chain": [],
+      "bmsMsgSize": 677,
+      "transactionId": "aeb79b1e-5e86-452f-89ea-b1174fe82c1a",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getTimePeriodDatesAndName",
+    "transactionId": "aeb79b1e-5e86-452f-89ea-b1174fe82c1a",
+    "successCode": null
+  }
+]

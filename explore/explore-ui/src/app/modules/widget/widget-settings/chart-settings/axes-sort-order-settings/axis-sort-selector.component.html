@@ -1,0 +1,14 @@
+<aux-select
+    [label]="primaryTitle"
+    [hasInitialOptionPlaceholder]="false"
+    [data]="primaryData$ | async"
+    [isDisabled]="primaryDisabled"
+    (selectionChanged)="updateSelection('primary', $event.detail.value.value)"
+></aux-select>
+<aux-select
+    [label]="secondaryTitle"
+    [hasInitialOptionPlaceholder]="false"
+    [data]="secondaryData$ | async"
+    [isDisabled]="secondaryDisabled"
+    (selectionChanged)="updateSelection('secondary', $event.detail.value.value)"
+></aux-select>

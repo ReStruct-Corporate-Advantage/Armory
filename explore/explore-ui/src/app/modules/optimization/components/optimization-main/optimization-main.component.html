@@ -1,0 +1,28 @@
+<ng-container *ngIf="exploreRiskBudgetingVisible">
+    <div style="padding: 16px;">
+        <aux-radio-group
+            [data]="optimizationOptions"
+            (radioGroupChanged)="onOptimizationCaseChanged($event.detail?.value?.eventData)">
+        </aux-radio-group>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="optimizationOptions?.[0].checked || optimizationOptions?.[1].checked">
+    <app-optimization [currentPort]="currentPort" [isOptimizationInProgress]="optimizationStatus.spinnerFlag" [disableResetButton]="disableResetButton" (close)="onClose($event)" (resetComposition)="onResetComposition()" (save)="onSave()" (load)="onLoad()"
+                      (restoreDefault)="onRestoreDefault()"
+                      (run)="onRun($event)" (cancelOptimization)="onCancelOptimization()" (downloadROSRequest)="onDownloadROSRequest($event)">
+    </app-optimization>
+
+    <!--  LOADING  -->
+    <ng-container *ngIf="optimizationStatus.spinnerFlag">
+        <div class="loading-area">
+            <div class="loading-spinner">
+                <app-loading-spinner size="large" [loadingLabel]="'Running optimization'"></app-loading-spinner>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>
+
+<ng-container *ngIf="exploreRiskBudgetingVisible && optimizationOptions?.[2].checked">
+    <app-risk-parity-main [disableResetButton]="disableResetButton" (resetComposition)="onResetComposition()" (close)="onClose()" ></app-risk-parity-main>
+</ng-container>

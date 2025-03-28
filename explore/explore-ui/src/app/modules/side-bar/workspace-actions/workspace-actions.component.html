@@ -1,0 +1,42 @@
+<div class="workspace-actions">
+    <div class="workspace-name-edit-and-save">
+        <div *ngIf="!editWorkspaceName && !!workspace.id" class="aux-primary aux-bold aux-p14 workspace-name-label">
+            <explore-favorite-info [favoriteConfig]='workspace'
+                [favoriteConfigType]="CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.WORKSPACE"
+                [loadFavoriteCallBack]="loadWorkspaceVersion"></explore-favorite-info>
+        </div>
+        <div *ngIf="!editWorkspaceName && !workspace.id" class="aux-primary aux-bold aux-p14 workspace-name-label">
+            {{workspace.title}}
+        </div>
+        <div *ngIf="editWorkspaceName" class="workspace-name-edit">
+            <aux-text-input #workspaceNameField (focusout)="setEditWorkspaceName(!workspace?.title)"
+                            (valueChanged)="updateWorkspaceName($event.detail.value)" [value]="workspace.title"
+                            maxLength="30">
+            </aux-text-input>
+        </div>
+        <div *ngIf="workspace.owner" class="workspace-author">
+            <aux-value-pair [label]="'Owner'" [value]="workspace.getUserGroup()" [isPipeLess]="true"
+                            [labelPosition]="AuxValuePairLabelPositionEnum.LEFT"></aux-value-pair>
+        </div>
+
+        <div *ngIf="coreFavoriteUtils.showFavStatusTag(workspace)" class="workspace-status-badge">
+            <app-favorite-status-badge [favoriteStatus]="workspace?.statusTag"></app-favorite-status-badge>
+        </div>
+
+        <div class="workspace-quick-save">
+            <aux-button (click)="quickSaveWorkspace()"
+                        [isDisabled]="(quickSaveLoadingStatus$ | async) || !workspace?.title || workspace?.workpads?.length === 0"
+                        [type]="AuxButtonTypeEnum.SECONDARY"
+                        label="{{CoreFavoriteConstants.FAVORITE_ACTIONS.SAVE}} {{CoreFavoriteConstants.FAVORITE_DISPLAY_TITLE.WORKSPACE}}"
+                        size="small"></aux-button>
+            <div *ngIf="(quickSaveLoadingStatus$ | async)" class="in-progress-container">
+                <aux-icon [type]="'loading'" state="primary"></aux-icon>
+            </div>
+        </div>
+    </div>
+    <div>
+        <aux-icon *ngIf="exportingInProgress" style="display: inline-block; padding-right: 5px"  type="loading" state="primary"></aux-icon>
+        <app-workspace-actions-menu style="display: inline-block"
+                                    (renameWorkspace)="setEditWorkspaceName(true)"></app-workspace-actions-menu>
+    </div>
+</div>

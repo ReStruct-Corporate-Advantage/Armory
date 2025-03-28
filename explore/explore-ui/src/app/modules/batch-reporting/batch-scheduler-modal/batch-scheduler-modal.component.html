@@ -1,0 +1,69 @@
+<aux-modal [isOpen]="isOpen"
+           [hasCustomFooter]="true"
+           type="action"
+           header="Schedule - {{scheduledBatchConfig?.title}}">
+
+    <div slot="content" class="modal-size-sm batch-scheduler-options">
+        <div class="batch-scheduler-option-section no-margin-top">
+            <div class="aux-primary">Time</div>
+            <div class="batch-scheduler-time-option">
+                <div class="time-value-option">
+                    <aux-time-entry
+                        size="small"
+                        [value]="timeValue"
+                        [matchContentWidth]="true"
+                        (valueChanged)="onTimeValueChanged($event)">
+                    </aux-time-entry>
+                </div>
+                <div class="time-zone-option">
+                    <aux-select
+                        [size]="'small'"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="timeZoneOptions"
+                        [type]="'filter-simple'"
+                        (selectionChanged)="onTimeZoneChanged($event)">
+                    </aux-select>
+                </div>
+            </div>
+        </div>
+        <div class="batch-scheduler-option-section">
+            <div class="aux-primary">Run frequency</div>
+            <div>
+                <aux-select [data]="frequencyOptions"
+                            [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="onFrequencyChanged($event)"
+                            size="small">
+                </aux-select>
+            </div>
+        </div>
+        <div class="batch-scheduler-option-section batch-frequency-options" *ngIf="batchFrequencySelection">
+            <div class="batch-daily-frequency-section" *ngIf="batchFrequencySelection.getBatchScheduleFrequency() === 'Daily'">
+                <aux-checkbox-group [data]="dailyFrequencyOptions"
+                                    (checkboxGroupChanged)="onDailyFrequencyChanged($event)"></aux-checkbox-group>
+            </div>
+            <div class="batch-monthly-frequency-section" *ngIf="batchFrequencySelection.getBatchScheduleFrequency() === 'Monthly'">
+                <aux-numeric-stepper label="Day"
+                                     [isLeftLabel]="true"
+                                     [stepperValue]="monthlyFrequencyHolder.numericalDay"
+                                     maxValue=31
+                                     minValue=1
+                                     (valueChanged)="onMonthlyFrequencyChanged($event)">
+                </aux-numeric-stepper><span>of each month</span>
+            </div>
+        </div>
+        <div class="batch-scheduler-option-section batch-scheduler-file-name-prefix-option">
+            <div class="aux-primary">File name prefix</div>
+            <div>
+                <aux-text-input placeholder="{{scheduledBatchConfig?.title}}"
+                                size="small"
+                                [value]="fileNamePrefix"
+                                (valueChanged)="onFileNamePrefixChanged($event)"></aux-text-input>
+            </div>
+        </div>
+    </div>
+
+    <div slot="footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="'Schedule'" (click)="scheduleBatchConfig()" [isDisabled]=disableScheduleButton()></aux-button>
+        <aux-button [type]="'secondary'" [label]="'Close'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

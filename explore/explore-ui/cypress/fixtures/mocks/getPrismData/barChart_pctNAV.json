@@ -1,0 +1,92 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 0
+        },
+        "data": {
+          "data": [
+            0.9999999999999999
+          ],
+          "children": [
+            {
+              "data": [
+                0.9983722887567523
+              ],
+              "title": "EQUITY",
+              "sectorOrder": 1,
+              "rowId": 2
+            },
+            {
+              "data": [
+                0.0070811985607711824
+              ],
+              "title": "CASH",
+              "sectorOrder": 0,
+              "rowId": 3
+            },
+            {
+              "data": [
+                0.005505182809216433
+              ],
+              "title": "FUND",
+              "sectorOrder": 2,
+              "rowId": 4
+            },
+            {
+              "data": [
+                3.1535007337869495E-10
+              ],
+              "title": "LOAN",
+              "sectorOrder": 3,
+              "rowId": 5
+            },
+            {
+              "data": [
+                -0.010958670442090068
+              ],
+              "title": "OPTION",
+              "sectorOrder": 4,
+              "rowId": 6
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "pct_notional_val_0": "Notional Market Value %"
+          },
+          "columnKeyToTagMap": {
+            "pct_notional_val_0": "pct_notional_val"
+          }
+        },
+        "columns": [
+          "pct_notional_val_0"
+        ]
+      },
+      "message": null,
+      "gaussian": "a0kwLph9QrMl",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2107
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-01-02T23:26:40.917Z",
+      "detailedID": "c8cf99a0-68a4-4ddf-b6c8-4bf357807d31.2107.1704200200917",
+      "IDWithContextChain": "c8cf99a0-68a4-4ddf-b6c8-4bf357807d31",
+      "chain": [],
+      "bmsMsgSize": 2107,
+      "transactionId": "c8cf99a0-68a4-4ddf-b6c8-4bf357807d31",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPrismData",
+    "transactionId": "c8cf99a0-68a4-4ddf-b6c8-4bf357807d31",
+    "successCode": null
+  }
+]

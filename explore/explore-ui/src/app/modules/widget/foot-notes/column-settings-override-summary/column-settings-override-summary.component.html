@@ -1,0 +1,9 @@
+<aux-accordion [isFreeMode]="true" *ngFor="let columnSettings of columnSettingsOverrideDetails">
+    <aux-accordion-expansion-panel header="{{columnSettings?.columnTitle}}">
+        <div slot="content">
+            <div *ngFor="let property of columnSettings?.properties">
+                <p *ngIf="property?.value" class="no-margin">{{property.label}}: {{property.value}}</p>
+            </div>
+        </div>
+    </aux-accordion-expansion-panel>
+</aux-accordion>

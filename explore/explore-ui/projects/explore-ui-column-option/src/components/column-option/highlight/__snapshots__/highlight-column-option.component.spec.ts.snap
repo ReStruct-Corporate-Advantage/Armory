@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HighlightColumnOptionComponent Highlight Rules Tests should create two highlight rules 1`] = `
+<div
+  class="highlight-container"
+>
+  <div
+    class="rule-item__container"
+  >
+    <div
+      class="rule-item__header"
+    >
+      <div
+        class="rule-item__header-label--bold"
+      >
+        Rule 1
+      </div>
+      <div
+        class="rule-item__header--right"
+      >
+        <div
+          class="rule-item__header-label"
+        >
+          Reorder
+        </div>
+        <aux-button
+          icon="arrow-up"
+          size="small"
+          type="secondary"
+        />
+        <aux-button
+          class="button--secondary"
+          icon="arrow-down"
+          size="small"
+          type="secondary"
+        />
+      </div>
+    </div>
+    <explore-column-option-highlight-rule />
+  </div>
+  
+  <div
+    class="rule-item__container"
+  >
+    <div
+      class="rule-item__header"
+    >
+      <div
+        class="rule-item__header-label--bold"
+      >
+        Rule 2
+      </div>
+      <div
+        class="rule-item__header--right"
+      >
+        <div
+          class="rule-item__header-label"
+        >
+          Reorder
+        </div>
+        <aux-button
+          icon="arrow-up"
+          size="small"
+          type="secondary"
+        />
+        <aux-button
+          class="button--secondary"
+          icon="arrow-down"
+          size="small"
+          type="secondary"
+        />
+      </div>
+    </div>
+    <explore-column-option-highlight-rule />
+  </div>
+  
+  
+  <div
+    class="add-rule-button"
+  >
+    <aux-button
+      icon="add"
+      label="Rule"
+      type="secondary"
+    />
+  </div>
+  <div
+    class="add-rule-button"
+  >
+    <div>
+      Only show conditional formatting at
+    </div>
+  </div>
+  <div
+    class="add-rule-button"
+  >
+    <aux-checkbox />
+  </div>
+  <div
+    class="add-rule-button"
+  >
+    <aux-checkbox />
+  </div>
+  
+  
+</div>
+`;

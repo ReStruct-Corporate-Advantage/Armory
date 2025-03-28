@@ -1,0 +1,17 @@
+<ng-container *ngrxLet="measureData$ as measureData">
+    <ng-container *ngrxLet="settings$ as settings">
+        <ng-container *ngFor="let options of settings; index as index">
+            <app-axis-sort-selector
+                primaryTitle="Sort order"
+                secondaryTitle="Sort by"
+                [primaryData]="sortByData"
+                [secondaryData]="measureData"
+                [primarySelection]="options.sortBySelection"
+                [secondarySelection]="options.measureSelection"
+                [secondaryExclusions]="options.measureExclusion"
+                [secondaryDisabled]="options.secondaryDisabled"
+                (stateChanged)="update($event, index)"
+            ></app-axis-sort-selector>
+        </ng-container>
+    </ng-container>
+</ng-container>

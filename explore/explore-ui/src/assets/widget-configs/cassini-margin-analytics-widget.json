@@ -1,0 +1,74 @@
+{
+  "configType": "cassiniMarginAnalyticsWidget",
+  "size": {
+    "height": 8,
+    "width": 16
+  },
+  "description": "Margin analytics",
+  "title": "Margin Analytics",
+  "image": ".\/assets\/images\/riskExposureWidget.png",
+  "showOnlySingleColumn": false,
+  "showInSelector": true,
+  "tokenToCheck": "enableCassiniMarginAnalytics",
+  "exportType": "none",
+  "inputCategories": [
+    {
+      "categoryType": "columns",
+      "categoryTitle": "Columns",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "hideTopColumnGroup": false,
+          "default": [
+            {
+              "columnTag": "security_description",
+              "positionColumnType": "ALL",
+              "columnKey": "security_description_1"
+            },
+            {
+              "columnTag": "margin_analytics",
+              "positionColumnType": "ALL",
+              "columnKey": "margin_analytics"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryType": "Settings",
+      "categoryTitle": "Table Settings",
+      "noAccordion": false,
+      "inputs": [
+        {
+          "inputConfigType": "marginAnalyticsCassiniSettings",
+          "inputName": "marginAnalyticsCassiniSettings",
+          "inputTitle": "Settings",
+          "hideTitle": false,
+          "default": {
+            "calculationStyle": "LEVEL_PROPORTIONAL",
+            "groupingStyle": "Portfolio"
+          }
+        }
+      ]
+    },
+    {
+      "$ref": "defaultColumnState"
+    },
+    {
+      "$ref": "defaultExpandedState"
+    }
+  ],
+  "restrictedColumnOptions": {
+    "sections": [
+      "highlight",
+      "aggregation",
+      "economyExposureSettings",
+      "ConstraintMissingDataHandling"
+    ]
+  },
+  "chartingLib": "agGrid"
+}

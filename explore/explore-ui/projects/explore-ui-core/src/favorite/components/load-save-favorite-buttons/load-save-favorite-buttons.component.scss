@@ -1,0 +1,26 @@
+.load-save-favorite-container {
+
+    .favorite-action-buttons {
+        display: flex;
+        align-items: center;
+    }
+
+    .load-link {
+        padding-right: 12px;
+    }
+    .save-link {
+        padding-left: 12px;
+        border-left-style: solid;
+        border-left-width: 1px;
+    }
+
+    .selected-favorite-container {
+        display: flex;
+        padding: 0.5rem 0;
+    }
+
+    .favorite-title {
+        min-width: 8rem;
+        padding-right: 0.75rem;
+    }
+}

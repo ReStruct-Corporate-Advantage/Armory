@@ -1,0 +1,58 @@
+<div>
+    <div class="filter-settings">
+        <div class="column-select--container">
+            <aux-select
+                    class="column-select"
+                    [label]="'Filter column'"
+                    [isLeftLabel]="true"
+                    (selectionChanged)="updateFilterColumn($event)"
+                    [data]="displayDataForColumns">
+            </aux-select>
+            <div class="bottom-label">
+                <aux-numeric-stepper
+                    class="display-top"
+                    [isLeftLabel]="true"
+                    [label]="'by top'"
+                    stepperValue="{{widgetInput.top}}"
+                    (valueChanged)="onTopValueChanged($event)"
+                    minValue="0">
+                </aux-numeric-stepper>
+            </div>
+            <div class="bottom-label">
+                <aux-numeric-stepper
+                    class="display-top"
+                    [isLeftLabel]="true"
+                    [label]="'and bottom'"
+                    stepperValue="{{widgetInput.bottom}}"
+                    (valueChanged)="onBottomValueChanged($event)"
+                    minValue="0">
+                </aux-numeric-stepper>
+            </div>
+        </div>
+    </div>
+
+    <div class="result-level" *ngIf="!hideTopBottomSectorToggle">
+        <div class="content-horizontal">
+            {{SHOW_RESULTS}}
+            <aux-popover [trigger]="'hover'">
+                <aux-button
+                        type="tertiary"
+                        icon="help"
+                        assistiveText="Hover button"
+                        slot="target">
+                </aux-button>
+                <div slot="content" class="popover-container">
+                    <strong>{{BY_INDIVIDUAL_SECURITIES}}</strong>: Filters by individual securities<br>
+                    <strong>{{BY_SECTOR_IN_THE_BREAKDOWN}}</strong>: Filters by the overall bucket, or sectors, in the breakdown<br>
+                    <strong>{{WITHIN_EACH_SECTOR_IN_THE_BREAKDOWN}}</strong>: Filters within each bucket, or sector, in the breakdown<br>
+                </div>
+            </aux-popover>
+        </div>
+        <aux-radio-group
+            [data]="resultLevelRadioGroups"
+            [isStacked]="true"
+            [isHeaderBold]="false"
+            (radioGroupChanged)="updateSelectedResultLevel($event)">
+        </aux-radio-group>
+    </div>
+</div>

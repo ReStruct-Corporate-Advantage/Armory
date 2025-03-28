@@ -1,0 +1,2060 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "message": null,
+      "data": {
+        "footerDetails": {
+          "PUBLISH_TIME": 0
+        },
+        "data": {
+          "data": [
+            "RUBICONAGA",
+            1.068052388176044E10,
+            1.0,
+            "RUBICONAGA Benchmark"
+          ],
+          "children": [
+            {
+              "data": [
+                "RUB-I",
+                1.0583123552597492E10,
+                0.9908805663241591,
+                "NOBENCHUSD"
+              ],
+              "title": "RUB-I",
+              "children": [
+                {
+                  "data": [
+                    "RUB-I-AUD",
+                    1.2777854634203975E9,
+                    0.11963696514948326,
+                    "UBSRDU035"
+                  ],
+                  "title": "RUB-I-AUD",
+                  "children": [
+                    {
+                      "data": [
+                        "X-49ARAGA",
+                        9.778697292334361E8,
+                        0.09155634499384281,
+                        "UBSRDU035"
+                      ],
+                      "title": "X-49ARAGA",
+                      "children": [
+                        {
+                          "data": [
+                            "X-50AR-BB",
+                            6.067231619159894E8,
+                            0.056806498317195364,
+                            "UBSRDU035"
+                          ],
+                          "rowId": 5
+                        },
+                        {
+                          "data": [
+                            "X-49AR-AA",
+                            3.66452487051105E8,
+                            0.034310347611029704,
+                            "UBSCRD0-3"
+                          ],
+                          "rowId": 6
+                        },
+                        {
+                          "data": [
+                            "X-50AR-AA",
+                            4694080.266341864,
+                            4.3949906561775807E-4,
+                            "UBSRDU035"
+                          ],
+                          "rowId": 7
+                        }
+                      ],
+                      "rowId": 4
+                    },
+                    {
+                      "data": [
+                        "X-84R-AG",
+                        4.374536009064E7,
+                        0.004095806589164199,
+                        "UBSCRD0-3"
+                      ],
+                      "title": "X-84R-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-84R-AA",
+                            4.374536009064E7,
+                            0.004095806589164199,
+                            "UBSCRD0-3"
+                          ],
+                          "rowId": 9
+                        }
+                      ],
+                      "rowId": 8
+                    },
+                    {
+                      "data": [
+                        "X-49AR-AG",
+                        3.66452487051105E8,
+                        0.034310347611029704,
+                        "UBSCRD0-3"
+                      ],
+                      "title": "X-49AR-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-49AR-AA",
+                            3.66452487051105E8,
+                            0.034310347611029704,
+                            "UBSCRD0-3"
+                          ],
+                          "rowId": 11
+                        }
+                      ],
+                      "rowId": 10
+                    },
+                    {
+                      "data": [
+                        "X-83RAGA",
+                        2.5617037409632173E8,
+                        0.02398481356647628,
+                        "UBSCRD7525"
+                      ],
+                      "title": "X-83RAGA",
+                      "children": [
+                        {
+                          "data": [
+                            "X-83R-AA",
+                            2.5617037409632173E8,
+                            0.02398481356647628,
+                            "UBSCRD0-3"
+                          ],
+                          "rowId": 13
+                        }
+                      ],
+                      "rowId": 12
+                    },
+                    {
+                      "data": [
+                        "X-50AR-AG",
+                        6.114172421823314E8,
+                        0.05724599738281314,
+                        "UBSRDU035"
+                      ],
+                      "title": "X-50AR-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-50AR-BB",
+                            6.067231619159894E8,
+                            0.056806498317195364,
+                            "UBSRDU035"
+                          ],
+                          "rowId": 15
+                        },
+                        {
+                          "data": [
+                            "X-50AR-AA",
+                            4694080.266341864,
+                            4.3949906561775807E-4,
+                            "UBSRDU035"
+                          ],
+                          "rowId": 16
+                        }
+                      ],
+                      "rowId": 14
+                    }
+                  ],
+                  "rowId": 3
+                },
+                {
+                  "data": [
+                    "RUB-I-CAD",
+                    1.6845831431250498E9,
+                    0.1577247672281207,
+                    "NOBENCHCAD"
+                  ],
+                  "title": "RUB-I-CAD",
+                  "children": [
+                    {
+                      "data": [
+                        "X-CLCRCAGA",
+                        1.6845831431250498E9,
+                        0.1577247672281207,
+                        "MLCACPCAD"
+                      ],
+                      "title": "X-CLCRCAGA",
+                      "children": [
+                        {
+                          "data": [
+                            "X-CLCRC-GG",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 19
+                        },
+                        {
+                          "data": [
+                            "X-CLCRC-HH",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 20
+                        },
+                        {
+                          "data": [
+                            "X-CLCRC-II",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 21
+                        },
+                        {
+                          "data": [
+                            "X-CLCRC-JJ",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 22
+                        },
+                        {
+                          "data": [
+                            "X-CLCRC-KK",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 23
+                        },
+                        {
+                          "data": [
+                            "X-CLCRC-AG",
+                            1.6845831431250498E9,
+                            0.1577247672281207,
+                            "NOBENCHCAD"
+                          ],
+                          "title": "X-CLCRC-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-CLCRC-LD",
+                                1.342576478892954E9,
+                                0.12570324206528163,
+                                "X-CLCRC-LD Benchmark"
+                              ],
+                              "title": "X-CLCRC-LD",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-CLCRC-BB",
+                                    7.143022110202603E8,
+                                    0.06687894890999709,
+                                    "NOBENCHCAD"
+                                  ],
+                                  "rowId": 26
+                                },
+                                {
+                                  "data": [
+                                    "X-CLCRC-AA",
+                                    6.282742678726934E8,
+                                    0.05882429315528451,
+                                    "NOBENCHCAD"
+                                  ],
+                                  "rowId": 27
+                                }
+                              ],
+                              "rowId": 25
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-SD",
+                                3.420066642320968E8,
+                                0.03202152516283918,
+                                "X-CLCRC-SD Benchmark"
+                              ],
+                              "title": "X-CLCRC-SD",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-CLCRC-EE",
+                                    2.8233688298478734E8,
+                                    0.026434741039898367,
+                                    "NOBENCHCAD"
+                                  ],
+                                  "rowId": 29
+                                },
+                                {
+                                  "data": [
+                                    "X-CLCRC-FF",
+                                    5.9669781247309506E7,
+                                    0.005586784122940822,
+                                    "NOBENCHCAD"
+                                  ],
+                                  "rowId": 30
+                                }
+                              ],
+                              "rowId": 28
+                            }
+                          ],
+                          "rowId": 24
+                        }
+                      ],
+                      "rowId": 18
+                    }
+                  ],
+                  "rowId": 17
+                },
+                {
+                  "data": [
+                    "RUB-I-GBP",
+                    2.295748829518116E9,
+                    0.2149472118534053,
+                    "NOBENCHGBP"
+                  ],
+                  "title": "RUB-I-GBP",
+                  "children": [
+                    {
+                      "data": [
+                        "X-6211-AG",
+                        2.295748829518116E9,
+                        0.2149472118534053,
+                        "X-6211-AG Benchmark"
+                      ],
+                      "title": "X-6211-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-34RT-G",
+                            null,
+                            null,
+                            "NULLBENCH"
+                          ],
+                          "rowId": 33
+                        },
+                        {
+                          "data": [
+                            "X-3A-IMT",
+                            null,
+                            null,
+                            "BGCPSTGBP"
+                          ],
+                          "rowId": 34
+                        },
+                        {
+                          "data": [
+                            "X-3A-SRT",
+                            null,
+                            null,
+                            "BGCPSTGBP"
+                          ],
+                          "rowId": 35
+                        },
+                        {
+                          "data": [
+                            "X-34RC-G",
+                            4.295174804090999E8,
+                            0.04021501989641202,
+                            "NOBENCHGBP"
+                          ],
+                          "rowId": 36
+                        },
+                        {
+                          "data": [
+                            "X-BH-AGG",
+                            1.8662313491090164E9,
+                            0.1747321919569933,
+                            "X-BH-AGG Benchmark"
+                          ],
+                          "title": "X-BH-AGG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-BH2-AG",
+                                9.257311727961885E8,
+                                0.08667469714450025,
+                                "X-BH2-AG Benchmark"
+                              ],
+                              "title": "X-BH2-AG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-39A-G",
+                                    1.500408704563916E8,
+                                    0.01404808154706928,
+                                    "MLSCPXGBP"
+                                  ],
+                                  "rowId": 39
+                                },
+                                {
+                                  "data": [
+                                    "X-40A-G",
+                                    null,
+                                    null,
+                                    "BGCPSTGBP"
+                                  ],
+                                  "rowId": 40
+                                },
+                                {
+                                  "data": [
+                                    "X-41A-G",
+                                    null,
+                                    null,
+                                    "BGCPSTGBP"
+                                  ],
+                                  "rowId": 41
+                                },
+                                {
+                                  "data": [
+                                    "X-38A-G",
+                                    7.756903023397968E8,
+                                    0.07262661559743097,
+                                    "MLSCPXGBP"
+                                  ],
+                                  "rowId": 42
+                                }
+                              ],
+                              "rowId": 38
+                            },
+                            {
+                              "data": [
+                                "X-Z1-AFS",
+                                null,
+                                null,
+                                "BGCPSTGBP"
+                              ],
+                              "rowId": 43
+                            },
+                            {
+                              "data": [
+                                "X-34A-G",
+                                9.405001763128291E8,
+                                0.08805749481249314,
+                                "MLSCPXGBP"
+                              ],
+                              "rowId": 44
+                            }
+                          ],
+                          "rowId": 37
+                        }
+                      ],
+                      "rowId": 32
+                    }
+                  ],
+                  "rowId": 31
+                },
+                {
+                  "data": [
+                    "RUB-I-USD",
+                    5.325006116533934E9,
+                    0.49857162209315037,
+                    "RUBIUSDINX"
+                  ],
+                  "title": "RUB-I-USD",
+                  "children": [
+                    {
+                      "data": [
+                        "X-RELH-AG",
+                        5.325006116533934E9,
+                        0.49857162209315037,
+                        "NO_BENCH"
+                      ],
+                      "title": "X-RELH-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-67-AG",
+                            4.511048079213549E8,
+                            0.04223620609956452,
+                            "X-67-AG Benchmark"
+                          ],
+                          "title": "X-67-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-67CR-U2",
+                                9.119524890815555E7,
+                                0.008538462150147273,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 48
+                            },
+                            {
+                              "data": [
+                                "X-67CR2-S",
+                                3.599095590131993E8,
+                                0.03369774394941725,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 49
+                            }
+                          ],
+                          "rowId": 47
+                        },
+                        {
+                          "data": [
+                            "X-LJS-SD",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 50
+                        },
+                        {
+                          "data": [
+                            "X-RELH-APL",
+                            null,
+                            null,
+                            "NULLBNCHUS"
+                          ],
+                          "rowId": 51
+                        },
+                        {
+                          "data": [
+                            "X-RELH-COR",
+                            4.1683659496869564E8,
+                            0.03902772931209341,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 52
+                        },
+                        {
+                          "data": [
+                            "X-RELH-CRE",
+                            null,
+                            null,
+                            "NULLBNCHUS"
+                          ],
+                          "rowId": 53
+                        },
+                        {
+                          "data": [
+                            "X-RELH-DT",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 54
+                        },
+                        {
+                          "data": [
+                            "X-RELH-DTB",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 55
+                        },
+                        {
+                          "data": [
+                            "X-RELH-HR",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 56
+                        },
+                        {
+                          "data": [
+                            "X-RELH-XR",
+                            2.0574015326502225E8,
+                            0.019263114388646512,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 57
+                        },
+                        {
+                          "data": [
+                            "X-RELHLRAG",
+                            null,
+                            null,
+                            "X-RELHLRAG Benchmark"
+                          ],
+                          "title": "X-RELHLRAG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-RELH-LR",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 59
+                            },
+                            {
+                              "data": [
+                                "X-RELH-LRB",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 60
+                            }
+                          ],
+                          "rowId": 58
+                        },
+                        {
+                          "data": [
+                            "X-67CR-U",
+                            1.1919008761920625E8,
+                            0.011159573157525722,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 61
+                        },
+                        {
+                          "data": [
+                            "X-SLC-U-AA",
+                            1.1360418084131074E9,
+                            0.1063657383279833,
+                            "NULLBNCHUS"
+                          ],
+                          "rowId": 62
+                        },
+                        {
+                          "data": [
+                            "X-MFWT-AA",
+                            8.53251322692959E8,
+                            0.07988852720512057,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 63
+                        },
+                        {
+                          "data": [
+                            "X-SLCRU-EE",
+                            5.971829403112888E8,
+                            0.05591326295624151,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 64
+                        },
+                        {
+                          "data": [
+                            "X-MLIC-SD",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 65
+                        },
+                        {
+                          "data": [
+                            "X-SLCRU-AG",
+                            2.4486632985114962E8,
+                            0.022926434373628214,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-SLCRU-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-SLCRU-BB",
+                                5.7208772524193645E7,
+                                0.0053563638972701855,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 67
+                            },
+                            {
+                              "data": [
+                                "X-SLCRU-DD",
+                                1.876575573269558E8,
+                                0.017570070476358012,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 68
+                            }
+                          ],
+                          "rowId": 66
+                        },
+                        {
+                          "data": [
+                            "X-LUM-SD",
+                            2.7674692710111123E7,
+                            0.002591136260401262,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 69
+                        },
+                        {
+                          "data": [
+                            "X-RECU5-AG",
+                            1.273117378781044E9,
+                            0.11919990001194582,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-RECU5-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-RECU5-AA",
+                                5.827965733482343E7,
+                                0.0054566290923565965,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 71
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-AT",
+                                4.817235684933804E8,
+                                0.045102990623525414,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 72
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-BB",
+                                3.305664347825833E8,
+                                0.03095039517182344,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 73
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-CC",
+                                4.025477181702569E8,
+                                0.037689885124240374,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 74
+                            }
+                          ],
+                          "rowId": 70
+                        }
+                      ],
+                      "rowId": 46
+                    },
+                    {
+                      "data": [
+                        "X-SLCRUAGA",
+                        8.420492701624382E8,
+                        0.0788396973298697,
+                        "LCMBAAACRP"
+                      ],
+                      "title": "X-SLCRUAGA",
+                      "children": [
+                        {
+                          "data": [
+                            "X-SLCRU-BB",
+                            5.7208772524193645E7,
+                            0.0053563638972701855,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 76
+                        },
+                        {
+                          "data": [
+                            "X-SLCRU-DD",
+                            1.876575573269558E8,
+                            0.017570070476358012,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 77
+                        },
+                        {
+                          "data": [
+                            "X-SLCRU-EE",
+                            5.971829403112888E8,
+                            0.05591326295624151,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 78
+                        }
+                      ],
+                      "rowId": 75
+                    },
+                    {
+                      "data": [
+                        "X-SUST",
+                        null,
+                        null,
+                        "NO_BENCH"
+                      ],
+                      "rowId": 79
+                    },
+                    {
+                      "data": [
+                        "X-LUM-SD",
+                        2.7674692710111123E7,
+                        0.002591136260401262,
+                        "NO_BENCH"
+                      ],
+                      "rowId": 80
+                    },
+                    {
+                      "data": [
+                        "X-RECU5-AG",
+                        1.273117378781044E9,
+                        0.11919990001194582,
+                        "NO_BENCH"
+                      ],
+                      "title": "X-RECU5-AG",
+                      "children": [
+                        {
+                          "data": [
+                            "X-RECU5-AA",
+                            5.827965733482343E7,
+                            0.0054566290923565965,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 82
+                        },
+                        {
+                          "data": [
+                            "X-RECU5-AT",
+                            4.817235684933804E8,
+                            0.045102990623525414,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 83
+                        },
+                        {
+                          "data": [
+                            "X-RECU5-BB",
+                            3.305664347825833E8,
+                            0.03095039517182344,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 84
+                        },
+                        {
+                          "data": [
+                            "X-RECU5-CC",
+                            4.025477181702569E8,
+                            0.037689885124240374,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 85
+                        }
+                      ],
+                      "rowId": 81
+                    }
+                  ],
+                  "rowId": 45
+                }
+              ],
+              "rowId": 2
+            },
+            {
+              "data": [
+                "RUB-IMP",
+                1.0583123552597492E10,
+                0.9908805663241591,
+                "RUB-IMP Benchmark"
+              ],
+              "title": "RUB-IMP",
+              "children": [
+                {
+                  "data": [
+                    "RUB-I",
+                    1.0583123552597492E10,
+                    0.9908805663241591,
+                    "NOBENCHUSD"
+                  ],
+                  "title": "RUB-I",
+                  "children": [
+                    {
+                      "data": [
+                        "RUB-I-AUD",
+                        1.2777854634203975E9,
+                        0.11963696514948326,
+                        "UBSRDU035"
+                      ],
+                      "title": "RUB-I-AUD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-49ARAGA",
+                            9.778697292334361E8,
+                            0.09155634499384281,
+                            "UBSRDU035"
+                          ],
+                          "title": "X-49ARAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-50AR-BB",
+                                6.067231619159894E8,
+                                0.056806498317195364,
+                                "UBSRDU035"
+                              ],
+                              "rowId": 90
+                            },
+                            {
+                              "data": [
+                                "X-49AR-AA",
+                                3.66452487051105E8,
+                                0.034310347611029704,
+                                "UBSCRD0-3"
+                              ],
+                              "rowId": 91
+                            },
+                            {
+                              "data": [
+                                "X-50AR-AA",
+                                4694080.266341864,
+                                4.3949906561775807E-4,
+                                "UBSRDU035"
+                              ],
+                              "rowId": 92
+                            }
+                          ],
+                          "rowId": 89
+                        },
+                        {
+                          "data": [
+                            "X-84R-AG",
+                            4.374536009064E7,
+                            0.004095806589164199,
+                            "UBSCRD0-3"
+                          ],
+                          "title": "X-84R-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-84R-AA",
+                                4.374536009064E7,
+                                0.004095806589164199,
+                                "UBSCRD0-3"
+                              ],
+                              "rowId": 94
+                            }
+                          ],
+                          "rowId": 93
+                        },
+                        {
+                          "data": [
+                            "X-49AR-AG",
+                            3.66452487051105E8,
+                            0.034310347611029704,
+                            "UBSCRD0-3"
+                          ],
+                          "title": "X-49AR-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-49AR-AA",
+                                3.66452487051105E8,
+                                0.034310347611029704,
+                                "UBSCRD0-3"
+                              ],
+                              "rowId": 96
+                            }
+                          ],
+                          "rowId": 95
+                        },
+                        {
+                          "data": [
+                            "X-83RAGA",
+                            2.5617037409632173E8,
+                            0.02398481356647628,
+                            "UBSCRD7525"
+                          ],
+                          "title": "X-83RAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-83R-AA",
+                                2.5617037409632173E8,
+                                0.02398481356647628,
+                                "UBSCRD0-3"
+                              ],
+                              "rowId": 98
+                            }
+                          ],
+                          "rowId": 97
+                        },
+                        {
+                          "data": [
+                            "X-50AR-AG",
+                            6.114172421823314E8,
+                            0.05724599738281314,
+                            "UBSRDU035"
+                          ],
+                          "title": "X-50AR-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-50AR-BB",
+                                6.067231619159894E8,
+                                0.056806498317195364,
+                                "UBSRDU035"
+                              ],
+                              "rowId": 100
+                            },
+                            {
+                              "data": [
+                                "X-50AR-AA",
+                                4694080.266341864,
+                                4.3949906561775807E-4,
+                                "UBSRDU035"
+                              ],
+                              "rowId": 101
+                            }
+                          ],
+                          "rowId": 99
+                        }
+                      ],
+                      "rowId": 88
+                    },
+                    {
+                      "data": [
+                        "RUB-I-CAD",
+                        1.6845831431250498E9,
+                        0.1577247672281207,
+                        "NOBENCHCAD"
+                      ],
+                      "title": "RUB-I-CAD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-CLCRCAGA",
+                            1.6845831431250498E9,
+                            0.1577247672281207,
+                            "MLCACPCAD"
+                          ],
+                          "title": "X-CLCRCAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-CLCRC-GG",
+                                null,
+                                null,
+                                "NOBENCHCAD"
+                              ],
+                              "rowId": 104
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-HH",
+                                null,
+                                null,
+                                "NOBENCHCAD"
+                              ],
+                              "rowId": 105
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-II",
+                                null,
+                                null,
+                                "NOBENCHCAD"
+                              ],
+                              "rowId": 106
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-JJ",
+                                null,
+                                null,
+                                "NOBENCHCAD"
+                              ],
+                              "rowId": 107
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-KK",
+                                null,
+                                null,
+                                "NOBENCHCAD"
+                              ],
+                              "rowId": 108
+                            },
+                            {
+                              "data": [
+                                "X-CLCRC-AG",
+                                1.6845831431250498E9,
+                                0.1577247672281207,
+                                "NOBENCHCAD"
+                              ],
+                              "title": "X-CLCRC-AG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-CLCRC-LD",
+                                    1.342576478892954E9,
+                                    0.12570324206528163,
+                                    "X-CLCRC-LD Benchmark"
+                                  ],
+                                  "title": "X-CLCRC-LD",
+                                  "children": [
+                                    {
+                                      "data": [
+                                        "X-CLCRC-BB",
+                                        7.143022110202603E8,
+                                        0.06687894890999709,
+                                        "NOBENCHCAD"
+                                      ],
+                                      "rowId": 111
+                                    },
+                                    {
+                                      "data": [
+                                        "X-CLCRC-AA",
+                                        6.282742678726934E8,
+                                        0.05882429315528451,
+                                        "NOBENCHCAD"
+                                      ],
+                                      "rowId": 112
+                                    }
+                                  ],
+                                  "rowId": 110
+                                },
+                                {
+                                  "data": [
+                                    "X-CLCRC-SD",
+                                    3.420066642320968E8,
+                                    0.03202152516283918,
+                                    "X-CLCRC-SD Benchmark"
+                                  ],
+                                  "title": "X-CLCRC-SD",
+                                  "children": [
+                                    {
+                                      "data": [
+                                        "X-CLCRC-EE",
+                                        2.8233688298478734E8,
+                                        0.026434741039898367,
+                                        "NOBENCHCAD"
+                                      ],
+                                      "rowId": 114
+                                    },
+                                    {
+                                      "data": [
+                                        "X-CLCRC-FF",
+                                        5.9669781247309506E7,
+                                        0.005586784122940822,
+                                        "NOBENCHCAD"
+                                      ],
+                                      "rowId": 115
+                                    }
+                                  ],
+                                  "rowId": 113
+                                }
+                              ],
+                              "rowId": 109
+                            }
+                          ],
+                          "rowId": 103
+                        }
+                      ],
+                      "rowId": 102
+                    },
+                    {
+                      "data": [
+                        "RUB-I-GBP",
+                        2.295748829518116E9,
+                        0.2149472118534053,
+                        "NOBENCHGBP"
+                      ],
+                      "title": "RUB-I-GBP",
+                      "children": [
+                        {
+                          "data": [
+                            "X-6211-AG",
+                            2.295748829518116E9,
+                            0.2149472118534053,
+                            "X-6211-AG Benchmark"
+                          ],
+                          "title": "X-6211-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-34RT-G",
+                                null,
+                                null,
+                                "NULLBENCH"
+                              ],
+                              "rowId": 118
+                            },
+                            {
+                              "data": [
+                                "X-3A-IMT",
+                                null,
+                                null,
+                                "BGCPSTGBP"
+                              ],
+                              "rowId": 119
+                            },
+                            {
+                              "data": [
+                                "X-3A-SRT",
+                                null,
+                                null,
+                                "BGCPSTGBP"
+                              ],
+                              "rowId": 120
+                            },
+                            {
+                              "data": [
+                                "X-34RC-G",
+                                4.295174804090999E8,
+                                0.04021501989641202,
+                                "NOBENCHGBP"
+                              ],
+                              "rowId": 121
+                            },
+                            {
+                              "data": [
+                                "X-BH-AGG",
+                                1.8662313491090164E9,
+                                0.1747321919569933,
+                                "X-BH-AGG Benchmark"
+                              ],
+                              "title": "X-BH-AGG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-BH2-AG",
+                                    9.257311727961885E8,
+                                    0.08667469714450025,
+                                    "X-BH2-AG Benchmark"
+                                  ],
+                                  "title": "X-BH2-AG",
+                                  "children": [
+                                    {
+                                      "data": [
+                                        "X-39A-G",
+                                        1.500408704563916E8,
+                                        0.01404808154706928,
+                                        "MLSCPXGBP"
+                                      ],
+                                      "rowId": 124
+                                    },
+                                    {
+                                      "data": [
+                                        "X-40A-G",
+                                        null,
+                                        null,
+                                        "BGCPSTGBP"
+                                      ],
+                                      "rowId": 125
+                                    },
+                                    {
+                                      "data": [
+                                        "X-41A-G",
+                                        null,
+                                        null,
+                                        "BGCPSTGBP"
+                                      ],
+                                      "rowId": 126
+                                    },
+                                    {
+                                      "data": [
+                                        "X-38A-G",
+                                        7.756903023397968E8,
+                                        0.07262661559743097,
+                                        "MLSCPXGBP"
+                                      ],
+                                      "rowId": 127
+                                    }
+                                  ],
+                                  "rowId": 123
+                                },
+                                {
+                                  "data": [
+                                    "X-Z1-AFS",
+                                    null,
+                                    null,
+                                    "BGCPSTGBP"
+                                  ],
+                                  "rowId": 128
+                                },
+                                {
+                                  "data": [
+                                    "X-34A-G",
+                                    9.405001763128291E8,
+                                    0.08805749481249314,
+                                    "MLSCPXGBP"
+                                  ],
+                                  "rowId": 129
+                                }
+                              ],
+                              "rowId": 122
+                            }
+                          ],
+                          "rowId": 117
+                        }
+                      ],
+                      "rowId": 116
+                    },
+                    {
+                      "data": [
+                        "RUB-I-USD",
+                        5.325006116533934E9,
+                        0.49857162209315037,
+                        "RUBIUSDINX"
+                      ],
+                      "title": "RUB-I-USD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-RELH-AG",
+                            5.325006116533934E9,
+                            0.49857162209315037,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-RELH-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-67-AG",
+                                4.511048079213549E8,
+                                0.04223620609956452,
+                                "X-67-AG Benchmark"
+                              ],
+                              "title": "X-67-AG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-67CR-U2",
+                                    9.119524890815555E7,
+                                    0.008538462150147273,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 133
+                                },
+                                {
+                                  "data": [
+                                    "X-67CR2-S",
+                                    3.599095590131993E8,
+                                    0.03369774394941725,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 134
+                                }
+                              ],
+                              "rowId": 132
+                            },
+                            {
+                              "data": [
+                                "X-LJS-SD",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 135
+                            },
+                            {
+                              "data": [
+                                "X-RELH-APL",
+                                null,
+                                null,
+                                "NULLBNCHUS"
+                              ],
+                              "rowId": 136
+                            },
+                            {
+                              "data": [
+                                "X-RELH-COR",
+                                4.1683659496869564E8,
+                                0.03902772931209341,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 137
+                            },
+                            {
+                              "data": [
+                                "X-RELH-CRE",
+                                null,
+                                null,
+                                "NULLBNCHUS"
+                              ],
+                              "rowId": 138
+                            },
+                            {
+                              "data": [
+                                "X-RELH-DT",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 139
+                            },
+                            {
+                              "data": [
+                                "X-RELH-DTB",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 140
+                            },
+                            {
+                              "data": [
+                                "X-RELH-HR",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 141
+                            },
+                            {
+                              "data": [
+                                "X-RELH-XR",
+                                2.0574015326502225E8,
+                                0.019263114388646512,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 142
+                            },
+                            {
+                              "data": [
+                                "X-RELHLRAG",
+                                null,
+                                null,
+                                "X-RELHLRAG Benchmark"
+                              ],
+                              "title": "X-RELHLRAG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-RELH-LR",
+                                    null,
+                                    null,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 144
+                                },
+                                {
+                                  "data": [
+                                    "X-RELH-LRB",
+                                    null,
+                                    null,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 145
+                                }
+                              ],
+                              "rowId": 143
+                            },
+                            {
+                              "data": [
+                                "X-67CR-U",
+                                1.1919008761920625E8,
+                                0.011159573157525722,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 146
+                            },
+                            {
+                              "data": [
+                                "X-SLC-U-AA",
+                                1.1360418084131074E9,
+                                0.1063657383279833,
+                                "NULLBNCHUS"
+                              ],
+                              "rowId": 147
+                            },
+                            {
+                              "data": [
+                                "X-MFWT-AA",
+                                8.53251322692959E8,
+                                0.07988852720512057,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 148
+                            },
+                            {
+                              "data": [
+                                "X-SLCRU-EE",
+                                5.971829403112888E8,
+                                0.05591326295624151,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 149
+                            },
+                            {
+                              "data": [
+                                "X-MLIC-SD",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 150
+                            },
+                            {
+                              "data": [
+                                "X-SLCRU-AG",
+                                2.4486632985114962E8,
+                                0.022926434373628214,
+                                "NO_BENCH"
+                              ],
+                              "title": "X-SLCRU-AG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-SLCRU-BB",
+                                    5.7208772524193645E7,
+                                    0.0053563638972701855,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 152
+                                },
+                                {
+                                  "data": [
+                                    "X-SLCRU-DD",
+                                    1.876575573269558E8,
+                                    0.017570070476358012,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 153
+                                }
+                              ],
+                              "rowId": 151
+                            },
+                            {
+                              "data": [
+                                "X-LUM-SD",
+                                2.7674692710111123E7,
+                                0.002591136260401262,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 154
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-AG",
+                                1.273117378781044E9,
+                                0.11919990001194582,
+                                "NO_BENCH"
+                              ],
+                              "title": "X-RECU5-AG",
+                              "children": [
+                                {
+                                  "data": [
+                                    "X-RECU5-AA",
+                                    5.827965733482343E7,
+                                    0.0054566290923565965,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 156
+                                },
+                                {
+                                  "data": [
+                                    "X-RECU5-AT",
+                                    4.817235684933804E8,
+                                    0.045102990623525414,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 157
+                                },
+                                {
+                                  "data": [
+                                    "X-RECU5-BB",
+                                    3.305664347825833E8,
+                                    0.03095039517182344,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 158
+                                },
+                                {
+                                  "data": [
+                                    "X-RECU5-CC",
+                                    4.025477181702569E8,
+                                    0.037689885124240374,
+                                    "NO_BENCH"
+                                  ],
+                                  "rowId": 159
+                                }
+                              ],
+                              "rowId": 155
+                            }
+                          ],
+                          "rowId": 131
+                        },
+                        {
+                          "data": [
+                            "X-SLCRUAGA",
+                            8.420492701624382E8,
+                            0.0788396973298697,
+                            "LCMBAAACRP"
+                          ],
+                          "title": "X-SLCRUAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-SLCRU-BB",
+                                5.7208772524193645E7,
+                                0.0053563638972701855,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 161
+                            },
+                            {
+                              "data": [
+                                "X-SLCRU-DD",
+                                1.876575573269558E8,
+                                0.017570070476358012,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 162
+                            },
+                            {
+                              "data": [
+                                "X-SLCRU-EE",
+                                5.971829403112888E8,
+                                0.05591326295624151,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 163
+                            }
+                          ],
+                          "rowId": 160
+                        },
+                        {
+                          "data": [
+                            "X-SUST",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 164
+                        },
+                        {
+                          "data": [
+                            "X-LUM-SD",
+                            2.7674692710111123E7,
+                            0.002591136260401262,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 165
+                        },
+                        {
+                          "data": [
+                            "X-RECU5-AG",
+                            1.273117378781044E9,
+                            0.11919990001194582,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-RECU5-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-RECU5-AA",
+                                5.827965733482343E7,
+                                0.0054566290923565965,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 167
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-AT",
+                                4.817235684933804E8,
+                                0.045102990623525414,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 168
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-BB",
+                                3.305664347825833E8,
+                                0.03095039517182344,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 169
+                            },
+                            {
+                              "data": [
+                                "X-RECU5-CC",
+                                4.025477181702569E8,
+                                0.037689885124240374,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 170
+                            }
+                          ],
+                          "rowId": 166
+                        }
+                      ],
+                      "rowId": 130
+                    }
+                  ],
+                  "rowId": 87
+                }
+              ],
+              "rowId": 86
+            },
+            {
+              "data": [
+                "RUB-RO",
+                9.740032916294973E7,
+                0.009119433675840956,
+                "RUB-RO Benchmark"
+              ],
+              "title": "RUB-RO",
+              "children": [
+                {
+                  "data": [
+                    "RUB-R",
+                    9.740032916294973E7,
+                    0.009119433675840956,
+                    "NOBENCHUSD"
+                  ],
+                  "title": "RUB-R",
+                  "children": [
+                    {
+                      "data": [
+                        "RUB-R-AUD",
+                        1794575.4415504884,
+                        1.6802316641182337E-4,
+                        "NOBENCHAUD"
+                      ],
+                      "title": "RUB-R-AUD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-83-RO-AG",
+                            1794575.4415504884,
+                            1.6802316641182337E-4,
+                            "NOBENCHAUD"
+                          ],
+                          "title": "X-83-RO-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-83-RO-AA",
+                                751566.4907326121,
+                                7.036794253286511E-5,
+                                "NOBENCHAUD"
+                              ],
+                              "rowId": 175
+                            },
+                            {
+                              "data": [
+                                "X-83-RO-BB",
+                                1043008.9508178761,
+                                9.765522387895826E-5,
+                                "NOBENCHAUD"
+                              ],
+                              "rowId": 176
+                            }
+                          ],
+                          "rowId": 174
+                        }
+                      ],
+                      "rowId": 173
+                    },
+                    {
+                      "data": [
+                        "RUB-R-CAD",
+                        null,
+                        null,
+                        "NOBENCHCAD"
+                      ],
+                      "title": "RUB-R-CAD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-CLCR-CBB",
+                            null,
+                            null,
+                            "NOBENCHCAD"
+                          ],
+                          "rowId": 178
+                        }
+                      ],
+                      "rowId": 177
+                    },
+                    {
+                      "data": [
+                        "RUB-R-EUR",
+                        7.844606828121203E7,
+                        0.007344777199101397,
+                        "NO_BENCH"
+                      ],
+                      "title": "RUB-R-EUR",
+                      "children": [
+                        {
+                          "data": [
+                            "X-2AR-EAGA",
+                            1044078.0415932497,
+                            9.775532110145492E-5,
+                            "NOBENCHEUR"
+                          ],
+                          "title": "X-2AR-EAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-2AR-E-AA",
+                                1044078.0415932497,
+                                9.775532110145492E-5,
+                                "NOBENCHEUR"
+                              ],
+                              "rowId": 181
+                            }
+                          ],
+                          "rowId": 180
+                        },
+                        {
+                          "data": [
+                            "X-2AR2EAGA",
+                            1.4915742028834514E7,
+                            0.0013965365551316003,
+                            "X-2AR2EAGA Benchmark"
+                          ],
+                          "title": "X-2AR2EAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-2AR2E-AA",
+                                -0.13866600000000007,
+                                -1.2983071011788622E-11,
+                                "NOBENCHEUR"
+                              ],
+                              "rowId": 183
+                            },
+                            {
+                              "data": [
+                                "X-2AR2E-BB",
+                                1.4915742167500515E7,
+                                0.0013965365681146715,
+                                "NOBENCHEUR"
+                              ],
+                              "rowId": 184
+                            }
+                          ],
+                          "rowId": 182
+                        },
+                        {
+                          "data": [
+                            "X-67R-EAGA",
+                            1.965169825800501E7,
+                            0.001839956398727314,
+                            "NOBENCHEUR"
+                          ],
+                          "title": "X-67R-EAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-67R-E-AA",
+                                1.4303770680430008E7,
+                                0.0013392386776885665,
+                                "NOBENCHEUR"
+                              ],
+                              "rowId": 186
+                            },
+                            {
+                              "data": [
+                                "X-67R-E-BB",
+                                5347927.577575004,
+                                5.007177210387474E-4,
+                                "NOBENCHEUR"
+                              ],
+                              "rowId": 187
+                            }
+                          ],
+                          "rowId": 185
+                        },
+                        {
+                          "data": [
+                            "X-2AR-E",
+                            4.283454995277926E7,
+                            0.004010528924141029,
+                            "NOBENCHEUR"
+                          ],
+                          "rowId": 188
+                        }
+                      ],
+                      "rowId": 179
+                    },
+                    {
+                      "data": [
+                        "RUB-R-GBP",
+                        1671682.0971509991,
+                        1.5651686337276E-4,
+                        "NOBENCHGBP"
+                      ],
+                      "title": "RUB-R-GBP",
+                      "children": [
+                        {
+                          "data": [
+                            "X-67R-G-AG",
+                            1671682.0971509991,
+                            1.5651686337276E-4,
+                            "NOBENCHGBP"
+                          ],
+                          "title": "X-67R-G-AG",
+                          "children": [
+                            {
+                              "data": [
+                                "X-67R-G-AA",
+                                1671682.0971509991,
+                                1.5651686337276E-4,
+                                "NOBENCHGBP"
+                              ],
+                              "rowId": 191
+                            }
+                          ],
+                          "rowId": 190
+                        }
+                      ],
+                      "rowId": 189
+                    },
+                    {
+                      "data": [
+                        "RUB-R-USD",
+                        1.5488003343036208E7,
+                        0.001450116446954975,
+                        "NO_BENCH"
+                      ],
+                      "title": "RUB-R-USD",
+                      "children": [
+                        {
+                          "data": [
+                            "X-67RUAGA",
+                            329854.15343482664,
+                            3.08837054330389E-5,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-67RUAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-67RU-AA",
+                                329854.15343482664,
+                                3.08837054330389E-5,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 194
+                            },
+                            {
+                              "data": [
+                                "X-67RU-CC",
+                                null,
+                                null,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 195
+                            }
+                          ],
+                          "rowId": 193
+                        },
+                        {
+                          "data": [
+                            "X-SAARAGA",
+                            9997312.296242634,
+                            9.360320155564134E-4,
+                            "NO_BENCH"
+                          ],
+                          "title": "X-SAARAGA",
+                          "children": [
+                            {
+                              "data": [
+                                "X-SAAR-AA",
+                                9997312.296242634,
+                                9.360320155564134E-4,
+                                "NO_BENCH"
+                              ],
+                              "rowId": 197
+                            }
+                          ],
+                          "rowId": 196
+                        },
+                        {
+                          "data": [
+                            "X-SLCR-U",
+                            null,
+                            null,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 198
+                        },
+                        {
+                          "data": [
+                            "X-2AR-U",
+                            5160837.04335875,
+                            4.8320074000977783E-4,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 199
+                        },
+                        {
+                          "data": [
+                            "X-SAR-U",
+                            -0.150000003,
+                            -1.404425519390121E-11,
+                            "NO_BENCH"
+                          ],
+                          "rowId": 200
+                        }
+                      ],
+                      "rowId": 192
+                    }
+                  ],
+                  "rowId": 172
+                }
+              ],
+              "rowId": 171
+            },
+            {
+              "data": [
+                "X-34RC-G",
+                4.295174804090999E8,
+                0.04021501989641202,
+                "NOBENCHGBP"
+              ],
+              "rowId": 201
+            }
+          ],
+          "rowId": 1
+        },
+        "columnHeaderDetails": {
+          "columnKeyToDisplayNameMap": {
+            "pct_nav_group_1": "Port Group NAV %",
+            "nav_group_0": "NAV",
+            "portfolio": "Portfolio",
+            "benchmark_3afdfb66214e48a": "Benchmark"
+          },
+          "columnKeyToTagMap": {
+            "pct_nav_group_1": "pct_nav_group",
+            "nav_group_0": "nav_group",
+            "portfolio": "portfolio",
+            "benchmark_3afdfb66214e48a": "benchmark"
+          }
+        },
+        "columns": [
+          "portfolio",
+          "nav_group_0",
+          "pct_nav_group_1",
+          "benchmark_3afdfb66214e48a"
+        ]
+      },
+      "gaussian": "mUbIiBd+u7E=",
+      "userinfo": {
+        "runningRequests": 0,
+        "serverId": "sharedSession",
+        "queuedRequests": 0,
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+        "timestamp": 1707716620828
+      },
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": "SUCCESS"
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 2464
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-12T05:43:39.890Z",
+      "detailedID": "cfbb1c75-dc07-41a8-a19b-b659a1cd9db1.2464.1707716619890",
+      "IDWithContextChain": "cfbb1c75-dc07-41a8-a19b-b659a1cd9db1",
+      "chain": [],
+      "bmsMsgSize": 2464,
+      "transactionId": "cfbb1c75-dc07-41a8-a19b-b659a1cd9db1",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "getPrismData",
+    "transactionId": "cfbb1c75-dc07-41a8-a19b-b659a1cd9db1",
+    "successCode": null
+  }
+]

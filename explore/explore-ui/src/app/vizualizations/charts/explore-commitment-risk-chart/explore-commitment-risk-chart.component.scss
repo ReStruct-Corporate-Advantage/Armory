@@ -1,0 +1,13 @@
+.chart--container {
+    height: 100%
+}
+
+.chart-size_full {
+    height: 100%;
+    width: 100%;
+}
+
+.chart-size_custom_legend {
+    height: calc(100% - 32px);
+    width: 100%;
+}

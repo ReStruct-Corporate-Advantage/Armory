@@ -1,0 +1,53 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Visual Comparison tests for Scatter Plot",
+    "line": 1,
+    "id": "visual-comparison-tests-for-scatter-plot",
+    "tags": [],
+    "uri": "scatter-plot-chart.feature",
+    "elements": [
+      {
+        "id": "visual-comparison-tests-for-scatter-plot;validate-scatter-plot--is-loading",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate scatter plot  is loading",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "\"Scatter Plot\" with default settings is added to a report for portfolio \"BGO\" with date \"20190611\"",
+            "result": {
+              "status": "passed",
+              "duration": 5944000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "I maximize widget",
+            "result": {
+              "status": "passed",
+              "duration": 26616000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "\"Scatter Plot\" should be displayed, aligning with the snapshot \"scatterplot_default\"",
+            "result": {
+              "status": "failed",
+              "duration": 4687000000,
+              "error_message": "Error: Image size (928x418) different than saved snapshot size (1856x836).\nSee diff for details: /Users/mnagar/__Projects__/BLK/explore/explore-ui/cypress/snapshots/scatter-plot-chart.feature/__diff_output__/scatterplot_default.diff.png\n    at Context.eval (node_modules/cypress-image-snapshot/command.js:51:0)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

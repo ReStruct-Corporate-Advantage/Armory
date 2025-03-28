@@ -1,0 +1,81 @@
+<aux-modal [isOpen]="isOpen" [type]="'action'" [hasCustomHeader]="true" [hasCustomFooter]="true">
+    <div slot="custom-header" class="custom-header aux-border--bottom">
+        <span class="aux-bold aux-p20 title-padding">{{isChartWidget ? 'Chart': 'Table'}} Editor</span>
+        <span class="table-label-padding">{{widgetNameTitle}}</span>
+        <div class="display-title">
+            <aux-text-input (focusout)="setDisplayTitle($event.target.value)" value="{{displayTitle}}"></aux-text-input>
+        </div>
+        <span class="title-padding-left">{{settingsDisplayTitle}}</span>
+        <aux-toggle class="show-preview" label="Show preview" [isChecked]=showPreview (toggleChanged)="onShowPreviewToggle($event)"></aux-toggle>
+    </div>
+
+    <div slot="content" class="modal-size-xl widget-settings-modal-container">
+        <div class="setting-tab-container">
+            <aux-tab-bar class="setting-tab-bar" [customPadding]="32" [data]="widgetSettingsTabData" [activeUid]="activeTabIndex" tabType="modern" (tabBarItemSelected)="onTabSelected($event)">
+            </aux-tab-bar>
+            <div class="tab-content--fixed-height">
+                <div class="tab-content--overflow">
+                <ng-container *ngFor="let inputCategory of inputCategories; index as i">
+                    <ng-container *ngIf="i.toString() === activeTabIndex">
+                        <div class="widget-settings-container" [ngClass]="{'widget-setting--preview-open': showPreview}">
+                            <ng-container *ngIf="inputCategory.noAccordion; else accordionView">
+                                <ng-container *ngFor="let input of inputCategory.inputs">
+                                    <ng-container *ngIf="checkInputEligibility(input)">
+                                        <div class="widget-setting-header" *ngIf="!input.hideTitle">{{input.inputTitle}}</div>
+                                        <app-widget-setting
+                                            [widgetConfigInput]="input"
+                                            [inputs]="inputs"
+                                            [restrictedColumnOptions]="restrictedColumnOptions"
+                                            [isApplyButtonDisabled]="isApplyButtonDisabled"
+                                            [widgetType]="widget.configType"
+                                            [widgetDataStore]="widget.dataStore"
+                                            [isChartWidget]="isChartWidget"
+                                            [telemetryData]="displaySettingsOnDone"
+                                            class="widget-setting">
+                                        </app-widget-setting>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+
+                        <ng-template #accordionView>
+                            <aux-accordion [isFreeMode]="true" class="widget-setting-accordion" size="standard" [expandAll]="true">
+                                <ng-container *ngFor="let input of inputCategory.inputs">
+                                    <ng-container *ngIf="checkInputEligibility(input)">
+                                        <aux-accordion-expansion-panel [isExpanded]="input.isOpen" *ngIf="input.inputConfigType !== 'normalizedFlag'" header="{{input.inputTitle}}">
+                                            <div class="accordion-font" slot="content">
+                                                <app-widget-setting
+                                                    [widgetConfigInput]="input"
+                                                    [inputs]="inputs"
+                                                    [widgetType]="widget.configType"
+                                                    [isApplyButtonDisabled]="isApplyButtonDisabled"
+                                                    [isChartWidget]="isChartWidget"
+                                                    class="widget-setting">
+                                                </app-widget-setting>
+                                            </div>
+                                        </aux-accordion-expansion-panel>
+                                    </ng-container>
+                                </ng-container>
+                            </aux-accordion>
+                        </ng-template>
+                    </ng-container>
+                </ng-container>
+            </div>
+            </div>
+        </div>
+        <ng-container *ngIf="showPreview && previewWidget">
+            <div class="widget-preview">
+                <app-widget-preview
+                    [widget]="previewWidget"
+                    [portfolio]="portfolio"
+                    [report]="report"
+                    (updateWidget)="updateWidgetPreview()">
+                </app-widget-preview>
+            </div>
+        </ng-container>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [isDisabled]="isApplyButtonDisabled.value != 0" [label]="'Done'" (click)="onDoneClicked($event)"></aux-button>
+        <aux-button [label]="'Cancel'" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

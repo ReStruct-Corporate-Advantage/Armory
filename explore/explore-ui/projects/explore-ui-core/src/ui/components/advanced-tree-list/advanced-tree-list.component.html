@@ -1,0 +1,37 @@
+<div class="picklist-container">
+    <aux-advanced-tree-list #sourceTreeList
+                            class="container-width"
+                            [sourceData]="sourceData"
+                            [hasSearch]="hasSearch"
+                            [allowMultipleSelection]="allowMultipleSelection"
+                            [isDisabled]="isDisabled"
+                            [sourceLabel]="sourceLabel"
+                            (sourceSelectionChanged)="sourceSelectionChanged()"
+                            id="source">
+    </aux-advanced-tree-list>
+    <div class="center-panel">
+        <aux-button icon="arrow-right"
+                    [isDisabled]="moveToTargetButtonDisabled"
+                    (click)="moveToTarget()">
+        </aux-button>
+        <p></p>
+        <aux-button icon="arrow-left"
+                    [isDisabled]="moveToSourceButtonDisabled"
+                    type="secondary"
+                    (click)="moveToSource()">
+        </aux-button>
+    </div>
+    <aux-advanced-tree-list #targetTreeList
+                            class="container-width"
+                            [sourceData]="targetData"
+                            [hasSearch]="hasSearch"
+                            [allowMultipleSelection]="allowMultipleSelection"
+                            [sourceLabel]="targetLabel"
+                            [hasReorder]="hasReorder"
+                            [isDisabled]="isDisabled"
+                            (sourceSelectionChanged)="targetSelectionChanged()"
+                            (moveUpClicked)="onReorder($event)"
+                            (moveDownClicked)="onReorder($event)"
+                            id="target">
+    </aux-advanced-tree-list>
+</div>

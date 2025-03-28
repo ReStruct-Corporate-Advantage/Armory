@@ -1,0 +1,32 @@
+<div
+    #popover
+    class="popover"
+    role="dialog"
+    aria-label="Generic Heading"
+    tabindex="-1"
+    (keydown)="onKeyDown($event)"
+>
+    <div class="header">
+        Restrict Implied Shocks
+        <aux-button
+            size="small"
+            icon="delete-small"
+            assistiveText="Close"
+            type="tertiary-subtle"
+            (click)="handleCloseIconClick()"
+        ></aux-button>
+    </div>
+    <div class="content">
+        <explore-extended-column-option-restrict-implied-shock [value]="restrictImpliedShocks"
+                                                               [fromCellEditor]="true"
+                                                               (valueChange)='onRestrictImpliedShocksChanged($event)'>
+        </explore-extended-column-option-restrict-implied-shock>
+    </div>
+    <div class="footer">
+        <aux-button
+            size="small"
+            label="Update"
+            (click)="handleButtonClick()"
+        ></aux-button>
+    </div>
+</div>

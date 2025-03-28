@@ -1,0 +1,188 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "data": {
+                "mandate": {
+                    "value": "",
+                    "mandateType": "",
+                    "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+                    "label": ""
+                },
+                "ticker": "RUBICONAGA",
+                "cusip": "BRS9J22W4",
+                "code": -103528,
+                "isSectorModellingAllowed": true,
+                "displayName": "RUBICONAGA",
+                "portfolios": [],
+                "isConstituentsViewAllowed": true,
+                "fullName": "RUBICONAGA",
+                "multiFrequencyMaxPeriodsMap": {
+                    "YEAR_END": 4,
+                    "QUARTER_END": 18,
+                    "WEEKLY": 239,
+                    "DAILY": 1677,
+                    "MONTH_END": 56
+                },
+                "type": "FUND",
+                "portfolioGroup": true,
+                "assetType": "FI_MANDATE",
+                "portfolioDefaults": {
+                    "defaultVarType": "DLY",
+                    "calendar": "GreenPkg",
+                    "defaultModelCode": "DEFAULT",
+                    "defaultDecay": 0.982820599
+                },
+                "orgDefaultRiskSettings": {
+                    "AssetClassCovariance": "M",
+                    "RiskHorizon": "4",
+                    "DxsBlock": "ALL_DXS",
+                    "WeightingScheme": {
+                        "name": "DLY",
+                        "defaultPeriod": 252,
+                        "defaultDecay": 0.982820599,
+                        "defaultOverlap": 5,
+                        "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme"
+                    },
+                    "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings",
+                    "ModelMapping": "^^PRT,@TS",
+                    "ScaleDxsExposures": true,
+                    "ConfidenceLevelInStdDeviation": 1.0
+                },
+                "portDefaultRiskSettings": {
+                    "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings"
+                },
+                "isSecurityModellingAllowed": true,
+                "compositePortfolio": false,
+                "currency": "USD",
+                "timePeriods": [
+                    {
+                        "Value": "DTD",
+                        "type": "To Date",
+                        "interval": "Day",
+                        "maxPeriods": 4
+                    },
+                    {
+                        "Value": "WTD",
+                        "type": "To Date",
+                        "interval": "Week",
+                        "maxPeriods": 1
+                    },
+                    {
+                        "Value": "MTD",
+                        "type": "To Date",
+                        "interval": "Month",
+                        "maxPeriods": 37
+                    },
+                    {
+                        "Value": "QTD",
+                        "type": "To Date",
+                        "interval": "Quarter",
+                        "maxPeriods": 12
+                    },
+                    {
+                        "Value": "YTD",
+                        "type": "To Date",
+                        "interval": "Year",
+                        "maxPeriods": 3
+                    },
+                    {
+                        "Value": "Days",
+                        "type": "Rolling",
+                        "interval": "Day",
+                        "maxPeriods": 1100
+                    },
+                    {
+                        "Value": "Weeks",
+                        "type": "Rolling",
+                        "interval": "Week",
+                        "maxPeriods": 157
+                    },
+                    {
+                        "Value": "Months",
+                        "type": "Rolling",
+                        "interval": "Month",
+                        "maxPeriods": 37
+                    },
+                    {
+                        "Value": "Quarters",
+                        "type": "Rolling",
+                        "interval": "Quarter",
+                        "maxPeriods": 12
+                    },
+                    {
+                        "Value": "Years",
+                        "type": "Rolling",
+                        "interval": "Year",
+                        "maxPeriods": 3
+                    },
+                    {
+                        "Value": "CUSTOM",
+                        "type": "Custom",
+                        "interval": null,
+                        "maxPeriods": 1
+                    },
+                    {
+                        "Value": "BDay",
+                        "type": "Other",
+                        "interval": "Business Day",
+                        "maxPeriods": 1100
+                    },
+                    {
+                        "Value": "Prev. Mth",
+                        "type": "Other",
+                        "interval": "Previous Month",
+                        "maxPeriods": 1
+                    },
+                    {
+                        "Value": "Prev. Qtr",
+                        "type": "Other",
+                        "interval": "Previous Quarter",
+                        "maxPeriods": 12
+                    },
+                    {
+                        "Value": "FYTD",
+                        "type": "Other",
+                        "interval": "Fiscal Year",
+                        "maxPeriods": 1
+                    }
+                ],
+                "benchmarks": [
+                    {
+                        "name": "NO_BENCH",
+                        "type": "PERFORM",
+                        "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+                        "order": 1
+                    }
+                ],
+                "asOfDate": "04-SEP-2018",
+                "isPortfolioModellingAllowed": true,
+                "historicalPerfFromDate": "08/31/2015",
+                "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+            },
+            "message": null,
+            "gaussian": "KvTJ4JCNMJN4lZe+Dgu061jZjVcC1Giv5yd+rD/alUAJzluN+vpOEo4ReYV5tNLdKe8uCmtbzJlQwEreSHom9kOZ7gWSix1HmOmOxIOpjNlQ5/iqFkCQbQ9JWz/k6A==",
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": null
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 585
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-02-09T00:00:38.029Z",
+            "detailedID": "6de3538d-b581-431d-8fee-ca7f9dfaa2ec:6de3538d-b581-431d-8fee-ca7f9dfaa2ec:88534c43f3a0497.585.1707399038029",
+            "IDWithContextChain": "6de3538d-b581-431d-8fee-ca7f9dfaa2ec:6de3538d-b581-431d-8fee-ca7f9dfaa2ec:88534c43f3a0497",
+            "chain": [
+                "6de3538d-b581-431d-8fee-ca7f9dfaa2ec:88534c43f3a0497"
+            ],
+            "bmsMsgSize": 585,
+            "transactionId": "6de3538d-b581-431d-8fee-ca7f9dfaa2ec",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "portfolioInfo",
+        "transactionId": "6de3538d-b581-431d-8fee-ca7f9dfaa2ec",
+        "successCode": null
+    }
+]

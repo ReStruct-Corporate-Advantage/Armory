@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreTimeSeriesChartComponent should format the tooltip points 1`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <span style='font-weight: bold'>Market Value %</span><br/>
+                    <span style='font-weight: bold'>Date:</span> Market Value % 24-FEB-2017<br/>
+                    <span style='font-weight: bold'>FUND:</span> 
+                <div>"
+`;
+
+exports[`ExploreTimeSeriesChartComponent should format the tooltip points 2`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <span style='font-weight: bold'>Market Value %</span><br/>
+                    <span style='font-weight: bold'>Date:</span> Market Value % 24-FEB-2017<br/>
+                    <span style='font-weight: bold'>Market Value % FUND:</span> 
+                <div>"
+`;

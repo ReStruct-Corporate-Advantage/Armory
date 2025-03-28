@@ -1,0 +1,139 @@
+<div class="bottom-space-container">
+    <label>{{label}}</label>
+</div>
+<div class="sub-container">
+    <div class="bottom-space-container" *ngIf="isNavMultiplier">
+        <aux-numeric-stepper label="NAV multiplier"
+                             [stepperValue]="underlyingLiquiditySettings.navMultiplier"
+                             (valueChanged)="onNavMultiplierChanged($event)">
+        </aux-numeric-stepper>
+    </div>
+</div>
+<div class="bottom-space-container">
+    <label>Liquidation constraint</label>
+</div>
+<div class="container-alignment">
+    <div class="liquidity-constraint-bar" *ngIf="isShowNAVPercentLiquidatedOption">
+       <div class="liquidity-stepper-bar">
+            <ng-container *ngFor="let stepper of liquidityConstraintGroup; index as stepperIndex">
+                <div>
+                    <aux-numeric-stepper minValue="0" [label]="liquidationConstraintOptions[stepperIndex].label"
+                                         [stepperValue]="stepper.stepperValue"
+                                         (valueChanged)="onLiquidationConstraintValueChanged($event, stepperIndex)"
+                                         [id]="liquidationConstraintOptions[stepperIndex].label">
+                    </aux-numeric-stepper>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="select-options-bar">
+        <aux-select label="Liquidation strategy"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="liquidationStrategyOptions"
+                    (selectionChanged)="onLiquidationStrategyChanged($event)"
+        ></aux-select>
+    </div>
+
+    <div class="bottom-space-container" *ngIf="!disableBucketOptions">
+        <aux-radio-group name="inline"
+                         [data]="liquidationBucketOptions"
+                         (radioGroupChanged)="onLiquidationBucketMethChanged($event)">
+        </aux-radio-group>
+    </div>
+
+    <div class="bottom-space-container select-bar-width" *ngIf="includeAggregation || includeAdditionalAggregation">
+        <aux-select label="Aggregation"
+                    [hasInitialOptionPlaceholder]="false"
+                    [size]="'small'"
+                    (selectionChanged)="onAggregationChanged($event)"
+                    [data]="aggregationOptions">
+        </aux-select>
+    </div>
+
+    <div class="bottom-space-container" *ngIf="!disableStressTestingSettings">
+        <explore-asset-stress-scenario-option class="bottom-space-area" [selectedAssetStressScenario]="underlyingLiquiditySettings.assetStressScenario" (assetStressScenarioSelected)="onAssetStressScenarioChanged($event)">
+
+        </explore-asset-stress-scenario-option>
+        <aux-checkbox-group label="Stress testing"
+                            [isStacked]="true"
+                            [isHeaderBold]="false"
+                            [data]="stressTestingOptions"
+                            (checkboxGroupChanged)="onStressTestingOptionsChanged($event)">
+        </aux-checkbox-group>
+    </div>
+
+    <div class="bottom-space-container"  *ngIf="underlyingLiquiditySettings.globalLevelStressTestingFlag">
+        <ng-container *ngFor="let stressMultiplerType of stressMultipliersGroup">
+            <ng-container *ngIf="stressMultiplerType.showStepper">
+                <div class="stress-stepper-container">
+                    <aux-numeric-stepper [label]='stressMultiplerType.label'
+                                         minValue="0"
+                                         [stepperValue]="stressMultiplerType.stepperValue"
+                                         (valueChanged)="onStressMultiplierChanged($event, stressMultiplerType.label, underlyingLiquiditySettings.globalStressMultiplier)">
+                    </aux-numeric-stepper>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <ng-container *ngIf="isModifiedLiquidationStrategy">
+        <div class="bottom-space-container">
+            <span> Override </span>
+        </div>
+        <div class="bottom-space-container">
+            <aux-checkbox label="Illiquid parameters"
+                          [isChecked]="underlyingLiquiditySettings.illiquidEnabledFlag"
+                          (checkboxChanged)="onIlliquidEnabledFlagChanged($event)">
+            </aux-checkbox>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="underlyingLiquiditySettings.illiquidEnabledFlag">
+        <div class="bottom-space-container">
+            <aux-radio-group label="Max illiquid type"
+                             [data]="maxIlliquidTypeOptions"
+                             [isStacked]="true"
+                             (radioGroupChanged)="onMaxIlliquidFormatChanged($event)">
+            </aux-radio-group>
+        </div>
+        <div class="bottom-space-container">
+            <span>Max Illiquid Amount</span>
+        </div>
+
+        <ng-container *ngIf="underlyingLiquiditySettings.illiquidMaxFormat === MAX_ILLIQUID_TYPE_ABS">
+            <div class="bottom-space-container inline-container">
+                <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.absIlliquidMax" [appended]="'%'"
+                                     (valueChanged)="onAbsIlliquidMaxChanged($event)">
+                </aux-numeric-stepper>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="underlyingLiquiditySettings.illiquidMaxFormat === MAX_ILLIQUID_TYPE_REL">
+            <div class="bottom-space-container">
+                <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.relIlliquidMax"
+                                     (valueChanged)="onRelIlliquidMaxChanged($event)">
+                </aux-numeric-stepper>
+            </div>
+        </ng-container>
+
+        <div class="bottom-space-container">
+            <span> Illiquid days threshold </span>
+        </div>
+
+        <div class="bottom-space-container">
+            <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.illiquidDef"
+                                 (valueChanged)="onIlliquidDefChanged($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+
+    <div class="bottom-space-container" *ngIf="includeLiquidationUnit">
+        <aux-radio-group label="Liquidation Unit"
+                         [isStacked]="true"
+                         [isHeaderBold]="false"
+                         [data]="liquidationUnitOptions"
+                         (radioGroupChanged)="onLiquidationUnitChanged($event)">
+        </aux-radio-group>
+    </div>
+</div>
+

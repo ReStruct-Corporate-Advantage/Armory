@@ -1,0 +1,103 @@
+parameters:
+  - name: rc
+    displayName: Is release candidate build
+    type: boolean
+    default: false
+  - name: clean
+    displayName: Clean Build, skip cache download
+    type: boolean
+    default: false
+  - name: build_user_preferred_for_cd
+    type: boolean
+    default: false
+  - name: fail_on_quality_gate
+    type: boolean
+    default: true
+  - name: cd_envs
+    displayName: Continuous Delivery Environments
+    type: object
+    default:
+      - DEV
+  # to run pipeline with intention to publish(release branches and RCs) or quality checks (feature branches/PRs)
+  - name: mode
+    type: string
+    default: 'quality'
+    values: [ 'quality', 'publish' ]
+  - name: manifest_files
+    displayName: List of manifest files for packaging
+    type: object
+    default: [ ]
+  #npm specific parameters
+  - name: npm_root
+    displayName: Package Json location
+    type: string
+    default: ./explore-ui
+  - name: commands
+    type: object
+    default: [ 'ci', 'run build.prod', 'run test' ]
+  - name: pre_post_steps
+    type: object
+    default:
+      pre_npm_build: {}
+      post_npm_build: {}    
+  - name: npm_version
+    type: string
+    default: v16
+  - name: npm_publish
+    type: string
+    default: publish
+  - name: npm_cache_key
+    type: string
+    default: '**/package-lock.json'
+  - name: access_token
+    displayName: Access Token
+    type: string
+    default: null
+  - name: build_env
+    type: object
+    default: { NPM_CONFIG_LEGACY_PEER_DEPS: true }
+    displayName: Additional environment for build commands
+
+stages:
+  - template: common/common-setup-template.yml@templates
+    parameters:
+      rc: ${{ parameters.rc }}
+      mode: ${{ parameters.mode }}
+      manifest_files: ${{ parameters.manifest_files }}
+      clean: ${{ parameters.clean }}
+      build_user_preferred_for_cd: ${{ parameters.build_user_preferred_for_cd }}
+      cd_envs: ${{ parameters.cd_envs }}
+      npm_root: ${{ parameters.npm_root }}
+      fast_checkout: true
+  - template: npm/npm-release-staging-template.yml@templates
+  - template: npm/npm-build-template.yml@templates
+    parameters:
+      parallel_build: true
+      npm_version: ${{ parameters.npm_version }}
+      build_env: ${{ parameters.build_env }}
+      use_npm_cache: false
+      use_node_modules_cache: false
+      use_cypress_cache: false
+      use_yarn_cache: false
+      parallel_stages:
+        - name: Build
+          pre_post_steps:
+            post_npm_build:
+              - template: preview-portal/preview-portal-post-build-steps.yml@eiira-ci-templates
+                parameters:
+                  dist: 'dist/explore-ui'
+                  project: Explore
+                  repository: explore
+                  app_root: './explore-ui'
+                  pat: ${{ parameters.access_token }}
+                  nested_root_dir: './explore-ui'
+                  post_deployment_command:
+                    'sed -i "s/apps\/explore/proj\/publish\/preview-portal\/$(System.PullRequest.PullRequestId)/" /proj/publish/preview-portal/$(System.PullRequest.PullRequestId)/index.html'
+          commands: ${{ parameters.commands }}
+        - name: Test
+          commands: [ 'ci', 'run test' ]
+  - template: static-analysis/sonar-template.yml@templates
+    parameters:
+      npm: true
+      static_analysis_depends_on: ['TestNPM']
+      fail_on_quality_gate: ${{ parameters.fail_on_quality_gate }}

@@ -1,0 +1,24 @@
+<div class="load-save-favorite-container">
+    <div class="favorite-action-buttons">
+        <div class="load-link">
+            <aux-button type="tertiary"
+                        label="{{favDisplayName | favoriteTitle: 'Load'}}"
+                        (click)="onLoadButtonClicked($event)">
+            </aux-button>
+        </div>
+        <div class="save-link aux-border--left">
+            <aux-button type="tertiary"
+                        label="{{favDisplayName | favoriteTitle: 'Save'}}"
+                        (click)="onSaveButtonClicked($event)">
+            </aux-button>
+        </div>
+    </div>
+    <div *ngIf="favoriteTitle && favoriteOwner" class="selected-favorite-container">
+        <div class="favorite-title">
+            <aux-value-pair [label]="favDisplayName" [value]="favoriteTitle"
+                            [labelPosition]="AuxValuePairLabelPositionEnum.TOP" [isPipeLess]="true"></aux-value-pair>
+        </div>
+        <aux-value-pair [label]="'Owner'" [value]="ownerDisplayName"
+                        [labelPosition]="AuxValuePairLabelPositionEnum.TOP"></aux-value-pair>
+    </div>
+</div>

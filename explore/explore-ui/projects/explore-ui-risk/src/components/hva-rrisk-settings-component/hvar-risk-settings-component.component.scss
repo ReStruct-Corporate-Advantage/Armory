@@ -1,0 +1,40 @@
+.flex-container-1 {
+    display: flex;
+    div.tooltip-radio-container {
+        div.control-header {
+            display: flex;
+            span.radio-header, strong {
+                font-weight: 700
+            }
+            aux-tooltip {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+    .aux-select-line-item {
+        min-width: 250px;
+        width: 58%;
+    }
+}
+
+.or-div-padding {
+    padding: 30px 10px 0 10px;
+}
+
+.conf-div {
+    width: 250px;
+
+    .conf-level {
+        width: 99px;
+    }
+}
+
+.factor-scaling-div {
+    padding-top: 5px;
+    margin-left: 1px;
+}
+
+.daily-overlapping-observations {
+    margin-top: 32px;
+    padding-left: 10px;
+}

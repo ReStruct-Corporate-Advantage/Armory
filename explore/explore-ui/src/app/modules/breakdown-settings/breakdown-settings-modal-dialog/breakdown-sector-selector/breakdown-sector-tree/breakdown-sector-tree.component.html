@@ -1,0 +1,25 @@
+<div *ngIf="sectorTreeData.length">
+    <aux-advanced-tree-list
+        hasSearch="false"
+        hasBorder="false"
+        hasDragAndDrop="true"
+        containerHeight="auto"
+        hasDoubleClick="true"
+        (blkDragstart)="onDragNode($event)"
+        (blkDragend)="draggedNodeSubject$.next(null)"
+        (selectionChanged)="onSelectionChanged($event)"
+        (itemDoubleClicked)="onNodeDoubleClick($event)"
+        [customStyle]="advanceTreeCustomStyle"
+        [data]="sectorTreeData"
+        [customSearch]="customSearch"
+        [searchString]="searchString"
+        [hasItemTooltip]="true"
+        [tooltipCallback]="TooltipUtils.getEnterpriseDescriptionTooltip"
+        [config]="TooltipUtils.getTooltipConfig(false)">
+        <ng-container *ngIf="showStatusBadge">
+            <ng-container *ngFor="let fav of sectorTreeData">
+                <app-shared-favorite-status-badge [fav]="fav"></app-shared-favorite-status-badge>
+            </ng-container>
+        </ng-container>
+    </aux-advanced-tree-list>
+</div>

@@ -1,0 +1,32 @@
+.portfolio-modal__content {
+    display: flex;
+    flex-direction: column;
+
+    .add-portfolio-top-container {
+        flex: 1;
+        padding: 2rem 2rem 1rem;
+        overflow: auto;
+    }
+
+    .no-overflow {
+        overflow: unset;
+    }
+}
+
+.tab--left-spacer {
+    padding-left: 2rem;
+}
+
+.tab__content {
+    padding: 2rem 0;
+    background-color: var(--modal__background-color--grey);
+    height: 488px; // modal height
+}
+
+.type-portfolio {
+    height: 50vh;
+}
+
+.type-index-what-if {
+    height: 57vh;
+}

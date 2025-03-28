@@ -1,0 +1,81 @@
+<div class="inv-univ-settings">
+    <div class="add-universe-link">
+        <aux-button
+            icon="add"
+            [label]="'Add to Universe'"
+            type="tertiary"
+            (click)="addToUniverse()">
+        </aux-button>
+
+    </div>
+
+    <div class="content-horizontal">
+        <div class="form-container">
+            <div class="aux-layout__wrapper-32">
+                <div class="universe-check">
+                    <aux-checkbox
+                        [isDisabled]="isCheckboxDisabled"
+                        [isChecked]="false"
+                        (checkboxChanged)="onEnableWholeUniverse($event)"
+                    >
+                    </aux-checkbox>
+                </div>
+                <div class="aux-layout__wrapper-32 aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12 content-container">
+                    <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2">
+                        <aux-text>Type</aux-text>
+                    </div>
+                    <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                        <aux-text>Universe</aux-text>
+                    </div>
+                    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                        <aux-text>Filter</aux-text>
+                    </div>
+                    <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                        <aux-text>Label</aux-text>
+                    </div>
+                </div>
+            </div>
+            <hr class="divider"/>
+            <div *ngFor="let universeItem of frozenItems" class="container aux-layout__wrapper-32">
+                <div class="universe-check">
+                    <aux-checkbox
+                        [isChecked]="universeItem.enabled"
+                        (checkboxChanged)="enableDisableItem($event, universeItem)">
+                    </aux-checkbox>
+                </div>
+                <div class="aux-layout__wrapper-32 aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12 content-container">
+                    <div class="aux-g32--xs-2 aux-g32--sm-2 aux-g32--md-2 aux-g32--lg-2 aux-g32--xl-2">
+                        <aux-text>{{universeItem.type}}</aux-text>
+                    </div>
+                    <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                        <aux-text>{{universeItem.portfolio}}</aux-text>
+                    </div>
+                    <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                        <app-constraint-option-filter [portFilter]="universeItem.filter" (portFilterUpdated)="onFilterUpdate($event, universeItem)"></app-constraint-option-filter>
+                    </div>
+                    <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                        <aux-text>{{universeItem.label}}</aux-text>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <form [formGroup]="universeForm">
+                    <ng-container
+                        formArrayName="forms"
+                        *ngFor="let form of universeForm.controls.forms['controls']; let i = index"
+                    >
+                        <app-investment-universe-form
+                            [parent]="form"
+                            [investmentUniverseSetting]="investmentUniverseSettings.investmentUniverse[frozenItems.length + i]"
+                            [index]="i"
+                            (universeTypeChanged)="onUniverseTypeChanged($event)"
+                            (removeItem)="removeFromUniverse($event)"
+                        >
+                        </app-investment-universe-form>
+                    </ng-container>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

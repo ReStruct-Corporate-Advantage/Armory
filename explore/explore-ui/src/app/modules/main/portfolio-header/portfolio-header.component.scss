@@ -1,0 +1,94 @@
+.portfolio-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 32px;
+    padding: 4px 16px;
+
+    .what-if-badge {
+        display: inline-block;
+        margin-right: 16px;
+        vertical-align: top;
+    }
+
+    .portfolio-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 6px;
+    }
+
+    .portfolio-title-text {
+        overflow: hidden;
+        max-width: 500px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .portfolio-search-area {
+        display: flex;
+        align-items: center;
+    }
+
+    .portfolio-header-inline-item {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .portfolio-header--change-button {
+        padding-left: 12px;
+    }
+
+    .portfolio-header-right-btn {
+        padding-right: 10px;
+    }
+}
+
+.portfolio-header-container--left {
+    display: flex;
+    align-items: center;
+}
+
+.popover-container {
+    display: inline-flex;
+    flex-direction: column;
+
+    div:first-child {
+        margin: 0 0 15px;
+    }
+    .currency span {
+        font-weight: normal;
+    }
+}
+.popover-data {
+    margin: 10px 0 !important;
+    padding: 0 5px;
+    text-align: left;
+}
+
+.table-format {
+    border-collapse: collapse;
+    margin: 10px 15px;
+
+    .td-string {
+        text-align: left;
+        padding-right: 30px;
+    }
+
+    .td-number {
+        text-align: right;
+        padding-left: 30px;
+    }
+
+    .table-caption {
+        text-align: left;
+        margin-bottom: 10px;
+    }
+}
+
+.index-tree-container {
+    height: 300px;
+}
+
+.portfolio-search-cancel-button {
+    margin-left: 0.5rem;
+}

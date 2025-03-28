@@ -1,0 +1,21 @@
+{
+  "inputCategories": [
+    {
+      "$ref": "returnSpriteletColumns"
+    },
+    {
+      "$ref": "showAsChartInputDefaultTable"
+    }
+  ],
+  "size": {
+    "height": 6,
+    "width": 8
+  },
+  "showInSelector": false,
+  "includePerformanceBreakdown": false,
+  "restrictBreakdownToSingleLevel": false,
+  "showOnlySingleColumn": false,
+  "chartingLib": "agGrid",
+  "tokenToCheck": "enablePerfAttr",
+  "userPermToCheck": "perfDataPerms"
+}

@@ -1,0 +1,8 @@
+{
+    "configType": "lookthroughSummaryWidget",
+    "description": "Look-Through Summary",
+    "title": "Look-Through Summary",
+    "chartingLib": "agGrid",
+    "showInSelector": false,
+    "inputCategories": []
+}

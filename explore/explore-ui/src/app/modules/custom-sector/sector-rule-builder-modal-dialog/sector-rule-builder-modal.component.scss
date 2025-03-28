@@ -1,0 +1,39 @@
+.custom-header {
+    display: flex;
+    padding: 1.25rem 2rem 1.1875rem;
+    align-items: baseline;
+    border-bottom: 1px solid var(--dialog__border-color--partition);
+
+    .sector-rule-preview {
+        flex: 1;
+        text-align: right;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .sector-rule-title {
+        margin-right: 2rem;
+    }
+}
+
+.sector-rule-builder {
+    margin: 0;
+    max-height: 77vh;
+    min-height: 77vh;
+    display: flex;
+    flex-direction: column;
+
+    .tab-group-container {
+        padding-top: .5rem;
+    }
+
+    .rule-content-container {
+        flex: 1;
+        background-color: var(--modal__background-color--grey);
+        padding: 2rem;
+        overflow: auto;
+        border-top: 1px solid var(--tab__border-color);
+        margin-top: -1px;
+    }
+}

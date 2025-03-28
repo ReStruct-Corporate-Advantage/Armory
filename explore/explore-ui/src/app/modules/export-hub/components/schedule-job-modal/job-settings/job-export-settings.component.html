@@ -1,0 +1,23 @@
+<div class="job-settings-container">
+    <aux-text-input #jobName
+                    label="Job name"
+                    placeholder="Enter Job Name"
+                    [value]="scheduledJobConfig.getName()"
+                    [maxLength]="'30'"
+                    (valueChanged)="onJobNameChanged($event.detail.value)"
+                    [validator]="validator">
+    </aux-text-input>
+    <div class="inline-elements">
+        <aux-select label="Export as"
+                    [hasInitialOptionPlaceholder]="false"
+                    [data]="exportAsOptions"
+                    (selectionChanged)="onExportOptionChanged($event)">
+        </aux-select>
+        <aux-text-input label="To"
+                        placeholder="[web download path]"
+                        [value]="this.exportLocation"
+                        [isReadOnly]="true"
+        >
+        </aux-text-input>
+    </div>
+</div>

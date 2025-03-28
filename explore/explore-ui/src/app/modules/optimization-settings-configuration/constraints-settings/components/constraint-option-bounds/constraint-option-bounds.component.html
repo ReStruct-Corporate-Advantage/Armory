@@ -1,0 +1,8 @@
+<div class="constraint-option-bounds">
+    <div class="lower-bound full-width">
+        <app-constraint-option-number [options]="lowerBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+    <div class="full-width">
+        <app-constraint-option-number [options]="upperBoundOption" (updated)="onUpdated($event)"></app-constraint-option-number>
+    </div>
+</div>

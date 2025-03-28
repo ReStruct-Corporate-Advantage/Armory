@@ -1,0 +1,16 @@
+<aux-card class="widget-preview" borderPadding="32">
+    <div class="preview__container">
+        <div class="preview__header">
+            <span class="aux-secondary preview__header--label">Preview</span>
+            <aux-button label="Update Preview" type="secondary"
+                        (click)="updateWidget.emit()"></aux-button>
+        </div>
+        <div class="preview__content">
+            <app-widget [widget]="widget"
+                        [report]="report"
+                        [portfolio]="portfolio"
+                        [showWidgetOptions]="false">
+            </app-widget>
+        </div>
+    </div>
+</aux-card>

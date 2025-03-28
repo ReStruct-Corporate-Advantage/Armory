@@ -1,0 +1,12 @@
+<div class="add-group-button">
+    <div class="description">
+        Grouping portfolios will allow you to share the same reports across multiple portfolios. Select 'Enable Multi-Portfolio Analysis' in the report menu to view your selected portfolios side-by-side (Optional)
+    </div>
+    <aux-button label="Group" type="secondary" (click)="openAddReportGroupModal()"></aux-button>
+</div>
+
+<ng-container *ngIf="isAddReportGroupModalOpen">
+    <app-add-report-group [isOpen]="isAddReportGroupModalOpen"
+                          (addReportGroupButtonClicked)="addReportGroupButtonClickedCallback($event)">
+    </app-add-report-group>
+</ng-container>

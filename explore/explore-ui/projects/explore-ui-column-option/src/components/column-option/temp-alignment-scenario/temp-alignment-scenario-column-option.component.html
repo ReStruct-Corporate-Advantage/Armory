@@ -1,0 +1,27 @@
+<div class="temp-align-climate-scenarios-container">
+    <ng-container>
+        <div class="climate-scenario__container">
+            <div class="single-scenario-container">
+                <aux-select *ngIf="!hideTargets"
+                            label="Emission targets"
+                            class="targets-select"
+                            [type]="selectionMode"
+                            [data]="targetTypeOptions"
+                            (selectionChanged)="updateTargetsTypes($event)">
+                </aux-select>
+                <aux-select label="Scenario"
+                            class="scenario-type-select"
+                            [type]="selectionMode"
+                            [data]="scenarioTypeOptions"
+                            (selectionChanged)="updateScenarioType($event)">
+                </aux-select>
+                <aux-select label="Timeframe"
+                            class="timeframe-select"
+                            [type]="selectionMode"
+                            [data]="scenarioTimeframeOptions"
+                            (selectionChanged)="updateTimeframe($event)">
+                </aux-select>
+            </div>
+        </div>
+    </ng-container>
+</div>

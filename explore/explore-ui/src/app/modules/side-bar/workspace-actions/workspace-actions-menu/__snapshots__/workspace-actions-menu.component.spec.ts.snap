@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkspaceActionsMenuComponent should create 1`] = `
+<div
+  class="workspace-action-menu-area"
+>
+  <aux-inline-menu
+    overrideplacement="bottomRight"
+    trigger="pressed"
+  >
+    <aux-icon
+      slot="target"
+      state="primary"
+      type="action"
+    />
+  </aux-inline-menu>
+</div>
+`;

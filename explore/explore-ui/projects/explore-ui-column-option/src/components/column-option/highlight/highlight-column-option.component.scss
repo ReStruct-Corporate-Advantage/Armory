@@ -1,0 +1,38 @@
+.highlight-container {
+    padding-right: 1.5rem;
+
+    .rule-item__container {
+        width: 100%;
+        border-bottom: 1px solid var(--option-group__border-color);
+        margin-bottom: 1rem;
+
+        .rule-item__header {
+            display: flex;
+            justify-content: space-between;
+
+            .rule-item__header-label--bold {
+                display: flex;
+                font-weight: var(--font-weight-bold);
+                margin: auto 0;
+            }
+
+            .rule-item__header--right {
+                display: flex;
+
+                .rule-item__header-label {
+                    display: flex;
+                    margin: auto 0;
+                    padding-right: 0.5rem;
+                }
+
+                .button--secondary {
+                    padding-left: 0.25rem;
+                }
+            }
+        }
+    }
+
+    .add-rule-button {
+        margin-bottom: 1rem;
+    }
+}

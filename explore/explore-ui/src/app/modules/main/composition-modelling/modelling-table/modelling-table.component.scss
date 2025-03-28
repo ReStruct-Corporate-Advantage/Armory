@@ -1,0 +1,96 @@
+.modelling-table {
+    display: flex;
+    flex-direction: column;
+    height: 96%;
+
+    .modelling-table-option-header {
+        padding-top: 16px;
+
+        .header-div {
+            padding: 0 16px 0 16px;
+            display: flex;
+            justify-content: space-between;
+
+            .header-label {
+                font-weight: bold;
+                color: var(--primary-text__color);
+            }
+
+            .header-menu-nav {
+                display: flex;
+            }
+        }
+    }
+
+    .modelling-table-option-div {
+        display: flex;
+        margin: 16px 8px 16px 8px;
+
+        .option-padding {
+            margin: 0 12px;
+        }
+
+        .optimization-case-select {
+            width: 275px;
+            margin-top: -0.3%
+        }
+
+        .modelling-table-option {
+            flex-wrap: wrap;
+        }
+    }
+    .aux-layout_wrapper-16{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+    }
+    .left{
+        display: flex;
+    }
+
+    .reset-button{
+        display: flex;
+        margin-left: auto;
+    }
+    .modelling-table-content {
+        flex: 1
+    }
+
+    .modelling-table-height {
+        height: 100vh;
+        margin: 0 16px 16px 16px;
+    }
+
+    .done-cancel-container {
+        float: right;
+        margin-top: 10%;
+
+        .space-btw-buttons {
+            padding-right: 12px;
+        }
+    }
+}
+
+.search-without-grid {
+    padding-top: 20px;
+    min-height: 80px;
+    margin-bottom: 20px;
+}
+
+.search-with-grid {
+    padding-top: 20px;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.search-without-grid-portfolio {
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.nav-button {
+    display: flex;
+    padding-top: 16px;
+    padding-left: 8px;
+}

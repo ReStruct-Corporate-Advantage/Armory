@@ -1,0 +1,196 @@
+<div [ngClass]="{'pdf-export-options-horizontal-view' : horizontalView}">
+    <div [ngClass]="{'pdf-export-options-section-1' : !horizontalView}">
+        <div>Orientation</div>
+        <div class = "radio-group-space">
+        <aux-radio-group
+            isStacked="true"
+            [data]="orientationOptions"
+            (radioGroupChanged)="onOrientationChanged($event)">
+        </aux-radio-group>
+        </div>
+    </div>
+        <div class="aux-layout__wrapper-without-margin">
+            <div class="aux-g16--xs-10 aux-g16--sm-8 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 margin-zero" [ngClass]="{'horizontal-view-column' : horizontalView}">
+                <div [ngClass]="horizontalView ? 'column2 horizontal-option' : 'setting-container column1'">
+                    <aux-select
+                        label="Page size"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="pageFormatOptions"
+                        (selectionChanged)="onPageSizeSelectionChanged($event)">
+                    </aux-select>
+                </div>
+            </div>
+        </div>
+        <div class="aux-layout__wrapper-without-margin">
+            <ng-container *ngIf="!isPageLayoutDisabled">
+                <div class="aux-g16--xs-10 aux-g16--sm-8 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 margin-zero" [ngClass]="{'horizontal-view-column' : horizontalView}">
+                    <div class="column2 page-layout-select" [ngClass]="horizontalView ? 'horizontal-option' : 'setting-container'">
+                        <aux-select
+                            label="Page layout"
+                            [hasInitialOptionPlaceholder]="false"
+                            [data]="layoutOptions"
+                            (selectionChanged)="onPageLayoutSelectionChanged($event)">
+                        </aux-select>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="aux-layout__wrapper-without-margin" [ngClass]="{'horizontal-page-margin-options' : horizontalView}">
+            <div class="margin-zero" [ngClass]="{'aux-g16--xs-10 aux-g16--sm-8 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 horizontal-view-column' : horizontalView && !this.exportConfig.pageMargin.isCustom}">
+                <div [ngClass]="horizontalView ? 'column2 horizontal-option horizontal-page-margin' : 'setting-container column1'">
+                    <aux-select
+                        label="Page margins"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="marginOptions"
+                        (selectionChanged)="onPageMarginSelectionChanged($event)">
+                    </aux-select>
+                </div>
+            </div>
+            <div class="aux-g16--xs-12 aux-g16--sm-12 aux-g16--md-12 aux-g16--lg-12 aux-g16--xl-12 margin-zero" *ngIf="this.exportConfig.pageMargin.isCustom">
+                <div class="aux-layout__wrapper-without-margin column2" [ngClass]="{'setting-container' : !horizontalView}">
+                    <div class="aux-g16--xs-3 aux-g16--sm-3 aux-g16--md-3 aux-g16--lg-3 aux-g16--xl-3 marginleft-zero">
+                        <aux-text-input
+                            label="Top"
+                            textAlign="right"
+                            [value]="this.exportConfig.pageMargin.top"
+                            [validator]="validator"
+                            (valueChanged)="onPageMarginTopChanged($event)">
+                        </aux-text-input>
+                    </div>
+
+                    <div class="aux-g16--xs-3 aux-g16--sm-3 aux-g16--md-3 aux-g16--lg-3 aux-g16--xl-3">
+                        <aux-text-input
+                            label="Right"
+                            textAlign="right"
+                            [value]="this.exportConfig.pageMargin.right"
+                            [validator]="validator"
+                            (valueChanged)="onPageMarginRightChanged($event)">
+                        </aux-text-input>
+                    </div>
+                    <div class="aux-g16--xs-3 aux-g16--sm-3 aux-g16--md-3 aux-g16--lg-3 aux-g16--xl-3">
+                        <aux-text-input
+                            label="Bottom"
+                            textAlign="right"
+                            [value]="this.exportConfig.pageMargin.bottom"
+                            [validator]="validator"
+                            (valueChanged)="onPageMarginBottomChanged($event)">
+                        </aux-text-input>
+                    </div>
+                    <div class="aux-g16--xs-3 aux-g16--sm-3 aux-g16--md-3 aux-g16--lg-3 aux-g16--xl-3">
+                        <aux-text-input
+                            label="Left"
+                            textAlign="right"
+                            [value]="this.exportConfig.pageMargin.left"
+                            [validator]="validator"
+                            (valueChanged)="onPageMarginLeftChanged($event)">
+                        </aux-text-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="pdf-export-options-section-4" *ngIf="this.showPrintAsIsOption">
+        <div class="aux-layout__wrapper-16 margin-zero">
+            <div class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 margin-zero">
+                <div [ngClass]="horizontalView ? 'column2' : 'setting-container column1'">
+                    <aux-checkbox
+                        label="Print as-is"
+                        [isChecked]="this.exportConfig.printAsIs"
+                        (checkboxChanged)="onPrintAsIsChanged($event)">
+                    </aux-checkbox>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!this.exportConfig.printAsIs">
+            <div class="aux-layout__wrapper-16 margin-zero">
+                <div class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 margin-zero">
+                    <div [ngClass]="horizontalView ? 'column2' : 'setting-container column1'">
+                        <aux-select
+                            label="Scaling"
+                            [hasInitialOptionPlaceholder]="false"
+                            [data]="tablePDFScalingOptions"
+                            (selectionChanged)="onTablePDFScalingSelectionChanged($event)">
+                        </aux-select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="!exportForTableOtherThanWidget && !this.exportConfig.printAsIs && isTableWidget">
+        <div class="aux-layout__wrapper-16 margin-zero">
+            <div class="aux-g16--xs-6 aux-g16--sm-6 aux-g16--md-6 aux-g16--lg-6 aux-g16--xl-6 margin-zero">
+                <div [ngClass]="{'setting-container' : !horizontalView}">
+                    {{'Data Scope'}}
+                    <aux-radio-group
+                        isStacked="true"
+                        [data]="tablePDFExportOptions"
+                        (radioGroupChanged)="onTablePDFExportOptionsChanged($event)">
+                    </aux-radio-group>
+                    <div class="custom-level-depth">
+                        <aux-numeric-stepper
+                            id="customLevelDepthStepper"
+                            minValue="0"
+                            [isDisabled]="!showCustomLevel"
+                            [stepperValue]="this.customLevelDepth"
+                            (valueChanged)="onCustomLevelDepthChanged($event)">
+                        </aux-numeric-stepper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div class="append-timestamp-container" [ngClass]="{'awc-timestamp-container' : isAWC}">
+        <aux-checkbox
+            label="Append timestamp to file name"
+            [isChecked]="this.exportConfig.appendTimestamp"
+            (checkboxChanged)="onAppendTimestampChanged($event)">
+        </aux-checkbox>
+        <div class="export-options-append-filename-warning" *ngIf="isAWC && !this.exportConfig.appendTimestamp">
+            <aux-icon class="filename-warning-icon" type="info" state="primary"></aux-icon>
+            Explore will fail if a file of the same name is open while exporting
+        </div>
+        <div class="logo-present" *ngIf="this.isLogoFeatureEnabled">
+            <aux-checkbox
+                label="Append a logo"
+                [isChecked]="this.exportConfig.logoConfig.logoPresent"
+                (checkboxChanged)="onLogoPresentChanges($event)">
+            </aux-checkbox>
+        </div>
+        <div class="logo-settings">
+                <ng-container *ngIf="this.exportConfig.logoConfig.logoPresent">
+                        <div class="column2 page-layout-select" [ngClass]="horizontalView ? 'horizontal-option' : 'setting-container'">
+                            <aux-select
+                                label="Logo position"
+                                [hasInitialOptionPlaceholder]="false"
+                                [data]="logoPositionOptions"
+                                (selectionChanged)="onLogoPositionChanged($event)">
+                            </aux-select>
+                        </div>
+                </ng-container>
+            </div>
+            <div class="upload-logo">
+                <ng-container *ngIf="this.exportConfig.logoConfig.logoPresent">
+                    <div class="file-exists" *ngIf="this.exportConfig.logoConfig.logoImageFile">
+                        <p>Previous selected file exists, Browse for other files</p>
+                    </div>
+                    <aux-uploader
+                        (changed)="processFile($event)"
+                        accept=".jpg,.jpeg,.png"
+                        maxFileSize=32000
+                    >
+                    </aux-uploader>
+                    <div class="show-preview">
+                        <aux-checkbox
+                            label="Show logo preview"
+                            [isChecked]="this.exportConfig.logoConfig.showLogoPreview"
+                            (checkboxChanged)="logoPreview($event)">
+                        </aux-checkbox>
+                    </div>
+                    <ng-container *ngIf="this.exportConfig.logoConfig.showLogoPreview">
+                        <div class="logo-preview" (change)="processFile($event)">
+                            <img [src]="this.exportConfig.logoConfig.logoImageFile" height="30" alt="logoToBeAttached">
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+</div>

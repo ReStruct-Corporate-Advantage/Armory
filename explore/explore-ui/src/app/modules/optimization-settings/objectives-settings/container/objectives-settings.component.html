@@ -1,0 +1,58 @@
+<div class="objective-settings header">
+    <ng-container *ngIf="!objectiveSettings.riskParityEnabled">
+        <div class="objective-type aux-g32--xs-10 aux-g32--sm-10 aux-g32--md-10 aux-g32--lg-10 aux-g32--xl-10">
+            <aux-radio-group
+                label="Objective Function Exposure"
+                name="inline"
+                [data]="displayAssetTypes"
+                (radioGroupChanged)="onObjectiveTypeChanged($event)"
+            >
+            </aux-radio-group>
+        </div>
+    </ng-container>
+
+    <div class="aux-layout__wrapper-32" *ngIf="objectiveSettings.portfolioObjectives.length > 0">
+        <div class="layout__no-wrapper">
+            <div class="add-objective-check">
+                <aux-checkbox [isChecked]="false" (checkboxChanged)="onEnableAllObjectives($event)"> </aux-checkbox>
+            </div>
+            <div class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                <aux-text>Weight</aux-text>
+            </div>
+            <div class="aux-g16--xs-10 aux-g16--sm-10 aux-g16--md-10 aux-g16--lg-10 aux-g16--xl-10">
+                <aux-text>Objective</aux-text>
+            </div>
+        </div>
+        <hr class="divider" />
+    </div>
+
+    <div>
+        <form [formGroup]="objectiveForm">
+            <ng-container
+                formArrayName="forms"
+                *ngFor="let form of objectiveForm.controls.forms['controls']; let i = index"
+            >
+                <app-objective-settings-form
+                    [portfolioObjective]="objectiveSettings.portfolioObjectives[i]"
+                    [index]="i"
+                    [formGroup]="form"
+                    [isRiskParity]="this.objectiveSettings.riskParityEnabled"
+                    (removeItem)="onRemoveObjective($event)"
+                    (selectStressObjective)="onChangeObjective($event)"
+                    (selectAlphaScoreObjective)="onSelectAlphaScoreObjective($event)"
+                    (selectStressObjectiveForCustomDate)="onSelectStressScenarioForCustomDateRange($event)"
+                ></app-objective-settings-form>
+            </ng-container>
+        </form>
+        <ng-container *ngIf="!objectiveSettings.riskParityEnabled">
+            <div class="add-objective">
+                <aux-button
+                    icon="add"
+                    [label]="'Add Objective'"
+                    type="tertiary"
+                    (click)="onAddObjective()">
+                </aux-button>
+            </div>
+        </ng-container>
+    </div>
+</div>

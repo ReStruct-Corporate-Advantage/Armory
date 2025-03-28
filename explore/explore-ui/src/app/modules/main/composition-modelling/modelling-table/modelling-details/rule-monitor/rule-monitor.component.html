@@ -1,0 +1,37 @@
+<aux-modal [isOpen]="isMonitorOpen" [type]="'action'" [header]="'Rule Monitor'" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g16--cw-4 aux-layout__wrapper-32 content-padding">
+        <aux-tab-bar [data]="ruleMonitorTabsData" [tabType]="'modern'" (tabBarItemSelected)="onTabSelected($event)">
+        </aux-tab-bar>
+        <div class="rule-monitor-outer-div">
+            <ng-container *ngFor="let ruleWithKey of skippedRules | keyvalue: maintainNaturalOrder">
+                <div class="margin-top-16">
+                    <span class="rule-key">{{ruleWithKey.key}}</span>
+                </div>
+                <ng-container *ngFor="let skippedRule of ruleWithKey.value">
+                    <div>
+                        <span>{{getDetailText(skippedRule, true)}}</span>
+                    </div>
+                </ng-container>
+            </ng-container>
+            <ng-container *ngFor="let ruleWithKey of passedRules | keyvalue: maintainNaturalOrder; index as i">
+                <div class="margin-top-16">
+                    <ng-container *ngIf="selectedView === '1'">
+                        <span class="rule-key">{{(i + 1) + '.'}}</span>
+                    </ng-container>
+                    <span class="rule-key">{{ruleWithKey.key}}</span>
+                </div>
+                <ng-container *ngFor="let passedRule of ruleWithKey.value; index as j">
+                    <div>
+                        <ng-container *ngIf="selectedView === '0'">
+                            <span class="rule-key">{{(j + 1) + '.'}}</span>
+                        </ng-container>
+                        <span>{{getDetailText(passedRule, false)}}</span>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="'Close'" [type]="'secondary'" (click)="closeMonitor()"></aux-button>
+    </div>
+</aux-modal>

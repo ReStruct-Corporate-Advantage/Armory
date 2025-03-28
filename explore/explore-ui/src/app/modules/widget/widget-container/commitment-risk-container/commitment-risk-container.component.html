@@ -1,0 +1,58 @@
+<div [ngClass]="_widgetPayload ? 'commitment-risk-widget-container': '{height: 4.5rem; width: 100%}'">
+    <app-portfolio-or-fund-selector
+        [portfolio]="portfolio"
+        [selectedSecurity]="fundCusip"
+        [stressScenario]='commitmentRiskScenario?.scenario'
+        (securitySelected)="updateFundCusip($event)">
+    </app-portfolio-or-fund-selector>
+    <div *ngIf="_widgetPayload" class="chart-container">
+        <div class="tab-bar">
+            <aux-tab-bar #auxTabBar
+                         [isEditable]="false"
+                         [data]="widgetTabs"
+                         [activeUid]="selectedTab.uid"
+                         (tabBarItemSelected)="onTabSelected($event)">
+            </aux-tab-bar>
+        </div>
+        <div class="tab-content" [ngSwitch]="selectedTab.uid">
+            <app-explore-table #widgetRender
+                               *ngSwitchCase="widgetTabs[4].uid"
+                               [widget]="widget"
+                               [widgetPayload]="_widgetPayload"
+                               [isBatchExport]="isBatchExport"
+                               (spriteletLaunched)="spriteletLaunched.emit($event)">
+            </app-explore-table>
+            <explore-commitment-risk-chart #widgetRender
+                                               *ngSwitchCase="widgetTabs[0].uid"
+                                               [isBatchExport]="isBatchExport"
+                                               [columnToDisplay]="selectedTab"
+                                               [widgetPayload]="_widgetPayload"
+                                               [widget]="widget">
+            </explore-commitment-risk-chart>
+            <explore-commitment-risk-chart #widgetRender
+                                               *ngSwitchCase="widgetTabs[1].uid"
+                                               [isBatchExport]="isBatchExport"
+                                               [columnToDisplay]="selectedTab"
+                                               [widgetPayload]="_widgetPayload"
+                                               [widget]="widget">
+            </explore-commitment-risk-chart>
+            <explore-commitment-risk-chart #widgetRender
+                                               *ngSwitchCase="widgetTabs[2].uid"
+                                               [isBatchExport]="isBatchExport"
+                                               [columnToDisplay]="selectedTab"
+                                               [widgetPayload]="_widgetPayload"
+                                               [widget]="widget">
+            </explore-commitment-risk-chart>
+            <explore-commitment-risk-chart #widgetRender
+                                               *ngSwitchCase="widgetTabs[3].uid"
+                                               [isBatchExport]="isBatchExport"
+                                               [columnToDisplay]="selectedTab"
+                                               [widgetPayload]="_widgetPayload"
+                                               [widget]="widget">
+            </explore-commitment-risk-chart>
+        </div>
+    </div>
+    <ng-container *ngIf="showWarningBanner()">
+        <app-commitment-risk-warning-banner [widget]="widget" [warningData]="_widgetPayload?.responseConfig?.footerDetails?.missingExposures"></app-commitment-risk-warning-banner>
+    </ng-container>
+</div>

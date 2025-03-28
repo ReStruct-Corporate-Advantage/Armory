@@ -1,0 +1,88 @@
+<div class="custom-portfolio-modal-size custom-portfolio-modal__container">
+        <div class="aux-layout__wrapper-without-margin">
+            <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                <div class="input__item">
+                    <aux-text-input label="Portfolio name"
+                                    (valueChanged)="updatePortfolioName($event)"></aux-text-input>
+                </div>
+            </div>
+            <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                <div class="input__item">
+                    <aux-text-input label="Full name (optional)"
+                                    (valueChanged)="updatePortfolioFullName($event)"></aux-text-input>
+                </div>
+            </div>
+        </div>
+      <div class="aux-layout__wrapper-without-margin">
+        <div class="benchmark_item">
+            <app-benchmark-selector *ngIf="modellingType === ModellingType.POSITION || modellingType === ModellingType.EXPOSURE"
+                                    [portfolio]="customPortfolio"
+                                    [allowOther]="true"
+                                    [isBenchmarkAdhoc]="true">
+            </app-benchmark-selector>
+        </div>
+      </div>
+        <div class="aux-layout__wrapper-without-margin">
+            <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                <div class="input__item">
+                    <aux-text-input label="NAV" type="currency" placeholder="0"
+                                    [value]="portNMV"
+                                    (valueChanged)="updatePortNotionalMV($event)"
+                                    (inputBlur)="validatePortNotionalMV()">
+                    </aux-text-input>
+                </div>
+            </div>
+            <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                <div class="input__item">
+                    <aux-select label="Portfolio currency"
+                                [hasInitialOptionPlaceholder]="false"
+                                [data]="currencyOptions"
+                                (selectionChanged)="updateCurrency($event)">
+                    </aux-select>
+                </div>
+            </div>
+            <ng-container *ngIf="modellingType === ModellingType.POSITION|| modellingType === ModellingType.PORTFOLIO || modellingType === ModellingType.EXPOSURE">
+                <div class="aux-g32--xs-4 aux-g32--sm-4 aux-g32--md-4 aux-g32--lg-4 aux-g32--xl-4">
+                    <div class="input__item">
+                        <explore-core-date-picker
+                            [label]="'Date'"
+                            [dateObject]="adhocPortParams.date"
+                            [size]="'regular'"
+                            [isLeftLabel]="false"
+                            (dateChange)="onDateChange($event)">
+                        </explore-core-date-picker>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <ng-container *ngIf="showModellingTypes; else modellingComponents">
+            <app-modelling-types [modelingCategories]="modelingCategories" [useCustomPortStyling]="true"
+                                 (setModellingTypeAtParent)="setModellingType($event)"></app-modelling-types>
+        </ng-container>
+
+        <ng-template #modellingComponents>
+            <ng-container *ngIf="(modellingType !== ModellingType.EXPOSURE) else exposureBasedSettings">
+                <app-security-search #securitySearch
+                                     class="security-picker"
+                                     [selectedSecurities]="addPortfolioService.selectedSecurities"
+                                     [modellingType]="modellingType"
+                                     [tableSize]="'small'"
+                                     [allRules]="rules"
+                                     [isCustomPortfolio]="true"
+                                     [adhocPortParams]="adhocPortParams"
+                                     [telemetryCustomPortfolioStats]="telemetryStats"
+                                     [showCalculateNAVOption]="showCalculateNAVOption"
+                                     [(isCalculateNAVDisabled)]="isCalculateNAVDisabled"
+                                     (modelingColumnUpdated)="onModelingColumnUpdated($event)"
+                                     (portNMVEmitter)="onPortNMVChanged($event)"
+                                     (changeInSelectedSecurities)="updateAddCustomPortfolioButtonEnabled()">
+                </app-security-search>
+            </ng-container>
+            <ng-template #exposureBasedSettings>
+                <app-exposure-based-portfolio-settings [selectedFactorExposures]="addPortfolioService.factorToExposureMap"
+                                                       (changeInSelectedFactorExposures)="updateAddCustomPortfolioButtonEnabled()">
+                </app-exposure-based-portfolio-settings>
+            </ng-template>
+        </ng-template>
+</div>

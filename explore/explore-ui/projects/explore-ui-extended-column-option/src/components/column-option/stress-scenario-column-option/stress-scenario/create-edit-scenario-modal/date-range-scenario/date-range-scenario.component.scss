@@ -1,0 +1,23 @@
+
+.item-container {
+    margin-top: -16px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.item {
+    margin: 16px 16px 0 0;
+}
+
+.item-last {
+    margin-top: 16px;
+}
+
+.holding-period-field {
+    width: 200px;
+}
+
+.label-start-end {
+    margin-bottom: 0.4rem;
+}

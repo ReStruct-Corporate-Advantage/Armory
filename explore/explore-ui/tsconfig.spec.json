@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "types": [
+      "node",
+      "jest"
+    ],
+    "target": "es2022"
+  },
+  "include": [
+    "src/**/*.spec.ts",
+    "projects/**/*.spec.ts"
+  ],
+  "exclude": [
+    "**/e2e/**.*",
+    "**/dist/**.*",
+    "**/out_tsc/**.*",
+    "**/node_modules/**.*",
+    "**/mocks/**.*",
+    "**/*test*.*",
+    "**/*.stories.ts",
+    "./*.ts"
+  ]
+}

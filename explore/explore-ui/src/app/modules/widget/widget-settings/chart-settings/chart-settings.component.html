@@ -1,0 +1,106 @@
+<ng-container [ngSwitch]="widgetConfigInput.inputConfigType">
+    <app-time-period-interval-settings *ngSwitchCase="ChartWidgetInputConfigType.TIME_PERIOD_INTERVAL_SETTINGS"
+                                       [widgetConfigInput]="widgetConfigInput"
+                                       [inputs]="inputs">
+    </app-time-period-interval-settings>
+    <!--  COMMON CHARTS PROPERTIES  -->
+    <app-axis-settings *ngSwitchCase="ChartWidgetInputConfigType.PRIMARY_AXIS_SETTINGS"
+                       [axisType]="AxisType.PRIMARY"
+                       [widgetConfigInput]="widgetConfigInput"
+                       [inputs]="inputs">
+    </app-axis-settings>
+    <app-axis-settings *ngSwitchCase="ChartWidgetInputConfigType.SECONDARY_AXIS_SETTINGS"
+                       [axisType]="AxisType.SECONDARY"
+                       [widgetConfigInput]="widgetConfigInput"
+                       [inputs]="inputs">
+    </app-axis-settings>
+    <app-color-scale-settings *ngSwitchCase="ChartWidgetInputConfigType.COLOR_SCALE"
+                              [widgetConfigInput]="widgetConfigInput"
+                              [inputs]="inputs">
+    </app-color-scale-settings>
+    <!-------------------------------->
+
+    <!--  BAR CHART PROPERTIES  -->
+    <app-bar-chart-settings *ngSwitchCase="ChartWidgetInputConfigType.BAR_SETTINGS"
+                            [widgetConfigInput]="widgetConfigInput"
+                            [inputs]="inputs"
+                            [widgetType]="widgetType">
+    </app-bar-chart-settings>
+
+    <app-custom-color-positive-negative *ngSwitchCase="ChartWidgetInputConfigType.CUSTOM_COLOR_POSITIVE_NEGATIVE"
+                                        [widgetConfigInput]="widgetConfigInput"
+                                        [inputs]="inputs">
+    </app-custom-color-positive-negative>
+    <app-combo-chart-column-settings *ngSwitchCase="ChartWidgetInputConfigType.COMBO_CHART_COLUMN_SETTINGS"
+                                     [widgetConfigInput]="widgetConfigInput"
+                                     [inputs]="inputs"
+                                     [widgetType]="widgetType">
+    </app-combo-chart-column-settings>
+    <!---------------------------->
+
+    <!--  RETURNS CHART PROPERTIES  -->
+    <app-return-chart-style-settings *ngSwitchCase="ChartWidgetInputConfigType.RETURN_CHART_STYLE_SETTINGS"
+                                     [widgetConfigInput]="widgetConfigInput"
+                                     [inputs]="inputs">
+    </app-return-chart-style-settings>
+    <!-------------------------------->
+
+    <!--  HEATMAP CHART PROPERTIES  -->
+    <app-axes-sort-order-settings *ngSwitchCase="ChartWidgetInputConfigType.SORTED_COLUMNS_X"
+                                  settingKey="sortedColumnsX"
+                                  [widgetConfigInput]="widgetConfigInput"
+                                  [inputs]="inputs"
+                                  [widgetType]="widgetType">
+    </app-axes-sort-order-settings>
+    <app-axes-sort-order-settings *ngSwitchCase="ChartWidgetInputConfigType.SORTED_COLUMNS_Y"
+                                  settingKey="sortedColumnsY"
+                                  [widgetConfigInput]="widgetConfigInput"
+                                  [inputs]="inputs"
+                                  [widgetType]="widgetType">
+    </app-axes-sort-order-settings>
+    <!-------------------------------->
+
+    <!--  TREE CHART PROPERTIES  -->
+    <app-absolute-value-settings *ngSwitchCase="ChartWidgetInputConfigType.ABSOLUTE_VALUE"
+                                 [widgetConfigInput]="widgetConfigInput"
+                                 [inputs]="inputs">
+    </app-absolute-value-settings>
+    <!----------------------------->
+
+    <!--  PIE CHART PROPERTIES  -->
+    <app-pie-chart-display-settings *ngSwitchCase="ChartWidgetInputConfigType.PIE_CHART_DISPLAY"
+                                    [widgetConfigInput]="widgetConfigInput"
+                                    [inputs]="inputs">
+    </app-pie-chart-display-settings>
+    <!---------------------------->
+
+    <!--  SCATTER PLOT CHART PROPERTIES  -->
+    <app-scatter-drilldown-settings *ngSwitchCase="ChartWidgetInputConfigType.SCATTER_SETTINGS"
+                                    [widgetConfigInput]="widgetConfigInput"
+                                    [inputs]="inputs">
+    </app-scatter-drilldown-settings>
+    <!------------------------------------->
+
+    <!--  TIME SERIES CHART PROPERTIES  -->
+    <app-time-series-format-settings *ngSwitchCase="ChartWidgetInputConfigType.TIME_SERIES_FORMAT_SETTINGS"
+                                     [widgetConfigInput]="widgetConfigInput"
+                                     [inputs]="inputs">
+    </app-time-series-format-settings>
+    <app-time-series-time-period-settings *ngSwitchCase="ChartWidgetInputConfigType.TIME_SERIES_TIME_PERIOD_SETTINGS"
+                                          [widgetConfigInput]="widgetConfigInput"
+                                          [inputs]="inputs">
+    </app-time-series-time-period-settings>
+    <!------------------------------------>
+
+    <!--  HEATMAP CHART PROPERTIES  -->
+    <app-heatmap-settings *ngSwitchCase="ChartWidgetInputConfigType.HEATMAP_SETTINGS"
+                          [inputs]="inputs">
+    </app-heatmap-settings>
+    <!-------------------------------->
+
+    <!--  PGS STACKED BAR CHART PROPERTIES  -->
+    <app-pgs-stacked-bar-chart-settings *ngSwitchCase="ChartWidgetInputConfigType.PGS_STACKED_BAR_CHART_SETTINGS"
+                                        [inputs]="inputs">
+    </app-pgs-stacked-bar-chart-settings>
+    <!-------------------------------->
+</ng-container>

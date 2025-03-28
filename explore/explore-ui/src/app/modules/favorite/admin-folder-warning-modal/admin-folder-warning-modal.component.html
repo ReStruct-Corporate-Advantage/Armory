@@ -1,0 +1,23 @@
+<aux-modal [isOpen]="isOpen" type="action" [header]="'Select Folder for Enterprise ' + CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteDisplayType]" [hasCustomFooter]="true">
+    <div slot="content" class="aux-g16--cw-4 admin-warning-container">
+        <div class="admin-informational-text">
+            All Enterprise {{CoreFavoriteConstants.FAVORITE_DISPLAY_NAMES[favoriteDisplayType]}} need to be assigned to a folder. Please select the folder icon
+            <aux-button class="folder-button" [icon]="'folder-subtle'" [type]="AuxButtonTypeEnum.TERTIARY" (click)="openFolderStructureModal()"  [favoriteDisplayType]="favoriteDisplayType" ></aux-button>
+            to select a folder.
+        </div>
+        <div>
+            Click {{CoreCommonConstants.BUTTON_TEXT.OK}} once a folder is selected.
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--one-button">
+        <aux-button [label]="CoreCommonConstants.BUTTON_TEXT.OK" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>
+<ng-container *ngIf="isFolderStructureModalOpen">
+    <app-folder-structure-modal [isOpen]="isFolderStructureModalOpen"
+                                [favoriteChange]="favoriteChange"
+                                [selectedUser]="favoriteChange.savingUser"
+                                (modalClosed)="closeFolderStructureModal($event)"
+                                [favoriteDisplayType]="favoriteChange.favoriteDisplayType">
+    </app-folder-structure-modal>
+</ng-container>

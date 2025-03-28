@@ -1,0 +1,14 @@
+table, tr, th {
+    border: 1px solid var(--dialog__border-color);
+    border-collapse: collapse;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table-cell {
+    margin: 8px;
+}
+
+.no-margin {
+    margin: 0;
+}

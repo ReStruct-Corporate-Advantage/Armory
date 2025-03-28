@@ -1,0 +1,23 @@
+<div class="additional-settings">
+
+    <div class="port-group-names">
+        <aux-radio-group
+            label="Portfolio group names"
+            name="inline"
+            [isStacked]="true"
+            [data]="displayDataForPortGroupNames"
+            (radioGroupChanged)="updatePortGroupNames()">
+        </aux-radio-group>
+    </div>
+
+    <div class="portfolio-names">
+        <aux-radio-group
+            label="Portfolio names"
+            name="inline"
+            [isStacked]="true"
+            [data]="displayDataForPortfolioNames"
+            (radioGroupChanged)="updatePortfolioNames()">
+        </aux-radio-group>
+    </div>
+</div>
+

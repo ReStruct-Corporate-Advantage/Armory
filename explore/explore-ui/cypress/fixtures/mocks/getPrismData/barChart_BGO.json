@@ -1,0 +1,91 @@
+[
+    {
+        "output": {
+            "isResponseChunked": false,
+            "message": null,
+            "data": {
+                "footerDetails": {
+                    "PUBLISH_TIME": 0
+                },
+                "data": {
+                    "data": [
+                        0.9999999999999999
+                    ],
+                    "children": [
+                        {
+                            "data": [
+                                0.994775668557091
+                            ],
+                            "title": "EQUITY",
+                            "sectorOrder": 0,
+                            "rowId": 2
+                        },
+                        {
+                            "data": [
+                                0.011507693740175438
+                            ],
+                            "title": "FUND",
+                            "sectorOrder": 1,
+                            "rowId": 3
+                        },
+                        {
+                            "data": [
+                                3.734781107393548E-21
+                            ],
+                            "title": "LOAN",
+                            "sectorOrder": 2,
+                            "rowId": 4
+                        },
+                        {
+                            "data": [
+                                -0.006283362297266517
+                            ],
+                            "title": "OPTION",
+                            "sectorOrder": 3,
+                            "rowId": 5
+                        }
+                    ],
+                    "rowId": 1
+                },
+                "columnHeaderDetails": {
+                    "columnKeyToDisplayNameMap": {
+                        "pct_notional_val_0": "Notional Market Value %"
+                    },
+                    "columnKeyToTagMap": {
+                        "pct_notional_val_0": "pct_notional_val"
+                    }
+                },
+                "columns": [
+                    "pct_notional_val_0"
+                ]
+            },
+            "gaussian": "IsfajkjyfAwO5TBuUChYZdPc02w=",
+            "userinfo": {
+                "runningRequests": 0,
+                "serverId": "sharedSession",
+                "queuedRequests": 0,
+                "CLASS_TYPE": "com.bfm.explore.messaging.response.UserSessionInfo",
+                "timestamp": 1717086723027
+            },
+            "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+            "status": "SUCCESS"
+        },
+        "args": null,
+        "headers": {
+            "msgSize": 2096
+        },
+        "transactionContext": {
+            "bmsTimeStamp": "2024-05-30T16:32:01.962Z",
+            "detailedID": "363075cc-27eb-45f7-8d9a-b3544f4d88d6.2096.1717086721962",
+            "IDWithContextChain": "363075cc-27eb-45f7-8d9a-b3544f4d88d6",
+            "chain": [],
+            "bmsMsgSize": 2096,
+            "transactionId": "363075cc-27eb-45f7-8d9a-b3544f4d88d6",
+            "CLASS_TYPE": "com.bfm.util.TransactionContext"
+        },
+        "return_val": "SUCCESS",
+        "command": "getPrismData",
+        "transactionId": "363075cc-27eb-45f7-8d9a-b3544f4d88d6",
+        "successCode": null
+    }
+]

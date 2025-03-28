@@ -1,0 +1,23 @@
+<table *ngIf="proxyInfo?.cusips?.length">
+    <thead>
+        <tr>
+            <th *ngFor="let title of headerTitles">
+                <div class="table-cell">{{title}}</div>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cusip of proxyInfo.cusips; let i = index;">
+            <td>
+                <div class="table-cell">{{cusip}}</div>
+            </td>
+            <td>
+                <div class="table-cell">{{proxyInfo.overrides[i]}}</div>
+            </td>
+            <td>
+                <div class="table-cell">{{proxyInfo.endDates[i]}}</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p *ngIf="!proxyInfo?.cusips?.length">No proxy information available</p>

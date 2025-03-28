@@ -1,0 +1,92 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Change Portfolio Benchmark",
+    "line": 1,
+    "id": "change-portfolio-benchmark",
+    "tags": [],
+    "uri": "portfolioBenchmark.feature",
+    "elements": [
+      {
+        "id": "change-portfolio-benchmark;change-benchmark-from-primary-to-secondary",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Change Benchmark from Primary to Secondary",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 5924000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 7,
+            "name": "select secondary benchmark",
+            "result": {
+              "status": "passed",
+              "duration": 704000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 8,
+            "name": "verify portfolio benchmark should be changed to secondary benchmark",
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "change-portfolio-benchmark;change-benchmark-to-other-and-load-any-portfolio",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Change Benchmark to other and load any portfolio",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2864000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "select other benchmark",
+            "result": {
+              "status": "passed",
+              "duration": 1098000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 12,
+            "name": "verify portfolio benchmark should be changed to other benchmark",
+            "result": {
+              "status": "passed",
+              "duration": 20000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

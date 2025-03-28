@@ -1,0 +1,31 @@
+.custom-header {
+    padding: 1.25rem 2rem 1.1875rem;
+    display: inline-block;
+    border-bottom: 1px solid var(--dialog__border-color);
+
+    .header-title {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--primary-text__color);
+    }
+}
+
+.content {
+    overflow-y: scroll;
+}
+.load-favorite-contents {
+    height: 680px;
+    margin: 32px;
+}
+.asset-type-view {
+    padding-bottom: 10px;
+    margin: 1rem 1rem;
+    border-bottom: 1px solid var(--tab__border-color);
+
+    .main-list-header {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+    }
+}

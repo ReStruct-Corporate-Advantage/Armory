@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreExpostTimeSeriesChartComponent should format the tooltip points 1`] = `
+"
+                <div style="z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;">
+                    <tspan style="font-weight: bold">Date:</tspan> 24-FEB-2017
+                    <br/><tspan style="font-weight: bold">Ex-post Tracking Error(1 Month,1 Year):</tspan> 
+                <div>"
+`;
+
+exports[`ExploreExpostTimeSeriesChartComponent should format the tooltip points when sampling and statistic period undefined 1`] = `
+"
+                <div style="z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;">
+                    <tspan style="font-weight: bold">Date:</tspan> 24-FEB-2017
+                    <br/><tspan style="font-weight: bold">Ex-post Tracking Error:</tspan> 
+                <div>"
+`;

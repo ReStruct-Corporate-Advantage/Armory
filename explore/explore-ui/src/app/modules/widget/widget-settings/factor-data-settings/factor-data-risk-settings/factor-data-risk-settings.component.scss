@@ -1,0 +1,31 @@
+.layout-risk-settings {
+    display: inline-block;
+}
+
+.comparison-label-style {
+    margin: 2rem 2rem 0 2rem;
+    font-weight: bold;
+}
+
+.factor-risk-settings-style {
+    border: .0125rem solid var(--drawer__border-color);
+    background-color: var(--secondary__background-color);
+    min-height: 100%;
+    overflow: auto;
+}
+
+.float-left {
+    float: left;
+}
+
+.set-width-full {
+    width: 100%;
+}
+
+.set-width-half {
+    width: 50%;
+}
+
+.hide-message {
+    font-weight: bold;
+}

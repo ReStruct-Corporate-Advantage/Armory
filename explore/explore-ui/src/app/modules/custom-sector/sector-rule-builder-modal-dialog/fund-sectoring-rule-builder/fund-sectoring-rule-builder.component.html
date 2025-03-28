@@ -1,0 +1,20 @@
+<div class="rule-container">
+    <app-fund-sectoring-upload-cusips [customSectorType]="customSectorType"
+                                      [breakdownTree]="sectorRuleBuilderConfig.breakdownTree"
+                                      [sectorNode]="sectorRuleBuilderConfig.sectorNode"
+                                      [addRule]="sectorRuleBuilderConfig.addRule"
+                                      [createNewCustomSector]="sectorRuleBuilderConfig.createNewCustomSector"
+                                      [refreshBreakdownTreeCallback]="sectorRuleBuilderConfig.refreshBreakdownTreeCallback"
+                                      [assignedRecordsMapping]="assignedRecordsMapping"
+                                      [isLoading$]="isLoading$"
+                                      (recordsUploaded)="fundSectoringRuleTable.refreshTableData()">
+    </app-fund-sectoring-upload-cusips>
+    <div class="fund-sectoring-table-container">
+        <app-fund-sectoring-rule-table [customSectorType]="customSectorType"
+                                       [sectorNode]="sectorRuleBuilderConfig.sectorNode"
+                                       [assignedRecordsMapping]="assignedRecordsMapping"
+                                       [selectedRecords]="selectedRecords"
+                                       [isLoading$]="isLoading$">
+        </app-fund-sectoring-rule-table>
+    </div>
+</div>

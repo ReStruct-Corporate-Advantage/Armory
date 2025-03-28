@@ -1,0 +1,15 @@
+<aux-text-input
+  [size]="size"
+  [value]="value"
+  [placeholder]="placeholder"
+  [label]="label"
+  [isLeftLabel]="isLeftLabel"
+  [errorMessage]="errorMessage"
+  [isValid]="valid"
+  [isDisabled]="disabled"
+  [isRequired]="isRequired"
+  [type]="type"
+  (valueChanged)="onValueChange($any($event).detail.value)"
+  (inputBlur)="onInputBlur($event)"
+>
+</aux-text-input>

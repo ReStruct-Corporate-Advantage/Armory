@@ -1,0 +1,17 @@
+.constraint-option-bounds-relative {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bounds-item {
+    display: flex;
+
+    .operator-select {
+        padding-right: 10px;
+        padding-top: 16px
+    }
+
+    .bound-value {
+        width: 30%
+    }
+}

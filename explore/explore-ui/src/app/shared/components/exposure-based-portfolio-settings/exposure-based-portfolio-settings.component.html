@@ -1,0 +1,15 @@
+<app-exposure-based-add-factors [inputs]="inputs"
+                                (refreshFactorExposures)="onFactorsUpdated()">
+</app-exposure-based-add-factors>
+
+<div class="factor-column-summary">
+    <aux-grid class="factor-summary-table"
+              fontSize="normal"
+              paddingSize="normal"
+              [gridOptions]="gridOptions"
+              [overrides]="{ isZebra: false}">
+    </aux-grid>
+</div>
+
+
+

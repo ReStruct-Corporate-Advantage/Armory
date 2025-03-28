@@ -1,0 +1,83 @@
+<div (click)="onSectorSelection($event)"
+     (dragover)="onDragOver($event)"
+     (drop)="onDrop($event)"
+     class="custom-sector-item"
+     [ngClass]="{
+     'selected' : isActiveRule,
+     'nested-item-padding' : !isActiveRule && (isColumnRule || isCustomSectorRule || isFundSectorRule),
+     'custom-sector-item-even-group-index' : (groupIndex % 2 === 0),
+     'custom-sector-item-odd-group-index' : (groupIndex % 2 !== 0)
+     }">
+    <aux-button (click)="rule['toggleGroupType']()" *ngIf="isGroupRule" [label]="rule['groupType']" type="secondary" size="small"></aux-button>
+    <div class="rules-container">
+        <!-- Remove Button -->
+        <ng-container *ngIf="isActiveRule">
+            <div class="remove-button-container">
+                <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+                <aux-button (click)="onRemoveRule()" type="tertiary-subtle" icon="delete-small"></aux-button>
+            </div>
+        </ng-container>
+        <explore-custom-sector-column-rule [ngClass]="[
+                                       isActiveRule? ((groupIndex + 1) % 2) === 0 ?
+                                       'custom-sector-item-even-group-index': 'custom-sector-item-odd-group-index' : '',
+                                       isActiveRule? 'sector-rule': ''
+                                       ]"
+                                           *ngIf="isColumnRule && !isEditingRule"
+                                           [rule]="rule"
+                                           [ruleCaption]="ruleCaption"
+                                           [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+                                           (changeIsEditingRule)="this.changeIsEditingRule($event)"
+                                           (replaceRule)="this.replaceRule($event)">
+        </explore-custom-sector-column-rule>
+        <explore-editable-custom-sector-column-rule #editableCustomSectorColumnRule
+                                                    [ngClass]="{
+                                                    'custom-sector-item-even-group-index': isActiveRule && (((groupIndex + 1) % 2) === 0),
+                                                    'custom-sector-item-odd-group-index': isActiveRule && (((groupIndex + 1) % 2) !== 0),
+                                                    'sector-rule': isActiveRule
+                                                    }"
+                                                    *ngIf="isEditingRule"
+                                                    [editableRuleConfig]="editableRuleConfig"
+                                                    (changeIsEditingRule)="this.changeIsEditingRule($event)"
+                                                    [rule]="rule"
+                                                    [ruleCaption]="ruleCaption">
+        </explore-editable-custom-sector-column-rule>
+        <explore-nested-custom-sector-rule [ngClass]="[
+                                       isActiveRule? ((groupIndex + 1) % 2) === 0 ?
+                                       'custom-sector-item-even-group-index': 'custom-sector-item-odd-group-index' : '',
+                                       isActiveRule? 'sector-rule': ''
+                                       ]"
+                                           *ngIf="isCustomSectorRule"
+                                           [rule]="rule">
+        </explore-nested-custom-sector-rule>
+        <explore-nested-fund-sector-rule [ngClass]="[
+                                       isActiveRule? ((groupIndex + 1) % 2) === 0 ?
+                                       'custom-sector-item-even-group-index': 'custom-sector-item-odd-group-index' : '',
+                                       isActiveRule? 'sector-rule': ''
+                                       ]"
+                                         *ngIf="isFundSectorRule"
+                                         [rule]="rule"
+                                         [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+                                         (replaceRule)="this.replaceRule($event)">
+        </explore-nested-fund-sector-rule>
+        <ng-container *ngIf="isGroupRule">
+            <div *ngFor="let subRule of rule['subRules']"
+                 class="nested-custom-sector-item">
+                <explore-custom-sector-item
+                    [rule]="subRule"
+                    [ruleCaption]="ruleCaption"
+                    [parent]="rule"
+                    [sectorRuleBuilderConfig]="sectorRuleBuilderConfig"
+                    [editableRuleConfig]="editableRuleConfig"
+                    [groupIndex]="groupIndex + 1"
+                    [draggedSector$]="draggedSector$"
+                    (addRuleToParent)="addRule($event)"
+                    (removeRule)="onSubRuleRemove(subRule)">
+                </explore-custom-sector-item>
+            </div>
+        </ng-container>
+        <!-- Add Button -->
+        <aux-button class="add-button" (click)="onAddRule()" *ngIf="isActiveRule" icon="add" label="Add Condition" type="tertiary"></aux-button>
+    </div>
+</div>
+<ng-template exploreSectorRuleBuilderModal>
+</ng-template>

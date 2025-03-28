@@ -1,0 +1,26 @@
+
+<ng-container *ngIf="isNewStressScenarioEnabled; else showOldStressScenarioComponent">
+    <div>
+        <aux-button type="secondary" [label]="'Scenario Selection'"
+                    (click)="openScenarioSelectionModal()"></aux-button>
+    </div>
+
+    <ng-container *ngIf="isScenarioModalOpen">
+        <app-maximize-alpha-new-stress-scenario-modal [isOpen]="isScenarioModalOpen"
+                                                      [nameScenarios]="nameScenarios"
+                                                      (modalClosed)="onScenarioSelectionModalClosed($event)">
+        </app-maximize-alpha-new-stress-scenario-modal>
+    </ng-container>
+
+</ng-container>
+
+<ng-template #showOldStressScenarioComponent>
+    <div [class]="injectedClass">
+        <aux-select
+            [hasInitialOptionPlaceholder]="false"
+            [data]="scenarios"
+            (selectionChanged)="onUpdateStressScenario($event)"
+            type="filter-simple"
+        ></aux-select>
+    </div>
+</ng-template>

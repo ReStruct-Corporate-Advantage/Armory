@@ -1,0 +1,39 @@
+{
+  "configType": "WHATIF_POS",
+  "ticker": "PEP",
+  "portId": "PEP66d316e0ce644c1",
+  "datePicker": {
+    "dateString": false,
+    "date": "10/30/2018",
+    "dateStringValue": ""
+  },
+  "performanceSettings": {},
+  "lookthroughSettings": {
+    "isLookThroughEnabled": false,
+    "isBenchLookThroughEnabled": false,
+    "ltSecurityTypes": "FUND,ETF,FUTURE_INDEX",
+    "ltProxies": "RISK_PROXY,FUND"
+  },
+  "splitPositionTypes": "XC,XF,XH,XS,SW,O",
+  "compositionSetting": {
+    "breakdownTree": {
+      "breakdown": {
+        "subSectors": []
+      }
+    }
+  },
+  "modellingType": 1,
+  "date": "10/30/2018",
+  "optimizationSettings": {
+    "investmentUniverseSettings": {
+      "investmentUniverse": []
+    },
+    "objectiveSettings": {
+      "objectivesType": "Active",
+      "portfolioObjectives": []
+    }
+  },
+  "title": "What If PEP 1",
+  "id": 1234,
+  "owner": "user01"
+}

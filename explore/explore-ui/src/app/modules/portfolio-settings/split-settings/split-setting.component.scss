@@ -1,0 +1,23 @@
+.split-setting {
+    height: calc(77vh - 138px);
+    padding: 2rem 2rem;
+    background-color: var(--secondary__background-color);
+    border: .0125rem solid var(--drawer__border-color);
+    width: 100%;
+    display: flex;
+    .restore-default-nav {
+        float: right;
+    }
+
+    .nav-container {
+        padding-left: 1rem;
+        margin-left: 1rem;
+        margin-right: 0;
+    }
+}
+
+.remove-margin-container{
+    margin: unset !important;
+}
+
+

@@ -1,0 +1,221 @@
+<div class="security-search__container">
+    <ng-container *ngIf="!showUploadList">
+        <ng-container *ngIf="modellingType === ModellingType.POSITION && !isCustomPortfolio">
+            <div class="input__item aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12">
+                <aux-radio-group [data]="securitySearchOptions" (radioGroupChanged)="onSecuritySearchOptionChanged($event.detail?.value?.eventData)" label='Add'>
+                </aux-radio-group>
+            </div>
+        </ng-container>
+
+        <div [ngClass]="{'aux-layout__wrapper-without-margin handle-overflow modelling-panel-padding': true, 'add-left-padding-for-panel': !hideModellingColumn}" class="aux-layout__wrapper-without-margin handle-overflow modelling-panel-padding">
+            <div class="modelling-first-item">
+                <!-- By security -->
+                <ng-container *ngIf="modellingType !== ModellingType.PORTFOLIO && securitySearchOptions?.[0].checked">
+                    <div class="flex-display-wrap">
+                        <ng-container *ngIf="!(customColDef?.field === 'alpha' || customColDef?.field === 'riskContributionPercentage' || hideModellingColumn)">
+                            <div [ngStyle]="whatIfMode && {'width': '162px'}">
+                                <aux-select
+                                    label="Modeling column"
+                                    [hasInitialOptionPlaceholder]="false"
+                                    [data]="modelingColumns"
+                                    (selectionChanged)="onModelingColumnChanged($event)">
+                                </aux-select>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <ng-container *ngIf="modellingType === ModellingType.POSITION && !isCustomPortfolio && this.currentPortfolio?.isPortfolioGroup">
+                        <div class='add-to-portfolio' >
+                            <app-add-to-portfolio
+                                    [portfolio]='this.currentPortfolio'
+                                    (leafPortfoliosUpdated)='onLeafPortfoliosUpdated($event)'
+                                    (addToPortfolioChanged)='onAddToPortfolioChanged($event)'>
+                            </app-add-to-portfolio>
+                        </div>
+                        <aux-tooltip>
+                            <aux-button
+                                slot='target'
+                                icon='help'
+                                type='tertiary'
+                                [assistiveText]="'help'">
+                            </aux-button>
+                            <span slot='content'>When adding a security to a specific portfolio in a portfolio group, the current value reflects that of the entire portfolio group and the new value reflects the desired final exposure to the selected portfolio.<br>
+                                So, for a portfolio group with 2% exposure to an asset, 1% of which is coming from Portfolio A, specifying a new value of 4% when Portfolio A is selected would yield 5% portfolio group exposure to an asset, 4% of which is coming from Portfolio A.
+                            </span>
+                        </aux-tooltip>
+                    </ng-container>
+
+                    <div [ngClass]="{'add-security-padding': true, 'add-left-padding': !hideModellingColumn}" >
+                        <app-security-search-bar (securitySelected)="addSecurity($event)"></app-security-search-bar>
+                    </div>
+                </ng-container>
+
+                <!-- From portfolio -->
+                <ng-container *ngIf="modellingType === ModellingType.PORTFOLIO || securitySearchOptions?.[1].checked">
+                    <aux-select
+                        label="Modeling column"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="modelingColumns"
+                        (selectionChanged)="onModelingColumnChanged($event)">
+                    </aux-select>
+                    <ng-container *ngIf="!whatIfMode">
+                        <div class="add-port-padding aux-g32--xs-7 aux-g32--sm-7 aux-g32--md-7 aux-g32--lg-7 aux-g32--xl-7">
+                            <blk-portfolio-search (emitPortfolioSearchItem)="addPortfolio($event)"
+                                              (emitPortfolioForTracking)="trackPortfolioTelemetry($event)"
+                                              [portfolioSearchService]="portfolioSearchService"
+                                              [isAddBtnHidden]="true"
+                                              [isPortfolioModellingSearch]="true"
+                                              [searchType]="searchType"
+                                              [isWhatIfLoaded]="whatIfMode"
+                                              (whatIfTypeSelected)="switchToWhatIfMode(true)"
+                            >
+                            </blk-portfolio-search>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="whatIfMode">
+                        <div class="what-if-mode-display">
+                            <aux-select
+                                [data]="selectProps.data"
+                                [hasInitialOptionPlaceholder]="false"
+                                (selectionChanged)="switchToWhatIfMode($event)"
+                            >
+                            </aux-select>
+                        </div>
+                        <ng-container *ngIf="!isCustomPortfolio">
+                            <app-add-portfolio-modal [isOpen]="whatIfMode"
+                                                     [portfolioType]="typeWhatIf"
+                                                     [reportGroup]="reportGroup"
+                                                     [loadFavActionCallback]="addPortfolio"
+                                                     [onAddCallback]="addAllPortItemsToGrid"
+                                                     (modalClosed)="whatIfMode = false">
+                            </app-add-portfolio-modal>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+
+                <!-- iShares selector-->
+                <ng-container *ngIf="securitySearchOptions?.[2].checked">
+                    <aux-select
+                        label="Modeling column"
+                        [hasInitialOptionPlaceholder]="false"
+                        [data]="modelingColumns"
+                        (selectionChanged)="onModelingColumnChanged($event)">
+                    </aux-select>
+                    <div class="add-port-padding aux-g32--xs-7 aux-g32--sm-7 aux-g32--md-7 aux-g32--lg-7 aux-g32--xl-7">
+                        <aux-button class="action-button action-button-padding" label="Search iShares"
+                                type="primary" (click)="openIsharesSelectorModal()"></aux-button>
+                    </div>
+                </ng-container>
+            </div>
+
+            <ng-container *ngIf="modellingType === 1 && showCalculateNAVOption">
+                <aux-button label="Calculate NAV" class="action-button action-button-padding" type="secondary"
+                            [isDisabled]="isCalculateNAVDisabled"
+                            (click)="calculateNAV()">
+                </aux-button>
+            </ng-container>
+
+            <ng-container *ngIf="securitySearchType === securitySearchTypeEnum.BY_SECURITY">
+                <aux-button class="action-button action-button-padding" type="secondary" label="Upload a List"
+                            (click)="toggleUploadList()"></aux-button>
+            </ng-container>
+
+            <ng-container *ngIf="isInvalidSecuritiesPresent()">
+                <aux-button class="action-button action-button-padding" label="Clear Securities without Analytics" type="secondary"
+                            (click)="deleteAllSecurities(true)"></aux-button>
+            </ng-container>
+
+            <ng-container *ngIf="selectedSecurities?.size > 0">
+                <aux-button class="action-button action-button-padding" label="Clear List" type="secondary"
+                            (click)="deleteAllSecurities()"></aux-button>
+            </ng-container>
+
+            <ng-container *ngIf="selectedSecurities?.size > 0 && modellingType && !isCustomPortfolio">
+                <aux-button class="action-button action-button-padding" label="Apply"
+                            [isDisabled]="isApplyButtonDisabled"
+                            (click)="applySecurities(modellingType, $event)" type="primary"></aux-button>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <div
+        [ngClass]="{'aux-layout__wrapper-without-margin': !whatIfMode, 'grid-no-wrap': whatIfMode, ' grid__container': true}">
+
+        <ng-container
+            *ngIf="modellingType === ModellingType.PORTFOLIO || (modellingType === ModellingType.POSITION && securitySearchType === securitySearchTypeEnum.FROM_PORTFOLIOS)">
+            <ng-container *ngIf="whatIfMode && !favoriteViewToJustSelectWhatIfs">
+                <div class="aux-g32--xs-5 aux-g32--sm-5 aux-g32--md-5 aux-g32--lg-5 aux-g32--xl-5">
+                    <app-favorite [favType]="loadFavAction?.type"
+                                  [favTreeType]="loadFavAction?.treeType"
+                                  [favDisplayName]="loadFavAction?.displayName"
+                                  [loadEnterpriseTree]="!loadFavAction?.ignoreEnterpriseTree"
+                                  [loadFavoriteCallBack]="loadFavAction?.callback"
+                                  [subCategoryData]="loadFavAction?.subCategoryData"
+                                  [stickySearch]="true"
+                                  [isSecuritySearch]="true"
+                    >
+                    </app-favorite>
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <div [ngClass]="{
+            'aux-g32--xs-9 aux-g32--sm-9 aux-g32--md-9 aux-g32--lg-9 aux-g32--xl-9': whatIfMode,
+            'aux-g32--xs-12 aux-g32--sm-12 aux-g32--md-12 aux-g32--lg-12 aux-g32--xl-12': !whatIfMode,
+            'add-securities': isCustomPortfolio
+            }">
+            <aux-grid
+                [type]="tableSize"
+                [gridOptions]="gridOptions"
+                [hidden]="showUploadList || selectedSecurities?.size === 0">
+            </aux-grid>
+            <ng-container *ngIf="showUploadList">
+                <app-security-upload
+                    (securitiesUploaded)="validateAndAddSecurities($event.securities, $event.uploadType)"
+                    (showGrid)="toggleUploadList()"
+                    [includeWeight]="!createFromScratch"
+                    [rootPortfolio]="currentPortfolio?.portName"
+                    [leafPortfolios]='leafPortfolios'
+                    [customColDef]="customColDef"
+                    [modellingType]="modellingType"
+                    [selectedModelingColumn]="selectedModelingColumn"
+                >
+                </app-security-upload>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="isSecuritySelectionModalOpen">
+    <app-security-selection-modal [isOpen]="isSecuritySelectionModalOpen" [securityIdentifiers]=securityIdentifiers
+                                  [searchResults]=securityResults (modalClosed)="closeSecuritySelectionModal($event)">
+    </app-security-selection-modal>
+</ng-container>
+
+<ng-container *ngIf="isIsharesSelectorModalOpen">
+    <aux-modal [isOpen]="isIsharesSelectorModalOpen" [type]="'action'" [header]="'Search iShares'" [hasCustomFooter]="true">
+        <div slot="content" class="iShares-selector-modal">
+            <app-column-set-settings
+                [isColumnOptionsDisabled]="true"
+                [columnTree]="ishareDefinitionsTree"
+                [widgetConfigInput]="widgetConfigInput"
+                [inputs]="inputs"
+                [singleSelectionAllowed]="false"
+                [requireLoadAndSaveOptions]="false"
+                sourceLabel="Select iShares items to add to the table">
+            </app-column-set-settings>
+        </div>
+        <div class="custom-footer-container--two-buttons">
+            <aux-button
+                class="custom-footer--primary-button"
+                [isDisabled]="isApplyButtonForIsharesModalDisabled.value != 0"
+                (click)="closeIsharesSelectorModal(true)"
+                [label]="'Apply'">
+            </aux-button>
+            <aux-button
+                [label]="'Cancel'"
+                [type]="'secondary'"
+                (click)="closeIsharesSelectorModal(false)">
+            </aux-button>
+        </div>
+    </aux-modal>
+</ng-container>

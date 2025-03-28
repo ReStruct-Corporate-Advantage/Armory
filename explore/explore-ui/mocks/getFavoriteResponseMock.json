@@ -1,0 +1,253 @@
+{
+    "workspace": {
+        "message": null,
+        "data": [
+            {
+                "owner": "seakim",
+                "data": "%7b\"configType\":\"workspace\",\"workpads\":%5b%7b\"configType\":\"flat-workpad\",\"reports\":%5b%7b\"configType\":\"WIDGETS_REPORT\",\"widgets\":%5b%5d,\"title\":\"Report\"%7d%5d,\"portfolios\":%5b%7b\"configType\":\"portfolio\",\"ticker\":\"PEP\",\"benchmark\":%7b\"type\":\"RISK\",\"order\":1,\"name\":\"MSAC_APACN\"%7d%7d%5d%7d%5d,\"title\":\"Untitled Workspace\"%7d",
+                "listOrder": 25,
+                "list_order": 25,
+                "description": " ",
+                "id": 1719479,
+                "title": "Untitled Workspace",
+                "type": "WORKSPACE",
+                "tool": "Explore",
+                "isSlim": false
+            }
+        ],
+        "status": null
+    },
+    "workspaceFolder": {
+        "message": null,
+        "data": {
+            "owner": "seakim",
+            "data": "%7b\"title\":\"WORKSPACES\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"new2\",\"type\":\"folder\",\"children\":%5b%7b\"title\":\"BAMY (bamba)\",\"type\":\"favorite\",\"favoriteId\":1517717%7d%5d%7d,%7b\"title\":\"New Folder\",\"type\":\"folder\"%7d%5d%7d",
+            "listOrder": 0,
+            "list_order": 0,
+            "id": 1517716,
+            "type": "WORKSPACE_FOLDER",
+            "title": "TEST",
+            "tool": "Explore",
+            "isSlim": false
+        },
+        "status": null
+    },
+    "slimFavorite": {
+        "message": null,
+        "data": [
+            {
+                "owner": "seakim",
+                "listOrder": 9,
+                "list_order": 9,
+                "description": " ",
+                "id": 1557322,
+                "type": "WORKSPACE",
+                "title": "fromProd",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "tool": "Explore",
+                "isSlim": true
+            },
+            {
+                "owner": "seakim",
+                "listOrder": 2,
+                "list_order": 2,
+                "active_flag": "Y",
+                "id": 1501543,
+                "title": "sean-prism",
+                "type": "WORKSPACE",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "tool": "Prism",
+                "url": "seakim",
+                "isSlim": true,
+                "activeFlag": "Y"
+            },
+            {
+                "owner": "seakim",
+                "listOrder": 4,
+                "list_order": 4,
+                "description": " ",
+                "id": 1517717,
+                "type": "WORKSPACE",
+                "title": "BAMY (bamba)",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "tool": "Explore",
+                "isSlim": true
+            }
+        ],
+        "status": null
+    },
+    "slimFavoriteWithExtraFields": {
+      "message": null,
+      "data": [
+        {
+          "owner": "tushshar",
+          "listOrder": 9,
+          "list_order": 9,
+          "description": " ",
+          "id": 1557322,
+          "type": "WORKSPACE",
+          "title": "fromProd",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore",
+          "isSlim": true,
+          "data": "{\"date\": \"01/01/2020\"}"
+        },
+        {
+          "owner": "tushshar",
+          "listOrder": 2,
+          "list_order": 2,
+          "active_flag": "Y",
+          "id": 1501543,
+          "title": "sean-prism",
+          "type": "WORKSPACE",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Prism",
+          "url": "seakim",
+          "isSlim": true,
+          "activeFlag": "Y",
+          "data": "{\"date\": \"01/07/2020\"}"
+        },
+        {
+          "owner": "tushshar",
+          "listOrder": 4,
+          "list_order": 4,
+          "description": " ",
+          "id": 1517717,
+          "type": "WORKSPACE",
+          "title": "BAMY (bamba)",
+          "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+          "tool": "Explore",
+          "isSlim": true,
+          "data": "{\"date\": \"01/05/2020\"}"
+        }
+      ],
+      "status": null
+    },
+    "fullFavorites": {
+        "message": null,
+        "data": [
+            {
+                "owner": "_ADMIN",
+                "data": "{\"batchReportConfigId\":2005086,\"author\":\"rolin\",\"batchSchedules\":[{\"configType\":\"BatchSchedule\",\"timeValue\":\"12:12\",\"timeZone\":\"America/Los_Angeles\",\"frequency\":{\"configType\":\"BatchMonthlyFrequency\",\"numericalDay\":25},\"calendar\":\"EMPTY\",\"directory\":\"2 batch\",\"dateLastUpdated\":\"05/05/2021\",\"lastUpdatedBy\":\"rolin\"}],\"title\":\"2 batch\"}",
+                "listOrder": 2,
+                "list_order": 2,
+                "description": " ",
+                "id": 1995998,
+                "title": "2 batch",
+                "type": "SCHEDULED_BATCH",
+                "tool": "Explore_BETA",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "isSlim": false
+            },
+            {
+                "owner": "_ADMIN",
+                "data": "{\"batchReportConfigId\":2004902,\"author\":\"rolin\",\"batchSchedules\":[{\"configType\":\"BatchSchedule\",\"timeValue\":\"10:15\",\"timeZone\":\"America/New_York\",\"frequency\":{\"configType\":\"BatchDailyFrequency\",\"monday\":true,\"thursday\":true,\"friday\":true},\"calendar\":\"GB\",\"directory\":\"1 BATCH\",\"dateLastUpdated\":\"05/05/2021\",\"lastUpdatedBy\":\"rolin\"}],\"title\":\"1 BATCH\"}",
+                "listOrder": 0,
+                "list_order": 0,
+                "description": " ",
+                "id": 1995806,
+                "title": "1 BATCH",
+                "type": "SCHEDULED_BATCH",
+                "tool": "Explore_BETA",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "isSlim": false
+            }
+        ],
+        "status": null
+    },
+    "mandate": {
+        "message": null,
+        "data": {
+            "owner": "_ADMIN",
+            "data": "%5b%7b\"MANDATE\":\"FI_MANDATE\",\"BREAKDOWN\":\"false;1210587\",\"REPORTS\":%5b\"false;1325071\",\"false;1325073\",\"false;1325075\"%5d,\"ATTRIBUTION_SETTING\":\"FIXED_INCOME_DXS\",\"PERF_BKD\":\"false;1210587\"%7d,%7b\"MANDATE\":\"EQ_MANDATE\",\"BREAKDOWN\":\"false;1275180\",\"REPORTS\":%5b\"false;1325090\",\"false;1325091\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY\",\"FAC_BKD\":\"false;1435981\"%7d,%7b\"MANDATE\":\"BAL_MANDATE\",\"REPORTS\":%5b\"false;1325094\",\"false;1325095\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY_TD_xFX\"%7d,%7b\"MANDATE\":\"EQASXJAP\",\"BREAKDOWN\":\"false;1275180\",\"REPORTS\":%5b\"false;1445064\",\"false;1445063\",\"false;1445062\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY\",\"FAC_BKD\":\"false;1435981\"%7d,%7b\"MANDATE\":\"BAL-FID\",\"REPORTS\":%5b\"false;1456150\"%5d,\"ATTRIBUTION_SETTING\":\"EQUITY_TD_xFX\"%7d%5d",
+            "listOrder": 0,
+            "list_order": 0,
+            "description": " ",
+            "id": 1421773,
+            "title": "MANDATE_MAP",
+            "type": "MANDATE_MAP",
+            "tool": "Explore",
+            "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+            "isSlim": false
+        },
+        "status": null
+    },
+    "users": {
+        "message": null,
+        "data": {
+            "seakim": "Sean Kim",
+            "aaanand": "Aakansha Aanand",
+            "rolin": "Robert Lin"
+        }
+    },
+    "favoriteUsers": {
+        "message": null,
+        "data": [
+            {
+                "userId": "1557322",
+                "usageCount": 100
+            },
+            {
+                "userId": "3776567",
+                "usageCount": 300
+            },
+            {
+                "userId": "522456",
+                "usageCount": 200
+            }
+        ]
+    },
+    "permGroups": {
+        "message": null,
+        "data": [
+            "Sustainability Regulatory Reporting", 
+            "PMG ESG Client Reporting", 
+            "APG RIO Team", 
+            "BGM ESG Client Reporting"
+        ],
+        "status": null
+    },
+    "deleteWorkspace": {
+        "message": "Favorite: Untitled Workspace1 deleted successfully",
+        "data": null,
+        "gaussian": "s52oLGk03yTdGe8G1oKCf6q2FVgx7IWWKnHd2IVrMcb2NAZ1Sw==",
+        "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+        "status": "SUCCESS"
+    },
+    "versions": {
+        "message": null,
+        "data": [
+            {
+                "owner": "_ADMIN",
+                "data": "{\"configType\":\"workspace\",\"workpads\":[{\"configType\":\"flat-workpad\",\"reports\":[{\"configType\":\"WIDGETS_REPORT\",\"widgets\":[{\"configType\":\"returnsWidget\",\"title\":\"Return Analysis\",\"id\":124909519,\"sizeX\":8,\"sizeY\":6,\"col\":0,\"row\":0,\"displayInputs\":{\"expandedState\":{\"expandedPaths\":[[\"_ROOT_\"]]}},\"dataStore\":\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\"}],\"availableDataStores\":{\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\":{\"name\":\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\",\"metaData\":{\"inputs\":{\"columns\":{\"configType\":\"columnSet\",\"columns\":[{\"columnTag\":\"pnl_sec_desc\",\"columnKey\":\"pnl_sec_desc_caf74cbd1ca84f4\",\"positionColumnType\":\"ALL\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"pnl_cusip\",\"columnKey\":\"pnl_cusip_30fa9dc303804b2\",\"positionColumnType\":\"ALL\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"wt_contr\",\"columnKey\":\"wt_contr_b85a865dac0147f\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":0.01,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"total_ret\",\"columnKey\":\"total_ret_fedeb47e3d084f2\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"pnl_contr\",\"columnKey\":\"pnl_contr_e7c9c8a710154a8\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"sector_alloc\",\"columnKey\":\"sector_alloc_d8d086a1226f494\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"security_sel\",\"columnKey\":\"security_sel_97d9dd2d546f4bc\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"net_sector\",\"columnKey\":\"net_sector_d106f9a6425d4b0\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}],\"columnState\":{\"columns\":[{\"columnKey\":\"pnl_sec_desc_caf74cbd1ca84f4\",\"width\":125,\"pinned\":null},{\"columnKey\":\"pnl_cusip_30fa9dc303804b2\",\"width\":125,\"pinned\":null},{\"columnKey\":\"wt_contr_b85a865dac0147f\",\"width\":125,\"pinned\":null},{\"columnKey\":\"total_ret_fedeb47e3d084f2\",\"width\":125,\"pinned\":null},{\"columnKey\":\"pnl_contr_e7c9c8a710154a8\",\"width\":125,\"pinned\":null},{\"columnKey\":\"sector_alloc_d8d086a1226f494\",\"width\":125,\"pinned\":null},{\"columnKey\":\"security_sel_97d9dd2d546f4bc\",\"width\":125,\"pinned\":null},{\"columnKey\":\"net_sector_d106f9a6425d4b0\",\"width\":125,\"pinned\":null}]},\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"breakdownTree\":{\"breakdown\":{\"isConfigured\":true,\"breakdownTitle\":\"Security Group\",\"subSectors\":[{\"breakdownRuleType\":\"String\",\"groupByColumn\":{\"columnName\":\"Security Group\",\"columnTag\":\"sec_group\",\"positionColumnType\":\"ALL\"},\"useNoneBuckets\":true}]},\"title\":\"Security Group\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"topBottomFilter\":{\"childColumnOptions\":{},\"configType\":\"topBottomFilter\"},\"normalizedWidgetFilter\":true,\"performanceSettings\":{\"additionalSettings\":{\"asReported\":false,\"showSummary\":false,\"aggregateBMOnlyReturnSecurities\":true,\"removeBMOnlyReturnBucket\":false,\"collapseClosedPositions\":false,\"customPivotPoint\":\"\",\"isNetReturn\":false},\"configType\":\"performanceSettings\"},\"sortedColumns\":{\"sortedColumns\":[],\"configType\":\"sortedColumns\"}}}}},\"comparisonConfigId\":118322052,\"title\":\"Report 1\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}],\"portfolio\":{\"configType\":\"portfolio\",\"ticker\":\"E_ADRAG\",\"portId\":\"E_ADRAG55b0348ce98d40e\",\"cusip\":\"BRS2KXWE6\",\"currency\":\"USD\",\"benchmark\":{\"type\":\"RISK\",\"order\":1,\"name\":\"MSACAXJPU\"},\"datePicker\":{\"calCode\":\"GP_HK_STD\",\"dateString\":false,\"date\":\"08/30/2017\"},\"performanceSettings\":{\"timePeriod\":{\"numberOfPeriods\":6,\"shortName\":\"Months\",\"timePeriodName\":\"6 Months\"}},\"expostSettings\":{\"samplingPeriod\":{\"numberOfPeriods\":1,\"shortName\":\"Months\",\"timePeriodName\":\"1 Month\"},\"statisticPeriods\":[{\"numberOfPeriods\":1,\"shortName\":\"Years\",\"timePeriodName\":\"1 Year\"}],\"isNetReturns\":false,\"isLogNormal\":false,\"categoryBreakdown\":true},\"portfolioRiskSettings\":{\"advancedRiskSettings\":{\"riskMatrix\":1},\"configType\":\"riskSettings\"},\"lookthroughSettings\":{\"isLookThroughEnabled\":false,\"isBenchLookThroughEnabled\":false,\"ltSecurityTypes\":\"FUND,ETF,FUTURE_INDEX\",\"ltProxies\":\"RISK_PROXY,FUND\",\"ltFilterRulesFav\":[],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"splitPositionTypes\":\"XC,XF,XH,XS,SW,O\",\"positionModeSettings\":{\"positionMode\":\"AS_OF_W\"},\"factorAttributionSettings\":{\"factorAttributionType\":\"EQ_MANDATE\"},\"title\":\"E_ADRAG\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}}],\"title\":\"Monthly Attribution Workspace6\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\",\"versionedFavIds\":[\"3355197\"]}",
+                "listOrder": 887,
+                "list_order": 887,
+                "description": " ",
+                "active_flag": "P",
+                "id": 3355196,
+                "title": "Monthly Attribution Workspace8",
+                "type": "WORKSPACE",
+                "tool": "Explore_BETA",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "isSlim": false,
+                "activeFlag": "P"
+            },
+            {
+                "owner": "_ADMIN",
+                "data": "{\"configType\":\"workspace\",\"workpads\":[{\"configType\":\"flat-workpad\",\"reports\":[{\"configType\":\"WIDGETS_REPORT\",\"widgets\":[{\"configType\":\"returnsWidget\",\"title\":\"Return Analysis\",\"id\":124909519,\"sizeX\":8,\"sizeY\":6,\"col\":0,\"row\":0,\"displayInputs\":{\"expandedState\":{\"expandedPaths\":[[\"_ROOT_\"]]}},\"dataStore\":\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\"}],\"availableDataStores\":{\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\":{\"name\":\"7eb0b4e8-aaf1-4bc0-a504-4c077cfcb6d0\",\"metaData\":{\"inputs\":{\"columns\":{\"configType\":\"columnSet\",\"columns\":[{\"columnTag\":\"pnl_sec_desc\",\"columnKey\":\"pnl_sec_desc_caf74cbd1ca84f4\",\"positionColumnType\":\"ALL\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"pnl_cusip\",\"columnKey\":\"pnl_cusip_30fa9dc303804b2\",\"positionColumnType\":\"ALL\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"wt_contr\",\"columnKey\":\"wt_contr_b85a865dac0147f\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":0.01,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"total_ret\",\"columnKey\":\"total_ret_fedeb47e3d084f2\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"pnl_contr\",\"columnKey\":\"pnl_contr_e7c9c8a710154a8\",\"positionColumnType\":\"PORT\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"sector_alloc\",\"columnKey\":\"sector_alloc_d8d086a1226f494\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"security_sel\",\"columnKey\":\"security_sel_97d9dd2d546f4bc\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},{\"columnTag\":\"net_sector\",\"columnKey\":\"net_sector_d106f9a6425d4b0\",\"positionColumnType\":\"ACTIVE\",\"optionValues\":[{\"decimalPlaces\":2,\"useThousandsSeparator\":true,\"scaling\":1.0E-4,\"configType\":\"numericColumnFormatColumnOption\"}],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}],\"columnState\":{\"columns\":[{\"columnKey\":\"pnl_sec_desc_caf74cbd1ca84f4\",\"width\":125,\"pinned\":null},{\"columnKey\":\"pnl_cusip_30fa9dc303804b2\",\"width\":125,\"pinned\":null},{\"columnKey\":\"wt_contr_b85a865dac0147f\",\"width\":125,\"pinned\":null},{\"columnKey\":\"total_ret_fedeb47e3d084f2\",\"width\":125,\"pinned\":null},{\"columnKey\":\"pnl_contr_e7c9c8a710154a8\",\"width\":125,\"pinned\":null},{\"columnKey\":\"sector_alloc_d8d086a1226f494\",\"width\":125,\"pinned\":null},{\"columnKey\":\"security_sel_97d9dd2d546f4bc\",\"width\":125,\"pinned\":null},{\"columnKey\":\"net_sector_d106f9a6425d4b0\",\"width\":125,\"pinned\":null}]},\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"breakdownTree\":{\"breakdown\":{\"isConfigured\":true,\"breakdownTitle\":\"Security Group\",\"subSectors\":[{\"breakdownRuleType\":\"String\",\"groupByColumn\":{\"columnName\":\"Security Group\",\"columnTag\":\"sec_group\",\"positionColumnType\":\"ALL\"},\"useNoneBuckets\":true}]},\"title\":\"Security Group\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"topBottomFilter\":{\"childColumnOptions\":{},\"configType\":\"topBottomFilter\"},\"normalizedWidgetFilter\":true,\"performanceSettings\":{\"additionalSettings\":{\"asReported\":false,\"showSummary\":false,\"aggregateBMOnlyReturnSecurities\":true,\"removeBMOnlyReturnBucket\":false,\"collapseClosedPositions\":false,\"customPivotPoint\":\"\",\"isNetReturn\":false},\"configType\":\"performanceSettings\"},\"sortedColumns\":{\"sortedColumns\":[],\"configType\":\"sortedColumns\"}}}}},\"comparisonConfigId\":118322052,\"title\":\"Report 1\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}],\"portfolio\":{\"configType\":\"portfolio\",\"ticker\":\"E_ADRAG\",\"portId\":\"E_ADRAG55b0348ce98d40e\",\"cusip\":\"BRS2KXWE6\",\"currency\":\"USD\",\"benchmark\":{\"type\":\"RISK\",\"order\":1,\"name\":\"MSACAXJPU\"},\"datePicker\":{\"calCode\":\"GP_HK_STD\",\"dateString\":false,\"date\":\"09/06/2017\"},\"performanceSettings\":{\"timePeriod\":{\"numberOfPeriods\":6,\"shortName\":\"Months\",\"timePeriodName\":\"6 Months\"}},\"expostSettings\":{\"samplingPeriod\":{\"numberOfPeriods\":1,\"shortName\":\"Months\",\"timePeriodName\":\"1 Month\"},\"statisticPeriods\":[{\"numberOfPeriods\":1,\"shortName\":\"Years\",\"timePeriodName\":\"1 Year\"}],\"isNetReturns\":false,\"isLogNormal\":false,\"categoryBreakdown\":true},\"portfolioRiskSettings\":{\"advancedRiskSettings\":{\"riskMatrix\":1},\"configType\":\"riskSettings\"},\"lookthroughSettings\":{\"isLookThroughEnabled\":false,\"isBenchLookThroughEnabled\":false,\"ltSecurityTypes\":\"FUND,ETF,FUTURE_INDEX\",\"ltProxies\":\"RISK_PROXY,FUND\",\"ltFilterRulesFav\":[],\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"},\"splitPositionTypes\":\"XC,XF,XH,XS,SW,O\",\"positionModeSettings\":{\"positionMode\":\"AS_OF_W\"},\"factorAttributionSettings\":{\"factorAttributionType\":\"EQ_MANDATE\"},\"title\":\"E_ADRAG\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\"}}],\"title\":\"Monthly Attribution Workspace8\",\"dateLastUpdated\":\"08/16/2024 15:08 CEST\",\"lastUpdatedBy\":\"omazurki\",\"parentId\":\"3355196\"}",
+                "listOrder": 887,
+                "list_order": 887,
+                "description": " ",
+                "active_flag": "C",
+                "id": 3355197,
+                "title": "Monthly Attribution Workspace8",
+                "type": "WORKSPACE",
+                "tool": "Explore_BETA",
+                "CLASS_TYPE": "com.bfm.transx.allocation.AladdinFavorite",
+                "isSlim": false,
+                "activeFlag": "C"
+            }
+        ],
+        "status": null
+    }
+}

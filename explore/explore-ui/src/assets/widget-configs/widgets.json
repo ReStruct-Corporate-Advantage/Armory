@@ -1,0 +1,1854 @@
+{
+  "riskExposure": {"$refJson": "risk-and-exposure-widget.json"},
+  "returnsWidget": {"$refJson": "return-analysis-widget.json"},
+  "pgsWidget": {"$refJson": "pgs-widget.json"},
+  "pgsBar": {"$refJson": "pgs-bar-widget.json"},
+  "pgsTs": {"$refJson": "pgs-ts-widget.json"},
+  "praWidget": {"$refJson": "pra-widget.json"},
+  "expostReturnsWidget": {"$refJson": "expost-returns-widget.json"},
+  "expostStatsWidget": {"$refJson": "expost-stats-widget.json"},
+  "expostTimeSeriesWidget": {"$refJson": "expost-time-series-widget.json"},
+  "pivotWidget": {"$refJson": "pivot-widget.json"},
+  "cassiniMarginAnalyticsWidget": {"$refJson": "cassini-margin-analytics-widget.json"},
+  "bar": {"$refJson": "bar-chart-widget.json"},
+  "returnChartWidget": {"$refJson": "return-chart-widget.json"},
+  "pie": {"$refJson": "pie-chart-widget.json"},
+  "ts": {"$refJson": "time-series-widget.json"},
+  "scatter": {"$refJson": "scatter-plot-widget.json"},
+  "heatmap": {"$refJson": "heat-map-widget.json"},
+  "treemap": {"$refJson": "tree-map-widget.json"},
+  "slopeGraph": {"$refJson": "slope-graph-widget.json"},
+  "clarity": {"$refJson": "explore-clarity-ai-chart-widget.json"},
+  "returnsPerformanceDetails": {"$refJson": "return-performance-details-widget.json"},
+  "returnsTimeSeries": {"$refJson": "return-time-series-widget.json"},
+  "returnsDrillDownPerformanceDetails": {"$refJson": "return-drilldown-spritelet-widget.json"},
+  "returnsDrillDownTimeSeries": {"$refJson": "return-drilldown-spritelet-widget.json"},
+  "returnsManagerSelection": {"$refJson": "return-column-spritelet-widget.json"},
+  "returnsFxAttribution": {"$refJson": "return-column-spritelet-widget.json"},
+  "praPie": {"$refJson": "pra-pie-widget.json"},
+  "praBar": {"$refJson": "pra-bar-widget.json"},
+  "praStackBar": {"$refJson": "pra-stack-bar-widget.json"},
+  "praSecurityContribution": {"$refJson": "pra-security-contribution.json"},
+  "praTimeSeries": {"$refJson": "pra-time-series-widget.json"},
+  "cmbsMap": {"$refJson": "cmbs-map-widget.json"},
+  "commitmentRiskWidget": {"$refJson": "commitment-risk-widget-legacy.json"},
+  "commitmentRiskChartWidget": {"$refJson": "commitment-risk-chart-widget-legacy.json"},
+  "commitmentRiskWidget2": {"$refJson": "commitment-risk-widget.json"},
+  "commitmentRiskChartWidget2": {"$refJson": "commitment-risk-chart-widget.json"},
+  "commitmentRiskExcludedFundsWidget": {"$refJson": "commitment-risk-excluded-funds-widget.json"},
+  "lookThroughSummaryWidget": {"$refJson": "lookthrough-summary-widget.json"},
+  "praFactorData": {"$refJson": "pra-factor-data-widget.json"},
+  "pnlTsWidget": {"$refJson": "pnl-ts-widget.json"},
+  "mcvarPnlTsWidget": {"$refJson": "mcvar-pnl-ts-widget.json"},
+  "diversificationTsWidget": {"$refJson":  "diversification-ts-widget.json"},
+  "decarbonizationWidget": {"$refJson": "decarbonization-chart-widget.json"},
+  "$refObjects": {
+    "numericColumnFilters": [
+      {
+        "type": "=",
+        "key": "reportTypes",
+        "value": "SINGLE"
+      },
+      {
+        "type": "=",
+        "key": "dataType",
+        "value": [
+          "TIME_SPAN",
+          "INT",
+          "DOUBLE"
+        ]
+      },
+      {
+        "type": "=",
+        "key": "isSubtotalable",
+        "value": true
+      },
+      {
+        "type": "!=",
+        "key": "columnType",
+        "value": "FACTOR_ATTRIBUTES"
+      },
+      {
+        "type": "!=",
+        "key": "groups",
+        "value": [
+          "Factor-Based",
+          "Scenario",
+          "GP Breakdown",
+          "Liquidity"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "uses",
+        "value": "Excess"
+      },
+      {
+        "type": "!=",
+        "key": "isVisible",
+        "value": false
+      },
+      {
+        "type": "!=",
+        "key": "columnReports",
+        "value": [
+          "prism_custom_cal",
+          "explore_filter"
+        ]
+      }
+    ],
+    "defaultBreakdown": {
+      "inputConfigType": "breakdownTree",
+      "inputName": "breakdownTree",
+      "inputTitle": "Sector Breakdown",
+      "mandateSettingType": "BREAKDOWN",
+      "groupByColumnFilters": {
+        "$ref": "defaultGroupByColumnFilters"
+      },
+      "customColumnFilters": {
+        "$ref": "defaultCustomColumnFilters"
+      },
+      "valueField": "columnTag",
+      "max": 5,
+      "default": {
+        "breakdown": {
+          "breakdownTitle": "Security Group",
+          "subSectors": [
+            {
+              "breakdownRuleType": "String",
+              "useNoneBuckets": true,
+              "groupByColumn": {
+                "columnTag": "sec_group",
+                "columnName": "Security Group",
+                "positionColumnType": "ALL"
+              }
+            }
+          ]
+        }
+      },
+      "isTopBottomSectoring": false,
+      "displayAtGroupNode": false
+    },
+    "defaultFactorBreakdown": {
+      "inputConfigType": "breakdownTree",
+      "inputTitle": "Factor Breakdown",
+      "inputName": "riskFactorBreakdown",
+      "mandateSettingType": "FAC_BKD",
+      "hideFundSectoringTabs": true,
+      "noAccordion": true,
+      "groupByColumnFilters": [
+        {
+          "type": "=",
+          "key": "isGroupable",
+          "value": true
+        },
+        {
+          "type": "=",
+          "key": "columnType",
+          "value": [
+            "FACTOR_ATTRIBUTES"
+          ]
+        },
+        {
+          "type": "=",
+          "key": "columnReports",
+          "value": [
+            "prism_var_sectors",
+            "prism_var_factors",
+            "factor_attrib_dd",
+            "prism_macro_factors"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "forTopdown",
+          "value": true
+        }
+      ],
+      "EATBreakdownFilter": [
+        {
+          "type": "=",
+          "key": "isEATBreakdownDefinition",
+          "value": true
+        }
+      ],
+      "customColumnFilters": [
+        {
+          "type": "=",
+          "key": "isGroupable",
+          "value": true
+        },
+        {
+          "type": "=",
+          "key": "columnType",
+          "value": [
+            "FACTOR_ATTRIBUTES"
+          ]
+        },
+        {
+          "type": "=",
+          "key": "columnReports",
+          "value": [
+            "prism_var_sectors",
+            "prism_var_factors",
+            "prism_macro_factors"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "forTopdown",
+          "value": true
+        }
+      ],
+      "valueField": "field",
+      "default": {
+        "breakdown": {
+          "breakdownTitle": "",
+          "subSectors": [
+            {
+              "breakdownRuleType": "String",
+              "useNoneBuckets": true,
+              "groupByColumn": {
+                "columnTag": "BRS_GOLD_5",
+                "columnName": "BRS Standard Factor Tree Level 1",
+                "positionColumnType": "ALL",
+                "dataType": "STRING"
+              },
+              "subSectors": [
+                {
+                  "breakdownRuleType": "String",
+                  "useNoneBuckets": true,
+                  "groupByColumn": {
+                    "columnTag": "BRS_GOLD_4",
+                    "columnName": "BRS Standard Factor Tree Level 2",
+                    "positionColumnType": "ALL",
+                    "dataType": "STRING"
+                  },
+                  "subSectors": [
+                    {
+                      "breakdownRuleType": "String",
+                      "useNoneBuckets": true,
+                      "groupByColumn": {
+                        "columnTag": "BRS_GOLD_3",
+                        "columnName": "BRS Standard Factor Tree Level 3",
+                        "positionColumnType": "ALL",
+                        "dataType": "STRING"
+                      },
+                      "subSectors": [
+                        {
+                          "breakdownRuleType": "String",
+                          "useNoneBuckets": true,
+                          "groupByColumn": {
+                            "columnTag": "BRS_GOLD_2",
+                            "columnName": "BRS Standard Factor Tree Level 4",
+                            "positionColumnType": "ALL",
+                            "dataType": "STRING"
+                          },
+                          "subSectors": [
+                            {
+                              "breakdownRuleType": "String",
+                              "useNoneBuckets": true,
+                              "groupByColumn": {
+                                "columnTag": "BRS_GOLD_1",
+                                "columnName": "BRS Standard Factor Tree Level 5",
+                                "positionColumnType": "ALL",
+                                "dataType": "STRING"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "defaultFilter": {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "topBottomFilter",
+          "inputName": "topBottomFilter",
+          "inputTitle": "Top/Bottom filtering",
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true,
+          "columnFilters": {
+            "$ref": "defaultTopBottomRestrictedColumnsFilters"
+          }
+        },
+        {
+          "inputConfigType": "customFilter",
+          "inputName": "filter",
+          "otherNames": ["customFilter"],
+          "inputTitle": "Advanced filtering",
+          "default": {},
+          "valueField": "columnTag",
+          "disableNormalized": false,
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "normalizedFlag",
+          "inputName": "normalizedWidgetFilter",
+          "otherNames": ["normalizedFlag"],
+          "inputTitle": "Test",
+          "default": {
+            "data": false
+          }
+        }
+      ]
+    },
+    "defaultReturnAnalysisFilter": {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "topBottomFilter",
+          "inputName": "topBottomFilter",
+          "inputTitle": "Top/Bottom filtering",
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true,
+          "columnFilters": {
+            "$ref": "defaultTopBottomRestrictedColumnsFilters"
+          }
+        },
+        {
+          "inputConfigType": "customFilter",
+          "inputName": "filter",
+          "otherNames": ["customFilter"],
+          "inputTitle": "Advanced filtering",
+          "default": {},
+          "valueField": "columnTag",
+          "disableNormalized": true,
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "normalizedFlag",
+          "inputName": "normalizedWidgetFilter",
+          "otherNames": ["normalizedFlag"],
+          "inputTitle": "Test",
+          "default": {
+            "data": true
+          }
+        }
+      ]
+    },
+    "defaultChartFilter": {
+      "categoryType": "filter",
+      "categoryTitle": "Filter",
+      "inputs": [
+        {
+          "inputConfigType": "hideUnassignedFilter",
+          "inputName": "hideUnassignedFilter",
+          "inputTitle": "Hide 'Unassigned'",
+          "default": {}
+        },
+        {
+          "inputConfigType": "topBottomFilter",
+          "inputName": "topBottomFilter",
+          "inputTitle": "Top/Bottom filtering",
+          "valueField": "columnTag",
+          "default": {},
+          "isOpen": true,
+          "columnFilters": {
+            "$ref": "defaultTopBottomRestrictedColumnsFilters"
+          }
+        },
+        {
+          "inputConfigType": "customFilter",
+          "inputName": "filter",
+          "otherNames": ["customFilter"],
+          "inputTitle": "Advanced filtering",
+          "default": {},
+          "valueField": "columnTag",
+          "disableNormalized": false,
+          "isOpen": true
+        },
+        {
+          "inputConfigType": "normalizedFlag",
+          "inputName": "normalizedWidgetFilter",
+          "otherNames": ["normalizedFlag"],
+          "inputTitle": "Test",
+          "default": {
+            "data": false
+          }
+        }
+      ]
+    },
+    "defaultNumericColumns": {
+      "categoryType": "columns",
+      "categoryTitle": "Measures",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "CHART_REPORT",
+          "columnFilters": {
+            "$ref": "numericColumnFilters"
+          },
+          "default": [
+            {
+              "$ref": "marketValueColumn"
+            }
+          ]
+        }
+      ]
+    },
+    "defaultNotionalNumericColumns": {
+      "categoryType": "columns",
+      "categoryTitle": "Measures",
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "mandateSettingType": "CHART_REPORT",
+          "columnFilters": {
+            "$ref": "numericColumnFilters"
+          },
+          "default": [
+            {
+              "$ref": "notionalMarketValuePercentColumn"
+            }
+          ]
+        }
+      ]
+    },
+    "defaultTopBottomRestrictedColumnsFilters": [
+      {
+        "type": "=",
+        "key": "dataType",
+        "value": [
+          "INT",
+          "DOUBLE"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "columnType",
+        "value": [
+          "RISK_BASED_CAPITAL"
+        ]
+      }
+    ],
+    "notionalMarketValuePercentColumn": {
+      "columnTag": "pct_notional_val",
+      "positionColumnType": "PORT",
+      "columnKey": "pct_notional_val_0",
+      "title": "Notional Market Value %"
+    },
+    "claritySDGBreakdownObject": {
+      "breakdown": {
+        "breakdownTitle": "Clarity_coverage",
+        "subSectors": [
+          {
+            "breakdownRuleType": "Numeric",
+            "groupByColumn": {
+              "columnName": "Total SDG Score",
+              "columnTag": "CLARITY_AI_25601",
+              "dataType": "DOUBLE",
+              "positionColumnType": "ALL"
+            },
+            "useNoneBuckets": false,
+            "bucketBreakpoints": [0]
+          }
+        ]
+      },
+      "title": "Clarity_coverage"
+    },
+    "marketValueColumn": {
+      "columnTag": "market_val",
+      "positionColumnType": "PORT",
+      "columnKey": "market_val_0"
+    },
+    "defaultRestrictedColumnOptions": {
+      "sections": [
+        "columnBreakdown",
+        "highlight",
+        "chartType",
+        "economyExposureSettings",
+        "ConstraintMissingDataHandling"
+      ]
+    },
+    "defaultGroupByColumnFilters": [
+      {
+        "type": "=",
+        "key": "isGroupable",
+        "value": true
+      },
+      {
+        "type": "!=",
+        "key": "praadaBreakdown",
+        "value": true
+      },
+      {
+        "type": "!=",
+        "key": "columnTag",
+        "value": "portfolio_group"
+      },
+      {
+        "type": "!=",
+        "key": "columnType",
+        "value": [
+          "FACTOR_ATTRIBUTES",
+          "GR_SECTOR"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "groups",
+        "value": [
+          "Liquidity"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "columnReports",
+        "value": "explore_filter"
+      },
+      {
+        "type": "!=",
+        "key": "forTopdown",
+        "value": true
+      }
+    ],
+    "defaultCustomColumnFilters": [
+      {
+        "type": "=",
+        "key": "isGroupable",
+        "value": true
+      },
+      {
+        "type": "!=",
+        "key": "praadaBreakdown",
+        "value": true
+      },
+      {
+        "type": "!=",
+        "key": "columnType",
+        "value": [
+          "FACTOR_ATTRIBUTES"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "uses",
+        "value": [
+          "BENCH",
+          "ACTIVE"
+        ]
+      },
+      {
+        "type": "!=",
+        "key": "groups",
+        "value": [
+          "Liquidity"
+        ]
+      },
+      {
+        "type": "=",
+        "key": "levelColumns",
+        "value": "undefined"
+      },
+      {
+        "type": "!=",
+        "key": "columnTag",
+        "value": "portfolio_group"
+      },
+      {
+        "type": "!=",
+        "key": "columnReports",
+        "value": "explore_sectors"
+      },
+      {
+        "type": "!=",
+        "key": "columnReports",
+        "value": "explore_filter"
+      },
+      {
+        "type": "!=",
+        "key": "forTopdown",
+        "value": true
+      }
+    ],
+    "customCalculationColumn": {
+      "restrictedColumnOptions": {
+        "sections": [
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling",
+          "climateDamageFunctionOptions",
+          "tcavContributorsOptions"
+        ]
+      },
+      "restrictedOptoColumnOptions": {
+        "sections": [
+          "chartType",
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "aggregation",
+          "customAggregation",
+          "climateDamageFunctionOptions",
+          "tcavContributorsOptions"
+        ]
+      },
+      "measureNodeColumnOption": {
+        "columnOptionConfigType": "customCalculationNodeType",
+        "columnOptionTitle": "Formula Settings",
+        "columnOptionAttributes": [
+          {
+            "title": "Pick value from:",
+            "key": "customCalculationNodeType",
+            "dataType": "S"
+          }
+        ]
+      },
+      "restrictedMeasureSelectionColumn": [
+        {
+          "type": "!=",
+          "key": "columnTag",
+          "value": ["custom_calc", "pgs_custom_calc", "custom_coverage"]
+        },
+        {
+          "type": "!=",
+          "key": "dataType",
+          "value": [
+            "TIME_SPAN"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "isNotSupportedInCustomCal",
+          "value": true
+        },
+        {
+          "type": "!=",
+          "key": "groups",
+          "value": [
+            "Style Analysis"
+          ]
+        }
+      ],
+      "customCalcColumnReports": [
+        "prism_custom_cal"
+      ]
+    },
+    "pgsCustomCalculationColumn": {
+      "restrictedColumnOptions": {
+        "sections": [
+          "chartType",
+          "columnBreakdown",
+          "aggregation",
+          "customAggregation",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling",
+          "climateDamageFunctionOptions",
+          "tcavContributorsOptions"
+        ]
+      },
+      "measureRestrictedColumnOptions": {
+        "sections": [
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ]
+      },
+      "measureNodeColumnOption": {
+        "columnOptionConfigType": "customCalculationNodeType",
+        "columnOptionTitle": "Formula Settings",
+        "columnOptionAttributes": [
+          {
+            "title": "Pick value from:",
+            "key": "customCalculationNodeType",
+            "dataType": "S"
+          }
+        ]
+      },
+      "restrictedMeasureSelectionColumn": [
+        {
+          "type": "!=",
+          "key": "columnTag",
+          "value": ["custom_calc", "pgs_custom_calc", "custom_coverage"]
+        },
+        {
+          "type": "!=",
+          "key": "dataType",
+          "value": [
+            "TIME_SPAN"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "isNotSupportedInCustomCal",
+          "value": true
+        },
+        {
+          "type": "!=",
+          "key": "groups",
+          "value": [
+            "Style Analysis"
+          ]
+        }
+      ],
+      "customCalcColumnReports": [
+        "prism_custom_cal"
+      ]
+    },
+    "customCoverageColumn": {
+      "restrictedColumnOptions": {
+        "sections": [
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling",
+          "overrideDateColumnOption",
+          "climateDamageFunctionOptions",
+          "tcavContributorsOptions"
+        ]
+      },
+      "restrictedOptoColumnOptions": {
+        "sections": [
+          "chartType",
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "aggregation",
+          "customAggregation",
+          "climateDamageFunctionOptions",
+          "tcavContributorsOptions"
+        ]
+      },
+      "restrictedMeasureSelectionColumn": [
+        {
+          "type": "!=",
+          "key": "uses",
+          "value": [
+            "BENCH", "ACTIVE"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "columnTag",
+          "value": ["custom_calc", "pgs_custom_calc", "custom_coverage"]
+        },
+        {
+          "type": "!=",
+          "key": "groups",
+          "value": [
+            "Style Analysis"
+          ]
+        },
+        {
+          "type": "!=",
+          "key": "isNotSupportedInCustomCal",
+          "value": true
+        }
+      ]
+    },
+    "defaultExpandedState": {
+      "categoryType": "expandedState",
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "expandedState",
+          "inputName": "expandedState",
+          "default": {
+            "expandedPaths": [
+              [
+                "_ROOT_"
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "defaultSortedColumns": {
+      "categoryType": "sortedColumns",
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "sortedColumns",
+          "inputName": "sortedColumns",
+          "default": []
+        }
+      ]
+    },
+    "defaultChartSettings": {
+      "visible": false,
+      "categoryType": "chartSettings",
+      "inputs": [
+        {
+          "inputConfigType": "chartSettings",
+          "inputName": "chartSettings",
+          "default": {
+            "legendShow": true,
+            "labelShow": true
+          },
+          "oldProps": [
+            "chartSettings"
+          ]
+        }
+      ]
+    },
+    "defaultColumnState": {
+      "visible": false,
+      "categoryType": "columnState",
+      "inputs": [
+        {
+          "inputName": "columnState",
+          "inputConfigType": "columnState",
+          "default": []
+        }
+      ]
+    },
+    "returnSpriteletColumns": {
+      "noAccordion": true,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "columns",
+          "valueField": "columnTag",
+          "default": []
+        }
+      ]
+    },
+    "returnSpriteletInput": {
+      "visible": false,
+      "categoryType": "returnSpriteletInput",
+      "inputs": [
+        {
+          "inputConfigType": "returnSpriteletInput",
+          "inputName": "returnSpriteletInput",
+          "oldProps": ["pnlID", "nodeDesc", "sectorPathRules"],
+          "default": {}
+        }
+      ]
+    },
+    "showAsChartInputDefaultChart": {
+      "visible": false,
+      "categoryType": "showAsChartInput",
+      "inputs": [
+        {
+          "inputName": "showAsChartInput",
+          "inputConfigType": "showAsChartInput",
+          "default": {
+            "showAsChart": true
+          }
+        }
+      ]
+    },
+    "showAsChartInputDefaultTable": {
+      "visible": false,
+      "categoryType": "showAsChartInput",
+      "inputs": [
+        {
+          "inputName": "showAsChartInput",
+          "inputConfigType": "showAsChartInput",
+          "default": {
+            "showAsChart": false
+          }
+        }
+      ]
+    },
+    "factorBlockInput": {
+      "visible": false,
+      "categoryType": "factorBlock",
+      "inputs": [
+        {
+          "inputName": "factorBlock",
+          "inputConfigType": "factorBlock",
+          "oldProps": ["isBlock", "blockPath"],
+          "default": {}
+        }
+      ]
+    },
+    "factorPathInput": {
+      "visible": false,
+      "categoryType": "factorPath",
+      "inputs": [
+        {
+          "inputName": "factorPath",
+          "inputConfigType": "factorPath",
+          "oldProps": ["path"],
+          "default": {}
+        }
+      ]
+    },
+    "styleAnalysis": {
+      "restrictedColumnOptions": {
+        "sections": [
+          "chartType",
+          "columnBreakdown",
+          "formatAndScaling",
+          "highlight",
+          "customColumnTitle",
+          "aggregation",
+          "customAggregation",
+          "aggregation",
+          "customCalculationNodeType",
+          "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ]
+      },
+      "measureNodeColumnOption": {
+        "columnOptionConfigType": "scopeColumnOptionType",
+        "columnOptionTitle": "Scope"
+      },
+      "historic_growth": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_161",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_161_0",
+            "columnTitle": "Dividend Growth - 1 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_158",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_158_1",
+            "columnTitle": "EPS Growth - 1 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_163",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_163_2",
+            "columnTitle": "Dividend Growth - 5 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_160",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_160_3",
+            "columnTitle": "EPS Growth - 5 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          }
+        ]
+      },
+      "historic_Value": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_292",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_292_4",
+            "columnTitle": "Dividend Yield FY0 (%)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 20,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_308",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_308_5",
+            "columnTitle": "Enterprise Value to EBITDA",
+            "weight": 0.16,
+            "min": 0,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_330",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_330_6",
+            "columnTitle": "P/B FY0",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_319",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_319_7",
+            "columnTitle": "P/CF FY0",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_321",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_321_8",
+            "columnTitle": "P/S FY0",
+            "weight": 0.16,
+            "min": 0,
+            "max": 1,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_320",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_320_9",
+            "columnTitle": "P/E FY0",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          }
+        ]
+      },
+      "forecast_growth": {
+        "column": [
+          {
+            "columnTag": "dps_growth_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "dps_growth_fy1_10",
+            "columnTitle": "DPS Growth (FY+1)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "dps_growth_fy2",
+            "positionColumnType": "ALL",
+            "columnKey": "dps_growth_fy2_11",
+            "columnTitle": "DPS Growth (FY+2)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eps_growth_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "eps_growth_fy1_12",
+            "columnTitle": "EPS Growth (FY+1)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eps_growth_fy2",
+            "positionColumnType": "ALL",
+            "columnKey": "eps_growth_fy2_13",
+            "columnTitle": "EPS Growth (FY+2)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          }
+        ]
+      },
+      "forecast_value": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_293",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_293_14",
+            "columnTitle": "Dividend Yield FY0 (%)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 20,
+            "isNormal": true
+          },
+          {
+            "columnTag": "ev_to_ebitda_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "ev_to_ebitda_fy1_15",
+            "columnTitle": "Enterprise Value to EBITDA (FY+1)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_331",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_331_16",
+            "columnTitle": "P/B FY1",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_323",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_323_17",
+            "columnTitle": "P/S FY1",
+            "weight": 0.16,
+            "min": 0,
+            "max": 1,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_328",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_328_18",
+            "columnTitle": "P/E FY1",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_317",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_317_19",
+            "columnTitle": "P/E FY2",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          }
+        ]
+      },
+      "style_quality": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_139",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_139_20",
+            "columnTitle": "Debt To Equity (%)",
+            "weight": 0.16,
+            "min": -50,
+            "max": 50,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_156",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_156_21",
+            "columnTitle": "ROIC (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_153",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_153_22",
+            "columnTitle": "ROA (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_147",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_147_23",
+            "columnTitle": "ROE (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_149",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_149_24",
+            "columnTitle": "ROE - 5 Yr Avg (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_191",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_191_25",
+            "columnTitle": "Payout Ratio (%)",
+            "weight": 0.16,
+            "isNormal": false
+          }
+        ]
+      },
+      "style_size": {
+        "column": [
+          {
+            "columnTag": "market_cap_portcurr",
+            "positionColumnType": "ALL",
+            "columnKey": "market_cap_portcurr_26",
+            "columnTitle": "Market Cap",
+            "weight": 1,
+            "min": 0,
+            "isNormal": true
+          }
+        ]
+      },
+      "style_momentum": {
+        "column": [
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_27",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 1,
+                  "shortName": "Months",
+                  "timePeriodName": "1 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_28",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 3,
+                  "shortName": "Months",
+                  "timePeriodName": "3 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_29",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 6,
+                  "shortName": "Months",
+                  "timePeriodName": "6 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_30",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 12,
+                  "shortName": "Months",
+                  "timePeriodName": "12 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          }
+        ]
+      },
+      "historic_growth_cont": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_161",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_161_31",
+            "columnTitle": "Dividend Growth - 1 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_158",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_158_32",
+            "columnTitle": "EPS Growth - 1 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_163",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_163_33",
+            "columnTitle": "Dividend Growth - 5 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_160",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_160_34",
+            "columnTitle": "EPS Growth - 5 Yr (%)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          }
+        ]
+      },
+      "historic_Value_cont": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_292",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_292_35",
+            "columnTitle": "Dividend Yield FY0 (%)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 20,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_308",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_308_36",
+            "columnTitle": "Enterprise Value to EBITDA",
+            "weight": 0.16,
+            "min": 0,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_330",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_330_37",
+            "columnTitle": "P/B FY0",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_319",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_319_38",
+            "columnTitle": "P/CF FY0",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_321",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_321_39",
+            "columnTitle": "P/S FY0",
+            "weight": 0.16,
+            "min": 0,
+            "max": 1,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_320",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_320_40",
+            "columnTitle": "P/E FY0",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          }
+        ]
+      },
+      "forecast_growth_cont": {
+        "column": [
+          {
+            "columnTag": "dps_growth_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "dps_growth_fy1_41",
+            "columnTitle": "DPS Growth (FY+1)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "dps_growth_fy2",
+            "positionColumnType": "ALL",
+            "columnKey": "dps_growth_fy2_42",
+            "columnTitle": "DPS Growth (FY+2)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eps_growth_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "eps_growth_fy1_43",
+            "columnTitle": "EPS Growth (FY+1)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eps_growth_fy2",
+            "positionColumnType": "ALL",
+            "columnKey": "eps_growth_fy2_44",
+            "columnTitle": "EPS Growth (FY+2)",
+            "weight": 0.25,
+            "min": -100,
+            "max": 100,
+            "isNormal": true
+          }
+        ]
+      },
+      "forecast_value_cont": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_293",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_293_45",
+            "columnTitle": "Dividend Yield FY0 (%)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 20,
+            "isNormal": true
+          },
+          {
+            "columnTag": "ev_to_ebitda_fy1",
+            "positionColumnType": "ALL",
+            "columnKey": "ev_to_ebitda_fy1_46",
+            "columnTitle": "Enterprise Value to EBITDA (FY+1)",
+            "weight": 0.16,
+            "min": 0,
+            "max": 0.2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_331",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_331_47",
+            "columnTitle": "P/B FY1",
+            "weight": 0.16,
+            "min": -0.2,
+            "max": 2,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_323",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_323_48",
+            "columnTitle": "P/S FY1",
+            "weight": 0.16,
+            "min": 0,
+            "max": 1,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_328",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_328_49",
+            "columnTitle": "P/E FY1",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_317",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_317_50",
+            "columnTitle": "P/E FY2",
+            "weight": 0.16,
+            "min": -0.5,
+            "max": 5,
+            "isNormal": false
+          }
+        ]
+      },
+      "style_quality_cont": {
+        "column": [
+          {
+            "columnTag": "eq_fin_th_ws_139",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_139_51",
+            "columnTitle": "Debt To Equity (%)",
+            "weight": 0.16,
+            "min": -50,
+            "max": 50,
+            "isNormal": false
+          },
+          {
+            "columnTag": "eq_fin_th_ws_156",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_156_52",
+            "columnTitle": "ROIC (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_153",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_153_53",
+            "columnTitle": "ROA (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_147",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_147_54",
+            "columnTitle": "ROE (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_149",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_149_55",
+            "columnTitle": "ROE - 5 Yr Avg (%)",
+            "weight": 0.16,
+            "isNormal": true
+          },
+          {
+            "columnTag": "eq_fin_th_ws_191",
+            "positionColumnType": "ALL",
+            "columnKey": "eq_fin_th_ws_191_56",
+            "columnTitle": "Payout Ratio (%)",
+            "weight": 0.16,
+            "isNormal": false
+          }
+        ]
+      },
+      "style_size_cont": {
+        "column": [
+          {
+            "columnTag": "market_cap_portcurr",
+            "positionColumnType": "ALL",
+            "columnKey": "market_cap_portcurr_57",
+            "columnTitle": "Market Cap",
+            "weight": 1,
+            "min": 0,
+            "isNormal": true
+          }
+        ]
+      },
+      "style_momentum_cont": {
+        "column": [
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_58",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 1,
+                  "shortName": "Months",
+                  "timePeriodName": "1 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_59",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 3,
+                  "shortName": "Months",
+                  "timePeriodName": "3 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_60",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 6,
+                  "shortName": "Months",
+                  "timePeriodName": "6 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          },
+          {
+            "columnTag": "total_ret",
+            "positionColumnType": "PORT",
+            "columnKey": "total_ret_61",
+            "columnTitle": "Total Return",
+            "optionValues": [
+              {
+                "timePeriod": {
+                  "numberOfPeriods": 12,
+                  "shortName": "Months",
+                  "timePeriodName": "12 Month"
+                },
+                "configType": "performanceSettings"
+              },
+              {
+                "isApplyBenchmarkSecuritiesChecked": true,
+                "configType": "scopeColumnOptionType"
+              }
+            ],
+            "weight": 0.25,
+            "min": -400,
+            "max": 400,
+            "isNormal": true
+          }
+        ]
+      }
+    },
+    "defaultCommitmentRiskScenarioSettings": {
+      "categoryType": "scenarioAnalysis",
+      "categoryTitle": "Scenario Analysis",
+      "inputs": [
+        {
+          "inputConfigType": "commitmentRiskScenario",
+          "inputName": "commitmentRiskScenario",
+          "inputTitle": "Scenario selection",
+          "default": {}
+        }
+      ]
+    },
+    "defaultCommitmentRiskCharts": {
+      "categoryType": "charts",
+      "categoryTitle": "Charts",
+      "inputs": [
+        {
+          "inputConfigType": "commitmentHorizon",
+          "inputName": "commitmentHorizon",
+          "inputTitle": "Time Horizon",
+          "default": 15
+        }
+      ]
+    },
+    "defaultCommitmentRiskChartColumns": {
+      "categoryType": "columns",
+      "categoryTitle": "Chart Columns",
+      "noAccordion": true,
+      "visible": false,
+      "inputs": [
+        {
+          "inputConfigType": "columns",
+          "inputName": "commitmentRiskChartColumns",
+          "valueField": "columnTag",
+          "hideTopColumnGroup": false,
+          "default": [
+            {
+              "columnKey": "acrm_proj_nav",
+              "columnTag": "acrm_proj_nav",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_proj_contrib",
+              "columnTag": "acrm_proj_contrib",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_proj_dist",
+              "columnTag": "acrm_proj_dist",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_proj_net_cash",
+              "columnTag": "acrm_proj_net_cash",
+              "positionColumnType": "ALL"
+            }
+          ]
+        }
+      ]
+    },
+    "defaultCommitmentRiskChartDisplaySettings": {
+      "visible": false,
+      "categoryType": "chartDisplaySettings",
+      "inputs": [
+        {
+          "inputConfigType": "chartSettings",
+          "inputName": "chartSettings",
+          "default": {
+            "legendShow": true,
+            "labelShow": false
+          }
+        },
+        {
+          "inputConfigType": "commitmentRiskLegendSettings",
+          "inputName": "commitmentRiskLegendSettings",
+          "default": {
+            "showBaseScenario": true,
+            "showStressScenario": true,
+            "percentileRange": "10-90th"
+          }
+        }
+      ]
+    },
+    "defaultCommitmentRiskStaticsTable": {
+      "categoryType": "columns",
+      "categoryTitle": "Statistics Table",
+      "noAccordion": true,
+      "visible": true,
+      "inputs": [
+        {
+          "inputConfigType": "commitmentRiskGrouping",
+          "inputName": "commitmentRiskGrouping",
+          "inputTitle": "Group By",
+          "hideTitle": true,
+          "default": {}
+        },
+        {
+          "inputConfigType": "columns",
+          "inputName": "commitmentRiskTableColumns",
+          "valueField": "columnTag",
+          "hideTopColumnGroup": false,
+          "columnFilters": [
+            {
+              "type": "=",
+              "key": "columnReports",
+              "value": [
+                "commitment_risk"
+              ]
+            },
+            {
+              "type": "!=",
+              "key": "isVisible",
+              "value": false
+            }
+          ],
+          "default": [
+            {
+              "columnKey": "sec_desc",
+              "columnTag": "sec_desc",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "cusip",
+              "columnTag": "cusip",
+              "positionColumnType": "ALL"
+            },
+            {
+              "columnKey": "acrm_hrzn_fund_value",
+              "columnTag": "acrm_hrzn_fund_value",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "horizonList": [1, 3, 5]
+              }
+            },
+            {
+              "columnKey": "acrm_hrzn_j_curve",
+              "columnTag": "acrm_hrzn_j_curve",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "horizonList": [1, 3, 5]
+              }
+            },
+            {
+              "columnKey": "acrm_hrzn_tvpi",
+              "columnTag": "acrm_hrzn_tvpi",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "horizonList": [1, 3, 5]
+              }
+            },
+            {
+              "columnKey": "acrm_hrzn_dpi",
+              "columnTag": "acrm_hrzn_dpi",
+              "positionColumnType": "ALL",
+              "optionValues": {
+                "horizonList": [1, 3, 5]
+              }
+            }
+          ],
+          "hiddenColumns": [
+            {
+              "columnKey": "percentiles",
+              "columnTag": "percentiles",
+              "positionColumnType": "ALL"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

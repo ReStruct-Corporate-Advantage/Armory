@@ -1,0 +1,136 @@
+{
+  "splitColumnKeys": {
+    "pct_nav_group": [
+      {
+        "header": "Before",
+        "originalKey": "pct_nav_group",
+        "updatedKeySuffix": "before",
+        "updatedKey": "pct_nav_group_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "pct_nav_group",
+        "updatedKeySuffix": "after",
+        "updatedKey": "pct_nav_group_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "pct_nav_group",
+        "updatedKeySuffix": "change",
+        "updatedKey": "pct_nav_group_change"
+      }
+    ],
+    "nav_group": [
+      {
+        "header": "Before",
+        "originalKey": "nav_group",
+        "updatedKeySuffix": "before",
+        "updatedKey": "nav_group_before"
+      },
+      {
+        "header": "After",
+        "originalKey": "nav_group",
+        "updatedKeySuffix": "after",
+        "updatedKey": "nav_group_after"
+      },
+      {
+        "header": "Change",
+        "originalKey": "nav_group",
+        "updatedKeySuffix": "change",
+        "updatedKey": "nav_group_change"
+      }
+    ]
+  },
+  "footerDetails": {
+    "PUBLISH_TIME": 0
+  },
+  "data": {
+    "data": [
+      "CORE-HQ",
+      "CORE-HQ",
+      288936663.1538421,
+      288936663.1538421,
+      0,
+      1,
+      1,
+      0
+    ],
+    "children": [
+      {
+        "data": [
+          "GALIC-106",
+          "GALIC-106",
+          81593938.3732301,
+          81593938.3732301,
+          0,
+          0.2823938557419625,
+          0.2823938557419625,
+          0
+        ],
+        "rowId": 2
+      },
+      {
+        "data": [
+          "FFH-FIT",
+          "FFH-FIT",
+          207342724.780612,
+          207342724.780612,
+          0,
+          0.7176061442580375,
+          0.7176061442580375,
+          0
+        ],
+        "rowId": 3
+      },
+      {
+        "data": [
+          "HIC",
+          "HIC",
+          null,
+          158915164.7346132,
+          158915164.7346132,
+          null,
+          0.5500000000000002,
+          0.5500000000000002
+        ],
+        "rowId": 4
+      },
+      {
+        "data": [
+          "COMPOSITION CASH OFFSET",
+          "CASH OFFSET",
+          null,
+          -158915164.7346132,
+          -158915164.7346132,
+          null,
+          -0.5500000000000002,
+          -0.5500000000000002
+        ],
+        "rowId": 5
+      }
+    ],
+    "rowId": 1
+  },
+  "columnHeaderDetails": {
+    "columnKeyToDisplayNameMap": {
+      "nav_group": "NAV",
+      "portfolio_name": "Portfolio Name",
+      "pct_nav_group": "Port Group NAV %"
+    },
+    "columnKeyToTagMap": {
+      "nav_group": "nav_group",
+      "portfolio_name": "portfolio_name",
+      "pct_nav_group": "pct_nav_group"
+    }
+  },
+  "columns": [
+    "portfolio",
+    "portfolio_name",
+    "nav_group_before",
+    "nav_group_after",
+    "nav_group_change",
+    "pct_nav_group_before",
+    "pct_nav_group_after",
+    "pct_nav_group_change"
+  ]
+}

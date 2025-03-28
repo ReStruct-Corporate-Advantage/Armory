@@ -1,0 +1,17 @@
+<div class="select-what-if-portfolio__container">
+    <div class="select-portfolio__search">
+        <div class="column-label">Select</div>
+        <app-favorite [favType]="loadFavAction?.type"
+                      [favTreeType]="loadFavAction?.treeType"
+                      [favDisplayName]="loadFavAction?.displayName"
+                      [loadEnterpriseTree]="!loadFavAction?.ignoreEnterpriseTree"
+                      [loadFavoriteCallBack]="loadFavAction?.callback"
+                      [subCategoryData]="loadFavAction?.subCategoryData"
+                      [stickySearch]="true"
+                      [hidePortfolioTypeSelect]="true"
+        >
+        </app-favorite>
+    </div>
+    <aux-button class="add-button" icon="arrow-right" [isDisabled]="true"></aux-button>
+    <app-selected-portfolio-list [titleText]="'Portfolios to add'" class="selected-portfolios__list"></app-selected-portfolio-list>
+</div>

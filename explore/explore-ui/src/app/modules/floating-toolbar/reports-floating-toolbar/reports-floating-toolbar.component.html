@@ -1,0 +1,15 @@
+<ng-container *ngIf="currentReport$ | async as currentReport">
+    <aux-tab-bar
+        #auxTabBar
+        tabType="modern"
+        [isEditable]="true"
+        [data]="reportTabs"
+        [activeUid]="currentReport.key.toString()"
+        (tabBarAddIconClicked)="onAddTabClicked()"
+        (tabBarItemSelected)="onTabSelected($event)"
+        (tabBarItemRenamed)="onTabEdited($event)"
+        (tabBarItemDeleted)="onRemoveTabClicked($event)"
+        (tabBarItemDragged)="onTabDragAndDropped($event)">
+    </aux-tab-bar>
+    <div class="tab-bar-content--separator"></div>
+</ng-container>

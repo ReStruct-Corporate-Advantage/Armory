@@ -1,0 +1,212 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "Validate Look-through Settings",
+    "line": 1,
+    "id": "validate-look-through-settings",
+    "tags": [],
+    "uri": "lookthroughSettings.feature",
+    "elements": [
+      {
+        "id": "validate-look-through-settings;validate-look-through-is-disabled",
+        "keyword": "Scenario",
+        "line": 7,
+        "name": "Validate look-through is disabled",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 6077000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 123000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "look-through is disabled",
+            "result": {
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "components should be disabled",
+            "result": {
+              "status": "passed",
+              "duration": 9000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-look-through-settings;validate-look-through-is-enabled",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Validate look-through is enabled",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2865000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 116000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "look-through is enabled",
+            "result": {
+              "status": "passed",
+              "duration": 341000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "components in look-through settings should be enabled",
+            "result": {
+              "status": "passed",
+              "duration": 97000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-look-through-settings;validate-security-proxies",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Validate security proxies",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2682000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 120000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "portfolio look-through is enabled",
+            "result": {
+              "status": "passed",
+              "duration": 343000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "desired proxies are enabled",
+            "result": {
+              "status": "passed",
+              "duration": 282000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "validate-look-through-settings;validate-sources",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Validate sources",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Portfolio is loaded for historical bussiness day",
+            "result": {
+              "status": "passed",
+              "duration": 2547000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 5,
+            "name": "Navigate to portfolio settings",
+            "result": {
+              "status": "passed",
+              "duration": 185000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 20,
+            "name": "Available sources are changed",
+            "result": {
+              "status": "passed",
+              "duration": 700000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 21,
+            "name": "changed source settings are respected",
+            "result": {
+              "status": "passed",
+              "duration": 35000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

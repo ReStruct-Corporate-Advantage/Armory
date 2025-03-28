@@ -1,0 +1,9 @@
+.override-date-sort-by {
+    display: flex;
+    align-items: center;
+
+    .override-date-sort-by-label {
+        font-weight: var(--font-weight-bold);
+        padding-right: 0.75rem;
+    }
+}

@@ -1,0 +1,183 @@
+{
+    "configType": "expostStatsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "The Ex-Post Statistics Widget displays a summary of portfolio-level returns and statistic information, such as ex-post alphas and betas, information ratio, and Sharpe ratio.\n\nEx-post analysis offers the ability to view top-level performance in the portfolio, benchmark, and active space over longer time horizons. It also allows for the performance of statistical analysis of alpha, beta, and various other ratios and metrics based on that data.",
+    "title": "Ex-Post Statistics",
+    "image": ".\/assets\/images\/riskExposureWidget.png",
+    "showOnlySingleColumn": false,
+    "showInSelector": true,
+    "tokenToCheck": "enableExpost",
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "EXPOST_REPORT",
+                    "hideTopColumnGroup": true,
+                    "columnFilters": [
+                        {
+                            "type": "=",
+                            "key": "reportTypes",
+                            "value": [
+                                "EXPOST"
+                            ]
+                        }
+                    ],
+                    "default": [
+                        {
+                            "columnTag": "ActCumRet",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "ActCumRet"
+                        },
+                        {
+                            "columnTag": "BenchCumRet",
+                            "positionColumnType": "BENCH",
+                            "columnKey": "BenchCumRet"
+                        },
+                        {
+                            "columnTag": "CumRet",
+                            "positionColumnType": "PORT",
+                            "columnKey": "CumRet"
+                        },
+                        {
+                            "columnTag": "ActCumRetAnn",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "ActCumRetAnn"
+                        },
+                        {
+                            "columnTag": "BenchCumRetAnn",
+                            "positionColumnType": "BENCH",
+                            "columnKey": "BenchCumRetAnn"
+                        },
+                        {
+                            "columnTag": "CumRetAnn",
+                            "positionColumnType": "PORT",
+                            "columnKey": "CumRetAnn"
+                        },
+                        {
+                            "columnTag": "InfRatio",
+                            "positionColumnType": "PORT",
+                            "columnKey": "InfRatio"
+                        },
+                        {
+                            "columnTag": "MSqRatio",
+                            "positionColumnType": "PORT",
+                            "columnKey": "MSqRatio"
+                        },
+                        {
+                            "columnTag": "SharpRatio",
+                            "positionColumnType": "PORT",
+                            "columnKey": "SharpRatio"
+                        },
+                        {
+                            "columnTag": "SortinoRatio",
+                            "positionColumnType": "PORT",
+                            "columnKey": "SortinoRatio"
+                        },
+                        {
+                            "columnTag": "TreynorRatio",
+                            "positionColumnType": "PORT",
+                            "columnKey": "TreynorRatio"
+                        },
+                        {
+                            "columnTag": "ActRetStdAnn",
+                            "positionColumnType": "ACTIVE",
+                            "columnKey": "ActRetStdAnn"
+                        },
+                        {
+                            "columnTag": "BenchRetStdAnn",
+                            "positionColumnType": "BENCH",
+                            "columnKey": "BenchRetStdAnn"
+                        },
+                        {
+                            "columnTag": "RetStdAnn",
+                            "positionColumnType": "PORT",
+                            "columnKey": "RetStdAnn"
+                        },
+                        {
+                            "columnTag": "ExpostTE",
+                            "positionColumnType": "PORT",
+                            "columnKey": "ExpostTE"
+                        },
+                        {
+                            "columnTag": "JensenAlpha",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenAlpha"
+                        },
+                        {
+                            "columnTag": "JensenAlphaTstat",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenAlphaTstat"
+                        },
+                        {
+                            "columnTag": "JensenBeta",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenBeta"
+                        },
+                        {
+                            "columnTag": "JensenBetaTstat",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenBetaTstat"
+                        },
+                        {
+                            "columnTag": "JensenCorr",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenCorr"
+                        },
+                        {
+                            "columnTag": "JensenRSquare",
+                            "positionColumnType": "PORT",
+                            "columnKey": "JensenRSquare"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "categoryType": "Settings",
+            "categoryTitle": "Settings",
+            "inputs": [
+                {
+                    "inputConfigType": "expostSettings",
+                    "inputName": "expostSettings",
+                    "inputTitle": "Expost Settings",
+                    "isOpen": true,
+                    "default": {}
+                }
+            ]
+        },
+        {
+          "$ref": "defaultColumnState"
+        },
+        {
+            "type": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        }
+    ],
+    "restrictedColumnOptions": {
+        "sections": [
+            "highlight",
+            "aggregation",
+            "economyExposureSettings",
+          "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "agGrid"
+}

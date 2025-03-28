@@ -1,0 +1,18 @@
+.chart-height-calculated {
+    height: calc(100% - 28px);
+}
+
+.component-hw-100 {
+    height: 100%;
+    width: 100%;
+}
+
+// override to make a line series (+legend) dashed (bar chart, time series chart)
+.highcharts-series.custom-stroke-dashed > path, .highcharts-legend-item.custom-stroke-dashed > .highcharts-graph {
+    stroke-dasharray: 8, 8;
+}
+
+// override to make a line series (+legend) dotted (bar chart, time series chart)
+.highcharts-series.custom-stroke-dotted > path, .highcharts-legend-item.custom-stroke-dotted > .highcharts-graph {
+    stroke-dasharray: 1, 6;
+}

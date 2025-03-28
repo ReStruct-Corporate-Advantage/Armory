@@ -1,0 +1,45 @@
+<div class="aux-p13 aux-bold portfolio-title title">Portfolios ({{portfolioConfigs.length}})</div>
+<label class="portfolio-subtitle subtitle">
+    <span>These portfolios will be added to all widgets in this job. Date field can have either absolute or relative.</span>&nbsp;&nbsp;
+    <aux-learn-link [label]="'Relative date shortcuts'" [header]="'Relative date shortcuts'">
+    <div class="relative-date-shortcuts-content" slot="content">
+        <ul class="date-shortcut-list">
+            <li *ngFor="let data of dateShortcuts">
+                {{ data.key }} - {{ data.value }}
+            </li>
+        </ul>
+    </div>
+    </aux-learn-link>
+</label>
+<div class="trigger-section">
+    <aux-button
+        label="Add portfolios"
+        icon="add"
+        type="secondary"
+        [size]="AuxButtonSizeEnum.SMALL"
+        (click)="isAddPortfolioModalOpen = true"
+    ></aux-button>
+</div>
+<div class="table-section">
+    <export-hub-table [gridOptions]="gridOptions" [rowData]="rowData"></export-hub-table>
+</div>
+<ng-container *ngIf="isAddPortfolioModalOpen">
+    <app-add-portfolio-modal [isOpen]="isAddPortfolioModalOpen"
+                             [portfolioType]="portfolioType"
+                             [loadFavActionCallback]="loadFavoriteActionCallback.bind(this)"
+                             [onAddCallback]="addAllPortItemsToGrid.bind(this)"
+                             [reportGroup]="dummyReportGroup"
+                             [allowPortUpload]="true"
+                             [uploadFileParsingLogic]="{parsingLogic: uploadService.parseDataFromCsv.bind(uploadService)}"
+                             (modalClosed)="isAddPortfolioModalOpen = false"
+    >
+    </app-add-portfolio-modal>
+</ng-container>
+<ng-container *ngIf="isPortfolioSettingsModalOpen">
+    <app-portfolio-settings-modal [isOpen]="isPortfolioSettingsModalOpen"
+                                  [isBatch]="true"
+                                  [triggerWidgetReloadEvents]="false"
+                                  (modalClosed)="closePortSettingsModal()"
+                                  [portfolio]="selectedJobPortConfig?.portfolio">
+    </app-portfolio-settings-modal>
+</ng-container>

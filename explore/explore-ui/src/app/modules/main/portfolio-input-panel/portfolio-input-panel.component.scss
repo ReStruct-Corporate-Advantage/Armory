@@ -1,0 +1,40 @@
+.portfolio-input-panel-design {
+    margin: 0 16px;
+
+    .portfolio-input-panel-container {
+        padding: 8px 16px;
+        height: 24px;
+        border: 1px solid var(--dialog__border-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .input-item-container {
+            display: flex;
+            align-items: center;
+
+            .input-item {
+                margin-right: 1.25rem;
+            }
+
+            .currency-input {
+                width: 165px;
+            }
+
+            .settings-button {
+                margin: 2px 12px 0 0;
+            }
+
+            .settings-button-disable {
+                cursor: not-allowed;
+                span {
+                    pointer-events: none;
+                }
+            }
+
+            .publish-state {
+                border-left: 1px solid var(--option-group__border-color);
+            }
+        }
+    }
+}

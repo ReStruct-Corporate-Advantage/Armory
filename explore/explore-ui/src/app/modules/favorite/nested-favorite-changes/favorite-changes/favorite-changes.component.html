@@ -1,0 +1,19 @@
+<div class="favorite-changes" *ngIf="favoriteChanges.length > 0; else noChanges">
+    <div class="other-owners-container" *ngIf="!allFavesOwnedByCurrentUser">
+        <aux-icon class="warn-icon" [type]="'info-bold'" [state]="'warning'"></aux-icon>
+        <span class="aux-bold">For saved components owned by other users, please Save As to create your own version.</span>
+    </div>
+    <div class="select-all-checkbox">
+        <aux-checkbox [label]="'Select all'" [isMixed]="true" [isChecked]="isSelectAll" (checkboxChanged)="onSelectAllChanged()"></aux-checkbox>
+    </div>
+    <ng-container *ngFor="let favoriteChange of favoriteChanges">
+        <div class="favorite-change">
+            <app-favorite-change-item [favoriteChange]="favoriteChange"></app-favorite-change-item>
+        </div>
+    </ng-container>
+</div>
+<ng-template #noChanges>
+    <div class="no-changes-text">
+        <span class="aux-bold">No updates to nested saved components.</span>
+    </div>
+</ng-template>

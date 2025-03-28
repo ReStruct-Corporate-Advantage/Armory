@@ -1,0 +1,273 @@
+<aux-modal [isOpen]="isOpen" type="action" header="Advanced Risk Settings" [hasCustomFooter]="true">
+    <div slot="content">
+        <div class="aux-g16--cw-4">
+
+            <position-mode-settings *ngIf="showPositionModes" [positionModeSettings]="positionModeSettings">
+            </position-mode-settings>
+
+            <div [ngClass]="{'div1-padding' : !isOptimizationSettingsModalOpen,
+                            'div-padding' : isOptimizationSettingsModalOpen}">
+                <div class="aux-layout__wrapper-32">
+                    <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                        <aux-select (selectionChanged)="onExcludeFactorSelectionChanged($event)"
+                                    [data]="availableExcludeBlocks"
+                                    [hasInitialOptionPlaceholder]="false"
+                                    label="Exclude factors">
+                        </aux-select>
+                    </div>
+                    <div class="other-style" *ngIf="availableExcludeBlocks[0].values[availableExcludeBlocks[0].values.length-1].isSelected" >
+                        <aux-text-input [value]="inputExcludeFactor"
+                                        (valueChanged)="onOtherExcludeFactorChanged($event)">
+                        </aux-text-input>
+                    </div>
+
+                    <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.EXCLUDE_BLOCK)"
+                         class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                        <div class="revert-styl">
+                            <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.EXCLUDE_BLOCK" (resetHandler)="excludeReset()"></explore-risk-revert-risk-setting>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isSourceVisible" class="source-styl">
+                    Source: {{advancedRiskSettings.getSourceDisplayName(propertyList.EXCLUDE_BLOCK)}}
+                </div>
+            </div>
+            <div *ngIf="!isOptimizationSettingsModalOpen" class="div1-padding div2-padding">
+                <div class="aux-layout__wrapper-32">
+                    <div class="aux-g32--xs-3 aux-g32--sm-3 aux-g32--md-3 aux-g32--lg-3 aux-g32--xl-3">
+                        Market
+                    </div>
+                </div>
+                <div class="aux-layout__wrapper-32">
+                    <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                        <blk-portfolio-search #portSearchComp
+                                              (emitSearchValueChange)="onMarketChanged($event)"
+                                              [portfolioSearchService]="portfolioSearchService"
+                                              [searchPlaceholder]="'Search Market'"
+                                              [searchString]="advancedRiskSettingsInput.market ? advancedRiskSettingsInput.market : null"
+                                              searchType="regular"
+                                              [isAddBtnHidden]="true">
+                        </blk-portfolio-search>
+                    </div>
+
+                    <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.MARKET)"
+                         class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                        <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.MARKET" (resetHandler)="marketReset()"></explore-risk-revert-risk-setting>
+                    </div>
+                    <div class="aux-g16--xs-3 aux-g16--sm-3 aux-g16--md-3 aux-g16--lg-3 aux-g16--xl-3"></div>
+                </div>
+            </div>
+            <!-- benchmark filter scaling options components -->
+            <div class="radio-div-padding inline-container" *ngIf="showFilterScalingOptions">
+                <aux-radio-group [label]="'Normalized filter scaling'"
+                                 [data]="filerScalingOptions"
+                                 [isStacked]="true"
+                                 [isHeaderBold]="false"
+                                 (radioGroupChanged)="onFilterScalingChanged($event)">
+                </aux-radio-group>
+                <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.FILTER_SCALING)"
+                     class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                    <div style="margin-top: 39px; margin-left: -12px">
+                        <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.FILTER_SCALING" (resetHandler)="filterScalingReset()"></explore-risk-revert-risk-setting>
+                    </div>
+                </div>
+            </div>
+
+
+            <div *ngIf="!isOptimizationSettingsModalOpen" class="asset-class-cov-padding">
+                <div class="aux-layout__wrapper-32">
+                    <div class="label-padding">
+                        Use DxS for block
+                    </div>
+
+                    <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                        <aux-button
+                                type="tertiary"
+                                icon="help-subtle"
+                                assistiveText="Button"
+                                slot="target">
+                        </aux-button>
+                        <div slot="content" class="custom-popover-container">Flexible DxS risk factors are risk factors whose exposure does not employ a relative spread volatility by default, but can be converted into the DxS space. Setting this field to ALL_DXS will force both true and flexible DxS risk factors to use a spread volatility. When the checkbox is unchecked and the value of NONE is used, DxS is turned off entirely.</div>
+                    </aux-popover>
+                </div>
+                <div class="aux-layout__wrapper-32">
+                    <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                        <aux-text-input  [type]="'text'"
+                                         [size]="'regular'"
+                                         (valueChanged)="onDxSBlockChange($event)"
+                                         [value]="advancedRiskSettings.dxsBlock"
+                                         [textAlign]="'left'">
+                        </aux-text-input>
+                    </div>
+                    <div class="inline-container">
+                        <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.DXS_BLOCK)"
+                             class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                            <div class="reset-padding" style="margin-top: 1px;">
+                                <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.DXS_BLOCK" (resetHandler)="dxsBlockReset()"></explore-risk-revert-risk-setting>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isSourceVisible" class="source-styl">
+                    Source: {{advancedRiskSettings.getSourceDisplayName(propertyList.DXS_BLOCK)}}
+                </div>
+            </div>
+
+            <div *ngIf="!isOptimizationSettingsModalOpen" class="asset-class-cov-padding">
+                <div class="aux-layout__wrapper-32">
+                    <div class="label-padding">
+                        BFRE covariance matrix controls
+                    </div>
+
+                    <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                        <aux-button
+                                type="tertiary"
+                                icon="help-subtle"
+                                assistiveText="Button"
+                                slot="target">
+                        </aux-button>
+                        <div slot="content" class="custom-popover-container">Shrinkage is applied to the BFRE matrix which makes the matrix easier to invert and more suitable for optimization. Since the BFRE covariance matrix is computed only for BFRE factors, the correlation between non-BFRE risk factors and BFRE risk factors is imposed to be zero to preserve positive definiteness of the covariance matrix. The BFRE covariance matrix, which corresponds to the first option in this setting, should therefore only be used for portfolios that are close to 100% equity.</div>
+                    </aux-popover>
+                </div>
+                <div class="aux-layout__wrapper-32">
+
+                    <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                        <aux-select (selectionChanged)="onAssetClassCovarianceSelectionChanged($event)"
+                                    [data]="availableAssetClassCovarianceOptions"
+                                    [hasInitialOptionPlaceholder]="false">
+                        </aux-select>
+                    </div>
+                    <div class="inline-container">
+                        <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.ASSET_CLASS_COVARIANCE)"
+                             class="aux-g16--xs-2 aux-g16--sm-2 aux-g16--md-2 aux-g16--lg-2 aux-g16--xl-2">
+                            <div class="reset-padding" style="margin-top: 1px;">
+                                <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.ASSET_CLASS_COVARIANCE" (resetHandler)="assetClassCovarianceReset()"></explore-risk-revert-risk-setting>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="isSourceVisible" class="source-styl">
+                    Source: {{advancedRiskSettings.getSourceDisplayName(propertyList.ASSET_CLASS_COVARIANCE)}}
+                </div>
+            </div>
+            <div class="div3-padding" style="padding-left: 18px;">
+                <div class="aux-layout__wrapper-32">
+                    <aux-checkbox label="Scale DxS exposures to economy date"
+                                  [isChecked]="advancedRiskSettings.scaleDxsExposures"
+                                  (checkboxChanged)="onScaleDxSExposuresChanged($event)">
+                    </aux-checkbox>
+                    <div class="tooltip-style" style="padding-left: 6px">
+                        <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                            <aux-button
+                                    type="tertiary"
+                                    icon="help-subtle"
+                                    assistiveText="Button"
+                                    slot="target">
+                            </aux-button>
+                            <div slot="content" class="custom-popover-container">This control affects risk only when Economy Date and Exposure Date differ. It also affects the decomposition of change in risk into Economy Change and Exposure Change when using a comparison date. It scales the spread portion of Duration * Spread exposures to the factor level on the Economy Date to better simulate the exposure loading as of that date.</div>
+                        </aux-popover>
+                    </div>
+                    <div class="revert-style">
+                        <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.SCALE_DXS_EXPOSURES)">
+                            <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.SCALE_DXS_EXPOSURES" (resetHandler)="scaleDxsExposuresReset()"></explore-risk-revert-risk-setting>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="div3-padding" style="padding-left: 18px;">
+                <div class="aux-layout__wrapper-32">
+                    <aux-checkbox label="Assume zero average return"
+                                  [isChecked]="assumeZeroAverageReturn"
+                                  (checkboxChanged)="onAssumeZeroAverageReturnChanged($event)">
+                    </aux-checkbox>
+                    <div class="tooltip-style" style="padding-left: 6px">
+                        <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                            <aux-button
+                                    type="tertiary"
+                                    icon="help-subtle"
+                                    assistiveText="Button"
+                                    slot="target">
+                            </aux-button>
+                            <div slot="content" class="custom-popover-container">Sets the mean of all factor return time series to zero. Negates the impact of trending markets.</div>
+                        </aux-popover>
+                    </div>
+                    <div class="revert-style">
+                        <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.ASSUME_ZERO_AVERAGE_RETURN)">
+                            <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.ASSUME_ZERO_AVERAGE_RETURN" (resetHandler)="assumeZeroAverageReturnReset()"></explore-risk-revert-risk-setting>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  class="div3-padding">
+                <div class="aux-layout__wrapper-32">
+                    <div class="label-style">
+                        Exposure lookback
+                    </div>
+                    <div class="tooltip-style" style="padding-left: 6px">
+                        <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                            <aux-button
+                                    type="tertiary"
+                                    icon="help-subtle"
+                                    assistiveText="Button"
+                                    slot="target">
+                            </aux-button>
+                            <div slot="content" class="custom-popover-container">This controls the date tolerance for exposure lookback. For example, if the date is set to T-1B and the lookback is set to 1, then exposures as of T-1B would be queried for first, followed by T-2B if nothing is found for T-1B.</div>
+                        </aux-popover>
+                    </div>
+                </div>
+                <div class="aux-layout__wrapper-32">
+                    <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                        <aux-numeric-stepper
+                            [stepperValue]="exposureLookback" minValue="0"
+                            (valueChanged)="onExposureLookbackChanged($event)" style="display: inline-block;">
+                        </aux-numeric-stepper>
+                        <div class="revert-style" style="margin-top: 4px;">
+                            <div *ngIf="advancedRiskSettings.doesValueExist(propertyList.EXPOSURE_LOOKBACK)" class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                                <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.EXPOSURE_LOOKBACK" (resetHandler)="exposureLookbackReset()"></explore-risk-revert-risk-setting>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="isOptimizationSettingsModalOpen">
+                <div  class="div3-padding" >
+                    <div class="aux-layout__wrapper-32">
+                        <div class="label-style">
+                            Adjustment to ensure a positive semi definite risk matrix
+                        </div>
+                        <div class="tooltip-style" style="padding-left: 6px">
+                            <aux-popover [trigger]="'hover'" [hasCloseIcon]="true">
+                                <aux-button
+                                    type="tertiary"
+                                    icon="help-subtle"
+                                    assistiveText="Button"
+                                    slot="target">
+                                </aux-button>
+                                <div slot="content" class="custom-popover-container">This is a number between 1 and 100 that determines how much the risk matrix is modified to ensure that it is positive semi-definite. A higher value means more modification and a lower value means less modification. The adjustment factor is multiplied by 1E-8 (the default value) to scale the values of the matrix. Please reach out to Aladdin help for additional guidance and any changes away from the default. There is more guidance on the impact of this adjustment in the Explore user guide.</div>
+                            </aux-popover>
+                        </div>
+                    </div>
+                    <div class="aux-layout__wrapper-32" >
+                        <div class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                            <aux-numeric-stepper
+                                [stepperValue]="advancedRiskSettings.riskMatrix" minValue="1" maxValue="100" defaultValue="1"
+                                (valueChanged)="onRiskMatrixChanged($event)" style="display: inline-block;">
+                            </aux-numeric-stepper>
+                            <ng-container *ngIf="advancedRiskSettings.riskMatrix > 1">
+                                <div class="revert-style" style="margin-top: 4px;">
+                                    <div  class="aux-g16--xs-8 aux-g16--sm-8 aux-g16--md-8 aux-g16--lg-8 aux-g16--xl-8">
+                                        <explore-risk-revert-risk-setting [riskSetting]="advancedRiskSettings" [propertyName]="propertyList.RISK_MATRIX" (resetHandler)="riskMatrixReset()"></explore-risk-revert-risk-setting>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+    <div slot="custom-footer" class="custom-footer-container--two-buttons">
+        <aux-button class="custom-footer--primary-button" [label]="APPLY_TEXT" [type]="'primary'" (click)="closeModal(true)"></aux-button>
+        <aux-button [label]="CANCEL_TEXT" [type]="'secondary'" (click)="closeModal()"></aux-button>
+    </div>
+</aux-modal>

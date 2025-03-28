@@ -1,0 +1,98 @@
+{
+    "configType": "mcvarPnlTsWidget",
+    "size": {
+        "height": 6,
+        "width": 8
+    },
+    "description": "P&L timeseries widget shows the timeseries pnl for .",
+    "title": "MCVaR Simulation P&L Time Series",
+    "image": ".\/assets\/images\/PGS.png",
+    "showOnlySingleColumn": false,
+    "includePerformanceBreakdown": false,
+    "restrictBreakdownToSingleLevel": false,
+    "showInSelector": false,
+    "canHaveMultipleOverrideDates": false,
+    "inputCategories": [
+        {
+            "categoryType": "columns",
+            "categoryTitle": "Columns",
+            "noAccordion": true,
+            "inputs": [
+                {
+                    "inputConfigType": "columns",
+                    "inputName": "columns",
+                    "valueField": "columnTag",
+                    "mandateSettingType": "MULTI_REPORT",
+                    "default": [
+                        {
+                          "columnTag": "mcvar_sim_pnl_path",
+                          "positionColumnType": "ALL",
+                          "columnKey": "mcvar_sim_pnl_path"
+                        },
+                        {
+                            "columnTag": "mcvar_sim_raw_pnl",
+                            "positionColumnType": "PORT",
+                            "columnKey": "mcvar_sim_raw_pnl"
+                        },
+                        {
+                          "columnTag": "mcvar_sim_raw_pnl_b",
+                          "positionColumnType": "BENCH",
+                          "columnKey": "mcvar_sim_raw_pnl_b"
+                        },
+                        {
+                          "columnTag": "mcvar_sim_raw_pnl_a",
+                          "positionColumnType": "ACTIVE",
+                          "columnKey": "mcvar_sim_raw_pnl_a"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+          "categoryType": "footnoteState",
+          "visible": false,
+          "inputs": [
+            {
+              "inputName": "footnoteState",
+              "inputConfigType": "footnoteState",
+              "default": [],
+              "oldProps": ["infoOpen"]
+            }
+          ]
+        },
+        {
+            "categoryType": "expandedState",
+            "visible": false,
+            "inputs": [
+                {
+                    "inputConfigType": "expandedState",
+                    "inputName": "expandedState",
+                    "default": {
+                        "allExpanded": true
+                    }
+                }
+            ]
+        },
+        {
+            "$ref": "defaultSortedColumns"
+        }
+    ],
+    "customCalculationColumn": {
+        "$ref": "customCalculationColumn"
+    },
+  "styleAnalysis": {
+    "$ref": "styleAnalysis"
+  },
+    "restrictedColumnOptions": {
+        "sections": [
+            "aggregation",
+            "chartType",
+            "economyExposureSettings",
+            "ConstraintMissingDataHandling"
+        ]
+    },
+    "chartingLib": "agGrid",
+    "chartTransition": [
+      "pgsBar"
+    ]
+}

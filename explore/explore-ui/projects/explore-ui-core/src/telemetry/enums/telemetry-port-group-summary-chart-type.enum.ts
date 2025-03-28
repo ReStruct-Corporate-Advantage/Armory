@@ -1,0 +1,8 @@
+export enum PortGroupSummaryChartType {
+    // PGS Chart Type is UNSPECIFIED
+    PORT_GROUP_SUMMARY_CHART_TYPE_UNSPECIFIED = 0,
+    // PGS Chart Type is BAR
+    PORT_GROUP_SUMMARY_CHART_TYPE_BAR = 1,
+    // PGS Chart Type is TIME SERIES
+    PORT_GROUP_SUMMARY_CHART_TYPE_TIME_SERIES = 2
+}

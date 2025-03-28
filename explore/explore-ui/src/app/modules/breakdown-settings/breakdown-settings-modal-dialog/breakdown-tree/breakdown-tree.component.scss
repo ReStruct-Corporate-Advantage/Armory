@@ -1,0 +1,52 @@
+.breakdown-tree-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .breakdown-details-notification {
+        padding-top: 0.5rem
+    }
+
+    .breakdown-tree-statustag {
+        margin-bottom: 0.5rem;
+    }
+    
+    .breakdown-tree-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: .5rem;
+
+        .favorite-title {
+            padding-right: 1rem;
+        }
+
+        .favorite-row {
+            display: flex;
+            align-items: center;
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    .breakdown-tree {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        border: .0625rem solid var(--advanced-tree-list__border-color);
+        border-radius: 0.125rem;
+
+        .breakdown-tree-data {
+            flex: 1;
+        }
+
+        .breakdown-remove-all-container {
+            border-bottom: .0625rem solid var(--advanced-tree-list__border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.125rem 0.75rem;
+        }
+
+    }
+}
+
+

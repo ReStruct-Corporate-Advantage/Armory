@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExploreFactorDataTimeSeriesChartComponent test format tooltip point 1`] = `
+"
+                <div style='z-index:999; background-color: var(--input-box__background-color--disabled); padding: 8px;'>
+                    <span style='font-weight: bold'>Date: 27-OCT-2022</span><br/>
+                    <span style='font-weight: bold'>Tsy 3M:</span> 124.968871879
+                <div>"
+`;

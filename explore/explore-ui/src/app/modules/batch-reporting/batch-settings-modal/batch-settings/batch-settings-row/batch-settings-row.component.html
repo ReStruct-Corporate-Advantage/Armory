@@ -1,0 +1,211 @@
+<div [id]="rowIndex" class="batch-settings-row" [ngClass]="{'selected-batch-settings-row' : isSelected}">
+    <div class="batch-settings-drag-handle" cdkDragHandle>
+        <span class="grippy" unselectable="on"></span>
+    </div>
+    <div class="batch-settings-row-section batch-settings-active-checkbox">
+        <aux-checkbox [isChecked]="rowConfig.active"
+                      [isDisabled]="isRowDisabled"
+                      (checkboxChanged)="setRowConfigActive($event.detail.value.checked)">
+        </aux-checkbox>
+    </div>
+    <div class="batch-settings-row-section batch-settings-portfolio">
+        <div style="display: flex; justify-content: center">
+            <ng-container *ngIf="whatIfLoaded && ((!searchMode && !whatIfSearchMode) || (searchMode && whatIfSearchMode))">
+                <div style="display: flex">
+                    <div class="what-if-badge">
+                        <aux-badge type="custom" size="small">
+                            <div slot="custom">What-if</div>
+                        </aux-badge>
+                    </div>
+                    <div class="aux-primary what-if-title-padding" (click)="enableWhatIfSearch()">{{currentPortfolioHeaderTitle}}</div>
+                    <ng-container *ngIf="searchMode && !whatIfSearchMode">
+                        <aux-button class="portfolio-header-inline-item portfolio-header--change-button"
+                                    size="small"
+                                    [type]="'tertiary'"
+                                    [label]="'Cancel'"
+                                    (click)="onPortfolioChangeClicked($event)"
+                        ></aux-button>
+                    </ng-container>
+                    <ng-container *ngIf="((!searchMode && !whatIfSearchMode) || (searchMode && whatIfSearchMode))">
+                        <aux-button class="portfolio-header-inline-item portfolio-header--change-button"
+                                    size="small"
+                                    [type]="'tertiary'"
+                                    [label]="'Change'"
+                                    (click)="onPortfolioChangeClicked($event)"
+                        ></aux-button>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+        <!--        Portfolio -->
+        <div *ngIf="(!whatIfLoaded || (whatIfLoaded && searchMode && !whatIfSearchMode))" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+            <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-left-12">{{rowConfig.portfolio.portName}}</div>
+            <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+                <blk-portfolio-search #portfolioSearch
+                                      (emitPortfolioSearchItem)="initializePortfolio($event)"
+                                      (emitPortfolioForTracking)="trackPortfolioTelemetry($event)"
+                                      [portfolioSearchService]="portfolioSearchService"
+                                      [selectOptionLabel]="null"
+                                      [searchString]="rowConfig.portfolio?.portName"
+                                      [isBatchRowSearch]="true"
+                                      [clearOnAdd]="false"
+                                      [isDisabled]="portfolioLoading || isRowDisabled"
+                                      [searchSize]="'small'"
+                                      (whatIfTypeSelected)="enableWhatIfSearch()"
+                >
+                </blk-portfolio-search>
+            </ng-container>
+        </div>
+    </div>
+    <div class="batch-settings-row-section batch-settings-run-as" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-left-12">{{rowConfig.runAs === 0 ? 'Port Group' : 'Portfolios'}}</div>
+        <!--        Run As-->
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+            <aux-select type="simple"
+                        [data]="runAsOptions"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="onRunAsChanged($event.detail.value.value)"
+                        [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || rowConfig?.isEpnlReport || portfolioLoading"
+                        [size]="'small'">
+            </aux-select>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-date" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'right': null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-right-12">{{rowConfig.portfolio.datePicker.dateString ? rowConfig.portfolio.datePicker.dateStringValue : rowConfig.portfolio.datePicker.date}}</div>
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+            <aux-context-menu [specificActions]="dateContextMenu.specificActions"
+                              (contextMenuItemClicked)="dateContextMenu.onItemClicked()"
+                              (contextMenuRightClicked)="onOpenContextMenuRightClicked()">
+                <!--        Date-->
+                <app-date-picker-with-calendar slot="target"
+                                               [dateObject]="rowConfig.portfolio.datePicker"
+                                               (dateChange)="onDateChanged()"
+                                               [portfolio]="rowConfig.portfolio"
+                                               [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || rowConfig?.isEpnlReport || portfolioLoading">
+                </app-date-picker-with-calendar>
+            </aux-context-menu>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-benchmark" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-left-12">{{rowConfig.portfolio.benchmark?.name}}</div>
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+            <!--        Benchmark-->
+            <app-benchmark-selector [portfolio]="rowConfig.portfolio"
+                                    [batchRunAs]="rowConfig.runAs"
+                                    [disablePopover]="true"
+                                    [allowOther]="true"
+                                    [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || portfolioLoading"
+                                    [showLabel]="false"
+                                    [triggerWidgetReloadEvents]="false">
+            </app-benchmark-selector>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-currency" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-left-12">{{rowConfig.portfolio.currency}}</div>
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+            <aux-context-menu [specificActions]="currencyContextMenu.specificActions"
+                              (contextMenuItemClicked)="currencyContextMenu.onItemClicked()"
+                              (contextMenuRightClicked)="onOpenContextMenuRightClicked()">
+                <!--        Currency -->
+                <aux-select slot="target"
+                            type="filter-simple"
+                            [data]="currencyOptions"
+                            [hasInitialOptionPlaceholder]="false"
+                            (selectionChanged)="onCurrencyChanged($event)"
+                            [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || portfolioLoading"
+                            [size]="'small'">
+                </aux-select>
+            </aux-context-menu>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-report-selector" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName) && rowConfig.reports.length" class="padding-left-12">{{reportsSelectedText()}}</div>
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName) || !rowConfig.reports.length">
+            <aux-context-menu [specificActions]="reportsContextMenu.specificActions"
+                              (contextMenuItemClicked)="reportsContextMenu.onItemClicked()"
+                              (contextMenuRightClicked)="onOpenContextMenuRightClicked()">
+                <div slot="target" class="batch-settings-report-selector-contents">
+                    <!--        Reports-->
+                    <aux-select type="multiple"
+                                [data]="reportOptions"
+                                (selectionChanged)="onReportSelectionChanged($event)"
+                                [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || portfolioLoading"
+                                [size]="'small'">
+                    </aux-select>
+                    <div class="batch-settings-report-selector-icon">
+                        <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+                        <aux-button [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || portfolioLoading"
+                                    (click)="openReportFavoritesModal($event)"
+                                    type="tertiary-subtle" icon="buy">
+                        </aux-button>
+                    </div>
+                </div>
+            </aux-context-menu>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-export-as" [ngStyle]="{'text-align': (!isSelected && rowConfig.portfolio.portName) ? 'left' : null}">
+        <div *ngIf="(!isSelected && rowConfig.portfolio.portName)" class="padding-left-12">{{rowConfig.exportAs}}</div>
+        <ng-container *ngIf="(isSelected || !rowConfig.portfolio.portName)">
+            <!--        Export As-->
+            <aux-select [data]="exportAsOptions"
+                        [selected]="exportAsSelection"
+                        [hasInitialOptionPlaceholder]="false"
+                        (selectionChanged)="onExportAsChanged($event)"
+                        [isDisabled]="!rowConfig.portfolio?.portName || isRowDisabled || rowConfig?.isEpnlReport || portfolioLoading"
+                        [size]="'small'">
+            </aux-select>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-portfolio-settings">
+        <div class="disable-overlay" *ngIf="!rowConfig.portfolio?.portName || isRowDisabled || portfolioLoading">
+        </div>
+        <!--    Portfolio Settings-->
+        <aux-menu-nav
+            label="Edit"
+            class="batch-settings-portfolio-settings-menu-nav"
+            icon="settings"
+            (click)="openPortfolioSettingsModal()">
+        </aux-menu-nav>
+    </div>
+    <div class="batch-settings-row-section batch-settings-status">
+        <!--    Status-->
+        <ng-container *ngIf="rowConfig.downloadStatus !== BatchRowDownloadStatus.PARTIAL">{{rowConfig.downloadStatus}}</ng-container>
+        <ng-container *ngIf="rowConfig.downloadStatus === BatchRowDownloadStatus.PARTIAL">
+            <aux-popover [trigger]="'hover'">
+                <div slot="target" class="popover-target">{{rowConfig.downloadStatus}}</div>
+                <div slot="content" class="batch-row-skipped-requests-popover">
+                    <table class="batch-partial-table">
+                        <caption class="batch-row-skipped-requests-popover-header">Widgets excluded from export</caption>
+                        <tr>
+                            <th>Widget Title</th>
+                            <th>Report</th>
+                            <th>Portfolio</th>
+                        </tr>
+                        <tr *ngFor="let request of rowConfig.skippedRequests">
+                            <td>{{request.widget}}</td>
+                            <td>{{request.report}}</td>
+                            <td>{{request.portfolio}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </aux-popover>
+        </ng-container>
+    </div>
+    <div class="batch-settings-row-section batch-settings-delete">
+        <!--    Remove-->
+        <!-- TODO: type used to be state: primary with aux-icon and the color was in black not in gray.  But now 'tertiary-subtle' is the closest one -->
+        <aux-button class="batch-settings-row-delete-icon" (click)="onBatchRowRemoved($event)"
+                    [isDisabled]="isRowDisabled || portfolioLoading" type="tertiary-subtle" icon="delete-small">
+        </aux-button>
+    </div>
+</div>
+<ng-container *ngIf="isPortfolioSettingsModalOpen">
+    <app-portfolio-settings-modal [isOpen]="isPortfolioSettingsModalOpen"
+                                  [isBatch]="true"
+                                  [skipClearWidgetContent]="true"
+                                  [showEpnlSettings]="rowConfig?.isEpnlReport"
+                                  (modalClosed)="closePortfolioSettingsModal()"
+                                  [portfolio]="rowConfig.portfolio"
+                                  [triggerWidgetReloadEvents]="false">
+    </app-portfolio-settings-modal>
+</ng-container>

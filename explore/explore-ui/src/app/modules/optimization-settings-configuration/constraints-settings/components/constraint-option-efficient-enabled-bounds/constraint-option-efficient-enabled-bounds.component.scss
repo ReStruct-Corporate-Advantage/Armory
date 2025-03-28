@@ -1,0 +1,12 @@
+.constraint-option-bounds {
+    display: flex;
+    flex-direction: row;
+
+    .ef-lower-bound {
+        padding-right: 32px;
+    }
+}
+
+.max-width {
+    max-width: 45%;
+}

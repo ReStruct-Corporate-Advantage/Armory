@@ -1,0 +1,193 @@
+[
+  {
+    "output": {
+      "isResponseChunked": false,
+      "data": {
+        "ticker": "SNP100",
+        "cusip": "BRS3FD0M1",
+        "mandate": {
+          "value": "",
+          "mandateType": "",
+          "CLASS_TYPE": "com.bfm.prism.mandate.Mandate",
+          "label": ""
+        },
+        "isSectorModellingAllowed": true,
+        "code": -35734,
+        "displayName": "SNP100",
+        "isConstituentsViewAllowed": true,
+        "fullName": "S&P 100 Index",
+        "multiFrequencyMaxPeriodsMap": {
+          "YEAR_END": 10,
+          "QUARTER_END": 40,
+          "WEEKLY": 522,
+          "DAILY": 3657,
+          "MONTH_END": 121
+        },
+        "type": "INDEX",
+        "portfolioGroup": false,
+        "assetType": "BAL_MANDATE",
+        "portfolioDefaults": {
+          "defaultVarType": "DLY",
+          "calendar": "INDEX_ALL_Calendar",
+          "defaultModelCode": "DEFAULT",
+          "defaultDecay": 0.982820599
+        },
+        "portDefaultRiskSettings": {
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings"
+        },
+        "orgDefaultRiskSettings": {
+          "AssetClassCovariance": "M",
+          "RiskHorizon": "4",
+          "DxsBlock": "ALL_DXS",
+          "WeightingScheme": {
+            "name": "DLY",
+            "defaultPeriod": 252,
+            "defaultDecay": 0.982820599,
+            "defaultOverlap": 5,
+            "CLASS_TYPE": "com.bfm.prism.risk.WeightingScheme"
+          },
+          "CLASS_TYPE": "com.bfm.prism.data.PortfolioRiskSettings",
+          "ModelMapping": "^^PRT,@TS",
+          "ScaleDxsExposures": true,
+          "ConfidenceLevelInStdDeviation": 1
+        },
+        "isSecurityModellingAllowed": true,
+        "compositePortfolio": false,
+        "currency": "USD",
+        "timePeriods": [
+          {
+            "Value": "DTD",
+            "type": "To Date",
+            "interval": "Day",
+            "maxPeriods": 5
+          },
+          {
+            "Value": "WTD",
+            "type": "To Date",
+            "interval": "Week",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "MTD",
+            "type": "To Date",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "QTD",
+            "type": "To Date",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "YTD",
+            "type": "To Date",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "Days",
+            "type": "Rolling",
+            "interval": "Day",
+            "maxPeriods": 1100
+          },
+          {
+            "Value": "Weeks",
+            "type": "Rolling",
+            "interval": "Week",
+            "maxPeriods": 157
+          },
+          {
+            "Value": "Months",
+            "type": "Rolling",
+            "interval": "Month",
+            "maxPeriods": 37
+          },
+          {
+            "Value": "Quarters",
+            "type": "Rolling",
+            "interval": "Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "Years",
+            "type": "Rolling",
+            "interval": "Year",
+            "maxPeriods": 3
+          },
+          {
+            "Value": "CUSTOM",
+            "type": "Custom",
+            "interval": null,
+            "maxPeriods": 1
+          },
+          {
+            "Value": "BDay",
+            "type": "Other",
+            "interval": "Business Day",
+            "maxPeriods": 1100
+          },
+          {
+            "Value": "Prev. Mth",
+            "type": "Other",
+            "interval": "Previous Month",
+            "maxPeriods": 1
+          },
+          {
+            "Value": "Prev. Qtr",
+            "type": "Other",
+            "interval": "Previous Quarter",
+            "maxPeriods": 12
+          },
+          {
+            "Value": "FYTD",
+            "type": "Other",
+            "interval": "Fiscal Year",
+            "maxPeriods": 1
+          }
+        ],
+        "benchmarks": [
+          {
+            "name": "SNP100PRO",
+            "type": "RISK",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          },
+          {
+            "name": "SNP100NTRU",
+            "type": "FWRD",
+            "CLASS_TYPE": "com.bfm.app.prismweb.json.BenchmarkBean",
+            "order": 1
+          }
+        ],
+        "asOfDate": "05-FEB-2024",
+        "isPortfolioModellingAllowed": false,
+        "historicalPerfFromDate": "01/31/2021",
+        "CLASS_TYPE": "com.bfm.app.prismweb.json.PortfolioBean"
+      },
+      "message": null,
+      "gaussian": "lzZeeUtDiDC0Emts2/wa0ZZZFYrYR0pdAzpopgXQETGcZpi38Byl2ujSKc4b/azEjLY+B0gA4UctJAlk8/Xbo+Hfu0sSKESAvbQ/+68=",
+      "CLASS_TYPE": "com.bfm.explore.messaging.response.ExploreWebResponse",
+      "status": null
+    },
+    "args": null,
+    "headers": {
+      "msgSize": 614
+    },
+    "transactionContext": {
+      "bmsTimeStamp": "2024-02-06T15:51:05.587Z",
+      "detailedID": "21f3f57c-c41e-4e6d-9b28-523a52e497b7:21f3f57c-c41e-4e6d-9b28-523a52e497b7:8ffe2872f605459.614.1707234665587",
+      "IDWithContextChain": "21f3f57c-c41e-4e6d-9b28-523a52e497b7:21f3f57c-c41e-4e6d-9b28-523a52e497b7:8ffe2872f605459",
+      "chain": [
+        "21f3f57c-c41e-4e6d-9b28-523a52e497b7:8ffe2872f605459"
+      ],
+      "bmsMsgSize": 614,
+      "transactionId": "21f3f57c-c41e-4e6d-9b28-523a52e497b7",
+      "CLASS_TYPE": "com.bfm.util.TransactionContext"
+    },
+    "return_val": "SUCCESS",
+    "command": "portfolioInfo",
+    "transactionId": "21f3f57c-c41e-4e6d-9b28-523a52e497b7",
+    "successCode": null
+  }
+]

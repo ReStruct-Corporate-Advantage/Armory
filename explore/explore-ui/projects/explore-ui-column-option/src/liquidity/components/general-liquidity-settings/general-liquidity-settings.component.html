@@ -1,0 +1,53 @@
+<label>General liquidity settings</label>
+<div class="container-space">
+    <ng-container *ngIf="isShowHorizonStepper">
+        <div class="horizon-container">
+            <aux-numeric-stepper label='Horizon'
+                                 minValue='1'
+                                 [stepperValue]='underlyingLiquiditySettings.horizon'
+                                 (valueChanged)="onHorizonChanged($event)">
+            </aux-numeric-stepper>
+            <span class="text-inline">days</span>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="isShowAdvanceParticipationRate">
+        <div>
+            <aux-numeric-stepper label='ADV participation rate'
+                                 minValue="0"
+                                 [stepperValue]="underlyingLiquiditySettings.advParticipationRate"
+                                 (valueChanged)="onAdvParticipationRateChanged($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="isShowParticipationRate">
+        <div class="part-rate-override-container">
+            <label>Participation Rate Override</label>
+
+            <div class="container-indent">
+                <div class="container-row">
+                    <label class="override-title">Equity (%)</label>
+                    <div class="container-inline">
+                        <aux-numeric-stepper minValue="0"
+                                             maxValue="100"
+                                             [stepperValue]="underlyingLiquiditySettings.advParticipationRateEquity"
+                                             (valueChanged)="onAdvParticipationRateEquityChanged($event)">
+                        </aux-numeric-stepper>
+                    </div>
+                </div>
+
+                <div class="container-row">
+                    <label class="override-title">Other (%)</label>
+                    <div class="container-inline">
+                        <aux-numeric-stepper minValue="0"
+                                             maxValue="100"
+                                             [stepperValue]="underlyingLiquiditySettings.advParticipationRateOther"
+                                             (valueChanged)="onAdvParticipationRateOtherChanged($event)">
+                        </aux-numeric-stepper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

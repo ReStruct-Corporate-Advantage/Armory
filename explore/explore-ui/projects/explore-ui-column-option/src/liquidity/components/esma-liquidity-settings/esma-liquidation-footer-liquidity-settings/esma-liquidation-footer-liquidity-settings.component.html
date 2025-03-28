@@ -1,0 +1,113 @@
+<div class="sub-container">
+    <div class="bottom-space-area" *ngIf="includeLiquidationUnit">
+        <aux-radio-group label="Liquidation Unit"
+                         [isStacked]="true"
+                         [data]="liquidationUnitOptions"
+                         (radioGroupChanged)="onLiquidationUnitChanged($event)">
+        </aux-radio-group>
+    </div>
+
+
+    <ng-container *ngIf="isHolidayLookUp">
+        <div class="bottom-space-area">
+            <span> Holiday period lookup (days)</span>
+        </div>
+        <div class="bottom-space-area">
+            <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.holidayLookup"
+                                 (valueChanged)="onHolidayLookUpChange($event)">
+            </aux-numeric-stepper>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!isHolidayLookUp">
+        <div class="bottom-space-area select-bar-width" *ngIf="includeAggregation">
+            <aux-select label="Aggregation"
+                        [hasInitialOptionPlaceholder]="false"
+                        [size]="'small'"
+                        (selectionChanged)="onAggregationChanged($event)"
+                        [data]="aggregationOptions">
+            </aux-select>
+        </div>
+
+        <div class="bottom-space-area" *ngIf="!disableStressTestingSettings">
+
+            <explore-asset-stress-scenario-option class="bottom-space-area" [selectedAssetStressScenario]="underlyingLiquiditySettings.assetStressScenario"
+                                                  [isSectorStressSelected]="underlyingLiquiditySettings.sectorLevelStressTestingFlag"
+                                                  (assetStressScenarioSelected)="onAssetStressScenarioChanged($event)">
+
+            </explore-asset-stress-scenario-option>
+
+            <aux-checkbox-group label="Stress testing"
+                                [isStacked]="true"
+                                [data]="stressTestingOptions"
+                                (checkboxGroupChanged)="onStressTestingOptionsChanged($event)">
+            </aux-checkbox-group>
+        </div>
+
+        <div class="bottom-space-area"  *ngIf="underlyingLiquiditySettings.globalLevelStressTestingFlag">
+            <ng-container *ngFor="let stressMultiplerType of stressMultipliersGroup">
+                <ng-container *ngIf="stressMultiplerType.showStepper">
+                    <div class="stress-stepper-container">
+                        <aux-numeric-stepper [label]='stressMultiplerType.label'
+                                             minValue="0"
+                                             [stepperValue]="stressMultiplerType.stepperValue"
+                                             (valueChanged)="onStressMultiplierChanged($event, stressMultiplerType.label, underlyingLiquiditySettings.globalStressMultiplier)">
+                        </aux-numeric-stepper>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+        <ng-container *ngIf="isModifiedLiquidationStrategy">
+            <div class="bottom-space-area">
+                <span> Override </span>
+            </div>
+            <div class="bottom-space-area">
+                <aux-checkbox label="Illiquid parameters"
+                              [isChecked]="underlyingLiquiditySettings.illiquidEnabledFlag"
+                              (checkboxChanged)="onIlliquidEnabledFlagChanged($event)">
+                </aux-checkbox>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="underlyingLiquiditySettings.illiquidEnabledFlag">
+            <div class="bottom-space-area">
+                <aux-radio-group label="Max illiquid type"
+                                 [data]="maxIlliquidTypeOptions"
+                                 [isStacked]="true"
+                                 (radioGroupChanged)="onMaxIlliquidFormatChanged($event)">
+                </aux-radio-group>
+            </div>
+            <div class="bottom-space-area">
+                <span>Max Illiquid Amount</span>
+            </div>
+
+            <ng-container *ngIf="underlyingLiquiditySettings.illiquidMaxFormat === MAX_ILLIQUID_TYPE_ABS">
+                <div class="bottom-space-area inline-container">
+                    <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.absIlliquidMax"
+                                         (valueChanged)="onAbsIlliquidMaxChanged($event)">
+                    </aux-numeric-stepper>
+                    <span class="inline-container-item">%</span>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf="underlyingLiquiditySettings.illiquidMaxFormat === MAX_ILLIQUID_TYPE_REL">
+                <div class="bottom-space-area">
+                    <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.relIlliquidMax"
+                                         (valueChanged)="onRelIlliquidMaxChanged($event)">
+                    </aux-numeric-stepper>
+                </div>
+            </ng-container>
+
+            <div class="bottom-space-area">
+                <span> Illiquid days threshold </span>
+            </div>
+
+            <div class="bottom-space-area">
+                <aux-numeric-stepper [stepperValue]="underlyingLiquiditySettings.illiquidDef"
+                                     (valueChanged)="onIlliquidDefChanged($event)">
+                </aux-numeric-stepper>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>

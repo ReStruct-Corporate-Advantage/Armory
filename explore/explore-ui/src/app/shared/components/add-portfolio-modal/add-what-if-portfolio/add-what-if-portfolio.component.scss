@@ -1,0 +1,29 @@
+.select-what-if-portfolio__container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .select-portfolio__search {
+        flex: 1;
+
+        .column-label {
+            margin-bottom: 8px;
+        }
+
+        .secondary-text {
+            color: var(--secondary-text__color);
+            margin: 2px 0;
+            padding-top: 8px;
+            line-height: normal;
+        }
+    }
+
+    .add-button {
+        align-self: center;
+        margin: 0 1rem;
+    }
+
+    .selected-portfolios__list {
+        flex: 1;
+    }
+}

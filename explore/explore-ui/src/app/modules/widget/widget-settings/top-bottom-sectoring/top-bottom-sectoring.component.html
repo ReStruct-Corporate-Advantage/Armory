@@ -1,0 +1,16 @@
+<div class="widget-setting-header">
+    <aux-radio-group
+        label="Sector mode"
+        [data]="sectorModeOptions"
+        (radioGroupChanged)="onSectorModeChanged($event)">
+    </aux-radio-group>
+</div>
+<ng-container *ngIf="sectorModeType === SectorModeTypeEnum.TOP_DOWN">
+    <div class="group-node-display">
+        <aux-checkbox
+            label="Display at group node"
+            [isChecked]="displayAtGroupNode"
+            (checkboxChanged)="updateDisplayAtGroupNode($event)">
+        </aux-checkbox>
+    </div>
+</ng-container>

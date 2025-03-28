@@ -1,0 +1,35 @@
+<div class="favorite-tree-save-mode-area">
+    <!--  LOADING SPINNER  -->
+    <ng-container *ngIf="!isFolderTreeLoaded else favoriteTree">
+        <div class="loading-spinner-area">
+                <app-loading-spinner size="medium" [loadingLabel]="'Loading Favorites'"></app-loading-spinner>
+        </div>
+    </ng-container>
+    <ng-template #favoriteTree>
+        <aux-button class="add-folder-btn"
+                    [label]="'+ Create folder'"
+                    [type]="'tertiary'"
+                    [isDisabled]="!isFolderTreeLoaded"
+                    (click)="createFirstLevelFolder()">
+        </aux-button>
+
+        <aux-advanced-tree-list
+            #tree
+            containerHeight="auto"
+            style="max-height: 500px"
+            [customStyle]="advanceTreeCustomStyle"
+            isDropTarget="true"
+            hasDragAndDrop="true"
+            hasSearch="false"
+            hasBorder="false"
+            [sourceData]="allFavoriteTreeData"
+            (contextMenuClicked)="onContextMenuClicked($event)"
+            (itemRenamed)="onFolderRenamed()"
+            (blkDrop)="onNodeDragAndDrop($event)"
+            (sourceSelectionChanged)="onFavoriteSelected($event)"
+            [hasItemTooltip]="true"
+            [tooltipCallback]="TooltipUtils.getEnterpriseDescriptionTooltip"
+            [config]="TooltipUtils.getTooltipConfig(false)">
+        </aux-advanced-tree-list>
+    </ng-template>
+</div>

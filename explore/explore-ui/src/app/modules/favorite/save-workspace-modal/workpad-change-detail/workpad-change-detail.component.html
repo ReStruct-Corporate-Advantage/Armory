@@ -1,0 +1,19 @@
+<div>
+    <div class="workpad-title-container">
+        <span class="aux-primary aux-p20">{{workpadDisplayName}}</span>
+    </div>
+    <div class="portfolio-change" *ngFor="let nestedChange of workpadChange.nestedChanges">
+        <app-favorite-change-item [favoriteChange]="nestedChange"></app-favorite-change-item>
+    </div>
+    <ng-container *ngIf="reportTabs.length">
+        <div class="report-tabs">
+            <aux-tab-bar [activeUid]="selectedReportTabUid" [data]="reportTabs" (tabBarItemSelected)="onReportSelectionChanged($event)"></aux-tab-bar>
+        </div>
+        <div class="report-container" *ngIf="selectedReportChange.value.id">
+            <app-root-favorite-item [favoriteChange]="selectedReportChange" [isModalRootItem]="false"></app-root-favorite-item>
+        </div>
+        <div [ngClass]="{'nested-changes__top-border': !selectedReportChange.value.id }">
+            <app-favorite-changes [favoriteChanges]="selectedReportChange.nestedChanges"></app-favorite-changes>
+        </div>
+    </ng-container>
+</div>
