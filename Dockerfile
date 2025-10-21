@@ -14,10 +14,6 @@ RUN npm install -g serve
 
 # copy the generated modules and all other files to the container
 COPY . .
-COPY cert.pem /etc/ssl/certificates/cert.pem
-COPY chain.pem /etc/ssl/certificates/chain.pem
-COPY fullchain.pem /etc/ssl/certificates/fullchain.pem
-COPY privkey.pem /etc/ssl/certificates/privkey.pem
 
 # our app is running on port 3000 within the container, so need to expose it
 EXPOSE 3000
